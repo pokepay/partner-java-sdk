@@ -7,30 +7,30 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CreateCheck extends Request {
-    private Integer amount;
-    private Integer moneyAmount;
-    private Integer pointAmount;
+    private Double amount;
+    private Double moneyAmount;
+    private Double pointAmount;
     private String accountId;
     private String description;
     private Boolean isOnetime;
     private Integer usageLimit;
-    private Integer expiresAt;
+    private String expiresAt;
 
     public CreateCheck(String accountId) {
         this.accountId = accountId;
     }
 
-    public CreateCheck setAmount(int amount) {
+    public CreateCheck setAmount(double amount) {
         this.amount = amount;
         return this;
     }
 
-    public CreateCheck setMoneyAmount(int moneyAmount) {
+    public CreateCheck setMoneyAmount(double moneyAmount) {
         this.moneyAmount = moneyAmount;
         return this;
     }
 
-    public CreateCheck setPointAmount(int pointAmount) {
+    public CreateCheck setPointAmount(double pointAmount) {
         this.pointAmount = pointAmount;
         return this;
     }
@@ -50,7 +50,7 @@ public class CreateCheck extends Request {
         return this;
     }
 
-    public CreateCheck setExpiresAt(int expiresAt) {
+    public CreateCheck setExpiresAt(String expiresAt) {
         this.expiresAt = expiresAt;
         return this;
     }

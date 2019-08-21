@@ -1,10 +1,10 @@
 package jp.pokepay.partnerapi;
 
-public class BankHttpError extends Exception {
+public class PartnerRequestError extends Exception {
     private String type;
     private String message;
 
-    public BankHttpError(String type, String message) {
+    public PartnerRequestError(String type, String message) {
         this.type = type;
         this.message = message;
     }

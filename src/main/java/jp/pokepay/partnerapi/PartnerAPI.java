@@ -98,7 +98,7 @@ public class PartnerAPI {
         return builder.toString();
     }
 
-    public Response send(Request request) throws ProcessingError, ConnectionError, BankHttpError {
+    public Response send(Request request) throws ProcessingError, ConnectionError, PartnerRequestError {
         switch (request.method()) {
             case POST: {
                 Map<String, Object> parameters = request.parameters();
@@ -111,7 +111,7 @@ public class PartnerAPI {
                     System.out.println(responseData);
                     return gson.fromJson(responseData, request.getResponseClass());
                 } else {
-                    throw new BankHttpError(errorResponse.type, errorResponse.message);
+                    throw new PartnerRequestError(errorResponse.type, errorResponse.message);
                 }
             }
             default:

@@ -14,7 +14,7 @@ public class Example {
                     .setAmount(1);
             Check check = (Check) client.send(request);
             System.out.println(check.getId());
-        } catch (BankHttpError error) {
+        } catch (PartnerRequestError error) {
             System.out.println(error.getType());
             System.out.println(error.getMessage());
         } catch (Exception ex) {
