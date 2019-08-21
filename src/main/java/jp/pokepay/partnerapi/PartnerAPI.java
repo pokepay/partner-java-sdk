@@ -105,12 +105,13 @@ public class PartnerAPI {
                 String requestData = parametersToJson(parameters);
                 HttpClient.Response response = httpClient.post(request.path(), constructContent(requestData));
                 JsonResponse json = gson.fromJson(response.getBody(), JsonResponse.class);
-                if (json.isSuccess()) {
-                    String responseData = crypto.decode(json.responseData);
+                String responseData = crypto.decode(json.responseData);
+                ErrorResponse errorResponse = gson.fromJson(responseData, ErrorResponse.class);
+                if (!errorResponse.isValid()) {
+                    System.out.println(responseData);
                     return gson.fromJson(responseData, request.getResponseClass());
                 } else {
-                    System.out.println(response.getBody());
-                    throw new BankHttpError(json.type, json.message);
+                    throw new BankHttpError(errorResponse.type, errorResponse.message);
                 }
             }
             default:
@@ -122,11 +123,14 @@ public class PartnerAPI {
         public String responseData;
         public String timestamp;
         public String partnerCallId;
+    }
+
+    private class ErrorResponse {
         public String type;
         public String message;
 
-        public boolean isSuccess() {
-            return type == null;
+        public boolean isValid() {
+            return type != null && message != null;
         }
     }
 }

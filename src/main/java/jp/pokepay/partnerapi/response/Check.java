@@ -12,7 +12,7 @@ public class Check extends Response {
     private boolean isDisabled;
     private int usageLimit;
     private int usageCount;
-    private int expiresAt;
+    private String expiresAt;
     private String token;
 
     public String getId() {
@@ -59,7 +59,7 @@ public class Check extends Response {
         return usageCount;
     }
 
-    public int getExpiresAt() {
+    public String getExpiresAt() {
         return expiresAt;
     }
 
