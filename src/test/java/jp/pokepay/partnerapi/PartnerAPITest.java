@@ -1,22 +1,25 @@
 package jp.pokepay.partnerapi;
 
+import jp.pokepay.partnerapi.request.CreateCheck;
 import jp.pokepay.partnerapi.request.CreateEcho;
 import jp.pokepay.partnerapi.response.Echo;
 import jp.pokepay.partnerapi.response.Pong;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.nio.file.Paths;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 class PartnerAPITest {
+    private static PartnerAPI client;
 
-    private PartnerAPI client;
-
-    @BeforeEach
-    void init() throws SSLInitializeError, P12FileNotFoundException, ProcessingError, ConfigFileNotFoundException {
+    @BeforeAll
+    static void init() throws SSLInitializeError, P12FileNotFoundException, ProcessingError, ConfigFileNotFoundException {
         File file = Paths.get(System.getProperty("user.home")).resolve(".pokepay/config.properties").toFile();
         client = new PartnerAPI(file);
     }
@@ -40,12 +43,51 @@ class PartnerAPITest {
             assertEquals(echo.getStatus(), "ok");
             assertEquals(echo.getMessage(), "hello");
         } catch (Exception e) {
-            e.printStackTrace();
+            fail(e.getMessage());
         }
     }
 
-    @Test
-    void send() {
+    @Nested
+    class CreateCheckTest {
+        @Test
+        void accountNotFound() {
+            try {
+                client.send(new CreateCheck(UUID.randomUUID().toString()));
+                fail();
+            } catch (PartnerRequestError err) {
+                assertEquals(err.getType(), "account_not_accessible");
+                assertEquals(err.getMessage(), "The account is not accessible by this user");
+            } catch (ConnectionError connectionError) {
+                fail(connectionError.getMessage());
+            } catch (ProcessingError processingError) {
+                fail(processingError.getMessage());
+            }
+        }
 
+        @Test
+        void accountUserIsNotUserOfOrganization() {
+            try {
+                client.send(new CreateCheck("0909dd82-f3c9-4dff-821b-a3850479447b"));
+                fail();
+            } catch (PartnerRequestError err) {
+                assertEquals(err.getType(), "account_user_is_not_user_of_organization");
+                assertEquals(err.getMessage(), "The account user is not a user of this admin-user's organization");
+            } catch (Exception ex) {
+                fail(ex.getMessage());
+            }
+        }
+
+        @Test
+        void invalidParameters() {
+            try {
+                client.send(new CreateCheck("06636a0b-655f-4cf2-9eda-c14beef291b1"));
+                fail();
+            } catch (PartnerRequestError err) {
+                assertEquals(err.getType(), "invalid_parameters");
+                assertEquals(err.getMessage(), "Invalid parameters");
+            } catch (Exception ex) {
+                fail(ex.getMessage());
+            }
+        }
     }
 }
