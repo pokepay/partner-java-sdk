@@ -93,10 +93,13 @@ public class PartnerAPI {
                 String requestData = parametersToJson(parameters);
                 HttpClient.Response response = httpClient.post(request.path(), constructContent(requestData));
                 JsonResponse json = gson.fromJson(response.getBody(), JsonResponse.class);
+                if (json.responseData == null) {
+                    ErrorResponse errorResponse = gson.fromJson(response.getBody(), ErrorResponse.class);
+                    throw new PartnerRequestError(errorResponse.type, errorResponse.message);
+                }
                 String responseData = crypto.decode(json.responseData);
                 ErrorResponse errorResponse = gson.fromJson(responseData, ErrorResponse.class);
                 if (!errorResponse.isValid()) {
-                    System.out.println(responseData);
                     return gson.fromJson(responseData, request.getResponseClass());
                 } else {
                     throw new PartnerRequestError(errorResponse.type, errorResponse.message);
