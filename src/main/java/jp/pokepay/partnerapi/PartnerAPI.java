@@ -115,8 +115,8 @@ public class PartnerAPI {
                 }
             }
             default:
+                throw new ProcessingError(request.method() + "does not support");
         }
-        return null;
     }
 
     private class JsonResponse {
