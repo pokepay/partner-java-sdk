@@ -2,6 +2,7 @@ package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.CreateCheck;
 import jp.pokepay.partnerapi.request.CreateEcho;
+import jp.pokepay.partnerapi.response.Check;
 import jp.pokepay.partnerapi.response.Echo;
 import jp.pokepay.partnerapi.response.Pong;
 import org.junit.jupiter.api.BeforeAll;
@@ -88,6 +89,22 @@ class PartnerAPITest {
             } catch (Exception ex) {
                 fail(ex.getMessage());
             }
+        }
+
+        @Test
+        void createCheck() {
+            try {
+                String id = "06636a0b-655f-4cf2-9eda-c14beef291b1";
+                CreateCheck request = new CreateCheck(id);
+                request.setAmount(1);
+                Check check = (Check) client.send(request);
+                assertEquals(check.getAmount(), 1);
+                assertEquals(check.getPointAmount(), 0);
+                assertEquals(check.getMoneyAmount(), 1);
+            } catch (Exception ex) {
+                fail(ex.getMessage());
+            }
+
         }
     }
 }
