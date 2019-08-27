@@ -59,18 +59,6 @@ public class PartnerAPI {
         return gson.fromJson(response.getBody(), Pong.class);
     }
 
-    public void echo(String message) throws Exception {
-        JsonBuilder builder = new JsonBuilder();
-        builder.append("message", message);
-        String body = constructContent(builder.toString());
-        HttpClient.Response response = httpClient.post("/echo", body);
-        System.out.println(response.getStatus());
-        System.out.println(response.getBody());
-
-        JsonResponse json = gson.fromJson(response.getBody(), JsonResponse.class);
-        System.out.println(crypto.decode(json.responseData));
-    }
-
     private String parametersToJson(Map<String, Object> parameters) {
         if (parameters == null) return "";
         JsonBuilder builder = new JsonBuilder();

@@ -9,7 +9,7 @@ import java.io.File;
 public class Example {
     public static void main(String[] args) {
         try {
-            PartnerAPI client = new PartnerAPI(new File("/Users/user/.pokepay/config.properties"));
+            PartnerAPI client = new PartnerAPI(new File("/Users/user/config.properties"));
             Request request = new CreateCheck("c3ee6f56-b8f1-4659-9410-503cbe234462")
                     .setAmount(1);
             Check check = (Check) client.send(request);
