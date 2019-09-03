@@ -104,7 +104,6 @@ class PartnerAPITest {
             } catch (Exception ex) {
                 fail(ex.getMessage());
             }
-
         }
     }
 }

@@ -10,6 +10,7 @@ try {
 } catch (BankHttpError error) {
     System.out.println(error.getType());
     System.out.println(error.getMessage());
+    System.out.println(error.getRawJson());
 } catch (Exception ex) {
     ex.printStackTrace();
 }
@@ -67,3 +68,11 @@ try {
 ## リクエストの送信
 
 * `PartnerAPI#send(request)`: リクエストを送信します。返り値はリクエストに応じた型にキャストする必要があります。
+
+## エラーレスポンス
+
+* `BankHttpError#getType`: エラータイプを返します
+
+* `BankHttpError#getMessage`: エラーメッセージを返します
+
+* `BankHttpError#getRawJson`: BankHttpErrorオブジェクトに変換する前のjson文字列を返します。
