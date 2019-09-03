@@ -95,14 +95,14 @@ public class PartnerAPI {
                 JsonResponse json = gson.fromJson(response.getBody(), JsonResponse.class);
                 if (json.responseData == null) {
                     ErrorResponse errorResponse = gson.fromJson(response.getBody(), ErrorResponse.class);
-                    throw new PartnerRequestError(errorResponse.type, errorResponse.message);
+                    throw new PartnerRequestError(errorResponse.type, errorResponse.message, response.getBody());
                 }
                 String responseData = crypto.decode(json.responseData);
                 ErrorResponse errorResponse = gson.fromJson(responseData, ErrorResponse.class);
                 if (!errorResponse.isValid()) {
                     return gson.fromJson(responseData, request.getResponseClass());
                 } else {
-                    throw new PartnerRequestError(errorResponse.type, errorResponse.message);
+                    throw new PartnerRequestError(errorResponse.type, errorResponse.message, responseData);
                 }
             }
             default:
