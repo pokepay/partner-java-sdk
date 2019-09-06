@@ -1,6 +1,6 @@
-package jp.pokepay.partnerapi.response;
+package jp.pokepay.partnerapi.schema;
 
-public class PaginatedChecks extends Response {
+public class PaginatedChecks extends Schema {
     private Check[] rows;
     private int count;
     private Pagination pagination;

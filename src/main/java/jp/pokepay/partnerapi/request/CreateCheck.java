@@ -1,6 +1,6 @@
 package jp.pokepay.partnerapi.request;
 
-import jp.pokepay.partnerapi.response.Check;
+import jp.pokepay.partnerapi.schema.Check;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;

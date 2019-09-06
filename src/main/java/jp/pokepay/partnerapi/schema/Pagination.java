@@ -1,4 +1,4 @@
-package jp.pokepay.partnerapi.response;
+package jp.pokepay.partnerapi.schema;
 
 public class Pagination {
     private int current;

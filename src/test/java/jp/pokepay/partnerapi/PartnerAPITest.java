@@ -2,9 +2,9 @@ package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.CreateCheck;
 import jp.pokepay.partnerapi.request.CreateEcho;
-import jp.pokepay.partnerapi.response.Check;
-import jp.pokepay.partnerapi.response.Echo;
-import jp.pokepay.partnerapi.response.Pong;
+import jp.pokepay.partnerapi.schema.Check;
+import jp.pokepay.partnerapi.schema.Echo;
+import jp.pokepay.partnerapi.schema.Pong;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,6 @@
-package jp.pokepay.partnerapi.response;
+package jp.pokepay.partnerapi.schema;
 
-public class Account extends Response {
+public class Account extends Schema {
     private String id;
     private String name;
     private boolean isSuspended;

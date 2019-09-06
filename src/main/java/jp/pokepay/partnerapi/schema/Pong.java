@@ -1,6 +1,6 @@
-package jp.pokepay.partnerapi.response;
+package jp.pokepay.partnerapi.schema;
 
-public class Pong extends Response {
+public class Pong extends Schema {
     private String pong;
 
     public String getPong() {

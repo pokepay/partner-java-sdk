@@ -2,7 +2,7 @@ package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.CreateCheck;
 import jp.pokepay.partnerapi.request.Request;
-import jp.pokepay.partnerapi.response.Check;
+import jp.pokepay.partnerapi.schema.Check;
 
 import java.io.File;
 

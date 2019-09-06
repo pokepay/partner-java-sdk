@@ -1,6 +1,6 @@
-package jp.pokepay.partnerapi.response;
+package jp.pokepay.partnerapi.schema;
 
-public class Check extends Response {
+public class Check extends Schema {
     private String id;
     private int amount;
     private int pointAmount;

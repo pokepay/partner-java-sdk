@@ -1,6 +1,6 @@
-package jp.pokepay.partnerapi.response;
+package jp.pokepay.partnerapi.schema;
 
-public class PrivateMoney extends Response {
+public class PrivateMoney extends Schema {
     private String id;
     private String name;
     private String unit;

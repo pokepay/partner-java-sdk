@@ -4,8 +4,8 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import jp.pokepay.partnerapi.request.Request;
-import jp.pokepay.partnerapi.response.Pong;
-import jp.pokepay.partnerapi.response.Response;
+import jp.pokepay.partnerapi.schema.Pong;
+import jp.pokepay.partnerapi.schema.Schema;
 
 import java.io.File;
 import java.security.Security;
@@ -86,7 +86,7 @@ public class PartnerAPI {
         return builder.toString();
     }
 
-    public Response send(Request request) throws ProcessingError, ConnectionError, PartnerRequestError {
+    public Schema send(Request request) throws ProcessingError, ConnectionError, PartnerRequestError {
         switch (request.method()) {
             case POST: {
                 Map<String, Object> parameters = request.parameters();

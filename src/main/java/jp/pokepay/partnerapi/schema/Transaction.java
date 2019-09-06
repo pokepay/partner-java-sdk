@@ -1,6 +1,6 @@
-package jp.pokepay.partnerapi.response;
+package jp.pokepay.partnerapi.schema;
 
-public class Transaction extends Response {
+public class Transaction extends Schema {
     private String id;
     private String type;
     private boolean isModified;

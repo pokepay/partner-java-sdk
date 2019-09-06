@@ -1,6 +1,6 @@
-package jp.pokepay.partnerapi.response;
+package jp.pokepay.partnerapi.schema;
 
-public class User extends Response {
+public class User extends Schema {
     private String id;
     private String name;
     private boolean isMerchant;

@@ -1,6 +1,6 @@
-package jp.pokepay.partnerapi.response;
+package jp.pokepay.partnerapi.schema;
 
-public class Echo extends Response {
+public class Echo extends Schema {
     private String status;
     private String message;
 
