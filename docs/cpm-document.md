@@ -5,9 +5,9 @@ PartnerAPI client = new PartnerAPI(new File("./sample.properties"));
 Product[] products = new Product[]{
         new Product(),
 };
-Request request = new CreateTransaction(cpmToken, amount, shopId).setProducts(products);
-UserTransaction userTransaction = (UserTransaction) client.send(request);
-System.out.println(userTransaction.getId());
+Request request = new CreateCpmTransaction(cpmToken, amount, shopId).setProducts(products);
+Transaction transaction = (Transaction) client.send(request);
+System.out.println(transaction.getId());
 ```
 
 設定はプロパティファイルに記述し、PartnerAPIのコンストラクタにFileとして渡します。
@@ -16,7 +16,7 @@ System.out.println(userTransaction.getId());
 ## cpmトークンを使った取引のリクエストを作成
 
 ```
-CreateTransaction request = new CreateCpmTransaction(
+CreateCpmTransaction request = new CreateCpmTransaction(
     "695135407491", // cpmトークン
     100, // 金額、正だとチャージ、負だと支払いを表す
     "68ee8c2b-770c-4f00-b01a-17749a7d882b" // 店舗id
