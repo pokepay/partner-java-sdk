@@ -13,6 +13,11 @@ System.out.println(transaction.getId());
 設定はプロパティファイルに記述し、PartnerAPIのコンストラクタにFileとして渡します。
 プロパティファイルの書き方はsample.propertiesを参考にしてください。
 
+- CLIENT_ID: パートナーAPI クライアントID
+- CLIENT_SECRET: パートナーAPI クライアント秘密鍵
+- PKCS12_FILE: PKCS12ファイル
+- PKCS12_PASSWORD: PKCS12ファイルパスワード
+
 ## cpmトークンを使った取引のリクエストを作成
 
 ```
