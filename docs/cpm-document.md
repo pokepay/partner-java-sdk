@@ -17,8 +17,8 @@ System.out.println(userTransaction.getId());
 
 ```
 CreateTransaction request = new CreateCpmTransaction(
-    "4405c879-0a8c-4dde-89ee-d5b0a99d5584", // cpmトークンのid
-    "100", // 金額、正だとチャージ、負だと支払いを表す
+    "695135407491", // cpmトークン
+    100, // 金額、正だとチャージ、負だと支払いを表す
     "68ee8c2b-770c-4f00-b01a-17749a7d882b" // 店舗id
 );
 
