@@ -30,6 +30,7 @@ request.setProducts(商品情報の配列); // 省略可能
 - id(string): 取引ID
 - type(string): 取引種別(exchange, topup, payment, transfer)
 - isModified(boolean): 返金された取引かどうか
+- sender(User): 送金者情報
 - senderAccount(Account): 送金口座情報
 - receiver(User): 受取者情報
 - receiverAccount: 受取口座情報
@@ -39,8 +40,13 @@ request.setProducts(商品情報の配列); // 省略可能
 - doneAt(string): 取引日時
 - description(string): 取引説明文
 
+sender と receiver には Userオブジェクトが入ります。 以下にプロパティを示します。
 
-senderとreceiverはAccountオブジェクトです。以下にプロパティを示します。
+- id (string): ユーザー (または店舗) ID
+- name (string): ユーザー (または店舗) 名
+- isMerchant (boolean): 店舗ユーザーかどうか
+
+senderAccountとreceiverAccountはAccountオブジェクトです。以下にプロパティを示します。
 
 - id(string): 口座ID
 - name(string): 口座名
