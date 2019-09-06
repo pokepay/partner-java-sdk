@@ -27,35 +27,35 @@ request.setProducts(商品情報の配列); // 省略可能
 
 成功した場合のレスポンスはTransactionオブジェクトです。以下にプロパティを示します。
 
-id(string): 取引ID
-type(string): 取引種別(exchange, topup, payment, transfer)
-isModified(boolean): 返金された取引かどうか
-senderAccount(Account): 送金口座情報
-receiver(User): 受取者情報
-receiverAccount: 受取口座情報
-amount(double): 決済総額 (マネー額 + ポイント額)
-moneyAmount(double): 決済マネー額
-pointAmount(double): 決済ポイント額
-doneAt(string): 取引日時
-description(string): 取引説明文
+- id(string): 取引ID
+- type(string): 取引種別(exchange, topup, payment, transfer)
+- isModified(boolean): 返金された取引かどうか
+- senderAccount(Account): 送金口座情報
+- receiver(User): 受取者情報
+- receiverAccount: 受取口座情報
+- amount(double): 決済総額 (マネー額 + ポイント額)
+- moneyAmount(double): 決済マネー額
+- pointAmount(double): 決済ポイント額
+- doneAt(string): 取引日時
+- description(string): 取引説明文
 
 
 senderとreceiverはAccountオブジェクトです。以下にプロパティを示します。
 
-id(string): 口座ID
-name(string): 口座名
-isSuspended(boolean): 口座が凍結されているかどうか
-privateMoney(PrivateMoney): 設定マネー情報
+- id(string): 口座ID
+- name(string): 口座名
+- isSuspended(boolean): 口座が凍結されているかどうか
+- privateMoney(PrivateMoney): 設定マネー情報
 
 
 privateMoneyはPrivateMoneyのオブジェクトです。以下にプロパティを示します。
 
-id(string): マネーID
-name(string): マネー名
-unit(string): マネー単位 (例: 円)
-isExclusive(boolean): 会員制のマネーかどうか
-description(string): マネー説明文
-maxBalance(double): 口座の上限金額
-transferLimit(double): マネーの取引上限額
-type(string): マネー種別 (自家型=own, 第三者型=third-party)
-expirationType(string): 有効期限種別 (チャージ日時起算=static, 最終利用日時起算=last-update)
+- id(string): マネーID
+- name(string): マネー名
+- unit(string): マネー単位 (例: 円)
+- isExclusive(boolean): 会員制のマネーかどうか
+- description(string): マネー説明文
+- maxBalance(double): 口座の上限金額
+- transferLimit(double): マネーの取引上限額
+- type(string): マネー種別 (自家型=own, 第三者型=third-party)
+- expirationType(string): 有効期限種別 (チャージ日時起算=static, 最終利用日時起算=last-update)
