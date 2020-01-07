@@ -104,7 +104,7 @@ class HttpClient {
             if (body != null) {
                 conn.setDoOutput(true);
                 conn.setRequestProperty("Accept-Language", "jp");
-                conn.setRequestProperty("Content-Type", "application/JSON; charset=utf-8");
+                conn.setRequestProperty("Content-Type", "application/json; charset=utf-8");
                 conn.setRequestProperty("Content-Length", String.valueOf(body.length()));
                 OutputStreamWriter out = new OutputStreamWriter(conn.getOutputStream());
                 out.write(body);
@@ -128,7 +128,7 @@ class HttpClient {
             if (body != null) {
                 conn.setDoOutput(true);
                 conn.setRequestProperty("Accept-Language", "jp");
-                conn.setRequestProperty("Content-Type", "application/JSON; charset=utf-8");
+                conn.setRequestProperty("Content-Type", "application/json; charset=utf-8");
                 conn.setRequestProperty("Content-Length", String.valueOf(body.length()));
                 OutputStreamWriter out = new OutputStreamWriter(conn.getOutputStream());
                 out.write(body);
