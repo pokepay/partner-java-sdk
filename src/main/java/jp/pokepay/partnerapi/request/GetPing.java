@@ -6,32 +6,29 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CreateEcho extends Request {
-    private String message;
+public class GetPing extends Request {
 
-    public CreateEcho(String message) {
-        this.message = message;
+    public GetPing() {
     }
 
     @Override
     public Method method() {
-        return Method.POST;
+        return Method.GET;
     }
 
     @Override
     public String path() {
-        return "/echo";
+        return "/ping";
     }
 
     @Override
     public Map<String, Object> parameters() {
         return new HashMap<String, Object>() {{
-            put("message", message);
         }};
     }
 
     @Override
     public Type getResponseClass() {
-        return Echo.class;
+        return Pong.class;
     }
 }

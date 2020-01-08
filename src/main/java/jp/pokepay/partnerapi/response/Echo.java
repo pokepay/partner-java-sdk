@@ -8,7 +8,18 @@ public class Echo extends Response {
         return status;
     }
 
+    public Echo status(String status) {
+        this.status = status;
+        return this;
+    }
+
     public String getMessage() {
         return message;
     }
+
+    public Echo message(String message) {
+        this.message = message;
+        return this;
+    }
 }
+

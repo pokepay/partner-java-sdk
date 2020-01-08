@@ -8,7 +8,18 @@ public class Organization extends Response {
         return code;
     }
 
+    public Organization code(String code) {
+        this.code = code;
+        return this;
+    }
+
     public String getName() {
         return name;
     }
+
+    public Organization name(String name) {
+        this.name = name;
+        return this;
+    }
 }
+

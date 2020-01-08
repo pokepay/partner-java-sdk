@@ -1,9 +1,15 @@
 package jp.pokepay.partnerapi.response;
 
 public class Pong extends Response {
-    private String pong;
+    private String ok;
 
-    public String getPong() {
-        return pong;
+    public String getOk() {
+        return ok;
+    }
+
+    public Pong ok(String ok) {
+        this.ok = ok;
+        return this;
     }
 }
+

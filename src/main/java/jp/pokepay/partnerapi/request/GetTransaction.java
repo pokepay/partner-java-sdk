@@ -6,32 +6,31 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CreateEcho extends Request {
-    private String message;
+public class GetTransaction extends Request {
+    private String transactionId;
 
-    public CreateEcho(String message) {
-        this.message = message;
+    public GetTransaction(String transactionId) {
+        this.transactionId = transactionId;
     }
 
     @Override
     public Method method() {
-        return Method.POST;
+        return Method.GET;
     }
 
     @Override
     public String path() {
-        return "/echo";
+        return "/transactions" + "/" + this.transactionId;
     }
 
     @Override
     public Map<String, Object> parameters() {
         return new HashMap<String, Object>() {{
-            put("message", message);
         }};
     }
 
     @Override
     public Type getResponseClass() {
-        return Echo.class;
+        return Transaction.class;
     }
 }
