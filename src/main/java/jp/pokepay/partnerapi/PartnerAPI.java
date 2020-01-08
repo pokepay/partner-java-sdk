@@ -86,6 +86,12 @@ public class PartnerAPI {
         return builder.toString();
     }
 
+    public String encodeRequest(Request request) throws ProcessingError {
+      Map<String, Object> parameters = request.parameters();
+      String requestData = parametersToJson(parameters);
+      return constructContent(requestData);
+    }
+
     public Response send(Request request) throws ProcessingError, ConnectionError, PartnerRequestError {
         switch (request.method()) {
             case POST: {
