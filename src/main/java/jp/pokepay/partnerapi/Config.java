@@ -33,7 +33,7 @@ class Config {
         this.clientID = properties.getProperty("CLIENT_ID");
         this.clientSecret = properties.getProperty("CLIENT_SECRET");
         this.baseUrl = properties.getProperty("API_BASE_URL");
-        this.p12File = properties.getProperty("PKCS12_FILE");
+        this.p12File = file.toPath().getParent().resolve(properties.getProperty("PKCS12_FILE")).toString();
         this.p12Password = properties.getProperty("PKCS12_PASSWORD");
     }
 }
