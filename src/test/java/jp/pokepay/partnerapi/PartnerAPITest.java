@@ -29,7 +29,7 @@ class PartnerAPITest {
     void ping() {
         try {
             Pong pong = client.ping();
-            assertEquals(pong.getPong(), "ok");
+            assertEquals(pong.getOk(), "ok");
         } catch (ProcessingError processingError) {
             processingError.printStackTrace();
         } catch (ConnectionError connectionError) {
@@ -95,8 +95,7 @@ class PartnerAPITest {
         void createCheck() {
             try {
                 String id = "06636a0b-655f-4cf2-9eda-c14beef291b1";
-                CreateCheck request = new CreateCheck(id);
-                request.setAmount(1);
+                CreateCheck request = new CreateCheck(id).amount(1);
                 Check check = (Check) client.send(request);
                 assertEquals(check.getAmount(), 1);
                 assertEquals(check.getPointAmount(), 0);
