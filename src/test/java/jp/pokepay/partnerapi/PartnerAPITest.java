@@ -29,7 +29,7 @@ class PartnerAPITest {
     void ping() {
         try {
             Pong pong = client.ping();
-            assertEquals(pong.getOk(), "ok");
+            assertEquals("ok", pong.getPong());
         } catch (ProcessingError processingError) {
             processingError.printStackTrace();
         } catch (ConnectionError connectionError) {
@@ -41,8 +41,8 @@ class PartnerAPITest {
     void echo() {
         try {
             Echo echo = (Echo) client.send(new CreateEcho("hello"));
-            assertEquals(echo.getStatus(), "ok");
-            assertEquals(echo.getMessage(), "hello");
+            assertEquals("ok", echo.getStatus());
+            assertEquals("hello", echo.getMessage());
         } catch (Exception e) {
             fail(e.getMessage());
         }
