@@ -70,28 +70,6 @@ public class PartnerAPI {
         return builder.toString();
     }
 
-    private String parametersToQuery(Map<String, Object> parameters) {
-        if (parameters == null) return "";
-        StringBuilder builder = new StringBuilder();
-        boolean first = true;
-        for (Map.Entry<String, Object> entry : parameters.entrySet()) {
-            builder.append(first ? '?' : '&');
-            first = false;
-            String key = entry.getKey();
-            Object value = entry.getValue();
-            builder.append(key);
-            builder.append('=');
-            builder.append(value);
-        }
-        return builder.toString();
-    }
-
-    public String encodeRequest(Request request) throws ProcessingError {
-      Map<String, Object> parameters = request.parameters();
-      String requestData = parametersToJson(parameters);
-      return constructContent(requestData);
-    }
-
     public Response send(Request request) throws ProcessingError, ConnectionError, PartnerRequestError {
         switch (request.method()) {
             case POST: {
