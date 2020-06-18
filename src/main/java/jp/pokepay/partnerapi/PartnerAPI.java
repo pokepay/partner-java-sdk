@@ -59,22 +59,10 @@ public class PartnerAPI {
         return gson.fromJson(response.getBody(), Pong.class);
     }
 
-    private String parametersToJson(Map<String, Object> parameters) {
-        if (parameters == null) return "";
-        JsonBuilder builder = new JsonBuilder();
-        for (Map.Entry<String, Object> entry : parameters.entrySet()) {
-            String key = entry.getKey();
-            Object value = entry.getValue();
-            builder.append(key, value);
-        }
-        return builder.toString();
-    }
-
     public Response send(Request request) throws ProcessingError, ConnectionError, PartnerRequestError {
         switch (request.method()) {
             case POST: {
-                Map<String, Object> parameters = request.parameters();
-                String requestData = parametersToJson(parameters);
+                String requestData = gson.toJson(request);
                 HttpClient.Response response = httpClient.post(request.path(), constructContent(requestData));
                 JsonResponse json = gson.fromJson(response.getBody(), JsonResponse.class);
                 if (json.responseData == null) {
