@@ -26,8 +26,8 @@ SDKプロジェクトルートの`sample.properties`というファイルがあ�
 
 #### 取引情報を取得する
 ```java
-GetTransaction request = new GetTransaction(
-    "d67f3f86-9718-453b-a83f-a1e85ceba499"        // 取引ID
+Request request = new GetTransaction(
+    "27dd0b80-d731-4c8b-8957-0680d56eaf48"        // 取引ID
 );
 ```
 成功したときは以下のメソッドを含む`Transaction`クラスのインスタンスを返します。
@@ -76,15 +76,15 @@ GetTransaction request = new GetTransaction(
 
 #### チャージ取引を作成します。
 ```java
-CreateTopupTransaction request = new CreateTopupTransaction(
-    "df196872-6032-4697-be2a-8998f4fa19ea",       // 店舗ID
-    "44da9104-d128-453e-af1e-3b4b0e35b1ab",       // エンドユーザーのID
-    "d1bf6b28-88ef-459c-adaf-79f9be0042f8"        // マネーID
+Request request = new CreateTopupTransaction(
+    "ed2d2d73-63ba-4084-9c18-321ae6e93990",       // 店舗ID
+    "93e0cdd8-ca05-45b0-a078-fa49d4cd269c",       // エンドユーザーのID
+    "e1cd62bb-13b8-4baf-ac62-54c304ab9817"        // マネーID
 )
-        .bearPointShopId("9f46d6d6-de68-43a3-8ed3-648b06ddac74") // ポイント支払時の負担店舗ID
-        .moneyAmount(3138)                        // マネー額
-        .pointAmount(256)                         // ポイント額
-        .description("QBwAgsTow2Z3Uka1wds9TY9Bp5VDJiBPB1XeTNJcIKtWyeNc1zzlxW2hgOK8NI225RAsUHuuLFS4058hKDGnyjbxrF6zxkmTZedVWeLbSdWlORFkWxf1fgII7vrhxHZrOEIH6HNdDlfIrfFFwUdXhpSi4"); // 取引履歴に表示する説明文
+        .bearPointShopId("1d3fcfec-b3c0-4690-b276-cef02d29f1da") // ポイント支払時の負担店舗ID
+        .moneyAmount(7935)                        // マネー額
+        .pointAmount(3660)                        // ポイント額
+        .description("WZFMYYNQ77hNnDgeQkP6BrHNLW2TjgwJkClYsxYjLV6mNckmXWb6cDTOBEvT1fZYocBrtgwRLixenA1GWqf2JPqamqpbbuSj1PURjYRasH9ARntTDK9f1O2csoG3F5"); // 取引履歴に表示する説明文
 ```
 成功したときは以下のメソッドを含む`Transaction`クラスのインスタンスを返します。
 * getId (String): 取引ID
@@ -132,13 +132,13 @@ CreateTopupTransaction request = new CreateTopupTransaction(
 
 #### 支払取引を作成します。
 ```java
-CreatePaymentTransaction request = new CreatePaymentTransaction(
-    "296aa0e5-7789-4017-a11a-76deace4697f",       // マネー店舗IDです。
-    "88a118c3-c570-41c1-a8c7-aa226f46697a",       // エンドユーザーIDです。
-    "53f796f0-a8f0-4456-9cad-7a5e1baef68b",       // マネーIDです。
-    3946                                          // マネー額です。
+Request request = new CreatePaymentTransaction(
+    "54d0af02-c776-489a-a5ce-99e2cec69d50",       // マネー店舗IDです。
+    "14ff6641-7f1b-4d45-a469-3edc2632b623",       // エンドユーザーIDです。
+    "86c42069-1b18-4b26-b726-729e1849ce27",       // マネーIDです。
+    6800                                          // マネー額です。
 )
-        .description("2IcAxs47XeIzYlwiQaQGyn4Age91Y1cWNDBnv9RrzZK5kL8kuH9QZjAo"); // 取引説明文です。
+        .description("56fVMl4ovKtbbNMLWzz4xf72tklHyikvXSu1xVqKMzKtPMLBX6YLvmDqPAbWtH"); // 取引説明文です。
 ```
 成功したときは以下のメソッドを含む`Transaction`クラスのインスタンスを返します。
 * getId (String): 取引ID
@@ -186,20 +186,20 @@ CreatePaymentTransaction request = new CreatePaymentTransaction(
 
 #### 取引一覧を返します。
 ```java
-ListTransactions request = new ListTransactions()
-        .from("A9")                               // 抽出期間の開始日時です。
-        .to("jz3xWF4f")                           // 抽出期間の終了日時です。
-        .page(2812)                               // 取得したいページ番号です。
-        .perPage(6475)                            // 1ページ分の取引数です。
-        .shopId("5e1d2b2c-8382-4421-941e-37845bcd4583") // 店舗IDです。
-        .customerId("b0a989af-6b4d-4279-8011-f2209be7f5ba") // エンドユーザーIDです。
-        .customerName("tnG3Avmta20vIgud6F1UgGMHbk2IRflsvwuZxk0nQmXMvg0FcWUrBHOSV7LC2s46hfsRF0YKxTClCMK7WZ9OzNL") // エンドユーザー名です。
-        .terminalId("50627f72-84ab-4df2-a4bb-89ce38154ac7") // 端末IDです。
-        .transactionId("d19e5fda-fb65-4bc5-b13b-c69cff14e520") // 取引IDです。
-        .organizationCode("zucpQ78F6rD68A")       // 組織コードです。
-        .privateMoneyId("1e7e96b4-11b0-49eb-be7f-d2a08c17258e") // マネーIDです。
-        .setModified(true)                        // キャンセルフラグです。
-        .types(new String[]{});                   // 取引の種類でフィルターします。
+Request request = new ListTransactions()
+        .from("HRtQBqC")                          // 抽出期間の開始日時です。
+        .to("sxk71kIOi")                          // 抽出期間の終了日時です。
+        .page(1033)                               // 取得したいページ番号です。
+        .perPage(1620)                            // 1ページ分の取引数です。
+        .shopId("eb4986c9-9fe0-4c60-bc1a-16d76500e270") // 店舗IDです。
+        .customerId("36e964a5-9ec5-442d-b1e4-624bd80012d0") // エンドユーザーIDです。
+        .customerName("HcZ37iojnk7j2j33qMA4N2evwLBNS7QyCEhtgNDuAnxydB9u3o7ZMeTosoRh4S0mExQI1uCwHXvSS9xqXNJMeqv2rRxx8SeYgA5RTAZIE0d3whSKLF4xWXCgQOdSsQVPrApoltr") // エンドユーザー名です。
+        .terminalId("fa0d8e92-dc12-4765-a636-a315d029cd54") // 端末IDです。
+        .transactionId("b0cf08a5-3aaa-4663-8379-a1044a0723c7") // 取引IDです。
+        .organizationCode("aA24-828CW--8-b6-7---2-684S") // 組織コードです。
+        .privateMoneyId("4bee12ce-519d-494b-9479-a6cafa4e7fd2") // マネーIDです。
+        .setModified(false)                       // キャンセルフラグです。
+        .types(new String[]{"payment","topup","topup","topup","exchange_outflow"}); // 取引の種類でフィルターします。
 ```
 成功したときは以下のメソッドを含む`PaginatedTransaction`クラスのインスタンスを返します。
 * getRows (Transaction[]): 
