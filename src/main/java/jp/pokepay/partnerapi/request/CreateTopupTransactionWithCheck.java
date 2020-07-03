@@ -7,29 +7,35 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GetUser extends Request {
+public class CreateTopupTransactionWithCheck extends Request {
+    private String checkId;
+    private String customerId;
 
-    public GetUser() {
+    public CreateTopupTransactionWithCheck(String checkId, String customerId) {
+        this.checkId = checkId;
+        this.customerId = customerId;
     }
 
     @Override
     public Method method() {
-        return Method.GET;
+        return Method.POST;
     }
 
     @Override
     public String path() {
-        return "/user";
+        return "/transactions" + "/topup" + "/check";
     }
 
     @Override
     public Map<String, Object> parameters() {
         return new HashMap<String, Object>() {{
+            put("check_id", checkId);
+            put("customer_id", customerId);
         }};
     }
 
     @Override
     public Type getResponseClass() {
-        return AdminUserWithShopsAndPrivateMoneys.class;
+        return Transaction.class;
     }
 }

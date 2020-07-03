@@ -7,31 +7,37 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CreateTransaction extends Request {
+public class CreateTopupTransaction extends Request {
     private String shopId;
     private String customerId;
     private String privateMoneyId;
-    private Integer moneyAmount;
-    private Integer pointAmount;
+    private String bearPointShopId;
+    private Double moneyAmount;
+    private Double pointAmount;
     private String description;
 
-    public CreateTransaction(String shopId, String customerId, String privateMoneyId) {
+    public CreateTopupTransaction(String shopId, String customerId, String privateMoneyId) {
         this.shopId = shopId;
         this.customerId = customerId;
         this.privateMoneyId = privateMoneyId;
     }
 
-    public CreateTransaction moneyAmount(int moneyAmount) {
+    public CreateTopupTransaction bearPointShopId(String bearPointShopId) {
+        this.bearPointShopId = bearPointShopId;
+        return this;
+    }
+
+    public CreateTopupTransaction moneyAmount(double moneyAmount) {
         this.moneyAmount = moneyAmount;
         return this;
     }
 
-    public CreateTransaction pointAmount(int pointAmount) {
+    public CreateTopupTransaction pointAmount(double pointAmount) {
         this.pointAmount = pointAmount;
         return this;
     }
 
-    public CreateTransaction description(String description) {
+    public CreateTopupTransaction description(String description) {
         this.description = description;
         return this;
     }
@@ -43,7 +49,7 @@ public class CreateTransaction extends Request {
 
     @Override
     public String path() {
-        return "/transactions";
+        return "/transactions" + "/topup";
     }
 
     @Override
@@ -52,6 +58,7 @@ public class CreateTransaction extends Request {
             put("shop_id", shopId);
             put("customer_id", customerId);
             put("private_money_id", privateMoneyId);
+            if (bearPointShopId != null) put("bear_point_shop_id", bearPointShopId);
             if (moneyAmount != null) put("money_amount", moneyAmount);
             if (pointAmount != null) put("point_amount", pointAmount);
             if (description != null) put("description", description);

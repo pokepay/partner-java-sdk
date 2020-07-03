@@ -7,31 +7,21 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CreateTransaction extends Request {
+public class CreatePaymentTransaction extends Request {
     private String shopId;
     private String customerId;
     private String privateMoneyId;
-    private Integer moneyAmount;
-    private Integer pointAmount;
+    private Double amount;
     private String description;
 
-    public CreateTransaction(String shopId, String customerId, String privateMoneyId) {
+    public CreatePaymentTransaction(String shopId, String customerId, String privateMoneyId, double amount) {
         this.shopId = shopId;
         this.customerId = customerId;
         this.privateMoneyId = privateMoneyId;
+        this.amount = amount;
     }
 
-    public CreateTransaction moneyAmount(int moneyAmount) {
-        this.moneyAmount = moneyAmount;
-        return this;
-    }
-
-    public CreateTransaction pointAmount(int pointAmount) {
-        this.pointAmount = pointAmount;
-        return this;
-    }
-
-    public CreateTransaction description(String description) {
+    public CreatePaymentTransaction description(String description) {
         this.description = description;
         return this;
     }
@@ -43,7 +33,7 @@ public class CreateTransaction extends Request {
 
     @Override
     public String path() {
-        return "/transactions";
+        return "/transactions" + "/payment";
     }
 
     @Override
@@ -52,8 +42,7 @@ public class CreateTransaction extends Request {
             put("shop_id", shopId);
             put("customer_id", customerId);
             put("private_money_id", privateMoneyId);
-            if (moneyAmount != null) put("money_amount", moneyAmount);
-            if (pointAmount != null) put("point_amount", pointAmount);
+            put("amount", amount);
             if (description != null) put("description", description);
         }};
     }
