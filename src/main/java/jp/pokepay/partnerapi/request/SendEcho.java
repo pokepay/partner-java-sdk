@@ -7,29 +7,32 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GetUser extends Request {
+public class SendEcho extends Request {
+    private String message;
 
-    public GetUser() {
+    public SendEcho(String message) {
+        this.message = message;
     }
 
     @Override
     public Method method() {
-        return Method.GET;
+        return Method.POST;
     }
 
     @Override
     public String path() {
-        return "/user";
+        return "/echo";
     }
 
     @Override
     public Map<String, Object> parameters() {
         return new HashMap<String, Object>() {{
+            put("message", message);
         }};
     }
 
     @Override
     public Type getResponseClass() {
-        return AdminUserWithShopsAndPrivateMoneys.class;
+        return Echo.class;
     }
 }

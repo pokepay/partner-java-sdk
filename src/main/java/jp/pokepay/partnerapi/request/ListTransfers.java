@@ -7,86 +7,86 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ListTransactions extends Request {
+public class ListTransfers extends Request {
     private String from;
     private String to;
     private Integer page;
     private Integer perPage;
     private String shopId;
+    private String shopName;
     private String customerId;
     private String customerName;
-    private String terminalId;
     private String transactionId;
-    private String organizationCode;
     private String privateMoneyId;
     private Boolean isModified;
-    private String[] types;
+    private String[] transactionTypes;
+    private String[] transferTypes;
 
-    public ListTransactions() {
+    public ListTransfers() {
     }
 
-    public ListTransactions from(String from) {
+    public ListTransfers from(String from) {
         this.from = from;
         return this;
     }
 
-    public ListTransactions to(String to) {
+    public ListTransfers to(String to) {
         this.to = to;
         return this;
     }
 
-    public ListTransactions page(int page) {
+    public ListTransfers page(int page) {
         this.page = page;
         return this;
     }
 
-    public ListTransactions perPage(int perPage) {
+    public ListTransfers perPage(int perPage) {
         this.perPage = perPage;
         return this;
     }
 
-    public ListTransactions shopId(String shopId) {
+    public ListTransfers shopId(String shopId) {
         this.shopId = shopId;
         return this;
     }
 
-    public ListTransactions customerId(String customerId) {
+    public ListTransfers shopName(String shopName) {
+        this.shopName = shopName;
+        return this;
+    }
+
+    public ListTransfers customerId(String customerId) {
         this.customerId = customerId;
         return this;
     }
 
-    public ListTransactions customerName(String customerName) {
+    public ListTransfers customerName(String customerName) {
         this.customerName = customerName;
         return this;
     }
 
-    public ListTransactions terminalId(String terminalId) {
-        this.terminalId = terminalId;
-        return this;
-    }
-
-    public ListTransactions transactionId(String transactionId) {
+    public ListTransfers transactionId(String transactionId) {
         this.transactionId = transactionId;
         return this;
     }
 
-    public ListTransactions organizationCode(String organizationCode) {
-        this.organizationCode = organizationCode;
-        return this;
-    }
-
-    public ListTransactions privateMoneyId(String privateMoneyId) {
+    public ListTransfers privateMoneyId(String privateMoneyId) {
         this.privateMoneyId = privateMoneyId;
         return this;
     }
 
-    public ListTransactions setModified(boolean modified) {
+    public ListTransfers setModified(boolean modified) {
         isModified = modified;
         return this;
     }
 
-    public ListTransactions types(String[] types) {
-        this.types = types;
+    public ListTransfers transactionTypes(String[] transactionTypes) {
+        this.transactionTypes = transactionTypes;
+        return this;
+    }
+
+    public ListTransfers transferTypes(String[] transferTypes) {
+        this.transferTypes = transferTypes;
         return this;
     }
 
@@ -97,7 +97,7 @@ public class ListTransactions extends Request {
 
     @Override
     public String path() {
-        return "/transactions";
+        return "/transfers";
     }
 
     @Override
@@ -108,19 +108,19 @@ public class ListTransactions extends Request {
             if (page != null) put("page", page);
             if (perPage != null) put("per_page", perPage);
             if (shopId != null) put("shop_id", shopId);
+            if (shopName != null) put("shop_name", shopName);
             if (customerId != null) put("customer_id", customerId);
             if (customerName != null) put("customer_name", customerName);
-            if (terminalId != null) put("terminal_id", terminalId);
             if (transactionId != null) put("transaction_id", transactionId);
-            if (organizationCode != null) put("organization_code", organizationCode);
             if (privateMoneyId != null) put("private_money_id", privateMoneyId);
             if (isModified != null) put("is_modified", isModified);
-            if (types != null) put("types", types);
+            if (transactionTypes != null) put("transaction_types", transactionTypes);
+            if (transferTypes != null) put("transfer_types", transferTypes);
         }};
     }
 
     @Override
     public Type getResponseClass() {
-        return PaginatedTransaction.class;
+        return PaginatedTransfers.class;
     }
 }

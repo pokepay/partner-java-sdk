@@ -14,8 +14,13 @@ class HttpClient {
     private Config config = Config.getConfig();
     private boolean alreadyInitialized = false;
 
+    private boolean isHttps() {
+        return !config.baseUrl.startsWith("http://");
+    }
+
     public HttpClient() throws P12FileNotFoundException, SSLInitializeError {
-        initSSL();
+        if (isHttps())
+            initSSL();
     }
 
     private void initSSL() throws P12FileNotFoundException, SSLInitializeError {
@@ -78,7 +83,7 @@ class HttpClient {
         }
     }
 
-    private Response processResponse(HttpsURLConnection conn) throws IOException {
+    private Response processResponse(HttpURLConnection conn) throws IOException {
         int status = conn.getResponseCode();
         boolean success = HttpURLConnection.HTTP_OK <= status && status < HttpURLConnection.HTTP_MULT_CHOICE;
         InputStream in = success ? conn.getInputStream() : conn.getErrorStream();
@@ -94,10 +99,14 @@ class HttpClient {
         return new Response(status, buffer.toString());
     }
 
+    private HttpURLConnection openConnection(URL url) throws IOException {
+        return isHttps() ? ((HttpsURLConnection) url.openConnection()) : ((HttpURLConnection) url.openConnection());
+    }
+
     public Response get(String path, String body) throws ProcessingError, ConnectionError {
         URL url = ensureURL(path);
         try {
-            HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+            HttpURLConnection conn = openConnection(url);
             conn.setRequestMethod("GET");
             conn.setRequestProperty("accept", "application/json");
             conn.setRequestProperty("accept", "*/*");
@@ -121,7 +130,7 @@ class HttpClient {
     public Response post(String path, String body) throws ProcessingError, ConnectionError {
         URL url = ensureURL(path);
         try {
-            HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+            HttpURLConnection conn = openConnection(url);
             conn.setRequestMethod("POST");
             conn.setRequestProperty("accept", "application/json");
             conn.setRequestProperty("accept", "*/*");

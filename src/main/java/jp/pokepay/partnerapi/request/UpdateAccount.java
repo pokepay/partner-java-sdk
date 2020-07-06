@@ -7,29 +7,38 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GetUser extends Request {
+public class UpdateAccount extends Request {
+    private Boolean isSuspended;
+    private String accountId;
 
-    public GetUser() {
+    public UpdateAccount(String accountId) {
+        this.accountId = accountId;
+    }
+
+    public UpdateAccount setSuspended(boolean suspended) {
+        isSuspended = suspended;
+        return this;
     }
 
     @Override
     public Method method() {
-        return Method.GET;
+        return Method.PATCH;
     }
 
     @Override
     public String path() {
-        return "/user";
+        return "/accounts" + "/" + this.accountId;
     }
 
     @Override
     public Map<String, Object> parameters() {
         return new HashMap<String, Object>() {{
+            if (isSuspended != null) put("is_suspended", isSuspended);
         }};
     }
 
     @Override
     public Type getResponseClass() {
-        return AdminUserWithShopsAndPrivateMoneys.class;
+        return AccountDetail.class;
     }
 }

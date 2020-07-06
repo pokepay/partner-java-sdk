@@ -47,8 +47,9 @@ public class PartnerAPI {
         return crypto.encode(builder.toString());
     }
 
-    private String constructContent(String requestData) throws ProcessingError {
+    private String constructContent(String requestMethod, String requestData) throws ProcessingError {
         JsonBuilder builder = new JsonBuilder();
+        builder.append("request_method", requestMethod);
         builder.append("partner_client_id", config.clientID);
         builder.append("data", constructContentData(requestData));
         return builder.toString();
@@ -59,60 +60,24 @@ public class PartnerAPI {
         return gson.fromJson(response.getBody(), Pong.class);
     }
 
-    private String parametersToJson(Map<String, Object> parameters) {
-        if (parameters == null) return "";
-        JsonBuilder builder = new JsonBuilder();
-        for (Map.Entry<String, Object> entry : parameters.entrySet()) {
-            String key = entry.getKey();
-            Object value = entry.getValue();
-            builder.append(key, value);
-        }
-        return builder.toString();
-    }
-
-    private String parametersToQuery(Map<String, Object> parameters) {
-        if (parameters == null) return "";
-        StringBuilder builder = new StringBuilder();
-        boolean first = true;
-        for (Map.Entry<String, Object> entry : parameters.entrySet()) {
-            builder.append(first ? '?' : '&');
-            first = false;
-            String key = entry.getKey();
-            Object value = entry.getValue();
-            builder.append(key);
-            builder.append('=');
-            builder.append(value);
-        }
-        return builder.toString();
-    }
-
     public String encodeRequest(Request request) throws ProcessingError {
-      Map<String, Object> parameters = request.parameters();
-      String requestData = parametersToJson(parameters);
-      return constructContent(requestData);
+        String requestData = gson.toJson(request);
+        return constructContent(request.method().toString(), requestData);
     }
 
     public Response send(Request request) throws ProcessingError, ConnectionError, PartnerRequestError {
-        switch (request.method()) {
-            case POST: {
-                Map<String, Object> parameters = request.parameters();
-                String requestData = parametersToJson(parameters);
-                HttpClient.Response response = httpClient.post(request.path(), constructContent(requestData));
-                JsonResponse json = gson.fromJson(response.getBody(), JsonResponse.class);
-                if (json.responseData == null) {
-                    ErrorResponse errorResponse = gson.fromJson(response.getBody(), ErrorResponse.class);
-                    throw new PartnerRequestError(errorResponse.type, errorResponse.message, response.getBody());
-                }
-                String responseData = crypto.decode(json.responseData);
-                ErrorResponse errorResponse = gson.fromJson(responseData, ErrorResponse.class);
-                if (!errorResponse.isValid()) {
-                    return gson.fromJson(responseData, request.getResponseClass());
-                } else {
-                    throw new PartnerRequestError(errorResponse.type, errorResponse.message, responseData);
-                }
-            }
-            default:
-                throw new ProcessingError(request.method() + "does not support");
+        HttpClient.Response response = httpClient.post(request.path(), encodeRequest(request));
+        JsonResponse json = gson.fromJson(response.getBody(), JsonResponse.class);
+        if (json.responseData == null) {
+            ErrorResponse errorResponse = gson.fromJson(response.getBody(), ErrorResponse.class);
+            throw new PartnerRequestError(errorResponse.type, errorResponse.message, response.getBody());
+        }
+        String responseData = crypto.decode(json.responseData);
+        ErrorResponse errorResponse = gson.fromJson(responseData, ErrorResponse.class);
+        if (!errorResponse.isValid()) {
+            return gson.fromJson(responseData, request.getResponseClass());
+        } else {
+            throw new PartnerRequestError(errorResponse.type, errorResponse.message, responseData);
         }
     }
 

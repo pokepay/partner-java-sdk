@@ -7,9 +7,11 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GetUser extends Request {
+public class GetAccount extends Request {
+    private String accountId;
 
-    public GetUser() {
+    public GetAccount(String accountId) {
+        this.accountId = accountId;
     }
 
     @Override
@@ -19,7 +21,7 @@ public class GetUser extends Request {
 
     @Override
     public String path() {
-        return "/user";
+        return "/accounts" + "/" + this.accountId;
     }
 
     @Override
@@ -30,6 +32,6 @@ public class GetUser extends Request {
 
     @Override
     public Type getResponseClass() {
-        return AdminUserWithShopsAndPrivateMoneys.class;
+        return AccountDetail.class;
     }
 }
