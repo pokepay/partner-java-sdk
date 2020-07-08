@@ -2,10 +2,7 @@
 package jp.pokepay.partnerapi.request;
 
 import jp.pokepay.partnerapi.response.*;
-import jp.pokepay.partnerapi.parameter.*;
 import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.Map;
 
 public class ListTransfers extends Request {
     private String from;
@@ -98,25 +95,6 @@ public class ListTransfers extends Request {
     @Override
     public String path() {
         return "/transfers";
-    }
-
-    @Override
-    public Map<String, Object> parameters() {
-        return new HashMap<String, Object>() {{
-            if (from != null) put("from", from);
-            if (to != null) put("to", to);
-            if (page != null) put("page", page);
-            if (perPage != null) put("per_page", perPage);
-            if (shopId != null) put("shop_id", shopId);
-            if (shopName != null) put("shop_name", shopName);
-            if (customerId != null) put("customer_id", customerId);
-            if (customerName != null) put("customer_name", customerName);
-            if (transactionId != null) put("transaction_id", transactionId);
-            if (privateMoneyId != null) put("private_money_id", privateMoneyId);
-            if (isModified != null) put("is_modified", isModified);
-            if (transactionTypes != null) put("transaction_types", transactionTypes);
-            if (transferTypes != null) put("transfer_types", transferTypes);
-        }};
     }
 
     @Override

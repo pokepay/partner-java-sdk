@@ -2,10 +2,7 @@
 package jp.pokepay.partnerapi.request;
 
 import jp.pokepay.partnerapi.response.*;
-import jp.pokepay.partnerapi.parameter.*;
 import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.Map;
 
 public class GetPrivateMoneyOrganizationSummaries extends Request {
     private String from;
@@ -46,16 +43,6 @@ public class GetPrivateMoneyOrganizationSummaries extends Request {
     @Override
     public String path() {
         return "/private-moneys" + "/" + this.privateMoneyId + "/organization-summaries";
-    }
-
-    @Override
-    public Map<String, Object> parameters() {
-        return new HashMap<String, Object>() {{
-            if (from != null) put("from", from);
-            if (to != null) put("to", to);
-            if (page != null) put("page", page);
-            if (perPage != null) put("per_page", perPage);
-        }};
     }
 
     @Override

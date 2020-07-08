@@ -2,10 +2,7 @@
 package jp.pokepay.partnerapi.request;
 
 import jp.pokepay.partnerapi.response.*;
-import jp.pokepay.partnerapi.parameter.*;
 import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.Map;
 
 public class CreateCheck extends Request {
     private Double moneyAmount;
@@ -76,22 +73,6 @@ public class CreateCheck extends Request {
     @Override
     public String path() {
         return "/checks";
-    }
-
-    @Override
-    public Map<String, Object> parameters() {
-        return new HashMap<String, Object>() {{
-            if (moneyAmount != null) put("money_amount", moneyAmount);
-            if (pointAmount != null) put("point_amount", pointAmount);
-            put("account_id", accountId);
-            if (description != null) put("description", description);
-            if (isOnetime != null) put("is_onetime", isOnetime);
-            if (usageLimit != null) put("usage_limit", usageLimit);
-            if (expiresAt != null) put("expires_at", expiresAt);
-            if (pointExpiresAt != null) put("point_expires_at", pointExpiresAt);
-            if (pointExpiresInDays != null) put("point_expires_in_days", pointExpiresInDays);
-            if (bearPointAccount != null) put("bear_point_account", bearPointAccount);
-        }};
     }
 
     @Override
