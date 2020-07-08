@@ -2,10 +2,7 @@
 package jp.pokepay.partnerapi.request;
 
 import jp.pokepay.partnerapi.response.*;
-import jp.pokepay.partnerapi.parameter.*;
 import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.Map;
 
 public class CreateCustomerAccount extends Request {
     private String privateMoneyId;
@@ -34,15 +31,6 @@ public class CreateCustomerAccount extends Request {
     @Override
     public String path() {
         return "/accounts" + "/customers";
-    }
-
-    @Override
-    public Map<String, Object> parameters() {
-        return new HashMap<String, Object>() {{
-            put("private_money_id", privateMoneyId);
-            if (userName != null) put("user_name", userName);
-            if (accountName != null) put("account_name", accountName);
-        }};
     }
 
     @Override

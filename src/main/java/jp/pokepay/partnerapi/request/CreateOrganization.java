@@ -2,10 +2,7 @@
 package jp.pokepay.partnerapi.request;
 
 import jp.pokepay.partnerapi.response.*;
-import jp.pokepay.partnerapi.parameter.*;
 import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.Map;
 
 public class CreateOrganization extends Request {
     private String code;
@@ -78,25 +75,6 @@ public class CreateOrganization extends Request {
     @Override
     public String path() {
         return "/organizations";
-    }
-
-    @Override
-    public Map<String, Object> parameters() {
-        return new HashMap<String, Object>() {{
-            put("code", code);
-            put("name", name);
-            put("private_money_ids", privateMoneyIds);
-            put("issuer_admin_user_email", issuerAdminUserEmail);
-            put("member_admin_user_email", memberAdminUserEmail);
-            if (bankName != null) put("bank_name", bankName);
-            if (bankCode != null) put("bank_code", bankCode);
-            if (bankBranchName != null) put("bank_branch_name", bankBranchName);
-            if (bankBranchCode != null) put("bank_branch_code", bankBranchCode);
-            if (bankAccountType != null) put("bank_account_type", bankAccountType);
-            if (bankAccount != null) put("bank_account", bankAccount);
-            if (bankAccountHolderName != null) put("bank_account_holder_name", bankAccountHolderName);
-            if (contactName != null) put("contact_name", contactName);
-        }};
     }
 
     @Override

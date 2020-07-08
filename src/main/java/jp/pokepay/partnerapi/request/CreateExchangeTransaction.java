@@ -2,10 +2,7 @@
 package jp.pokepay.partnerapi.request;
 
 import jp.pokepay.partnerapi.response.*;
-import jp.pokepay.partnerapi.parameter.*;
 import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.Map;
 
 public class CreateExchangeTransaction extends Request {
     private String userId;
@@ -34,17 +31,6 @@ public class CreateExchangeTransaction extends Request {
     @Override
     public String path() {
         return "/transactions" + "/exchange";
-    }
-
-    @Override
-    public Map<String, Object> parameters() {
-        return new HashMap<String, Object>() {{
-            put("user_id", userId);
-            put("sender_private_money_id", senderPrivateMoneyId);
-            put("receiver_private_money_id", receiverPrivateMoneyId);
-            put("amount", amount);
-            if (description != null) put("description", description);
-        }};
     }
 
     @Override

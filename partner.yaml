@@ -73,13 +73,13 @@ components:
         id:
           type: string
           format: uuid
-          summary: '口座ID'
+          summary: 'ウォレットID'
         name:
           type: string
-          summary: '口座名'
+          summary: 'ウォレット'
         is_suspended:
           type: boolean
-          summary: '口座が凍結されているか'
+          summary: 'ウォレットが凍結されているかどうか'
         private_money:
           $ref: '#/components/schemas/PrivateMoney'
           summary: '設定マネー情報'
@@ -220,7 +220,7 @@ components:
         max_balance:
           type: number
           format: decimal
-          summary: '口座の上限金額'
+          summary: 'マネーの上限金額'
         transfer_limit:
           type: number
           format: decimal
@@ -231,12 +231,12 @@ components:
           summary: 'マネー種別 (自家型=own, 第三者型=third-party)'
         expiration_type:
           type: string
-          enum: [static, last-update]
-          summary: '有効期限種別 (チャージ日時起算=static, 最終利用日時起算=last-update)'
+          enum: [static, last-update, last-topup-update]
+          summary: '有効期限種別 (チャージ日起算=static, 最終利用日起算=last-update, 最終チャージ日起算=last-topup-update)'
         enable_topup_by_member:
           type: boolean
           nullable: true
-          summary: '加盟店によるチャージが有効か'
+          summary: '加盟店によるチャージが有効かどうか'
         account_image:
           type: string
           nullable: true
@@ -264,19 +264,19 @@ components:
           summary: '取引種別 (チャージ=topup, 支払い=payment)'
         is_modified:
           type: boolean
-          summary: '返金された取引か'
+          summary: '返金された取引かどうか'
         sender:
           $ref: '#/components/schemas/User'
           summary: '送金者情報'
         sender_account:
           $ref: '#/components/schemas/Account'
-          summary: '送金口座情報'
+          summary: '送金ウォレット情報'
         receiver:
           $ref: '#/components/schemas/User'
           summary: '受取者情報'
         receiver_account:
           $ref: '#/components/schemas/Account'
-          summary: '受取口座情報'
+          summary: '受取ウォレット情報'
         amount:
           type: number
           summary: '決済総額 (マネー額 + ポイント額)'
@@ -632,7 +632,7 @@ paths:
                 $ref: '#/components/schemas/AdminUserWithShopsAndPrivateMoneys'
   /accounts/{account_id}:
     get:
-      summary: 'エンドユーザーの口座情報を表示する'
+      summary: 'エンドユーザーのウォレット情報を表示する'
       description: ウォレットを取得します。
       x-pokepay-operator-name: "GetAccount"
       x-pokepay-allow-server-side: true
@@ -745,7 +745,7 @@ paths:
           $ref: '#/components/responses/NotFound'
   /accounts/customers:
     post:
-      summary: '新規エンドユーザー口座を追加する'
+      summary: '新規エンドユーザーウォレットを追加する'
       description: |-
         指定したマネーのウォレットを作成し、同時にそのウォレットを保有するユーザも作成します。
       x-pokepay-operator-name: "CreateCustomerAccount"
@@ -1144,7 +1144,7 @@ paths:
                   description: |-
                     チャージ用QRコードのIDです。
 
-                    QRコード生成時に送金元店舗の口座情報や、送金額などが登録されています。
+                    QRコード生成時に送金元店舗のウォレット情報や、送金額などが登録されています。
                 customer_id:
                   type: string
                   format: uuid
@@ -1406,7 +1406,7 @@ paths:
                   example: XYZ銀行
                 bank_code:
                   type: string
-                  pattern: '^$|^.{4}$'
+                  pattern: '^$|^[0-9]{4}$'
                   summary: '銀行金融機関コード'
                   example: 99X
                 bank_branch_name:
@@ -1416,7 +1416,7 @@ paths:
                   example: ABC支店
                 bank_branch_code:
                   type: string
-                  pattern: '^(|.{3})$'
+                  pattern: '^(|[0-9]{3})$'
                   summary: '銀行支店コード'
                   example: 99X
                 bank_account_type:
@@ -1426,12 +1426,14 @@ paths:
                 bank_account:
                   type: string
                   maxLength: 7
+                  pattern: '[0-9]{0,7}'
                   summary: '銀行口座番号'
                   example: 9999999
                 bank_account_holder_name:
                   # TODO: flico
                   type: string
                   maxLength: 30
+                  pattern: '^[0-9A-Zｦｱ-ﾟ (-),-/\\｢-｣]$'
                   summary: '口座名義人名'
                   example: ﾌｸｻﾞﾜﾕｷﾁ
                 contact_name:
