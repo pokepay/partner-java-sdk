@@ -19,6 +19,23 @@ import static org.junit.jupiter.api.Assertions.fail;
 class PartnerAPITest {
     private static PartnerAPI client;
 
+    static PartnerAPI getClient() {
+        if (client == null) {
+            try {
+                init();
+            } catch (SSLInitializeError sslInitializeError) {
+                sslInitializeError.printStackTrace();
+            } catch (P12FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (ProcessingError processingError) {
+                processingError.printStackTrace();
+            } catch (ConfigFileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return client;
+    }
+
     @BeforeAll
     static void init() throws SSLInitializeError, P12FileNotFoundException, ProcessingError, ConfigFileNotFoundException {
         File file = Paths.get(System.getProperty("user.home")).resolve(".pokepay/config.properties").toFile();
