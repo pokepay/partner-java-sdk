@@ -1,7 +1,7 @@
 package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.CreateCheck;
-import jp.pokepay.partnerapi.request.CreateEcho;
+import jp.pokepay.partnerapi.request.SendEcho;
 import jp.pokepay.partnerapi.response.Check;
 import jp.pokepay.partnerapi.response.Echo;
 import jp.pokepay.partnerapi.response.Pong;
@@ -57,7 +57,7 @@ class PartnerAPITest {
     @Test
     void echo() {
         try {
-            Echo echo = (Echo) client.send(new CreateEcho("hello"));
+            Echo echo = (Echo) client.send(new SendEcho("hello"));
             assertEquals("ok", echo.getStatus());
             assertEquals("hello", echo.getMessage());
         } catch (Exception e) {

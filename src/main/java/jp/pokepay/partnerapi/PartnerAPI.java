@@ -4,6 +4,7 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import jp.pokepay.partnerapi.request.Request;
+import jp.pokepay.partnerapi.request.serializer.SerializerHelper;
 import jp.pokepay.partnerapi.response.Pong;
 import jp.pokepay.partnerapi.response.Response;
 
@@ -11,13 +12,13 @@ import java.io.File;
 import java.security.Security;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Map;
 import java.util.UUID;
 
 public class PartnerAPI {
     private Config config;
     private HttpClient httpClient;
     private Crypto crypto;
+    private GsonBuilder gsonBuilder;
     private Gson gson;
 
     public PartnerAPI(File configFile) throws ProcessingError, ConfigFileNotFoundException,
@@ -27,7 +28,9 @@ public class PartnerAPI {
         config.load(configFile);
         httpClient = new HttpClient();
         crypto = new Crypto(config.clientSecret);
-        gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
+        gsonBuilder = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
+        SerializerHelper.registerTypeAdapters(gsonBuilder);
+        gson = gsonBuilder.create();
     }
 
     private String nowTimeString() {
