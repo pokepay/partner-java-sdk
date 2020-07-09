@@ -37,7 +37,7 @@ public class UpdateAccount extends Request {
     @Override
     public JsonObject getRequestBodyJsonObject(JsonSerializationContext context) {
         JsonObject object = new JsonObject();
-        object.add("is_suspended", context.serialize(this.isSuspended));
+        if (isSuspended != null) { object.add("is_suspended", context.serialize(this.isSuspended)); }
         return object;
     }
 }

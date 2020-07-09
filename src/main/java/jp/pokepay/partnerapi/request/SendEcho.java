@@ -31,7 +31,7 @@ public class SendEcho extends Request {
     @Override
     public JsonObject getRequestBodyJsonObject(JsonSerializationContext context) {
         JsonObject object = new JsonObject();
-        object.add("message", context.serialize(this.message));
+        if (message != null) { object.add("message", context.serialize(this.message)); }
         return object;
     }
 }

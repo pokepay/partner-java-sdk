@@ -11,7 +11,7 @@ public class GetAccountTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetAccount(
-            "c15e9ae5-42a1-4414-814f-23a2a97dbc27"
+            "d9643a4a-1c6c-4aa6-830d-45f1e46b6603"
         );
         try {
             PartnerAPITest.getClient().send(request);

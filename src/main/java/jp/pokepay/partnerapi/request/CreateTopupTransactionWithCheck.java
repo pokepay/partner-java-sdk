@@ -33,8 +33,8 @@ public class CreateTopupTransactionWithCheck extends Request {
     @Override
     public JsonObject getRequestBodyJsonObject(JsonSerializationContext context) {
         JsonObject object = new JsonObject();
-        object.add("check_id", context.serialize(this.checkId));
-        object.add("customer_id", context.serialize(this.customerId));
+        if (checkId != null) { object.add("check_id", context.serialize(this.checkId)); }
+        if (customerId != null) { object.add("customer_id", context.serialize(this.customerId)); }
         return object;
     }
 }

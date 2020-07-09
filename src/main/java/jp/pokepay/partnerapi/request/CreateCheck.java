@@ -85,16 +85,16 @@ public class CreateCheck extends Request {
     @Override
     public JsonObject getRequestBodyJsonObject(JsonSerializationContext context) {
         JsonObject object = new JsonObject();
-        object.add("money_amount", context.serialize(this.moneyAmount));
-        object.add("point_amount", context.serialize(this.pointAmount));
-        object.add("account_id", context.serialize(this.accountId));
-        object.add("description", context.serialize(this.description));
-        object.add("is_onetime", context.serialize(this.isOnetime));
-        object.add("usage_limit", context.serialize(this.usageLimit));
-        object.add("expires_at", context.serialize(this.expiresAt));
-        object.add("point_expires_at", context.serialize(this.pointExpiresAt));
-        object.add("point_expires_in_days", context.serialize(this.pointExpiresInDays));
-        object.add("bear_point_account", context.serialize(this.bearPointAccount));
+        if (moneyAmount != null) { object.add("money_amount", context.serialize((int)this.moneyAmount.doubleValue())); }
+        if (pointAmount != null) { object.add("point_amount", context.serialize((int)this.pointAmount.doubleValue())); }
+        if (accountId != null) { object.add("account_id", context.serialize(this.accountId)); }
+        if (description != null) { object.add("description", context.serialize(this.description)); }
+        if (isOnetime != null) { object.add("is_onetime", context.serialize(this.isOnetime)); }
+        if (usageLimit != null) { object.add("usage_limit", context.serialize(this.usageLimit)); }
+        if (expiresAt != null) { object.add("expires_at", context.serialize(this.expiresAt)); }
+        if (pointExpiresAt != null) { object.add("point_expires_at", context.serialize(this.pointExpiresAt)); }
+        if (pointExpiresInDays != null) { object.add("point_expires_in_days", context.serialize(this.pointExpiresInDays)); }
+        if (bearPointAccount != null) { object.add("bear_point_account", context.serialize(this.bearPointAccount)); }
         return object;
     }
 }

@@ -55,10 +55,10 @@ public class GetPrivateMoneyOrganizationSummaries extends Request {
     @Override
     public JsonObject getRequestBodyJsonObject(JsonSerializationContext context) {
         JsonObject object = new JsonObject();
-        object.add("from", context.serialize(this.from));
-        object.add("to", context.serialize(this.to));
-        object.add("page", context.serialize(this.page));
-        object.add("per_page", context.serialize(this.perPage));
+        if (from != null) { object.add("from", context.serialize(this.from)); }
+        if (to != null) { object.add("to", context.serialize(this.to)); }
+        if (page != null) { object.add("page", context.serialize(this.page)); }
+        if (perPage != null) { object.add("per_page", context.serialize(this.perPage)); }
         return object;
     }
 }

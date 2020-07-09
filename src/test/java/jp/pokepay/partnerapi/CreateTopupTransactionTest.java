@@ -11,9 +11,9 @@ public class CreateTopupTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransaction(
-            "45caef7f-7a2b-498f-9fce-187112a84270",
-            "11ca2b9b-49fe-4723-83c0-5d2daa798787",
-            "ce0bd24d-525a-44ff-9110-241f2c42809e"
+            "39c37399-9d5c-47ea-8250-a77b0b3b013f",
+            "d560dd43-92e6-48b5-b636-4660f8848080",
+            "68ecfbc3-95d2-4dbb-a473-fbd79edb1c4d"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -29,11 +29,11 @@ public class CreateTopupTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransaction(
-            "45caef7f-7a2b-498f-9fce-187112a84270",
-            "11ca2b9b-49fe-4723-83c0-5d2daa798787",
-            "ce0bd24d-525a-44ff-9110-241f2c42809e"
+            "39c37399-9d5c-47ea-8250-a77b0b3b013f",
+            "d560dd43-92e6-48b5-b636-4660f8848080",
+            "68ecfbc3-95d2-4dbb-a473-fbd79edb1c4d"
         )
-                .description("nI7ecRSKY5Xi2vtvhRseU5CbeONathtTqy5jAE4wVO65EMhcrEMhFhzwAAS1BWyDEQXI3Oier6z2O0MIOBxDsnlLjmVxZNC588uKP7CoYxkKRsmcRneEYS5z5dnGxBUoseEH08bwtprJ1QDkjRy6EPim6ay5ArgC8SrFPjqFH47QRl57CNGPz6nPTp551IxX");
+                .description("T86Ek0RGITdhi6y29PweTzDDS088vYItqRLDq5Wz69VGVwjhASvTL26PiZGcOhLd6EJ31gREX1DpoEZIT5kGEcmP1wJKsQhnt");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -48,12 +48,12 @@ public class CreateTopupTransactionTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransaction(
-            "45caef7f-7a2b-498f-9fce-187112a84270",
-            "11ca2b9b-49fe-4723-83c0-5d2daa798787",
-            "ce0bd24d-525a-44ff-9110-241f2c42809e"
+            "39c37399-9d5c-47ea-8250-a77b0b3b013f",
+            "d560dd43-92e6-48b5-b636-4660f8848080",
+            "68ecfbc3-95d2-4dbb-a473-fbd79edb1c4d"
         )
-                .pointAmount(2468)
-                .description("ITGkKrqTOgG4Tdi7VeIeun95a8ABzj2gONs2TxQlPiouhcq1N3pRAfNhloInETS12pRJ4WQV1dFWZNQJg70EFKUDv03jp1o91rERbBN1b6PQdQMe7U3cPxuCLHgpz9xNbKtggGUUio9iK6IVgNxHoAvNwR");
+                .pointAmount(9812)
+                .description("xnS7xn9Vm9FDs9R8G4gjPTUSX2Fj9ZwJSnmo0CqUmxb8DynHp8uztgIVfVUwkdove1bF5x4soRPoRVVOhVCkHWgI2OygHOtuAzTk8FTzUY1bnqjZ2gtF7W4W4wGAoDpmK3g0OAqwQi69XFHEXVDzJibH1dp8iXXVvknPpPO2B7ORjULMqL");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -68,13 +68,13 @@ public class CreateTopupTransactionTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransaction(
-            "45caef7f-7a2b-498f-9fce-187112a84270",
-            "11ca2b9b-49fe-4723-83c0-5d2daa798787",
-            "ce0bd24d-525a-44ff-9110-241f2c42809e"
+            "39c37399-9d5c-47ea-8250-a77b0b3b013f",
+            "d560dd43-92e6-48b5-b636-4660f8848080",
+            "68ecfbc3-95d2-4dbb-a473-fbd79edb1c4d"
         )
-                .moneyAmount(6750)
-                .pointAmount(459)
-                .description("LI0mHcSvJ05kh7S0vP7NtygCHpi33bIQ6D0nr5QnVgAziUtMRmi7uuQCjGBHlnWvfuN9hZypCMzVQYuCJg68AriKG0hL7l2WRXeai0Yp97jAoolZc8tCbQtDfvteEn0kePdptamby6eqFN5wTHrDpkmUVg195rnlES1NLpWmuSqlxuWYn6aE3p");
+                .moneyAmount(5501)
+                .pointAmount(5230)
+                .description("MXm2THecdqqq37Sqke4lBTol9n4USaZK97eAixW2NKW7richSvzQD2t11EM6l9LJjcJjy8EeL");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -89,14 +89,14 @@ public class CreateTopupTransactionTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransaction(
-            "45caef7f-7a2b-498f-9fce-187112a84270",
-            "11ca2b9b-49fe-4723-83c0-5d2daa798787",
-            "ce0bd24d-525a-44ff-9110-241f2c42809e"
+            "39c37399-9d5c-47ea-8250-a77b0b3b013f",
+            "d560dd43-92e6-48b5-b636-4660f8848080",
+            "68ecfbc3-95d2-4dbb-a473-fbd79edb1c4d"
         )
-                .bearPointShopId("5914fe22-c011-4e55-b959-8f40937f5c50")
-                .moneyAmount(9012)
-                .pointAmount(4086)
-                .description("VD0I0ZbxYHYy9ASO6EEUE7rR");
+                .bearPointShopId("89fb301a-addd-428e-909c-0528caab9075")
+                .moneyAmount(5563)
+                .pointAmount(5356)
+                .description("zWt0RqMtTsOjbQkKFkxx9jhlp9x0Npsh8WKqGUlX0ECt99Q2L9DQvA2lQW3wxwlMcSuDTndLT7cB57xFESgNaYLiqMBSSdlx9lBSxwmczOEhab");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

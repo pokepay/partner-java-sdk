@@ -1390,6 +1390,7 @@ paths:
                   items:
                     type: string
                     format: uuid
+                  minItems: 1
                   summary: '加盟店組織で有効にするマネーIDの配列'
                 issuer_admin_user_email:
                   type: string
@@ -1519,6 +1520,7 @@ paths:
         content:
           application/json:
             schema:
+              x-pokepay-required-set: [[from, to]]
               properties:
                 from:
                   type: string

@@ -43,9 +43,9 @@ public class CreateCustomerAccount extends Request {
     @Override
     public JsonObject getRequestBodyJsonObject(JsonSerializationContext context) {
         JsonObject object = new JsonObject();
-        object.add("private_money_id", context.serialize(this.privateMoneyId));
-        object.add("user_name", context.serialize(this.userName));
-        object.add("account_name", context.serialize(this.accountName));
+        if (privateMoneyId != null) { object.add("private_money_id", context.serialize(this.privateMoneyId)); }
+        if (userName != null) { object.add("user_name", context.serialize(this.userName)); }
+        if (accountName != null) { object.add("account_name", context.serialize(this.accountName)); }
         return object;
     }
 }

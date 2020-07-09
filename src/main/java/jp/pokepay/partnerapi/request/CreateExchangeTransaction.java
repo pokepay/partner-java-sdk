@@ -43,11 +43,11 @@ public class CreateExchangeTransaction extends Request {
     @Override
     public JsonObject getRequestBodyJsonObject(JsonSerializationContext context) {
         JsonObject object = new JsonObject();
-        object.add("user_id", context.serialize(this.userId));
-        object.add("sender_private_money_id", context.serialize(this.senderPrivateMoneyId));
-        object.add("receiver_private_money_id", context.serialize(this.receiverPrivateMoneyId));
-        object.add("amount", context.serialize(this.amount));
-        object.add("description", context.serialize(this.description));
+        if (userId != null) { object.add("user_id", context.serialize(this.userId)); }
+        if (senderPrivateMoneyId != null) { object.add("sender_private_money_id", context.serialize(this.senderPrivateMoneyId)); }
+        if (receiverPrivateMoneyId != null) { object.add("receiver_private_money_id", context.serialize(this.receiverPrivateMoneyId)); }
+        if (amount != null) { object.add("amount", context.serialize((int)this.amount.doubleValue())); }
+        if (description != null) { object.add("description", context.serialize(this.description)); }
         return object;
     }
 }

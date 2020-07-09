@@ -43,8 +43,8 @@ public class ListAccountBalances extends Request {
     @Override
     public JsonObject getRequestBodyJsonObject(JsonSerializationContext context) {
         JsonObject object = new JsonObject();
-        object.add("page", context.serialize(this.page));
-        object.add("per_page", context.serialize(this.perPage));
+        if (page != null) { object.add("page", context.serialize(this.page)); }
+        if (perPage != null) { object.add("per_page", context.serialize(this.perPage)); }
         return object;
     }
 }
