@@ -53,12 +53,12 @@ public class CreateTransaction extends Request {
     @Override
     public JsonObject getRequestBodyJsonObject(JsonSerializationContext context) {
         JsonObject object = new JsonObject();
-        object.add("shop_id", context.serialize(this.shopId));
-        object.add("customer_id", context.serialize(this.customerId));
-        object.add("private_money_id", context.serialize(this.privateMoneyId));
-        object.add("money_amount", context.serialize(this.moneyAmount));
-        object.add("point_amount", context.serialize(this.pointAmount));
-        object.add("description", context.serialize(this.description));
+        if (shopId != null) { object.add("shop_id", context.serialize(this.shopId)); }
+        if (customerId != null) { object.add("customer_id", context.serialize(this.customerId)); }
+        if (privateMoneyId != null) { object.add("private_money_id", context.serialize(this.privateMoneyId)); }
+        if (moneyAmount != null) { object.add("money_amount", context.serialize(this.moneyAmount)); }
+        if (pointAmount != null) { object.add("point_amount", context.serialize(this.pointAmount)); }
+        if (description != null) { object.add("description", context.serialize(this.description)); }
         return object;
     }
 }

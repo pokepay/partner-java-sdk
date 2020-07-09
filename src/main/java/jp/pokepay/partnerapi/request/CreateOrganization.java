@@ -87,19 +87,19 @@ public class CreateOrganization extends Request {
     @Override
     public JsonObject getRequestBodyJsonObject(JsonSerializationContext context) {
         JsonObject object = new JsonObject();
-        object.add("code", context.serialize(this.code));
-        object.add("name", context.serialize(this.name));
-        object.add("private_money_ids", context.serialize(this.privateMoneyIds));
-        object.add("issuer_admin_user_email", context.serialize(this.issuerAdminUserEmail));
-        object.add("member_admin_user_email", context.serialize(this.memberAdminUserEmail));
-        object.add("bank_name", context.serialize(this.bankName));
-        object.add("bank_code", context.serialize(this.bankCode));
-        object.add("bank_branch_name", context.serialize(this.bankBranchName));
-        object.add("bank_branch_code", context.serialize(this.bankBranchCode));
-        object.add("bank_account_type", context.serialize(this.bankAccountType));
-        object.add("bank_account", context.serialize(this.bankAccount));
-        object.add("bank_account_holder_name", context.serialize(this.bankAccountHolderName));
-        object.add("contact_name", context.serialize(this.contactName));
+        if (code != null) { object.add("code", context.serialize(this.code)); }
+        if (name != null) { object.add("name", context.serialize(this.name)); }
+        if (privateMoneyIds != null) { object.add("private_money_ids", context.serialize(this.privateMoneyIds)); }
+        if (issuerAdminUserEmail != null) { object.add("issuer_admin_user_email", context.serialize(this.issuerAdminUserEmail)); }
+        if (memberAdminUserEmail != null) { object.add("member_admin_user_email", context.serialize(this.memberAdminUserEmail)); }
+        if (bankName != null) { object.add("bank_name", context.serialize(this.bankName)); }
+        if (bankCode != null) { object.add("bank_code", context.serialize(this.bankCode)); }
+        if (bankBranchName != null) { object.add("bank_branch_name", context.serialize(this.bankBranchName)); }
+        if (bankBranchCode != null) { object.add("bank_branch_code", context.serialize(this.bankBranchCode)); }
+        if (bankAccountType != null) { object.add("bank_account_type", context.serialize(this.bankAccountType)); }
+        if (bankAccount != null) { object.add("bank_account", context.serialize(this.bankAccount)); }
+        if (bankAccountHolderName != null) { object.add("bank_account_holder_name", context.serialize(this.bankAccountHolderName)); }
+        if (contactName != null) { object.add("contact_name", context.serialize(this.contactName)); }
         return object;
     }
 }

@@ -107,19 +107,19 @@ public class ListTransactions extends Request {
     @Override
     public JsonObject getRequestBodyJsonObject(JsonSerializationContext context) {
         JsonObject object = new JsonObject();
-        object.add("from", context.serialize(this.from));
-        object.add("to", context.serialize(this.to));
-        object.add("page", context.serialize(this.page));
-        object.add("per_page", context.serialize(this.perPage));
-        object.add("shop_id", context.serialize(this.shopId));
-        object.add("customer_id", context.serialize(this.customerId));
-        object.add("customer_name", context.serialize(this.customerName));
-        object.add("terminal_id", context.serialize(this.terminalId));
-        object.add("transaction_id", context.serialize(this.transactionId));
-        object.add("organization_code", context.serialize(this.organizationCode));
-        object.add("private_money_id", context.serialize(this.privateMoneyId));
-        object.add("is_modified", context.serialize(this.isModified));
-        object.add("types", context.serialize(this.types));
+        if (from != null) { object.add("from", context.serialize(this.from)); }
+        if (to != null) { object.add("to", context.serialize(this.to)); }
+        if (page != null) { object.add("page", context.serialize(this.page)); }
+        if (perPage != null) { object.add("per_page", context.serialize(this.perPage)); }
+        if (shopId != null) { object.add("shop_id", context.serialize(this.shopId)); }
+        if (customerId != null) { object.add("customer_id", context.serialize(this.customerId)); }
+        if (customerName != null) { object.add("customer_name", context.serialize(this.customerName)); }
+        if (terminalId != null) { object.add("terminal_id", context.serialize(this.terminalId)); }
+        if (transactionId != null) { object.add("transaction_id", context.serialize(this.transactionId)); }
+        if (organizationCode != null) { object.add("organization_code", context.serialize(this.organizationCode)); }
+        if (privateMoneyId != null) { object.add("private_money_id", context.serialize(this.privateMoneyId)); }
+        if (isModified != null) { object.add("is_modified", context.serialize(this.isModified)); }
+        if (types != null) { object.add("types", context.serialize(this.types)); }
         return object;
     }
 }

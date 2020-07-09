@@ -67,13 +67,13 @@ public class CreateShop extends Request {
     @Override
     public JsonObject getRequestBodyJsonObject(JsonSerializationContext context) {
         JsonObject object = new JsonObject();
-        object.add("shop_name", context.serialize(this.shopName));
-        object.add("shop_postal_code", context.serialize(this.shopPostalCode));
-        object.add("shop_address", context.serialize(this.shopAddress));
-        object.add("shop_tel", context.serialize(this.shopTel));
-        object.add("shop_email", context.serialize(this.shopEmail));
-        object.add("shop_external_id", context.serialize(this.shopExternalId));
-        object.add("organization_code", context.serialize(this.organizationCode));
+        if (shopName != null) { object.add("shop_name", context.serialize(this.shopName)); }
+        if (shopPostalCode != null) { object.add("shop_postal_code", context.serialize(this.shopPostalCode)); }
+        if (shopAddress != null) { object.add("shop_address", context.serialize(this.shopAddress)); }
+        if (shopTel != null) { object.add("shop_tel", context.serialize(this.shopTel)); }
+        if (shopEmail != null) { object.add("shop_email", context.serialize(this.shopEmail)); }
+        if (shopExternalId != null) { object.add("shop_external_id", context.serialize(this.shopExternalId)); }
+        if (organizationCode != null) { object.add("organization_code", context.serialize(this.organizationCode)); }
         return object;
     }
 }
