@@ -11,7 +11,7 @@ public class ListAccountBalancesTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new ListAccountBalances(
-            "511ffdfb-36a9-4cbd-83a0-8694c0ef4725"
+            "68b06cb3-42cd-4ed8-b703-a1f05d71491d"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -27,9 +27,9 @@ public class ListAccountBalancesTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListAccountBalances(
-            "511ffdfb-36a9-4cbd-83a0-8694c0ef4725"
+            "68b06cb3-42cd-4ed8-b703-a1f05d71491d"
         )
-                .perPage(1271);
+                .perPage(5891);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -44,10 +44,10 @@ public class ListAccountBalancesTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListAccountBalances(
-            "511ffdfb-36a9-4cbd-83a0-8694c0ef4725"
+            "68b06cb3-42cd-4ed8-b703-a1f05d71491d"
         )
-                .page(3854)
-                .perPage(7450);
+                .page(2017)
+                .perPage(1695);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
