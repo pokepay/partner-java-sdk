@@ -25,5 +25,24 @@ import jp.pokepay.partnerapi.request.GetPrivateMoneyOrganizationSummaries;
 
 public class SerializerHelper {
     public static void registerTypeAdapters(GsonBuilder gsonBuilder) {
-        gsonBuilder.registerTypeAdapter(GetPing.class, new GetPingSerializer());gsonBuilder.registerTypeAdapter(SendEcho.class, new SendEchoSerializer());gsonBuilder.registerTypeAdapter(GetUser.class, new GetUserSerializer());gsonBuilder.registerTypeAdapter(GetAccount.class, new GetAccountSerializer());gsonBuilder.registerTypeAdapter(UpdateAccount.class, new UpdateAccountSerializer());gsonBuilder.registerTypeAdapter(ListAccountBalances.class, new ListAccountBalancesSerializer());gsonBuilder.registerTypeAdapter(CreateCustomerAccount.class, new CreateCustomerAccountSerializer());gsonBuilder.registerTypeAdapter(CreateCheck.class, new CreateCheckSerializer());gsonBuilder.registerTypeAdapter(ListTransactions.class, new ListTransactionsSerializer());gsonBuilder.registerTypeAdapter(CreateTransaction.class, new CreateTransactionSerializer());gsonBuilder.registerTypeAdapter(CreateTopupTransaction.class, new CreateTopupTransactionSerializer());gsonBuilder.registerTypeAdapter(CreateTopupTransactionWithCheck.class, new CreateTopupTransactionWithCheckSerializer());gsonBuilder.registerTypeAdapter(CreatePaymentTransaction.class, new CreatePaymentTransactionSerializer());gsonBuilder.registerTypeAdapter(CreateExchangeTransaction.class, new CreateExchangeTransactionSerializer());gsonBuilder.registerTypeAdapter(GetTransaction.class, new GetTransactionSerializer());gsonBuilder.registerTypeAdapter(ListTransfers.class, new ListTransfersSerializer());gsonBuilder.registerTypeAdapter(CreateOrganization.class, new CreateOrganizationSerializer());gsonBuilder.registerTypeAdapter(CreateShop.class, new CreateShopSerializer());gsonBuilder.registerTypeAdapter(GetPrivateMoneyOrganizationSummaries.class, new GetPrivateMoneyOrganizationSummariesSerializer());    }
+        gsonBuilder.registerTypeAdapter(GetPing.class, new GetPingSerializer());
+        gsonBuilder.registerTypeAdapter(SendEcho.class, new SendEchoSerializer());
+        gsonBuilder.registerTypeAdapter(GetUser.class, new GetUserSerializer());
+        gsonBuilder.registerTypeAdapter(GetAccount.class, new GetAccountSerializer());
+        gsonBuilder.registerTypeAdapter(UpdateAccount.class, new UpdateAccountSerializer());
+        gsonBuilder.registerTypeAdapter(ListAccountBalances.class, new ListAccountBalancesSerializer());
+        gsonBuilder.registerTypeAdapter(CreateCustomerAccount.class, new CreateCustomerAccountSerializer());
+        gsonBuilder.registerTypeAdapter(CreateCheck.class, new CreateCheckSerializer());
+        gsonBuilder.registerTypeAdapter(ListTransactions.class, new ListTransactionsSerializer());
+        gsonBuilder.registerTypeAdapter(CreateTransaction.class, new CreateTransactionSerializer());
+        gsonBuilder.registerTypeAdapter(CreateTopupTransaction.class, new CreateTopupTransactionSerializer());
+        gsonBuilder.registerTypeAdapter(CreateTopupTransactionWithCheck.class, new CreateTopupTransactionWithCheckSerializer());
+        gsonBuilder.registerTypeAdapter(CreatePaymentTransaction.class, new CreatePaymentTransactionSerializer());
+        gsonBuilder.registerTypeAdapter(CreateExchangeTransaction.class, new CreateExchangeTransactionSerializer());
+        gsonBuilder.registerTypeAdapter(GetTransaction.class, new GetTransactionSerializer());
+        gsonBuilder.registerTypeAdapter(ListTransfers.class, new ListTransfersSerializer());
+        gsonBuilder.registerTypeAdapter(CreateOrganization.class, new CreateOrganizationSerializer());
+        gsonBuilder.registerTypeAdapter(CreateShop.class, new CreateShopSerializer());
+        gsonBuilder.registerTypeAdapter(GetPrivateMoneyOrganizationSummaries.class, new GetPrivateMoneyOrganizationSummariesSerializer());
+    }
 }
