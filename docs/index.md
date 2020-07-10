@@ -29,10 +29,10 @@ Partner APIとの通信はリクエストオブジェクトを作り、`PartnerA
 
 リクエストクラスは`jp.pokepay.partnerapi.request`以下に定義されます。
 
-例として、送信した内容をそのまま返すCreateEchoを下記に記します。
+例として、送信した内容をそのまま返すSendEchoを下記に記します。
 
 ```java
-Request request = new CreateEcho("hello");
+Request request = new SendEcho("hello");
 Echo echo = (Echo) client.send(request);
 System.out.println(echo.getStatus()); // => "ok"
 System.out.println(echo.getMessage()); // => "hello"
@@ -80,17 +80,17 @@ APIサーバがエラーレスポンスを返した場合に使われます。
 取引を取得します。
 ```java
 Request request = new GetTransaction(
-    "e264dc19-7396-419e-bc05-36da45a707e9"        // 取引ID
+    "5af2d0ba-1e15-436b-a6f4-8e454cfbc3c4"        // 取引ID
 );
 ```
 成功したときは以下のメソッドを含む`Transaction`クラスのインスタンスを返します。
 * `getId() String`: 取引ID
 * `getType() String`: 取引種別 (チャージ=topup, 支払い=payment)
-* `isModified() boolean`: 返金された取引か
+* `isModified() boolean`: 返金された取引かどうか
 * `getSender() User`: 送金者情報
-* `getSenderAccount() Account`: 送金口座情報
+* `getSenderAccount() Account`: 送金ウォレット情報
 * `getReceiver() User`: 受取者情報
-* `getReceiverAccount() Account`: 受取口座情報
+* `getReceiverAccount() Account`: 受取ウォレット情報
 * `getAmount() double`: 決済総額 (マネー額 + ポイント額)
 * `getMoneyAmount() double`: 決済マネー額
 * `getPointAmount() double`: 決済ポイント額
@@ -103,9 +103,9 @@ Request request = new GetTransaction(
 * `isMerchant() boolean`: 店舗ユーザーかどうか
 
 `getReceiverAccount`と`getSenderAccount`は`Account`クラスのインスタンスを返します。
-* `getId() String`: 口座ID
-* `getName() String`: 口座名
-* `isSuspended() boolean`: 口座が凍結されているか
+* `getId() String`: ウォレットID
+* `getName() String`: ウォレット名
+* `isSuspended() boolean`: ウォレットが凍結されているかどうか
 * `getPrivateMoney() PrivateMoney`: 設定マネー情報
 
 `getPrivateMoney`は`PrivateMoney`クラスのインスタンスを返します。
@@ -116,11 +116,11 @@ Request request = new GetTransaction(
 * `getDescription() String`: マネー説明文
 * `getOnelineMessage() String`: マネーの要約
 * `getOrganization() Organization`: マネーを発行した組織
-* `getMaxBalance() double`: 口座の上限金額
+* `getMaxBalance() double`: ウォレットの上限金額
 * `getTransferLimit() double`: マネーの取引上限額
 * `getType() String`: マネー種別 (自家型=own, 第三者型=third-party)
-* `getExpirationType() String`: 有効期限種別 (チャージ日時起算=static, 最終利用日時起算=last-update)
-* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効か
+* `getExpirationType() String`: 有効期限種別 (チャージ日起算=static, 最終利用日起算=last-update, 最終チャージ日起算=last-topup-update)
+* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効かどうか
 * `getAccountImage() String`: マネーの画像URL
 
 `getOrganization`は`Organization`クラスのインスタンスを返します。
@@ -131,23 +131,23 @@ Request request = new GetTransaction(
 チャージ取引を作成します。
 ```java
 Request request = new CreateTopupTransaction(
-    "7782ff94-fe29-401b-9807-b4c77cdfdc9d",       // 店舗ID
-    "1e62fb0a-78e2-4a40-a2ef-ff7568c4afcf",       // エンドユーザーのID
-    "038aa66f-9eff-484f-b8a1-c392a161e293"        // マネーID
+    "f937921e-52f4-42d2-9b38-b3943ae3c6a5",       // 店舗ID
+    "c8e86f3f-9100-4482-9b49-e79b0eb3c126",       // エンドユーザーのID
+    "8bbfba8e-01ed-432a-b8a1-6fa8d5029ef2"        // マネーID
 )
-        .bearPointShopId("c1c01e16-d23c-414b-ba36-f2b03172f5c6") // ポイント支払時の負担店舗ID
-        .moneyAmount(8786)                        // マネー額
-        .pointAmount(5201)                        // ポイント額
+        .bearPointShopId("04f11c8d-647e-40e1-841e-f0bbb03959c1") // ポイント支払時の負担店舗ID
+        .moneyAmount(7995)                        // マネー額
+        .pointAmount(3121)                        // ポイント額
         .description("初夏のチャージキャンペーン");            // 取引履歴に表示する説明文
 ```
 成功したときは以下のメソッドを含む`Transaction`クラスのインスタンスを返します。
 * `getId() String`: 取引ID
 * `getType() String`: 取引種別 (チャージ=topup, 支払い=payment)
-* `isModified() boolean`: 返金された取引か
+* `isModified() boolean`: 返金された取引かどうか
 * `getSender() User`: 送金者情報
-* `getSenderAccount() Account`: 送金口座情報
+* `getSenderAccount() Account`: 送金ウォレット情報
 * `getReceiver() User`: 受取者情報
-* `getReceiverAccount() Account`: 受取口座情報
+* `getReceiverAccount() Account`: 受取ウォレット情報
 * `getAmount() double`: 決済総額 (マネー額 + ポイント額)
 * `getMoneyAmount() double`: 決済マネー額
 * `getPointAmount() double`: 決済ポイント額
@@ -160,9 +160,9 @@ Request request = new CreateTopupTransaction(
 * `isMerchant() boolean`: 店舗ユーザーかどうか
 
 `getReceiverAccount`と`getSenderAccount`は`Account`クラスのインスタンスを返します。
-* `getId() String`: 口座ID
-* `getName() String`: 口座名
-* `isSuspended() boolean`: 口座が凍結されているか
+* `getId() String`: ウォレットID
+* `getName() String`: ウォレット名
+* `isSuspended() boolean`: ウォレットが凍結されているかどうか
 * `getPrivateMoney() PrivateMoney`: 設定マネー情報
 
 `getPrivateMoney`は`PrivateMoney`クラスのインスタンスを返します。
@@ -173,11 +173,11 @@ Request request = new CreateTopupTransaction(
 * `getDescription() String`: マネー説明文
 * `getOnelineMessage() String`: マネーの要約
 * `getOrganization() Organization`: マネーを発行した組織
-* `getMaxBalance() double`: 口座の上限金額
+* `getMaxBalance() double`: ウォレットの上限金額
 * `getTransferLimit() double`: マネーの取引上限額
 * `getType() String`: マネー種別 (自家型=own, 第三者型=third-party)
-* `getExpirationType() String`: 有効期限種別 (チャージ日時起算=static, 最終利用日時起算=last-update)
-* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効か
+* `getExpirationType() String`: 有効期限種別 (チャージ日起算=static, 最終利用日起算=last-update, 最終チャージ日起算=last-topup-update)
+* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効かどうか
 * `getAccountImage() String`: マネーの画像URL
 
 `getOrganization`は`Organization`クラスのインスタンスを返します。
@@ -188,21 +188,21 @@ Request request = new CreateTopupTransaction(
 支払取引を作成します。
 ```java
 Request request = new CreatePaymentTransaction(
-    "6aa86ad6-d8d1-4fb6-b8a1-fceafaeb6d62",       // 店舗ID
-    "81561ced-5ea1-4d53-b78b-fb97f1524040",       // エンドユーザーID
-    "b6b19a21-1fe9-4e05-be8f-6bf44c684f3a",       // マネーID
-    5561                                          // 支払い額
+    "4cd5d484-a20d-459e-b357-c148ef358669",       // 店舗ID
+    "1a6a82f1-45f6-44b9-b22b-a228a4d93a3a",       // エンドユーザーID
+    "4ebdb9d2-bb8d-443d-addb-63ede08803eb",       // マネーID
+    9390                                          // 支払い額
 )
         .description("たい焼き(小倉)");                 // 取引履歴に表示する説明文
 ```
 成功したときは以下のメソッドを含む`Transaction`クラスのインスタンスを返します。
 * `getId() String`: 取引ID
 * `getType() String`: 取引種別 (チャージ=topup, 支払い=payment)
-* `isModified() boolean`: 返金された取引か
+* `isModified() boolean`: 返金された取引かどうか
 * `getSender() User`: 送金者情報
-* `getSenderAccount() Account`: 送金口座情報
+* `getSenderAccount() Account`: 送金ウォレット情報
 * `getReceiver() User`: 受取者情報
-* `getReceiverAccount() Account`: 受取口座情報
+* `getReceiverAccount() Account`: 受取ウォレット情報
 * `getAmount() double`: 決済総額 (マネー額 + ポイント額)
 * `getMoneyAmount() double`: 決済マネー額
 * `getPointAmount() double`: 決済ポイント額
@@ -215,9 +215,9 @@ Request request = new CreatePaymentTransaction(
 * `isMerchant() boolean`: 店舗ユーザーかどうか
 
 `getReceiverAccount`と`getSenderAccount`は`Account`クラスのインスタンスを返します。
-* `getId() String`: 口座ID
-* `getName() String`: 口座名
-* `isSuspended() boolean`: 口座が凍結されているか
+* `getId() String`: ウォレットID
+* `getName() String`: ウォレット名
+* `isSuspended() boolean`: ウォレットが凍結されているかどうか
 * `getPrivateMoney() PrivateMoney`: 設定マネー情報
 
 `getPrivateMoney`は`PrivateMoney`クラスのインスタンスを返します。
@@ -228,11 +228,11 @@ Request request = new CreatePaymentTransaction(
 * `getDescription() String`: マネー説明文
 * `getOnelineMessage() String`: マネーの要約
 * `getOrganization() Organization`: マネーを発行した組織
-* `getMaxBalance() double`: 口座の上限金額
+* `getMaxBalance() double`: ウォレットの上限金額
 * `getTransferLimit() double`: マネーの取引上限額
 * `getType() String`: マネー種別 (自家型=own, 第三者型=third-party)
-* `getExpirationType() String`: 有効期限種別 (チャージ日時起算=static, 最終利用日時起算=last-update)
-* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効か
+* `getExpirationType() String`: 有効期限種別 (チャージ日起算=static, 最終利用日起算=last-update, 最終チャージ日起算=last-topup-update)
+* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効かどうか
 * `getAccountImage() String`: マネーの画像URL
 
 `getOrganization`は`Organization`クラスのインスタンスを返します。
@@ -243,17 +243,17 @@ Request request = new CreatePaymentTransaction(
 取引一覧を返します。
 ```java
 Request request = new ListTransactions()
-        .from("2023-04-28T01-10-15+09:00")        // 開始日時
-        .to("2023-06-11T00-33-21+09:00")          // 終了日時
+        .from("2018-07-07T18:36:51.000000+09:00") // 開始日時
+        .to("2020-01-22T03:03:57.000000+09:00")   // 終了日時
         .page(1)                                  // ページ番号
         .perPage(50)                              // 1ページ分の取引数
-        .shopId("cd27d55f-49a7-4020-a1f6-2aae16d3a25a") // 店舗ID
-        .customerId("e07a7dae-2bb7-4067-a4d3-ca5292fa574e") // エンドユーザーID
+        .shopId("06f1150a-eb96-4c7d-9a74-f3bc27500e0d") // 店舗ID
+        .customerId("fabb4a19-541f-450f-8ae6-cb44131aaf20") // エンドユーザーID
         .customerName("太郎")                       // エンドユーザー名
-        .terminalId("d63cd2ad-4b97-4533-be27-921d86316824") // 端末ID
-        .transactionId("838a92c0-c38b-442b-8f39-a439d462eeca") // 取引ID
+        .terminalId("66e4fdf7-292e-4efe-894f-2b22774cf15a") // 端末ID
+        .transactionId("7e15ae6e-aeea-4996-a752-ac9156891c8a") // 取引ID
         .organizationCode("pocketchange")         // 組織コード
-        .privateMoneyId("f5ae01df-bddb-42ed-936a-937f6d92915b") // マネーID
+        .privateMoneyId("2fa57402-77c9-4fba-8833-15db4c9d9626") // マネーID
         .setModified(true)                        // キャンセルフラグ
         .types(new String[]{"topup","payment"});  // 取引種別 (複数指定可)、チャージ=topup、支払い=payment
 ```
@@ -265,11 +265,11 @@ Request request = new ListTransactions()
 `getRows`は`Transaction`クラスのインスタンスを返します。
 * `getId() String`: 取引ID
 * `getType() String`: 取引種別 (チャージ=topup, 支払い=payment)
-* `isModified() boolean`: 返金された取引か
+* `isModified() boolean`: 返金された取引かどうか
 * `getSender() User`: 送金者情報
-* `getSenderAccount() Account`: 送金口座情報
+* `getSenderAccount() Account`: 送金ウォレット情報
 * `getReceiver() User`: 受取者情報
-* `getReceiverAccount() Account`: 受取口座情報
+* `getReceiverAccount() Account`: 受取ウォレット情報
 * `getAmount() double`: 決済総額 (マネー額 + ポイント額)
 * `getMoneyAmount() double`: 決済マネー額
 * `getPointAmount() double`: 決済ポイント額
@@ -282,9 +282,9 @@ Request request = new ListTransactions()
 * `isMerchant() boolean`: 店舗ユーザーかどうか
 
 `getReceiverAccount`と`getSenderAccount`は`Account`クラスのインスタンスを返します。
-* `getId() String`: 口座ID
-* `getName() String`: 口座名
-* `isSuspended() boolean`: 口座が凍結されているか
+* `getId() String`: ウォレットID
+* `getName() String`: ウォレット名
+* `isSuspended() boolean`: ウォレットが凍結されているかどうか
 * `getPrivateMoney() PrivateMoney`: 設定マネー情報
 
 `getPrivateMoney`は`PrivateMoney`クラスのインスタンスを返します。
@@ -295,11 +295,11 @@ Request request = new ListTransactions()
 * `getDescription() String`: マネー説明文
 * `getOnelineMessage() String`: マネーの要約
 * `getOrganization() Organization`: マネーを発行した組織
-* `getMaxBalance() double`: 口座の上限金額
+* `getMaxBalance() double`: ウォレットの上限金額
 * `getTransferLimit() double`: マネーの取引上限額
 * `getType() String`: マネー種別 (自家型=own, 第三者型=third-party)
-* `getExpirationType() String`: 有効期限種別 (チャージ日時起算=static, 最終利用日時起算=last-update)
-* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効か
+* `getExpirationType() String`: 有効期限種別 (チャージ日起算=static, 最終利用日起算=last-update, 最終チャージ日起算=last-topup-update)
+* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効かどうか
 * `getAccountImage() String`: マネーの画像URL
 
 `getOrganization`は`Organization`クラスのインスタンスを返します。
@@ -326,17 +326,17 @@ QRコードを読み取る方法以外にも、このURLリンクを直接スマ
 #### チャージQRコードの発行
 ```java
 Request request = new CreateCheck(
-    "c80e53f1-ca4c-4f03-90e7-a8c0452f3556"        // 送金元の店舗アカウントID
+    "01ca3696-85a8-4aa1-9949-1363f7d20cda"        // 送金元の店舗アカウントID
 )
-        .moneyAmount(2670)                        // 付与マネー額
-        .pointAmount(9472)                        // 付与ポイント額
+        .moneyAmount(8012)                        // 付与マネー額
+        .pointAmount(3258)                        // 付与ポイント額
         .description("test check")                // 説明文(アプリ上で取引の説明文として表示される)
         .setOnetime(false)                        // ワンタイムかどうか。真の場合1度読み込まれた時点でそのチャージQRは失効する(デフォルト値は真)
-        .usageLimit(9419)                         // ワンタイムでない場合、複数ユーザから読み取られ得る。その場合の最大読み取り回数
-        .expiresAt("2024-09-12T18-59-42+09:00")   // チャージQR自体の失効日時
-        .pointExpiresAt("2025-05-21T21-26-28+09:00") // チャージQRによって付与されるポイントの失効日時
+        .usageLimit(896)                          // ワンタイムでない場合、複数ユーザから読み取られ得る。その場合の最大読み取り回数
+        .expiresAt("2017-03-14T12:37:18.000000+09:00") // チャージQR自体の失効日時
+        .pointExpiresAt("2023-10-03T17:08:32.000000+09:00") // チャージQRによって付与されるポイントの失効日時
         .pointExpiresInDays(60)                   // チャージQRによって付与されるポイントの有効期限(相対指定、単位は日)
-        .bearPointAccount("c364f1e9-08ee-4e2d-96c2-ce625df35201"); // ポイント額を負担する店舗アカウントのID
+        .bearPointAccount("d34df531-1981-4e2c-b107-9c3d0f772d1d"); // ポイント額を負担する店舗アカウントのID
 ```
 成功したときは以下のメソッドを含む`Check`クラスのインスタンスを返します。
 * `getId() String`: チャージQRコードのID
@@ -366,11 +366,11 @@ Request request = new CreateCheck(
 * `getDescription() String`: マネー説明文
 * `getOnelineMessage() String`: マネーの要約
 * `getOrganization() Organization`: マネーを発行した組織
-* `getMaxBalance() double`: 口座の上限金額
+* `getMaxBalance() double`: ウォレットの上限金額
 * `getTransferLimit() double`: マネーの取引上限額
 * `getType() String`: マネー種別 (自家型=own, 第三者型=third-party)
-* `getExpirationType() String`: 有効期限種別 (チャージ日時起算=static, 最終利用日時起算=last-update)
-* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効か
+* `getExpirationType() String`: 有効期限種別 (チャージ日起算=static, 最終利用日起算=last-update, 最終チャージ日起算=last-topup-update)
+* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効かどうか
 * `getAccountImage() String`: マネーの画像URL
 
 `getOrganization`は`Organization`クラスのインスタンスを返します。
@@ -384,18 +384,18 @@ Request request = new CreateCheck(
 
 ```java
 Request request = new CreateTopupTransactionWithCheck(
-    "c2bb73ee-7a10-4d29-87a7-d63f3f155995",       // チャージ用QRコードのID
-    "ab50c17a-e62d-4426-b4d5-210f2dd0a873"        // エンドユーザーのID
+    "6c87119d-5d6c-45d2-9a61-1f9bffecc00d",       // チャージ用QRコードのID
+    "050ba763-c53b-416e-8dda-6e6ac7794d89"        // エンドユーザーのID
 );
 ```
 成功したときは以下のメソッドを含む`Transaction`クラスのインスタンスを返します。
 * `getId() String`: 取引ID
 * `getType() String`: 取引種別 (チャージ=topup, 支払い=payment)
-* `isModified() boolean`: 返金された取引か
+* `isModified() boolean`: 返金された取引かどうか
 * `getSender() User`: 送金者情報
-* `getSenderAccount() Account`: 送金口座情報
+* `getSenderAccount() Account`: 送金ウォレット情報
 * `getReceiver() User`: 受取者情報
-* `getReceiverAccount() Account`: 受取口座情報
+* `getReceiverAccount() Account`: 受取ウォレット情報
 * `getAmount() double`: 決済総額 (マネー額 + ポイント額)
 * `getMoneyAmount() double`: 決済マネー額
 * `getPointAmount() double`: 決済ポイント額
@@ -408,9 +408,9 @@ Request request = new CreateTopupTransactionWithCheck(
 * `isMerchant() boolean`: 店舗ユーザーかどうか
 
 `getReceiverAccount`と`getSenderAccount`は`Account`クラスのインスタンスを返します。
-* `getId() String`: 口座ID
-* `getName() String`: 口座名
-* `isSuspended() boolean`: 口座が凍結されているか
+* `getId() String`: ウォレットID
+* `getName() String`: ウォレット名
+* `isSuspended() boolean`: ウォレットが凍結されているかどうか
 * `getPrivateMoney() PrivateMoney`: 設定マネー情報
 
 `getPrivateMoney`は`PrivateMoney`クラスのインスタンスを返します。
@@ -421,11 +421,11 @@ Request request = new CreateTopupTransactionWithCheck(
 * `getDescription() String`: マネー説明文
 * `getOnelineMessage() String`: マネーの要約
 * `getOrganization() Organization`: マネーを発行した組織
-* `getMaxBalance() double`: 口座の上限金額
+* `getMaxBalance() double`: ウォレットの上限金額
 * `getTransferLimit() double`: マネーの取引上限額
 * `getType() String`: マネー種別 (自家型=own, 第三者型=third-party)
-* `getExpirationType() String`: 有効期限種別 (チャージ日時起算=static, 最終利用日時起算=last-update)
-* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効か
+* `getExpirationType() String`: 有効期限種別 (チャージ日起算=static, 最終利用日起算=last-update, 最終チャージ日起算=last-topup-update)
+* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効かどうか
 * `getAccountImage() String`: マネーの画像URL
 
 `getOrganization`は`Organization`クラスのインスタンスを返します。
@@ -434,11 +434,11 @@ Request request = new CreateTopupTransactionWithCheck(
 
 ### Customer
 
-#### 新規エンドユーザー口座を追加する
+#### 新規エンドユーザーウォレットを追加する
 指定したマネーのウォレットを作成し、同時にそのウォレットを保有するユーザも作成します。
 ```java
 Request request = new CreateCustomerAccount(
-    "4f0466de-62da-498c-b3bf-dc62ed423c10"        // マネーID
+    "acdb959c-4eb3-4dde-85c8-e0b7ee40e17c"        // マネーID
 )
         .userName("ポケペイ太郎")                       // ユーザー名
         .accountName("ポケペイ太郎のアカウント");             // アカウント名
@@ -458,11 +458,11 @@ Request request = new CreateCustomerAccount(
 * `getDescription() String`: マネー説明文
 * `getOnelineMessage() String`: マネーの要約
 * `getOrganization() Organization`: マネーを発行した組織
-* `getMaxBalance() double`: 口座の上限金額
+* `getMaxBalance() double`: ウォレットの上限金額
 * `getTransferLimit() double`: マネーの取引上限額
 * `getType() String`: マネー種別 (自家型=own, 第三者型=third-party)
-* `getExpirationType() String`: 有効期限種別 (チャージ日時起算=static, 最終利用日時起算=last-update)
-* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効か
+* `getExpirationType() String`: 有効期限種別 (チャージ日起算=static, 最終利用日起算=last-update, 最終チャージ日起算=last-topup-update)
+* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効かどうか
 * `getAccountImage() String`: マネーの画像URL
 
 `getOrganization`は`Organization`クラスのインスタンスを返します。
@@ -474,11 +474,11 @@ Request request = new CreateCustomerAccount(
 * `getName() String`: ユーザー (または店舗) 名
 * `isMerchant() boolean`: 店舗ユーザーかどうか
 
-#### エンドユーザーの口座情報を表示する
+#### エンドユーザーのウォレット情報を表示する
 ウォレットを取得します。
 ```java
 Request request = new GetAccount(
-    "440b6223-d153-48d7-9fdb-5f6fdbcd53bb"        // ウォレットID
+    "76882bb7-9dd4-4b11-9e8a-93c07791cdbc"        // ウォレットID
 );
 ```
 成功したときは以下のメソッドを含む`AccountDetail`クラスのインスタンスを返します。
@@ -498,11 +498,11 @@ Request request = new GetAccount(
 * `getDescription() String`: マネー説明文
 * `getOnelineMessage() String`: マネーの要約
 * `getOrganization() Organization`: マネーを発行した組織
-* `getMaxBalance() double`: 口座の上限金額
+* `getMaxBalance() double`: ウォレットの上限金額
 * `getTransferLimit() double`: マネーの取引上限額
 * `getType() String`: マネー種別 (自家型=own, 第三者型=third-party)
-* `getExpirationType() String`: 有効期限種別 (チャージ日時起算=static, 最終利用日時起算=last-update)
-* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効か
+* `getExpirationType() String`: 有効期限種別 (チャージ日起算=static, 最終利用日起算=last-update, 最終チャージ日起算=last-topup-update)
+* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効かどうか
 * `getAccountImage() String`: マネーの画像URL
 
 `getOrganization`は`Organization`クラスのインスタンスを返します。
@@ -513,10 +513,10 @@ Request request = new GetAccount(
 エンドユーザーの残高は有効期限別のリストとして取得できます。
 ```java
 Request request = new ListAccountBalances(
-    "f9ba425b-384d-4430-9b57-5d9c05043de0"        // ウォレットID
+    "a7cbdc0f-5049-4c80-a6e0-651acc42a189"        // ウォレットID
 )
-        .page(3908)                               // 取得したいページ番号です。
-        .perPage(1726);                           // 1ページ分のウォレット残高数です。
+        .page(3790)                               // 取得したいページ番号です。
+        .perPage(2287);                           // 1ページ分のウォレット残高数です。
 ```
 成功したときは以下のメソッドを含む`PaginatedAccountBalance`クラスのインスタンスを返します。
 * `getRows() AccountBalance[]`: 
@@ -542,16 +542,16 @@ Request request = new ListAccountBalances(
 Request request = new CreateOrganization(
     "ox_supermarket",                             // 新規組織コード
     "oxスーパー",                                     // 新規組織名
-    new String[]{"18afcadf-0ad8-48eb-b19b-bd77ae9734cd"}, // 加盟店組織で有効にするマネーIDの配列
-    "4nadmeyKnq@Gyqp.com",                        // 発行体担当者メールアドレス
-    "n3W7S36l34@SSSO.com"                         // 新規組織担当者メールアドレス
+    new String[]{"2db136e1-728c-48ef-803e-f609bd2d5697","a8999a4f-f28d-4ca4-a77b-9d3989c3f84a","d3d604ca-cbca-4492-a985-c66090ebadb1"}, // 加盟店組織で有効にするマネーIDの配列
+    "24Y00BddIY@IaGs.com",                        // 発行体担当者メールアドレス
+    "nHTfyj3vGh@pYs6.com"                         // 新規組織担当者メールアドレス
 )
         .bankName("XYZ銀行")                        // 銀行名
         .bankCode("99X")                          // 銀行金融機関コード
         .bankBranchName("ABC支店")                  // 銀行支店名
         .bankBranchCode("99X")                    // 銀行支店コード
         .bankAccountType("saving")                // 銀行口座種別 (普通=saving, 当座=current, その他=other)
-        .bankAccount("9999999")                   // 銀行口座番号
+        .bankAccount(9999999)                     // 銀行口座番号
         .bankAccountHolderName("ﾌｸｻﾞﾜﾕｷﾁ")        // 口座名義人名
         .contactName("佐藤清");                      // 担当者名
 ```
@@ -566,11 +566,11 @@ Request request = new CreateOrganization(
 Request request = new CreateShop(
     "oxスーパー三田店"                                   // 店舗名
 )
-        .shopPostalCode("0772713")                // 店舗の郵便番号
+        .shopPostalCode("705-0618")               // 店舗の郵便番号
         .shopAddress("東京都港区芝...")                 // 店舗の住所
-        .shopTel("04-30421")                      // 店舗の電話番号
-        .shopEmail("jt0rt7Umer@ReZG.com")         // 店舗のメールアドレス
-        .shopExternalId("bvGgvAZbyLJ1Lea6")       // 店舗の外部ID
+        .shopTel("08-3533-1614")                  // 店舗の電話番号
+        .shopEmail("JmfjoJZ9aj@sO39.com")         // 店舗のメールアドレス
+        .shopExternalId("qxP")                    // 店舗の外部ID
         .organizationCode("ox-supermarket");      // 組織コード
 ```
 成功したときは以下のメソッドを含む`User`クラスのインスタンスを返します。
@@ -583,10 +583,10 @@ Request request = new CreateShop(
 #### 決済加盟店の取引サマリを取得する
 ```java
 Request request = new GetPrivateMoneyOrganizationSummaries(
-    "e64bc9d2-ef54-4b2f-bed6-712e9ae4f3e3"        // マネーID
+    "66d2d5fe-6f71-4549-a9c7-2b71ffdba9be"        // マネーID
 )
-        .from("2025-04-18T01-42-16+09:00")        // 開始日時(toと同時に指定する必要有)
-        .to("2017-03-02T07-42-27+09:00")          // 終了日時(fromと同時に指定する必要有)
+        .from("2022-11-18T16:06:34.000000+09:00") // 開始日時(toと同時に指定する必要有)
+        .to("2021-04-07T09:07:57.000000+09:00")   // 終了日時(fromと同時に指定する必要有)
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
 ```

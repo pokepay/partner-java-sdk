@@ -1,7 +1,7 @@
 package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.CreateCheck;
-import jp.pokepay.partnerapi.request.CreateEcho;
+import jp.pokepay.partnerapi.request.SendEcho;
 import jp.pokepay.partnerapi.response.Check;
 import jp.pokepay.partnerapi.response.Echo;
 import jp.pokepay.partnerapi.response.Pong;
@@ -18,6 +18,23 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 class PartnerAPITest {
     private static PartnerAPI client;
+
+    static PartnerAPI getClient() {
+        if (client == null) {
+            try {
+                init();
+            } catch (SSLInitializeError sslInitializeError) {
+                sslInitializeError.printStackTrace();
+            } catch (P12FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (ProcessingError processingError) {
+                processingError.printStackTrace();
+            } catch (ConfigFileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return client;
+    }
 
     @BeforeAll
     static void init() throws SSLInitializeError, P12FileNotFoundException, ProcessingError, ConfigFileNotFoundException {
@@ -40,7 +57,7 @@ class PartnerAPITest {
     @Test
     void echo() {
         try {
-            Echo echo = (Echo) client.send(new CreateEcho("hello"));
+            Echo echo = (Echo) client.send(new SendEcho("hello"));
             assertEquals("ok", echo.getStatus());
             assertEquals("hello", echo.getMessage());
         } catch (Exception e) {
