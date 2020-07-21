@@ -11,7 +11,7 @@ public class UpdateAccountTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateAccount(
-            "551c9532-f9c8-45ca-8980-344160992853"
+            "f6788afa-85ba-4dc6-8270-ecd0d77a3c72"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -27,7 +27,7 @@ public class UpdateAccountTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateAccount(
-            "551c9532-f9c8-45ca-8980-344160992853"
+            "f6788afa-85ba-4dc6-8270-ecd0d77a3c72"
         )
                 .setSuspended(true);
         try {
