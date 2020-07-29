@@ -11,7 +11,7 @@ public class CreateCustomerAccountTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateCustomerAccount(
-            "4bd34918-c4a3-4e47-8f5a-b8b2a301f713"
+            "d8c3795c-950d-49ef-b6cf-91226b1372b6"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -27,9 +27,9 @@ public class CreateCustomerAccountTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateCustomerAccount(
-            "4bd34918-c4a3-4e47-8f5a-b8b2a301f713"
+            "d8c3795c-950d-49ef-b6cf-91226b1372b6"
         )
-                .accountName("HwZlOxwLBG6kNb3GiT08uTswwIqq8HGCnWqnVi2oZuGYLEaki6ekIAY1WW90QyiZNV7628qfqbBM1Qy");
+                .accountName("3EON8CCgUki9a");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -44,10 +44,10 @@ public class CreateCustomerAccountTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateCustomerAccount(
-            "4bd34918-c4a3-4e47-8f5a-b8b2a301f713"
+            "d8c3795c-950d-49ef-b6cf-91226b1372b6"
         )
-                .userName("HqiQGL2qJwwjaAnELVd74BfzsPS9c19HWfLpmK0hCKy46EKHOe5mMeEn93lAZl1lCxefUzp3qLOdJ74lHuRqJtJJKuGqv02T605yetsE6hl3gMs2m6qx5e8uCxWppjAUzGEbVZk7E1dNnleaQ9zX2GktUCge2GWBNrH2MOsZrRpqHKJtKFKsvPnLbNuvxEJfLfOv2mrjQS8KJxiqRQRqZNGxx8")
-                .accountName("lw5t8s9VvIZrDIAkFeIOcCd6OBOQtQm0Zf8R3CvaK9VL2Gb0OI3E8x0R7K9VUc7mK5dTOuf5VZ");
+                .userName("Uj1lDlegbl2h5pkpqS48CzRouto43YbjPzwlVP8aLMgXkoIWhkmTBtBfPqYgkDk2ZAVszcweuiCgegMHGSx50HQ6WkT3NevXUfu4bshI581zbW3OxA6m8S")
+                .accountName("riYgwRXYIpanjN6xkqYA2rVsREq5BOiqv2SECK4vRR9beLAJLnT4DtTifFKQj2QUL9VxxC6hJwNflAWAbWnAz3QoeOpdAocvJxBd5FIBdjhQJX8j8ykTMpK3EYAx76qEamaG0njhFyl7SloDL4jN62s0lyBV3dzkVGmbfKqAtJM2HLz41CoiHCte0jX8sMXmoihlB4YeYGwFvFFaHlefDY6IG4D4yAZTAVP");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
