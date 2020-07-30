@@ -101,8 +101,8 @@ Request request = new CreateTopupTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
         .bearPointShopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // ポイント支払時の負担店舗ID
-        .moneyAmount(4679)                        // マネー額
-        .pointAmount(2174)                        // ポイント額
+        .moneyAmount(8354)                        // マネー額
+        .pointAmount(8000)                        // ポイント額
         .description("初夏のチャージキャンペーン");            // 取引履歴に表示する説明文
 ```
 
@@ -158,7 +158,7 @@ Request request = new CreatePaymentTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // shopId: 店舗ID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // customerId: エンドユーザーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    5731                                          // amount: 支払い額
+    5952                                          // amount: 支払い額
 )
         .description("たい焼き(小倉)");                 // 取引履歴に表示する説明文
 ```
@@ -200,8 +200,8 @@ Request request = new CreatePaymentTransaction(
 取引一覧を返します。
 ```java
 Request request = new ListTransactions()
-        .from("2021-01-26T05:58:44.000000+09:00") // 開始日時
-        .to("2022-04-06T21:13:11.000000+09:00")   // 終了日時
+        .from("2023-05-12T17:29:05.000000+09:00") // 開始日時
+        .to("2024-08-08T16:15:47.000000+09:00")   // 終了日時
         .page(1)                                  // ページ番号
         .perPage(50)                              // 1ページ分の取引数
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ID
@@ -211,7 +211,7 @@ Request request = new ListTransactions()
         .transactionId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 取引ID
         .organizationCode("pocketchange")         // 組織コード
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
-        .setModified(false)                       // キャンセルフラグ
+        .setModified(true)                        // キャンセルフラグ
         .types(new String[]{"topup","payment"});  // 取引種別 (複数指定可)、チャージ=topup、支払い=payment
 ```
 
@@ -329,13 +329,13 @@ QRコードを読み取る方法以外にも、このURLリンクを直接スマ
 Request request = new CreateCheck(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: 送金元の店舗アカウントID
 )
-        .moneyAmount(87)                          // 付与マネー額
-        .pointAmount(6291)                        // 付与ポイント額
+        .moneyAmount(3925)                        // 付与マネー額
+        .pointAmount(6817)                        // 付与ポイント額
         .description("test check")                // 説明文(アプリ上で取引の説明文として表示される)
-        .setOnetime(false)                        // ワンタイムかどうか。真の場合1度読み込まれた時点でそのチャージQRは失効する(デフォルト値は真)
-        .usageLimit(7696)                         // ワンタイムでない場合、複数ユーザから読み取られ得る。その場合の最大読み取り回数
-        .expiresAt("2020-06-13T22:59:32.000000+09:00") // チャージQR自体の失効日時
-        .pointExpiresAt("2018-09-23T00:16:40.000000+09:00") // チャージQRによって付与されるポイントの失効日時
+        .setOnetime(true)                         // ワンタイムかどうか。真の場合1度読み込まれた時点でそのチャージQRは失効する(デフォルト値は真)
+        .usageLimit(6724)                         // ワンタイムでない場合、複数ユーザから読み取られ得る。その場合の最大読み取り回数
+        .expiresAt("2017-02-09T05:45:59.000000+09:00") // チャージQR自体の失効日時
+        .pointExpiresAt("2020-01-16T22:55:00.000000+09:00") // チャージQRによって付与されるポイントの失効日時
         .pointExpiresInDays(60)                   // チャージQRによって付与されるポイントの有効期限(相対指定、単位は日)
         .bearPointAccount("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // ポイント額を負担する店舗アカウントのID
 ```
@@ -437,8 +437,8 @@ Request request = new GetAccount(
 Request request = new ListAccountBalances(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
 )
-        .page(4035)                               // ページ番号
-        .perPage(6486);                           // 1ページ分の取引数
+        .page(5926)                               // ページ番号
+        .perPage(7268);                           // 1ページ分の取引数
 ```
 
 ---
@@ -465,15 +465,15 @@ Request request = new ListAccountBalances(
 Request request = new CreateOrganization(
     "ox_supermarket",                             // code: 新規組織コード
     "oxスーパー",                                     // name: 新規組織名
-    new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}, // privateMoneyIds: 加盟店組織で有効にするマネーIDの配列
-    "Iu6lQIyVND@YRtt.com",                        // issuerAdminUserEmail: 発行体担当者メールアドレス
-    "S46oTXBYnb@HbMu.com"                         // memberAdminUserEmail: 新規組織担当者メールアドレス
+    new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}, // privateMoneyIds: 加盟店組織で有効にするマネーIDの配列
+    "w3PX7IImkv@l5vC.com",                        // issuerAdminUserEmail: 発行体担当者メールアドレス
+    "AHh7QD95u0@YIcm.com"                         // memberAdminUserEmail: 新規組織担当者メールアドレス
 )
         .bankName("XYZ銀行")                        // 銀行名
         .bankCode("99X")                          // 銀行金融機関コード
         .bankBranchName("ABC支店")                  // 銀行支店名
         .bankBranchCode("99X")                    // 銀行支店コード
-        .bankAccountType("current")               // 銀行口座種別 (普通=saving, 当座=current, その他=other)
+        .bankAccountType("saving")                // 銀行口座種別 (普通=saving, 当座=current, その他=other)
         .bankAccount(9999999)                     // 銀行口座番号
         .bankAccountHolderName("ﾌｸｻﾞﾜﾕｷﾁ")        // 口座名義人名
         .contactName("佐藤清");                      // 担当者名
@@ -487,11 +487,11 @@ Request request = new CreateOrganization(
 Request request = new CreateShop(
     "oxスーパー三田店"                                   // shopName: 店舗名
 )
-        .shopPostalCode("7480199")                // 店舗の郵便番号
+        .shopPostalCode("0330522")                // 店舗の郵便番号
         .shopAddress("東京都港区芝...")                 // 店舗の住所
-        .shopTel("05-838-7657")                   // 店舗の電話番号
-        .shopEmail("xc7L05i8jk@Z1Wa.com")         // 店舗のメールアドレス
-        .shopExternalId("6h6AAgB9jXehhbgsnyiHZ1n3qwk3r3QhfS") // 店舗の外部ID
+        .shopTel("06-16-8947")                    // 店舗の電話番号
+        .shopEmail("kJp5ENq52O@LTcJ.com")         // 店舗のメールアドレス
+        .shopExternalId("lnsa7zuy1tusdwen7Z1wrrgdxWfKkMLw") // 店舗の外部ID
         .organizationCode("ox-supermarket");      // 組織コード
 ```
 成功したときは[User](#user)クラスのインスタンスを返します
@@ -503,8 +503,8 @@ Request request = new CreateShop(
 Request request = new GetPrivateMoneyOrganizationSummaries(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .from("2015-10-02T09:00:47.000000+09:00") // 開始日時(toと同時に指定する必要有)
-        .to("2023-11-05T10:46:23.000000+09:00")   // 終了日時(fromと同時に指定する必要有)
+        .from("2018-06-10T11:50:19.000000+09:00") // 開始日時(toと同時に指定する必要有)
+        .to("2018-05-11T20:25:55.000000+09:00")   // 終了日時(fromと同時に指定する必要有)
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
 ```
@@ -513,50 +513,6 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 成功したときは[PaginatedPrivateMoneyOrganizationSummaries](#paginated-private-money-organization-summaries)クラスのインスタンスを返します
 
 ## Responses
-
-
-<a name="pong"></a>
-## Pong
-* `getPong() String`: 
-
-<a name="echo"></a>
-## Echo
-* `getStatus() String`: 
-* `getMessage() String`: 
-
-<a name="pagination"></a>
-## Pagination
-* `getCurrent() int`: 
-* `getPerPage() int`: 
-* `getMaxPage() int`: 
-* `getHasPrev() boolean`: 
-* `getHasNext() boolean`: 
-
-<a name="admin-user-with-shops-and-private-moneys"></a>
-## AdminUserWithShopsAndPrivateMoneys
-* `getId() String`: 
-* `getRole() String`: 
-* `getEmail() String`: 
-* `getName() String`: 
-* `isActive() boolean`: 
-* `getOrganization() Organization`: 
-* `getShops() User[]`: 
-* `getPrivateMoneys() PrivateMoney[]`: 
-
-`getOrganization`は [Organization](#organization) クラスのインスタンスを返します。
-
-`getShops`は [User](#user) クラスのインスタンスを返します。
-
-`getPrivateMoneys`は [PrivateMoney](#private-money) クラスのインスタンスを返します。
-
-<a name="account"></a>
-## Account
-* `getId() String`: ウォレットID
-* `getName() String`: ウォレット名
-* `isSuspended() boolean`: ウォレットが凍結されているかどうか
-* `getPrivateMoney() PrivateMoney`: 設定マネー情報
-
-`getPrivateMoney`は [PrivateMoney](#private-money) クラスのインスタンスを返します。
 
 <a name="account-with-user"></a>
 ## AccountWithUser
@@ -581,12 +537,6 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 * `getPrivateMoney() PrivateMoney`: 
 
 `getPrivateMoney`は [PrivateMoney](#private-money) クラスのインスタンスを返します。
-
-<a name="account-balance"></a>
-## AccountBalance
-* `getExpiresAt() String`: 
-* `getMoneyAmount() double`: 
-* `getPointAmount() double`: 
 
 <a name="check"></a>
 ## Check
@@ -614,24 +564,6 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 * `getName() String`: ユーザー (または店舗) 名
 * `isMerchant() boolean`: 店舗ユーザーかどうか
 
-<a name="private-money"></a>
-## PrivateMoney
-* `getId() String`: マネーID
-* `getName() String`: マネー名
-* `getUnit() String`: マネー単位 (例: 円)
-* `isExclusive() boolean`: 会員制のマネーかどうか
-* `getDescription() String`: マネー説明文
-* `getOnelineMessage() String`: マネーの要約
-* `getOrganization() Organization`: マネーを発行した組織
-* `getMaxBalance() double`: ウォレットの上限金額
-* `getTransferLimit() double`: マネーの取引上限額
-* `getType() String`: マネー種別 (自家型=own, 第三者型=third-party)
-* `getExpirationType() String`: 有効期限種別 (チャージ日起算=static, 最終利用日起算=last-update, 最終チャージ日起算=last-topup-update)
-* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効かどうか
-* `getAccountImage() String`: マネーの画像URL
-
-`getOrganization`は [Organization](#organization) クラスのインスタンスを返します。
-
 <a name="organization"></a>
 ## Organization
 * `getCode() String`: 組織コード
@@ -656,34 +588,6 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 
 `getReceiverAccount`と`getSenderAccount`は [Account](#account) クラスのインスタンスを返します。
 
-<a name="user-transaction"></a>
-## UserTransaction
-* `getId() String`: 
-* `getUser() User`: 
-* `getBalance() double`: 
-* `getAmount() double`: 
-* `getMoneyAmount() double`: 
-* `getPointAmount() double`: 
-* `getAccount() Account`: 
-* `getDescription() String`: 
-* `getDoneAt() String`: 
-* `getType() String`: 
-* `isModified() boolean`: 
-
-`getUser`は [User](#user) クラスのインスタンスを返します。
-
-`getAccount`は [Account](#account) クラスのインスタンスを返します。
-
-<a name="account-without-private-money-detail"></a>
-## AccountWithoutPrivateMoneyDetail
-* `getId() String`: 
-* `getName() String`: 
-* `isSuspended() boolean`: 
-* `getPrivateMoneyId() String`: 
-* `getUser() User`: 
-
-`getUser`は [User](#user) クラスのインスタンスを返します。
-
 <a name="transfer"></a>
 ## Transfer
 * `getId() String`: 
@@ -698,22 +602,6 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 * `getTransactionId() String`: 
 
 `getReceiverAccount`と`getSenderAccount`は [AccountWithoutPrivateMoneyDetail](#account-without-private-money-detail) クラスのインスタンスを返します。
-
-<a name="organization-summary"></a>
-## OrganizationSummary
-* `getCount() int`: 
-* `getMoneyAmount() double`: 
-* `getMoneyCount() int`: 
-* `getPointAmount() double`: 
-* `getPointCount() int`: 
-
-<a name="private-money-organization-summary"></a>
-## PrivateMoneyOrganizationSummary
-* `getOrganizationCode() String`: 
-* `getTopup() OrganizationSummary`: 
-* `getPayment() OrganizationSummary`: 
-
-`getPayment`と`getTopup`は [OrganizationSummary](#organization-summary) クラスのインスタンスを返します。
 
 <a name="paginated-private-money-organization-summaries"></a>
 ## PaginatedPrivateMoneyOrganizationSummaries
@@ -735,16 +623,6 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 
 `getPagination`は [Pagination](#pagination) クラスのインスタンスを返します。
 
-<a name="paginated-transfers"></a>
-## PaginatedTransfers
-* `getRows() Transfer[]`: 
-* `getCount() int`: 
-* `getPagination() Pagination`: 
-
-`getRows`は [Transfer](#transfer) クラスのインスタンスを返します。
-
-`getPagination`は [Pagination](#pagination) クラスのインスタンスを返します。
-
 <a name="paginated-account-balance"></a>
 ## PaginatedAccountBalance
 * `getRows() AccountBalance[]`: 
@@ -754,32 +632,3 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 `getRows`は [AccountBalance](#account-balance) クラスのインスタンスを返します。
 
 `getPagination`は [Pagination](#pagination) クラスのインスタンスを返します。
-
-<a name="bad-request"></a>
-## BadRequest
-
-<a name="partner-client-not-found"></a>
-## PartnerClientNotFound
-* `getType() String`: 
-* `getMessage() String`: 
-
-<a name="partner-decryption-failed"></a>
-## PartnerDecryptionFailed
-* `getType() String`: 
-* `getMessage() String`: 
-
-<a name="partner-request-expired"></a>
-## PartnerRequestExpired
-* `getType() String`: 
-* `getMessage() String`: 
-
-<a name="partner-request-already-done"></a>
-## PartnerRequestAlreadyDone
-* `getType() String`: 
-* `getMessage() String`: 
-
-<a name="invalid-parameters"></a>
-## InvalidParameters
-* `getType() String`: 
-* `getMessage() String`: 
-* `getErrors() Object`: 
