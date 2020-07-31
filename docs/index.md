@@ -101,8 +101,8 @@ Request request = new CreateTopupTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
         .bearPointShopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // ポイント支払時の負担店舗ID
-        .moneyAmount(3237)                        // マネー額
-        .pointAmount(6597)                        // ポイント額
+        .moneyAmount(5199)                        // マネー額
+        .pointAmount(5121)                        // ポイント額
         .description("初夏のチャージキャンペーン");            // 取引履歴に表示する説明文
 ```
 
@@ -158,7 +158,7 @@ Request request = new CreatePaymentTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // shopId: 店舗ID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // customerId: エンドユーザーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    174                                           // amount: 支払い額
+    8156                                          // amount: 支払い額
 )
         .description("たい焼き(小倉)");                 // 取引履歴に表示する説明文
 ```
@@ -200,8 +200,8 @@ Request request = new CreatePaymentTransaction(
 取引一覧を返します。
 ```java
 Request request = new ListTransactions()
-        .from("2022-03-22T17:53:01.000000+09:00") // 開始日時
-        .to("2018-05-20T09:30:01.000000+09:00")   // 終了日時
+        .from("2021-02-08T10:12:18.000000+09:00") // 開始日時
+        .to("2019-12-27T12:54:34.000000+09:00")   // 終了日時
         .page(1)                                  // ページ番号
         .perPage(50)                              // 1ページ分の取引数
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ID
@@ -329,13 +329,13 @@ QRコードを読み取る方法以外にも、このURLリンクを直接スマ
 Request request = new CreateCheck(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: 送金元の店舗アカウントID
 )
-        .moneyAmount(9237)                        // 付与マネー額
-        .pointAmount(781)                         // 付与ポイント額
+        .moneyAmount(4421)                        // 付与マネー額
+        .pointAmount(4121)                        // 付与ポイント額
         .description("test check")                // 説明文(アプリ上で取引の説明文として表示される)
         .setOnetime(false)                        // ワンタイムかどうか。真の場合1度読み込まれた時点でそのチャージQRは失効する(デフォルト値は真)
-        .usageLimit(4433)                         // ワンタイムでない場合、複数ユーザから読み取られ得る。その場合の最大読み取り回数
-        .expiresAt("2017-08-04T20:42:59.000000+09:00") // チャージQR自体の失効日時
-        .pointExpiresAt("2021-02-01T21:44:07.000000+09:00") // チャージQRによって付与されるポイントの失効日時
+        .usageLimit(3120)                         // ワンタイムでない場合、複数ユーザから読み取られ得る。その場合の最大読み取り回数
+        .expiresAt("2018-03-28T20:44:43.000000+09:00") // チャージQR自体の失効日時
+        .pointExpiresAt("2021-06-27T05:50:40.000000+09:00") // チャージQRによって付与されるポイントの失効日時
         .pointExpiresInDays(60)                   // チャージQRによって付与されるポイントの有効期限(相対指定、単位は日)
         .bearPointAccount("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // ポイント額を負担する店舗アカウントのID
 ```
@@ -437,8 +437,8 @@ Request request = new GetAccount(
 Request request = new ListAccountBalances(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
 )
-        .page(3968)                               // ページ番号
-        .perPage(3353);                           // 1ページ分の取引数
+        .page(704)                                // ページ番号
+        .perPage(3071);                           // 1ページ分の取引数
 ```
 
 ---
@@ -465,9 +465,9 @@ Request request = new ListAccountBalances(
 Request request = new CreateOrganization(
     "ox_supermarket",                             // code: 新規組織コード
     "oxスーパー",                                     // name: 新規組織名
-    new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}, // privateMoneyIds: 加盟店組織で有効にするマネーIDの配列
-    "blLaNi11WG@dlnt.com",                        // issuerAdminUserEmail: 発行体担当者メールアドレス
-    "TU39qRyJoz@5bz2.com"                         // memberAdminUserEmail: 新規組織担当者メールアドレス
+    new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}, // privateMoneyIds: 加盟店組織で有効にするマネーIDの配列
+    "jvEmxh6fNh@0afT.com",                        // issuerAdminUserEmail: 発行体担当者メールアドレス
+    "A77V8k9RUo@h67Y.com"                         // memberAdminUserEmail: 新規組織担当者メールアドレス
 )
         .bankName("XYZ銀行")                        // 銀行名
         .bankCode("99X")                          // 銀行金融機関コード
@@ -487,11 +487,11 @@ Request request = new CreateOrganization(
 Request request = new CreateShop(
     "oxスーパー三田店"                                   // shopName: 店舗名
 )
-        .shopPostalCode("2100008")                // 店舗の郵便番号
+        .shopPostalCode("098-5081")               // 店舗の郵便番号
         .shopAddress("東京都港区芝...")                 // 店舗の住所
-        .shopTel("0602880")                       // 店舗の電話番号
-        .shopEmail("eVpSARNbB6@Mc9H.com")         // 店舗のメールアドレス
-        .shopExternalId("52X")                    // 店舗の外部ID
+        .shopTel("052811248")                     // 店舗の電話番号
+        .shopEmail("305HKywT1G@vMth.com")         // 店舗のメールアドレス
+        .shopExternalId("lgFGL4")                 // 店舗の外部ID
         .organizationCode("ox-supermarket");      // 組織コード
 ```
 成功したときは[User](#user)クラスのインスタンスを返します
@@ -503,8 +503,8 @@ Request request = new CreateShop(
 Request request = new GetPrivateMoneyOrganizationSummaries(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .from("2021-04-24T18:13:17.000000+09:00") // 開始日時(toと同時に指定する必要有)
-        .to("2025-03-29T12:13:30.000000+09:00")   // 終了日時(fromと同時に指定する必要有)
+        .from("2021-02-22T14:30:32.000000+09:00") // 開始日時(toと同時に指定する必要有)
+        .to("2017-06-11T19:08:29.000000+09:00")   // 終了日時(fromと同時に指定する必要有)
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
 ```
@@ -609,7 +609,7 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 * `getCount() int`: 
 * `getPagination() Pagination`: 
 
-`getRows`は [PrivateMoneyOrganizationSummary](#private-money-organization-summary) クラスのインスタンスを返します。
+`getRows`は [PrivateMoneyOrganizationSummary](#private-money-organization-summary) クラスのインスタンスの配列を返します。
 
 `getPagination`は [Pagination](#pagination) クラスのインスタンスを返します。
 
@@ -619,7 +619,7 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 * `getCount() int`: 
 * `getPagination() Pagination`: 
 
-`getRows`は [Transaction](#transaction) クラスのインスタンスを返します。
+`getRows`は [Transaction](#transaction) クラスのインスタンスの配列を返します。
 
 `getPagination`は [Pagination](#pagination) クラスのインスタンスを返します。
 
@@ -629,7 +629,7 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 * `getCount() int`: 
 * `getPagination() Pagination`: 
 
-`getRows`は [AccountBalance](#account-balance) クラスのインスタンスを返します。
+`getRows`は [AccountBalance](#account-balance) クラスのインスタンスの配列を返します。
 
 `getPagination`は [Pagination](#pagination) クラスのインスタンスを返します。
 
