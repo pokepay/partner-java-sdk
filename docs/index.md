@@ -101,8 +101,8 @@ Request request = new CreateTopupTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
         .bearPointShopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // ポイント支払時の負担店舗ID
-        .moneyAmount(8354)                        // マネー額
-        .pointAmount(8000)                        // ポイント額
+        .moneyAmount(3237)                        // マネー額
+        .pointAmount(6597)                        // ポイント額
         .description("初夏のチャージキャンペーン");            // 取引履歴に表示する説明文
 ```
 
@@ -158,7 +158,7 @@ Request request = new CreatePaymentTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // shopId: 店舗ID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // customerId: エンドユーザーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    5952                                          // amount: 支払い額
+    174                                           // amount: 支払い額
 )
         .description("たい焼き(小倉)");                 // 取引履歴に表示する説明文
 ```
@@ -200,8 +200,8 @@ Request request = new CreatePaymentTransaction(
 取引一覧を返します。
 ```java
 Request request = new ListTransactions()
-        .from("2023-05-12T17:29:05.000000+09:00") // 開始日時
-        .to("2024-08-08T16:15:47.000000+09:00")   // 終了日時
+        .from("2022-03-22T17:53:01.000000+09:00") // 開始日時
+        .to("2018-05-20T09:30:01.000000+09:00")   // 終了日時
         .page(1)                                  // ページ番号
         .perPage(50)                              // 1ページ分の取引数
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ID
@@ -329,13 +329,13 @@ QRコードを読み取る方法以外にも、このURLリンクを直接スマ
 Request request = new CreateCheck(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: 送金元の店舗アカウントID
 )
-        .moneyAmount(3925)                        // 付与マネー額
-        .pointAmount(6817)                        // 付与ポイント額
+        .moneyAmount(9237)                        // 付与マネー額
+        .pointAmount(781)                         // 付与ポイント額
         .description("test check")                // 説明文(アプリ上で取引の説明文として表示される)
-        .setOnetime(true)                         // ワンタイムかどうか。真の場合1度読み込まれた時点でそのチャージQRは失効する(デフォルト値は真)
-        .usageLimit(6724)                         // ワンタイムでない場合、複数ユーザから読み取られ得る。その場合の最大読み取り回数
-        .expiresAt("2017-02-09T05:45:59.000000+09:00") // チャージQR自体の失効日時
-        .pointExpiresAt("2020-01-16T22:55:00.000000+09:00") // チャージQRによって付与されるポイントの失効日時
+        .setOnetime(false)                        // ワンタイムかどうか。真の場合1度読み込まれた時点でそのチャージQRは失効する(デフォルト値は真)
+        .usageLimit(4433)                         // ワンタイムでない場合、複数ユーザから読み取られ得る。その場合の最大読み取り回数
+        .expiresAt("2017-08-04T20:42:59.000000+09:00") // チャージQR自体の失効日時
+        .pointExpiresAt("2021-02-01T21:44:07.000000+09:00") // チャージQRによって付与されるポイントの失効日時
         .pointExpiresInDays(60)                   // チャージQRによって付与されるポイントの有効期限(相対指定、単位は日)
         .bearPointAccount("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // ポイント額を負担する店舗アカウントのID
 ```
@@ -437,8 +437,8 @@ Request request = new GetAccount(
 Request request = new ListAccountBalances(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
 )
-        .page(5926)                               // ページ番号
-        .perPage(7268);                           // 1ページ分の取引数
+        .page(3968)                               // ページ番号
+        .perPage(3353);                           // 1ページ分の取引数
 ```
 
 ---
@@ -466,14 +466,14 @@ Request request = new CreateOrganization(
     "ox_supermarket",                             // code: 新規組織コード
     "oxスーパー",                                     // name: 新規組織名
     new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}, // privateMoneyIds: 加盟店組織で有効にするマネーIDの配列
-    "w3PX7IImkv@l5vC.com",                        // issuerAdminUserEmail: 発行体担当者メールアドレス
-    "AHh7QD95u0@YIcm.com"                         // memberAdminUserEmail: 新規組織担当者メールアドレス
+    "blLaNi11WG@dlnt.com",                        // issuerAdminUserEmail: 発行体担当者メールアドレス
+    "TU39qRyJoz@5bz2.com"                         // memberAdminUserEmail: 新規組織担当者メールアドレス
 )
         .bankName("XYZ銀行")                        // 銀行名
         .bankCode("99X")                          // 銀行金融機関コード
         .bankBranchName("ABC支店")                  // 銀行支店名
         .bankBranchCode("99X")                    // 銀行支店コード
-        .bankAccountType("saving")                // 銀行口座種別 (普通=saving, 当座=current, その他=other)
+        .bankAccountType("current")               // 銀行口座種別 (普通=saving, 当座=current, その他=other)
         .bankAccount(9999999)                     // 銀行口座番号
         .bankAccountHolderName("ﾌｸｻﾞﾜﾕｷﾁ")        // 口座名義人名
         .contactName("佐藤清");                      // 担当者名
@@ -487,11 +487,11 @@ Request request = new CreateOrganization(
 Request request = new CreateShop(
     "oxスーパー三田店"                                   // shopName: 店舗名
 )
-        .shopPostalCode("0330522")                // 店舗の郵便番号
+        .shopPostalCode("2100008")                // 店舗の郵便番号
         .shopAddress("東京都港区芝...")                 // 店舗の住所
-        .shopTel("06-16-8947")                    // 店舗の電話番号
-        .shopEmail("kJp5ENq52O@LTcJ.com")         // 店舗のメールアドレス
-        .shopExternalId("lnsa7zuy1tusdwen7Z1wrrgdxWfKkMLw") // 店舗の外部ID
+        .shopTel("0602880")                       // 店舗の電話番号
+        .shopEmail("eVpSARNbB6@Mc9H.com")         // 店舗のメールアドレス
+        .shopExternalId("52X")                    // 店舗の外部ID
         .organizationCode("ox-supermarket");      // 組織コード
 ```
 成功したときは[User](#user)クラスのインスタンスを返します
@@ -503,8 +503,8 @@ Request request = new CreateShop(
 Request request = new GetPrivateMoneyOrganizationSummaries(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .from("2018-06-10T11:50:19.000000+09:00") // 開始日時(toと同時に指定する必要有)
-        .to("2018-05-11T20:25:55.000000+09:00")   // 終了日時(fromと同時に指定する必要有)
+        .from("2021-04-24T18:13:17.000000+09:00") // 開始日時(toと同時に指定する必要有)
+        .to("2025-03-29T12:13:30.000000+09:00")   // 終了日時(fromと同時に指定する必要有)
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
 ```
@@ -632,3 +632,62 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 `getRows`は [AccountBalance](#account-balance) クラスのインスタンスを返します。
 
 `getPagination`は [Pagination](#pagination) クラスのインスタンスを返します。
+
+<a name="private-money"></a>
+## PrivateMoney
+* `getId() String`: マネーID
+* `getName() String`: マネー名
+* `getUnit() String`: マネー単位 (例: 円)
+* `isExclusive() boolean`: 会員制のマネーかどうか
+* `getDescription() String`: マネー説明文
+* `getOnelineMessage() String`: マネーの要約
+* `getOrganization() Organization`: マネーを発行した組織
+* `getMaxBalance() double`: ウォレットの上限金額
+* `getTransferLimit() double`: マネーの取引上限額
+* `getType() String`: マネー種別 (自家型=own, 第三者型=third-party)
+* `getExpirationType() String`: 有効期限種別 (チャージ日起算=static, 最終利用日起算=last-update, 最終チャージ日起算=last-topup-update)
+* `getEnableTopupByMember() boolean`: 加盟店によるチャージが有効かどうか
+* `getAccountImage() String`: マネーの画像URL
+
+`getOrganization`は [Organization](#organization) クラスのインスタンスを返します。
+
+<a name="account"></a>
+## Account
+* `getId() String`: ウォレットID
+* `getName() String`: ウォレット名
+* `isSuspended() boolean`: ウォレットが凍結されているかどうか
+* `getPrivateMoney() PrivateMoney`: 設定マネー情報
+
+`getPrivateMoney`は [PrivateMoney](#private-money) クラスのインスタンスを返します。
+
+<a name="account-without-private-money-detail"></a>
+## AccountWithoutPrivateMoneyDetail
+* `getId() String`: 
+* `getName() String`: 
+* `isSuspended() boolean`: 
+* `getPrivateMoneyId() String`: 
+* `getUser() User`: 
+
+`getUser`は [User](#user) クラスのインスタンスを返します。
+
+<a name="private-money-organization-summary"></a>
+## PrivateMoneyOrganizationSummary
+* `getOrganizationCode() String`: 
+* `getTopup() OrganizationSummary`: 
+* `getPayment() OrganizationSummary`: 
+
+`getPayment`と`getTopup`は [OrganizationSummary](#organization-summary) クラスのインスタンスを返します。
+
+<a name="pagination"></a>
+## Pagination
+* `getCurrent() int`: 
+* `getPerPage() int`: 
+* `getMaxPage() int`: 
+* `getHasPrev() boolean`: 
+* `getHasNext() boolean`: 
+
+<a name="account-balance"></a>
+## AccountBalance
+* `getExpiresAt() String`: 
+* `getMoneyAmount() double`: 
+* `getPointAmount() double`: 
