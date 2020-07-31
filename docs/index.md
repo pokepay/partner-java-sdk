@@ -101,8 +101,8 @@ Request request = new CreateTopupTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
         .bearPointShopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // ポイント支払時の負担店舗ID
-        .moneyAmount(5199)                        // マネー額
-        .pointAmount(5121)                        // ポイント額
+        .moneyAmount(2398)                        // マネー額
+        .pointAmount(8440)                        // ポイント額
         .description("初夏のチャージキャンペーン");            // 取引履歴に表示する説明文
 ```
 
@@ -158,7 +158,7 @@ Request request = new CreatePaymentTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // shopId: 店舗ID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // customerId: エンドユーザーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    8156                                          // amount: 支払い額
+    55                                            // amount: 支払い額
 )
         .description("たい焼き(小倉)");                 // 取引履歴に表示する説明文
 ```
@@ -200,8 +200,8 @@ Request request = new CreatePaymentTransaction(
 取引一覧を返します。
 ```java
 Request request = new ListTransactions()
-        .from("2021-02-08T10:12:18.000000+09:00") // 開始日時
-        .to("2019-12-27T12:54:34.000000+09:00")   // 終了日時
+        .from("2020-05-04T13:09:22.000000+09:00") // 開始日時
+        .to("2021-08-01T02:47:08.000000+09:00")   // 終了日時
         .page(1)                                  // ページ番号
         .perPage(50)                              // 1ページ分の取引数
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ID
@@ -211,7 +211,7 @@ Request request = new ListTransactions()
         .transactionId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 取引ID
         .organizationCode("pocketchange")         // 組織コード
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
-        .setModified(true)                        // キャンセルフラグ
+        .setModified(false)                       // キャンセルフラグ
         .types(new String[]{"topup","payment"});  // 取引種別 (複数指定可)、チャージ=topup、支払い=payment
 ```
 
@@ -329,13 +329,13 @@ QRコードを読み取る方法以外にも、このURLリンクを直接スマ
 Request request = new CreateCheck(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: 送金元の店舗アカウントID
 )
-        .moneyAmount(4421)                        // 付与マネー額
-        .pointAmount(4121)                        // 付与ポイント額
+        .moneyAmount(2255)                        // 付与マネー額
+        .pointAmount(5620)                        // 付与ポイント額
         .description("test check")                // 説明文(アプリ上で取引の説明文として表示される)
         .setOnetime(false)                        // ワンタイムかどうか。真の場合1度読み込まれた時点でそのチャージQRは失効する(デフォルト値は真)
-        .usageLimit(3120)                         // ワンタイムでない場合、複数ユーザから読み取られ得る。その場合の最大読み取り回数
-        .expiresAt("2018-03-28T20:44:43.000000+09:00") // チャージQR自体の失効日時
-        .pointExpiresAt("2021-06-27T05:50:40.000000+09:00") // チャージQRによって付与されるポイントの失効日時
+        .usageLimit(6407)                         // ワンタイムでない場合、複数ユーザから読み取られ得る。その場合の最大読み取り回数
+        .expiresAt("2018-10-04T15:30:42.000000+09:00") // チャージQR自体の失効日時
+        .pointExpiresAt("2023-01-25T00:58:11.000000+09:00") // チャージQRによって付与されるポイントの失効日時
         .pointExpiresInDays(60)                   // チャージQRによって付与されるポイントの有効期限(相対指定、単位は日)
         .bearPointAccount("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // ポイント額を負担する店舗アカウントのID
 ```
@@ -437,8 +437,8 @@ Request request = new GetAccount(
 Request request = new ListAccountBalances(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
 )
-        .page(704)                                // ページ番号
-        .perPage(3071);                           // 1ページ分の取引数
+        .page(3376)                               // ページ番号
+        .perPage(2585);                           // 1ページ分の取引数
 ```
 
 ---
@@ -465,9 +465,9 @@ Request request = new ListAccountBalances(
 Request request = new CreateOrganization(
     "ox_supermarket",                             // code: 新規組織コード
     "oxスーパー",                                     // name: 新規組織名
-    new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}, // privateMoneyIds: 加盟店組織で有効にするマネーIDの配列
-    "jvEmxh6fNh@0afT.com",                        // issuerAdminUserEmail: 発行体担当者メールアドレス
-    "A77V8k9RUo@h67Y.com"                         // memberAdminUserEmail: 新規組織担当者メールアドレス
+    new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}, // privateMoneyIds: 加盟店組織で有効にするマネーIDの配列
+    "VWHAmOwXTL@KTUs.com",                        // issuerAdminUserEmail: 発行体担当者メールアドレス
+    "FQ4lIwlxfP@iBHG.com"                         // memberAdminUserEmail: 新規組織担当者メールアドレス
 )
         .bankName("XYZ銀行")                        // 銀行名
         .bankCode("99X")                          // 銀行金融機関コード
@@ -487,11 +487,11 @@ Request request = new CreateOrganization(
 Request request = new CreateShop(
     "oxスーパー三田店"                                   // shopName: 店舗名
 )
-        .shopPostalCode("098-5081")               // 店舗の郵便番号
+        .shopPostalCode("6954448")                // 店舗の郵便番号
         .shopAddress("東京都港区芝...")                 // 店舗の住所
-        .shopTel("052811248")                     // 店舗の電話番号
-        .shopEmail("305HKywT1G@vMth.com")         // 店舗のメールアドレス
-        .shopExternalId("lgFGL4")                 // 店舗の外部ID
+        .shopTel("08173-8372")                    // 店舗の電話番号
+        .shopEmail("bFrqWMYsFm@svoZ.com")         // 店舗のメールアドレス
+        .shopExternalId("bxLWISM0QqfRxuP")        // 店舗の外部ID
         .organizationCode("ox-supermarket");      // 組織コード
 ```
 成功したときは[User](#user)クラスのインスタンスを返します
@@ -503,8 +503,8 @@ Request request = new CreateShop(
 Request request = new GetPrivateMoneyOrganizationSummaries(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .from("2021-02-22T14:30:32.000000+09:00") // 開始日時(toと同時に指定する必要有)
-        .to("2017-06-11T19:08:29.000000+09:00")   // 終了日時(fromと同時に指定する必要有)
+        .from("2022-01-25T18:18:16.000000+09:00") // 開始日時(toと同時に指定する必要有)
+        .to("2025-03-15T23:48:15.000000+09:00")   // 終了日時(fromと同時に指定する必要有)
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
 ```
