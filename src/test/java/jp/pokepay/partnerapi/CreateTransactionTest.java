@@ -11,9 +11,9 @@ public class CreateTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateTransaction(
-            "458d28d0-71c8-4fca-9fe0-76415e985d0e",
-            "6268645f-e123-4f1a-95a8-96ab10308e82",
-            "2c58cf1e-1c1f-47a3-84dd-63654f81a22f"
+            "6ce91b83-80bd-420c-b713-6d0889a68b43",
+            "bf2280e3-1147-4ce8-bfd6-4c7c36f4bfa1",
+            "146cecbf-4568-4504-864d-b6b0ef8dc1f6"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -29,11 +29,11 @@ public class CreateTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateTransaction(
-            "458d28d0-71c8-4fca-9fe0-76415e985d0e",
-            "6268645f-e123-4f1a-95a8-96ab10308e82",
-            "2c58cf1e-1c1f-47a3-84dd-63654f81a22f"
+            "6ce91b83-80bd-420c-b713-6d0889a68b43",
+            "bf2280e3-1147-4ce8-bfd6-4c7c36f4bfa1",
+            "146cecbf-4568-4504-864d-b6b0ef8dc1f6"
         )
-                .description("35xXINLlO4Zv5k8QSkKEanfzbugRA6tx0mWbn2py6w2j");
+                .description("Qm9Cv9eiuNtzo8Ai604KFzubl5pKAehiHpq6bho32Hb3muGAHwPWgF");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -48,12 +48,12 @@ public class CreateTransactionTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateTransaction(
-            "458d28d0-71c8-4fca-9fe0-76415e985d0e",
-            "6268645f-e123-4f1a-95a8-96ab10308e82",
-            "2c58cf1e-1c1f-47a3-84dd-63654f81a22f"
+            "6ce91b83-80bd-420c-b713-6d0889a68b43",
+            "bf2280e3-1147-4ce8-bfd6-4c7c36f4bfa1",
+            "146cecbf-4568-4504-864d-b6b0ef8dc1f6"
         )
-                .pointAmount(3794)
-                .description("5PLq2Fh3hGEfpZnCQYFpHDavYrSFGrbPwEeC1Wm2BmepnFpXJCf0Ck7D");
+                .pointAmount(2712)
+                .description("DnU7RGCVbzv6NTpbyOanwJTKtoX8qNANiowi7pvsY0pJZgt8R5V02pVSojjK01KLs56Gi1lkQDwAgXihiXloBE");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -68,13 +68,13 @@ public class CreateTransactionTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new CreateTransaction(
-            "458d28d0-71c8-4fca-9fe0-76415e985d0e",
-            "6268645f-e123-4f1a-95a8-96ab10308e82",
-            "2c58cf1e-1c1f-47a3-84dd-63654f81a22f"
+            "6ce91b83-80bd-420c-b713-6d0889a68b43",
+            "bf2280e3-1147-4ce8-bfd6-4c7c36f4bfa1",
+            "146cecbf-4568-4504-864d-b6b0ef8dc1f6"
         )
-                .moneyAmount(5382)
-                .pointAmount(577)
-                .description("fD");
+                .moneyAmount(6697)
+                .pointAmount(5961)
+                .description("mA3KGTTNaxIDVN7ud4UjdyXupbg13q2VNDyhPVD9tA3SILyJUxCrAoLjKIFND8yze27");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
