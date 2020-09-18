@@ -11,7 +11,7 @@ public class ListUserAccountsTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new ListUserAccounts(
-            "89310de4-d85a-4267-ad6a-0e0f26a86f1e"
+            "f7badafa-54a1-4511-b337-e4aa1c1fe652"
         );
         try {
             PartnerAPITest.getClient().send(request);

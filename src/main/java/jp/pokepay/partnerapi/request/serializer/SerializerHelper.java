@@ -10,8 +10,11 @@ import jp.pokepay.partnerapi.request.ListUserAccounts;
 import jp.pokepay.partnerapi.request.GetAccount;
 import jp.pokepay.partnerapi.request.UpdateAccount;
 import jp.pokepay.partnerapi.request.ListAccountBalances;
+import jp.pokepay.partnerapi.request.ListAccountExpiredBalances;
 import jp.pokepay.partnerapi.request.CreateCustomerAccount;
 import jp.pokepay.partnerapi.request.ListBills;
+import jp.pokepay.partnerapi.request.CreateBill;
+import jp.pokepay.partnerapi.request.UpdateBill;
 import jp.pokepay.partnerapi.request.CreateCheck;
 import jp.pokepay.partnerapi.request.ListTransactions;
 import jp.pokepay.partnerapi.request.CreateTransaction;
@@ -27,6 +30,7 @@ import jp.pokepay.partnerapi.request.CreateOrganization;
 import jp.pokepay.partnerapi.request.ListShops;
 import jp.pokepay.partnerapi.request.CreateShop;
 import jp.pokepay.partnerapi.request.GetPrivateMoneyOrganizationSummaries;
+import jp.pokepay.partnerapi.request.ListCustomerTransactions;
 
 public class SerializerHelper {
     public static void registerTypeAdapters(GsonBuilder gsonBuilder) {
@@ -37,8 +41,11 @@ public class SerializerHelper {
         gsonBuilder.registerTypeAdapter(GetAccount.class, new GetAccountSerializer());
         gsonBuilder.registerTypeAdapter(UpdateAccount.class, new UpdateAccountSerializer());
         gsonBuilder.registerTypeAdapter(ListAccountBalances.class, new ListAccountBalancesSerializer());
+        gsonBuilder.registerTypeAdapter(ListAccountExpiredBalances.class, new ListAccountExpiredBalancesSerializer());
         gsonBuilder.registerTypeAdapter(CreateCustomerAccount.class, new CreateCustomerAccountSerializer());
         gsonBuilder.registerTypeAdapter(ListBills.class, new ListBillsSerializer());
+        gsonBuilder.registerTypeAdapter(CreateBill.class, new CreateBillSerializer());
+        gsonBuilder.registerTypeAdapter(UpdateBill.class, new UpdateBillSerializer());
         gsonBuilder.registerTypeAdapter(CreateCheck.class, new CreateCheckSerializer());
         gsonBuilder.registerTypeAdapter(ListTransactions.class, new ListTransactionsSerializer());
         gsonBuilder.registerTypeAdapter(CreateTransaction.class, new CreateTransactionSerializer());
@@ -54,5 +61,6 @@ public class SerializerHelper {
         gsonBuilder.registerTypeAdapter(ListShops.class, new ListShopsSerializer());
         gsonBuilder.registerTypeAdapter(CreateShop.class, new CreateShopSerializer());
         gsonBuilder.registerTypeAdapter(GetPrivateMoneyOrganizationSummaries.class, new GetPrivateMoneyOrganizationSummariesSerializer());
+        gsonBuilder.registerTypeAdapter(ListCustomerTransactions.class, new ListCustomerTransactionsSerializer());
     }
 }

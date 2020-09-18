@@ -6,7 +6,7 @@ import com.google.gson.JsonSerializationContext;
 import jp.pokepay.partnerapi.response.*;
 import java.lang.reflect.Type;
 
-public class ListAccountBalances extends Request {
+public class ListAccountExpiredBalances extends Request {
     private Integer page;
     private Integer perPage;
     private String expiresAtFrom;
@@ -14,31 +14,31 @@ public class ListAccountBalances extends Request {
     private String direction;
     private String accountId;
 
-    public ListAccountBalances(String accountId) {
+    public ListAccountExpiredBalances(String accountId) {
         this.accountId = accountId;
     }
 
-    public ListAccountBalances page(int page) {
+    public ListAccountExpiredBalances page(int page) {
         this.page = page;
         return this;
     }
 
-    public ListAccountBalances perPage(int perPage) {
+    public ListAccountExpiredBalances perPage(int perPage) {
         this.perPage = perPage;
         return this;
     }
 
-    public ListAccountBalances expiresAtFrom(String expiresAtFrom) {
+    public ListAccountExpiredBalances expiresAtFrom(String expiresAtFrom) {
         this.expiresAtFrom = expiresAtFrom;
         return this;
     }
 
-    public ListAccountBalances expiresAtTo(String expiresAtTo) {
+    public ListAccountExpiredBalances expiresAtTo(String expiresAtTo) {
         this.expiresAtTo = expiresAtTo;
         return this;
     }
 
-    public ListAccountBalances direction(String direction) {
+    public ListAccountExpiredBalances direction(String direction) {
         this.direction = direction;
         return this;
     }
@@ -50,7 +50,7 @@ public class ListAccountBalances extends Request {
 
     @Override
     public String path() {
-        return "/accounts" + "/" + this.accountId + "/balances";
+        return "/accounts" + "/" + this.accountId + "/expired-balances";
     }
 
     @Override
