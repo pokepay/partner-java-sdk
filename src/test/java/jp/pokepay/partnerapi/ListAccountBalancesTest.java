@@ -11,7 +11,7 @@ public class ListAccountBalancesTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new ListAccountBalances(
-            "ddde6c56-6af6-4c7b-8e55-367487691a46"
+            "cc450cba-668f-4380-854c-2e6dae6d9426"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -27,9 +27,9 @@ public class ListAccountBalancesTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListAccountBalances(
-            "ddde6c56-6af6-4c7b-8e55-367487691a46"
+            "cc450cba-668f-4380-854c-2e6dae6d9426"
         )
-                .perPage(2291);
+                .direction("desc");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -44,10 +44,70 @@ public class ListAccountBalancesTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListAccountBalances(
-            "ddde6c56-6af6-4c7b-8e55-367487691a46"
+            "cc450cba-668f-4380-854c-2e6dae6d9426"
         )
-                .page(518)
-                .perPage(2018);
+                .expiresAtTo("2023-12-04T19:51:42.000000+09:00")
+                .direction("desc");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test3() throws ConnectionError, ProcessingError {
+        Request request = new ListAccountBalances(
+            "cc450cba-668f-4380-854c-2e6dae6d9426"
+        )
+                .expiresAtFrom("2023-01-15T03:20:22.000000+09:00")
+                .expiresAtTo("2016-07-18T17:09:40.000000+09:00")
+                .direction("asc");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test4() throws ConnectionError, ProcessingError {
+        Request request = new ListAccountBalances(
+            "cc450cba-668f-4380-854c-2e6dae6d9426"
+        )
+                .perPage(2394)
+                .expiresAtFrom("2025-01-10T04:46:02.000000+09:00")
+                .expiresAtTo("2024-05-11T03:04:24.000000+09:00")
+                .direction("asc");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test5() throws ConnectionError, ProcessingError {
+        Request request = new ListAccountBalances(
+            "cc450cba-668f-4380-854c-2e6dae6d9426"
+        )
+                .page(5477)
+                .perPage(8394)
+                .expiresAtFrom("2022-03-09T11:53:53.000000+09:00")
+                .expiresAtTo("2019-09-12T11:19:03.000000+09:00")
+                .direction("desc");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

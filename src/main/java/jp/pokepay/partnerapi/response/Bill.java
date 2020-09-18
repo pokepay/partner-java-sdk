@@ -9,6 +9,7 @@ public class Bill extends Response {
     private String description;
     private AccountWithUser account;
     private Boolean isDisabled;
+    private String token;
 
     public String getId() {
         return id;
@@ -36,6 +37,10 @@ public class Bill extends Response {
 
     public boolean isDisabled() {
         return isDisabled;
+    }
+
+    public String getToken() {
+        return token;
     }
 }
 

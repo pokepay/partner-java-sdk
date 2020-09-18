@@ -11,10 +11,10 @@ public class CreateExchangeTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateExchangeTransaction(
-            "70fae427-b040-4234-8f7b-b1bdcdf37406",
-            "56d6fef5-7e21-4575-adb8-24c09a377202",
-            "cd4b2d20-86ec-47a9-afaa-e29ad364d797",
-            9855
+            "d0a9b5e0-cf3f-45b2-a206-7970e1badb43",
+            "e9593d3f-ad4a-4fe2-85d7-619766aa7d43",
+            "2e386573-4c80-40c6-b158-e44f0f8e3606",
+            760
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -30,12 +30,12 @@ public class CreateExchangeTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateExchangeTransaction(
-            "70fae427-b040-4234-8f7b-b1bdcdf37406",
-            "56d6fef5-7e21-4575-adb8-24c09a377202",
-            "cd4b2d20-86ec-47a9-afaa-e29ad364d797",
-            9855
+            "d0a9b5e0-cf3f-45b2-a206-7970e1badb43",
+            "e9593d3f-ad4a-4fe2-85d7-619766aa7d43",
+            "2e386573-4c80-40c6-b158-e44f0f8e3606",
+            760
         )
-                .description("ZyE1lY0ugCpzSbTrk6yNRfsQ42Pp1e5XJ5yEy7mt4BT5huYN1OaPKIih8ef00rnTx4bloaEdHi9OEEK5Re82z8x0W727x");
+                .description("OMfbCbRi8MeoObjQBbD5vivOmPF0WWy");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
