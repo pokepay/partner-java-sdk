@@ -23,6 +23,7 @@ import jp.pokepay.partnerapi.request.CreateTopupTransactionWithCheck;
 import jp.pokepay.partnerapi.request.CreatePaymentTransaction;
 import jp.pokepay.partnerapi.request.CreateTransferTransaction;
 import jp.pokepay.partnerapi.request.CreateExchangeTransaction;
+import jp.pokepay.partnerapi.request.BulkCreateTransaction;
 import jp.pokepay.partnerapi.request.GetTransaction;
 import jp.pokepay.partnerapi.request.RefundTransaction;
 import jp.pokepay.partnerapi.request.ListTransfers;
@@ -54,6 +55,7 @@ public class SerializerHelper {
         gsonBuilder.registerTypeAdapter(CreatePaymentTransaction.class, new CreatePaymentTransactionSerializer());
         gsonBuilder.registerTypeAdapter(CreateTransferTransaction.class, new CreateTransferTransactionSerializer());
         gsonBuilder.registerTypeAdapter(CreateExchangeTransaction.class, new CreateExchangeTransactionSerializer());
+        gsonBuilder.registerTypeAdapter(BulkCreateTransaction.class, new BulkCreateTransactionSerializer());
         gsonBuilder.registerTypeAdapter(GetTransaction.class, new GetTransactionSerializer());
         gsonBuilder.registerTypeAdapter(RefundTransaction.class, new RefundTransactionSerializer());
         gsonBuilder.registerTypeAdapter(ListTransfers.class, new ListTransfersSerializer());
