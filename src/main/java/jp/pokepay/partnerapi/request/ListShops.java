@@ -9,6 +9,12 @@ import java.lang.reflect.Type;
 public class ListShops extends Request {
     private String organizationCode;
     private String privateMoneyId;
+    private String name;
+    private String postalCode;
+    private String address;
+    private String tel;
+    private String email;
+    private String externalId;
     private Integer page;
     private Integer perPage;
 
@@ -22,6 +28,36 @@ public class ListShops extends Request {
 
     public ListShops privateMoneyId(String privateMoneyId) {
         this.privateMoneyId = privateMoneyId;
+        return this;
+    }
+
+    public ListShops name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public ListShops postalCode(String postalCode) {
+        this.postalCode = postalCode;
+        return this;
+    }
+
+    public ListShops address(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public ListShops tel(String tel) {
+        this.tel = tel;
+        return this;
+    }
+
+    public ListShops email(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public ListShops externalId(String externalId) {
+        this.externalId = externalId;
         return this;
     }
 
@@ -55,6 +91,12 @@ public class ListShops extends Request {
         JsonObject object = new JsonObject();
         if (organizationCode != null) { object.add("organization_code", context.serialize(this.organizationCode)); }
         if (privateMoneyId != null) { object.add("private_money_id", context.serialize(this.privateMoneyId)); }
+        if (name != null) { object.add("name", context.serialize(this.name)); }
+        if (postalCode != null) { object.add("postal_code", context.serialize(this.postalCode)); }
+        if (address != null) { object.add("address", context.serialize(this.address)); }
+        if (tel != null) { object.add("tel", context.serialize(this.tel)); }
+        if (email != null) { object.add("email", context.serialize(this.email)); }
+        if (externalId != null) { object.add("external_id", context.serialize(this.externalId)); }
         if (page != null) { object.add("page", context.serialize(this.page)); }
         if (perPage != null) { object.add("per_page", context.serialize(this.perPage)); }
         return object;
