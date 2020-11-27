@@ -17,8 +17,8 @@ public class ListBills extends Request {
     private String createdTo;
     private String shopName;
     private String shopId;
-    private Double lowerLimitAmount;
-    private Double upperLimitAmount;
+    private Integer lowerLimitAmount;
+    private Integer upperLimitAmount;
     private Boolean isDisabled;
 
     public ListBills() {
@@ -74,12 +74,12 @@ public class ListBills extends Request {
         return this;
     }
 
-    public ListBills lowerLimitAmount(double lowerLimitAmount) {
+    public ListBills lowerLimitAmount(int lowerLimitAmount) {
         this.lowerLimitAmount = lowerLimitAmount;
         return this;
     }
 
-    public ListBills upperLimitAmount(double upperLimitAmount) {
+    public ListBills upperLimitAmount(int upperLimitAmount) {
         this.upperLimitAmount = upperLimitAmount;
         return this;
     }

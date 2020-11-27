@@ -1117,13 +1117,13 @@ paths:
                   summary: '店舗ID'
                   description: 支払いQRコードを作成した店舗IDでフィルターします。
                 lower_limit_amount:
-                  type: number
+                  type: integer
                   minimum: 0
                   format: decimal
                   summary: '金額の範囲によるフィルタ(下限)'
                   description: 支払いQRコードの金額の下限を指定してフィルターします。
                 upper_limit_amount:
-                  type: number
+                  type: integer
                   minimum: 0
                   format: decimal
                   summary: '金額の範囲によるフィルタ(上限)'
