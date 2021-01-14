@@ -2653,7 +2653,7 @@ paths:
                   minimum: 1
                   summary: '失効時間(秒)'
                   description: |-
-                    Cashtrayが失効するまでの時間を秒で指定します(任意項目、デフォルト値は1800秒(30分))。
+                    Cashtrayが失効するまでの時間を秒単位で指定します(任意項目、デフォルト値は1800秒(30分))。
       responses:
         '200':
           description: OK
@@ -2673,28 +2673,43 @@ paths:
         - Cashtray
       summary: 'Cashtrayの情報を取得する'
       description: |-
-        Cashtrayの情報を取得します。
         Cashtrayの現在の状態に加え、エンドユーザのCashtray読み取りの試行結果、Cashtray読み取りによって作られた取引情報が取得できます。
-        Cashtrayは読み取りの成否に関わらず、一度きりで失効します。
+
+        レスポンス中の `attempt` には、このCashtrayをエンドユーザが読み取った試行結果が入ります。
+        `account` はエンドユーザのウォレット情報です。
+        成功時には `attempt` 内の `status_code` に200が入ります。
+
+        まだCashtrayが読み取られていない場合は `attempt` の内容は `NULL` になります。
         エンドユーザのCashtray読み取りの際には、様々なエラーが起き得ます。
-        エラーの詳細はレスポンス中の `attempt` の中にあります。主なエラー型と対応するステータスコードを以下に列挙します。
+        エラーの詳細は `attempt` 中の `error_type` と `error_message` にあります。主なエラー型と対応するステータスコードを以下に列挙します。
 
         - `cashtray_already_proceed (422)`
-          - 既に処理済みのCashtrayをエンドユーザが再び読み取ったときに出ます
+          - 既に処理済みのCashtrayをエンドユーザが再び読み取ったときに返されます
         - `cashtray_expired (422)`
-          - 読み取り時点でCashtray自体の有効期限が切れているときに出ます
+          - 読み取り時点でCashtray自体の有効期限が切れているときに返されます
         - `cashtray_already_canceled (422)`
-          - 読み取り時点でCashtrayが無効化されているときに出ます
+          - 読み取り時点でCashtrayが無効化されているときに返されます
         - `account_balance_not_enough (422)`
-          - 支払い時に、エンドユーザの残高が不足していて取引が完了できなかったときに出ます
+          - 支払い時に、エンドユーザの残高が不足していて取引が完了できなかったときに返されます
         - `account_balance_exceeded`
-          - チャージ時に、エンドユーザのウォレット上限を超えて取引が完了できなかったときに出ます
+          - チャージ時に、エンドユーザのウォレット上限を超えて取引が完了できなかったときに返されます
         - `account_transfer_limit_exceeded (422)`
-          - マネーに設定されている一度の取引金額の上限を超えたため、取引が完了できなかったときに出ます
+          - マネーに設定されている一度の取引金額の上限を超えたため、取引が完了できなかったときに返されます
         - `account_not_found (422)`
-          - Cashtrayに設定されたマネーのウォレットをエンドユーザが持っていなかったときに出ます
+          - Cashtrayに設定されたマネーのウォレットをエンドユーザが持っていなかったときに返されます
 
-        レスポンス中の `transaction` には、このCashtrayをエンドユーザが読み取ることによって作られる取引データが入ります。まだ読み取られていない場合はNULLになります。
+
+        レスポンス中の `transaction` には、このCashtrayをエンドユーザが読み取ることによって作られる取引データが入ります。まだCashtrayが読み取られていない場合は `NULL` になります。
+
+        以上をまとめると、Cashtrayの状態は以下のようになります。
+
+        - エンドユーザのCashtray読み取りによって取引が成功した場合
+          - レスポンス中の `attempt` と `transaction` にそれぞれ値が入ります
+        - 何らかの理由で取引が失敗した場合
+          - レスポンス中の `attempt` にエラー内容が入り、 `transaction` には `NULL` が入ります
+        - まだCashtrayが読み取られていない場合
+          - レスポンス中の `attempt` と `transaction` にそれぞれ `NULL` が入ります
+
 
       x-pokepay-operator-name: "GetCashtray"
       x-pokepay-allow-server-side: true

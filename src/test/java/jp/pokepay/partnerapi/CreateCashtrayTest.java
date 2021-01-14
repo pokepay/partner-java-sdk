@@ -11,7 +11,7 @@ public class CreateCashtrayTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateCashtray(
-            5688
+            9061
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -27,9 +27,9 @@ public class CreateCashtrayTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateCashtray(
-            5688
+            9061
         )
-                .expiresIn(254);
+                .expiresIn(6091);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -44,10 +44,10 @@ public class CreateCashtrayTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateCashtray(
-            5688
+            9061
         )
-                .description("6FPaZ8I6AxiybI")
-                .expiresIn(8022);
+                .description("iJLn1TOWVNqKCYgaN6maSZW")
+                .expiresIn(7851);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -62,11 +62,11 @@ public class CreateCashtrayTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new CreateCashtray(
-            5688
+            9061
         )
-                .privateMoneyId("1b90ab64-46ea-4fdf-ae32-94dfa5cdae26")
-                .description("lMSQ6V8dRYSFDiggsas4Nm4Pbqn0MLycuAIyd8Tc91YrDumA0BEPaxu5hz8quH88gYqQC45YQse")
-                .expiresIn(9103);
+                .privateMoneyId("a0225aca-c3ee-429e-abbc-a92f67640787")
+                .description("127yVjYZzSkjksojB4PnV9sBfF1BkHf1A87wLQ9bOIRS2WYI5ck8HRSP5FHw4UX4tGWi4N1WpwhPzDe8V1DYdcKn6nAl4cEX71br7jv7EDkwXN76HyKk1SGbd2fzw9nBiKXYeHN7")
+                .expiresIn(4630);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -81,12 +81,12 @@ public class CreateCashtrayTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new CreateCashtray(
-            5688
+            9061
         )
-                .shopId("5fc2a973-2a39-4ba8-9851-7179a3ea7408")
-                .privateMoneyId("717400a0-31c8-46d6-beaa-506f6b279072")
-                .description("Eq6zLZyg3cEPs9bN7e1DJRmWCvXV5f7NFxRTTWOKh4cp2t8rtdj0F82hhuu2d72P")
-                .expiresIn(4800);
+                .shopId("5c346ac3-b334-4b0c-91e4-314f858de70d")
+                .privateMoneyId("8e1cda68-9f3e-4c07-9ee3-ec18d9365758")
+                .description("yEVzhZku2OJwU")
+                .expiresIn(2254);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -101,13 +101,13 @@ public class CreateCashtrayTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new CreateCashtray(
-            5688
+            9061
         )
-                .shopAccountId("236f58d3-7818-4f52-a0c2-9b4ecf8fb74e")
-                .shopId("a760567f-96c7-4898-94d0-722a8b12f40d")
-                .privateMoneyId("ef015f8d-950b-468a-b7fe-3d9e2ad01760")
-                .description("1wcJLJGkIvTZnRNAv7oeQjUez1G0bwCFurxmaLHHuXDOcuycPW2WYY40yWZt9ZjHKqLir6qmCF3zfoEN4hG6jzrPFiN4YTSJ9o4hVc0u6tzaZ3sbYKCNybmAlkaNJiOvuRswwQSmiJco3KwhjqpMqyENnnotJKNM2Dv")
-                .expiresIn(652);
+                .shopAccountId("a8bc2228-aa30-4e0b-ab3e-92aaf9e05bf4")
+                .shopId("7e11363a-9aeb-479a-b179-4573a184ff65")
+                .privateMoneyId("0a12dd2d-bb34-4fc3-aee4-0502dbfefb4e")
+                .description("hZgpKbkXWC5tLF")
+                .expiresIn(7119);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

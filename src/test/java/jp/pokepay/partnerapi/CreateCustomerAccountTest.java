@@ -11,7 +11,7 @@ public class CreateCustomerAccountTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateCustomerAccount(
-            "818666a3-b109-4127-8156-8c8ff5941f61"
+            "7f94c950-6ed6-47a1-b8d4-2c8895d41b68"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -27,9 +27,9 @@ public class CreateCustomerAccountTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateCustomerAccount(
-            "818666a3-b109-4127-8156-8c8ff5941f61"
+            "7f94c950-6ed6-47a1-b8d4-2c8895d41b68"
         )
-                .accountName("4JmfjoJZ9ajsO39BqxPDSP5BpfA0dYcuMmHpa4aDHWm32hBFhI0DxRhz83lKq4Wp1hKlNvpHM0s7Dd9Uu6qWqC0qUtLag9adxARTcCtKjz1M2kusM3cVDMOGMtpxWNvKR6Gcp6PWCiNymBaUIu6lQIyVNDYRttS46oTXBYnbHbM");
+                .accountName("RcEAVa4JmfjoJZ9ajsO39BqxPDSP5BpfA0dYcuMmHpa4aDHWm32hBFhI0DxRhz83lKq4Wp1hKlNvpHM0s7Dd9Uu6qWqC0qUtLag9adxARTcCtKjz1M2kusM3cVDMOGMtpxWNvKR6Gcp6PWCiNymBaUIu6lQIyVNDYRttS46oTXBYnbHbMuAdnXANiixumuncg7eg");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -44,10 +44,10 @@ public class CreateCustomerAccountTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateCustomerAccount(
-            "818666a3-b109-4127-8156-8c8ff5941f61"
+            "7f94c950-6ed6-47a1-b8d4-2c8895d41b68"
         )
-                .userName("uAdnXANiixumuncg7egxc7L05i8jkZ1Waa6h6AAgB9jXe")
-                .accountName("hhbgsnyiHZ1n3qwk3r3QhfSXAhy6Q6NsE0G4ETHn0hBw4No1YXyGaN9eZjSIQORsTn19Lt83IRfp6apsZzwHUgb2qqrLtRpM");
+                .userName("c7L05i8jkZ1Waa6h6AAgB9jXehhbgsnyiHZ1n3qwk3r3QhfSXAhy6Q6NsE0G4ETHn0hBw4No1YXyGaN9eZjSIQORsTn19Lt83IRfp6apsZzwHUgb2qqrLtRpMZnFJMuPuuYDxHZdnikAchiJbVP3ZTnJxIJTqpbj9hQa29LtqbzIUCtrgI5GH6wQi2f3OojTDEk0fitYgKzfXu0N7ZPQ6Ey6Tu3BU56A0DovC2AWlgsj8AO1bqHH9NHpq")
+                .accountName("wH1tkpyNDcuWxfr4xKRRC5UPfddKJfLPJmxAhDpkltxfpGBgKzLBWMCYifXDXPCbHnT3R8fCd8115VzfSNwUPij0JCe");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

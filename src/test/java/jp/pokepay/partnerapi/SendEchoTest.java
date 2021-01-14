@@ -11,7 +11,7 @@ public class SendEchoTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new SendEcho(
-            "7RY1"
+            "acDgdY"
         );
         try {
             PartnerAPITest.getClient().send(request);

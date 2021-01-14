@@ -106,8 +106,8 @@ APIサーバがエラーレスポンスを返した場合に使われます。
 取引一覧を返します。
 ```java
 Request request = new ListTransactions()
-        .from("2018-12-11T14:06:26.000000+09:00") // 開始日時
-        .to("2016-01-07T00:52:12.000000+09:00")   // 終了日時
+        .from("2024-08-12T19:39:14.000000+09:00") // 開始日時
+        .to("2022-12-02T08:24:08.000000+09:00")   // 終了日時
         .page(1)                                  // ページ番号
         .perPage(50)                              // 1ページ分の取引数
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ID
@@ -117,7 +117,7 @@ Request request = new ListTransactions()
         .transactionId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 取引ID
         .organizationCode("pocketchange")         // 組織コード
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
-        .setModified(false)                       // キャンセルフラグ
+        .setModified(true)                        // キャンセルフラグ
         .types(new String[]{"topup","payment"});  // 取引種別 (複数指定可)、チャージ=topup、支払い=payment
 ```
 
@@ -218,10 +218,10 @@ Request request = new CreateTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 )
-        .moneyAmount(4271)
-        .pointAmount(3246)
-        .pointExpiresAt("2019-09-07T03:49:10.000000+09:00") // ポイント有効期限
-        .description("WYI5ck8HRSP5FHw4UX4tGWi4N1WpwhPzDe8V1DYdcKn6nAl4cEX71br7jv7EDkwXN76HyKk1SGbd2fzw9nBiKXYeHN7C4dOhcXyEVzhZku2OJwUM0ktk1yse4CdNhZgpKbkXWC5tLFNUhqVPCyC44juCu9OYkti8QhcNElbkx4K7ompotaJ");
+        .moneyAmount(6506)
+        .pointAmount(7289)
+        .pointExpiresAt("2020-08-20T19:04:41.000000+09:00") // ポイント有効期限
+        .description("qeO19KhFrkxiVRAQ6FFjz1wnjIRjO9MofqJJncHBCR1qP1zId4mLJCzHpOgkhaasWI8ELqJwRA62Ghe0ne6pcNR1V7JprfFD47gNL9WM6cSeojzOZZrLxO3x6r1ViuOnspa8l8OxqMpLrB");
 ```
 
 ---
@@ -241,9 +241,9 @@ Request request = new CreateTopupTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
         .bearPointShopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // ポイント支払時の負担店舗ID
-        .moneyAmount(6048)                        // マネー額
-        .pointAmount(9792)                        // ポイント額
-        .pointExpiresAt("2024-01-07T12:53:30.000000+09:00") // ポイント有効期限
+        .moneyAmount(568)                         // マネー額
+        .pointAmount(6186)                        // ポイント額
+        .pointExpiresAt("2020-12-19T15:50:00.000000+09:00") // ポイント有効期限
         .description("初夏のチャージキャンペーン");            // 取引履歴に表示する説明文
 ```
 
@@ -306,7 +306,7 @@ Request request = new CreatePaymentTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // shopId: 店舗ID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // customerId: エンドユーザーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    6860                                          // amount: 支払い額
+    8448                                          // amount: 支払い額
 )
         .description("たい焼き(小倉)");                 // 取引履歴に表示する説明文
 ```
@@ -353,7 +353,7 @@ Request request = new CreateTransferTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // senderId: 送金元ユーザーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // receiverId: 受取ユーザーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    4744                                          // amount: 送金額
+    8458                                          // amount: 送金額
 )
         .description("たい焼き(小倉)");                 // 取引履歴に表示する説明文
 ```
@@ -397,9 +397,9 @@ Request request = new CreateExchangeTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    3066
+    6336
 )
-        .description("z8KN");
+        .description("GSVgVcs3OQMdHqZLlv01wGqOn2jIsFsWbo7bpQq9anT6PszkN335U1t4DYsuiE88p3Hog0k8d");
 ```
 成功したときは[Transaction](#transaction)クラスのインスタンスを返します
 <a name="get-transaction"></a>
@@ -423,19 +423,19 @@ Request request = new GetTransaction(
 #### 
 ```java
 Request request = new ListTransfers()
-        .from("2017-10-23T00:54:38.000000+09:00")
-        .to("2021-12-12T11:39:44.000000+09:00")
-        .page(8986)
-        .perPage(6230)
+        .from("2022-08-19T11:01:20.000000+09:00")
+        .to("2017-11-21T10:29:23.000000+09:00")
+        .page(4673)
+        .perPage(1192)
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
-        .shopName("1GvU5oJnH6hOfBgmDSuxOmph")
+        .shopName("CFI0Qv1brn8ATMTNMMEyVApkaDeYuOtBoCZgc4gwc8RSE7B5wsqfAkho5yO5EQGpb9AHk6UF1UjWUyw97H5Wi0UlM5hWRopq8fm3QjwrUJDS6QIEgbGEOQG1PZp7fjd91zgh1RHHtL55R7YEprCJ0U4QnLZWm")
         .customerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
-        .customerName("ziTG6p4HsLeIcNrFvlQBIX1JBgnrD1yLFlL5kbgs6xUgxf5sOofYseOtl3ilNOPpyIVjtUkLTSkOKux630Id9YuKsTGECVvJsAnqjel2la3rWWdK2ybDtXJiikZzBktm983ksDdKfbC96DBMvuC0QTfx8l2ZZBjyQqeO19KhFrkxiVRAQ6FFjz1wnjIRjO9MofqJJncHBCR1qP1zId4mLJCzHpOgkhaasWI8ELqJwRA6")
+        .customerName("GvTqLQwaZ9vOnv67spoRoPKUgWvYVa3Gv9x")
         .transactionId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
         .setModified(true)
-        .transactionTypes(new String[]{"exchange"})
-        .transferTypes(new String[]{"transfer","payment"});
+        .transactionTypes(new String[]{"transfer","exchange","topup"})
+        .transferTypes(new String[]{"exchange","payment","topup"});
 ```
 成功したときは[PaginatedTransfers](#paginated-transfers)クラスのインスタンスを返します
 ### Check
@@ -481,19 +481,19 @@ QRコード生成時に送金元店舗のウォレット情報や、送金額な
 支払いQRコード一覧を表示します。
 ```java
 Request request = new ListBills()
-        .page(4139)                               // ページ番号
-        .perPage(7199)                            // 1ページの表示数
-        .billId("pcNR1V7")                        // 支払いQRコードのID
+        .page(4580)                               // ページ番号
+        .perPage(9220)                            // 1ページの表示数
+        .billId("v")                              // 支払いQRコードのID
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
-        .organizationCode("-R--0g0Ly--xtd-2R--2--HBnAhP") // 組織コード
+        .organizationCode("5ov2Mfq-")             // 組織コード
         .description("test bill")                 // 取引説明文
-        .createdFrom("2023-01-20T07:11:25.000000+09:00") // 作成日時(起点)
-        .createdTo("2017-05-15T07:26:13.000000+09:00") // 作成日時(終点)
+        .createdFrom("2022-11-18T07:24:11.000000+09:00") // 作成日時(起点)
+        .createdTo("2024-09-10T04:32:32.000000+09:00") // 作成日時(終点)
         .shopName("bill test shop1")              // 店舗名
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ID
-        .lowerLimitAmount(1136)                   // 金額の範囲によるフィルタ(下限)
-        .upperLimitAmount(7310)                   // 金額の範囲によるフィルタ(上限)
-        .setDisabled(true);                       // 支払いQRコードが無効化されているかどうか
+        .lowerLimitAmount(3385)                   // 金額の範囲によるフィルタ(下限)
+        .upperLimitAmount(353)                    // 金額の範囲によるフィルタ(上限)
+        .setDisabled(false);                      // 支払いQRコードが無効化されているかどうか
 ```
 
 ---
@@ -562,7 +562,7 @@ Request request = new CreateBill(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: 支払いマネーのマネーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // shopId: 支払い先(受け取り人)の店舗ID
 )
-        .amount(396)                              // 支払い額
+        .amount(2469)                             // 支払い額
         .description("test bill");                // 説明文(アプリ上で取引の説明文として表示される)
 ```
 
@@ -579,7 +579,7 @@ Request request = new CreateBill(
 Request request = new UpdateBill(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // billId: 支払いQRコードのID
 )
-        .amount(1976)                             // 支払い額
+        .amount(6066)                             // 支払い額
         .description("test bill")                 // 説明文
         .setDisabled(true);                       // 無効化されているかどうか
 ```
@@ -614,13 +614,13 @@ Cashtrayを作成します。
 
 ```java
 Request request = new CreateCashtray(
-    8632                                          // amount: 金額
+    8025                                          // amount: 金額
 )
         .shopAccountId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ウォレットID
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ユーザーID
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
         .description("たい焼き(小倉)")                  // 取引履歴に表示する説明文
-        .expiresIn(8014);                         // 失効時間(秒)
+        .expiresIn(7870);                         // 失効時間(秒)
 ```
 
 ---
@@ -650,34 +650,48 @@ Cashtrayを読み取ったときに作られる取引の説明文です(最大20
 
 ---
 `expiresIn`  
-Cashtrayが失効するまでの時間を秒で指定します(任意項目、デフォルト値は1800秒(30分))。
+Cashtrayが失効するまでの時間を秒単位で指定します(任意項目、デフォルト値は1800秒(30分))。
 
 ---
 成功したときは[Cashtray](#cashtray)クラスのインスタンスを返します
 <a name="get-cashtray"></a>
 #### Cashtrayの情報を取得する
-Cashtrayの情報を取得します。
 Cashtrayの現在の状態に加え、エンドユーザのCashtray読み取りの試行結果、Cashtray読み取りによって作られた取引情報が取得できます。
-Cashtrayは読み取りの成否に関わらず、一度きりで失効します。
+
+レスポンス中の `attempt` には、このCashtrayをエンドユーザが読み取った試行結果が入ります。
+`account` はエンドユーザのウォレット情報です。
+成功時には `attempt` 内の `status_code` に200が入ります。
+
+まだCashtrayが読み取られていない場合は `attempt` の内容は `NULL` になります。
 エンドユーザのCashtray読み取りの際には、様々なエラーが起き得ます。
-エラーの詳細はレスポンス中の `attempt` の中にあります。主なエラー型と対応するステータスコードを以下に列挙します。
+エラーの詳細は `attempt` 中の `error_type` と `error_message` にあります。主なエラー型と対応するステータスコードを以下に列挙します。
 
 - `cashtray_already_proceed (422)`
-  - 既に処理済みのCashtrayをエンドユーザが再び読み取ったときに出ます
+  - 既に処理済みのCashtrayをエンドユーザが再び読み取ったときに返されます
 - `cashtray_expired (422)`
-  - 読み取り時点でCashtray自体の有効期限が切れているときに出ます
+  - 読み取り時点でCashtray自体の有効期限が切れているときに返されます
 - `cashtray_already_canceled (422)`
-  - 読み取り時点でCashtrayが無効化されているときに出ます
+  - 読み取り時点でCashtrayが無効化されているときに返されます
 - `account_balance_not_enough (422)`
-  - 支払い時に、エンドユーザの残高が不足していて取引が完了できなかったときに出ます
+  - 支払い時に、エンドユーザの残高が不足していて取引が完了できなかったときに返されます
 - `account_balance_exceeded`
-  - チャージ時に、エンドユーザのウォレット上限を超えて取引が完了できなかったときに出ます
+  - チャージ時に、エンドユーザのウォレット上限を超えて取引が完了できなかったときに返されます
 - `account_transfer_limit_exceeded (422)`
-  - マネーに設定されている一度の取引金額の上限を超えたため、取引が完了できなかったときに出ます
+  - マネーに設定されている一度の取引金額の上限を超えたため、取引が完了できなかったときに返されます
 - `account_not_found (422)`
-  - Cashtrayに設定されたマネーのウォレットをエンドユーザが持っていなかったときに出ます
+  - Cashtrayに設定されたマネーのウォレットをエンドユーザが持っていなかったときに返されます
 
-レスポンス中の `transaction` には、このCashtrayをエンドユーザが読み取ることによって作られる取引データが入ります。まだ読み取られていない場合はNULLになります。
+
+レスポンス中の `transaction` には、このCashtrayをエンドユーザが読み取ることによって作られる取引データが入ります。まだCashtrayが読み取られていない場合は `NULL` になります。
+
+以上をまとめると、Cashtrayの状態は以下のようになります。
+
+- エンドユーザのCashtray読み取りによって取引が成功した場合
+  - レスポンス中の `attempt` と `transaction` にそれぞれ値が入ります
+- 何らかの理由で取引が失敗した場合
+  - レスポンス中の `attempt` にエラー内容が入り、 `transaction` には `NULL` が入ります
+- まだCashtrayが読み取られていない場合
+  - レスポンス中の `attempt` と `transaction` にそれぞれ `NULL` が入ります
 ```java
 Request request = new GetCashtray(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // cashtrayId: CashtrayのID
@@ -712,9 +726,9 @@ Cashtrayの内容を更新します。bodyパラメータは全て省略可能�
 Request request = new UpdateCashtray(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // cashtrayId: CashtrayのID
 )
-        .amount(3136)                             // 金額
+        .amount(5911)                             // 金額
         .description("たい焼き(小倉)")                  // 取引履歴に表示する説明文
-        .expiresIn(2747);                         // 失効時間(秒)
+        .expiresIn(3680);                         // 失効時間(秒)
 ```
 
 ---
@@ -784,11 +798,11 @@ Request request = new UpdateAccount(
 Request request = new ListAccountBalances(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
 )
-        .page(168)                                // ページ番号
-        .perPage(3825)                            // 1ページ分の取引数
-        .expiresAtFrom("2025-07-09T04:50:02.000000+09:00") // 有効期限の期間によるフィルター(開始時点)
-        .expiresAtTo("2025-05-28T16:43:54.000000+09:00") // 有効期限の期間によるフィルター(終了時点)
-        .direction("asc");                        // 有効期限によるソート順序
+        .page(1512)                               // ページ番号
+        .perPage(8228)                            // 1ページ分の取引数
+        .expiresAtFrom("2019-06-28T08:00:06.000000+09:00") // 有効期限の期間によるフィルター(開始時点)
+        .expiresAtTo("2016-11-10T22:12:57.000000+09:00") // 有効期限の期間によるフィルター(終了時点)
+        .direction("desc");                       // 有効期限によるソート順序
 ```
 
 ---
@@ -826,10 +840,10 @@ Request request = new ListAccountBalances(
 Request request = new ListAccountExpiredBalances(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
 )
-        .page(8449)                               // ページ番号
-        .perPage(8459)                            // 1ページ分の取引数
-        .expiresAtFrom("2019-12-20T21:18:01.000000+09:00") // 有効期限の期間によるフィルター(開始時点)
-        .expiresAtTo("2021-03-28T08:16:32.000000+09:00") // 有効期限の期間によるフィルター(終了時点)
+        .page(5884)                               // ページ番号
+        .perPage(5106)                            // 1ページ分の取引数
+        .expiresAtFrom("2019-12-18T10:45:05.000000+09:00") // 有効期限の期間によるフィルター(開始時点)
+        .expiresAtTo("2023-08-16T05:58:15.000000+09:00") // 有効期限の期間によるフィルター(終了時点)
         .direction("desc");                       // 有効期限によるソート順序
 ```
 
@@ -897,10 +911,10 @@ Request request = new ListCustomerTransactions(
 )
         .senderCustomerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 送金エンドユーザーID
         .receiverCustomerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 受取エンドユーザーID
-        .type("GSV")                              // 取引種別、チャージ=topup、支払い=payment、個人間送金=transfer
-        .setModified(false)                       // キャンセル済みかどうか
-        .from("2021-05-10T01:31:27.000000+09:00") // 開始日時
-        .to("2015-11-26T04:28:17.000000+09:00")   // 終了日時
+        .type("E")                                // 取引種別、チャージ=topup、支払い=payment、個人間送金=transfer
+        .setModified(true)                        // キャンセル済みかどうか
+        .from("2019-01-27T00:57:18.000000+09:00") // 開始日時
+        .to("2020-01-29T05:40:54.000000+09:00")   // 終了日時
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
 ```
@@ -976,11 +990,11 @@ Request request = new ListShops()
         .organizationCode("pocketchange")         // 組織コード
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
         .name("oxスーパー三田店")                        // 店舗名
-        .postalCode("343-3148")                   // 店舗の郵便番号
+        .postalCode("2539697")                    // 店舗の郵便番号
         .address("東京都港区芝...")                     // 店舗の住所
-        .tel("02067-012")                         // 店舗の電話番号
-        .email("On2jIsFsWb@o7bp.com")             // 店舗のメールアドレス
-        .externalId("q9anT6PszkN335U1t4")         // 店舗の外部ID
+        .tel("0984955-641")                       // 店舗の電話番号
+        .email("oUMWRj1sxt@SyQg.com")             // 店舗のメールアドレス
+        .externalId("1GkRhboXHY39x3Xs6KbKO")      // 店舗の外部ID
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
 ```
@@ -1041,11 +1055,11 @@ Request request = new ListShops()
 Request request = new CreateShop(
     "oxスーパー三田店"                                   // shopName: 店舗名
 )
-        .shopPostalCode("4798932")                // 店舗の郵便番号
+        .shopPostalCode("151-3308")               // 店舗の郵便番号
         .shopAddress("東京都港区芝...")                 // 店舗の住所
-        .shopTel("054180308")                     // 店舗の電話番号
-        .shopEmail("og0k8dxuKg@CFI0.com")         // 店舗のメールアドレス
-        .shopExternalId("v1brn8ATMTNMMEyVAp")     // 店舗の外部ID
+        .shopTel("03-8354-5247")                  // 店舗の電話番号
+        .shopEmail("0KRGU02ETt@Me3p.com")         // 店舗のメールアドレス
+        .shopExternalId("ruF")                    // 店舗の外部ID
         .organizationCode("ox-supermarket");      // 組織コード
 ```
 成功したときは[User](#user)クラスのインスタンスを返します
@@ -1074,8 +1088,8 @@ Request request = new ListUserAccounts(
 Request request = new GetPrivateMoneyOrganizationSummaries(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .from("2019-07-02T16:46:29.000000+09:00") // 開始日時(toと同時に指定する必要有)
-        .to("2019-10-27T22:45:26.000000+09:00")   // 終了日時(fromと同時に指定する必要有)
+        .from("2015-12-07T23:12:19.000000+09:00") // 開始日時(toと同時に指定する必要有)
+        .to("2017-12-28T03:32:07.000000+09:00")   // 終了日時(fromと同時に指定する必要有)
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
 ```
@@ -1088,11 +1102,11 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 CSVファイルから一括取引をします。
 ```java
 Request request = new BulkCreateTransaction(
-    "aDeYu",                                      // name: 一括取引タスク名
-    "OtBo",                                       // content: 取引する情報のCSV
-    "CZgc4gwc8RSE7B5wsqfAkho5yO5EQGpb9AHk"        // requestId: リクエストID
+    "x8zwWTQtwhg",                                // name: 一括取引タスク名
+    "EUQrpqVt",                                   // content: 取引する情報のCSV
+    "FI20RqU84wWVej7KjR7PO79YOuc2btzI2HvK"        // requestId: リクエストID
 )
-        .description("UF1UjWUyw97H5Wi0UlM5hWRopq8fm3QjwrUJDS6QIEgbGEOQG1PZp7f"); // 一括取引の説明
+        .description("Iy1dRKuzOlLMmdBSZr220xtZpZdQ9ssluYJHAlylPpV6xWxt7f2oLFlgp2lLhVbHghg4lZSVxXqYiDQPFv2xIXmI4PlPvyiodi"); // 一括取引の説明
 ```
 
 ---
