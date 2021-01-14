@@ -73,8 +73,54 @@ APIサーバがエラーレスポンスを返した場合に使われます。
 <a name="api-operations"></a>
 ## API Operations
 
+- [ListTransfers](#list-transfers): 
+- [GetTransaction](#get-transaction): 取引情報を取得する
+- [CreateExchangeTransaction](#create-exchange-transaction): 
+- [CreateTransferTransaction](#create-transfer-transaction): 個人間送金
+- [CreatePaymentTransaction](#create-payment-transaction): 支払いする
+- [CreateTopupTransaction](#create-topup-transaction): チャージする
+- [CreateTransaction](#create-transaction): 
+- [ListTransactions](#list-transactions): 取引履歴を取得する
+- [CreateTopupTransactionWithCheck](#create-topup-transaction-with-check): チャージQRコードを読み取ることでチャージする
+- [UpdateBill](#update-bill): 支払いQRコードの更新
+- [CreateBill](#create-bill): 支払いQRコードの発行
+- [ListBills](#list-bills): 支払いQRコード一覧を表示する
+- [UpdateCashtray](#update-cashtray): Cashtrayの情報を更新する
+- [CancelCashtray](#cancel-cashtray): Cashtrayを無効化する
+- [GetCashtray](#get-cashtray): Cashtrayの情報を取得する
+- [CreateCashtray](#create-cashtray): Cashtrayを作る
+- [ListCustomerTransactions](#list-customer-transactions): 取引履歴を取得する
+- [CreateCustomerAccount](#create-customer-account): 新規エンドユーザーウォレットを追加する
+- [ListAccountExpiredBalances](#list-account-expired-balances): エンドユーザーの失効済みの残高内訳を表示する
+- [ListAccountBalances](#list-account-balances): エンドユーザーの残高内訳を表示する
+- [UpdateAccount](#update-account): ウォレット情報を更新する
+- [GetAccount](#get-account): ウォレット情報を表示する
+- [CreateShop](#create-shop): 新規店舗を追加する
+- [ListShops](#list-shops): 店舗一覧を取得する
+- [ListUserAccounts](#list-user-accounts): エンドユーザー、店舗ユーザーのウォレット一覧を表示する
+- [GetPrivateMoneyOrganizationSummaries](#get-private-money-organization-summaries): 決済加盟店の取引サマリを取得する
+- [BulkCreateTransaction](#bulk-create-transaction): CSVファイル一括取引
 ### Transaction
-
+<a name="list-transfers"></a>
+#### 
+```java
+Request request = new ListTransfers()
+        .from("2024-08-12T19:39:14.000000+09:00")
+        .to("2022-12-02T08:24:08.000000+09:00")
+        .page(1981)
+        .perPage(6507)
+        .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
+        .shopName("yQqeO19KhFrkxiVRAQ6FFjz1wnjIRjO9MofqJJncHBCR1qP1zId4mLJCzHpOgkhaasWI8ELqJwRA62Ghe0ne6pcNR1V7JprfFD47gNL9WM6cSeojzOZZrLxO3x6r1ViuOnspa8l8OxqMpLrB8ZQmhXHGSV")
+        .customerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
+        .customerName("gVcs3OQMdHqZLlv01wGqOn2j")
+        .transactionId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
+        .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
+        .setModified(false)
+        .transactionTypes(new String[]{"exchange","transfer","payment","topup"})
+        .transferTypes(new String[]{"transfer","topup","payment","exchange"});
+```
+成功したときは[PaginatedTransfers](#paginated-transfers)クラスのインスタンスを返します
+<a name="get-transaction"></a>
 #### 取引情報を取得する
 取引を取得します。
 ```java
@@ -91,7 +137,113 @@ Request request = new GetTransaction(
 
 ---
 成功したときは[Transaction](#transaction)クラスのインスタンスを返します
+<a name="create-exchange-transaction"></a>
+#### 
+```java
+Request request = new CreateExchangeTransaction(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    7779
+)
+        .description("pQq9anT6PszkN335U1t4DYsuiE88p3Hog0k8dxuKgCFI0Qv1brn8ATMTNMMEyVApkaDeYuOtBoCZgc4gwc8RSE7B5wsqfAkho5yO5EQGpb9AHk6UF1UjWUyw97H5Wi0UlM5hWRopq8fm3QjwrUJDS6QIEgbGEOQG1PZp7fjd91zg");
+```
+成功したときは[Transaction](#transaction)クラスのインスタンスを返します
+<a name="create-transfer-transaction"></a>
+#### 個人間送金
+エンドユーザー間での送金取引(個人間送金)を作成します。
+個人間送金で送れるのはマネーのみで、ポイントを送ることはできません。送金元のマネー残高のうち、有効期限が最も遠いものから順に送金されます。
 
+```java
+Request request = new CreateTransferTransaction(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // senderId: 送金元ユーザーID
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // receiverId: 受取ユーザーID
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
+    1312                                          // amount: 送金額
+)
+        .description("たい焼き(小倉)");                 // 取引履歴に表示する説明文
+```
+
+---
+`senderId`  
+エンドユーザーIDです。
+
+送金元のエンドユーザー(送り主)を指定します。
+
+---
+`receiverId`  
+エンドユーザーIDです。
+
+送金先のエンドユーザー(受け取り人)を指定します。
+
+---
+`privateMoneyId`  
+マネーIDです。
+
+マネーを指定します。
+
+---
+`amount`  
+マネー額です。
+
+送金するマネー額を指定します。
+
+---
+`description`  
+取引説明文です。
+
+任意入力で、取引履歴に表示される説明文です。
+
+---
+成功したときは[Transaction](#transaction)クラスのインスタンスを返します
+<a name="create-payment-transaction"></a>
+#### 支払いする
+支払取引を作成します。
+支払い時には、エンドユーザーの残高のうち、ポイント残高から優先的に消費されます。
+
+```java
+Request request = new CreatePaymentTransaction(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // shopId: 店舗ID
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // customerId: エンドユーザーID
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
+    7469                                          // amount: 支払い額
+)
+        .description("たい焼き(小倉)");                 // 取引履歴に表示する説明文
+```
+
+---
+`shopId`  
+店舗IDです。
+
+送金先の店舗を指定します。
+
+---
+`customerId`  
+エンドユーザーIDです。
+
+送金元のエンドユーザーを指定します。
+
+---
+`privateMoneyId`  
+マネーIDです。
+
+マネーを指定します。
+
+---
+`amount`  
+マネー額です。
+
+送金するマネー額を指定します。
+
+---
+`description`  
+取引説明文です。
+
+任意入力で、取引履歴に表示される説明文です。
+
+---
+成功したときは[Transaction](#transaction)クラスのインスタンスを返します
+<a name="create-topup-transaction"></a>
 #### チャージする
 チャージ取引を作成します。
 ```java
@@ -101,8 +253,9 @@ Request request = new CreateTopupTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
         .bearPointShopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // ポイント支払時の負担店舗ID
-        .moneyAmount(9829)                        // マネー額
-        .pointAmount(3839)                        // ポイント額
+        .moneyAmount(1512)                        // マネー額
+        .pointAmount(6482)                        // ポイント額
+        .pointExpiresAt("2018-05-21T13:48:48.000000+09:00") // ポイント有効期限
         .description("初夏のチャージキャンペーン");            // 取引履歴に表示する説明文
 ```
 
@@ -143,6 +296,11 @@ Request request = new CreateTopupTransaction(
 送金するポイント額を指定します。
 
 ---
+`pointExpiresAt`  
+ポイントをチャージした場合の、付与されるポイントの有効期限です。
+省略した場合はマネーに設定された有効期限と同じものがポイントの有効期限となります。
+
+---
 `description`  
 取引説明文です。
 
@@ -150,107 +308,34 @@ Request request = new CreateTopupTransaction(
 
 ---
 成功したときは[Transaction](#transaction)クラスのインスタンスを返します
-
-#### 支払いする
-支払取引を作成します。
-支払い時には、エンドユーザーの残高のうち、ポイント残高から優先的に消費されます。
-
+<a name="create-transaction"></a>
+#### 
 ```java
-Request request = new CreatePaymentTransaction(
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // shopId: 店舗ID
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // customerId: エンドユーザーID
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    9578                                          // amount: 支払い額
+Request request = new CreateTransaction(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 )
-        .description("たい焼き(小倉)");                 // 取引履歴に表示する説明文
+        .moneyAmount(1864)
+        .pointAmount(76)
+        .pointExpiresAt("2020-01-30T08:08:01.000000+09:00") // ポイント有効期限
+        .description("7YEprCJ0U4QnLZWmGvTqLQwaZ9vOnv67spoRoPKUgWvYVa3Gv9xbfzvgScohGvfvszFZKZ0fsirdyb8N5N4");
 ```
 
 ---
-`shopId`  
-店舗IDです。
-
-送金先の店舗を指定します。
-
----
-`customerId`  
-エンドユーザーIDです。
-
-送金元のエンドユーザーを指定します。
-
----
-`privateMoneyId`  
-マネーIDです。
-
-マネーを指定します。
-
----
-`amount`  
-マネー額です。
-
-送金するマネー額を指定します。
-
----
-`description`  
-取引説明文です。
-
-任意入力で、取引履歴に表示される説明文です。
+`pointExpiresAt`  
+ポイントをチャージした場合の、付与されるポイントの有効期限です。
+省略した場合はマネーに設定された有効期限と同じものがポイントの有効期限となります。
 
 ---
 成功したときは[Transaction](#transaction)クラスのインスタンスを返します
-
-#### 個人間送金
-エンドユーザー間での送金取引(個人間送金)を作成します。
-個人間送金で送れるのはマネーのみで、ポイントを送ることはできません。送金元のマネー残高のうち、有効期限が最も遠いものから順に送金されます。
-
-```java
-Request request = new CreateTransferTransaction(
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // senderId: 送金元ユーザーID
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // receiverId: 受取ユーザーID
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    2298                                          // amount: 送金額
-)
-        .description("たい焼き(小倉)");                 // 取引履歴に表示する説明文
-```
-
----
-`senderId`  
-エンドユーザーIDです。
-
-送金元のエンドユーザー(送り主)を指定します。
-
----
-`receiverId`  
-エンドユーザーIDです。
-
-送金先のエンドユーザー(受け取り人)を指定します。
-
----
-`privateMoneyId`  
-マネーIDです。
-
-マネーを指定します。
-
----
-`amount`  
-マネー額です。
-
-送金するマネー額を指定します。
-
----
-`description`  
-取引説明文です。
-
-任意入力で、取引履歴に表示される説明文です。
-
----
-成功したときは[Transaction](#transaction)クラスのインスタンスを返します
-
+<a name="list-transactions"></a>
 #### 取引履歴を取得する
 取引一覧を返します。
 ```java
 Request request = new ListTransactions()
-        .from("2022-12-14T10:46:43.000000+09:00") // 開始日時
-        .to("2024-01-27T16:51:48.000000+09:00")   // 終了日時
+        .from("2023-03-23T03:13:24.000000+09:00") // 開始日時
+        .to("2023-08-04T23:12:56.000000+09:00")   // 終了日時
         .page(1)                                  // ページ番号
         .perPage(50)                              // 1ページ分の取引数
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ID
@@ -260,7 +345,7 @@ Request request = new ListTransactions()
         .transactionId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 取引ID
         .organizationCode("pocketchange")         // 組織コード
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
-        .setModified(true)                        // キャンセルフラグ
+        .setModified(false)                       // キャンセルフラグ
         .types(new String[]{"topup","payment"});  // 取引種別 (複数指定可)、チャージ=topup、支払い=payment
 ```
 
@@ -353,18 +438,7 @@ Request request = new ListTransactions()
 
 ---
 成功したときは[PaginatedTransaction](#paginated-transaction)クラスのインスタンスを返します
-
-#### 返金する
-```java
-Request request = new RefundTransaction(
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // transactionId: 取引ID
-)
-        .description("返品対応のため");                  // 取引履歴に表示する返金事由
-```
-成功したときは[Transfer](#transfer)クラスのインスタンスを返します
-
-### チャージQRコード
-
+### Check
 店舗ユーザが発行し、エンドユーザがポケペイアプリから読み取ることでチャージ取引が発生するQRコードです。
 
 チャージQRコードを解析すると次のようなURLになります(URLは環境によって異なります)。
@@ -373,40 +447,7 @@ Request request = new RefundTransaction(
 
 QRコードを読み取る方法以外にも、このURLリンクを直接スマートフォン(iOS/Android)上で開くことによりアプリが起動して取引が行われます。(注意: 上記URLはsandbox環境であるため、アプリもsandbox環境のものである必要があります) 上記URL中の `xxxxxxxx-xxxx-xxxxxxxxx-xxxxxxxxxxxx` の部分がチャージQRコードのIDです。
 
-#### チャージQRコードの発行
-```java
-Request request = new CreateCheck(
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: 送金元の店舗アカウントID
-)
-        .moneyAmount(4826)                        // 付与マネー額
-        .pointAmount(2394)                        // 付与ポイント額
-        .description("test check")                // 説明文(アプリ上で取引の説明文として表示される)
-        .setOnetime(true)                         // ワンタイムかどうか。真の場合1度読み込まれた時点でそのチャージQRは失効する(デフォルト値は真)
-        .usageLimit(3826)                         // ワンタイムでない場合、複数ユーザから読み取られ得る。その場合の最大読み取り回数
-        .expiresAt("2019-02-22T16:57:44.000000+09:00") // チャージQR自体の失効日時
-        .pointExpiresAt("2024-02-13T17:41:07.000000+09:00") // チャージQRによって付与されるポイントの失効日時
-        .pointExpiresInDays(60)                   // チャージQRによって付与されるポイントの有効期限(相対指定、単位は日)
-        .bearPointAccount("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // ポイント額を負担する店舗アカウントのID
-```
-`moneyAmount`と`pointAmount`の少なくとも一方は指定する必要があります。
-
-
----
-`setOnetime`  
-チャージQRコードが一度の読み取りで失効するときに`true`にします。デフォルト値は`true`です。
-`false`の場合、そのチャージQRコードは1ユーザについては1回きりですが、複数ユーザによって読み取り可能なQRコードになります。
-
-
----
-`usageLimit`  
-複数ユーザによって読み取り可能なチャージQRコードの読み取り回数に制限をつけるために指定します。
-省略すると無制限に読み取り可能なチャージQRコードになります。
-チャージQRコードは管理画面からいつでも無効化(有効化)することができます。
-
-
----
-成功したときは[Check](#check)クラスのインスタンスを返します
-
+<a name="create-topup-transaction-with-check"></a>
 #### チャージQRコードを読み取ることでチャージする
 通常チャージQRコードはエンドユーザのアプリによって読み取られ、アプリとポケペイサーバとの直接通信によって取引が作られます。 もしエンドユーザとの通信をパートナーのサーバのみに限定したい場合、パートナーのサーバがチャージQRの情報をエンドユーザから代理受けして、サーバ間連携APIによって実際のチャージ取引をリクエストすることになります。
 
@@ -433,25 +474,73 @@ QRコード生成時に送金元店舗のウォレット情報や、送金額な
 
 ---
 成功したときは[Transaction](#transaction)クラスのインスタンスを返します
+### Bill
+支払いQRコード
+<a name="update-bill"></a>
+#### 支払いQRコードの更新
+支払いQRコードの内容を更新します。パラメータは全て省略可能で、指定したもののみ更新されます。
+```java
+Request request = new UpdateBill(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // billId: 支払いQRコードのID
+)
+        .amount(1686)                             // 支払い額
+        .description("test bill")                 // 説明文
+        .setDisabled(true);                       // 無効化されているかどうか
+```
 
-### 支払いQRコード
+---
+`billId`  
+更新対象の支払いQRコードのIDです。
 
+---
+`amount`  
+支払いQRコードを支払い額を指定します。nullを渡すと任意金額の支払いQRコードとなり、エンドユーザーがアプリで読み取った際に金額を入力します。
+
+---
+`description`  
+支払いQRコードの詳細説明文です。アプリ上で取引の説明文として表示されます。
+
+---
+`setDisabled`  
+支払いQRコードが無効化されているかどうかを指定します。真にすると無効化され、偽にすると有効化します。
+
+---
+成功したときは[Bill](#bill)クラスのインスタンスを返します
+<a name="create-bill"></a>
+#### 支払いQRコードの発行
+支払いQRコードの内容を更新します。支払い先の店舗ユーザーは指定したマネーのウォレットを持っている必要があります。
+```java
+Request request = new CreateBill(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: 支払いマネーのマネーID
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // shopId: 支払い先(受け取り人)の店舗ID
+)
+        .amount(8388)                             // 支払い額
+        .description("test bill");                // 説明文(アプリ上で取引の説明文として表示される)
+```
+
+---
+`amount`  
+支払いQRコードを支払い額を指定します。省略するかnullを渡すと任意金額の支払いQRコードとなり、エンドユーザーがアプリで読み取った際に金額を入力します。
+
+---
+成功したときは[Bill](#bill)クラスのインスタンスを返します
+<a name="list-bills"></a>
 #### 支払いQRコード一覧を表示する
 支払いQRコード一覧を表示します。
 ```java
 Request request = new ListBills()
-        .page(6649)                               // ページ番号
-        .perPage(2896)                            // 1ページの表示数
-        .billId("3x6r1")                          // 支払いQRコードのID
+        .page(6233)                               // ページ番号
+        .perPage(3386)                            // 1ページの表示数
+        .billId("q2")                             // 支払いQRコードのID
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
-        .organizationCode("70s2krAk--iSH3DW--7--d----N") // 組織コード
+        .organizationCode("553zWX---BY495J6r--N-21-1") // 組織コード
         .description("test bill")                 // 取引説明文
-        .createdFrom("2022-07-07T06:17:16.000000+09:00") // 作成日時(起点)
-        .createdTo("2024-09-06T18:44:09.000000+09:00") // 作成日時(終点)
+        .createdFrom("2024-08-09T13:28:27.000000+09:00") // 作成日時(起点)
+        .createdTo("2019-01-18T17:23:21.000000+09:00") // 作成日時(終点)
         .shopName("bill test shop1")              // 店舗名
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ID
-        .lowerLimitAmount(8780)                   // 金額の範囲によるフィルタ(下限)
-        .upperLimitAmount(8338)                   // 金額の範囲によるフィルタ(上限)
+        .lowerLimitAmount(4246)                   // 金額の範囲によるフィルタ(下限)
+        .upperLimitAmount(136)                    // 金額の範囲によるフィルタ(上限)
         .setDisabled(true);                       // 支払いQRコードが無効化されているかどうか
 ```
 
@@ -465,7 +554,7 @@ Request request = new ListBills()
 
 ---
 `billId`  
-支払いQRコードのIDを指定して検索します。IDは部分一致で検索できます。
+支払いQRコードのIDを指定して検索します。IDは前方一致で検索されます。
 
 ---
 `privateMoneyId`  
@@ -493,7 +582,7 @@ Request request = new ListBills()
 
 ---
 `shopName`  
-支払いQRコードを作成した店舗名でフィルターします。
+支払いQRコードを作成した店舗名でフィルターします。店舗名は部分一致で検索されます。
 
 ---
 `shopId`  
@@ -513,185 +602,143 @@ Request request = new ListBills()
 
 ---
 成功したときは[PaginatedBills](#paginated-bills)クラスのインスタンスを返します
+### Cashtray
+Cashtrayは支払い/チャージ両方に使えるQRコードで、店舗ユーザとエンドユーザの間の主に店頭などでの取引のために用いられます。
+Cashtrayによる取引では、エンドユーザがQRコードを読み取った時点で即時取引が作られ、ユーザに対して受け取り確認画面は表示されません。
+Cashtrayはワンタイムで、一度読み取りに成功するか、取引エラーになると失効します。
+また、Cashtrayには有効期限があり、デフォルトでは30分で失効します。
 
-#### 支払いQRコードの発行
-支払いQRコードの内容を更新します。支払い先の店舗ユーザーは指定したマネーのウォレットを持っている必要があります。
+<a name="update-cashtray"></a>
+#### Cashtrayの情報を更新する
+Cashtrayの内容を更新します。bodyパラメータは全て省略可能で、指定したもののみ更新されます。
 ```java
-Request request = new CreateBill(
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: 支払いマネーのマネーID
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // shopId: 支払い先(受け取り人)の店舗ID
+Request request = new UpdateCashtray(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // cashtrayId: CashtrayのID
 )
-        .amount(9137)                             // 支払い額
-        .description("test bill");                // 説明文(アプリ上で取引の説明文として表示される)
+        .amount(1978)                             // 金額
+        .description("たい焼き(小倉)")                  // 取引履歴に表示する説明文
+        .expiresIn(8053);                         // 失効時間(秒)
 ```
 
 ---
-`amount`  
-支払いQRコードを支払い額を指定します。省略するかnullを渡すと任意金額の支払いQRコードとなり、エンドユーザーがアプリで読み取った際に金額を入力します。
-
----
-成功したときは[Bill](#bill)クラスのインスタンスを返します
-
-#### 支払いQRコードの更新
-支払いQRコードの内容を更新します。パラメータは全て省略可能で、指定したもののみ更新されます。
-```java
-Request request = new UpdateBill(
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // billId: 支払いQRコードのID
-)
-        .amount(8582)                             // 支払い額
-        .description("test bill")                 // 説明文
-        .setDisabled(false);                      // 無効化されているかどうか
-```
-
----
-`billId`  
-更新対象の支払いQRコードのIDです。
+`cashtrayId`  
+更新対象のCashtrayのIDです。
 
 ---
 `amount`  
-支払いQRコードを支払い額を指定します。nullを渡すと任意金額の支払いQRコードとなり、エンドユーザーがアプリで読み取った際に金額を入力します。
+マネー額です(任意項目)。
+正の値を与えるとチャージになり、負の値を与えると支払いとなります。
 
 ---
 `description`  
-支払いQRコードの詳細説明文です。アプリ上で取引の説明文として表示されます。
+Cashtrayを読み取ったときに作られる取引の説明文です(最大200文字、任意項目)。
+アプリや管理画面などの取引履歴に表示されます。
 
 ---
-`setDisabled`  
-支払いQRコードが無効化されているかどうかを指定します。真にすると無効化され、偽にすると有効化します。
+`expiresIn`  
+Cashtrayが失効するまでの時間を秒で指定します(任意項目、デフォルト値は1800秒(30分))。
 
 ---
-成功したときは[Bill](#bill)クラスのインスタンスを返します
-
-### Customer
-
-#### 新規エンドユーザーウォレットを追加する
-指定したマネーのウォレットを作成し、同時にそのウォレットを保有するユーザも作成します。
+成功したときは[Cashtray](#cashtray)クラスのインスタンスを返します
+<a name="cancel-cashtray"></a>
+#### Cashtrayを無効化する
+Cashtrayを無効化します。無効化されたQRコードを読み取るとエラーとなり、取引は失敗します。
 ```java
-Request request = new CreateCustomerAccount(
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
-)
-        .userName("ポケペイ太郎")                       // ユーザー名
-        .accountName("ポケペイ太郎のアカウント");             // アカウント名
-```
-
----
-`privateMoneyId`  
-マネーIDです。
-
-これによって作成するウォレットのマネーを指定します。
-
----
-`userName`  
-ウォレットと共に作成するユーザ名です。省略した場合は空文字となります。
-
----
-`accountName`  
-作成するウォレット名です。省略した場合は空文字となります。
-
----
-成功したときは[AccountWithUser](#account-with-user)クラスのインスタンスを返します
-
-#### ウォレット情報を表示する
-ウォレットを取得します。
-```java
-Request request = new GetAccount(
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
+Request request = new CancelCashtray(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // cashtrayId: CashtrayのID
 );
 ```
 
 ---
-`accountId`  
-ウォレットIDです。
-
-フィルターとして使われ、指定したウォレットIDのウォレットを取得します。
+`cashtrayId`  
+無効化するCashtrayのIDです。
 
 ---
-成功したときは[AccountDetail](#account-detail)クラスのインスタンスを返します
+成功したときは[Cashtray](#cashtray)クラスのインスタンスを返します
+<a name="get-cashtray"></a>
+#### Cashtrayの情報を取得する
+Cashtrayの情報を取得します。
+Cashtrayの現在の状態に加え、エンドユーザのCashtray読み取りの試行結果、Cashtray読み取りによって作られた取引情報が取得できます。
+Cashtrayは読み取りの成否に関わらず、一度きりで失効します。
+エンドユーザのCashtray読み取りの際には、様々なエラーが起き得ます。
+エラーの詳細はレスポンス中の `attempt` の中にあります。主なエラー型と対応するステータスコードを以下に列挙します。
 
-#### エンドユーザーの残高内訳を表示する
-エンドユーザーのウォレット毎の残高を有効期限別のリストとして取得します。
+- `cashtray_already_proceed (422)`
+  - 既に処理済みのCashtrayをエンドユーザが再び読み取ったときに出ます
+- `cashtray_expired (422)`
+  - 読み取り時点でCashtray自体の有効期限が切れているときに出ます
+- `cashtray_already_canceled (422)`
+  - 読み取り時点でCashtrayが無効化されているときに出ます
+- `account_balance_not_enough (422)`
+  - 支払い時に、エンドユーザの残高が不足していて取引が完了できなかったときに出ます
+- `account_balance_exceeded`
+  - チャージ時に、エンドユーザのウォレット上限を超えて取引が完了できなかったときに出ます
+- `account_transfer_limit_exceeded (422)`
+  - マネーに設定されている一度の取引金額の上限を超えたため、取引が完了できなかったときに出ます
+- `account_not_found (422)`
+  - Cashtrayに設定されたマネーのウォレットをエンドユーザが持っていなかったときに出ます
+
+レスポンス中の `transaction` には、このCashtrayをエンドユーザが読み取ることによって作られる取引データが入ります。まだ読み取られていない場合はNULLになります。
 ```java
-Request request = new ListAccountBalances(
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
-)
-        .page(1912)                               // ページ番号
-        .perPage(4503)                            // 1ページ分の取引数
-        .expiresAtFrom("2021-11-26T22:06:49.000000+09:00") // 有効期限の期間によるフィルター(開始時点)
-        .expiresAtTo("2019-12-08T14:37:45.000000+09:00") // 有効期限の期間によるフィルター(終了時点)
-        .direction("asc");                        // 有効期限によるソート順序
+Request request = new GetCashtray(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // cashtrayId: CashtrayのID
+);
 ```
 
 ---
-`accountId`  
-ウォレットIDです。
-
-フィルターとして使われ、指定したウォレットIDのウォレット残高を取得します。
+`cashtrayId`  
+情報を取得するCashtrayのIDです。
 
 ---
-`page`  
-取得したいページ番号です。デフォルト値は1です。
+成功したときは[CashtrayWithResult](#cashtray-with-result)クラスのインスタンスを返します
+<a name="create-cashtray"></a>
+#### Cashtrayを作る
+Cashtrayを作成します。
 
----
-`perPage`  
-1ページ分のウォレット残高数です。デフォルト値は30です。
-
----
-`expiresAtFrom`  
-有効期限の期間によるフィルターの開始時点のタイムスタンプです。デフォルトでは未指定です。
-
----
-`expiresAtTo`  
-有効期限の期間によるフィルターの終了時点のタイムスタンプです。デフォルトでは未指定です。
-
----
-`direction`  
-有効期限によるソートの順序を指定します。デフォルト値はasc (昇順)です。
-
----
-成功したときは[PaginatedAccountBalance](#paginated-account-balance)クラスのインスタンスを返します
-
-#### エンドユーザーの失効済みの残高内訳を表示する
-エンドユーザーのウォレット毎の失効済みの残高を有効期限別のリストとして取得します。
 ```java
-Request request = new ListAccountExpiredBalances(
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
+Request request = new CreateCashtray(
+    640                                           // amount: 金額
 )
-        .page(7446)                               // ページ番号
-        .perPage(9384)                            // 1ページ分の取引数
-        .expiresAtFrom("2020-08-10T16:38:08.000000+09:00") // 有効期限の期間によるフィルター(開始時点)
-        .expiresAtTo("2024-03-31T04:16:45.000000+09:00") // 有効期限の期間によるフィルター(終了時点)
-        .direction("asc");                        // 有効期限によるソート順序
+        .shopAccountId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ウォレットID
+        .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ユーザーID
+        .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
+        .description("たい焼き(小倉)")                  // 取引履歴に表示する説明文
+        .expiresIn(9210);                         // 失効時間(秒)
 ```
 
 ---
-`accountId`  
-ウォレットIDです。
-
-フィルターとして使われ、指定したウォレットIDのウォレット残高を取得します。
-
----
-`page`  
-取得したいページ番号です。デフォルト値は1です。
+`shopAccountId`  
+店舗のウォレットIDです。
+店舗のウォレットIDを指定するか、店舗のユーザIDとマネーIDを両方指定するかのいずれかを選ぶ必要があります。
 
 ---
-`perPage`  
-1ページ分のウォレット残高数です。デフォルト値は30です。
+`shopId`  
+店舗のユーザーIDです。
+店舗のウォレットIDを指定するか、店舗のユーザIDとマネーIDを両方指定するかのいずれかを選ぶ必要があります。
 
 ---
-`expiresAtFrom`  
-有効期限の期間によるフィルターの開始時点のタイムスタンプです。デフォルトでは未指定です。
+`privateMoneyId`  
+取引対象のマネーのIDです。
+店舗のウォレットIDを指定するか、店舗のユーザIDとマネーIDを両方指定するかのいずれかを選ぶ必要があります。
 
 ---
-`expiresAtTo`  
-有効期限の期間によるフィルターの終了時点のタイムスタンプです。デフォルトでは未指定です。
+`amount`  
+マネー額です(必須項目)。
+正の値を与えるとチャージになり、負の値を与えると支払いとなります。
 
 ---
-`direction`  
-有効期限によるソートの順序を指定します。デフォルト値はdesc (降順)です。
+`description`  
+Cashtrayを読み取ったときに作られる取引の説明文です(最大200文字、任意項目)。
+アプリや管理画面などの取引履歴に表示されます。
 
 ---
-成功したときは[PaginatedAccountBalance](#paginated-account-balance)クラスのインスタンスを返します
+`expiresIn`  
+Cashtrayが失効するまでの時間を秒で指定します(任意項目、デフォルト値は1800秒(30分))。
 
+---
+成功したときは[Cashtray](#cashtray)クラスのインスタンスを返します
+### Customer
+<a name="list-customer-transactions"></a>
 #### 取引履歴を取得する
 取引一覧を返します。
 ```java
@@ -700,10 +747,10 @@ Request request = new ListCustomerTransactions(
 )
         .senderCustomerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 送金エンドユーザーID
         .receiverCustomerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 受取エンドユーザーID
-        .type("sFsWbo7bpQ")                       // 取引種別、チャージ=topup、支払い=payment、個人間送金=transfer
-        .setModified(true)                        // キャンセル済みかどうか
-        .from("2021-04-11T02:43:13.000000+09:00") // 開始日時
-        .to("2022-03-18T03:41:42.000000+09:00")   // 終了日時
+        .type("QgT1")                             // 取引種別、チャージ=topup、支払い=payment、個人間送金=transfer
+        .setModified(false)                       // キャンセル済みかどうか
+        .from("2021-06-15T14:55:47.000000+09:00") // 開始日時
+        .to("2016-01-29T03:18:32.000000+09:00")   // 終了日時
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
 ```
@@ -770,56 +817,184 @@ falseを指定するとキャンセルされていない取引のみ一覧に表
 
 ---
 成功したときは[PaginatedTransaction](#paginated-transaction)クラスのインスタンスを返します
-
-### Organization
-
-#### 新規加盟店組織を追加する
+<a name="create-customer-account"></a>
+#### 新規エンドユーザーウォレットを追加する
+指定したマネーのウォレットを作成し、同時にそのウォレットを保有するユーザも作成します。
 ```java
-Request request = new CreateOrganization(
-    "ox_supermarket",                             // code: 新規組織コード
-    "oxスーパー",                                     // name: 新規組織名
-    new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}, // privateMoneyIds: 加盟店組織で有効にするマネーIDの配列
-    "PszkN335U1@t4DY.com",                        // issuerAdminUserEmail: 発行体担当者メールアドレス
-    "suiE88p3Ho@g0k8.com"                         // memberAdminUserEmail: 新規組織担当者メールアドレス
+Request request = new CreateCustomerAccount(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .bankName("XYZ銀行")                        // 銀行名
-        .bankCode("99X")                          // 銀行金融機関コード
-        .bankBranchName("ABC支店")                  // 銀行支店名
-        .bankBranchCode("99X")                    // 銀行支店コード
-        .bankAccountType("saving")                // 銀行口座種別 (普通=saving, 当座=current, その他=other)
-        .bankAccount(9999999)                     // 銀行口座番号
-        .bankAccountHolderName("ﾌｸｻﾞﾜﾕｷﾁ")        // 口座名義人名
-        .contactName("佐藤清");                      // 担当者名
+        .userName("ポケペイ太郎")                       // ユーザー名
+        .accountName("ポケペイ太郎のアカウント");             // アカウント名
 ```
-成功したときは[Organization](#organization)クラスのインスタンスを返します
 
+---
+`privateMoneyId`  
+マネーIDです。
+
+これによって作成するウォレットのマネーを指定します。
+
+---
+`userName`  
+ウォレットと共に作成するユーザ名です。省略した場合は空文字となります。
+
+---
+`accountName`  
+作成するウォレット名です。省略した場合は空文字となります。
+
+---
+成功したときは[AccountWithUser](#account-with-user)クラスのインスタンスを返します
+<a name="list-account-expired-balances"></a>
+#### エンドユーザーの失効済みの残高内訳を表示する
+エンドユーザーのウォレット毎の失効済みの残高を有効期限別のリストとして取得します。
+```java
+Request request = new ListAccountExpiredBalances(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
+)
+        .page(6411)                               // ページ番号
+        .perPage(4553)                            // 1ページ分の取引数
+        .expiresAtFrom("2015-11-28T23:06:24.000000+09:00") // 有効期限の期間によるフィルター(開始時点)
+        .expiresAtTo("2020-03-03T01:22:29.000000+09:00") // 有効期限の期間によるフィルター(終了時点)
+        .direction("desc");                       // 有効期限によるソート順序
+```
+
+---
+`accountId`  
+ウォレットIDです。
+
+フィルターとして使われ、指定したウォレットIDのウォレット残高を取得します。
+
+---
+`page`  
+取得したいページ番号です。デフォルト値は1です。
+
+---
+`perPage`  
+1ページ分のウォレット残高数です。デフォルト値は30です。
+
+---
+`expiresAtFrom`  
+有効期限の期間によるフィルターの開始時点のタイムスタンプです。デフォルトでは未指定です。
+
+---
+`expiresAtTo`  
+有効期限の期間によるフィルターの終了時点のタイムスタンプです。デフォルトでは未指定です。
+
+---
+`direction`  
+有効期限によるソートの順序を指定します。デフォルト値はdesc (降順)です。
+
+---
+成功したときは[PaginatedAccountBalance](#paginated-account-balance)クラスのインスタンスを返します
+<a name="list-account-balances"></a>
+#### エンドユーザーの残高内訳を表示する
+エンドユーザーのウォレット毎の残高を有効期限別のリストとして取得します。
+```java
+Request request = new ListAccountBalances(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
+)
+        .page(9355)                               // ページ番号
+        .perPage(2558)                            // 1ページ分の取引数
+        .expiresAtFrom("2019-06-23T10:45:31.000000+09:00") // 有効期限の期間によるフィルター(開始時点)
+        .expiresAtTo("2025-04-24T16:49:13.000000+09:00") // 有効期限の期間によるフィルター(終了時点)
+        .direction("asc");                        // 有効期限によるソート順序
+```
+
+---
+`accountId`  
+ウォレットIDです。
+
+フィルターとして使われ、指定したウォレットIDのウォレット残高を取得します。
+
+---
+`page`  
+取得したいページ番号です。デフォルト値は1です。
+
+---
+`perPage`  
+1ページ分のウォレット残高数です。デフォルト値は30です。
+
+---
+`expiresAtFrom`  
+有効期限の期間によるフィルターの開始時点のタイムスタンプです。デフォルトでは未指定です。
+
+---
+`expiresAtTo`  
+有効期限の期間によるフィルターの終了時点のタイムスタンプです。デフォルトでは未指定です。
+
+---
+`direction`  
+有効期限によるソートの順序を指定します。デフォルト値はasc (昇順)です。
+
+---
+成功したときは[PaginatedAccountBalance](#paginated-account-balance)クラスのインスタンスを返します
+<a name="update-account"></a>
+#### ウォレット情報を更新する
+ウォレットの状態を更新します。現在はウォレットの凍結/凍結解除の切り替えにのみ対応しています。
+```java
+Request request = new UpdateAccount(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
+)
+        .setSuspended(true);                      // ウォレットが凍結されているかどうか
+```
+
+---
+`accountId`  
+ウォレットIDです。
+
+指定したウォレットIDのウォレットの状態を更新します。
+
+---
+`setSuspended`  
+ウォレットの凍結状態です。真にするとウォレットが凍結され、そのウォレットでは新規取引ができなくなります。偽にすると凍結解除されます。
+
+---
+成功したときは[AccountDetail](#account-detail)クラスのインスタンスを返します
+<a name="get-account"></a>
+#### ウォレット情報を表示する
+ウォレットを取得します。
+```java
+Request request = new GetAccount(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
+);
+```
+
+---
+`accountId`  
+ウォレットIDです。
+
+フィルターとして使われ、指定したウォレットIDのウォレットを取得します。
+
+---
+成功したときは[AccountDetail](#account-detail)クラスのインスタンスを返します
+### Organization
 ### Shop
-
+<a name="create-shop"></a>
 #### 新規店舗を追加する
 ```java
 Request request = new CreateShop(
     "oxスーパー三田店"                                   // shopName: 店舗名
 )
-        .shopPostalCode("805-5907")               // 店舗の郵便番号
+        .shopPostalCode("3606211")                // 店舗の郵便番号
         .shopAddress("東京都港区芝...")                 // 店舗の住所
-        .shopTel("06-01122")                      // 店舗の電話番号
-        .shopEmail("n8ATMTNMME@yVAp.com")         // 店舗のメールアドレス
-        .shopExternalId("kaDeYuOtBoCZgc4gwc8RSE7") // 店舗の外部ID
+        .shopTel("0193-883835")                   // 店舗の電話番号
+        .shopEmail("DU70KRGU02@ETtM.com")         // 店舗のメールアドレス
+        .shopExternalId("p5BruF5QOJx8zwWTQtwhgEUQrpqV") // 店舗の外部ID
         .organizationCode("ox-supermarket");      // 組織コード
 ```
 成功したときは[User](#user)クラスのインスタンスを返します
-
+<a name="list-shops"></a>
 #### 店舗一覧を取得する
 ```java
 Request request = new ListShops()
         .organizationCode("pocketchange")         // 組織コード
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
         .name("oxスーパー三田店")                        // 店舗名
-        .postalCode("257-1310")                   // 店舗の郵便番号
+        .postalCode("484-6920")                   // 店舗の郵便番号
         .address("東京都港区芝...")                     // 店舗の住所
-        .tel("0689-859-5517")                     // 店舗の電話番号
-        .email("pb9AHk6UF1@UjWU.com")             // 店舗のメールアドレス
-        .externalId("yw97H5Wi0UlM5hWRopq8fm3QjwrUJD") // 店舗の外部ID
+        .tel("02281-757")                         // 店舗の電話番号
+        .email("Vej7KjR7PO@79YO.com")             // 店舗のメールアドレス
+        .externalId("c2btzI2Hv")                  // 店舗の外部ID
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
 ```
@@ -874,9 +1049,8 @@ Request request = new ListShops()
 
 ---
 成功したときは[PaginatedShops](#paginated-shops)クラスのインスタンスを返します
-
 ### Account
-
+<a name="list-user-accounts"></a>
 #### エンドユーザー、店舗ユーザーのウォレット一覧を表示する
 ユーザーIDを指定してそのユーザーのウォレット一覧を取得します。
 ```java
@@ -893,34 +1067,32 @@ Request request = new ListUserAccounts(
 
 ---
 成功したときは[PaginatedAccounts](#paginated-accounts)クラスのインスタンスを返します
-
 ### Private Money
-
+<a name="get-private-money-organization-summaries"></a>
 #### 決済加盟店の取引サマリを取得する
 ```java
 Request request = new GetPrivateMoneyOrganizationSummaries(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .from("2021-01-27T10:09:02.000000+09:00") // 開始日時(toと同時に指定する必要有)
-        .to("2016-02-05T23:42:53.000000+09:00")   // 終了日時(fromと同時に指定する必要有)
+        .from("2025-03-21T20:29:05.000000+09:00") // 開始日時(toと同時に指定する必要有)
+        .to("2015-11-05T07:39:19.000000+09:00")   // 終了日時(fromと同時に指定する必要有)
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
 ```
 `from`と`to`は同時に指定する必要があります。
 
 成功したときは[PaginatedPrivateMoneyOrganizationSummaries](#paginated-private-money-organization-summaries)クラスのインスタンスを返します
-
-### バルクチャージ
-
+### Bulk
+<a name="bulk-create-transaction"></a>
 #### CSVファイル一括取引
 CSVファイルから一括取引をします。
 ```java
 Request request = new BulkCreateTransaction(
-    "IEgbGEOQG1PZp7fjd9",                         // name: 一括取引タスク名
-    "1zgh1",                                      // content: 取引する情報のCSV
-    "RHHtL55R7YEprCJ0U4QnLZWmGvTqLQwaZ9vO"        // requestId: リクエストID
+    "1dRKuzOlLMmdBSZr220xtZpZdQ",                 // name: 一括取引タスク名
+    "ssluYJHAly",                                 // content: 取引する情報のCSV
+    "lPpV6xWxt7f2oLFlgp2lLhVbHghg4lZSVxXq"        // requestId: リクエストID
 )
-        .description("v67spoRoPKUgWvYVa3Gv9xbfzvgScohGvfvszFZKZ0fsirdyb8N5N4uLXeppDXZ9aq2pYugtiiL7qWoYElTKmZkEzCv7OKUa8NeEnF41oUMWRj1"); // 一括取引の説明
+        .description("iDQPFv2xIXmI4PlPvyiodipyOhBLvJd18F7msVClYIZ6Bq4ZCm153pAwidsKM1ZphpLhv7NIoqmlJpzKOYIsRtFF9x"); // 一括取引の説明
 ```
 
 ---
@@ -939,14 +1111,18 @@ Request request = new BulkCreateTransaction(
 
 - `type`: 取引種別
   - 必須。'topup' または 'payment'
-- `sender_account_id`: 送金ウォレットID
+- `sender_id`: 送金ユーザーID
   - 必須。UUID
-- `receiver_account_id`: 受取ウォレットID
+- `receiver_id`: 受取ユーザーID
+  - 必須。UUID
+- `private_money_id`: マネーID
   - 必須。UUID
 - `money_amount`: マネー額
   - 任意。ただし `point_amount` といずれかが必須。0以上の数字
 - `point_amount`: ポイント額
   - 任意。ただし `money_amount` といずれかが必須。0以上の数字
+- `description`: 取引の説明文
+  - 任意。200文字以内。取引履歴に表示される文章
 - `bear_account_id`: ポイント負担ウォレットID
   - `point_amount` があるときは必須。UUID
 - `point_expires_at`: ポイントの有効期限
@@ -958,7 +1134,6 @@ Request request = new BulkCreateTransaction(
 
 ---
 成功したときは[BulkTransaction](#bulk-transaction)クラスのインスタンスを返します
-
 ## Responses
 
 
@@ -999,36 +1174,41 @@ Request request = new BulkCreateTransaction(
 
 `getAccount`は [AccountWithUser](#account-with-user) クラスのインスタンスを返します。
 
-<a name="check"></a>
-## Check
-* `getId() String`: チャージQRコードのID
-* `getAmount() double`: チャージマネー額 (deprecated)
-* `getMoneyAmount() double`: チャージマネー額
-* `getPointAmount() double`: チャージポイント額
-* `getDescription() String`: チャージQRコードの説明文(アプリ上で取引の説明文として表示される)
-* `getUser() User`: 送金元ユーザ情報
-* `isOnetime() boolean`: 使用回数が一回限りかどうか
-* `isDisabled() boolean`: 無効化されているかどうか
-* `getExpiresAt() String`: チャージQRコード自体の失効日時
-* `getPrivateMoney() PrivateMoney`: 対象マネー情報
-* `getUsageLimit() int`: 一回限りでない場合の最大読み取り回数
-* `getUsageCount() double`: 一回限りでない場合の現在までに読み取られた回数
-* `getToken() String`: チャージQRコードを解析したときに出てくるURL
+<a name="cashtray"></a>
+## Cashtray
+* `getId() String`: Cashtray自体のIDです。
+* `getAmount() double`: 取引金額
+* `getDescription() String`: Cashtrayの説明文
+* `getAccount() AccountWithUser`: 発行店舗のウォレット
+* `getExpiresAt() String`: Cashtrayの失効日時
+* `getCanceledAt() String`: Cashtrayの無効化日時。NULLの場合は無効化されていません
+* `getToken() String`: 
 
-`getUser`は [User](#user) クラスのインスタンスを返します。
+`getAccount`は [AccountWithUser](#account-with-user) クラスのインスタンスを返します。
 
-`getPrivateMoney`は [PrivateMoney](#private-money) クラスのインスタンスを返します。
+<a name="cashtray-with-result"></a>
+## CashtrayWithResult
+* `getId() String`: CashtrayのID
+* `getAmount() double`: 取引金額
+* `getDescription() String`: Cashtrayの説明文(アプリ上で取引の説明文として表示される)
+* `getAccount() AccountWithUser`: 発行店舗のウォレット
+* `getExpiresAt() String`: Cashtrayの失効日時
+* `getCanceledAt() String`: Cashtrayの無効化日時。NULLの場合は無効化されていません
+* `getToken() String`: 
+* `getAttempt() CashtrayAttempt`: Cashtray読み取り結果
+* `getTransaction() Transaction`: 取引結果
+
+`getAccount`は [AccountWithUser](#account-with-user) クラスのインスタンスを返します。
+
+`getAttempt`は [CashtrayAttempt](#cashtray-attempt) クラスのインスタンスを返します。
+
+`getTransaction`は [Transaction](#transaction) クラスのインスタンスを返します。
 
 <a name="user"></a>
 ## User
 * `getId() String`: ユーザー (または店舗) ID
 * `getName() String`: ユーザー (または店舗) 名
 * `isMerchant() boolean`: 店舗ユーザーかどうか
-
-<a name="organization"></a>
-## Organization
-* `getCode() String`: 組織コード
-* `getName() String`: 組織名
 
 <a name="transaction"></a>
 ## Transaction
@@ -1058,21 +1238,6 @@ Request request = new BulkCreateTransaction(
 * `getSubmittedAt() String`: バルクチャージが登録された日時
 * `getUpdatedAt() String`: バルクチャージが更新された日時
 
-<a name="transfer"></a>
-## Transfer
-* `getId() String`: 
-* `getSenderAccount() AccountWithoutPrivateMoneyDetail`: 
-* `getReceiverAccount() AccountWithoutPrivateMoneyDetail`: 
-* `getAmount() double`: 
-* `getMoneyAmount() double`: 
-* `getPointAmount() double`: 
-* `getDoneAt() String`: 
-* `getType() String`: 
-* `getDescription() String`: 
-* `getTransactionId() String`: 
-
-`getReceiverAccount`と`getSenderAccount`は [AccountWithoutPrivateMoneyDetail](#account-without-private-money-detail) クラスのインスタンスを返します。
-
 <a name="paginated-private-money-organization-summaries"></a>
 ## PaginatedPrivateMoneyOrganizationSummaries
 * `getRows() PrivateMoneyOrganizationSummary[]`: 
@@ -1090,6 +1255,16 @@ Request request = new BulkCreateTransaction(
 * `getPagination() Pagination`: 
 
 `getRows`は [Transaction](#transaction) クラスのインスタンスの配列を返します。
+
+`getPagination`は [Pagination](#pagination) クラスのインスタンスを返します。
+
+<a name="paginated-transfers"></a>
+## PaginatedTransfers
+* `getRows() Transfer[]`: 
+* `getCount() int`: 
+* `getPagination() Pagination`: 
+
+`getRows`は [Transfer](#transfer) クラスのインスタンスの配列を返します。
 
 `getPagination`は [Pagination](#pagination) クラスのインスタンスを返します。
 
@@ -1151,6 +1326,16 @@ Request request = new BulkCreateTransaction(
 
 `getOrganization`は [Organization](#organization) クラスのインスタンスを返します。
 
+<a name="cashtray-attempt"></a>
+## CashtrayAttempt
+* `getAccount() AccountWithUser`: エンドユーザーのウォレット
+* `getStatusCode() double`: ステータスコード
+* `getErrorType() String`: エラー型
+* `getErrorMessage() String`: エラーメッセージ
+* `getCreatedAt() String`: Cashtray読み取り記録の作成日時
+
+`getAccount`は [AccountWithUser](#account-with-user) クラスのインスタンスを返します。
+
 <a name="account"></a>
 ## Account
 * `getId() String`: ウォレットID
@@ -1159,16 +1344,6 @@ Request request = new BulkCreateTransaction(
 * `getPrivateMoney() PrivateMoney`: 設定マネー情報
 
 `getPrivateMoney`は [PrivateMoney](#private-money) クラスのインスタンスを返します。
-
-<a name="account-without-private-money-detail"></a>
-## AccountWithoutPrivateMoneyDetail
-* `getId() String`: 
-* `getName() String`: 
-* `isSuspended() boolean`: 
-* `getPrivateMoneyId() String`: 
-* `getUser() User`: 
-
-`getUser`は [User](#user) クラスのインスタンスを返します。
 
 <a name="private-money-organization-summary"></a>
 ## PrivateMoneyOrganizationSummary
@@ -1185,6 +1360,21 @@ Request request = new BulkCreateTransaction(
 * `getMaxPage() int`: 
 * `getHasPrev() boolean`: 
 * `getHasNext() boolean`: 
+
+<a name="transfer"></a>
+## Transfer
+* `getId() String`: 
+* `getSenderAccount() AccountWithoutPrivateMoneyDetail`: 
+* `getReceiverAccount() AccountWithoutPrivateMoneyDetail`: 
+* `getAmount() double`: 
+* `getMoneyAmount() double`: 
+* `getPointAmount() double`: 
+* `getDoneAt() String`: 
+* `getType() String`: 
+* `getDescription() String`: 
+* `getTransactionId() String`: 
+
+`getReceiverAccount`と`getSenderAccount`は [AccountWithoutPrivateMoneyDetail](#account-without-private-money-detail) クラスのインスタンスを返します。
 
 <a name="account-balance"></a>
 ## AccountBalance

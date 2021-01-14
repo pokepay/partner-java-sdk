@@ -32,6 +32,10 @@ import jp.pokepay.partnerapi.request.ListShops;
 import jp.pokepay.partnerapi.request.CreateShop;
 import jp.pokepay.partnerapi.request.GetPrivateMoneyOrganizationSummaries;
 import jp.pokepay.partnerapi.request.ListCustomerTransactions;
+import jp.pokepay.partnerapi.request.CreateCashtray;
+import jp.pokepay.partnerapi.request.GetCashtray;
+import jp.pokepay.partnerapi.request.CancelCashtray;
+import jp.pokepay.partnerapi.request.UpdateCashtray;
 
 public class SerializerHelper {
     public static void registerTypeAdapters(GsonBuilder gsonBuilder) {
@@ -64,5 +68,9 @@ public class SerializerHelper {
         gsonBuilder.registerTypeAdapter(CreateShop.class, new CreateShopSerializer());
         gsonBuilder.registerTypeAdapter(GetPrivateMoneyOrganizationSummaries.class, new GetPrivateMoneyOrganizationSummariesSerializer());
         gsonBuilder.registerTypeAdapter(ListCustomerTransactions.class, new ListCustomerTransactionsSerializer());
+        gsonBuilder.registerTypeAdapter(CreateCashtray.class, new CreateCashtraySerializer());
+        gsonBuilder.registerTypeAdapter(GetCashtray.class, new GetCashtraySerializer());
+        gsonBuilder.registerTypeAdapter(CancelCashtray.class, new CancelCashtraySerializer());
+        gsonBuilder.registerTypeAdapter(UpdateCashtray.class, new UpdateCashtraySerializer());
     }
 }

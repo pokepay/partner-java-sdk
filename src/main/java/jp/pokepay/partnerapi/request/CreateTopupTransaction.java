@@ -13,6 +13,7 @@ public class CreateTopupTransaction extends Request {
     private String bearPointShopId;
     private Double moneyAmount;
     private Double pointAmount;
+    private String pointExpiresAt;
     private String description;
 
     public CreateTopupTransaction(String shopId, String customerId, String privateMoneyId) {
@@ -33,6 +34,11 @@ public class CreateTopupTransaction extends Request {
 
     public CreateTopupTransaction pointAmount(double pointAmount) {
         this.pointAmount = pointAmount;
+        return this;
+    }
+
+    public CreateTopupTransaction pointExpiresAt(String pointExpiresAt) {
+        this.pointExpiresAt = pointExpiresAt;
         return this;
     }
 
@@ -65,6 +71,7 @@ public class CreateTopupTransaction extends Request {
         if (bearPointShopId != null) { object.add("bear_point_shop_id", context.serialize(this.bearPointShopId)); }
         if (moneyAmount != null) { object.add("money_amount", context.serialize((int)this.moneyAmount.doubleValue())); }
         if (pointAmount != null) { object.add("point_amount", context.serialize((int)this.pointAmount.doubleValue())); }
+        if (pointExpiresAt != null) { object.add("point_expires_at", context.serialize(this.pointExpiresAt)); }
         if (description != null) { object.add("description", context.serialize(this.description)); }
         return object;
     }
