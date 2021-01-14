@@ -11,8 +11,8 @@ public class CreateBillTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateBill(
-            "10b38e5a-a0a2-4643-b978-0431d3fe12c5",
-            "6be77097-48f0-43b4-96fd-0f6bfa0ed65f"
+            "bdc61938-dd29-4ca7-941c-c6c1ae0ca194",
+            "64fbf26e-981d-43aa-b3ef-5440308f1a16"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,10 +28,10 @@ public class CreateBillTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateBill(
-            "10b38e5a-a0a2-4643-b978-0431d3fe12c5",
-            "6be77097-48f0-43b4-96fd-0f6bfa0ed65f"
+            "bdc61938-dd29-4ca7-941c-c6c1ae0ca194",
+            "64fbf26e-981d-43aa-b3ef-5440308f1a16"
         )
-                .description("AmGgvgI7Yg");
+                .description("Xtmv8LerXQe8");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -46,11 +46,11 @@ public class CreateBillTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateBill(
-            "10b38e5a-a0a2-4643-b978-0431d3fe12c5",
-            "6be77097-48f0-43b4-96fd-0f6bfa0ed65f"
+            "bdc61938-dd29-4ca7-941c-c6c1ae0ca194",
+            "64fbf26e-981d-43aa-b3ef-5440308f1a16"
         )
-                .amount(7044)
-                .description("C9RfQiSpTWZrd0hVSBtTuiSKN3fmfJoVUvvyWz4acD4YN5");
+                .amount(5964)
+                .description("F8Q6qvpD5ZbBwXFvQ1skGDixXFJczCMVyjlRecAjobCopZKVFLb9UiV0XEmtc9iB2syyuELfawMoOZtkTktpas3rTKhS7CSUreJUtTC5W6x");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

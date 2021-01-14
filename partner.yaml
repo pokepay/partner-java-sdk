@@ -735,6 +735,7 @@ components:
         - $ref: '#/components/schemas/PartnerRequestExpired'
         - $ref: '#/components/schemas/PartnerRequestAlreadyDone'
         - $ref: '#/components/schemas/InvalidParameters'
+        - $ref: '#/components/schemas/CashtrayInvalidParametersToFindAccount'
     PartnerClientNotFound:
       x-pokepay-schema-type: "response"
       properties:
@@ -794,6 +795,15 @@ components:
               nullable: true
               items:
                 type: string
+    CashtrayInvalidParametersToFindAccount:
+      x-pokepay-schema-type: "response"
+      properties:
+        type:
+          type: string
+          example: "cashtray_invalid_parameters_to_find_account"
+        message:
+          type: string
+          example: "Require either of shop_account_id or pair of shop_id and private_money_id"
     Forbidden:
       properties:
         type:
