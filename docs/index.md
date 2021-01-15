@@ -439,7 +439,7 @@ Request request = new ListTransfers()
 ```
 成功したときは[PaginatedTransfers](#paginated-transfers)クラスのインスタンスを返します
 ### Check
-店舗ユーザが発行し、エンドユーザがポケペイアプリから読み取ることでチャージ取引が発生するQRコードです。
+店舗ユーザが発行し、エンドユーザーがポケペイアプリから読み取ることでチャージ取引が発生するQRコードです。
 
 チャージQRコードを解析すると次のようなURLになります(URLは環境によって異なります)。
 
@@ -449,9 +449,9 @@ QRコードを読み取る方法以外にも、このURLリンクを直接スマ
 
 <a name="create-topup-transaction-with-check"></a>
 #### チャージQRコードを読み取ることでチャージする
-通常チャージQRコードはエンドユーザのアプリによって読み取られ、アプリとポケペイサーバとの直接通信によって取引が作られます。 もしエンドユーザとの通信をパートナーのサーバのみに限定したい場合、パートナーのサーバがチャージQRの情報をエンドユーザから代理受けして、サーバ間連携APIによって実際のチャージ取引をリクエストすることになります。
+通常チャージQRコードはエンドユーザーのアプリによって読み取られ、アプリとポケペイサーバとの直接通信によって取引が作られます。 もしエンドユーザーとの通信をパートナーのサーバのみに限定したい場合、パートナーのサーバがチャージQRの情報をエンドユーザーから代理受けして、サーバ間連携APIによって実際のチャージ取引をリクエストすることになります。
 
-エンドユーザから受け取ったチャージ用QRコードのIDをエンドユーザIDと共に渡すことでチャージ取引が作られます。
+エンドユーザーから受け取ったチャージ用QRコードのIDをエンドユーザーIDと共に渡すことでチャージ取引が作られます。
 
 ```java
 Request request = new CreateTopupTransactionWithCheck(
@@ -603,14 +603,19 @@ Request request = new UpdateBill(
 ---
 成功したときは[Bill](#bill)クラスのインスタンスを返します
 ### Cashtray
-Cashtrayは支払い/チャージ両方に使えるQRコードで、店舗ユーザとエンドユーザの間の主に店頭などでの取引のために用いられます。
-Cashtrayによる取引では、エンドユーザがQRコードを読み取った時点で即時取引が作られ、ユーザに対して受け取り確認画面は表示されません。
+Cashtrayは支払いとチャージ両方に使えるQRコードで、店舗ユーザとエンドユーザーの間の主に店頭などでの取引のために用いられます。
+Cashtrayによる取引では、エンドユーザーがQRコードを読み取った時点で即時取引が作られ、ユーザに対して受け取り確認画面は表示されません。
 Cashtrayはワンタイムで、一度読み取りに成功するか、取引エラーになると失効します。
 また、Cashtrayには有効期限があり、デフォルトでは30分で失効します。
 
 <a name="create-cashtray"></a>
 #### Cashtrayを作る
 Cashtrayを作成します。
+
+エンドユーザーに対して支払いまたはチャージを行う店舗ウォレットと、金額が必須項目です。
+店舗ウォレットの指定には、店舗ウォレットIDを直接指定する方法と、店舗ユーザーIDとマネーIDから店舗ウォレットを特定する方法があります。
+
+その他に、Cashtrayから作られる取引に対する説明文や失効時間を指定できます。
 
 ```java
 Request request = new CreateCashtray(
@@ -626,17 +631,17 @@ Request request = new CreateCashtray(
 ---
 `shopAccountId`  
 店舗のウォレットIDです。
-店舗のウォレットIDを指定するか、店舗のユーザIDとマネーIDを両方指定するかのいずれかを選ぶ必要があります。
+店舗のウォレットIDを指定するか、店舗のユーザIDとマネーIDを両方指定するかのいずれかが必須です。
 
 ---
 `shopId`  
 店舗のユーザーIDです。
-店舗のウォレットIDを指定するか、店舗のユーザIDとマネーIDを両方指定するかのいずれかを選ぶ必要があります。
+店舗のウォレットIDを指定するか、店舗のユーザIDとマネーIDを両方指定するかのいずれかが必須です。
 
 ---
 `privateMoneyId`  
 取引対象のマネーのIDです。
-店舗のウォレットIDを指定するか、店舗のユーザIDとマネーIDを両方指定するかのいずれかを選ぶ必要があります。
+店舗のウォレットIDを指定するか、店舗のユーザIDとマネーIDを両方指定するかのいずれかが必須です。
 
 ---
 `amount`  
@@ -646,7 +651,7 @@ Request request = new CreateCashtray(
 ---
 `description`  
 Cashtrayを読み取ったときに作られる取引の説明文です(最大200文字、任意項目)。
-アプリや管理画面などの取引履歴に表示されます。
+アプリや管理画面などの取引履歴に表示されます。デフォルトでは空文字になります。
 
 ---
 `expiresIn`  
@@ -656,42 +661,62 @@ Cashtrayが失効するまでの時間を秒単位で指定します(任意項�
 成功したときは[Cashtray](#cashtray)クラスのインスタンスを返します
 <a name="get-cashtray"></a>
 #### Cashtrayの情報を取得する
-Cashtrayの現在の状態に加え、エンドユーザのCashtray読み取りの試行結果、Cashtray読み取りによって作られた取引情報が取得できます。
+Cashtrayの情報を取得します。
 
-レスポンス中の `attempt` には、このCashtrayをエンドユーザが読み取った試行結果が入ります。
-`account` はエンドユーザのウォレット情報です。
+Cashtrayの現在の状態に加え、エンドユーザーのCashtray読み取りの試行結果、Cashtray読み取りによって作られた取引情報が取得できます。
+
+レスポンス中の `attempt` には、このCashtrayをエンドユーザーが読み取った試行結果が入ります。
+`account` はエンドユーザーのウォレット情報です。
 成功時には `attempt` 内の `status_code` に200が入ります。
 
 まだCashtrayが読み取られていない場合は `attempt` の内容は `NULL` になります。
-エンドユーザのCashtray読み取りの際には、様々なエラーが起き得ます。
+エンドユーザーのCashtray読み取りの際には、様々なエラーが起き得ます。
 エラーの詳細は `attempt` 中の `error_type` と `error_message` にあります。主なエラー型と対応するステータスコードを以下に列挙します。
 
 - `cashtray_already_proceed (422)`
-  - 既に処理済みのCashtrayをエンドユーザが再び読み取ったときに返されます
+  - 既に処理済みのCashtrayをエンドユーザーが再び読み取ったときに返されます
 - `cashtray_expired (422)`
-  - 読み取り時点でCashtray自体の有効期限が切れているときに返されます
+  - 読み取り時点でCashtray自体の有効期限が切れているときに返されます。Cashtrayが失効する時刻はレスポンス中の `expires_at` にあります
 - `cashtray_already_canceled (422)`
   - 読み取り時点でCashtrayが無効化されているときに返されます
 - `account_balance_not_enough (422)`
-  - 支払い時に、エンドユーザの残高が不足していて取引が完了できなかったときに返されます
+  - 支払い時に、エンドユーザーの残高が不足していて取引が完了できなかったときに返されます
 - `account_balance_exceeded`
-  - チャージ時に、エンドユーザのウォレット上限を超えて取引が完了できなかったときに返されます
+  - チャージ時に、エンドユーザーのウォレット上限を超えて取引が完了できなかったときに返されます
 - `account_transfer_limit_exceeded (422)`
   - マネーに設定されている一度の取引金額の上限を超えたため、取引が完了できなかったときに返されます
 - `account_not_found (422)`
-  - Cashtrayに設定されたマネーのウォレットをエンドユーザが持っていなかったときに返されます
+  - Cashtrayに設定されたマネーのウォレットをエンドユーザーが持っていなかったときに返されます
 
 
-レスポンス中の `transaction` には、このCashtrayをエンドユーザが読み取ることによって作られる取引データが入ります。まだCashtrayが読み取られていない場合は `NULL` になります。
+レスポンス中の `transaction` には、このCashtrayをエンドユーザーが読み取ることによって作られる取引データが入ります。まだCashtrayが読み取られていない場合は `NULL` になります。
 
 以上をまとめると、Cashtrayの状態は以下のようになります。
 
-- エンドユーザのCashtray読み取りによって取引が成功した場合
+- エンドユーザーのCashtray読み取りによって取引が成功した場合
   - レスポンス中の `attempt` と `transaction` にそれぞれ値が入ります
 - 何らかの理由で取引が失敗した場合
   - レスポンス中の `attempt` にエラー内容が入り、 `transaction` には `NULL` が入ります
 - まだCashtrayが読み取られていない場合
-  - レスポンス中の `attempt` と `transaction` にそれぞれ `NULL` が入ります
+  - レスポンス中の `attempt` と `transaction` にそれぞれ `NULL` が入ります。Cashtrayの `expires_at` が現在時刻より前の場合は有効期限切れ状態です。
+
+Cashtrayの取り得る全ての状態を擬似コードで記述すると以下のようになります。
+```
+if (attempt == null) {
+  // 状態は未確定
+  if (canceled_at != null) {
+    // 無効化済み
+  } else if (expires_at < now) {
+    // 失効済み
+  } else {
+    // まだ有効で読み取られていない
+  }
+} else if (transaction != null) {
+  // 取引成功確定。attempt で読み取ったユーザなどが分かる
+} else {
+  // 取引失敗確定。attempt で失敗理由などが分かる
+}
+```
 ```java
 Request request = new GetCashtray(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // cashtrayId: CashtrayのID
@@ -706,7 +731,10 @@ Request request = new GetCashtray(
 成功したときは[CashtrayWithResult](#cashtray-with-result)クラスのインスタンスを返します
 <a name="cancel-cashtray"></a>
 #### Cashtrayを無効化する
-Cashtrayを無効化します。無効化されたQRコードを読み取るとエラーとなり、取引は失敗します。
+Cashtrayを無効化します。
+
+これにより、 `GetCashtray` のレスポンス中の `canceled_at` に無効化時点での現在時刻が入るようになります。
+エンドユーザーが無効化されたQRコードを読み取ると `cashtray_already_canceled` エラーとなり、取引は失敗します。
 ```java
 Request request = new CancelCashtray(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // cashtrayId: CashtrayのID
