@@ -30,8 +30,17 @@ import jp.pokepay.partnerapi.request.ListTransfers;
 import jp.pokepay.partnerapi.request.CreateOrganization;
 import jp.pokepay.partnerapi.request.ListShops;
 import jp.pokepay.partnerapi.request.CreateShop;
+import jp.pokepay.partnerapi.request.CreateShopV;
+import jp.pokepay.partnerapi.request.GetShop;
+import jp.pokepay.partnerapi.request.UpdateShop;
+import jp.pokepay.partnerapi.request.GetPrivateMoneys;
 import jp.pokepay.partnerapi.request.GetPrivateMoneyOrganizationSummaries;
 import jp.pokepay.partnerapi.request.ListCustomerTransactions;
+import jp.pokepay.partnerapi.request.GetBulkTransaction;
+import jp.pokepay.partnerapi.request.CreateCashtray;
+import jp.pokepay.partnerapi.request.GetCashtray;
+import jp.pokepay.partnerapi.request.CancelCashtray;
+import jp.pokepay.partnerapi.request.UpdateCashtray;
 
 public class SerializerHelper {
     public static void registerTypeAdapters(GsonBuilder gsonBuilder) {
@@ -62,7 +71,16 @@ public class SerializerHelper {
         gsonBuilder.registerTypeAdapter(CreateOrganization.class, new CreateOrganizationSerializer());
         gsonBuilder.registerTypeAdapter(ListShops.class, new ListShopsSerializer());
         gsonBuilder.registerTypeAdapter(CreateShop.class, new CreateShopSerializer());
+        gsonBuilder.registerTypeAdapter(CreateShopV.class, new CreateShopVSerializer());
+        gsonBuilder.registerTypeAdapter(GetShop.class, new GetShopSerializer());
+        gsonBuilder.registerTypeAdapter(UpdateShop.class, new UpdateShopSerializer());
+        gsonBuilder.registerTypeAdapter(GetPrivateMoneys.class, new GetPrivateMoneysSerializer());
         gsonBuilder.registerTypeAdapter(GetPrivateMoneyOrganizationSummaries.class, new GetPrivateMoneyOrganizationSummariesSerializer());
         gsonBuilder.registerTypeAdapter(ListCustomerTransactions.class, new ListCustomerTransactionsSerializer());
+        gsonBuilder.registerTypeAdapter(GetBulkTransaction.class, new GetBulkTransactionSerializer());
+        gsonBuilder.registerTypeAdapter(CreateCashtray.class, new CreateCashtraySerializer());
+        gsonBuilder.registerTypeAdapter(GetCashtray.class, new GetCashtraySerializer());
+        gsonBuilder.registerTypeAdapter(CancelCashtray.class, new CancelCashtraySerializer());
+        gsonBuilder.registerTypeAdapter(UpdateCashtray.class, new UpdateCashtraySerializer());
     }
 }

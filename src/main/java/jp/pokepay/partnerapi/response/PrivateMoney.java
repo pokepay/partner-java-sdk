@@ -14,7 +14,6 @@ public class PrivateMoney extends Response {
     private String type;
     private String expirationType;
     private Boolean enableTopupByMember;
-    private String accountImage;
 
     public String getId() {
         return id;
@@ -62,10 +61,6 @@ public class PrivateMoney extends Response {
 
     public boolean getEnableTopupByMember() {
         return enableTopupByMember;
-    }
-
-    public String getAccountImage() {
-        return accountImage;
     }
 }
 

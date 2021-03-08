@@ -12,6 +12,7 @@ public class CreateTransaction extends Request {
     private String privateMoneyId;
     private Integer moneyAmount;
     private Integer pointAmount;
+    private String pointExpiresAt;
     private String description;
 
     public CreateTransaction(String shopId, String customerId, String privateMoneyId) {
@@ -27,6 +28,11 @@ public class CreateTransaction extends Request {
 
     public CreateTransaction pointAmount(int pointAmount) {
         this.pointAmount = pointAmount;
+        return this;
+    }
+
+    public CreateTransaction pointExpiresAt(String pointExpiresAt) {
+        this.pointExpiresAt = pointExpiresAt;
         return this;
     }
 
@@ -58,6 +64,7 @@ public class CreateTransaction extends Request {
         if (privateMoneyId != null) { object.add("private_money_id", context.serialize(this.privateMoneyId)); }
         if (moneyAmount != null) { object.add("money_amount", context.serialize(this.moneyAmount)); }
         if (pointAmount != null) { object.add("point_amount", context.serialize(this.pointAmount)); }
+        if (pointExpiresAt != null) { object.add("point_expires_at", context.serialize(this.pointExpiresAt)); }
         if (description != null) { object.add("description", context.serialize(this.description)); }
         return object;
     }

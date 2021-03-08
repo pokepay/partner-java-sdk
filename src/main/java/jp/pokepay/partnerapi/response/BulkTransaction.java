@@ -2,12 +2,19 @@
 package jp.pokepay.partnerapi.response;
 
 public class BulkTransaction extends Response {
+    private String id;
     private String requestId;
     private String name;
     private String description;
     private String status;
+    private String error;
+    private Integer errorLineno;
     private String submittedAt;
     private String updatedAt;
+
+    public String getId() {
+        return id;
+    }
 
     public String getRequestId() {
         return requestId;
@@ -23,6 +30,14 @@ public class BulkTransaction extends Response {
 
     public String getStatus() {
         return status;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public int getErrorLineno() {
+        return errorLineno;
     }
 
     public String getSubmittedAt() {
