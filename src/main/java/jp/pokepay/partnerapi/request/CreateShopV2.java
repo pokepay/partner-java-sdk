@@ -6,7 +6,7 @@ import com.google.gson.JsonSerializationContext;
 import jp.pokepay.partnerapi.response.*;
 import java.lang.reflect.Type;
 
-public class CreateShopV extends Request {
+public class CreateShopV2 extends Request {
     private String name;
     private String postalCode;
     private String address;
@@ -17,46 +17,46 @@ public class CreateShopV extends Request {
     private String[] privateMoneyIds;
     private String[] canTopupPrivateMoneyIds;
 
-    public CreateShopV(String name) {
+    public CreateShopV2(String name) {
         this.name = name;
     }
 
-    public CreateShopV postalCode(String postalCode) {
+    public CreateShopV2 postalCode(String postalCode) {
         this.postalCode = postalCode;
         return this;
     }
 
-    public CreateShopV address(String address) {
+    public CreateShopV2 address(String address) {
         this.address = address;
         return this;
     }
 
-    public CreateShopV tel(String tel) {
+    public CreateShopV2 tel(String tel) {
         this.tel = tel;
         return this;
     }
 
-    public CreateShopV email(String email) {
+    public CreateShopV2 email(String email) {
         this.email = email;
         return this;
     }
 
-    public CreateShopV externalId(String externalId) {
+    public CreateShopV2 externalId(String externalId) {
         this.externalId = externalId;
         return this;
     }
 
-    public CreateShopV organizationCode(String organizationCode) {
+    public CreateShopV2 organizationCode(String organizationCode) {
         this.organizationCode = organizationCode;
         return this;
     }
 
-    public CreateShopV privateMoneyIds(String[] privateMoneyIds) {
+    public CreateShopV2 privateMoneyIds(String[] privateMoneyIds) {
         this.privateMoneyIds = privateMoneyIds;
         return this;
     }
 
-    public CreateShopV canTopupPrivateMoneyIds(String[] canTopupPrivateMoneyIds) {
+    public CreateShopV2 canTopupPrivateMoneyIds(String[] canTopupPrivateMoneyIds) {
         this.canTopupPrivateMoneyIds = canTopupPrivateMoneyIds;
         return this;
     }

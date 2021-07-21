@@ -20,6 +20,7 @@ public class ListTransactions extends Request {
     private String privateMoneyId;
     private Boolean isModified;
     private String[] types;
+    private String description;
 
     public ListTransactions() {
     }
@@ -89,6 +90,11 @@ public class ListTransactions extends Request {
         return this;
     }
 
+    public ListTransactions description(String description) {
+        this.description = description;
+        return this;
+    }
+
     @Override
     public Method method() {
         return Method.GET;
@@ -120,6 +126,7 @@ public class ListTransactions extends Request {
         if (privateMoneyId != null) { object.add("private_money_id", context.serialize(this.privateMoneyId)); }
         if (isModified != null) { object.add("is_modified", context.serialize(this.isModified)); }
         if (types != null) { object.add("types", context.serialize(this.types)); }
+        if (description != null) { object.add("description", context.serialize(this.description)); }
         return object;
     }
 }

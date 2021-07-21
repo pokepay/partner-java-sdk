@@ -20,6 +20,7 @@ public class ListTransfers extends Request {
     private Boolean isModified;
     private String[] transactionTypes;
     private String[] transferTypes;
+    private String description;
 
     public ListTransfers() {
     }
@@ -89,6 +90,11 @@ public class ListTransfers extends Request {
         return this;
     }
 
+    public ListTransfers description(String description) {
+        this.description = description;
+        return this;
+    }
+
     @Override
     public Method method() {
         return Method.GET;
@@ -120,6 +126,7 @@ public class ListTransfers extends Request {
         if (isModified != null) { object.add("is_modified", context.serialize(this.isModified)); }
         if (transactionTypes != null) { object.add("transaction_types", context.serialize(this.transactionTypes)); }
         if (transferTypes != null) { object.add("transfer_types", context.serialize(this.transferTypes)); }
+        if (description != null) { object.add("description", context.serialize(this.description)); }
         return object;
     }
 }

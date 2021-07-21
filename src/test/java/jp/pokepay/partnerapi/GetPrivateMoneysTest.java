@@ -25,7 +25,7 @@ public class GetPrivateMoneysTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new GetPrivateMoneys()
-                .perPage(8012);
+                .perPage(1494);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -40,8 +40,8 @@ public class GetPrivateMoneysTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new GetPrivateMoneys()
-                .page(740)
-                .perPage(4578);
+                .page(766)
+                .perPage(3070);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -56,9 +56,9 @@ public class GetPrivateMoneysTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new GetPrivateMoneys()
-                .organizationCode("RAi6-YUMX0-")
-                .page(3141)
-                .perPage(6384);
+                .organizationCode("017Lby1-35w-B7")
+                .page(7530)
+                .perPage(5456);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

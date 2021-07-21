@@ -5,13 +5,13 @@ package jp.pokepay.partnerapi.request.serializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
-import jp.pokepay.partnerapi.request.CreateShopV;
+import jp.pokepay.partnerapi.request.GetShopAccounts;
 
 import java.lang.reflect.Type;
 
-public class CreateShopVSerializer implements JsonSerializer<CreateShopV> {
+public class GetShopAccountsSerializer implements JsonSerializer<GetShopAccounts> {
     @Override
-    public JsonElement serialize(CreateShopV src, Type typeOfSrc, JsonSerializationContext context) {
+    public JsonElement serialize(GetShopAccounts src, Type typeOfSrc, JsonSerializationContext context) {
         return src.getRequestBodyJsonObject(context);
     }
 }
