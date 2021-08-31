@@ -11,8 +11,8 @@ public class CreateTopupTransactionWithCheckTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransactionWithCheck(
-            "e49c0fa8-4e31-43d8-ae14-2b08babb729c",
-            "f60f1d6c-d953-4849-9694-3d8e5c033761"
+            "b358b55b-a0b7-4cf0-8aa5-14fbdb6ea820",
+            "1439a7ec-4b6f-46b8-8a9b-2e9ff4e2770e"
         );
         try {
             PartnerAPITest.getClient().send(request);

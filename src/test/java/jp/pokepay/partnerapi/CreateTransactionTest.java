@@ -52,7 +52,7 @@ public class CreateTransactionTest {
             "fe189182-20d9-4bcc-9bb0-b61465bf9ee2",
             "78fd62fb-1a3c-4a6b-83ab-ae15c3d05781"
         )
-                .pointExpiresAt("2019-06-30T08:46:10.000000+09:00")
+                .pointExpiresAt("2019-06-29T23:46:10.000000Z")
                 .description("g4zOt2LPb0nLBvCfu5QWsdUnRrH9KHVuXFGKt4lw9lRVMCAhIxweHf4mhVFw56RKD");
         try {
             PartnerAPITest.getClient().send(request);
@@ -73,7 +73,7 @@ public class CreateTransactionTest {
             "78fd62fb-1a3c-4a6b-83ab-ae15c3d05781"
         )
                 .pointAmount(4444)
-                .pointExpiresAt("2019-07-13T22:26:43.000000+09:00")
+                .pointExpiresAt("2019-07-13T13:26:43.000000Z")
                 .description("CYdf");
         try {
             PartnerAPITest.getClient().send(request);
@@ -95,7 +95,7 @@ public class CreateTransactionTest {
         )
                 .moneyAmount(2592)
                 .pointAmount(1096)
-                .pointExpiresAt("2021-11-30T11:41:07.000000+09:00")
+                .pointExpiresAt("2021-11-30T02:41:07.000000Z")
                 .description("y6kNARZB0e7gSo7Ck5GjWL9QXL9sfwRokQiO2gJLOs7NWiVmOaSDg31Umvi1k0xZepHVlU5UCBk1mC260SZIPf7lUxpBEw");
         try {
             PartnerAPITest.getClient().send(request);

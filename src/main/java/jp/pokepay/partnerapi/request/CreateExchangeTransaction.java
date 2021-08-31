@@ -12,6 +12,7 @@ public class CreateExchangeTransaction extends Request {
     private String receiverPrivateMoneyId;
     private Double amount;
     private String description;
+    private String requestId;
 
     public CreateExchangeTransaction(String userId, String senderPrivateMoneyId, String receiverPrivateMoneyId, double amount) {
         this.userId = userId;
@@ -22,6 +23,11 @@ public class CreateExchangeTransaction extends Request {
 
     public CreateExchangeTransaction description(String description) {
         this.description = description;
+        return this;
+    }
+
+    public CreateExchangeTransaction requestId(String requestId) {
+        this.requestId = requestId;
         return this;
     }
 
@@ -48,6 +54,7 @@ public class CreateExchangeTransaction extends Request {
         if (receiverPrivateMoneyId != null) { object.add("receiver_private_money_id", context.serialize(this.receiverPrivateMoneyId)); }
         if (amount != null) { object.add("amount", context.serialize((int)this.amount.doubleValue())); }
         if (description != null) { object.add("description", context.serialize(this.description)); }
+        if (requestId != null) { object.add("request_id", context.serialize(this.requestId)); }
         return object;
     }
 }

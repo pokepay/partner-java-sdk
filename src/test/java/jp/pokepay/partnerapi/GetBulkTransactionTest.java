@@ -11,7 +11,7 @@ public class GetBulkTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetBulkTransaction(
-            "d9738699-5b94-4a3d-b8ee-8daa4083c781"
+            "975e10bc-5d92-42c7-add5-eeb4b1466735"
         );
         try {
             PartnerAPITest.getClient().send(request);

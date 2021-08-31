@@ -88,7 +88,7 @@ public class CreateCheckTest {
             "8564a2b9-f092-4e7c-8a67-ab5bf8fcdf1f"
         )
                 .moneyAmount(3353)
-                .expiresAt("2022-08-21T17:25:16.000000+09:00")
+                .expiresAt("2022-08-21T08:25:16.000000Z")
                 .usageLimit(9717)
                 .setOnetime(false)
                 .description("KN3fmfJoVUvvyWz4acD4Y");
@@ -109,8 +109,8 @@ public class CreateCheckTest {
             "8564a2b9-f092-4e7c-8a67-ab5bf8fcdf1f"
         )
                 .moneyAmount(9626)
-                .pointExpiresAt("2020-12-07T07:33:42.000000+09:00")
-                .expiresAt("2024-02-22T15:56:45.000000+09:00")
+                .pointExpiresAt("2020-12-06T22:33:42.000000Z")
+                .expiresAt("2024-02-22T06:56:45.000000Z")
                 .usageLimit(5305)
                 .setOnetime(true)
                 .description("59xIWGujcTxFFrrXyLyMOsteVH8YLvoUoraYyVUvoHuSd144X7ZEq8UGlMat7Q5BMcC1v73v60y8DMLWrlnr061xWZsz1ogogHitDMic7XGDhIwoiIw8");
@@ -132,8 +132,8 @@ public class CreateCheckTest {
         )
                 .moneyAmount(994)
                 .pointExpiresInDays(292)
-                .pointExpiresAt("2020-12-07T16:59:41.000000+09:00")
-                .expiresAt("2017-08-14T05:37:38.000000+09:00")
+                .pointExpiresAt("2020-12-07T07:59:41.000000Z")
+                .expiresAt("2017-08-13T20:37:38.000000Z")
                 .usageLimit(4493)
                 .setOnetime(true)
                 .description("CDG7j4DoWkpZIbqBi9TROGFtlR9rLj2Y1ER9gKdUSrcKHlFd3Ur1MCMIUROIYftW7QMsIbzCAj1GsSvfXjxUW5PMdDuBsMe04PTf8vSsZQwwHu7ykbtkzGPhzROeLpMaUZfjz7mGpF3omDB92rueqlmfnAfu7erS3gFr3FTdQ8rwckpkfwdxwxZ95sfTG55oAI4");
@@ -156,8 +156,8 @@ public class CreateCheckTest {
                 .moneyAmount(9174)
                 .bearPointAccount("5627e643-9947-4ea3-90b4-9afbfb197d73")
                 .pointExpiresInDays(2389)
-                .pointExpiresAt("2020-07-23T19:05:31.000000+09:00")
-                .expiresAt("2016-10-24T02:27:19.000000+09:00")
+                .pointExpiresAt("2020-07-23T10:05:31.000000Z")
+                .expiresAt("2016-10-23T17:27:19.000000Z")
                 .usageLimit(8199)
                 .setOnetime(false)
                 .description("FwcP7ZmLygXYRtjxN2aIco6xNkWo0aYr1y1KHCmQGL0IM3EaCDd87kJG01a7GOWj7LV4v5yotPxhlRj2vkjikjfOo5Zy9zD8cfycxd");
@@ -257,7 +257,7 @@ public class CreateCheckTest {
         )
                 .moneyAmount(9289)
                 .pointAmount(4294)
-                .expiresAt("2023-06-15T23:07:14.000000+09:00")
+                .expiresAt("2023-06-15T14:07:14.000000Z")
                 .usageLimit(5207)
                 .setOnetime(false)
                 .description("PubyeqITUoc5");
@@ -279,8 +279,8 @@ public class CreateCheckTest {
         )
                 .moneyAmount(7568)
                 .pointAmount(2074)
-                .pointExpiresAt("2015-11-08T17:04:41.000000+09:00")
-                .expiresAt("2021-08-30T17:57:47.000000+09:00")
+                .pointExpiresAt("2015-11-08T08:04:41.000000Z")
+                .expiresAt("2021-08-30T08:57:47.000000Z")
                 .usageLimit(271)
                 .setOnetime(false)
                 .description("WI6lY3NxA2Qq6LVyn2dOGJj5BoyL1MgjctfisLuYo4aorOwFrhmbs26EDkzDLnAr7NHvMDZLOk3Kn6N9IKA2DQ0UDl0RkGXqQ");
@@ -303,8 +303,8 @@ public class CreateCheckTest {
                 .moneyAmount(3740)
                 .pointAmount(935)
                 .pointExpiresInDays(318)
-                .pointExpiresAt("2020-08-29T15:11:20.000000+09:00")
-                .expiresAt("2021-08-02T14:38:07.000000+09:00")
+                .pointExpiresAt("2020-08-29T06:11:20.000000Z")
+                .expiresAt("2021-08-02T05:38:07.000000Z")
                 .usageLimit(4871)
                 .setOnetime(false)
                 .description("UPugetKJLdESdgB4DMlPhuAgx6J23S5a4KJH2dJnXOe");
@@ -328,8 +328,8 @@ public class CreateCheckTest {
                 .pointAmount(8697)
                 .bearPointAccount("acd953b8-2978-4cd9-965d-4be75d49686d")
                 .pointExpiresInDays(4312)
-                .pointExpiresAt("2023-09-14T04:18:46.000000+09:00")
-                .expiresAt("2021-05-02T05:23:56.000000+09:00")
+                .pointExpiresAt("2023-09-13T19:18:46.000000Z")
+                .expiresAt("2021-05-01T20:23:56.000000Z")
                 .usageLimit(1700)
                 .setOnetime(true)
                 .description("nFdHza9f0TF30iljDxgSpyfoekUtYXnQ6dyRqDXbojqilS");
@@ -424,7 +424,7 @@ public class CreateCheckTest {
             "8564a2b9-f092-4e7c-8a67-ab5bf8fcdf1f"
         )
                 .pointAmount(4633)
-                .expiresAt("2016-01-15T08:47:29.000000+09:00")
+                .expiresAt("2016-01-14T23:47:29.000000Z")
                 .usageLimit(3487)
                 .setOnetime(true)
                 .description("f2pLnur36TYPgxIzfeirgwWnuJKugM3OQh2JHBnxbiEM0oFGnnvKX9mW4mLerHweV6yDqMFurm2H");
@@ -445,8 +445,8 @@ public class CreateCheckTest {
             "8564a2b9-f092-4e7c-8a67-ab5bf8fcdf1f"
         )
                 .pointAmount(7673)
-                .pointExpiresAt("2016-04-22T11:52:10.000000+09:00")
-                .expiresAt("2016-03-11T15:22:48.000000+09:00")
+                .pointExpiresAt("2016-04-22T02:52:10.000000Z")
+                .expiresAt("2016-03-11T06:22:48.000000Z")
                 .usageLimit(1549)
                 .setOnetime(false)
                 .description("rxBRsFTyEvnewbYd4rNZJsCq7m7arw2NKYH12xHXaAOFqIwxrvxkxwVYBDQ");
@@ -468,8 +468,8 @@ public class CreateCheckTest {
         )
                 .pointAmount(8169)
                 .pointExpiresInDays(3652)
-                .pointExpiresAt("2018-12-31T16:31:21.000000+09:00")
-                .expiresAt("2022-01-28T23:09:55.000000+09:00")
+                .pointExpiresAt("2018-12-31T07:31:21.000000Z")
+                .expiresAt("2022-01-28T14:09:55.000000Z")
                 .usageLimit(8741)
                 .setOnetime(true)
                 .description("R3czNdwQ9LziqjK5MdQ1lZMyARXVB9A");
@@ -492,8 +492,8 @@ public class CreateCheckTest {
                 .pointAmount(9500)
                 .bearPointAccount("ecd3b933-7732-4883-a094-c845b821ae53")
                 .pointExpiresInDays(2034)
-                .pointExpiresAt("2017-06-10T01:31:40.000000+09:00")
-                .expiresAt("2022-05-21T19:15:20.000000+09:00")
+                .pointExpiresAt("2017-06-09T16:31:40.000000Z")
+                .expiresAt("2022-05-21T10:15:20.000000Z")
                 .usageLimit(8277)
                 .setOnetime(false)
                 .description("E1GN9JqLEvyRdA5j20ws4Z1pnjZ8xWKeN3WKGyHXCKDfS0S9olxtCG8sS34enFyHhIbteE1tQOMttUhD0OiwEvovxL7L6kZ3KaNub1zwaCdHgj8ik3dmsSURUNaSg6OcHEmOeQFO3Ox8qDzSQ0YVNC6SfrLsEgbwDrafzykU4qQWwEl9RBh7JkqQ2DDr8e6Qf");

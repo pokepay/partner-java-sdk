@@ -33,7 +33,7 @@ public class CreateTopupTransactionTest {
             "c27ae896-6555-426e-8542-e1d6c261d77c",
             "a6ae709a-892a-4c04-b1c0-11777271002e"
         )
-                .description("l8i3xQfqNGTjhBSpAIG2GVjRLCF7S26ypTzMExe5LQXN3");
+                .requestId("a337952c-6a6c-4cb8-a981-1cdf06d87aa2");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -52,8 +52,8 @@ public class CreateTopupTransactionTest {
             "c27ae896-6555-426e-8542-e1d6c261d77c",
             "a6ae709a-892a-4c04-b1c0-11777271002e"
         )
-                .pointExpiresAt("2015-12-16T22:34:01.000000+09:00")
-                .description("fMMeaiTEdRlgPRLO6iu4xB9p9hHVjuFskSUixLpvflY8MFYZJvlfPZ9XRs2DjUex8FZcru468uiy2IBQsKNbECUonyUv3nTPZ701h3V5Qywi2pn04JUSx");
+                .description("3xQfqNGTjhBSpAIG2GVjRLCF7S26ypTzMExe5LQXN3tfMMea")
+                .requestId("253c57e9-d5a5-4593-94bf-87c5d4e411e4");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -72,9 +72,9 @@ public class CreateTopupTransactionTest {
             "c27ae896-6555-426e-8542-e1d6c261d77c",
             "a6ae709a-892a-4c04-b1c0-11777271002e"
         )
-                .pointAmount(7978)
-                .pointExpiresAt("2022-10-19T16:21:46.000000+09:00")
-                .description("7eVHz2wOx9gOffBCzdPD5lY5ruzs73QnlHzwGBVLp2Vmg3eprOU7ktZcHWsZTpEtZX9770nlSO8H2DCl6imPJgn2XjYsZUpQvLebh65Hdtxmvs4SwxRthVVayjO1th3s3e6fayZ2E32vm3RMvvWttu1PJb3d04IfskzbR");
+                .pointExpiresAt("2024-04-06T13:58:51.000000Z")
+                .description("PRLO6iu4xB9p9hHVjuFskSUixLpvflY8MFYZJvlfPZ9XRs2DjUex8FZcru468uiy2IBQsKNbECUonyUv3nTPZ701h3V5Qywi2pn04JUS")
+                .requestId("5117d4a0-185d-4378-b22a-b09257933002");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -93,10 +93,10 @@ public class CreateTopupTransactionTest {
             "c27ae896-6555-426e-8542-e1d6c261d77c",
             "a6ae709a-892a-4c04-b1c0-11777271002e"
         )
-                .moneyAmount(4243)
-                .pointAmount(8483)
-                .pointExpiresAt("2020-01-11T13:01:56.000000+09:00")
-                .description("Jqy1UyPaGHVkyMSdmemZcovbEU");
+                .pointAmount(2143)
+                .pointExpiresAt("2017-03-14T00:27:04.000000Z")
+                .description("eVHz2wOx9gOffBCzdPD5lY5ruzs73QnlHzwGBVLp2Vmg3eprOU7ktZcH")
+                .requestId("cc474057-b105-4273-8bda-3c8a04992c7f");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -115,11 +115,35 @@ public class CreateTopupTransactionTest {
             "c27ae896-6555-426e-8542-e1d6c261d77c",
             "a6ae709a-892a-4c04-b1c0-11777271002e"
         )
-                .bearPointShopId("69a5ab96-4de3-4596-b9d4-a369fe058105")
-                .moneyAmount(2708)
-                .pointAmount(1492)
-                .pointExpiresAt("2018-11-30T22:48:13.000000+09:00")
-                .description("lo8JS6mIVfCl8O6XTpGUPEJOaNnRanlNyuKHWuXq7zEzVgAAIhzrVmMQ7zQf4j1Xlnx61iQEXBdwXQXBx9CjvSgZke3VuPIIBeUSxLQqoj9SXP9EgDJcoagTJNb42JvVKNsj3zA7Dw0uibv6O0nFaLFwVLIZnC6rDyYuuG");
+                .moneyAmount(6996)
+                .pointAmount(5804)
+                .pointExpiresAt("2025-02-04T21:34:16.000000Z")
+                .description("tZX9770nlSO8H2DCl6imPJgn2XjYsZUpQvLebh65Hdtxmvs4SwxRthVVayjO1th3s3e6fa")
+                .requestId("60ac0a79-f78a-4006-be5a-689ce3188cfb");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test6() throws ConnectionError, ProcessingError {
+        Request request = new CreateTopupTransaction(
+            "fcb0bd16-6b06-4a4f-8301-fc15d32dcc20",
+            "c27ae896-6555-426e-8542-e1d6c261d77c",
+            "a6ae709a-892a-4c04-b1c0-11777271002e"
+        )
+                .bearPointShopId("b2c9875b-4223-482a-b227-361e9c265c1c")
+                .moneyAmount(476)
+                .pointAmount(2995)
+                .pointExpiresAt("2017-01-21T14:05:13.000000Z")
+                .description("2vm3RMvvWttu1PJb3d04IfskzbRh2KXDkJqy1UyPaGHVkyMSdmemZcovbEUc9TiM")
+                .requestId("25d6f3b3-7ec4-432b-94d4-6f53c995e761");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

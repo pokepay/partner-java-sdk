@@ -15,6 +15,7 @@ public class CreateTopupTransaction extends Request {
     private Double pointAmount;
     private String pointExpiresAt;
     private String description;
+    private String requestId;
 
     public CreateTopupTransaction(String shopId, String customerId, String privateMoneyId) {
         this.shopId = shopId;
@@ -47,6 +48,11 @@ public class CreateTopupTransaction extends Request {
         return this;
     }
 
+    public CreateTopupTransaction requestId(String requestId) {
+        this.requestId = requestId;
+        return this;
+    }
+
     @Override
     public Method method() {
         return Method.POST;
@@ -73,6 +79,7 @@ public class CreateTopupTransaction extends Request {
         if (pointAmount != null) { object.add("point_amount", context.serialize((int)this.pointAmount.doubleValue())); }
         if (pointExpiresAt != null) { object.add("point_expires_at", context.serialize(this.pointExpiresAt)); }
         if (description != null) { object.add("description", context.serialize(this.description)); }
+        if (requestId != null) { object.add("request_id", context.serialize(this.requestId)); }
         return object;
     }
 }

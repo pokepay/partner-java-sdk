@@ -12,6 +12,7 @@ public class CreateTransferTransaction extends Request {
     private String privateMoneyId;
     private Double amount;
     private String description;
+    private String requestId;
 
     public CreateTransferTransaction(String senderId, String receiverId, String privateMoneyId, double amount) {
         this.senderId = senderId;
@@ -22,6 +23,11 @@ public class CreateTransferTransaction extends Request {
 
     public CreateTransferTransaction description(String description) {
         this.description = description;
+        return this;
+    }
+
+    public CreateTransferTransaction requestId(String requestId) {
+        this.requestId = requestId;
         return this;
     }
 
@@ -48,6 +54,7 @@ public class CreateTransferTransaction extends Request {
         if (privateMoneyId != null) { object.add("private_money_id", context.serialize(this.privateMoneyId)); }
         if (amount != null) { object.add("amount", context.serialize((int)this.amount.doubleValue())); }
         if (description != null) { object.add("description", context.serialize(this.description)); }
+        if (requestId != null) { object.add("request_id", context.serialize(this.requestId)); }
         return object;
     }
 }
