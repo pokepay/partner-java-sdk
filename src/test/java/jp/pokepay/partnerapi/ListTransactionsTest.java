@@ -271,7 +271,7 @@ public class ListTransactionsTest {
     @Test
     void test13() throws ConnectionError, ProcessingError {
         Request request = new ListTransactions()
-                .to("2025-03-30T13:25:34.000000+09:00")
+                .to("2025-03-30T04:25:34.000000Z")
                 .page(8283)
                 .perPage(2322)
                 .shopId("62737187-aaa4-4b01-be8c-a13936d4d681")
@@ -298,8 +298,8 @@ public class ListTransactionsTest {
     @Test
     void test14() throws ConnectionError, ProcessingError {
         Request request = new ListTransactions()
-                .from("2024-07-22T11:16:32.000000+09:00")
-                .to("2015-12-03T06:29:54.000000+09:00")
+                .from("2024-07-22T02:16:32.000000Z")
+                .to("2015-12-02T21:29:54.000000Z")
                 .page(4403)
                 .perPage(8576)
                 .shopId("4f60ae8c-1cd2-42ba-bf73-13e77342e07d")

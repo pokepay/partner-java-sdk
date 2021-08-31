@@ -12,6 +12,7 @@ public class CreatePaymentTransaction extends Request {
     private String privateMoneyId;
     private Double amount;
     private String description;
+    private String requestId;
 
     public CreatePaymentTransaction(String shopId, String customerId, String privateMoneyId, double amount) {
         this.shopId = shopId;
@@ -22,6 +23,11 @@ public class CreatePaymentTransaction extends Request {
 
     public CreatePaymentTransaction description(String description) {
         this.description = description;
+        return this;
+    }
+
+    public CreatePaymentTransaction requestId(String requestId) {
+        this.requestId = requestId;
         return this;
     }
 
@@ -48,6 +54,7 @@ public class CreatePaymentTransaction extends Request {
         if (privateMoneyId != null) { object.add("private_money_id", context.serialize(this.privateMoneyId)); }
         if (amount != null) { object.add("amount", context.serialize((int)this.amount.doubleValue())); }
         if (description != null) { object.add("description", context.serialize(this.description)); }
+        if (requestId != null) { object.add("request_id", context.serialize(this.requestId)); }
         return object;
     }
 }

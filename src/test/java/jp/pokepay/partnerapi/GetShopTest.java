@@ -11,7 +11,7 @@ public class GetShopTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetShop(
-            "ce20ca9a-d78f-4ca2-ab5a-fc9e49d54f6e"
+            "7433c307-2c5b-43d2-93c2-65067f7579bc"
         );
         try {
             PartnerAPITest.getClient().send(request);

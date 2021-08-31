@@ -46,7 +46,7 @@ public class ListAccountExpiredBalancesTest {
         Request request = new ListAccountExpiredBalances(
             "c3851eee-c081-4e48-9428-8ce6203ac303"
         )
-                .expiresAtTo("2023-10-14T15:41:08.000000+09:00")
+                .expiresAtTo("2023-10-14T06:41:08.000000Z")
                 .direction("desc");
         try {
             PartnerAPITest.getClient().send(request);
@@ -64,8 +64,8 @@ public class ListAccountExpiredBalancesTest {
         Request request = new ListAccountExpiredBalances(
             "c3851eee-c081-4e48-9428-8ce6203ac303"
         )
-                .expiresAtFrom("2016-02-07T23:51:43.000000+09:00")
-                .expiresAtTo("2023-06-26T07:13:08.000000+09:00")
+                .expiresAtFrom("2016-02-07T14:51:43.000000Z")
+                .expiresAtTo("2023-06-25T22:13:08.000000Z")
                 .direction("desc");
         try {
             PartnerAPITest.getClient().send(request);
@@ -84,8 +84,8 @@ public class ListAccountExpiredBalancesTest {
             "c3851eee-c081-4e48-9428-8ce6203ac303"
         )
                 .perPage(1280)
-                .expiresAtFrom("2017-09-19T20:56:50.000000+09:00")
-                .expiresAtTo("2021-05-01T18:07:44.000000+09:00")
+                .expiresAtFrom("2017-09-19T11:56:50.000000Z")
+                .expiresAtTo("2021-05-01T09:07:44.000000Z")
                 .direction("desc");
         try {
             PartnerAPITest.getClient().send(request);
@@ -105,8 +105,8 @@ public class ListAccountExpiredBalancesTest {
         )
                 .page(7954)
                 .perPage(183)
-                .expiresAtFrom("2017-07-15T07:24:12.000000+09:00")
-                .expiresAtTo("2018-02-11T05:24:08.000000+09:00")
+                .expiresAtFrom("2017-07-14T22:24:12.000000Z")
+                .expiresAtTo("2018-02-10T20:24:08.000000Z")
                 .direction("desc");
         try {
             PartnerAPITest.getClient().send(request);

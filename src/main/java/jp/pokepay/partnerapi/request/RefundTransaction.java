@@ -31,7 +31,7 @@ public class RefundTransaction extends Request {
 
     @Override
     public Type getResponseClass() {
-        return Transfer.class;
+        return Transaction.class;
     }
 
     @Override

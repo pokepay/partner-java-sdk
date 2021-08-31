@@ -46,7 +46,7 @@ public class GetShopAccountsTest {
         Request request = new GetShopAccounts(
             "bf2c34bb-d803-4020-8e95-e32cf7071b23"
         )
-                .createdAtTo("2017-05-02T07:13:19.000000+09:00")
+                .createdAtTo("2017-05-01T22:13:19.000000Z")
                 .setSuspended(false);
         try {
             PartnerAPITest.getClient().send(request);
@@ -64,8 +64,8 @@ public class GetShopAccountsTest {
         Request request = new GetShopAccounts(
             "bf2c34bb-d803-4020-8e95-e32cf7071b23"
         )
-                .createdAtFrom("2019-05-07T16:43:54.000000+09:00")
-                .createdAtTo("2021-06-24T03:05:57.000000+09:00")
+                .createdAtFrom("2019-05-07T07:43:54.000000Z")
+                .createdAtTo("2021-06-23T18:05:57.000000Z")
                 .setSuspended(false);
         try {
             PartnerAPITest.getClient().send(request);
@@ -84,8 +84,8 @@ public class GetShopAccountsTest {
             "bf2c34bb-d803-4020-8e95-e32cf7071b23"
         )
                 .perPage(758)
-                .createdAtFrom("2019-07-01T07:29:17.000000+09:00")
-                .createdAtTo("2018-01-12T01:15:29.000000+09:00")
+                .createdAtFrom("2019-06-30T22:29:17.000000Z")
+                .createdAtTo("2018-01-11T16:15:29.000000Z")
                 .setSuspended(true);
         try {
             PartnerAPITest.getClient().send(request);
@@ -105,8 +105,8 @@ public class GetShopAccountsTest {
         )
                 .page(7453)
                 .perPage(6265)
-                .createdAtFrom("2023-03-02T16:53:14.000000+09:00")
-                .createdAtTo("2023-06-11T02:57:46.000000+09:00")
+                .createdAtFrom("2023-03-02T07:53:14.000000Z")
+                .createdAtTo("2023-06-10T17:57:46.000000Z")
                 .setSuspended(true);
         try {
             PartnerAPITest.getClient().send(request);
