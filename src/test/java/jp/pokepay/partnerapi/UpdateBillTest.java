@@ -11,7 +11,7 @@ public class UpdateBillTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "79d9eb1d-be19-451c-b5c0-095af6364562"
+            "f74385dc-54b9-4a04-b397-68b535a93439"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -27,9 +27,9 @@ public class UpdateBillTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "79d9eb1d-be19-451c-b5c0-095af6364562"
+            "f74385dc-54b9-4a04-b397-68b535a93439"
         )
-                .setDisabled(true);
+                .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -44,10 +44,10 @@ public class UpdateBillTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "79d9eb1d-be19-451c-b5c0-095af6364562"
+            "f74385dc-54b9-4a04-b397-68b535a93439"
         )
-                .description("wXFvQ1skGDixXFJczCMVyjlRecAjobCopZKVF")
-                .setDisabled(false);
+                .description("IWGujcTx")
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -62,11 +62,11 @@ public class UpdateBillTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "79d9eb1d-be19-451c-b5c0-095af6364562"
+            "f74385dc-54b9-4a04-b397-68b535a93439"
         )
-                .amount(9879)
-                .description("b9UiV0XEmtc9iB2syyuELfawMoOZtkTktpas3rTKhS7CSUreJUtTC5W6xtdNcZmGzg6LOAwdB03Wi")
-                .setDisabled(true);
+                .amount(7494)
+                .description("XyLyMOsteVH8YLvoUoraYyVUvoHuSd144X7ZEq8UGlMat7Q5BMcC1v73v60y8DMLWrlnr061xWZsz1ogogHitDMic7XGDhIwo")
+                .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

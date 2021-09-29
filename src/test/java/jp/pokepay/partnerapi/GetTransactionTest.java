@@ -11,7 +11,7 @@ public class GetTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetTransaction(
-            "0ef86e33-40c4-49ee-97b6-f54b5608c25b"
+            "bed23e28-88f1-475d-ba4b-d807e81099a5"
         );
         try {
             PartnerAPITest.getClient().send(request);

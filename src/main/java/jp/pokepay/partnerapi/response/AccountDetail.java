@@ -9,6 +9,7 @@ public class AccountDetail extends Response {
     private Double moneyBalance;
     private Double pointBalance;
     private PrivateMoney privateMoney;
+    private User user;
 
     public String getId() {
         return id;
@@ -36,6 +37,10 @@ public class AccountDetail extends Response {
 
     public PrivateMoney getPrivateMoney() {
         return privateMoney;
+    }
+
+    public User getUser() {
+        return user;
     }
 }
 

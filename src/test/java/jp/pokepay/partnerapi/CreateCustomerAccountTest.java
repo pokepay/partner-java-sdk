@@ -11,7 +11,7 @@ public class CreateCustomerAccountTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateCustomerAccount(
-            "fd0fc06a-a30a-44a4-af4a-a70303774cda"
+            "13fc31f4-ab13-4552-8970-52a788378b0f"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -27,9 +27,9 @@ public class CreateCustomerAccountTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateCustomerAccount(
-            "fd0fc06a-a30a-44a4-af4a-a70303774cda"
+            "13fc31f4-ab13-4552-8970-52a788378b0f"
         )
-                .accountName("9ajsO39BqxPDSP5BpfA0dYcuMmHpa4aDHWm32hBFhI0DxRhz83lKq4Wp1hKlNvpHM0s7Dd9Uu6qWqC0qUtLag9adxARTcCtKjz1M2kusM3cVDMOGMtpxWNvKR6Gcp6PWCiNymBaUIu6lQIyVNDYRtt");
+                .externalId("MZnFJMuPuuYDxHZdnik");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -44,10 +44,29 @@ public class CreateCustomerAccountTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateCustomerAccount(
-            "fd0fc06a-a30a-44a4-af4a-a70303774cda"
+            "13fc31f4-ab13-4552-8970-52a788378b0f"
         )
-                .userName("S46oTXBYnbHbMuAdnXANiixumuncg7egxc7L05i8jkZ1Waa6h6AAgB9jXehhbgsnyiHZ1n3qwk3r3QhfSXAhy6Q6NsE0G4ETHn0hBw4No1YXyGaN9eZjSIQORsTn19Lt83I")
-                .accountName("Rfp6apsZzwHUgb2qqrLtRpMZnFJMuPuuYDxHZdnikAchiJbVP3ZTnJxIJTqpbj9hQa29LtqbzIUCtrgI5GH6wQi2f3OojTDEk0fitYgKzfXu0N7ZPQ6Ey6Tu3BU56A0DovC2AWlgsj8AO1bqHH9NHpqZwH1tkp");
+                .accountName("AchiJbVP3ZTnJxIJTqpbj9hQa29LtqbzIUCtr")
+                .externalId("I5GH6wQi2f3OojTDEk0fitYgKzfXu0N7ZPQ6Ey6T");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test3() throws ConnectionError, ProcessingError {
+        Request request = new CreateCustomerAccount(
+            "13fc31f4-ab13-4552-8970-52a788378b0f"
+        )
+                .userName("u3BU56A0DovC2AWlgsj8")
+                .accountName("O1bqHH9NHpqZwH1tkpyNDcuWxfr4xKRRC5UPfddKJfLPJmxAhDpkltxfpGBgKzLBWM")
+                .externalId("YifX");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
