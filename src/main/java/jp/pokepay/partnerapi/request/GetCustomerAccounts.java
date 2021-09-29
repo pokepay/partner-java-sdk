@@ -13,6 +13,9 @@ public class GetCustomerAccounts extends Request {
     private String createdAtFrom;
     private String createdAtTo;
     private Boolean isSuspended;
+    private String externalId;
+    private String tel;
+    private String email;
 
     public GetCustomerAccounts(String privateMoneyId) {
         this.privateMoneyId = privateMoneyId;
@@ -43,6 +46,21 @@ public class GetCustomerAccounts extends Request {
         return this;
     }
 
+    public GetCustomerAccounts externalId(String externalId) {
+        this.externalId = externalId;
+        return this;
+    }
+
+    public GetCustomerAccounts tel(String tel) {
+        this.tel = tel;
+        return this;
+    }
+
+    public GetCustomerAccounts email(String email) {
+        this.email = email;
+        return this;
+    }
+
     @Override
     public Method method() {
         return Method.GET;
@@ -67,6 +85,9 @@ public class GetCustomerAccounts extends Request {
         if (createdAtFrom != null) { object.add("created_at_from", context.serialize(this.createdAtFrom)); }
         if (createdAtTo != null) { object.add("created_at_to", context.serialize(this.createdAtTo)); }
         if (isSuspended != null) { object.add("is_suspended", context.serialize(this.isSuspended)); }
+        if (externalId != null) { object.add("external_id", context.serialize(this.externalId)); }
+        if (tel != null) { object.add("tel", context.serialize(this.tel)); }
+        if (email != null) { object.add("email", context.serialize(this.email)); }
         return object;
     }
 }

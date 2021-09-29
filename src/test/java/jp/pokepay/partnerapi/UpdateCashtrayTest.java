@@ -11,7 +11,7 @@ public class UpdateCashtrayTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateCashtray(
-            "19b64f55-23bd-4092-adcc-9badeabedffb"
+            "2fb52007-c055-4363-bbf2-3cbaf35659f5"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -27,9 +27,9 @@ public class UpdateCashtrayTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateCashtray(
-            "19b64f55-23bd-4092-adcc-9badeabedffb"
+            "2fb52007-c055-4363-bbf2-3cbaf35659f5"
         )
-                .expiresIn(1210);
+                .expiresIn(8154);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -44,10 +44,10 @@ public class UpdateCashtrayTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateCashtray(
-            "19b64f55-23bd-4092-adcc-9badeabedffb"
+            "2fb52007-c055-4363-bbf2-3cbaf35659f5"
         )
-                .description("x0jYk7sZRicOTg23f5GXrX6ozTzm0HG0TosxKz4jitwHtujKhwCFGwiyv4vlR")
-                .expiresIn(3011);
+                .description("P4H5cCw5ExNqh41OXXFwVmaHYw6oEFbK8qER1LlAIi5qYTqeIN9jftsBTkZDKCnQigIBcgyeHE0tecRrYBgXoYNaRDH3xa5ZXl3L94kmDiQZVmfdCV9wGJUROgp1VTNstKsbk2wvZcZmJCZwuee4w9Rkvag9C19xRl1IlJpGXqlhd5uwOg53j3Qic0iyKL")
+                .expiresIn(7844);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -62,11 +62,11 @@ public class UpdateCashtrayTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateCashtray(
-            "19b64f55-23bd-4092-adcc-9badeabedffb"
+            "2fb52007-c055-4363-bbf2-3cbaf35659f5"
         )
-                .amount(7202)
-                .description("xfHZeKBVf4jVtecQNubIdHetIBPUrvpeN86f46tWgyM43AJZ0KTwWOYBSX4EzfsIiIDCSxoowqwobMRj4K8")
-                .expiresIn(7793);
+                .amount(6023)
+                .description("nZxaZi9iCa2kj9IDD4FLU")
+                .expiresIn(3878);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

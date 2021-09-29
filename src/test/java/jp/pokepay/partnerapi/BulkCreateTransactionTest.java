@@ -11,9 +11,9 @@ public class BulkCreateTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new BulkCreateTransaction(
-            "MVYN8tF",
-            "iCK",
-            "aN1GSBkTmsnETZgON7wI25XD4LDGgtc1eHQx"
+            "gtc1eHQx",
+            "a3",
+            "8fcy9G2ru7CIugZBUKc64A8KJDFHDE0sPhVL"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -29,11 +29,11 @@ public class BulkCreateTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new BulkCreateTransaction(
-            "MVYN8tF",
-            "iCK",
-            "aN1GSBkTmsnETZgON7wI25XD4LDGgtc1eHQx"
+            "gtc1eHQx",
+            "a3",
+            "8fcy9G2ru7CIugZBUKc64A8KJDFHDE0sPhVL"
         )
-                .description("1a38fcy9G2ru7CIugZBUKc64A8KJDFHDE0sPhVLSmxr0FU");
+                .description("mxr0FU3DnW6KqsDEeelMkJvsg1mQveiZolVhKjCQVZwzstz19XaUt7HUg2vBtQ3icUlEOMImvGy37aG3VpRl");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

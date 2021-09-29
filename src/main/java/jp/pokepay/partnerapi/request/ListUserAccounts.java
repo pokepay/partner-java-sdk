@@ -25,7 +25,7 @@ public class ListUserAccounts extends Request {
 
     @Override
     public Type getResponseClass() {
-        return PaginatedAccounts.class;
+        return PaginatedAccountDetails.class;
     }
 
     @Override

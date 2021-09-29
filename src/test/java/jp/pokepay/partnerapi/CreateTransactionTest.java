@@ -11,9 +11,9 @@ public class CreateTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateTransaction(
-            "8e25c7d9-f464-4db9-8626-69aa96cf69d4",
-            "fe189182-20d9-4bcc-9bb0-b61465bf9ee2",
-            "78fd62fb-1a3c-4a6b-83ab-ae15c3d05781"
+            "7c060d92-ea09-40f8-9126-4b667e847f87",
+            "28293aba-96e0-469c-8ff1-264e6c4457a5",
+            "a2162487-9e95-413b-8b89-ddc73ed91754"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -29,11 +29,11 @@ public class CreateTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateTransaction(
-            "8e25c7d9-f464-4db9-8626-69aa96cf69d4",
-            "fe189182-20d9-4bcc-9bb0-b61465bf9ee2",
-            "78fd62fb-1a3c-4a6b-83ab-ae15c3d05781"
+            "7c060d92-ea09-40f8-9126-4b667e847f87",
+            "28293aba-96e0-469c-8ff1-264e6c4457a5",
+            "a2162487-9e95-413b-8b89-ddc73ed91754"
         )
-                .description("VqSRIdac4BtBwC2bbOKrqEvtHSmLf6gZqSXb2Lr55RtyiRtGJ1HUxolj1KPz6vAaVd");
+                .description("hBSpAIG2GVjRLCF7S26ypTzMExe5LQXN3tfMMeaiT");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -48,12 +48,12 @@ public class CreateTransactionTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateTransaction(
-            "8e25c7d9-f464-4db9-8626-69aa96cf69d4",
-            "fe189182-20d9-4bcc-9bb0-b61465bf9ee2",
-            "78fd62fb-1a3c-4a6b-83ab-ae15c3d05781"
+            "7c060d92-ea09-40f8-9126-4b667e847f87",
+            "28293aba-96e0-469c-8ff1-264e6c4457a5",
+            "a2162487-9e95-413b-8b89-ddc73ed91754"
         )
-                .pointExpiresAt("2019-06-29T23:46:10.000000Z")
-                .description("g4zOt2LPb0nLBvCfu5QWsdUnRrH9KHVuXFGKt4lw9lRVMCAhIxweHf4mhVFw56RKD");
+                .pointExpiresAt("2020-04-14T04:08:25.000000Z")
+                .description("RlgPRLO6iu4xB9p9hHVjuFskSUixLpvflY8M");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -68,13 +68,13 @@ public class CreateTransactionTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new CreateTransaction(
-            "8e25c7d9-f464-4db9-8626-69aa96cf69d4",
-            "fe189182-20d9-4bcc-9bb0-b61465bf9ee2",
-            "78fd62fb-1a3c-4a6b-83ab-ae15c3d05781"
+            "7c060d92-ea09-40f8-9126-4b667e847f87",
+            "28293aba-96e0-469c-8ff1-264e6c4457a5",
+            "a2162487-9e95-413b-8b89-ddc73ed91754"
         )
-                .pointAmount(4444)
-                .pointExpiresAt("2019-07-13T13:26:43.000000Z")
-                .description("CYdf");
+                .pointAmount(3034)
+                .pointExpiresAt("2017-03-31T09:15:26.000000Z")
+                .description("vlfPZ9XRs2DjUex8FZcru468uiy2IBQsK");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -89,14 +89,14 @@ public class CreateTransactionTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new CreateTransaction(
-            "8e25c7d9-f464-4db9-8626-69aa96cf69d4",
-            "fe189182-20d9-4bcc-9bb0-b61465bf9ee2",
-            "78fd62fb-1a3c-4a6b-83ab-ae15c3d05781"
+            "7c060d92-ea09-40f8-9126-4b667e847f87",
+            "28293aba-96e0-469c-8ff1-264e6c4457a5",
+            "a2162487-9e95-413b-8b89-ddc73ed91754"
         )
-                .moneyAmount(2592)
-                .pointAmount(1096)
-                .pointExpiresAt("2021-11-30T02:41:07.000000Z")
-                .description("y6kNARZB0e7gSo7Ck5GjWL9QXL9sfwRokQiO2gJLOs7NWiVmOaSDg31Umvi1k0xZepHVlU5UCBk1mC260SZIPf7lUxpBEw");
+                .moneyAmount(7650)
+                .pointAmount(894)
+                .pointExpiresAt("2021-08-05T08:01:01.000000Z")
+                .description("UonyUv3nTPZ701h3V5Qywi2pn04JUSx27eVHz2wOx9gOffBCzdPD5lY5ruzs73QnlHzw");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
