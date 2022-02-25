@@ -3,6 +3,7 @@ package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.GetCashtray;
 import jp.pokepay.partnerapi.request.Request;
+import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,7 +12,7 @@ public class GetCashtrayTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetCashtray(
-            "34e67976-b4d3-4518-b73f-85965bab6090"
+            "18d8bc57-f605-4db8-ba59-b5bbcb4581aa"
         );
         try {
             PartnerAPITest.getClient().send(request);

@@ -53,7 +53,7 @@ public class CreateTransaction extends Request {
 
     @Override
     public Type getResponseClass() {
-        return Transaction.class;
+        return TransactionDetail.class;
     }
 
     @Override

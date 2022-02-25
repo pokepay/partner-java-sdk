@@ -3,6 +3,7 @@ package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.CreateTopupTransactionWithCheck;
 import jp.pokepay.partnerapi.request.Request;
+import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,8 +12,8 @@ public class CreateTopupTransactionWithCheckTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransactionWithCheck(
-            "05bf58ad-60ad-45d2-ab9d-5a4869e6efca",
-            "42aa1f4c-61d0-4004-a562-822045b98659"
+            "be68b9a3-4dcb-40ff-bb44-ed786b94b224",
+            "ebd03e08-7e18-4bb3-86fd-2b6d12a884c4"
         );
         try {
             PartnerAPITest.getClient().send(request);

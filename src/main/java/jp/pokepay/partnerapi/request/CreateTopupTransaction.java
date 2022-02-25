@@ -11,10 +11,11 @@ public class CreateTopupTransaction extends Request {
     private String customerId;
     private String privateMoneyId;
     private String bearPointShopId;
-    private Double moneyAmount;
-    private Double pointAmount;
+    private Integer moneyAmount;
+    private Integer pointAmount;
     private String pointExpiresAt;
     private String description;
+    private String metadata;
     private String requestId;
 
     public CreateTopupTransaction(String shopId, String customerId, String privateMoneyId) {
@@ -28,12 +29,12 @@ public class CreateTopupTransaction extends Request {
         return this;
     }
 
-    public CreateTopupTransaction moneyAmount(double moneyAmount) {
+    public CreateTopupTransaction moneyAmount(int moneyAmount) {
         this.moneyAmount = moneyAmount;
         return this;
     }
 
-    public CreateTopupTransaction pointAmount(double pointAmount) {
+    public CreateTopupTransaction pointAmount(int pointAmount) {
         this.pointAmount = pointAmount;
         return this;
     }
@@ -45,6 +46,11 @@ public class CreateTopupTransaction extends Request {
 
     public CreateTopupTransaction description(String description) {
         this.description = description;
+        return this;
+    }
+
+    public CreateTopupTransaction metadata(String metadata) {
+        this.metadata = metadata;
         return this;
     }
 
@@ -65,7 +71,7 @@ public class CreateTopupTransaction extends Request {
 
     @Override
     public Type getResponseClass() {
-        return Transaction.class;
+        return TransactionDetail.class;
     }
 
     @Override
@@ -75,10 +81,11 @@ public class CreateTopupTransaction extends Request {
         if (customerId != null) { object.add("customer_id", context.serialize(this.customerId)); }
         if (privateMoneyId != null) { object.add("private_money_id", context.serialize(this.privateMoneyId)); }
         if (bearPointShopId != null) { object.add("bear_point_shop_id", context.serialize(this.bearPointShopId)); }
-        if (moneyAmount != null) { object.add("money_amount", context.serialize((int)this.moneyAmount.doubleValue())); }
-        if (pointAmount != null) { object.add("point_amount", context.serialize((int)this.pointAmount.doubleValue())); }
+        if (moneyAmount != null) { object.add("money_amount", context.serialize(this.moneyAmount)); }
+        if (pointAmount != null) { object.add("point_amount", context.serialize(this.pointAmount)); }
         if (pointExpiresAt != null) { object.add("point_expires_at", context.serialize(this.pointExpiresAt)); }
         if (description != null) { object.add("description", context.serialize(this.description)); }
+        if (metadata != null) { object.add("metadata", context.serialize(this.metadata)); }
         if (requestId != null) { object.add("request_id", context.serialize(this.requestId)); }
         return object;
     }

@@ -3,6 +3,7 @@ package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.UpdateCashtray;
 import jp.pokepay.partnerapi.request.Request;
+import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,7 +12,7 @@ public class UpdateCashtrayTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateCashtray(
-            "2fb52007-c055-4363-bbf2-3cbaf35659f5"
+            "92eb1935-f558-41f0-ae52-8975ae9d805d"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -27,9 +28,9 @@ public class UpdateCashtrayTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateCashtray(
-            "2fb52007-c055-4363-bbf2-3cbaf35659f5"
+            "92eb1935-f558-41f0-ae52-8975ae9d805d"
         )
-                .expiresIn(8154);
+                .expiresIn(7158);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -44,10 +45,10 @@ public class UpdateCashtrayTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateCashtray(
-            "2fb52007-c055-4363-bbf2-3cbaf35659f5"
+            "92eb1935-f558-41f0-ae52-8975ae9d805d"
         )
-                .description("P4H5cCw5ExNqh41OXXFwVmaHYw6oEFbK8qER1LlAIi5qYTqeIN9jftsBTkZDKCnQigIBcgyeHE0tecRrYBgXoYNaRDH3xa5ZXl3L94kmDiQZVmfdCV9wGJUROgp1VTNstKsbk2wvZcZmJCZwuee4w9Rkvag9C19xRl1IlJpGXqlhd5uwOg53j3Qic0iyKL")
-                .expiresIn(7844);
+                .description("9q3NykiRPYO2oQiAYMcKkXBWEu4RSjxgCW3jFlgob7yobgqdqFleVhpCe")
+                .expiresIn(3756);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -62,11 +63,11 @@ public class UpdateCashtrayTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateCashtray(
-            "2fb52007-c055-4363-bbf2-3cbaf35659f5"
+            "92eb1935-f558-41f0-ae52-8975ae9d805d"
         )
-                .amount(6023)
-                .description("nZxaZi9iCa2kj9IDD4FLU")
-                .expiresIn(3878);
+                .amount(7943)
+                .description("dmmx3jJLFYo72YjP5pod5QaLCZTmFLxumOnvrupx16EXCUXyPfCabjEtMliIf7wKoPmNQWU6zl3h0ZGoCe5IIfEbaRlpdhTTQpQ")
+                .expiresIn(4391);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

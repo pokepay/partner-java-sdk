@@ -13,6 +13,7 @@ public class GetCustomerAccounts extends Request {
     private String createdAtFrom;
     private String createdAtTo;
     private Boolean isSuspended;
+    private String status;
     private String externalId;
     private String tel;
     private String email;
@@ -43,6 +44,11 @@ public class GetCustomerAccounts extends Request {
 
     public GetCustomerAccounts setSuspended(boolean suspended) {
         isSuspended = suspended;
+        return this;
+    }
+
+    public GetCustomerAccounts status(String status) {
+        this.status = status;
         return this;
     }
 
@@ -85,6 +91,7 @@ public class GetCustomerAccounts extends Request {
         if (createdAtFrom != null) { object.add("created_at_from", context.serialize(this.createdAtFrom)); }
         if (createdAtTo != null) { object.add("created_at_to", context.serialize(this.createdAtTo)); }
         if (isSuspended != null) { object.add("is_suspended", context.serialize(this.isSuspended)); }
+        if (status != null) { object.add("status", context.serialize(this.status)); }
         if (externalId != null) { object.add("external_id", context.serialize(this.externalId)); }
         if (tel != null) { object.add("tel", context.serialize(this.tel)); }
         if (email != null) { object.add("email", context.serialize(this.email)); }

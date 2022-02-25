@@ -3,6 +3,7 @@ package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.CreateExchangeTransaction;
 import jp.pokepay.partnerapi.request.Request;
+import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,10 +12,10 @@ public class CreateExchangeTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateExchangeTransaction(
-            "06a5d2f3-24ff-4667-bc8c-65ce1140d986",
-            "da109100-e2fa-4783-9783-8f2f87ea64e6",
-            "f970404d-f9bd-4e3e-8b56-45d980d67ece",
-            6534
+            "68adbec6-70f4-417b-9ea8-12f135978ce8",
+            "b0b1ea5d-e85f-47a4-8d4c-419c118ccb79",
+            "c773cfb1-2f66-4d9f-a724-32ded2ed6453",
+            8353
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -30,12 +31,12 @@ public class CreateExchangeTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateExchangeTransaction(
-            "06a5d2f3-24ff-4667-bc8c-65ce1140d986",
-            "da109100-e2fa-4783-9783-8f2f87ea64e6",
-            "f970404d-f9bd-4e3e-8b56-45d980d67ece",
-            6534
+            "68adbec6-70f4-417b-9ea8-12f135978ce8",
+            "b0b1ea5d-e85f-47a4-8d4c-419c118ccb79",
+            "c773cfb1-2f66-4d9f-a724-32ded2ed6453",
+            8353
         )
-                .requestId("367806f4-330f-45a5-9195-2ba133f57846");
+                .requestId("8b7475f2-a2cf-4e83-bba7-dd1156c02207");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -50,13 +51,13 @@ public class CreateExchangeTransactionTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateExchangeTransaction(
-            "06a5d2f3-24ff-4667-bc8c-65ce1140d986",
-            "da109100-e2fa-4783-9783-8f2f87ea64e6",
-            "f970404d-f9bd-4e3e-8b56-45d980d67ece",
-            6534
+            "68adbec6-70f4-417b-9ea8-12f135978ce8",
+            "b0b1ea5d-e85f-47a4-8d4c-419c118ccb79",
+            "c773cfb1-2f66-4d9f-a724-32ded2ed6453",
+            8353
         )
-                .description("ORiCKaN1GSBkTmsnETZgON7wI25X")
-                .requestId("87cb461b-ae44-4a7e-b4cc-0117b77b58c4");
+                .description("ZfnZ2mwTeB7HbtOFrcDL7mosyloW0gLyNig5qU77")
+                .requestId("85b1c0b1-2b7d-46d3-bc59-e0ba00d65777");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

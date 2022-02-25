@@ -11,6 +11,7 @@ public class CreateTransferTransaction extends Request {
     private String receiverId;
     private String privateMoneyId;
     private Double amount;
+    private String metadata;
     private String description;
     private String requestId;
 
@@ -19,6 +20,11 @@ public class CreateTransferTransaction extends Request {
         this.receiverId = receiverId;
         this.privateMoneyId = privateMoneyId;
         this.amount = amount;
+    }
+
+    public CreateTransferTransaction metadata(String metadata) {
+        this.metadata = metadata;
+        return this;
     }
 
     public CreateTransferTransaction description(String description) {
@@ -43,7 +49,7 @@ public class CreateTransferTransaction extends Request {
 
     @Override
     public Type getResponseClass() {
-        return Transaction.class;
+        return TransactionDetail.class;
     }
 
     @Override
@@ -53,6 +59,7 @@ public class CreateTransferTransaction extends Request {
         if (receiverId != null) { object.add("receiver_id", context.serialize(this.receiverId)); }
         if (privateMoneyId != null) { object.add("private_money_id", context.serialize(this.privateMoneyId)); }
         if (amount != null) { object.add("amount", context.serialize((int)this.amount.doubleValue())); }
+        if (metadata != null) { object.add("metadata", context.serialize(this.metadata)); }
         if (description != null) { object.add("description", context.serialize(this.description)); }
         if (requestId != null) { object.add("request_id", context.serialize(this.requestId)); }
         return object;

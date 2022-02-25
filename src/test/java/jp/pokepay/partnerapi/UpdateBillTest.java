@@ -3,6 +3,7 @@ package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.UpdateBill;
 import jp.pokepay.partnerapi.request.Request;
+import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,7 +12,7 @@ public class UpdateBillTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "f74385dc-54b9-4a04-b397-68b535a93439"
+            "011b504d-9950-476f-89b5-74640faf5c82"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -27,7 +28,7 @@ public class UpdateBillTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "f74385dc-54b9-4a04-b397-68b535a93439"
+            "011b504d-9950-476f-89b5-74640faf5c82"
         )
                 .setDisabled(false);
         try {
@@ -44,9 +45,9 @@ public class UpdateBillTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "f74385dc-54b9-4a04-b397-68b535a93439"
+            "011b504d-9950-476f-89b5-74640faf5c82"
         )
-                .description("IWGujcTx")
+                .description("tAEAC8MN1MIRbysguh0xXqdkQK8VGfHRzulBqoPAVuBC2EUluqb81O3ZagKE8LcCa8bz2nHShe5EoHVudmx1iMacSt3whWHQ5cbR62Eyf")
                 .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
@@ -62,11 +63,11 @@ public class UpdateBillTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "f74385dc-54b9-4a04-b397-68b535a93439"
+            "011b504d-9950-476f-89b5-74640faf5c82"
         )
-                .amount(7494)
-                .description("XyLyMOsteVH8YLvoUoraYyVUvoHuSd144X7ZEq8UGlMat7Q5BMcC1v73v60y8DMLWrlnr061xWZsz1ogogHitDMic7XGDhIwo")
-                .setDisabled(false);
+                .amount(2605)
+                .description("yRxoXmZ8au8D4esSHy55WYfHfvN0QEBe9OUmuQoNyAxdhT65YfaNVM2xjqlPxxy8RqwFWTQ1hvVt9bN2zIxNZx4eE9mHPjq6XCvYjxbcuNA5AOQHru6gAXocPu4UpOUbFxl1xg8SX1voG8Gydqo4fQ7D47J36mgyKf2pL")
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

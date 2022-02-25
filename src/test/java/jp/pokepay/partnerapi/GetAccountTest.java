@@ -3,6 +3,7 @@ package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.GetAccount;
 import jp.pokepay.partnerapi.request.Request;
+import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,7 +12,7 @@ public class GetAccountTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetAccount(
-            "7c419418-aa59-4e5c-bbdc-7d8d6bf88c31"
+            "ce348e12-e7ee-4579-a9c8-94dd3d6c2f3d"
         );
         try {
             PartnerAPITest.getClient().send(request);

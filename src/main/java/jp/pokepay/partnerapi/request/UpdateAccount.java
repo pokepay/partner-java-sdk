@@ -8,6 +8,8 @@ import java.lang.reflect.Type;
 
 public class UpdateAccount extends Request {
     private Boolean isSuspended;
+    private String status;
+    private Boolean canTransferTopup;
     private String accountId;
 
     public UpdateAccount(String accountId) {
@@ -16,6 +18,16 @@ public class UpdateAccount extends Request {
 
     public UpdateAccount setSuspended(boolean suspended) {
         isSuspended = suspended;
+        return this;
+    }
+
+    public UpdateAccount status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    public UpdateAccount canTransferTopup(boolean canTransferTopup) {
+        this.canTransferTopup = canTransferTopup;
         return this;
     }
 
@@ -38,6 +50,8 @@ public class UpdateAccount extends Request {
     public JsonObject getRequestBodyJsonObject(JsonSerializationContext context) {
         JsonObject object = new JsonObject();
         if (isSuspended != null) { object.add("is_suspended", context.serialize(this.isSuspended)); }
+        if (status != null) { object.add("status", context.serialize(this.status)); }
+        if (canTransferTopup != null) { object.add("can_transfer_topup", context.serialize(this.canTransferTopup)); }
         return object;
     }
 }

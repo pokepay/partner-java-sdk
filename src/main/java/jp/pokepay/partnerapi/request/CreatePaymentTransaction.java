@@ -10,11 +10,13 @@ public class CreatePaymentTransaction extends Request {
     private String shopId;
     private String customerId;
     private String privateMoneyId;
-    private Double amount;
+    private Integer amount;
     private String description;
+    private String metadata;
+    private Object[] products;
     private String requestId;
 
-    public CreatePaymentTransaction(String shopId, String customerId, String privateMoneyId, double amount) {
+    public CreatePaymentTransaction(String shopId, String customerId, String privateMoneyId, int amount) {
         this.shopId = shopId;
         this.customerId = customerId;
         this.privateMoneyId = privateMoneyId;
@@ -23,6 +25,16 @@ public class CreatePaymentTransaction extends Request {
 
     public CreatePaymentTransaction description(String description) {
         this.description = description;
+        return this;
+    }
+
+    public CreatePaymentTransaction metadata(String metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    public CreatePaymentTransaction products(Object[] products) {
+        this.products = products;
         return this;
     }
 
@@ -43,7 +55,7 @@ public class CreatePaymentTransaction extends Request {
 
     @Override
     public Type getResponseClass() {
-        return Transaction.class;
+        return TransactionDetail.class;
     }
 
     @Override
@@ -52,8 +64,10 @@ public class CreatePaymentTransaction extends Request {
         if (shopId != null) { object.add("shop_id", context.serialize(this.shopId)); }
         if (customerId != null) { object.add("customer_id", context.serialize(this.customerId)); }
         if (privateMoneyId != null) { object.add("private_money_id", context.serialize(this.privateMoneyId)); }
-        if (amount != null) { object.add("amount", context.serialize((int)this.amount.doubleValue())); }
+        if (amount != null) { object.add("amount", context.serialize(this.amount)); }
         if (description != null) { object.add("description", context.serialize(this.description)); }
+        if (metadata != null) { object.add("metadata", context.serialize(this.metadata)); }
+        if (products != null) { object.add("products", context.serialize(this.products)); }
         if (requestId != null) { object.add("request_id", context.serialize(this.requestId)); }
         return object;
     }
