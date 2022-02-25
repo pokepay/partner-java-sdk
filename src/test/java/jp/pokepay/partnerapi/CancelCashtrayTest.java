@@ -3,6 +3,7 @@ package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.CancelCashtray;
 import jp.pokepay.partnerapi.request.Request;
+import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,7 +12,7 @@ public class CancelCashtrayTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CancelCashtray(
-            "9cf07c12-3205-408c-873e-fed1154bba7e"
+            "0cbab7f1-4e98-46b1-bbdd-1e1f2a456e1c"
         );
         try {
             PartnerAPITest.getClient().send(request);

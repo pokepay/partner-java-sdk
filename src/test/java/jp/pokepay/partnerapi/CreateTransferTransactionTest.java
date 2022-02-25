@@ -3,6 +3,7 @@ package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.CreateTransferTransaction;
 import jp.pokepay.partnerapi.request.Request;
+import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,10 +12,10 @@ public class CreateTransferTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateTransferTransaction(
-            "5d743523-864b-4d1f-a9b4-f5b1e4b3804d",
-            "555e5ecb-47f2-4f4a-9d38-1e758febb733",
-            "6b57a04a-4623-48f4-800b-5d07452a8a19",
-            4040
+            "6a405636-cb25-407a-aa41-3949428bee4d",
+            "5ea0b08b-24e0-4280-b8ea-05f5964962ac",
+            "471828b9-2e14-4fb8-9826-de7b9908bee6",
+            6323
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -30,12 +31,12 @@ public class CreateTransferTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateTransferTransaction(
-            "5d743523-864b-4d1f-a9b4-f5b1e4b3804d",
-            "555e5ecb-47f2-4f4a-9d38-1e758febb733",
-            "6b57a04a-4623-48f4-800b-5d07452a8a19",
-            4040
+            "6a405636-cb25-407a-aa41-3949428bee4d",
+            "5ea0b08b-24e0-4280-b8ea-05f5964962ac",
+            "471828b9-2e14-4fb8-9826-de7b9908bee6",
+            6323
         )
-                .requestId("e52b4877-2ab1-4533-820a-294a04452a4c");
+                .requestId("6481f61a-2228-4de5-90c4-47010df61e71");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -50,13 +51,35 @@ public class CreateTransferTransactionTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateTransferTransaction(
-            "5d743523-864b-4d1f-a9b4-f5b1e4b3804d",
-            "555e5ecb-47f2-4f4a-9d38-1e758febb733",
-            "6b57a04a-4623-48f4-800b-5d07452a8a19",
-            4040
+            "6a405636-cb25-407a-aa41-3949428bee4d",
+            "5ea0b08b-24e0-4280-b8ea-05f5964962ac",
+            "471828b9-2e14-4fb8-9826-de7b9908bee6",
+            6323
         )
-                .description("qURa9CDG8z1r52NxmvSo3IMgKOG9RqgqLtsxscDVj4qDxwlI")
-                .requestId("a9001573-4cdb-4a6a-a359-51644f40ebc4");
+                .description("YA5vYg7TRPpd99WNI7yrXSKnnTIb76zTEtm8AaIiuGx9L9HalOMU5vigXX7Icn5jXA5QxJPbbGkUILhTXtRtmknLVk7hQOvzRC9zFhAU2LnJOGL09rrRBaBOdWWGJsxArgIuumMVdl31leH5Dl")
+                .requestId("79f040fc-6937-49da-a1fe-d92dd07280a2");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test3() throws ConnectionError, ProcessingError {
+        Request request = new CreateTransferTransaction(
+            "6a405636-cb25-407a-aa41-3949428bee4d",
+            "5ea0b08b-24e0-4280-b8ea-05f5964962ac",
+            "471828b9-2e14-4fb8-9826-de7b9908bee6",
+            6323
+        )
+                .metadata("{\"key\":\"value\"}")
+                .description("HzS51rJLdw2n2tQfnXr078yWrpzKRIJrBD5D7CpKjeG53Xpalhw5eupOSaoLetupiLJGKA08kULtDXm7mGq20C")
+                .requestId("d158ea20-3aa8-4e63-a3f1-7f59d9c42d4f");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

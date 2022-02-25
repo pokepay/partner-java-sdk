@@ -3,6 +3,7 @@ package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.RefundTransaction;
 import jp.pokepay.partnerapi.request.Request;
+import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,7 +12,7 @@ public class RefundTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new RefundTransaction(
-            "0eb2777e-c829-4aa6-a0d6-13621cb88acc"
+            "a1294868-fb14-43d0-9c8a-f51dc70d1ca8"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -27,9 +28,9 @@ public class RefundTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new RefundTransaction(
-            "0eb2777e-c829-4aa6-a0d6-13621cb88acc"
+            "a1294868-fb14-43d0-9c8a-f51dc70d1ca8"
         )
-                .description("VJ59qzi8HFxZtC5ypm8TU2Y6m10oazOnSDRVBADkHpYoJtK8deELoxPb8vCqW8ZrqfNGAkbzmAIScfq8JbwsUjFhr3NwoEyag2SfuJiolnAr0O5BazmKqHUlvI3TLRDU2wR06BrqE");
+                .description("0Ve0rN3Em7q1SjNjatjjDZX7RIK");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

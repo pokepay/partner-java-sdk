@@ -36,6 +36,8 @@ tags:
   - name: Account
   - name: Private Money
   - name: Bulk
+  - name: Event
+  - name: Campaign
 
 components:
   schemas:
@@ -94,6 +96,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PrivateMoney'
+    AccountStatus:
+      x-pokepay-schema-type: "response"
+      type: string
+      enum: [active, suspended, pre-closed, closed]
+      title: 'ウォレット状態'
     Account:
       x-pokepay-schema-type: "response"
       properties:
@@ -107,6 +114,8 @@ components:
         is_suspended:
           type: boolean
           title: 'ウォレットが凍結されているかどうか'
+        status:
+          $ref: '#/components/schemas/AccountStatus'
         private_money:
           $ref: '#/components/schemas/PrivateMoney'
           title: '設定マネー情報'
@@ -120,6 +129,8 @@ components:
           type: string
         is_suspended:
           type: boolean
+        status:
+          $ref: '#/components/schemas/AccountStatus'
         private_money:
           $ref: '#/components/schemas/PrivateMoney'
         user:
@@ -134,6 +145,8 @@ components:
           type: string
         is_suspended:
           type: boolean
+        status:
+          $ref: '#/components/schemas/AccountStatus'
         balance:
           type: number
           format: decimal
@@ -147,6 +160,10 @@ components:
           $ref: '#/components/schemas/PrivateMoney'
         user:
           $ref: '#/components/schemas/User'
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 50
     ShopAccount:
       x-pokepay-schema-type: "response"
       properties:
@@ -166,6 +183,9 @@ components:
         private_money:
           $ref: '#/components/schemas/PrivateMoney'
           title: '設定マネー情報'
+    AccountDeleted:
+      x-pokepay-schema-type: "response"
+      properties: {}
     AccountBalance:
       x-pokepay-schema-type: "response"
       properties:
@@ -264,6 +284,40 @@ components:
         token:
           type: string
           title: チャージQRコードを解析したときに出てくるURL
+    CpmToken:
+      x-pokepay-schema-type: "response"
+      type: object
+      properties:
+        cpm_token:
+          type: string
+          minLength: 22
+          maxLength: 22
+        account:
+          $ref: '#/components/schemas/AccountDetail'
+        transaction:
+          $ref: '#/components/schemas/Transaction'
+          nullable: true
+        event:
+          $ref: '#/components/schemas/ExternalTransaction'
+          nullable: true
+        scopes:
+          type: array
+          title: 許可された取引種別
+          description: エンドユーザーがCPMトークンを生成する際に指定する、CPMトークンに許可された取引の種別。
+          items:
+            type: string
+            enum: [payment, topup, external-transaction]
+        expires_at:
+          type: string
+          format: date-time
+          title: CPMトークンの失効日時
+        metadata:
+          type: string
+          format: json
+          title: エンドユーザー側メタデータ
+          description: |-
+            取引作成時に店舗側から指定されるメタデータです。
+            全てのkeyとvalueが文字列であるようなフラットな構造のJSON文字列です。
 
     Cashtray:
       x-pokepay-schema-type: "response"
@@ -428,6 +482,9 @@ components:
           type: boolean
           nullable: true
           title: '加盟店によるチャージが有効かどうか'
+        display_money_and_point:
+          type: string
+          enum: [both, money-only, point-only]
     Organization:
       x-pokepay-schema-type: "response"
       properties:
@@ -480,6 +537,51 @@ components:
         description:
           type: string
           title: '取引説明文'
+    TransactionDetail:
+      x-pokepay-schema-type: "response"
+      properties:
+        id:
+          type: string
+          format: uuid
+          title: '取引ID'
+        type:
+          type: string
+          title: '取引種別 (チャージ=topup, 支払い=payment)'
+        is_modified:
+          type: boolean
+          title: '返金された取引かどうか'
+        sender:
+          $ref: '#/components/schemas/User'
+          title: '送金者情報'
+        sender_account:
+          $ref: '#/components/schemas/Account'
+          title: '送金ウォレット情報'
+        receiver:
+          $ref: '#/components/schemas/User'
+          title: '受取者情報'
+        receiver_account:
+          $ref: '#/components/schemas/Account'
+          title: '受取ウォレット情報'
+        amount:
+          type: number
+          title: '決済総額 (マネー額 + ポイント額)'
+        money_amount:
+          type: number
+          title: '決済マネー額'
+        point_amount:
+          type: number
+          title: '決済ポイント額'
+        done_at:
+          type: string
+          format: date-time
+          title: '取引日時'
+        description:
+          type: string
+          title: '取引説明文'
+        transfers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transfer'
     ShopWithMetadata:
       x-pokepay-schema-type: "response"
       properties:
@@ -590,7 +692,7 @@ components:
           format: date-time
         type:
           type: string
-          enum: [topup, payment, transfer, exchange]
+          enum: [topup, payment, transfer, exchange, cashback, expire]
         is_modified:
           type: boolean
     BulkTransaction:
@@ -644,6 +746,8 @@ components:
           type: string
         is_suspended:
           type: boolean
+        status:
+          $ref: '#/components/schemas/AccountStatus'
         private_money_id:
           type: string
           format: uuid
@@ -676,12 +780,64 @@ components:
           format: date-time
         type:
           type: string
-          enum: [topup, payment, refund-topup, refund-payment, transfer, exchange-inflow, exchange-outflow, campaign-topup, refund-campaign, use-coupon, refund-coupon]
+          enum: [topup, payment, refund-topup, refund-payment, transfer, exchange-inflow, exchange-outflow, campaign-topup, refund-campaign, use-coupon, refund-coupon, cashback, expire]
         description:
           type: string
         transaction_id:
           type: string
           format: uuid
+    ExternalTransaction:
+      x-pokepay-schema-type: "response"
+      properties:
+        id:
+          type: string
+          format: uuid
+          title: ポケペイ外部取引ID
+        is_modified:
+          type: boolean
+          title: 返金された取引かどうか
+        sender:
+          $ref: '#/components/schemas/User'
+          title: 送金者情報
+        sender_account:
+          $ref: '#/components/schemas/Account'
+          title: 送金ウォレット情報
+        receiver:
+          $ref: '#/components/schemas/User'
+          title: 受取者情報
+        receiver_account:
+          $ref: '#/components/schemas/Account'
+          title: 受取ウォレット情報
+        amount:
+          type: number
+          title: 決済額
+        done_at:
+          type: string
+          format: date-time
+          title: 取引日時
+        description:
+          type: string
+          title: 取引説明文
+    Product:
+      x-pokepay-schema-type: "response"
+      properties:
+        jan_code:
+          type: string
+          maxLength: 64
+        name:
+          type: string
+          maxLength: 256
+        unit_price:
+          type: number
+          minimum: 0
+        price:
+          type: number
+          minimum: 0
+        is_discounted:
+          type: boolean
+        other:
+          type: string
+          format: json
 
     OrganizationSummary:
       x-pokepay-schema-type: "response"
@@ -831,7 +987,80 @@ components:
           minimum: 0
         pagination:
           $ref: '#/components/schemas/Pagination'
-
+    Campaign:
+      x-pokepay-schema-type: "response"
+      properties:
+        id:
+          type: string
+          format: uuid
+          title: 'キャンペーンID'
+        name:
+          type: string
+          maxLength: 256
+          title: 'キャペーン名'
+        applicable_shops:
+          type: array
+          title: 'キャンペーン適用対象の店舗リスト'
+          nullable: true
+          items:
+            $ref: '#/components/schemas/User'
+        is_exclusive:
+          type: boolean
+          title: 'キャンペーンの重複を許すかどうかのフラグ'
+        starts_at:
+          type: string
+          format: date-time
+          title: 'キャンペーン開始日時'
+        ends_at:
+          type: string
+          format: date-time
+          title: 'キャンペーン終了日時'
+        point_expires_at:
+          type: string
+          format: date-time
+          title: 'キャンペーンによって付与されるポイントの失効日時'
+          nullable: true
+        point_expires_in_days:
+          type: integer
+          minimum: 1
+          title: 'キャンペーンによって付与されるポイントの有効期限(相対指定、単位は日)'
+          nullable: true
+        priority:
+          type: integer
+          title: 'キャンペーンの優先順位'
+        description:
+          type: string
+          maxLength: 200
+          title: 'キャンペーン説明文'
+        bear_point_shop:
+          title: 'ポイントを負担する店舗'
+          $ref: '#/components/schemas/User'
+        private_money:
+          title: 'キャンペーンを適用するマネー'
+          $ref: '#/components/schemas/PrivateMoney'
+        point_calculation_rule:
+          type: string
+          title: 'ポイント計算ルール (banklisp表記)'
+        point_calculation_rule_object:
+          type: string
+          format: json
+          title: 'ポイント計算ルール (JSON文字列による表記)'
+        status:
+          type: string
+          enum: [enabled, disabled]
+          title: 'キャンペーンの現在の状態'
+    PaginatedCampaigns:
+      x-pokepay-schema-type: "response"
+      properties:
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/Campaign'
+        count:
+          type: integer
+          minimum: 0
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     BadRequest:
       x-pokepay-schema-type: "response"
       oneOf:
@@ -1042,6 +1271,22 @@ paths:
             ユーザーIDです。
 
             指定したユーザーIDのウォレット一覧を取得します。パートナーキーと紐づく組織が発行しているマネーのウォレットのみが表示されます。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                page:
+                  type: integer
+                  minimum: 1
+                  title: 'ページ番号'
+                  description: 取得したいページ番号です。デフォルト値は1です。
+                per_page:
+                  type: integer
+                  minimum: 1
+                  title: '1ページ分の取引数'
+                  description: 1ページ当たりのウォレット数です。デフォルト値は50です。
       responses:
         '200':
           description: OK
@@ -1055,6 +1300,54 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+    post:
+      tags:
+        - Account
+      summary: 'エンドユーザーのウォレットを作成する'
+      x-pokepay-operator-name: "CreateUserAccount"
+      x-pokepay-allow-server-side: true
+      parameters:
+        - in: path
+          name: user_id
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: 'ユーザーID'
+          description: |-
+            ユーザーIDです。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required: ["private_money_id"]
+              properties:
+                private_money_id:
+                  title: 'マネーID'
+                  description: |-
+                    マネーIDです。
+
+                    作成するウォレットのマネーを指定します。このパラメータは必須です。
+                  type: string
+                  format: uuid
+                name:
+                  title: 'ウォレット名'
+                  type: string
+                  maxLength: 256
+                external_id:
+                  title: '外部ID'
+                  type: string
+                  maxLength: 50
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountDetail'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
   /accounts/{account_id}:
     get:
       tags:
@@ -1117,6 +1410,15 @@ paths:
                   type: boolean
                   title: 'ウォレットが凍結されているかどうか'
                   description: ウォレットの凍結状態です。真にするとウォレットが凍結され、そのウォレットでは新規取引ができなくなります。偽にすると凍結解除されます。
+                status:
+                  type: string
+                  enum: [active, suspended, pre-closed]
+                  title: 'ウォレット状態'
+                  description: ウォレットの状態です。
+                can_transfer_topup:
+                  type: boolean
+                  title: 'チャージ可能かどうか'
+                  description: 店舗ユーザーがエンドユーザーにチャージ可能かどうかです。真にするとチャージ可能となり、偽にするとチャージ不可能となります。
       responses:
         '200':
           description: OK
@@ -1130,6 +1432,51 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+    delete:
+      tags:
+        - Customer
+      summary: 'ウォレットを退会する'
+      description: ウォレットを退会します。一度ウォレットを退会した後は、そのウォレットを再び利用可能な状態に戻すことは出来ません。
+      x-pokepay-operator-name: "DeleteAccount"
+      x-pokepay-allow-server-side: true
+      parameters:
+        - in: path
+          name: account_id
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: 'ウォレットID'
+          description: |-
+            ウォレットIDです。
+
+            指定したウォレットIDのウォレットを退会します。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                cashback:
+                  type: boolean
+                  title: '返金有無'
+                  description: 退会時の返金有無です。エンドユーザに返金を行う場合、真を指定して下さい。現在のマネー残高を全て現金で返金したものとして記録されます。
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountDeleted'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+
   /accounts/{account_id}/balances:
     get:
       tags:
@@ -1258,6 +1605,62 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+  /accounts/{account_id}/customers:
+    patch:
+      tags:
+        - Customer
+      summary: 'ウォレット情報を更新する'
+      description: ウォレットの状態を更新します。
+      x-pokepay-operator-name: "UpdateCustomerAccount"
+      x-pokepay-allow-server-side: true
+      parameters:
+        - in: path
+          name: account_id
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: 'ウォレットID'
+          description: |-
+            ウォレットIDです。
+
+            指定したウォレットIDのウォレットの状態を更新します。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                status:
+                  type: string
+                  enum: [active, suspended, pre-closed]
+                  title: 'ウォレット状態'
+                  description: ウォレットの状態です。
+                account_name:
+                  title: 'アカウント名'
+                  type: string
+                  maxLength: 256
+                  description: 変更するウォレット名です。
+                external_id:
+                  title: '外部ID'
+                  type: string
+                  maxLength: 50
+                  description: 変更する外部IDです。
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountWithUser'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
   /accounts/customers:
     get:
       tags:
@@ -1305,6 +1708,11 @@ paths:
                   type: boolean
                   title: 'ウォレットが凍結状態かどうかでフィルターする'
                   description: このパラメータが指定されている場合、ウォレットの凍結状態で結果がフィルターされます。デフォルトでは未指定です。
+                status:
+                  type: string
+                  enum: [active, suspended, pre-closed]
+                  title: 'ウォレット状態'
+                  description: このパラメータが指定されている場合、ウォレットの状態で結果がフィルターされます。デフォルトでは未指定です。
                 external_id:
                   type: string
                   maxLength: 50
@@ -1656,6 +2064,7 @@ paths:
         - Check
       summary: 'チャージQRコードの発行'
       x-pokepay-operator-name: "CreateCheck"
+      x-pokepay-allow-server-side: true
       requestBody:
         required: true
         content:
@@ -1723,6 +2132,37 @@ paths:
                 $ref: '#/components/schemas/Check'
         '400':
           $ref: '#/components/responses/InvalidParameters'
+  /cpm/{cpm_token}:
+    get:
+      tags:
+        - Transaction
+      summary: 'CPMトークンの状態取得'
+      description: CPMトークンの現在の状態を取得します。CPMトークンの有効期限やCPM取引の状態を返します。
+      x-pokepay-operator-name: "GetCpmToken"
+      x-pokepay-allow-server-side: true
+      parameters:
+        - in: path
+          name: cpm_token
+          required: true
+          schema:
+            type: string
+            minLength: 22
+            maxLength: 22
+            title: CPMトークン
+          description: CPM取引時にエンドユーザーが店舗に提示するバーコードを解析して得られる22桁の文字列です。
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CpmToken'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
   /transactions:
     get:
       tags:
@@ -1848,13 +2288,19 @@ paths:
                        エンドユーザーから店舗への送金取引(支払い)
 
                     3. exchange-outflow
-                    　　他マネーへの流出
+                       他マネーへの流出
 
                     4. exchange-inflow
                        他マネーからの流入
+
+                    5. cashback
+                       退会時返金取引
+
+                    6. expire
+                       退会時失効取引
                   items:
                     type: string
-                    enum: [topup, payment, exchange_outflow, exchange_inflow]
+                    enum: [topup, payment, exchange_outflow, exchange_inflow, cashback, expire]
                 description:
                   type: string
                   maxLength: 200
@@ -1922,7 +2368,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Transaction'
+                $ref: '#/components/schemas/TransactionDetail'
         '400':
           $ref: '#/components/responses/BadRequest'
         '403':
@@ -1977,21 +2423,23 @@ paths:
 
                     ポイント支払い時に実際お金を負担する店舗を指定します。
                 money_amount:
-                  type: number
+                  type: integer
                   minimum: 0
                   title: 'マネー額'
                   description: |-
                     マネー額です。
 
                     送金するマネー額を指定します。
+                    デフォルト値は0で、money_amountとpoint_amountの両方が0のときにはinvalid_parameter_both_point_and_money_are_zero(エラーコード400)が返ります。
                 point_amount:
-                  type: number
+                  type: integer
                   minimum: 0
                   title: 'ポイント額'
                   description: |-
                     ポイント額です。
 
                     送金するポイント額を指定します。
+                    デフォルト値は0で、money_amountとpoint_amountの両方が0のときにはinvalid_parameter_both_point_and_money_are_zero(エラーコード400)が返ります。
                 point_expires_at:
                   type: string
                   format: date-time
@@ -2008,6 +2456,16 @@ paths:
 
                     任意入力で、取引履歴に表示される説明文です。
                   example: 初夏のチャージキャンペーン
+                metadata:
+                  type: string
+                  format: json
+                  title: '取引メタデータ'
+                  description:  |-
+                    取引作成時に指定されるメタデータです。
+
+                    任意入力で、全てのkeyとvalueが文字列であるようなフラットな構造のJSON文字列で指定します。
+                  example: |-
+                    {"key":"value"}
                 request_id:
                   type: string
                   format: uuid
@@ -2025,7 +2483,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Transaction'
+                $ref: '#/components/schemas/TransactionDetail'
         '400':
           $ref: '#/components/responses/BadRequest'
         '403':
@@ -2072,7 +2530,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Transaction'
+                $ref: '#/components/schemas/TransactionDetail'
         '400':
           $ref: '#/components/responses/BadRequest'
         '403':
@@ -2123,7 +2581,7 @@ paths:
 
                     マネーを指定します。
                 amount:
-                  type: number
+                  type: integer
                   minimum: 0
                   title: '支払い額'
                   description: |-
@@ -2139,6 +2597,56 @@ paths:
 
                     任意入力で、取引履歴に表示される説明文です。
                   example: たい焼き(小倉)
+                metadata:
+                  type: string
+                  format: json
+                  title: '取引メタデータ'
+                  description:  |-
+                    取引作成時に指定されるメタデータです。
+
+                    任意入力で、全てのkeyとvalueが文字列であるようなフラットな構造のJSON文字列で指定します。
+                  example: |-
+                    {"key":"value"}
+                products:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      jan_code:
+                        type: string
+                        maxLength: 64
+                      name:
+                        type: string
+                        maxLength: 256
+                      unit_price:
+                        type: number
+                        minimum: 0
+                      price:
+                        type: number
+                        minimum: 0
+                      is_discounted:
+                        type: boolean
+                      other:
+                        type: string
+                        format: json
+                    example: |-
+                      {"jan_code":"abc",
+                       "name":"name1",
+                       "unit_price":100,
+                       "price": 100,
+                       "is_discounted": false,
+                       "other":"{}"}
+                  title: '商品情報データ'
+                  description:  |-
+                    一つの取引に含まれる商品情報データです。
+                    以下の内容からなるJSONオブジェクトの配列で指定します。
+
+                    - `jan_code`: JANコード。64字以下の文字列
+                    - `name`: 商品名。256字以下の文字列
+                    - `unit_price`: 商品単価。0以上の数値
+                    - `price`: 全体の金額(例: 商品単価 × 個数)。0以上の数値
+                    - `is_discounted`: 賞味期限が近いなどの理由で商品が値引きされているかどうかのフラグ。boolean
+                    - `other`: その他商品に関する情報。JSONオブジェクトで指定します。
                 request_id:
                   type: string
                   format: uuid
@@ -2156,7 +2664,188 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Transaction'
+                $ref: '#/components/schemas/TransactionDetail'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /transactions/cpm:
+    post:
+      tags:
+        - Transaction
+      summary: 'CPMトークンによる取引作成'
+      description: |
+        CPMトークンにより取引を作成します。
+        CPMトークンに設定されたスコープの取引を作ることができます。
+      x-pokepay-operator-name: "CreateCpmTransaction"
+      x-pokepay-allow-server-side: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required: ["cpm_token", "shop_id", "amount"]
+              properties:
+                cpm_token:
+                  type: string
+                  minLength: 22
+                  maxLength: 22
+                  title: 'CPMトークン'
+                  description: |-
+                    エンドユーザーによって作られ、アプリなどに表示され、店舗に対して提示される22桁の文字列です。
+
+                    エンドユーザーによって許可された取引のスコープを持っています。
+                shop_id:
+                  type: string
+                  format: uuid
+                  title: '店舗ID'
+                  description: |-
+                    店舗IDです。
+
+                    支払いやチャージを行う店舗を指定します。
+                amount:
+                  type: number
+                  title: '取引金額'
+                  description: |-
+                    取引金額を指定します。
+
+                    正の値を与えるとチャージになり、負の値を与えると支払いとなります。
+                description:
+                  type: string
+                  maxLength: 200
+                  title: '取引説明文'
+                  description:  |-
+                    取引説明文です。
+
+                    エンドユーザーアプリの取引履歴などに表示されます。
+                  example: たい焼き(小倉)
+                metadata:
+                  type: string
+                  format: json
+                  title: '店舗側メタデータ'
+                  description:  |-
+                    取引作成時に店舗側から指定されるメタデータです。
+
+                    任意入力で、全てのkeyとvalueが文字列であるようなフラットな構造のJSON文字列で指定します。
+                  example: |-
+                    {"key":"value"}
+                products:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      jan_code:
+                        type: string
+                        maxLength: 64
+                      name:
+                        type: string
+                        maxLength: 256
+                      unit_price:
+                        type: number
+                        minimum: 0
+                      price:
+                        type: number
+                        minimum: 0
+                      is_discounted:
+                        type: boolean
+                      other:
+                        type: string
+                        format: json
+                    example: |-
+                      {"jan_code":"abc",
+                       "name":"name1",
+                       "unit_price":100,
+                       "price": 100,
+                       "is_discounted": false,
+                       "other":"{}"}
+                  title: 商品情報データ
+                  description:  |-
+                    一つの取引に含まれる商品情報データです。
+                    以下の内容からなるJSONオブジェクトの配列で指定します。
+
+                    - `jan_code`: JANコード。64字以下の文字列
+                    - `name`: 商品名。256字以下の文字列
+                    - `unit_price`: 商品単価。0以上の数値
+                    - `price`: 全体の金額(例: 商品単価 × 個数)。0以上の数値
+                    - `is_discounted`: 賞味期限が近いなどの理由で商品が値引きされているかどうかのフラグ。boolean
+                    - `other`: その他商品に関する情報。JSONオブジェクトで指定します。
+                request_id:
+                  type: string
+                  format: uuid
+                  title: 'リクエストID'
+                  description: |-
+                    取引作成APIの羃等性を担保するためのリクエスト固有のIDです。
+
+                    取引作成APIで結果が受け取れなかったなどの理由で再試行する際に、二重に取引が作られてしまうことを防ぐために、クライアント側から指定されます。指定は任意で、UUID V4フォーマットでランダム生成した文字列です。リクエストIDは一定期間で削除されます。
+
+                    リクエストIDを指定したとき、まだそのリクエストIDに対する取引がない場合、新規に取引が作られレスポンスとして返されます。もしそのリクエストIDに対する取引が既にある場合、既存の取引がレスポンスとして返されます。
+                  example: '9dbfd997-b948-40d3-a3bf-6bc1a01368d2'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionDetail'
+              examples:
+                example-1:
+                  value:
+                    id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                    type: string
+                    is_modified: true
+                    sender:
+                      id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                      name: string
+                      is_merchant: true
+                    sender_account:
+                      id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                      name: string
+                      is_suspended: true
+                      private_money:
+                        id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                        name: string
+                        unit: string
+                        is_exclusive: true
+                        description: string
+                        oneline_message: string
+                        organization:
+                          code: string
+                          name: string
+                        max_balance: 0
+                        transfer_limit: 0
+                        type: own
+                        expiration_type: static
+                        enable_topup_by_member: true
+                    receiver:
+                      id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                      name: string
+                      is_merchant: true
+                    receiver_account:
+                      id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                      name: string
+                      is_suspended: true
+                      private_money:
+                        id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                        name: string
+                        unit: string
+                        is_exclusive: true
+                        description: string
+                        oneline_message: string
+                        organization:
+                          code: string
+                          name: string
+                        max_balance: 0
+                        transfer_limit: 0
+                        type: own
+                        expiration_type: static
+                        enable_topup_by_member: true
+                    amount: 0
+                    money_amount: 0
+                    point_amount: 0
+                    done_at: '2019-08-24T14:15:22Z'
+                    description: string
         '400':
           $ref: '#/components/responses/BadRequest'
         '403':
@@ -2212,6 +2901,16 @@ paths:
                     マネー額です。
 
                     送金するマネー額を指定します。
+                metadata:
+                  type: string
+                  format: json
+                  title: '取引メタデータ'
+                  description:  |-
+                    取引作成時に指定されるメタデータです。
+
+                    任意入力で、全てのkeyとvalueが文字列であるようなフラットな構造のJSON文字列で指定します。
+                  example: |-
+                    {"key":"value"}
                 description:
                   type: string
                   maxLength: 200
@@ -2238,7 +2937,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Transaction'
+                $ref: '#/components/schemas/TransactionDetail'
         '400':
           $ref: '#/components/responses/BadRequest'
         '403':
@@ -2289,7 +2988,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Transaction'
+                $ref: '#/components/schemas/TransactionDetail'
         '400':
           $ref: '#/components/responses/BadRequest'
         '422':
@@ -2393,7 +3092,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Transaction'
+                $ref: '#/components/schemas/TransactionDetail'
         '400':
           $ref: '#/components/responses/InvalidParameters'
         '403':
@@ -2404,8 +3103,16 @@ paths:
     post:
       tags:
         - Transaction
-      summary: '返金する'
-      x-pokepay-operator-name: "RefundTransaction"
+      summary: '取引をキャンセルする'
+      description: |-
+        取引IDを指定して取引をキャンセルします。
+
+        発行体の管理者は自組織の直営店、または発行しているマネーの決済加盟店組織での取引をキャンセルできます。
+        キャンセル対象の取引に付随するポイント還元キャンペーンやクーポン適用も取り消されます。
+
+        チャージ取引のキャンセル時に返金すべき残高が足りないときは `account_balance_not_enough (422)` エラーが返ります。
+        取引をキャンセルできるのは1回きりです。既にキャンセルされた取引を重ねてキャンセルしようとすると `transaction_already_refunded (422)` エラーが返ります。
+      x-pokepay-operator-name: RefundTransaction
       x-pokepay-allow-server-side: true
       parameters:
         - in: path
@@ -2432,7 +3139,186 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Transaction'
+                $ref: '#/components/schemas/TransactionDetail'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /external-transactions:
+    post:
+      tags:
+        - Event
+      summary: 'ポケペイ外部取引を作成する'
+      description: |
+        ポケペイ外部取引を作成します。
+
+        ポケペイ外の現金決済やクレジットカード決済に対してポケペイのポイントを付けたいというときに使用します。
+      x-pokepay-operator-name: "CreateExternalTransaction"
+      x-pokepay-allow-server-side: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - private_money_id
+                - shop_id
+                - customer_id
+                - amount
+              properties:
+                shop_id:
+                  type: string
+                  format: uuid
+                  title: 店舗ID
+                  description: |-
+                    店舗IDです。
+
+                    ポケペイ外部取引が行なう店舗を指定します。
+                customer_id:
+                  type: string
+                  format: uuid
+                  title: エンドユーザーID
+                  description: |-
+                    エンドユーザーIDです。
+
+                    エンドユーザーを指定します。
+                private_money_id:
+                  type: string
+                  format: uuid
+                  title: マネーID
+                  description: |-
+                    マネーIDです。
+
+                    マネーを指定します。
+                amount:
+                  type: integer
+                  minimum: 0
+                  title: 取引額
+                  description: |-
+                    取引金額です。
+                description:
+                  type: string
+                  maxLength: 200
+                  title: 取引説明文
+                  description: |-
+                    取引説明文です。
+
+                    任意入力で、取引履歴に表示される説明文です。
+                  example: たい焼き(小倉)
+                metadata:
+                  type: string
+                  format: json
+                  title: ポケペイ外部取引メタデータ
+                  description: |-
+                    ポケペイ外部取引作成時に指定され、取引と紐付けられるメタデータです。
+
+                    任意入力で、全てのkeyとvalueが文字列であるようなフラットな構造のJSONで指定します。
+                  example: |-
+                    {"key":"value"}
+                products:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      jan_code:
+                        type: string
+                        maxLength: 64
+                      name:
+                        type: string
+                        maxLength: 256
+                      unit_price:
+                        type: number
+                        minimum: 0
+                      price:
+                        type: number
+                        minimum: 0
+                      is_discounted:
+                        type: boolean
+                      other:
+                        type: string
+                        format: json
+                    example: |-
+                      {"jan_code":"abc",
+                       "name":"name1",
+                       "unit_price":100,
+                       "price": 100,
+                       "is_discounted": false,
+                       "other":"{}"}
+                  title: '商品情報データ'
+                  description:  |-
+                    一つの取引に含まれる商品情報データです。
+                    以下の内容からなるJSONオブジェクトの配列で指定します。
+
+                    - `jan_code`: JANコード。64字以下の文字列
+                    - `name`: 商品名。256字以下の文字列
+                    - `unit_price`: 商品単価。0以上の数値
+                    - `price`: 全体の金額(例: 商品単価 × 個数)。0以上の数値
+                    - `is_discounted`: 賞味期限が近いなどの理由で商品が値引きされているかどうかのフラグ。boolean
+                    - `other`: その他商品に関する情報。JSONオブジェクトで指定します。
+                request_id:
+                  type: string
+                  format: uuid
+                  title: リクエストID
+                  description: |-
+                    取引作成APIの羃等性を担保するためのリクエスト固有のIDです。
+
+                    取引作成APIで結果が受け取れなかったなどの理由で再試行する際に、二重に取引が作られてしまうことを防ぐために、クライアント側から指定されます。指定は任意で、UUID V4フォーマットでランダム生成した文字列です。リクエストIDは一定期間で削除されます。
+
+                    リクエストIDを指定したとき、まだそのリクエストIDに対する取引がない場合、新規に取引が作られレスポンスとして返されます。もしそのリクエストIDに対する取引が既にある場合、既存の取引がレスポンスとして返されます。
+                  example: 9dbfd997-b948-40d3-a3bf-6bc1a01368d2
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalTransaction'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /external-transactions/{event_id}/refund:
+    post:
+      tags:
+        - Event
+      summary: 'ポケペイ外部取引をキャンセルする'
+      description: |-
+        取引IDを指定して取引をキャンセルします。
+
+        発行体の管理者は自組織の直営店、または発行しているマネーの決済加盟店組織での取引をキャンセルできます。
+        キャンセル対象のポケペイ外部取引に付随するポイント還元キャンペーンも取り消されます。
+
+        取引をキャンセルできるのは1回きりです。既にキャンセルされた取引を重ねてキャンセルしようとすると `transaction_already_refunded (422)` エラーが返ります。
+      x-pokepay-operator-name: RefundExternalTransaction
+      x-pokepay-allow-server-side: true
+      parameters:
+        - in: path
+          name: event_id
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: '取引ID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                description:
+                  type: string
+                  maxLength: 200
+                  title: '取引履歴に表示する返金事由'
+                  example: '返品対応のため'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalTransaction'
         '403':
           $ref: '#/components/responses/Forbidden'
         '422':
@@ -2485,7 +3371,7 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum: [topup, payment, transfer, exchange]
+                    enum: [topup, payment, transfer, exchange, cashback, expire]
                 transfer_types:
                   type: array
                   description: |-
@@ -2507,9 +3393,15 @@ paths:
 
                     5. coupon
                     クーポンによる値引き処理、またはそのキャンセル取引
+
+                    6. cashback
+                    退会時の返金取引
+
+                    7. expire
+                    退会時失効取引
                   items:
                     type: string
-                    enum: [topup, payment, exchange, transfer, coupon, campaign]
+                    enum: [topup, payment, exchange, transfer, coupon, campaign, cashback, expire]
                 description:
                   type: string
                   maxLength: 200
@@ -2546,7 +3438,7 @@ paths:
                   type: string
                   maxLength: 32
                   title: '新規組織コード'
-                  example: ox_supermarket
+                  example: ox-supermarket
                 name:
                   type: string
                   maxLength: 256
@@ -2576,7 +3468,7 @@ paths:
                   type: string
                   pattern: '^$|^[0-9]{4}$'
                   title: '銀行金融機関コード'
-                  example: 99X
+                  example: '1234'
                 bank_branch_name:
                   type: string
                   maxLength: 64
@@ -2586,7 +3478,7 @@ paths:
                   type: string
                   pattern: '^(|[0-9]{3})$'
                   title: '銀行支店コード'
-                  example: 99X
+                  example: '123'
                 bank_account_type:
                   type: string
                   enum: [saving, current, other]
@@ -2596,7 +3488,7 @@ paths:
                   maxLength: 7
                   pattern: '[0-9]{0,7}'
                   title: '銀行口座番号'
-                  example: 9999999
+                  example: '1234567'
                 bank_account_holder_name:
                   # TODO: flico
                   type: string
@@ -3150,7 +4042,8 @@ paths:
                     フィルターとして使われ、指定された受取ユーザーでの取引のみ一覧に表示されます。
                 type:
                   type: string
-                  title: '取引種別、チャージ=topup、支払い=payment、個人間送金=transfer'
+                  enum: [topup, payment, exchange, transfer, cashback, expire]
+                  title: '取引種別'
                   description: |-
                     取引の種類でフィルターします。
 
@@ -3164,6 +4057,10 @@ paths:
                        他マネーへの流出(outflow)/他マネーからの流入(inflow)
                     4. transfer
                        個人間送金
+                    5. cashback
+                       ウォレット退会時返金
+                    6. expire
+                       ウォレット退会時失効
                 is_modified:
                   type: boolean
                   title: 'キャンセル済みかどうか'
@@ -3484,6 +4381,909 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Cashtray'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /campaigns:
+    post:
+      tags:
+        - Campaign
+      summary: 'ポイント付与キャンペーンを作る'
+      description: |
+        ポイント付与キャンペーンを作成します。
+      x-pokepay-operator-name: "CreateCampaign"
+      x-pokepay-allow-server-side: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required: ["name", "private_money_id", "starts_at", "ends_at","priority", "event"]
+              properties:
+                name:
+                  title: 'キャンペーン名'
+                  type: string
+                  maxLength: 256
+                  description: |-
+                    キャンペーン名です(必須項目)。
+
+                    ポイント付与によってできるチャージ取引の説明文に転記されます。取引説明文はエンドユーザーからも確認できます。
+                private_money_id:
+                  type: string
+                  format: uuid
+                  title: 'マネーID'
+                  description: |-
+                    キャンペーン対象のマネーのIDです(必須項目)。
+                starts_at:
+                  type: string
+                  format: date-time
+                  title: 'キャンペーン開始日時'
+                  description: |-
+                    キャンペーン開始日時です(必須項目)。
+                    キャンペーン期間中のみポイントが付与されます。
+                    開始日時よりも終了日時が前のときはcampaign_invalid_periodエラー(422)になります。
+                ends_at:
+                  type: string
+                  format: date-time
+                  title: 'キャンペーン終了日時'
+                  description: |-
+                    キャンペーン終了日時です(必須項目)。
+                    キャンペーン期間中のみポイントが付与されます。
+                    開始日時よりも終了日時が前のときはcampaign_invalid_periodエラー(422)になります。
+                priority:
+                  type: integer
+                  title: 'キャンペーンの適用優先度'
+                  description: |-
+                    キャンペーンの適用優先度です。
+
+                    優先度が大きいものから順に適用判定されていきます。
+                    キャンペーン期間が重なっている同一の優先度のキャンペーンが存在するとcampaign_period_overlapsエラー(422)になります。
+                event:
+                  type: string
+                  enum: [topup, payment, external-transaction]
+                  title: 'イベント種別'
+                  description: |-
+                    キャンペーンのトリガーとなるイベントの種類を指定します(必須項目)。
+
+                    以下のいずれかを指定できます。
+
+                    1. topup
+                       店舗からエンドユーザーへの送金取引(チャージ)
+                    2. payment
+                       エンドユーザーから店舗への送金取引(支払い)
+                    3. external-transaction
+                       ポケペイ外の取引(現金決済など)
+                bear_point_shop_id:
+                  type: string
+                  format: uuid
+                  title: 'ポイント負担先店舗ID'
+                  description: |-
+                    ポイントを負担する店舗のIDです。デフォルトではマネー発行体の本店が設定されます。
+                description:
+                  type: string
+                  maxLength: 200
+                  title: 'キャンペーンの説明文'
+                  description:  |-
+                    キャンペーンの内容を記載します。管理画面などでキャンペーンを管理するための説明文になります。
+                status:
+                  type: string
+                  enum: [enabled, disabled]
+                  title: 'キャンペーン作成時の状態'
+                  description: |-
+                    キャンペーン作成時の状態を指定します。デフォルトではenabledです。
+
+                    以下のいずれかを指定できます。
+
+                    1. enabled
+                       有効
+                    2. disabled
+                       無効
+                point_expires_at:
+                  type: string
+                  format: date-time
+                  title: 'ポイント有効期限(絶対日時指定)'
+                  description: |-
+                    キャンペーンによって付与されるポイントの有効期限を絶対日時で指定します。
+                    省略した場合はマネーに設定された有効期限と同じものがポイントの有効期限となります。
+                point_expires_in_days:
+                  type: integer
+                  minimum: 1
+                  title: 'ポイント有効期限(相対日数指定)'
+                  description: |-
+                    キャンペーンによって付与されるポイントの有効期限を相対日数で指定します。
+                    省略した場合はマネーに設定された有効期限と同じものがポイントの有効期限となります。
+                is_exclusive:
+                  type: boolean
+                  title: 'キャンペーンの重複設定'
+                  description: |-
+                    キャンペーンの重ね掛けを行うかどうかのフラグです。
+
+                    これにtrueを指定すると他のキャンペーンと同時適用されません。デフォルト値はtrueです。
+                    falseを指定すると次の優先度の重ね掛け可能なキャンペーンの適用判定に進みます。
+                subject:
+                  type: string
+                  enum: [money, all]
+                  title: 'ポイント付与の対象金額の種別'
+                  description: |-
+                    ポイント付与額を計算する対象となる金額の種類を指定します。デフォルト値はallです。
+                    eventとしてexternal-transactionを指定した場合はポイントとマネーの区別がないためsubjectの指定に関わらず常にallとなります。
+
+                    以下のいずれかを指定できます。
+
+                    1. money
+                    moneyを指定すると決済額の中で「マネー」を使って支払った額を対象にします
+
+                    2. all
+                    all を指定すると決済額全体を対象にします (「ポイント」での取引額を含む)
+                    注意: event を topup にしたときはポイントの付与に対しても適用されます
+                amount_based_point_rules:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      point_amount:
+                        type: number
+                        format: decimal
+                        minimum: 0
+                        title: '付与ポイント量'
+                        description: |-
+                          キャンペーンにより付与するポイント量。(必須項目)
+
+                          point_amount_unitにより指定される単位が絶対額のときは小数点以下が切り捨てられ整数として扱われます。
+                          パーセント指定の時は小数を許容し、割合計算後に小数点以下が切り捨てられます。
+                          いずれの場合も実際に付与されるポイントは整数のみです。
+                      point_amount_unit:
+                        type: string
+                        enum: [percent, absolute]
+                        title: '付与ポイント量の単位'
+                        description: |-
+                          キャンペーンにより付与するポイント量の単位を指定します。(必須項目)
+
+                          以下のいずれかを指定できます。
+
+                          1. percent
+                          付与するポイント量が元取引の取引額に応じて割合で変化するときに指定します。
+
+                          2. absolute
+                          付与するポイント量が元取引の取引額に依存しない絶対額であるときに指定します。
+                      subject_more_than:
+                        type: integer
+                        minimum: 0
+                        title: '対象金額の下限値 (x <)'
+                        description: |-
+                          対象金額の下限値 (x <) を指定します (ただし、指定された金額は含まない)。
+                          subject_more_than_or_equal といずれかのみ指定できます。
+                      subject_more_than_or_equal:
+                        type: integer
+                        minimum: 0
+                        title: '対象金額の下限値 (x <=)'
+                        description: |-
+                          対象金額の下限値 (x <=) を指定します。
+                          subject_more_than といずれかのみ指定できます。
+                      subject_less_than:
+                        type: integer
+                        minimum: 0
+                        title: '対象金額の上限値 (< x)'
+                        description: |-
+                          対象金額の上限値 (< x) を指定します (ただし、指定された金額は含まない)。
+                          subject_less_than_or_equal といずれかのみ指定できます。
+                      subject_less_than_or_equal:
+                        type: integer
+                        minimum: 0
+                        title: '対象金額の上限値 (<= x)'
+                        description: |-
+                          対象金額の上限値 (<= x) を指定します。
+                          subject_less_than といずれかのみ指定できます。
+                    example: |-
+                      {
+                        "point_amount": 5,
+                        "point_amount_unit": "percent",
+                        "subject_more_than_or_equal": 1000,
+                        "subject_less_than": 5000
+                      }
+
+                  title: '取引金額ベースのポイント付与ルール'
+                  description:  |-
+                    金額をベースとしてポイント付与を行うルールを指定します。
+                    amount_based_point_rules と product_based_point_rules はどちらか一方しか指定できません。
+                    各ルールは一つのみ適用され、条件に重複があった場合は先に記載されたものが優先されます。
+
+                    例:
+                    ```javascript
+                    [
+                      // 1000円以上、5000円未満の決済には 5％
+                      {
+                        "point_amount": 5,
+                        "point_amount_unit": "percent",
+                        "subject_more_than_or_equal": 1000,
+                        "subject_less_than": 5000
+                      },
+                      // 5000円以上の決済には 10%
+                      {
+                        "point_amount": 10,
+                        "point_amount_unit": "percent",
+                        "subject_more_than_or_equal": 5000
+                      },
+                    ]
+                    ```
+
+                product_based_point_rules:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      point_amount:
+                        type: number
+                        format: decimal
+                        minimum: 0
+                        title: '付与ポイント量'
+                        description: |-
+                          キャンペーンにより付与するポイント量。単位は point_amount_unit で指定します。(必須項目)
+
+                          point_amount_unitにより指定される単位が絶対額のときは小数点以下が切り捨てられ整数として扱われます。
+                          パーセント指定の時は小数を許容し、割合計算後に小数点以下が切り捨てられます。
+                          いずれの場合も実際に付与されるポイントは整数のみです。
+                      point_amount_unit:
+                        type: string
+                        enum: [percent, absolute]
+                        title: '付与ポイント量の単位'
+                        description: |-
+                          キャンペーンにより付与するポイント量の単位を指定します。(必須項目)
+
+                          以下のいずれかを指定できます。
+
+                          1. percent
+                          付与するポイント量が元取引の取引額に応じて割合で変化するときに指定します。
+
+                          2. absolute
+                          付与するポイント量が元取引の取引額に依存しない絶対額であるときに指定します。
+                      product_code:
+                        type: string
+                        maxLength: 64
+                        title: '対象の製品コード'
+                        description: |-
+                          対象の製品コード (JANコードやISBNコードなど) を指定します。(必須項目)
+
+                          SQLのLIKE文のようにワイルドカードを使った製品コードのパターンを指定することもできます (例: 978-% でISBNコード)
+                        items:
+                          type: string
+                      required_count:
+                        type: integer
+                        minimum: 1
+                        title: '必要購入個数'
+                        description: |-
+                          キャンペーン適用のための対象商品の必要購入個数を指定します (例:商品Aを2個以上購入するとn%ポイント)。
+                          デフォルト値は1です。
+                      is_multiply_by_count:
+                        type: boolean
+                        title: '複数個購入したときにポイント付与額に個数を掛けるかどうか'
+                        description: |-
+                          キャンペーン対象の商品を複数個購入したときに、個数に応じてポイント付与額を増やすかどうかのフラグです。
+                          デフォルト値は false です。
+                      starts_at:
+                        type: string
+                        format: date-time
+                        title: '商品個別のキャンペーン開始日時'
+                        description: |-
+                          このルールを適用する開始日時を指定します。
+                          デフォルトではキャンペーン全体の開始日時が指定されます。
+                          商品個別にキャンペーン期間指定をする場合は、キャンペーン全体の期間指定の範囲内に入っている必要があります。
+                      ends_at:
+                        type: string
+                        format: date-time
+                        title: '商品個別のキャンペーン終了日時'
+                        description: |-
+                          このルールを適用する終了日時を指定します。
+                          デフォルトではキャンペーン全体の終了日時が指定されます。
+                          商品個別にキャンペーン期間指定をする場合は、キャンペーン全体の期間指定の範囲内に入っている必要があります。
+                    example: |-
+                      {
+                        "point_amount": 5,
+                        "point_amount_unit": "percent",
+                        "product_code": "4912345678904",
+                        "is_multiply_by_count": true,
+                        "required_count": 2
+                      }
+
+                  title: '商品情報ベースのポイント付与ルール'
+                  description:  |-
+                    商品情報をベースとしてポイント付与を行うルールを指定します。
+                    ルールは商品ごとに設定可能で、ルールの配列として指定します。
+                    amount_based_point_rules と product_based_point_rules はどちらか一方しか指定できません。
+                    event が payment か external-transaction の時のみ有効です。
+                    各ルールの順序は問わず、適用可能なものは全て適用されます。
+                    一つの決済の中で複数の商品がキャンペーン適用可能な場合はそれぞれの商品についてのルールが適用され、ポイント付与額はその合算になります。
+
+                    例:
+                    ```javascript
+                    [
+                      // 対象商品の購入額から5%ポイント付与。複数購入時は単価の5%が付与される。
+                      {
+                        "point_amount": 5,
+                        "point_amount_unit": "percent",
+                        "product_code": "4912345678904",
+                      },
+                      // 対象商品の購入額から5%ポイント付与。複数購入時は購入総額の5%が付与される。
+                      {
+                        "point_amount": 5,
+                        "point_amount_unit": "percent",
+                        "product_code": "4912345678904",
+                        "is_multiply_by_count": true,
+                      },
+                      // 対象商品を2つ以上購入したら500ポイント付与(固定額付与)
+                      {
+                        "point_amount": 500,
+                        "point_amount_unit": absolute",
+                        "product_code": "4912345678904",
+                        "required_count": 2
+                      },
+                      // 書籍は10%ポイント付与
+                      // ※ISBNの形式はレジがポケペイに送信する形式に準じます
+                      {
+                        "point_amount": 10,
+                        "point_amount_unit": "percent",
+                        "product_code": "978-%",
+                      },
+                      // 一部の出版社の書籍は10%ポイント付与
+                      {
+                        "point_amount": 10,
+                        "point_amount_unit": "percent",
+                        "product_code": "978-4-01-%", // 旺文社
+                      }
+                    ]
+                    ```
+
+                applicable_days_of_week:
+                  type: array
+                  items:
+                    type: integer
+                    minimun: 0
+                    maximum: 6
+                  title: 'キャンペーンを適用する曜日 (複数指定)'
+                  describe: |-
+                    キャンペーンを適用する曜日を指定します (複数指定)。
+                    曜日は整数で表します。月曜を 0 とし、日曜を 6 とします。
+                    指定しなかった場合は全日を対象にします (曜日による適用条件なし)
+                applicable_time_ranges:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      from:
+                        type: string
+                        description: |-
+                          時間帯の開始時刻 (HH:mmの形式)
+                      to:
+                        type: string
+                        description: |-
+                          時間帯の終了時刻 (HH:mmの形式)
+                    example: |-
+                      {
+                        "from": "12:00",
+                        "to": "23:59"
+                      }
+
+                  title: 'キャンペーンを適用する時間帯 (複数指定)'
+                  describe: |-
+                    キャンペーンを適用する時間帯を指定します (複数指定可)。
+                    時間帯はfromとtoからなるオブジェクトで指定します。
+                    fromとtoは両方必要です。
+                applicable_shop_ids:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+                  title: 'キャンペーン適用対象となる店舗IDのリスト'
+                  describe: |-
+                    キャンペーンを適用する店舗IDを指定します (複数指定)。
+                    指定しなかった場合は全店舗が対象になります。
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+    get:
+      tags:
+        - Campaign
+      summary: 'キャンペーン一覧を取得する'
+      description: |-
+        マネーIDを指定してキャンペーンを取得します。
+        発行体の組織マネージャ権限で、自組織が発行するマネーのキャンペーンについてのみ閲覧可能です。
+        閲覧権限がない場合は unpermitted_admin_user エラー(422)が返ります。
+      x-pokepay-operator-name: "ListCampaigns"
+      x-pokepay-allow-server-side: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required: ["private_money_id"]
+              properties:
+                private_money_id:
+                  type: string
+                  format: uuid
+                  title: 'マネーID'
+                  description: |-
+                    マネーIDです。
+
+                    フィルターとして使われ、指定したマネーでのキャンペーンのみ一覧に表示されます。
+                page:
+                  type: integer
+                  minimum: 1
+                  title: 'ページ番号'
+                  description: 取得したいページ番号です。
+                  example: 1
+                per_page:
+                  type: integer
+                  minimum: 1
+                  title: '1ページ分の取得数'
+                  description: 1ページ分の取得数です。デフォルトでは 20 になっています。
+                  example: 50
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCampaigns'
+        '400':
+          $ref: '#/components/responses/InvalidParameters'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /campaigns/{campaign_id}:
+    get:
+      tags:
+        - Campaign
+      summary: 'キャンペーンを取得する'
+      description: |-
+        IDを指定してキャンペーンを取得します。
+        発行体の組織マネージャ権限で、自組織が発行するマネーのキャンペーンについてのみ閲覧可能です。
+        閲覧権限がない場合は unpermitted_admin_user エラー(422)が返ります。
+      x-pokepay-operator-name: "GetCampaign"
+      x-pokepay-allow-server-side: true
+      parameters:
+        - in: path
+          name: campaign_id
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: 'キャンペーンID'
+          description: |-
+            キャンペーンIDです。
+
+            指定したIDのキャンペーンを取得します。存在しないIDを指定した場合は404エラー(NotFound)が返ります。
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+        '400':
+          $ref: '#/components/responses/InvalidParameters'
+        '422':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      tags:
+        - Campaign
+      summary: 'ポイント付与キャンペーンを更新する'
+      description: |
+        ポイント付与キャンペーンを更新します。
+      x-pokepay-operator-name: "UpdateCampaign"
+      x-pokepay-allow-server-side: true
+      parameters:
+        - in: path
+          name: campaign_id
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: 'キャンペーンID'
+          description: |-
+            キャンペーンIDです。
+
+            指定したIDのキャンペーンを更新します。存在しないIDを指定した場合は404エラー(NotFound)が返ります。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  title: 'キャンペーン名'
+                  type: string
+                  maxLength: 256
+                  description: |-
+                    キャンペーン名です。
+
+                    ポイント付与によってできるチャージ取引の説明文に転記されます。取引説明文はエンドユーザーからも確認できます。
+                starts_at:
+                  type: string
+                  format: date-time
+                  title: 'キャンペーン開始日時'
+                  description: |-
+                    キャンペーン開始日時です。
+                    キャンペーン期間中のみポイントが付与されます。
+                    開始日時よりも終了日時が前のときはcampaign_invalid_periodエラー(422)になります。
+                ends_at:
+                  type: string
+                  format: date-time
+                  title: 'キャンペーン終了日時'
+                  description: |-
+                    キャンペーン終了日時です。
+                    キャンペーン期間中のみポイントが付与されます。
+                    開始日時よりも終了日時が前のときはcampaign_invalid_periodエラー(422)になります。
+                priority:
+                  type: integer
+                  title: 'キャンペーンの適用優先度'
+                  description: |-
+                    キャンペーンの適用優先度です。
+
+                    優先度が大きいものから順に適用判定されていきます。
+                    キャンペーン期間が重なっている同一の優先度のキャンペーンが存在するとcampaign_period_overlapsエラー(422)になります。
+                event:
+                  type: string
+                  enum: [topup, payment, external-transaction]
+                  title: 'イベント種別'
+                  description: |-
+                    キャンペーンのトリガーとなるイベントの種類を指定します。
+
+                    以下のいずれかを指定できます。
+
+                    1. topup
+                       店舗からエンドユーザーへの送金取引(チャージ)
+                    2. payment
+                       エンドユーザーから店舗への送金取引(支払い)
+                    3. external-transaction
+                       ポケペイ外の取引(現金決済など)
+                description:
+                  type: string
+                  maxLength: 200
+                  title: 'キャンペーンの説明文'
+                  description:  |-
+                    キャンペーンの内容を記載します。管理画面などでキャンペーンを管理するための説明文になります。
+                status:
+                  type: string
+                  enum: [enabled, disabled]
+                  title: 'キャンペーン作成時の状態'
+                  description: |-
+                    キャンペーン作成時の状態を指定します。デフォルトではenabledです。
+
+                    以下のいずれかを指定できます。
+
+                    1. enabled
+                       有効
+                    2. disabled
+                       無効
+                point_expires_at:
+                  type: string
+                  format: date-time
+                  nullable: true
+                  title: 'ポイント有効期限(絶対日時指定)'
+                  description: |-
+                    キャンペーンによって付与されるポイントの有効期限を絶対日時で指定します。
+                    省略した場合はマネーに設定された有効期限と同じものがポイントの有効期限となります。
+                point_expires_in_days:
+                  type: integer
+                  minimum: 1
+                  nullable: true
+                  title: 'ポイント有効期限(相対日数指定)'
+                  description: |-
+                    キャンペーンによって付与されるポイントの有効期限を相対日数で指定します。
+                    省略した場合はマネーに設定された有効期限と同じものがポイントの有効期限となります。
+                is_exclusive:
+                  type: boolean
+                  title: 'キャンペーンの重複設定'
+                  description: |-
+                    キャンペーンの重ね掛けを行うかどうかのフラグです。
+
+                    これにtrueを指定すると他のキャンペーンと同時適用されません。デフォルト値はtrueです。
+                    falseを指定すると次の優先度の重ね掛け可能なキャンペーンの適用判定に進みます。
+                subject:
+                  type: string
+                  enum: [money, all]
+                  title: 'ポイント付与の対象金額の種別'
+                  description: |-
+                    ポイント付与額を計算する対象となる金額の種類を指定します。デフォルト値はallです。
+                    eventとしてexternal-transactionを指定した場合はポイントとマネーの区別がないためsubjectの指定に関わらず常にallとなります。
+
+                    以下のいずれかを指定できます。
+
+                    1. money
+                    moneyを指定すると決済額の中で「マネー」を使って支払った額を対象にします
+
+                    2. all
+                    all を指定すると決済額全体を対象にします (「ポイント」での取引額を含む)
+                    注意: event を topup にしたときはポイントの付与に対しても適用されます
+                amount_based_point_rules:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      point_amount:
+                        type: number
+                        format: decimal
+                        minimum: 0
+                        title: '付与ポイント量'
+                        description: |-
+                          キャンペーンにより付与するポイント量。(必須項目)
+
+                          point_amount_unitにより指定される単位が絶対額のときは小数点以下が切り捨てられ整数として扱われます。
+                          パーセント指定の時は小数を許容し、割合計算後に小数点以下が切り捨てられます。
+                          いずれの場合も実際に付与されるポイントは整数のみです。
+                      point_amount_unit:
+                        type: string
+                        enum: [percent, absolute]
+                        title: '付与ポイント量の単位'
+                        description: |-
+                          キャンペーンにより付与するポイント量の単位を指定します。(必須項目)
+
+                          以下のいずれかを指定できます。
+
+                          1. percent
+                          付与するポイント量が元取引の取引額に応じて割合で変化するときに指定します。
+
+                          2. absolute
+                          付与するポイント量が元取引の取引額に依存しない絶対額であるときに指定します。
+                      subject_more_than:
+                        type: integer
+                        minimum: 0
+                        title: '対象金額の下限値 (x <)'
+                        description: |-
+                          対象金額の下限値 (x <) を指定します (ただし、指定された金額は含まない)。
+                          subject_more_than_or_equal といずれかのみ指定できます。
+                      subject_more_than_or_equal:
+                        type: integer
+                        minimum: 0
+                        title: '対象金額の下限値 (x <=)'
+                        description: |-
+                          対象金額の下限値 (x <=) を指定します。
+                          subject_more_than といずれかのみ指定できます。
+                      subject_less_than:
+                        type: integer
+                        minimum: 0
+                        title: '対象金額の上限値 (< x)'
+                        description: |-
+                          対象金額の上限値 (< x) を指定します (ただし、指定された金額は含まない)。
+                          subject_less_than_or_equal といずれかのみ指定できます。
+                      subject_less_than_or_equal:
+                        type: integer
+                        minimum: 0
+                        title: '対象金額の上限値 (<= x)'
+                        description: |-
+                          対象金額の上限値 (<= x) を指定します。
+                          subject_less_than といずれかのみ指定できます。
+                    example: |-
+                      {
+                        "point_amount": 5,
+                        "point_amount_unit": "percent",
+                        "subject_more_than_or_equal": 1000,
+                        "subject_less_than": 5000
+                      }
+
+                  title: '取引金額ベースのポイント付与ルール'
+                  nullable: true
+                  description:  |-
+                    金額をベースとしてポイント付与を行うルールを指定します。
+                    amount_based_point_rules と product_based_point_rules はどちらか一方しか指定できません。
+                    各ルールは一つのみ適用され、条件に重複があった場合は先に記載されたものが優先されます。
+
+                    例:
+                    ```javascript
+                    [
+                      // 1000円以上、5000円未満の決済には 5％
+                      {
+                        "point_amount": 5,
+                        "point_amount_unit": "percent",
+                        "subject_more_than_or_equal": 1000,
+                        "subject_less_than": 5000
+                      },
+                      // 5000円以上の決済には 10%
+                      {
+                        "point_amount": 10,
+                        "point_amount_unit": "percent",
+                        "subject_more_than_or_equal": 5000
+                      },
+                    ]
+                    ```
+
+                product_based_point_rules:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      point_amount:
+                        type: number
+                        format: decimal
+                        minimum: 0
+                        title: '付与ポイント量'
+                        description: |-
+                          キャンペーンにより付与するポイント量。単位は point_amount_unit で指定します。(必須項目)
+
+                          point_amount_unitにより指定される単位が絶対額のときは小数点以下が切り捨てられ整数として扱われます。
+                          パーセント指定の時は小数を許容し、割合計算後に小数点以下が切り捨てられます。
+                          いずれの場合も実際に付与されるポイントは整数のみです。
+                      point_amount_unit:
+                        type: string
+                        enum: [percent, absolute]
+                        title: '付与ポイント量の単位'
+                        description: |-
+                          キャンペーンにより付与するポイント量の単位を指定します。(必須項目)
+
+                          以下のいずれかを指定できます。
+
+                          1. percent
+                          付与するポイント量が元取引の取引額に応じて割合で変化するときに指定します。
+
+                          2. absolute
+                          付与するポイント量が元取引の取引額に依存しない絶対額であるときに指定します。
+                      product_code:
+                        type: string
+                        maxLength: 64
+                        title: '対象の製品コード'
+                        description: |-
+                          対象の製品コード (JANコードやISBNコードなど) を指定します。(必須項目)
+
+                          SQLのLIKE文のようにワイルドカードを使った製品コードのパターンを指定することもできます (例: 978-% でISBNコード)
+                        items:
+                          type: string
+                      required_count:
+                        type: integer
+                        minimum: 1
+                        title: '必要購入個数'
+                        description: |-
+                          キャンペーン適用のための対象商品の必要購入個数を指定します (例:商品Aを2個以上購入するとn%ポイント)。
+                          デフォルト値は1です。
+                      is_multiply_by_count:
+                        type: boolean
+                        title: '複数個購入したときにポイント付与額に個数を掛けるかどうか'
+                        description: |-
+                          キャンペーン対象の商品を複数個購入したときに、個数に応じてポイント付与額を増やすかどうかのフラグです。
+                          デフォルト値は false です。
+                      starts_at:
+                        type: string
+                        format: date-time
+                        title: '商品個別のキャンペーン開始日時'
+                        description: |-
+                          このルールを適用する開始日時を指定します。
+                          デフォルトではキャンペーン全体の開始日時が指定されます。
+                          商品個別にキャンペーン期間指定をする場合は、キャンペーン全体の期間指定の範囲内に入っている必要があります。
+                      ends_at:
+                        type: string
+                        format: date-time
+                        title: '商品個別のキャンペーン終了日時'
+                        description: |-
+                          このルールを適用する終了日時を指定します。
+                          デフォルトではキャンペーン全体の終了日時が指定されます。
+                          商品個別にキャンペーン期間指定をする場合は、キャンペーン全体の期間指定の範囲内に入っている必要があります。
+                    example: |-
+                      {
+                        "point_amount": 5,
+                        "point_amount_unit": "percent",
+                        "product_code": "4912345678904",
+                        "is_multiply_by_count": true,
+                        "required_count": 2
+                      }
+
+                  title: '商品情報ベースのポイント付与ルール'
+                  nullable: true
+                  description:  |-
+                    商品情報をベースとしてポイント付与を行うルールを指定します。
+                    ルールは商品ごとに設定可能で、ルールの配列として指定します。
+                    amount_based_point_rules と product_based_point_rules はどちらか一方しか指定できません。
+                    event が payment か external-transaction の時のみ有効です。
+                    各ルールの順序は問わず、適用可能なものは全て適用されます。
+                    一つの決済の中で複数の商品がキャンペーン適用可能な場合はそれぞれの商品についてのルールが適用され、ポイント付与額はその合算になります。
+
+                    例:
+                    ```javascript
+                    [
+                      // 対象商品の購入額から5%ポイント付与。複数購入時は単価の5%が付与される。
+                      {
+                        "point_amount": 5,
+                        "point_amount_unit": "percent",
+                        "product_code": "4912345678904",
+                      },
+                      // 対象商品の購入額から5%ポイント付与。複数購入時は購入総額の5%が付与される。
+                      {
+                        "point_amount": 5,
+                        "point_amount_unit": "percent",
+                        "product_code": "4912345678904",
+                        "is_multiply_by_count": true,
+                      },
+                      // 対象商品を2つ以上購入したら500ポイント付与(固定額付与)
+                      {
+                        "point_amount": 500,
+                        "point_amount_unit": absolute",
+                        "product_code": "4912345678904",
+                        "required_count": 2
+                      },
+                      // 書籍は10%ポイント付与
+                      // ※ISBNの形式はレジがポケペイに送信する形式に準じます
+                      {
+                        "point_amount": 10,
+                        "point_amount_unit": "percent",
+                        "product_code": "978-%",
+                      },
+                      // 一部の出版社の書籍は10%ポイント付与
+                      {
+                        "point_amount": 10,
+                        "point_amount_unit": "percent",
+                        "product_code": "978-4-01-%", // 旺文社
+                      }
+                    ]
+                    ```
+
+                applicable_days_of_week:
+                  type: array
+                  items:
+                    type: integer
+                    minimun: 0
+                    maximum: 6
+                  nullable: true
+                  title: 'キャンペーンを適用する曜日 (複数指定)'
+                  describe: |-
+                    キャンペーンを適用する曜日を指定します (複数指定)。
+                    曜日は整数で表します。月曜を 0 とし、日曜を 6 とします。
+                    指定しなかった場合は全日を対象にします (曜日による適用条件なし)
+                applicable_time_ranges:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      from:
+                        type: string
+                        description: |-
+                          時間帯の開始時刻 (HH:mmの形式)
+                      to:
+                        type: string
+                        description: |-
+                          時間帯の終了時刻 (HH:mmの形式)
+                    example: |-
+                      {
+                        "from": "12:00",
+                        "to": "23:59"
+                      }
+
+                  nullable: true
+                  title: 'キャンペーンを適用する時間帯 (複数指定)'
+                  describe: |-
+                    キャンペーンを適用する時間帯を指定します (複数指定可)。
+                    時間帯はfromとtoからなるオブジェクトで指定します。
+                    fromとtoは両方必要です。
+                applicable_shop_ids:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+                  nullable: true
+                  title: 'キャンペーン適用対象となる店舗IDのリスト'
+                  describe: |-
+                    キャンペーンを適用する店舗IDを指定します (複数指定)。
+                    指定しなかった場合は全店舗が対象になります。
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
         '400':
           $ref: '#/components/responses/BadRequest'
         '403':

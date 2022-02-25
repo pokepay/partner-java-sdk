@@ -7,10 +7,22 @@ import jp.pokepay.partnerapi.response.*;
 import java.lang.reflect.Type;
 
 public class ListUserAccounts extends Request {
+    private Integer page;
+    private Integer perPage;
     private String userId;
 
     public ListUserAccounts(String userId) {
         this.userId = userId;
+    }
+
+    public ListUserAccounts page(int page) {
+        this.page = page;
+        return this;
+    }
+
+    public ListUserAccounts perPage(int perPage) {
+        this.perPage = perPage;
+        return this;
     }
 
     @Override
@@ -31,6 +43,8 @@ public class ListUserAccounts extends Request {
     @Override
     public JsonObject getRequestBodyJsonObject(JsonSerializationContext context) {
         JsonObject object = new JsonObject();
+        if (page != null) { object.add("page", context.serialize(this.page)); }
+        if (perPage != null) { object.add("per_page", context.serialize(this.perPage)); }
         return object;
     }
 }

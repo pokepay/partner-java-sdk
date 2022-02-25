@@ -3,6 +3,7 @@ package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.GetShop;
 import jp.pokepay.partnerapi.request.Request;
+import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,7 +12,7 @@ public class GetShopTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetShop(
-            "6eb30c0f-4395-4d20-960e-651246ed2ccc"
+            "96ad063e-eeab-4a9f-bdc8-0f1e046f3bc9"
         );
         try {
             PartnerAPITest.getClient().send(request);

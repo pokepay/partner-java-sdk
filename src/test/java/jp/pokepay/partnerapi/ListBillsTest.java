@@ -3,6 +3,7 @@ package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.ListBills;
 import jp.pokepay.partnerapi.request.Request;
+import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -40,8 +41,8 @@ public class ListBillsTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListBills()
-                .upperLimitAmount(6550)
-                .setDisabled(true);
+                .upperLimitAmount(7359)
+                .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -56,9 +57,9 @@ public class ListBillsTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new ListBills()
-                .lowerLimitAmount(5371)
-                .upperLimitAmount(1502)
-                .setDisabled(false);
+                .lowerLimitAmount(4602)
+                .upperLimitAmount(4086)
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -73,9 +74,9 @@ public class ListBillsTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new ListBills()
-                .shopId("0744757a-0466-40a2-9fd3-6d2dc831404e")
-                .lowerLimitAmount(503)
-                .upperLimitAmount(2063)
+                .shopId("2e5af513-ed9a-4083-b833-b54d02d47b19")
+                .lowerLimitAmount(8071)
+                .upperLimitAmount(9515)
                 .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
@@ -91,11 +92,11 @@ public class ListBillsTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new ListBills()
-                .shopName("UPij0JCeKaErwIngTct5VctC8ahSG576Yk267hNuqsd2aOEu5ugI0fcKmGRUw7sMhCFW8ODbHkZSUPXBsmObvnHUjDTSSciw3PX7IImkvl5vCAHh7QD95u0YIcm0Sp2RluFOAxJTKKlkJp5ENq52OLTcJlnsa7zuy")
-                .shopId("621c603a-c6b1-4df4-9d75-62f3e2935501")
-                .lowerLimitAmount(1015)
-                .upperLimitAmount(5477)
-                .setDisabled(true);
+                .shopName("oePO7gkONNAjBCYm4KWEpCDEdkn0OKxjITuRCVadPy2BbYSAUfNgtCT3aJmzxxuQUVBryDZD3LHlYNS3c0MUvvhZyFdpqg4zFLwpBAFUZ73GCZjYfwcSTcjOL0y0KRT0zFenF09DVyQoaELlrJk6MRPKi62IzWH9")
+                .shopId("0c7a21e5-557f-4a6d-955b-517b3dd30ee8")
+                .lowerLimitAmount(209)
+                .upperLimitAmount(816)
+                .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -110,12 +111,12 @@ public class ListBillsTest {
     @Test
     void test6() throws ConnectionError, ProcessingError {
         Request request = new ListBills()
-                .createdTo("2024-02-09T07:55:33.000000Z")
-                .shopName("Z1wrrgdxWfKkMLwrBpORQ9LHlnKRmCd4nadmeyKnqGyqpn3W7S36l34SSSOxW72gqSjd8QPzbjt0rt7UmerReZGbvGgvAZbyLJ1Lea6an4P1AnQALadFsAzgfKjbtuXgZDedIJqTHGgnOhGiwZBj5AvHdO2AtfcLabY2vDzXzQx3sP8V6IT9VFC5")
-                .shopId("6a438f62-b511-446f-b093-638a0541d53f")
-                .lowerLimitAmount(344)
-                .upperLimitAmount(4198)
-                .setDisabled(false);
+                .createdTo("2016-09-22T06:07:05.000000+09:00")
+                .shopName("qvNNBrhyRg9xxzNXJhnMZrEqyRqPCGzbSmOoYCMUQNjvF4AYLzd022rwQVNfYYCfZZWpAcyBWwWi1DgvTt4hTTZowFPycMflfcbIeOIKes05558vbabHcGuqU0Zpo5LBba7yo5q8iSiTBSZQPeDSY9S36TscHpgaN0j8ZeP1HDPDTHzzRIdWxHjKy82N74miDUcO")
+                .shopId("948773a6-ae75-4949-97d6-b2718a61833c")
+                .lowerLimitAmount(3549)
+                .upperLimitAmount(2078)
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -130,13 +131,13 @@ public class ListBillsTest {
     @Test
     void test7() throws ConnectionError, ProcessingError {
         Request request = new ListBills()
-                .createdFrom("2017-10-05T15:37:12.000000Z")
-                .createdTo("2022-10-15T05:09:50.000000Z")
-                .shopName("8jPQ0hMJ4nPgNJOUuVI3xkUSOX0vTgyFK1FOp7pl9MWii2exAarzlUllrgsQZQAnUYeKIbZQuPYAKNLvTyMcIYlLoYSz5jRHNPv9LO3MtPyt1wTnktL8AYkBvD7caRgncONv8Kje2pUTWzADND")
-                .shopId("195e4ee5-eb1d-4906-b8b7-82efe5592669")
-                .lowerLimitAmount(193)
-                .upperLimitAmount(7876)
-                .setDisabled(false);
+                .createdFrom("2017-04-21T06:11:13.000000+09:00")
+                .createdTo("2022-12-18T16:25:01.000000+09:00")
+                .shopName("93kljq1Q8TjukgNdosrcsbqXkWqVhxkWkSbCcQV2KWKaXCJgJ38wW32AKvILX828FihWZQyqSbK0FMXzQI3K0upT8cYYAuEa7VHyo1Pr6ZXG8JSWzel5X6ggilnbIikjMsDtvgyHs8kXaVldBOvstCOu5vNtx3bBib1BS1I")
+                .shopId("6272f9c9-0408-48a5-9d98-2915c1561fc7")
+                .lowerLimitAmount(5847)
+                .upperLimitAmount(708)
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -151,14 +152,14 @@ public class ListBillsTest {
     @Test
     void test8() throws ConnectionError, ProcessingError {
         Request request = new ListBills()
-                .description("B6ZsUUsk6umIdkjysmBoCy1Ud1e5PrxfXmPZX1V")
-                .createdFrom("2025-06-27T21:22:12.000000Z")
-                .createdTo("2022-10-08T17:35:10.000000Z")
-                .shopName("ebv0ckwSJ4e9e0pY47yGoAwg28Msl4sq96mAewFZHEg2RF0uEHwK5Jbwu9JRSn5a7ymUxn4mfvD7ycun86BZW4IWD5GZy4J15w0ovSrq2HjQnZoVWhOdLDSpe9mEjTApY38vZyrfHaX2ePxiTIXhf26BicGgC0Q3onqPmyIzFPAF7SEHME8DlS2m5Kv5IbgTWsj7MinGr0IGEeLzU5ms0HjwVmUqLVvuFmzvx3MioePO7gkONN")
-                .shopId("4faa4393-bfc1-4501-bb6a-b042c64b79ab")
-                .lowerLimitAmount(1219)
-                .upperLimitAmount(729)
-                .setDisabled(true);
+                .description("mpTYqNNFPcbcfJ8JMK49acleVRspcldtQ5tmURvImdniels4ZrQj5")
+                .createdFrom("2022-08-09T13:54:34.000000+09:00")
+                .createdTo("2017-05-06T05:18:03.000000+09:00")
+                .shopName("fJFTwwcn9WP3m8VyuReCXx5WTYs7Yv5KDLwBcz7zjgazophuiC1VR8XiXW8JGdOuAk94khcXRAwlFr4tlYuwMI02c6YHU8uGe8qGNvTmA6H2tH06f3cpkGDNNhHR4jcwCrCw")
+                .shopId("ae4a9f70-fa3e-4f8f-96ec-d3709e06d89b")
+                .lowerLimitAmount(8058)
+                .upperLimitAmount(2251)
+                .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -173,14 +174,14 @@ public class ListBillsTest {
     @Test
     void test9() throws ConnectionError, ProcessingError {
         Request request = new ListBills()
-                .organizationCode("AsqS2Z-V79-dtNkY7")
-                .description("xuQUV")
-                .createdFrom("2023-06-24T14:35:38.000000Z")
-                .createdTo("2022-08-07T21:45:21.000000Z")
-                .shopName("ZD3LHlYNS3c0MUvvhZyFdpqg4zFLwpBAFUZ73GCZjYfwcSTcjOL0y0KRT0zFenF09DVyQoaELlrJk6MRPKi62IzWH9emhQ0CqvNNBrhyRg9xxzNXJhnMZrEqyRqPCGzbSmOoYCMUQNjvF4AYLzd022rwQVNfYYCfZZWpAcyBWwWi1DgvTt4hTTZowFPycMflfcbIe")
-                .shopId("515d81cf-56c9-4e2d-8b3e-fcaf1c1fe59d")
-                .lowerLimitAmount(4965)
-                .upperLimitAmount(6298)
+                .organizationCode("404Hb--O42M")
+                .description("uvrmGGKjRYVWTh4n3trK0bvzHyQJ1u0mKrSXl5b4zkBhHXIiOwN14umNbs9HzTMzg2AFGgoFwChMKyFjnp6NWuVTvukHEJJxjvwAaSkrlPscgFZA7kgmnQGh0g7xEy0gjIfqsy3qqeO2uL3gmJXocI00jDfhi")
+                .createdFrom("2023-06-15T17:06:17.000000+09:00")
+                .createdTo("2023-05-29T14:48:38.000000+09:00")
+                .shopName("YKzlD45lOs5FqPThDPFGAn6g717B9KAWVHYRkMJaQT0YWfQtgxVhq9RVZQG6j5A2pjVon4uuDqic8AnsoXtmv8LerXQe8LjF8Q6qvpD5ZbBwXFvQ1skGDixXFJczCMVyjlRecAjobCopZKVFLb9UiV0XEmtc9iB2syyuELfawMoOZtkTktpas3rTKhS7CSUreJUtTC5W6xtdNcZmGzg6LOAwdB03Wi69g5bppku3R9lJ")
+                .shopId("a4e25bd6-be64-40c4-a1be-1ed5eaa685a2")
+                .lowerLimitAmount(9117)
+                .upperLimitAmount(8053)
                 .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
@@ -196,16 +197,16 @@ public class ListBillsTest {
     @Test
     void test10() throws ConnectionError, ProcessingError {
         Request request = new ListBills()
-                .privateMoneyId("864ea212-382c-493b-9df3-443f4fd60db0")
-                .organizationCode("Q0--Vm51xP51j-Uc-1fe-3Z-e---")
-                .description("TscHpgaN0j8ZeP1HDPDTHzzRIdWxHjKy82N74miDUcOuIVqRIEU93kljq1Q8TjukgNdosrcsbqXkWqVhxkWkSbCcQV2KWKaXCJgJ38wW32AKvILX828FihWZQyqSbK0FMXzQI3K0upT8cYYAuEa7VHyo1Pr6ZXG8JSWzel5X6ggilnbIikjMsDt")
-                .createdFrom("2019-04-11T10:02:55.000000Z")
-                .createdTo("2016-03-28T08:19:29.000000Z")
-                .shopName("Hs8kXaVldBOvstCOu5vNtx3bBib1BS1IIGWD4mpTYqNNFPcbcfJ8JMK49acle")
-                .shopId("54afd3d6-a852-4a73-bc70-69e31ba6b2ec")
-                .lowerLimitAmount(868)
-                .upperLimitAmount(2036)
-                .setDisabled(false);
+                .privateMoneyId("716cc767-18cb-4049-b7f5-b82c3175b4f8")
+                .organizationCode("-ysR--VE0l4w7-6-Wyr-iTkm9kUT0GB")
+                .description("Z8O9N2SLzG35Urh2rbZx2aArvrKFEW0caD1nqOzKQjZCyx1E")
+                .createdFrom("2021-09-15T09:27:20.000000+09:00")
+                .createdTo("2019-06-27T17:44:43.000000+09:00")
+                .shopName("AmGgvgI7YgVKC9RfQiSpTWZrd0hVSBtTuiSKN3fmfJoVUvvyWz4acD4YN59s59xIWGujcTxFFrrXyLyMOsteVH8YLvoUoraY")
+                .shopId("28ed2a08-e8f9-4ed6-9ffe-24291ea30b55")
+                .lowerLimitAmount(6511)
+                .upperLimitAmount(4296)
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -220,17 +221,17 @@ public class ListBillsTest {
     @Test
     void test11() throws ConnectionError, ProcessingError {
         Request request = new ListBills()
-                .billId("5tmURvImdn")
-                .privateMoneyId("ed6fdaa7-91e9-45e5-9b29-8dec29b3be0c")
-                .organizationCode("DoRXh-Y-9SWD-l-fv-u")
-                .description("Ys7Yv5K")
-                .createdFrom("2016-09-06T00:57:24.000000Z")
-                .createdTo("2023-02-14T13:10:18.000000Z")
-                .shopName("cz7zjgazoph")
-                .shopId("e79838f5-c921-4023-9669-1143c81ef931")
-                .lowerLimitAmount(9302)
-                .upperLimitAmount(3548)
-                .setDisabled(true);
+                .billId("Sd144X")
+                .privateMoneyId("e78721b7-4691-46da-8571-73a2a1c7c8b8")
+                .organizationCode("31-Uf7-6-z-zknx92q-1x")
+                .description("sz1ogogHitDMic7XGDhIwoiIw8buBfBCDG7j4DoWkp")
+                .createdFrom("2024-05-07T23:27:04.000000+09:00")
+                .createdTo("2025-03-31T00:14:26.000000+09:00")
+                .shopName("bqBi9TROGFtlR9rLj2Y1ER9gKdUSrcKHlFd3Ur1MCMIUROIYftW7QMsIbzCAj1GsSvfXjxUW5P")
+                .shopId("42dc7102-d24d-40e4-96c4-a4f5a3dbec42")
+                .lowerLimitAmount(2291)
+                .upperLimitAmount(3021)
+                .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -245,17 +246,17 @@ public class ListBillsTest {
     @Test
     void test12() throws ConnectionError, ProcessingError {
         Request request = new ListBills()
-                .perPage(447)
-                .billId("XiXW8JGdO")
-                .privateMoneyId("5050d80d-c7ba-4f99-ad8b-b975c78d25bf")
-                .organizationCode("z")
-                .description("uwMI02c6YHU8uGe8qGNvTmA")
-                .createdFrom("2021-03-11T08:24:05.000000Z")
-                .createdTo("2024-02-26T14:31:28.000000Z")
-                .shopName("H06f3cpkGDNNhHR4jcwCrCwplpzKOK41muEKIO2q9f6dQ5BvDAnz25uvrmGGKjRYVWTh4n3trK0bvzHyQJ1u0mKrSXl5b4zkBhHXIiOwN14umNbs9HzTMzg2AFGgoFwChMKyFjnp6NWuVTvukHEJJxjvwAaSkrlPscgFZA7kgmnQGh0g7xEy0gjIfqsy3qqeO2uL3gmJXocI00jDfhi9nkYKzlD45lOs5FqPThDPFGAn6g717B9KA")
-                .shopId("e1400ce0-47d7-451c-9618-89c8bbd88a9a")
-                .lowerLimitAmount(2172)
-                .upperLimitAmount(8069)
+                .perPage(7335)
+                .billId("4")
+                .privateMoneyId("676cfe50-fbd4-45e6-9ddd-57bbebbd2038")
+                .organizationCode("-1J46-L17Hqg--PKp90")
+                .description("eqlmfnAfu7erS3gFr3FTdQ8rwckpkfwdxwxZ95sfTG55oAI4VCG4sTwcYeFwcP7ZmLygXYRtjxN2aIco6xNkWo0aYr1y1KHCmQGL0IM3EaCDd87kJG01a7")
+                .createdFrom("2019-03-10T19:56:29.000000+09:00")
+                .createdTo("2024-05-06T13:46:18.000000+09:00")
+                .shopName("GOWj7LV4")
+                .shopId("4755ab3c-64f6-4635-bdaa-a7a57e89da79")
+                .lowerLimitAmount(6767)
+                .upperLimitAmount(9588)
                 .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
@@ -271,18 +272,18 @@ public class ListBillsTest {
     @Test
     void test13() throws ConnectionError, ProcessingError {
         Request request = new ListBills()
-                .page(5228)
-                .perPage(6990)
-                .billId("aQT0YWfQtg")
-                .privateMoneyId("aa0d8a40-f689-4fdb-b8d6-736898ef5371")
-                .organizationCode("-4V-k1D8HboK--w-uW")
-                .description("LerXQe8LjF8Q6qvpD5ZbBwXFvQ1skGDixXFJczCMVyjlRecAjobCopZKV")
-                .createdFrom("2024-12-05T12:24:47.000000Z")
-                .createdTo("2021-12-15T07:10:53.000000Z")
-                .shopName("9UiV0XEmtc9iB2syyuELfawMoOZtkTktpas3rTKhS7CSUreJUtTC5W6xtdNcZmGzg6LOAwdB03Wi69g5bppku3R9lJVdDaUu8gKI7uxlsX8tJTVN1o4Avhi0fX5dozKzovfXQ3PHUhjHLVEtSIaxZ8O9N2SLzG35Urh2rbZx2aArvrKFEW0caD1nqOz")
-                .shopId("ef491acb-060a-4810-910f-e7adbe43b402")
-                .lowerLimitAmount(2666)
-                .upperLimitAmount(8542)
+                .page(9150)
+                .perPage(5993)
+                .billId("j2v")
+                .privateMoneyId("2a50f1eb-066a-4d69-ab5c-a493546c70a6")
+                .organizationCode("81m-q--4s8Omc8L08V3--9")
+                .description("4Wo0L4evFZLjpsodOQD43fZ5T5bk20dIuBp2e25agSXyEGickpeze5Yn7vyzhltNB5edjt157B8n6abEccTMUOFUG9Fme9wlEEj2gZC8ckmFOzWRdKb11QTIHM0x5oJQ4O2Nwel4rHJTDGFvqXggC9Tcy7ogKmUw0VnsFyzfyt6Bg95FB1a7IFTBkW9tPubyeqITUoc5")
+                .createdFrom("2023-07-02T11:25:11.000000+09:00")
+                .createdTo("2015-11-08T17:04:41.000000+09:00")
+                .shopName("HWI6lY3NxA2Qq6LVyn2dOGJj5BoyL1MgjctfisLuYo4aorOwFrhmbs26EDkzDLnAr7NHvMDZLOk3Kn6N9IKA2DQ0UDl0RkGXqQRpkGArTGUPugetKJLdESdgB4DMlPhuAgx6J23S5a4KJH2dJnXO")
+                .shopId("6abb6696-1d0c-4d3e-a5c1-3ca99e0575ac")
+                .lowerLimitAmount(8697)
+                .upperLimitAmount(5048)
                 .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);

@@ -3,6 +3,7 @@ package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.GetPrivateMoneys;
 import jp.pokepay.partnerapi.request.Request;
+import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,7 +26,7 @@ public class GetPrivateMoneysTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new GetPrivateMoneys()
-                .perPage(1992);
+                .perPage(6073);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -40,8 +41,8 @@ public class GetPrivateMoneysTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new GetPrivateMoneys()
-                .page(7439)
-                .perPage(3155);
+                .page(3070)
+                .perPage(3301);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -56,9 +57,9 @@ public class GetPrivateMoneysTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new GetPrivateMoneys()
-                .organizationCode("-pxt-zfw-hZk9-i52--OGq1-K-8o")
-                .page(7075)
-                .perPage(9099);
+                .organizationCode("Ti39xz7Z2gd0u--EE39-j6uC--52aCX")
+                .page(9062)
+                .perPage(7997);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

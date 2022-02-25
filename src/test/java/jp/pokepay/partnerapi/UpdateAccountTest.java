@@ -3,6 +3,7 @@ package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.UpdateAccount;
 import jp.pokepay.partnerapi.request.Request;
+import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,7 +12,7 @@ public class UpdateAccountTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateAccount(
-            "1cca797a-a4ae-4807-a9ad-4bab80f00988"
+            "553fd4da-7231-4218-aeb3-2d714f66622b"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -27,9 +28,46 @@ public class UpdateAccountTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateAccount(
-            "1cca797a-a4ae-4807-a9ad-4bab80f00988"
+            "553fd4da-7231-4218-aeb3-2d714f66622b"
         )
-                .setSuspended(true);
+                .canTransferTopup(false);
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test2() throws ConnectionError, ProcessingError {
+        Request request = new UpdateAccount(
+            "553fd4da-7231-4218-aeb3-2d714f66622b"
+        )
+                .status("pre-closed")
+                .canTransferTopup(true);
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test3() throws ConnectionError, ProcessingError {
+        Request request = new UpdateAccount(
+            "553fd4da-7231-4218-aeb3-2d714f66622b"
+        )
+                .setSuspended(false)
+                .status("active")
+                .canTransferTopup(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

@@ -3,6 +3,7 @@ package jp.pokepay.partnerapi;
 
 import jp.pokepay.partnerapi.request.BulkCreateTransaction;
 import jp.pokepay.partnerapi.request.Request;
+import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,9 +12,9 @@ public class BulkCreateTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new BulkCreateTransaction(
-            "gtc1eHQx",
-            "a3",
-            "8fcy9G2ru7CIugZBUKc64A8KJDFHDE0sPhVL"
+            "9bLFfHIb",
+            "s",
+            "98VpOgmc8pS7WZiumuB2TNJcJGvSmksA1MuW"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -29,11 +30,11 @@ public class BulkCreateTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new BulkCreateTransaction(
-            "gtc1eHQx",
-            "a3",
-            "8fcy9G2ru7CIugZBUKc64A8KJDFHDE0sPhVL"
+            "9bLFfHIb",
+            "s",
+            "98VpOgmc8pS7WZiumuB2TNJcJGvSmksA1MuW"
         )
-                .description("mxr0FU3DnW6KqsDEeelMkJvsg1mQveiZolVhKjCQVZwzstz19XaUt7HUg2vBtQ3icUlEOMImvGy37aG3VpRl");
+                .description("1A79SIV4QucaCTIuwp4PaSBE0Qhobjz");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
