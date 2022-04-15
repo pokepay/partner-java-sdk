@@ -9,51 +9,51 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ListBillsTest {
-    @Test
-    void test0() throws ConnectionError, ProcessingError {
-        Request request = new ListBills();
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test1() throws ConnectionError, ProcessingError {
-        Request request = new ListBills()
-                .setDisabled(false);
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test2() throws ConnectionError, ProcessingError {
-        Request request = new ListBills()
-                .upperLimitAmount(7359)
-                .setDisabled(false);
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
+    // @Test
+    // void test0() throws ConnectionError, ProcessingError {
+    //     Request request = new ListBills();
+    //     try {
+    //         PartnerAPITest.getClient().send(request);
+    //     } catch (PartnerRequestError e) {
+    //         if (e.getType().equals("invalid_parameters")) {
+    //             System.out.println(e.getType());
+    //             System.out.println(e.getMessage());
+    //             System.out.println(e.getRawJson());
+    //         }
+    //         assertNotEquals("invalid_parameters", e.getType());
+    //     }
+    // }
+    // @Test
+    // void test1() throws ConnectionError, ProcessingError {
+    //     Request request = new ListBills()
+    //             .setDisabled(false);
+    //     try {
+    //         PartnerAPITest.getClient().send(request);
+    //     } catch (PartnerRequestError e) {
+    //         if (e.getType().equals("invalid_parameters")) {
+    //             System.out.println(e.getType());
+    //             System.out.println(e.getMessage());
+    //             System.out.println(e.getRawJson());
+    //         }
+    //         assertNotEquals("invalid_parameters", e.getType());
+    //     }
+    // }
+    // @Test
+    // void test2() throws ConnectionError, ProcessingError {
+    //     Request request = new ListBills()
+    //             .upperLimitAmount(7359)
+    //             .setDisabled(false);
+    //     try {
+    //         PartnerAPITest.getClient().send(request);
+    //     } catch (PartnerRequestError e) {
+    //         if (e.getType().equals("invalid_parameters")) {
+    //             System.out.println(e.getType());
+    //             System.out.println(e.getMessage());
+    //             System.out.println(e.getRawJson());
+    //         }
+    //         assertNotEquals("invalid_parameters", e.getType());
+    //     }
+    // }
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new ListBills()
