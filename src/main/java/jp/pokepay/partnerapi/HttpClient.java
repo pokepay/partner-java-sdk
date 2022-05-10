@@ -11,14 +11,15 @@ import java.security.*;
 import java.security.cert.CertificateException;
 
 class HttpClient {
-    private Config config = Config.getConfig();
+    private Config config;
     private boolean alreadyInitialized = false;
 
     private boolean isHttps() {
         return !config.baseUrl.startsWith("http://");
     }
 
-    public HttpClient() throws P12FileNotFoundException, SSLInitializeError {
+    public HttpClient(Config config) throws P12FileNotFoundException, SSLInitializeError {
+        this.config = config;
         if (isHttps())
             initSSL();
     }

@@ -4,19 +4,13 @@ import java.io.*;
 import java.util.Properties;
 
 class Config {
-    private static final Config config = new Config();
-
     public String clientID;
     public String clientSecret;
     public String baseUrl;
     public String p12File;
     public String p12Password;
 
-    public static Config getConfig() {
-        return config;
-    }
-
-    public void load(File file) throws ConfigFileNotFoundException, ProcessingError {
+    public Config(File file) throws ConfigFileNotFoundException, ProcessingError {
         Properties properties = new Properties();
         InputStream inputStream;
         try {
