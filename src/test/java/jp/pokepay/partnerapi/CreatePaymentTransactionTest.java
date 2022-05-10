@@ -12,10 +12,10 @@ public class CreatePaymentTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreatePaymentTransaction(
-            "08f14179-1f7e-4af7-8b78-129a54dfcd66",
-            "9deb41c1-00f3-4291-9d76-b1804f29bb51",
-            "6b8be7a8-7551-4277-885f-aa0b3c7c77b8",
-            4379
+            "dde19d05-b2b2-448b-a745-924becbcdff8",
+            "b0060417-a30b-41a1-a749-90998fb7722a",
+            "d49a65ba-acf6-4975-a4a8-56048e176b22",
+            7426
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -31,12 +31,12 @@ public class CreatePaymentTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreatePaymentTransaction(
-            "08f14179-1f7e-4af7-8b78-129a54dfcd66",
-            "9deb41c1-00f3-4291-9d76-b1804f29bb51",
-            "6b8be7a8-7551-4277-885f-aa0b3c7c77b8",
-            4379
+            "dde19d05-b2b2-448b-a745-924becbcdff8",
+            "b0060417-a30b-41a1-a749-90998fb7722a",
+            "d49a65ba-acf6-4975-a4a8-56048e176b22",
+            7426
         )
-                .requestId("427acd4e-aed8-4b77-8074-a3bfd43d7f2e");
+                .requestId("69e78922-ce60-4abb-9f95-e051bb59f8a7");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -50,56 +50,6 @@ public class CreatePaymentTransactionTest {
     }
     @Test
     void test2() throws ConnectionError, ProcessingError {
-        Request request = new CreatePaymentTransaction(
-            "08f14179-1f7e-4af7-8b78-129a54dfcd66",
-            "9deb41c1-00f3-4291-9d76-b1804f29bb51",
-            "6b8be7a8-7551-4277-885f-aa0b3c7c77b8",
-            4379
-        )
-                .products(new Object[]{})
-                .requestId("6385eb40-9ae6-4027-9f3e-31cbdf6f8c88");
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test3() throws ConnectionError, ProcessingError {
-        JsonObject items = new JsonObject();
-        items.addProperty("jan_code", "abc");
-        items.addProperty("name", "name1");
-        items.addProperty("unit_price", 100);
-        items.addProperty("price", 100);
-        items.addProperty("is_discounted", false);
-        items.addProperty("other", "{}");
-        Request request = new CreatePaymentTransaction(
-            "08f14179-1f7e-4af7-8b78-129a54dfcd66",
-            "9deb41c1-00f3-4291-9d76-b1804f29bb51",
-            "6b8be7a8-7551-4277-885f-aa0b3c7c77b8",
-            4379
-        )
-                .metadata("{\"key\":\"value\"}")
-                .products(new Object[]{items})
-                .requestId("5b03af57-3d86-472f-8d07-3f02f5896234");
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test4() throws ConnectionError, ProcessingError {
         JsonObject items = new JsonObject();
         items.addProperty("jan_code", "abc");
         items.addProperty("name", "name1");
@@ -135,37 +85,73 @@ public class CreatePaymentTransactionTest {
         items5.addProperty("price", 100);
         items5.addProperty("is_discounted", false);
         items5.addProperty("other", "{}");
-        JsonObject items6 = new JsonObject();
-        items6.addProperty("jan_code", "abc");
-        items6.addProperty("name", "name1");
-        items6.addProperty("unit_price", 100);
-        items6.addProperty("price", 100);
-        items6.addProperty("is_discounted", false);
-        items6.addProperty("other", "{}");
-        JsonObject items7 = new JsonObject();
-        items7.addProperty("jan_code", "abc");
-        items7.addProperty("name", "name1");
-        items7.addProperty("unit_price", 100);
-        items7.addProperty("price", 100);
-        items7.addProperty("is_discounted", false);
-        items7.addProperty("other", "{}");
-        JsonObject items8 = new JsonObject();
-        items8.addProperty("jan_code", "abc");
-        items8.addProperty("name", "name1");
-        items8.addProperty("unit_price", 100);
-        items8.addProperty("price", 100);
-        items8.addProperty("is_discounted", false);
-        items8.addProperty("other", "{}");
         Request request = new CreatePaymentTransaction(
-            "08f14179-1f7e-4af7-8b78-129a54dfcd66",
-            "9deb41c1-00f3-4291-9d76-b1804f29bb51",
-            "6b8be7a8-7551-4277-885f-aa0b3c7c77b8",
-            4379
+            "dde19d05-b2b2-448b-a745-924becbcdff8",
+            "b0060417-a30b-41a1-a749-90998fb7722a",
+            "d49a65ba-acf6-4975-a4a8-56048e176b22",
+            7426
         )
-                .description("UwDxtqXzHNdytk1inQrWiktMK0FHLyLnvzTdFf0Y1JODoBhEEJFs7RURiJHf6mnglgKA3t551AWYy2EKxgIvudVQKM3ivlyVYA6fe68jtm2G7nC3SW8MPeFKTYT7eEYL")
+                .products(new Object[]{items,items2,items3,items4,items5})
+                .requestId("759620a6-d7b3-4ce9-9b99-4ff6d218883c");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test3() throws ConnectionError, ProcessingError {
+        JsonObject items = new JsonObject();
+        items.addProperty("jan_code", "abc");
+        items.addProperty("name", "name1");
+        items.addProperty("unit_price", 100);
+        items.addProperty("price", 100);
+        items.addProperty("is_discounted", false);
+        items.addProperty("other", "{}");
+        Request request = new CreatePaymentTransaction(
+            "dde19d05-b2b2-448b-a745-924becbcdff8",
+            "b0060417-a30b-41a1-a749-90998fb7722a",
+            "d49a65ba-acf6-4975-a4a8-56048e176b22",
+            7426
+        )
                 .metadata("{\"key\":\"value\"}")
-                .products(new Object[]{items,items2,items3,items4,items5,items6,items7,items8})
-                .requestId("d7bb6f77-8414-4876-bec8-75dea7222451");
+                .products(new Object[]{items})
+                .requestId("032690a9-8898-4893-a079-e38942328fd6");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test4() throws ConnectionError, ProcessingError {
+        JsonObject items = new JsonObject();
+        items.addProperty("jan_code", "abc");
+        items.addProperty("name", "name1");
+        items.addProperty("unit_price", 100);
+        items.addProperty("price", 100);
+        items.addProperty("is_discounted", false);
+        items.addProperty("other", "{}");
+        Request request = new CreatePaymentTransaction(
+            "dde19d05-b2b2-448b-a745-924becbcdff8",
+            "b0060417-a30b-41a1-a749-90998fb7722a",
+            "d49a65ba-acf6-4975-a4a8-56048e176b22",
+            7426
+        )
+                .description("6fe68jtm2G7nC3SW8MPeFKTYT7eEYLwvHQFKDImV0W8uMWRziTXMumFeaEHdh8PePo")
+                .metadata("{\"key\":\"value\"}")
+                .products(new Object[]{items})
+                .requestId("3caff25c-e97d-4991-80da-4b77ae11b96e");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

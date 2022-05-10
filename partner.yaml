@@ -96,11 +96,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PrivateMoney'
-    AccountStatus:
-      x-pokepay-schema-type: "response"
-      type: string
-      enum: [active, suspended, pre-closed, closed]
-      title: 'ウォレット状態'
     Account:
       x-pokepay-schema-type: "response"
       properties:
@@ -115,7 +110,8 @@ components:
           type: boolean
           title: 'ウォレットが凍結されているかどうか'
         status:
-          $ref: '#/components/schemas/AccountStatus'
+          type: string
+          enum: [active, suspended, pre-closed, closed]
         private_money:
           $ref: '#/components/schemas/PrivateMoney'
           title: '設定マネー情報'
@@ -130,7 +126,8 @@ components:
         is_suspended:
           type: boolean
         status:
-          $ref: '#/components/schemas/AccountStatus'
+          type: string
+          enum: [active, suspended, pre-closed, closed]
         private_money:
           $ref: '#/components/schemas/PrivateMoney'
         user:
@@ -146,7 +143,8 @@ components:
         is_suspended:
           type: boolean
         status:
-          $ref: '#/components/schemas/AccountStatus'
+          type: string
+          enum: [active, suspended, pre-closed, closed]
         balance:
           type: number
           format: decimal
@@ -747,7 +745,8 @@ components:
         is_suspended:
           type: boolean
         status:
-          $ref: '#/components/schemas/AccountStatus'
+          type: string
+          enum: [active, suspended, pre-closed, closed]
         private_money_id:
           type: string
           format: uuid
@@ -2123,7 +2122,6 @@ paths:
         - Check
       summary: 'チャージQRコードの発行'
       x-pokepay-operator-name: "CreateCheck"
-      x-pokepay-allow-server-side: true
       requestBody:
         required: true
         content:

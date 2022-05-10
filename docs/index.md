@@ -85,7 +85,6 @@ APIサーバがエラーレスポンスを返した場合に使われます。
 - [GetTransaction](#get-transaction): 取引情報を取得する
 - [RefundTransaction](#refund-transaction): 取引をキャンセルする
 - [ListTransfers](#list-transfers): 
-- [CreateCheck](#create-check): チャージQRコードの発行
 - [CreateTopupTransactionWithCheck](#create-topup-transaction-with-check): チャージQRコードを読み取ることでチャージする
 - [ListBills](#list-bills): 支払いQRコード一覧を表示する
 - [CreateBill](#create-bill): 支払いQRコードの発行
@@ -1267,46 +1266,6 @@ Request request = new ListTransfers()
 
 QRコードを読み取る方法以外にも、このURLリンクを直接スマートフォン(iOS/Android)上で開くことによりアプリが起動して取引が行われます。(注意: 上記URLはsandbox環境であるため、アプリもsandbox環境のものである必要があります) 上記URL中の `xxxxxxxx-xxxx-xxxxxxxxx-xxxxxxxxxxxx` の部分がチャージQRコードのIDです。
 
-<a name="create-check"></a>
-#### チャージQRコードの発行
-```java
-Request request = new CreateCheck(
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: 送金元の店舗アカウントID
-)
-        .moneyAmount(9240.0)                      // 付与マネー額
-        .pointAmount(7421.0)                      // 付与ポイント額
-        .description("test check")                // 説明文(アプリ上で取引の説明文として表示される)
-        .setOnetime(false)                        // ワンタイムかどうか。真の場合1度読み込まれた時点でそのチャージQRは失効する(デフォルト値は真)
-        .usageLimit(7152)                         // ワンタイムでない場合、複数ユーザから読み取られ得る。その場合の最大読み取り回数
-        .expiresAt("2017-05-13T03:14:06.000000+09:00") // チャージQR自体の失効日時
-        .pointExpiresAt("2016-10-14T20:05:16.000000+09:00") // チャージQRによって付与されるポイントの失効日時
-        .pointExpiresInDays(60)                   // チャージQRによって付与されるポイントの有効期限(相対指定、単位は日)
-        .bearPointAccount("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // ポイント額を負担する店舗アカウントのID
-```
-`moneyAmount`と`pointAmount`の少なくとも一方は指定する必要があります。
-
-
----
-`setOnetime`  
-```json
-{ "type": "boolean" }
-```
-チャージQRコードが一度の読み取りで失効するときに`true`にします。デフォルト値は`true`です。
-`false`の場合、そのチャージQRコードは1ユーザについては1回きりですが、複数ユーザによって読み取り可能なQRコードになります。
-
-
----
-`usageLimit`  
-```json
-{ "type": "integer" }
-```
-複数ユーザによって読み取り可能なチャージQRコードの読み取り回数に制限をつけるために指定します。
-省略すると無制限に読み取り可能なチャージQRコードになります。
-チャージQRコードは管理画面からいつでも無効化(有効化)することができます。
-
-
----
-成功したときは[Check](#check)クラスのインスタンスを返します
 <a name="create-topup-transaction-with-check"></a>
 #### チャージQRコードを読み取ることでチャージする
 通常チャージQRコードはエンドユーザーのアプリによって読み取られ、アプリとポケペイサーバとの直接通信によって取引が作られます。 もしエンドユーザーとの通信をパートナーのサーバのみに限定したい場合、パートナーのサーバがチャージQRの情報をエンドユーザーから代理受けして、サーバ間連携APIによって実際のチャージ取引をリクエストすることになります。
@@ -1353,9 +1312,9 @@ QRコード生成時に送金元店舗のウォレット情報や、送金額な
 支払いQRコード一覧を表示します。
 ```java
 Request request = new ListBills()
-        .page(6279)                               // ページ番号
-        .perPage(5359)                            // 1ページの表示数
-        .billId("U4KQ")                           // 支払いQRコードのID
+        .page(9241)                               // ページ番号
+        .perPage(7422)                            // 1ページの表示数
+        .billId("p1Rn3U4KQs")                     // 支払いQRコードのID
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
         .organizationCode("05x3p6HM1J3-")         // 組織コード
         .description("test bill")                 // 取引説明文
@@ -4075,11 +4034,9 @@ event が payment か external-transaction の時のみ有効です。
 * `getId() String`: 
 * `getName() String`: 
 * `isSuspended() boolean`: 
-* `getStatus() AccountStatus`: 
+* `getStatus() String`: 
 * `getPrivateMoney() PrivateMoney`: 
 * `getUser() User`: 
-
-`getStatus`は [AccountStatus](#account-status) クラスのインスタンスを返します。
 
 `getPrivateMoney`は [PrivateMoney](#private-money) クラスのインスタンスを返します。
 
@@ -4090,15 +4047,13 @@ event が payment か external-transaction の時のみ有効です。
 * `getId() String`: 
 * `getName() String`: 
 * `isSuspended() boolean`: 
-* `getStatus() AccountStatus`: 
+* `getStatus() String`: 
 * `getBalance() double`: 
 * `getMoneyBalance() double`: 
 * `getPointBalance() double`: 
 * `getPrivateMoney() PrivateMoney`: 
 * `getUser() User`: 
 * `getExternalId() String`: 
-
-`getStatus`は [AccountStatus](#account-status) クラスのインスタンスを返します。
 
 `getPrivateMoney`は [PrivateMoney](#private-money) クラスのインスタンスを返します。
 
@@ -4119,26 +4074,6 @@ event が payment か external-transaction の時のみ有効です。
 * `getToken() String`: 支払いQRコードを解析したときに出てくるURL
 
 `getAccount`は [AccountWithUser](#account-with-user) クラスのインスタンスを返します。
-
-<a name="check"></a>
-## Check
-* `getId() String`: チャージQRコードのID
-* `getAmount() double`: チャージマネー額 (deprecated)
-* `getMoneyAmount() double`: チャージマネー額
-* `getPointAmount() double`: チャージポイント額
-* `getDescription() String`: チャージQRコードの説明文(アプリ上で取引の説明文として表示される)
-* `getUser() User`: 送金元ユーザ情報
-* `isOnetime() boolean`: 使用回数が一回限りかどうか
-* `isDisabled() boolean`: 無効化されているかどうか
-* `getExpiresAt() String`: チャージQRコード自体の失効日時
-* `getPrivateMoney() PrivateMoney`: 対象マネー情報
-* `getUsageLimit() int`: 一回限りでない場合の最大読み取り回数
-* `getUsageCount() double`: 一回限りでない場合の現在までに読み取られた回数
-* `getToken() String`: チャージQRコードを解析したときに出てくるURL
-
-`getUser`は [User](#user) クラスのインスタンスを返します。
-
-`getPrivateMoney`は [PrivateMoney](#private-money) クラスのインスタンスを返します。
 
 <a name="cpm-token"></a>
 ## CpmToken
@@ -4403,9 +4338,6 @@ event が payment か external-transaction の時のみ有効です。
 
 `getPagination`は [Pagination](#pagination) クラスのインスタンスを返します。
 
-<a name="account-status"></a>
-## AccountStatus
-
 <a name="private-money"></a>
 ## PrivateMoney
 * `getId() String`: マネーID
@@ -4458,10 +4390,8 @@ event が payment か external-transaction の時のみ有効です。
 * `getId() String`: ウォレットID
 * `getName() String`: ウォレット名
 * `isSuspended() boolean`: ウォレットが凍結されているかどうか
-* `getStatus() AccountStatus`: 
+* `getStatus() String`: 
 * `getPrivateMoney() PrivateMoney`: 設定マネー情報
-
-`getStatus`は [AccountStatus](#account-status) クラスのインスタンスを返します。
 
 `getPrivateMoney`は [PrivateMoney](#private-money) クラスのインスタンスを返します。
 
@@ -4533,11 +4463,9 @@ event が payment か external-transaction の時のみ有効です。
 * `getId() String`: 
 * `getName() String`: 
 * `isSuspended() boolean`: 
-* `getStatus() AccountStatus`: 
+* `getStatus() String`: 
 * `getPrivateMoneyId() String`: 
 * `getUser() User`: 
-
-`getStatus`は [AccountStatus](#account-status) クラスのインスタンスを返します。
 
 `getUser`は [User](#user) クラスのインスタンスを返します。
 
