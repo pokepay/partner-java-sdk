@@ -14,7 +14,7 @@ public class Cashtray extends Response {
         return id;
     }
 
-    public double getAmount() {
+    public Double getAmount() {
         return amount;
     }
 

@@ -22,12 +22,12 @@ public class GetCustomerAccounts extends Request {
         this.privateMoneyId = privateMoneyId;
     }
 
-    public GetCustomerAccounts page(int page) {
+    public GetCustomerAccounts page(Integer page) {
         this.page = page;
         return this;
     }
 
-    public GetCustomerAccounts perPage(int perPage) {
+    public GetCustomerAccounts perPage(Integer perPage) {
         this.perPage = perPage;
         return this;
     }
@@ -42,7 +42,7 @@ public class GetCustomerAccounts extends Request {
         return this;
     }
 
-    public GetCustomerAccounts setSuspended(boolean suspended) {
+    public GetCustomerAccounts setSuspended(Boolean suspended) {
         isSuspended = suspended;
         return this;
     }

@@ -17,7 +17,7 @@ public class CreateBill extends Request {
         this.shopId = shopId;
     }
 
-    public CreateBill amount(double amount) {
+    public CreateBill amount(Double amount) {
         this.amount = amount;
         return this;
     }

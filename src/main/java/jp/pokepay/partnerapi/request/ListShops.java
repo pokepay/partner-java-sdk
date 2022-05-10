@@ -61,12 +61,12 @@ public class ListShops extends Request {
         return this;
     }
 
-    public ListShops page(int page) {
+    public ListShops page(Integer page) {
         this.page = page;
         return this;
     }
 
-    public ListShops perPage(int perPage) {
+    public ListShops perPage(Integer perPage) {
         this.perPage = perPage;
         return this;
     }

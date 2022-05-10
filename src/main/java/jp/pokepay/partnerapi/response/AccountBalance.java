@@ -10,11 +10,11 @@ public class AccountBalance extends Response {
         return expiresAt;
     }
 
-    public double getMoneyAmount() {
+    public Double getMoneyAmount() {
         return moneyAmount;
     }
 
-    public double getPointAmount() {
+    public Double getPointAmount() {
         return pointAmount;
     }
 }

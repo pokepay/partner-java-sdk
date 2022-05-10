@@ -16,7 +16,7 @@ public class UpdateCashtray extends Request {
         this.cashtrayId = cashtrayId;
     }
 
-    public UpdateCashtray amount(double amount) {
+    public UpdateCashtray amount(Double amount) {
         this.amount = amount;
         return this;
     }
@@ -26,7 +26,7 @@ public class UpdateCashtray extends Request {
         return this;
     }
 
-    public UpdateCashtray expiresIn(int expiresIn) {
+    public UpdateCashtray expiresIn(Integer expiresIn) {
         this.expiresIn = expiresIn;
         return this;
     }

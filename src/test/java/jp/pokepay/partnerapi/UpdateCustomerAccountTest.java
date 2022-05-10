@@ -12,7 +12,7 @@ public class UpdateCustomerAccountTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "f39e0dc7-ebbf-4161-a34e-e312bce444b9"
+            "15e45ce2-4a91-493f-974d-792c077afaf5"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class UpdateCustomerAccountTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "f39e0dc7-ebbf-4161-a34e-e312bce444b9"
+            "15e45ce2-4a91-493f-974d-792c077afaf5"
         )
-                .externalId("eZjSIQORsTn19Lt83IRfp6apsZzw");
+                .externalId("dn");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class UpdateCustomerAccountTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "f39e0dc7-ebbf-4161-a34e-e312bce444b9"
+            "15e45ce2-4a91-493f-974d-792c077afaf5"
         )
-                .accountName("Ugb2qqrLtRpMZnFJMuPuuYDxHZdnikAchiJbVP3ZTnJxIJTqpbj9hQa29LtqbzIUCtrgI5GH6")
-                .externalId("i2f3OojTDEk0fitYgK");
+                .accountName("ANiixumuncg7egxc7L05i8jkZ1Waa6h6AAgB9jXehhbgsnyiHZ1n3qwk3r3QhfSXAhy6Q6NsE0G4ETHn0hBw4No1Y")
+                .externalId("XyGaN9eZjSIQORsTn19Lt83IRfp6apsZz");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,11 +63,11 @@ public class UpdateCustomerAccountTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "f39e0dc7-ebbf-4161-a34e-e312bce444b9"
+            "15e45ce2-4a91-493f-974d-792c077afaf5"
         )
-                .status("suspended")
-                .accountName("zfXu0N7ZPQ6Ey6Tu3B")
-                .externalId("U56A0DovC2AWlgsj8AO1bqHH9NHpqZwH1tkpyND");
+                .status("active")
+                .accountName("Ugb2qqrLtRpMZnFJMuPuuYDxHZdnikAchiJbVP3ZTnJxIJTqpbj9hQa29Ltqbz")
+                .externalId("IUCtrgI5GH6wQi2f3");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

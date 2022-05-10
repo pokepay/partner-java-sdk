@@ -23,6 +23,7 @@ public class UpdateCampaign extends Request {
     private Integer[] applicableDaysOfWeek;
     private Object[] applicableTimeRanges;
     private String[] applicableShopIds;
+    private Integer minimumNumberForCombinationPurchase;
     private String campaignId;
 
     public UpdateCampaign(String campaignId) {
@@ -44,7 +45,7 @@ public class UpdateCampaign extends Request {
         return this;
     }
 
-    public UpdateCampaign priority(int priority) {
+    public UpdateCampaign priority(Integer priority) {
         this.priority = priority;
         return this;
     }
@@ -69,12 +70,12 @@ public class UpdateCampaign extends Request {
         return this;
     }
 
-    public UpdateCampaign pointExpiresInDays(int pointExpiresInDays) {
+    public UpdateCampaign pointExpiresInDays(Integer pointExpiresInDays) {
         this.pointExpiresInDays = pointExpiresInDays;
         return this;
     }
 
-    public UpdateCampaign setExclusive(boolean exclusive) {
+    public UpdateCampaign setExclusive(Boolean exclusive) {
         isExclusive = exclusive;
         return this;
     }
@@ -94,7 +95,7 @@ public class UpdateCampaign extends Request {
         return this;
     }
 
-    public UpdateCampaign applicableDaysOfWeek(int[] applicableDaysOfWeek) {
+    public UpdateCampaign applicableDaysOfWeek(Integer[] applicableDaysOfWeek) {
         this.applicableDaysOfWeek = applicableDaysOfWeek;
         return this;
     }
@@ -106,6 +107,11 @@ public class UpdateCampaign extends Request {
 
     public UpdateCampaign applicableShopIds(String[] applicableShopIds) {
         this.applicableShopIds = applicableShopIds;
+        return this;
+    }
+
+    public UpdateCampaign minimumNumberForCombinationPurchase(Integer minimumNumberForCombinationPurchase) {
+        this.minimumNumberForCombinationPurchase = minimumNumberForCombinationPurchase;
         return this;
     }
 
@@ -143,6 +149,7 @@ public class UpdateCampaign extends Request {
         if (applicableDaysOfWeek != null) { object.add("applicable_days_of_week", context.serialize(this.applicableDaysOfWeek)); }
         if (applicableTimeRanges != null) { object.add("applicable_time_ranges", context.serialize(this.applicableTimeRanges)); }
         if (applicableShopIds != null) { object.add("applicable_shop_ids", context.serialize(this.applicableShopIds)); }
+        if (minimumNumberForCombinationPurchase != null) { object.add("minimum_number_for_combination_purchase", context.serialize(this.minimumNumberForCombinationPurchase)); }
         return object;
     }
 }

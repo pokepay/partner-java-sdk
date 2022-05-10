@@ -14,7 +14,7 @@ public class User extends Response {
         return name;
     }
 
-    public boolean isMerchant() {
+    public Boolean isMerchant() {
         return isMerchant;
     }
 }

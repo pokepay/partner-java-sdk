@@ -12,7 +12,7 @@ public class CashtrayAttempt extends Response {
         return account;
     }
 
-    public double getStatusCode() {
+    public Double getStatusCode() {
         return statusCode;
     }
 

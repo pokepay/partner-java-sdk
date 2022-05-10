@@ -27,12 +27,12 @@ public class GetPrivateMoneyOrganizationSummaries extends Request {
         return this;
     }
 
-    public GetPrivateMoneyOrganizationSummaries page(int page) {
+    public GetPrivateMoneyOrganizationSummaries page(Integer page) {
         this.page = page;
         return this;
     }
 
-    public GetPrivateMoneyOrganizationSummaries perPage(int perPage) {
+    public GetPrivateMoneyOrganizationSummaries perPage(Integer perPage) {
         this.perPage = perPage;
         return this;
     }

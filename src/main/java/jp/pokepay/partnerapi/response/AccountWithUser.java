@@ -17,7 +17,7 @@ public class AccountWithUser extends Response {
         return name;
     }
 
-    public boolean isSuspended() {
+    public Boolean isSuspended() {
         return isSuspended;
     }
 

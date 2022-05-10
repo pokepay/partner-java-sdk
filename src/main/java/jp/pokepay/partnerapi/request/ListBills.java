@@ -24,12 +24,12 @@ public class ListBills extends Request {
     public ListBills() {
     }
 
-    public ListBills page(int page) {
+    public ListBills page(Integer page) {
         this.page = page;
         return this;
     }
 
-    public ListBills perPage(int perPage) {
+    public ListBills perPage(Integer perPage) {
         this.perPage = perPage;
         return this;
     }
@@ -74,17 +74,17 @@ public class ListBills extends Request {
         return this;
     }
 
-    public ListBills lowerLimitAmount(int lowerLimitAmount) {
+    public ListBills lowerLimitAmount(Integer lowerLimitAmount) {
         this.lowerLimitAmount = lowerLimitAmount;
         return this;
     }
 
-    public ListBills upperLimitAmount(int upperLimitAmount) {
+    public ListBills upperLimitAmount(Integer upperLimitAmount) {
         this.upperLimitAmount = upperLimitAmount;
         return this;
     }
 
-    public ListBills setDisabled(boolean disabled) {
+    public ListBills setDisabled(Boolean disabled) {
         isDisabled = disabled;
         return this;
     }

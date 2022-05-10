@@ -21,12 +21,12 @@ public class CreateTransaction extends Request {
         this.privateMoneyId = privateMoneyId;
     }
 
-    public CreateTransaction moneyAmount(int moneyAmount) {
+    public CreateTransaction moneyAmount(Integer moneyAmount) {
         this.moneyAmount = moneyAmount;
         return this;
     }
 
-    public CreateTransaction pointAmount(int pointAmount) {
+    public CreateTransaction pointAmount(Integer pointAmount) {
         this.pointAmount = pointAmount;
         return this;
     }

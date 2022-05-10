@@ -35,12 +35,12 @@ public class ListTransactions extends Request {
         return this;
     }
 
-    public ListTransactions page(int page) {
+    public ListTransactions page(Integer page) {
         this.page = page;
         return this;
     }
 
-    public ListTransactions perPage(int perPage) {
+    public ListTransactions perPage(Integer perPage) {
         this.perPage = perPage;
         return this;
     }
@@ -80,7 +80,7 @@ public class ListTransactions extends Request {
         return this;
     }
 
-    public ListTransactions setModified(boolean modified) {
+    public ListTransactions setModified(Boolean modified) {
         isModified = modified;
         return this;
     }

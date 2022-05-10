@@ -15,15 +15,15 @@ public class Bill extends Response {
         return id;
     }
 
-    public double getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public double getMaxAmount() {
+    public Double getMaxAmount() {
         return maxAmount;
     }
 
-    public double getMinAmount() {
+    public Double getMinAmount() {
         return minAmount;
     }
 
@@ -35,7 +35,7 @@ public class Bill extends Response {
         return account;
     }
 
-    public boolean isDisabled() {
+    public Boolean isDisabled() {
         return isDisabled;
     }
 

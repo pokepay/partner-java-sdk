@@ -21,7 +21,7 @@ public class AccountDetail extends Response {
         return name;
     }
 
-    public boolean isSuspended() {
+    public Boolean isSuspended() {
         return isSuspended;
     }
 
@@ -29,15 +29,15 @@ public class AccountDetail extends Response {
         return status;
     }
 
-    public double getBalance() {
+    public Double getBalance() {
         return balance;
     }
 
-    public double getMoneyBalance() {
+    public Double getMoneyBalance() {
         return moneyBalance;
     }
 
-    public double getPointBalance() {
+    public Double getPointBalance() {
         return pointBalance;
     }
 

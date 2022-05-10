@@ -25,6 +25,8 @@ public class CreateCampaign extends Request {
     private Integer[] applicableDaysOfWeek;
     private Object[] applicableTimeRanges;
     private String[] applicableShopIds;
+    private Integer minimumNumberForCombinationPurchase;
+    private String destPrivateMoneyId;
 
     public CreateCampaign(String name, String privateMoneyId, String startsAt, String endsAt, int priority, String event) {
         this.name = name;
@@ -55,12 +57,12 @@ public class CreateCampaign extends Request {
         return this;
     }
 
-    public CreateCampaign pointExpiresInDays(int pointExpiresInDays) {
+    public CreateCampaign pointExpiresInDays(Integer pointExpiresInDays) {
         this.pointExpiresInDays = pointExpiresInDays;
         return this;
     }
 
-    public CreateCampaign setExclusive(boolean exclusive) {
+    public CreateCampaign setExclusive(Boolean exclusive) {
         isExclusive = exclusive;
         return this;
     }
@@ -80,7 +82,7 @@ public class CreateCampaign extends Request {
         return this;
     }
 
-    public CreateCampaign applicableDaysOfWeek(int[] applicableDaysOfWeek) {
+    public CreateCampaign applicableDaysOfWeek(Integer[] applicableDaysOfWeek) {
         this.applicableDaysOfWeek = applicableDaysOfWeek;
         return this;
     }
@@ -92,6 +94,16 @@ public class CreateCampaign extends Request {
 
     public CreateCampaign applicableShopIds(String[] applicableShopIds) {
         this.applicableShopIds = applicableShopIds;
+        return this;
+    }
+
+    public CreateCampaign minimumNumberForCombinationPurchase(Integer minimumNumberForCombinationPurchase) {
+        this.minimumNumberForCombinationPurchase = minimumNumberForCombinationPurchase;
+        return this;
+    }
+
+    public CreateCampaign destPrivateMoneyId(String destPrivateMoneyId) {
+        this.destPrivateMoneyId = destPrivateMoneyId;
         return this;
     }
 
@@ -131,6 +143,8 @@ public class CreateCampaign extends Request {
         if (applicableDaysOfWeek != null) { object.add("applicable_days_of_week", context.serialize(this.applicableDaysOfWeek)); }
         if (applicableTimeRanges != null) { object.add("applicable_time_ranges", context.serialize(this.applicableTimeRanges)); }
         if (applicableShopIds != null) { object.add("applicable_shop_ids", context.serialize(this.applicableShopIds)); }
+        if (minimumNumberForCombinationPurchase != null) { object.add("minimum_number_for_combination_purchase", context.serialize(this.minimumNumberForCombinationPurchase)); }
+        if (destPrivateMoneyId != null) { object.add("dest_private_money_id", context.serialize(this.destPrivateMoneyId)); }
         return object;
     }
 }

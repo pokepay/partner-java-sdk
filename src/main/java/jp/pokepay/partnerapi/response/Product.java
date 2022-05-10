@@ -17,15 +17,15 @@ public class Product extends Response {
         return name;
     }
 
-    public double getUnitPrice() {
+    public Double getUnitPrice() {
         return unitPrice;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public boolean isDiscounted() {
+    public Boolean isDiscounted() {
         return isDiscounted;
     }
 

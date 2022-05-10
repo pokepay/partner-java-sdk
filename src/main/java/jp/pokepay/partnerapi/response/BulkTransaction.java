@@ -36,7 +36,7 @@ public class BulkTransaction extends Response {
         return error;
     }
 
-    public int getErrorLineno() {
+    public Integer getErrorLineno() {
         return errorLineno;
     }
 

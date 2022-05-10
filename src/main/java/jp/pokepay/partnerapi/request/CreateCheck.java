@@ -22,12 +22,12 @@ public class CreateCheck extends Request {
         this.accountId = accountId;
     }
 
-    public CreateCheck moneyAmount(double moneyAmount) {
+    public CreateCheck moneyAmount(Double moneyAmount) {
         this.moneyAmount = moneyAmount;
         return this;
     }
 
-    public CreateCheck pointAmount(double pointAmount) {
+    public CreateCheck pointAmount(Double pointAmount) {
         this.pointAmount = pointAmount;
         return this;
     }
@@ -37,12 +37,12 @@ public class CreateCheck extends Request {
         return this;
     }
 
-    public CreateCheck setOnetime(boolean onetime) {
+    public CreateCheck setOnetime(Boolean onetime) {
         isOnetime = onetime;
         return this;
     }
 
-    public CreateCheck usageLimit(int usageLimit) {
+    public CreateCheck usageLimit(Integer usageLimit) {
         this.usageLimit = usageLimit;
         return this;
     }
@@ -57,7 +57,7 @@ public class CreateCheck extends Request {
         return this;
     }
 
-    public CreateCheck pointExpiresInDays(int pointExpiresInDays) {
+    public CreateCheck pointExpiresInDays(Integer pointExpiresInDays) {
         this.pointExpiresInDays = pointExpiresInDays;
         return this;
     }

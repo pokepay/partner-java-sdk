@@ -20,15 +20,15 @@ public class Check extends Response {
         return id;
     }
 
-    public double getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public double getMoneyAmount() {
+    public Double getMoneyAmount() {
         return moneyAmount;
     }
 
-    public double getPointAmount() {
+    public Double getPointAmount() {
         return pointAmount;
     }
 
@@ -40,11 +40,11 @@ public class Check extends Response {
         return user;
     }
 
-    public boolean isOnetime() {
+    public Boolean isOnetime() {
         return isOnetime;
     }
 
-    public boolean isDisabled() {
+    public Boolean isDisabled() {
         return isDisabled;
     }
 
@@ -56,11 +56,11 @@ public class Check extends Response {
         return privateMoney;
     }
 
-    public int getUsageLimit() {
+    public Integer getUsageLimit() {
         return usageLimit;
     }
 
-    public double getUsageCount() {
+    public Double getUsageCount() {
         return usageCount;
     }
 

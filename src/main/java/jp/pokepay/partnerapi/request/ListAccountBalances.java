@@ -18,12 +18,12 @@ public class ListAccountBalances extends Request {
         this.accountId = accountId;
     }
 
-    public ListAccountBalances page(int page) {
+    public ListAccountBalances page(Integer page) {
         this.page = page;
         return this;
     }
 
-    public ListAccountBalances perPage(int perPage) {
+    public ListAccountBalances perPage(Integer perPage) {
         this.perPage = perPage;
         return this;
     }

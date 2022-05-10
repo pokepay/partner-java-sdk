@@ -12,9 +12,9 @@ public class CreateTopupTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransaction(
-            "2f89887a-34d3-4b8f-bb0f-85ef0554db01",
-            "f2c54019-0174-40b4-9bac-a84871d63d1f",
-            "73c373b9-1e47-4432-91d2-24c130729759"
+            "9a6210a0-6627-4953-9598-192c2b21cba7",
+            "821c184c-5638-4bcd-8b6a-77501b38fbe6",
+            "207ce132-3e2b-496e-84bf-d929cd8a824a"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -30,11 +30,11 @@ public class CreateTopupTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransaction(
-            "2f89887a-34d3-4b8f-bb0f-85ef0554db01",
-            "f2c54019-0174-40b4-9bac-a84871d63d1f",
-            "73c373b9-1e47-4432-91d2-24c130729759"
+            "9a6210a0-6627-4953-9598-192c2b21cba7",
+            "821c184c-5638-4bcd-8b6a-77501b38fbe6",
+            "207ce132-3e2b-496e-84bf-d929cd8a824a"
         )
-                .requestId("8a7139d0-935f-47f9-91fe-1c6d721468e5");
+                .requestId("e83ca629-8e15-47fe-ae5e-74632e2d6855");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -49,12 +49,12 @@ public class CreateTopupTransactionTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransaction(
-            "2f89887a-34d3-4b8f-bb0f-85ef0554db01",
-            "f2c54019-0174-40b4-9bac-a84871d63d1f",
-            "73c373b9-1e47-4432-91d2-24c130729759"
+            "9a6210a0-6627-4953-9598-192c2b21cba7",
+            "821c184c-5638-4bcd-8b6a-77501b38fbe6",
+            "207ce132-3e2b-496e-84bf-d929cd8a824a"
         )
                 .metadata("{\"key\":\"value\"}")
-                .requestId("12bebf52-1782-4c97-a62e-f1a86afa4fc6");
+                .requestId("0db22c62-4cdc-4c37-b0f2-504bec6fe4f1");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -69,13 +69,13 @@ public class CreateTopupTransactionTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransaction(
-            "2f89887a-34d3-4b8f-bb0f-85ef0554db01",
-            "f2c54019-0174-40b4-9bac-a84871d63d1f",
-            "73c373b9-1e47-4432-91d2-24c130729759"
+            "9a6210a0-6627-4953-9598-192c2b21cba7",
+            "821c184c-5638-4bcd-8b6a-77501b38fbe6",
+            "207ce132-3e2b-496e-84bf-d929cd8a824a"
         )
-                .description("OHsPVjb9UCbPcYx5YXiYOW0oa5SUOR88F7Ubd6EIlmfbIWBjq1h3aM3MFSn6Z9Xp0dYAIwKPnm62HiK775FUjJKUwWsCFULHC5xu9xwKzEEFrv0p5VC2XFSxIKMXYPxeKc")
+                .description("WXHoSFTkZLdy8B9WWqNrXVXI1wRTqwqzVsahBGWwps")
                 .metadata("{\"key\":\"value\"}")
-                .requestId("5a76cd36-21f6-48db-b3bc-5f0e70eb8275");
+                .requestId("3143db33-2080-43e9-81d2-82a3029c7e44");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -90,14 +90,14 @@ public class CreateTopupTransactionTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransaction(
-            "2f89887a-34d3-4b8f-bb0f-85ef0554db01",
-            "f2c54019-0174-40b4-9bac-a84871d63d1f",
-            "73c373b9-1e47-4432-91d2-24c130729759"
+            "9a6210a0-6627-4953-9598-192c2b21cba7",
+            "821c184c-5638-4bcd-8b6a-77501b38fbe6",
+            "207ce132-3e2b-496e-84bf-d929cd8a824a"
         )
-                .pointExpiresAt("2016-08-20T01:52:44.000000+09:00")
-                .description("aCEMZ2Ju8UbXHSU9E0Qlg3gebvAwjzG8UYapgA4DXNtjsg9PgQkXqYPn4dGIxCAVXu8wPFdMI0g8RX9GwTm1EaeDH0r")
+                .pointExpiresAt("2020-11-09T21:59:46.000000+09:00")
+                .description("RZkOOEQFC19Wtss23YjQBhHozeYJjV02y90GWowMI3ASCsApxBJptaJJRDQ6YTYkiFEIISprQ3cmpI6bh8YrVsWGSghDCw1Un7nnaTSFczRArCskatgTSAk3a8TcT02JvhzyAvEG")
                 .metadata("{\"key\":\"value\"}")
-                .requestId("0e0f61de-7097-4407-b5ee-00699e6fdaf3");
+                .requestId("e0138ed2-8af7-412f-9dc8-881b88e6f0bd");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -112,15 +112,15 @@ public class CreateTopupTransactionTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransaction(
-            "2f89887a-34d3-4b8f-bb0f-85ef0554db01",
-            "f2c54019-0174-40b4-9bac-a84871d63d1f",
-            "73c373b9-1e47-4432-91d2-24c130729759"
+            "9a6210a0-6627-4953-9598-192c2b21cba7",
+            "821c184c-5638-4bcd-8b6a-77501b38fbe6",
+            "207ce132-3e2b-496e-84bf-d929cd8a824a"
         )
-                .pointAmount(2990)
-                .pointExpiresAt("2021-02-17T16:15:35.000000+09:00")
-                .description("A8D7RtvLwRN8QmXijHIyMGxrgTxrmP2c2b7AqdqrRaU4tsNqOUthYSxSa5qYfKcdpEzIZoGgQ8JT7nM2XSRS8qz")
+                .pointAmount(7601)
+                .pointExpiresAt("2023-02-02T19:35:11.000000+09:00")
+                .description("qt79bzapcrIrLur4lrAgRY4qmYCDpX8Ny7Ex4zLyYmVuuwR")
                 .metadata("{\"key\":\"value\"}")
-                .requestId("5a2a4465-2305-4407-a68a-cbcac4f40703");
+                .requestId("ab07695a-9aea-49ee-abdd-0b66985c2180");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -135,16 +135,16 @@ public class CreateTopupTransactionTest {
     @Test
     void test6() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransaction(
-            "2f89887a-34d3-4b8f-bb0f-85ef0554db01",
-            "f2c54019-0174-40b4-9bac-a84871d63d1f",
-            "73c373b9-1e47-4432-91d2-24c130729759"
+            "9a6210a0-6627-4953-9598-192c2b21cba7",
+            "821c184c-5638-4bcd-8b6a-77501b38fbe6",
+            "207ce132-3e2b-496e-84bf-d929cd8a824a"
         )
-                .moneyAmount(9664)
-                .pointAmount(4875)
-                .pointExpiresAt("2021-11-24T21:22:35.000000+09:00")
-                .description("VaYua2WPHw1UTjf1quigD2l2JnK33Y2PKkmhgdj1RbwEdGAkTKdkwDZEgx5wET5OvQdZofRUOUAciXVcpzKCMcrOD6Emk2wkp2iXzqZDQWG9JIPYO9QhKjYAAaWngq9PQfQxKRvEszf3mWA")
+                .moneyAmount(3136)
+                .pointAmount(1875)
+                .pointExpiresAt("2016-02-03T21:10:17.000000+09:00")
+                .description("90ILh1FnEv5pCv1ztILSktq1cNxb1w0fAXCRcSE6z5QHSLVITcWyXkWwNeThLpKI1N6RIMY7t0u9TuR54ZsbCHGDImjW34z4jE8W9hh")
                 .metadata("{\"key\":\"value\"}")
-                .requestId("c3815bc5-b9c8-4e22-86f7-a4cee4d60e61");
+                .requestId("c0d969eb-4870-4a9f-9917-cad77135a423");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -159,17 +159,17 @@ public class CreateTopupTransactionTest {
     @Test
     void test7() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransaction(
-            "2f89887a-34d3-4b8f-bb0f-85ef0554db01",
-            "f2c54019-0174-40b4-9bac-a84871d63d1f",
-            "73c373b9-1e47-4432-91d2-24c130729759"
+            "9a6210a0-6627-4953-9598-192c2b21cba7",
+            "821c184c-5638-4bcd-8b6a-77501b38fbe6",
+            "207ce132-3e2b-496e-84bf-d929cd8a824a"
         )
-                .bearPointShopId("3fd26cdf-3d0a-43e6-b596-ab4682843886")
-                .moneyAmount(7781)
-                .pointAmount(7532)
-                .pointExpiresAt("2018-01-03T23:07:37.000000+09:00")
-                .description("7xCAyi0eUz4xXH5OLhVoB1lIuiOfxpiSD0ualUMr1aiXbRr0Yt6Ont0eqhymE")
+                .bearPointShopId("d0fbabc5-4b3c-417a-9a4c-56ee1759fc35")
+                .moneyAmount(757)
+                .pointAmount(1273)
+                .pointExpiresAt("2024-03-01T06:03:27.000000+09:00")
+                .description("fkqdGOYba42tK1ETZVrimXQx2toEzw7Z1gM6fgx4uEjyIUvTVKqmlOa23scUcryj4GBWTbDzAVeKXVTyNRuvNAUp6ljdawfubjQ03lDRu1dH")
                 .metadata("{\"key\":\"value\"}")
-                .requestId("59acf811-bf56-438a-bd5c-f6bfb24a7f34");
+                .requestId("63c8b779-e79a-47f0-ad3a-0bc500dbce04");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

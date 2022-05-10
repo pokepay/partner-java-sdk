@@ -24,7 +24,7 @@ public class CreateCashtray extends Request {
         return this;
     }
 
-    public CreateCashtray expiresIn(int expiresIn) {
+    public CreateCashtray expiresIn(Integer expiresIn) {
         this.expiresIn = expiresIn;
         return this;
     }
