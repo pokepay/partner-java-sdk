@@ -15,12 +15,12 @@ public class ListUserAccounts extends Request {
         this.userId = userId;
     }
 
-    public ListUserAccounts page(int page) {
+    public ListUserAccounts page(Integer page) {
         this.page = page;
         return this;
     }
 
-    public ListUserAccounts perPage(int perPage) {
+    public ListUserAccounts perPage(Integer perPage) {
         this.perPage = perPage;
         return this;
     }

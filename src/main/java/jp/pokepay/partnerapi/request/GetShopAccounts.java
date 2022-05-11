@@ -18,12 +18,12 @@ public class GetShopAccounts extends Request {
         this.privateMoneyId = privateMoneyId;
     }
 
-    public GetShopAccounts page(int page) {
+    public GetShopAccounts page(Integer page) {
         this.page = page;
         return this;
     }
 
-    public GetShopAccounts perPage(int perPage) {
+    public GetShopAccounts perPage(Integer perPage) {
         this.perPage = perPage;
         return this;
     }
@@ -38,7 +38,7 @@ public class GetShopAccounts extends Request {
         return this;
     }
 
-    public GetShopAccounts setSuspended(boolean suspended) {
+    public GetShopAccounts setSuspended(Boolean suspended) {
         isSuspended = suspended;
         return this;
     }

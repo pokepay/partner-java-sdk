@@ -8,23 +8,23 @@ public class OrganizationSummary extends Response {
     private Double pointAmount;
     private Integer pointCount;
 
-    public int getCount() {
+    public Integer getCount() {
         return count;
     }
 
-    public double getMoneyAmount() {
+    public Double getMoneyAmount() {
         return moneyAmount;
     }
 
-    public int getMoneyCount() {
+    public Integer getMoneyCount() {
         return moneyCount;
     }
 
-    public double getPointAmount() {
+    public Double getPointAmount() {
         return pointAmount;
     }
 
-    public int getPointCount() {
+    public Integer getPointCount() {
         return pointCount;
     }
 }

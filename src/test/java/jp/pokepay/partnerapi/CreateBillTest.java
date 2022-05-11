@@ -50,7 +50,7 @@ public class CreateBillTest {
             "99dcacd9-5096-4d5d-a76d-7d532be62f04",
             "86feaa53-d0d7-461e-aee4-902ed59606a4"
         )
-                .amount(1850)
+                .amount(1850.0)
                 .description("1kMYSkzLYWcqyBEPqq6jXo");
         try {
             PartnerAPITest.getClient().send(request);

@@ -5,7 +5,7 @@ public class AccountWithUser extends Response {
     private String id;
     private String name;
     private Boolean isSuspended;
-    private AccountStatus status;
+    private String status;
     private PrivateMoney privateMoney;
     private User user;
 
@@ -17,11 +17,11 @@ public class AccountWithUser extends Response {
         return name;
     }
 
-    public boolean isSuspended() {
+    public Boolean isSuspended() {
         return isSuspended;
     }
 
-    public AccountStatus getStatus() {
+    public String getStatus() {
         return status;
     }
 

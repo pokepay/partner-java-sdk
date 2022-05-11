@@ -14,6 +14,7 @@ public class Campaign extends Response {
     private String description;
     private User bearPointShop;
     private PrivateMoney privateMoney;
+    private PrivateMoney destPrivateMoney;
     private String pointCalculationRule;
     private String pointCalculationRuleObject;
     private String status;
@@ -30,7 +31,7 @@ public class Campaign extends Response {
         return applicableShops;
     }
 
-    public boolean isExclusive() {
+    public Boolean isExclusive() {
         return isExclusive;
     }
 
@@ -46,11 +47,11 @@ public class Campaign extends Response {
         return pointExpiresAt;
     }
 
-    public int getPointExpiresInDays() {
+    public Integer getPointExpiresInDays() {
         return pointExpiresInDays;
     }
 
-    public int getPriority() {
+    public Integer getPriority() {
         return priority;
     }
 
@@ -64,6 +65,10 @@ public class Campaign extends Response {
 
     public PrivateMoney getPrivateMoney() {
         return privateMoney;
+    }
+
+    public PrivateMoney getDestPrivateMoney() {
+        return destPrivateMoney;
     }
 
     public String getPointCalculationRule() {

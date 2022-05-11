@@ -29,12 +29,12 @@ public class CreateTopupTransaction extends Request {
         return this;
     }
 
-    public CreateTopupTransaction moneyAmount(int moneyAmount) {
+    public CreateTopupTransaction moneyAmount(Integer moneyAmount) {
         this.moneyAmount = moneyAmount;
         return this;
     }
 
-    public CreateTopupTransaction pointAmount(int pointAmount) {
+    public CreateTopupTransaction pointAmount(Integer pointAmount) {
         this.pointAmount = pointAmount;
         return this;
     }

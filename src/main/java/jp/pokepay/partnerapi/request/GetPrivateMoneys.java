@@ -19,12 +19,12 @@ public class GetPrivateMoneys extends Request {
         return this;
     }
 
-    public GetPrivateMoneys page(int page) {
+    public GetPrivateMoneys page(Integer page) {
         this.page = page;
         return this;
     }
 
-    public GetPrivateMoneys perPage(int perPage) {
+    public GetPrivateMoneys perPage(Integer perPage) {
         this.perPage = perPage;
         return this;
     }

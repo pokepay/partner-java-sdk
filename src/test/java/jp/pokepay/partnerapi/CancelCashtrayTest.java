@@ -12,7 +12,7 @@ public class CancelCashtrayTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CancelCashtray(
-            "0cbab7f1-4e98-46b1-bbdd-1e1f2a456e1c"
+            "2a855433-3473-4653-a889-edb521e8c732"
         );
         try {
             PartnerAPITest.getClient().send(request);

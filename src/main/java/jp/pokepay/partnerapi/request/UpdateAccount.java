@@ -16,7 +16,7 @@ public class UpdateAccount extends Request {
         this.accountId = accountId;
     }
 
-    public UpdateAccount setSuspended(boolean suspended) {
+    public UpdateAccount setSuspended(Boolean suspended) {
         isSuspended = suspended;
         return this;
     }
@@ -26,7 +26,7 @@ public class UpdateAccount extends Request {
         return this;
     }
 
-    public UpdateAccount canTransferTopup(boolean canTransferTopup) {
+    public UpdateAccount canTransferTopup(Boolean canTransferTopup) {
         this.canTransferTopup = canTransferTopup;
         return this;
     }

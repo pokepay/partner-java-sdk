@@ -23,7 +23,7 @@ public class Transaction extends Response {
         return type;
     }
 
-    public boolean isModified() {
+    public Boolean isModified() {
         return isModified;
     }
 
@@ -43,15 +43,15 @@ public class Transaction extends Response {
         return receiverAccount;
     }
 
-    public double getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public double getMoneyAmount() {
+    public Double getMoneyAmount() {
         return moneyAmount;
     }
 
-    public double getPointAmount() {
+    public Double getPointAmount() {
         return pointAmount;
     }
 

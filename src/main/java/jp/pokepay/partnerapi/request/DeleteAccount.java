@@ -14,7 +14,7 @@ public class DeleteAccount extends Request {
         this.accountId = accountId;
     }
 
-    public DeleteAccount cashback(boolean cashback) {
+    public DeleteAccount cashback(Boolean cashback) {
         this.cashback = cashback;
         return this;
     }

@@ -8,23 +8,23 @@ public class Pagination extends Response {
     private Boolean hasPrev;
     private Boolean hasNext;
 
-    public int getCurrent() {
+    public Integer getCurrent() {
         return current;
     }
 
-    public int getPerPage() {
+    public Integer getPerPage() {
         return perPage;
     }
 
-    public int getMaxPage() {
+    public Integer getMaxPage() {
         return maxPage;
     }
 
-    public boolean getHasPrev() {
+    public Boolean getHasPrev() {
         return hasPrev;
     }
 
-    public boolean getHasNext() {
+    public Boolean getHasNext() {
         return hasNext;
     }
 }

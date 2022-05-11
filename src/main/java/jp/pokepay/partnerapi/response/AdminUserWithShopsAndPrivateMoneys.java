@@ -27,7 +27,7 @@ public class AdminUserWithShopsAndPrivateMoneys extends Response {
         return name;
     }
 
-    public boolean isActive() {
+    public Boolean isActive() {
         return isActive;
     }
 

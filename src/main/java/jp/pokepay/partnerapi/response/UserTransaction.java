@@ -22,19 +22,19 @@ public class UserTransaction extends Response {
         return user;
     }
 
-    public double getBalance() {
+    public Double getBalance() {
         return balance;
     }
 
-    public double getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public double getMoneyAmount() {
+    public Double getMoneyAmount() {
         return moneyAmount;
     }
 
-    public double getPointAmount() {
+    public Double getPointAmount() {
         return pointAmount;
     }
 
@@ -54,7 +54,7 @@ public class UserTransaction extends Response {
         return type;
     }
 
-    public boolean isModified() {
+    public Boolean isModified() {
         return isModified;
     }
 }

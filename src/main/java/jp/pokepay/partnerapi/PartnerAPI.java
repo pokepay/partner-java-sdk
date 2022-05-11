@@ -24,9 +24,8 @@ public class PartnerAPI {
     public PartnerAPI(File configFile) throws ProcessingError, ConfigFileNotFoundException,
             P12FileNotFoundException, SSLInitializeError {
         Security.setProperty("crypto.policy", "unlimited");
-        config = Config.getConfig();
-        config.load(configFile);
-        httpClient = new HttpClient();
+        config = new Config(configFile);
+        httpClient = new HttpClient(config);
         crypto = new Crypto(config.clientSecret);
         gsonBuilder = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
         SerializerHelper.registerTypeAdapters(gsonBuilder);

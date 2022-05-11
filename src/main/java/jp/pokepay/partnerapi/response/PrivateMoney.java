@@ -28,7 +28,7 @@ public class PrivateMoney extends Response {
         return unit;
     }
 
-    public boolean isExclusive() {
+    public Boolean isExclusive() {
         return isExclusive;
     }
 
@@ -44,11 +44,11 @@ public class PrivateMoney extends Response {
         return organization;
     }
 
-    public double getMaxBalance() {
+    public Double getMaxBalance() {
         return maxBalance;
     }
 
-    public double getTransferLimit() {
+    public Double getTransferLimit() {
         return transferLimit;
     }
 
@@ -60,7 +60,7 @@ public class PrivateMoney extends Response {
         return expirationType;
     }
 
-    public boolean getEnableTopupByMember() {
+    public Boolean getEnableTopupByMember() {
         return enableTopupByMember;
     }
 

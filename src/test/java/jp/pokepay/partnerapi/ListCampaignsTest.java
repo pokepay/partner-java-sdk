@@ -12,7 +12,7 @@ public class ListCampaignsTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new ListCampaigns(
-            "b869d518-8dba-4fd2-bc31-a0e1d1cb3965"
+            "c9028f2a-d2bf-40e2-9301-9754e5d4a830"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class ListCampaignsTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListCampaigns(
-            "b869d518-8dba-4fd2-bc31-a0e1d1cb3965"
+            "c9028f2a-d2bf-40e2-9301-9754e5d4a830"
         )
-                .perPage(3773);
+                .perPage(6273);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,29 @@ public class ListCampaignsTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListCampaigns(
-            "b869d518-8dba-4fd2-bc31-a0e1d1cb3965"
+            "c9028f2a-d2bf-40e2-9301-9754e5d4a830"
         )
-                .page(6079)
-                .perPage(1327);
+                .page(6206)
+                .perPage(3422);
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test3() throws ConnectionError, ProcessingError {
+        Request request = new ListCampaigns(
+            "c9028f2a-d2bf-40e2-9301-9754e5d4a830"
+        )
+                .setOngoing(true)
+                .page(5303)
+                .perPage(5491);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

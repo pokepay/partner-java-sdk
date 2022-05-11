@@ -10,7 +10,7 @@ public class PaginatedTransfers extends Response {
         return rows;
     }
 
-    public int getCount() {
+    public Integer getCount() {
         return count;
     }
 

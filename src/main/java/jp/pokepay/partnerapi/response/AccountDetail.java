@@ -5,7 +5,7 @@ public class AccountDetail extends Response {
     private String id;
     private String name;
     private Boolean isSuspended;
-    private AccountStatus status;
+    private String status;
     private Double balance;
     private Double moneyBalance;
     private Double pointBalance;
@@ -21,23 +21,23 @@ public class AccountDetail extends Response {
         return name;
     }
 
-    public boolean isSuspended() {
+    public Boolean isSuspended() {
         return isSuspended;
     }
 
-    public AccountStatus getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public double getBalance() {
+    public Double getBalance() {
         return balance;
     }
 
-    public double getMoneyBalance() {
+    public Double getMoneyBalance() {
         return moneyBalance;
     }
 
-    public double getPointBalance() {
+    public Double getPointBalance() {
         return pointBalance;
     }
 

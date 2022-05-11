@@ -16,7 +16,7 @@ public class UpdateBill extends Request {
         this.billId = billId;
     }
 
-    public UpdateBill amount(double amount) {
+    public UpdateBill amount(Double amount) {
         this.amount = amount;
         return this;
     }
@@ -26,7 +26,7 @@ public class UpdateBill extends Request {
         return this;
     }
 
-    public UpdateBill setDisabled(boolean disabled) {
+    public UpdateBill setDisabled(Boolean disabled) {
         isDisabled = disabled;
         return this;
     }

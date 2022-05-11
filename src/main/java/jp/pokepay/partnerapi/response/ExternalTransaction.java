@@ -16,7 +16,7 @@ public class ExternalTransaction extends Response {
         return id;
     }
 
-    public boolean isModified() {
+    public Boolean isModified() {
         return isModified;
     }
 
@@ -36,7 +36,7 @@ public class ExternalTransaction extends Response {
         return receiverAccount;
     }
 
-    public double getAmount() {
+    public Double getAmount() {
         return amount;
     }
 

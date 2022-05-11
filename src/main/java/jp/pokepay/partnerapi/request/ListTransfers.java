@@ -35,12 +35,12 @@ public class ListTransfers extends Request {
         return this;
     }
 
-    public ListTransfers page(int page) {
+    public ListTransfers page(Integer page) {
         this.page = page;
         return this;
     }
 
-    public ListTransfers perPage(int perPage) {
+    public ListTransfers perPage(Integer perPage) {
         this.perPage = perPage;
         return this;
     }
@@ -75,7 +75,7 @@ public class ListTransfers extends Request {
         return this;
     }
 
-    public ListTransfers setModified(boolean modified) {
+    public ListTransfers setModified(Boolean modified) {
         isModified = modified;
         return this;
     }

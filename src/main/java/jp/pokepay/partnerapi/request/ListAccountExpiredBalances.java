@@ -18,12 +18,12 @@ public class ListAccountExpiredBalances extends Request {
         this.accountId = accountId;
     }
 
-    public ListAccountExpiredBalances page(int page) {
+    public ListAccountExpiredBalances page(Integer page) {
         this.page = page;
         return this;
     }
 
-    public ListAccountExpiredBalances perPage(int perPage) {
+    public ListAccountExpiredBalances perPage(Integer perPage) {
         this.perPage = perPage;
         return this;
     }

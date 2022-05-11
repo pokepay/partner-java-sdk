@@ -36,7 +36,7 @@ public class ListCustomerTransactions extends Request {
         return this;
     }
 
-    public ListCustomerTransactions setModified(boolean modified) {
+    public ListCustomerTransactions setModified(Boolean modified) {
         isModified = modified;
         return this;
     }
@@ -51,12 +51,12 @@ public class ListCustomerTransactions extends Request {
         return this;
     }
 
-    public ListCustomerTransactions page(int page) {
+    public ListCustomerTransactions page(Integer page) {
         this.page = page;
         return this;
     }
 
-    public ListCustomerTransactions perPage(int perPage) {
+    public ListCustomerTransactions perPage(Integer perPage) {
         this.perPage = perPage;
         return this;
     }
