@@ -3,6 +3,7 @@ package jp.pokepay.partnerapi.response;
 
 public class Check extends Response {
     private String id;
+    private String createdAt;
     private Double amount;
     private Double moneyAmount;
     private Double pointAmount;
@@ -14,10 +15,16 @@ public class Check extends Response {
     private PrivateMoney privateMoney;
     private Integer usageLimit;
     private Double usageCount;
+    private String pointExpiresAt;
+    private Integer pointExpiresInDays;
     private String token;
 
     public String getId() {
         return id;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
     }
 
     public Double getAmount() {
@@ -62,6 +69,14 @@ public class Check extends Response {
 
     public Double getUsageCount() {
         return usageCount;
+    }
+
+    public String getPointExpiresAt() {
+        return pointExpiresAt;
+    }
+
+    public Integer getPointExpiresInDays() {
+        return pointExpiresInDays;
     }
 
     public String getToken() {

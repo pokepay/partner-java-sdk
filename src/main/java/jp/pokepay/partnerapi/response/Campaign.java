@@ -15,6 +15,7 @@ public class Campaign extends Response {
     private User bearPointShop;
     private PrivateMoney privateMoney;
     private PrivateMoney destPrivateMoney;
+    private Integer maxTotalPointAmount;
     private String pointCalculationRule;
     private String pointCalculationRuleObject;
     private String status;
@@ -69,6 +70,10 @@ public class Campaign extends Response {
 
     public PrivateMoney getDestPrivateMoney() {
         return destPrivateMoney;
+    }
+
+    public Integer getMaxTotalPointAmount() {
+        return maxTotalPointAmount;
     }
 
     public String getPointCalculationRule() {

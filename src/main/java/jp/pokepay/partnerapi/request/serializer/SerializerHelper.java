@@ -14,6 +14,7 @@ import jp.pokepay.partnerapi.request.DeleteAccount;
 import jp.pokepay.partnerapi.request.ListAccountBalances;
 import jp.pokepay.partnerapi.request.ListAccountExpiredBalances;
 import jp.pokepay.partnerapi.request.UpdateCustomerAccount;
+import jp.pokepay.partnerapi.request.GetAccountTransferSummary;
 import jp.pokepay.partnerapi.request.GetCustomerAccounts;
 import jp.pokepay.partnerapi.request.CreateCustomerAccount;
 import jp.pokepay.partnerapi.request.GetShopAccounts;
@@ -34,9 +35,11 @@ import jp.pokepay.partnerapi.request.CreateExchangeTransaction;
 import jp.pokepay.partnerapi.request.BulkCreateTransaction;
 import jp.pokepay.partnerapi.request.GetTransaction;
 import jp.pokepay.partnerapi.request.RefundTransaction;
+import jp.pokepay.partnerapi.request.GetTransactionByRequestId;
 import jp.pokepay.partnerapi.request.CreateExternalTransaction;
 import jp.pokepay.partnerapi.request.RefundExternalTransaction;
 import jp.pokepay.partnerapi.request.ListTransfers;
+import jp.pokepay.partnerapi.request.ListTransfersV2;
 import jp.pokepay.partnerapi.request.CreateOrganization;
 import jp.pokepay.partnerapi.request.ListShops;
 import jp.pokepay.partnerapi.request.CreateShop;
@@ -48,6 +51,7 @@ import jp.pokepay.partnerapi.request.GetPrivateMoneyOrganizationSummaries;
 import jp.pokepay.partnerapi.request.GetPrivateMoneySummary;
 import jp.pokepay.partnerapi.request.ListCustomerTransactions;
 import jp.pokepay.partnerapi.request.GetBulkTransaction;
+import jp.pokepay.partnerapi.request.ListBulkTransactionJobs;
 import jp.pokepay.partnerapi.request.CreateCashtray;
 import jp.pokepay.partnerapi.request.GetCashtray;
 import jp.pokepay.partnerapi.request.CancelCashtray;
@@ -56,6 +60,10 @@ import jp.pokepay.partnerapi.request.CreateCampaign;
 import jp.pokepay.partnerapi.request.ListCampaigns;
 import jp.pokepay.partnerapi.request.GetCampaign;
 import jp.pokepay.partnerapi.request.UpdateCampaign;
+import jp.pokepay.partnerapi.request.RequestUserStats;
+import jp.pokepay.partnerapi.request.CreateWebhook;
+import jp.pokepay.partnerapi.request.ListWebhooks;
+import jp.pokepay.partnerapi.request.UpdateWebhook;
 
 public class SerializerHelper {
     public static void registerTypeAdapters(GsonBuilder gsonBuilder) {
@@ -70,6 +78,7 @@ public class SerializerHelper {
         gsonBuilder.registerTypeAdapter(ListAccountBalances.class, new ListAccountBalancesSerializer());
         gsonBuilder.registerTypeAdapter(ListAccountExpiredBalances.class, new ListAccountExpiredBalancesSerializer());
         gsonBuilder.registerTypeAdapter(UpdateCustomerAccount.class, new UpdateCustomerAccountSerializer());
+        gsonBuilder.registerTypeAdapter(GetAccountTransferSummary.class, new GetAccountTransferSummarySerializer());
         gsonBuilder.registerTypeAdapter(GetCustomerAccounts.class, new GetCustomerAccountsSerializer());
         gsonBuilder.registerTypeAdapter(CreateCustomerAccount.class, new CreateCustomerAccountSerializer());
         gsonBuilder.registerTypeAdapter(GetShopAccounts.class, new GetShopAccountsSerializer());
@@ -90,9 +99,11 @@ public class SerializerHelper {
         gsonBuilder.registerTypeAdapter(BulkCreateTransaction.class, new BulkCreateTransactionSerializer());
         gsonBuilder.registerTypeAdapter(GetTransaction.class, new GetTransactionSerializer());
         gsonBuilder.registerTypeAdapter(RefundTransaction.class, new RefundTransactionSerializer());
+        gsonBuilder.registerTypeAdapter(GetTransactionByRequestId.class, new GetTransactionByRequestIdSerializer());
         gsonBuilder.registerTypeAdapter(CreateExternalTransaction.class, new CreateExternalTransactionSerializer());
         gsonBuilder.registerTypeAdapter(RefundExternalTransaction.class, new RefundExternalTransactionSerializer());
         gsonBuilder.registerTypeAdapter(ListTransfers.class, new ListTransfersSerializer());
+        gsonBuilder.registerTypeAdapter(ListTransfersV2.class, new ListTransfersV2Serializer());
         gsonBuilder.registerTypeAdapter(CreateOrganization.class, new CreateOrganizationSerializer());
         gsonBuilder.registerTypeAdapter(ListShops.class, new ListShopsSerializer());
         gsonBuilder.registerTypeAdapter(CreateShop.class, new CreateShopSerializer());
@@ -104,6 +115,7 @@ public class SerializerHelper {
         gsonBuilder.registerTypeAdapter(GetPrivateMoneySummary.class, new GetPrivateMoneySummarySerializer());
         gsonBuilder.registerTypeAdapter(ListCustomerTransactions.class, new ListCustomerTransactionsSerializer());
         gsonBuilder.registerTypeAdapter(GetBulkTransaction.class, new GetBulkTransactionSerializer());
+        gsonBuilder.registerTypeAdapter(ListBulkTransactionJobs.class, new ListBulkTransactionJobsSerializer());
         gsonBuilder.registerTypeAdapter(CreateCashtray.class, new CreateCashtraySerializer());
         gsonBuilder.registerTypeAdapter(GetCashtray.class, new GetCashtraySerializer());
         gsonBuilder.registerTypeAdapter(CancelCashtray.class, new CancelCashtraySerializer());
@@ -112,5 +124,9 @@ public class SerializerHelper {
         gsonBuilder.registerTypeAdapter(ListCampaigns.class, new ListCampaignsSerializer());
         gsonBuilder.registerTypeAdapter(GetCampaign.class, new GetCampaignSerializer());
         gsonBuilder.registerTypeAdapter(UpdateCampaign.class, new UpdateCampaignSerializer());
+        gsonBuilder.registerTypeAdapter(RequestUserStats.class, new RequestUserStatsSerializer());
+        gsonBuilder.registerTypeAdapter(CreateWebhook.class, new CreateWebhookSerializer());
+        gsonBuilder.registerTypeAdapter(ListWebhooks.class, new ListWebhooksSerializer());
+        gsonBuilder.registerTypeAdapter(UpdateWebhook.class, new UpdateWebhookSerializer());
     }
 }

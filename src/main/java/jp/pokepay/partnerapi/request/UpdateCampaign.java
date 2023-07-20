@@ -24,6 +24,10 @@ public class UpdateCampaign extends Request {
     private Object[] applicableTimeRanges;
     private String[] applicableShopIds;
     private Integer minimumNumberForCombinationPurchase;
+    private Boolean existInEachProductGroups;
+    private Integer maxPointAmount;
+    private Integer maxTotalPointAmount;
+    private Object applicableAccountMetadata;
     private String campaignId;
 
     public UpdateCampaign(String campaignId) {
@@ -115,6 +119,26 @@ public class UpdateCampaign extends Request {
         return this;
     }
 
+    public UpdateCampaign existInEachProductGroups(Boolean existInEachProductGroups) {
+        this.existInEachProductGroups = existInEachProductGroups;
+        return this;
+    }
+
+    public UpdateCampaign maxPointAmount(Integer maxPointAmount) {
+        this.maxPointAmount = maxPointAmount;
+        return this;
+    }
+
+    public UpdateCampaign maxTotalPointAmount(Integer maxTotalPointAmount) {
+        this.maxTotalPointAmount = maxTotalPointAmount;
+        return this;
+    }
+
+    public UpdateCampaign applicableAccountMetadata(Object applicableAccountMetadata) {
+        this.applicableAccountMetadata = applicableAccountMetadata;
+        return this;
+    }
+
     @Override
     public Method method() {
         return Method.PATCH;
@@ -150,6 +174,10 @@ public class UpdateCampaign extends Request {
         if (applicableTimeRanges != null) { object.add("applicable_time_ranges", context.serialize(this.applicableTimeRanges)); }
         if (applicableShopIds != null) { object.add("applicable_shop_ids", context.serialize(this.applicableShopIds)); }
         if (minimumNumberForCombinationPurchase != null) { object.add("minimum_number_for_combination_purchase", context.serialize(this.minimumNumberForCombinationPurchase)); }
+        if (existInEachProductGroups != null) { object.add("exist_in_each_product_groups", context.serialize(this.existInEachProductGroups)); }
+        if (maxPointAmount != null) { object.add("max_point_amount", context.serialize(this.maxPointAmount)); }
+        if (maxTotalPointAmount != null) { object.add("max_total_point_amount", context.serialize(this.maxTotalPointAmount)); }
+        if (applicableAccountMetadata != null) { object.add("applicable_account_metadata", context.serialize(this.applicableAccountMetadata)); }
         return object;
     }
 }

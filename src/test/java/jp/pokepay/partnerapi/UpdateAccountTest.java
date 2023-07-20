@@ -12,7 +12,7 @@ public class UpdateAccountTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateAccount(
-            "553fd4da-7231-4218-aeb3-2d714f66622b"
+            "a7e130fd-7462-4194-88bb-00241cfa2fa0"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class UpdateAccountTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateAccount(
-            "553fd4da-7231-4218-aeb3-2d714f66622b"
+            "a7e130fd-7462-4194-88bb-00241cfa2fa0"
         )
-                .canTransferTopup(false);
+                .canTransferTopup(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class UpdateAccountTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateAccount(
-            "553fd4da-7231-4218-aeb3-2d714f66622b"
+            "a7e130fd-7462-4194-88bb-00241cfa2fa0"
         )
-                .status("pre-closed")
-                .canTransferTopup(true);
+                .status("suspended")
+                .canTransferTopup(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,11 +63,11 @@ public class UpdateAccountTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateAccount(
-            "553fd4da-7231-4218-aeb3-2d714f66622b"
+            "a7e130fd-7462-4194-88bb-00241cfa2fa0"
         )
                 .setSuspended(false)
-                .status("active")
-                .canTransferTopup(false);
+                .status("suspended")
+                .canTransferTopup(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
