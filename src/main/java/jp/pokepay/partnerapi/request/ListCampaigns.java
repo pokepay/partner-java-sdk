@@ -9,6 +9,8 @@ import java.lang.reflect.Type;
 public class ListCampaigns extends Request {
     private String privateMoneyId;
     private Boolean isOngoing;
+    private String availableFrom;
+    private String availableTo;
     private Integer page;
     private Integer perPage;
 
@@ -18,6 +20,16 @@ public class ListCampaigns extends Request {
 
     public ListCampaigns setOngoing(Boolean ongoing) {
         isOngoing = ongoing;
+        return this;
+    }
+
+    public ListCampaigns availableFrom(String availableFrom) {
+        this.availableFrom = availableFrom;
+        return this;
+    }
+
+    public ListCampaigns availableTo(String availableTo) {
+        this.availableTo = availableTo;
         return this;
     }
 
@@ -51,6 +63,8 @@ public class ListCampaigns extends Request {
         JsonObject object = new JsonObject();
         if (privateMoneyId != null) { object.add("private_money_id", context.serialize(this.privateMoneyId)); }
         if (isOngoing != null) { object.add("is_ongoing", context.serialize(this.isOngoing)); }
+        if (availableFrom != null) { object.add("available_from", context.serialize(this.availableFrom)); }
+        if (availableTo != null) { object.add("available_to", context.serialize(this.availableTo)); }
         if (page != null) { object.add("page", context.serialize(this.page)); }
         if (perPage != null) { object.add("per_page", context.serialize(this.perPage)); }
         return object;

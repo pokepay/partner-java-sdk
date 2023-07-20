@@ -12,7 +12,7 @@ public class ListCampaignsTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new ListCampaigns(
-            "c9028f2a-d2bf-40e2-9301-9754e5d4a830"
+            "460137b5-447c-40d6-9b17-3b6cbfff6b24"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class ListCampaignsTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListCampaigns(
-            "c9028f2a-d2bf-40e2-9301-9754e5d4a830"
+            "460137b5-447c-40d6-9b17-3b6cbfff6b24"
         )
-                .perPage(6273);
+                .perPage(31);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class ListCampaignsTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListCampaigns(
-            "c9028f2a-d2bf-40e2-9301-9754e5d4a830"
+            "460137b5-447c-40d6-9b17-3b6cbfff6b24"
         )
-                .page(6206)
-                .perPage(3422);
+                .page(1685)
+                .perPage(17);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,11 +63,52 @@ public class ListCampaignsTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new ListCampaigns(
-            "c9028f2a-d2bf-40e2-9301-9754e5d4a830"
+            "460137b5-447c-40d6-9b17-3b6cbfff6b24"
+        )
+                .availableTo("2024-08-21T22:23:11.000000+09:00")
+                .page(1057)
+                .perPage(48);
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test4() throws ConnectionError, ProcessingError {
+        Request request = new ListCampaigns(
+            "460137b5-447c-40d6-9b17-3b6cbfff6b24"
+        )
+                .availableFrom("2019-07-26T06:26:39.000000+09:00")
+                .availableTo("2023-06-17T19:53:50.000000+09:00")
+                .page(551)
+                .perPage(19);
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test5() throws ConnectionError, ProcessingError {
+        Request request = new ListCampaigns(
+            "460137b5-447c-40d6-9b17-3b6cbfff6b24"
         )
                 .setOngoing(true)
-                .page(5303)
-                .perPage(5491);
+                .availableFrom("2020-01-21T01:36:02.000000+09:00")
+                .availableTo("2021-09-30T22:33:38.000000+09:00")
+                .page(5033)
+                .perPage(17);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

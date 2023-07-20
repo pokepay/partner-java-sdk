@@ -8,6 +8,7 @@ import java.lang.reflect.Type;
 
 public class RefundTransaction extends Request {
     private String description;
+    private String returningPointExpiresAt;
     private String transactionId;
 
     public RefundTransaction(String transactionId) {
@@ -16,6 +17,11 @@ public class RefundTransaction extends Request {
 
     public RefundTransaction description(String description) {
         this.description = description;
+        return this;
+    }
+
+    public RefundTransaction returningPointExpiresAt(String returningPointExpiresAt) {
+        this.returningPointExpiresAt = returningPointExpiresAt;
         return this;
     }
 
@@ -38,6 +44,7 @@ public class RefundTransaction extends Request {
     public JsonObject getRequestBodyJsonObject(JsonSerializationContext context) {
         JsonObject object = new JsonObject();
         if (description != null) { object.add("description", context.serialize(this.description)); }
+        if (returningPointExpiresAt != null) { object.add("returning_point_expires_at", context.serialize(this.returningPointExpiresAt)); }
         return object;
     }
 }

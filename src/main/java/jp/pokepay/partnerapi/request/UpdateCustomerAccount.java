@@ -10,6 +10,7 @@ public class UpdateCustomerAccount extends Request {
     private String status;
     private String accountName;
     private String externalId;
+    private String metadata;
     private String accountId;
 
     public UpdateCustomerAccount(String accountId) {
@@ -28,6 +29,11 @@ public class UpdateCustomerAccount extends Request {
 
     public UpdateCustomerAccount externalId(String externalId) {
         this.externalId = externalId;
+        return this;
+    }
+
+    public UpdateCustomerAccount metadata(String metadata) {
+        this.metadata = metadata;
         return this;
     }
 
@@ -52,6 +58,7 @@ public class UpdateCustomerAccount extends Request {
         if (status != null) { object.add("status", context.serialize(this.status)); }
         if (accountName != null) { object.add("account_name", context.serialize(this.accountName)); }
         if (externalId != null) { object.add("external_id", context.serialize(this.externalId)); }
+        if (metadata != null) { object.add("metadata", context.serialize(this.metadata)); }
         return object;
     }
 }

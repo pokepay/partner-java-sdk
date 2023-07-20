@@ -12,7 +12,7 @@ public class UpdateCashtrayTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateCashtray(
-            "ddef8a3f-e564-466a-abc4-9978ecd612b2"
+            "8ae5fe62-4b5a-4b67-a273-be88997f1eff"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class UpdateCashtrayTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateCashtray(
-            "ddef8a3f-e564-466a-abc4-9978ecd612b2"
+            "8ae5fe62-4b5a-4b67-a273-be88997f1eff"
         )
-                .expiresIn(3782);
+                .expiresIn(8871);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class UpdateCashtrayTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateCashtray(
-            "ddef8a3f-e564-466a-abc4-9978ecd612b2"
+            "8ae5fe62-4b5a-4b67-a273-be88997f1eff"
         )
-                .description("8q2Tl06IVYw4zb7KKLj26g9D4jd9Fi73fT2ekfbMypSoZArmvOOmVqy7LHITpCScM5po6zQrUB5yHtoGfycJYa2GIKQCGBFwcqnjKtXS5ctb0sUDamQiJFavfIlsQjs1Uxv98uoxa9cfqdBZBSSyuPsLgc14jRH1daAJWkWpeG")
-                .expiresIn(3543);
+                .description("BV3pXiPPiW2qUm4FbQucsmz0GYwY85K8kF9CcO2FCZ7wQECuEigH9T54l9EXWThBhNBtq0Hlr5VUDcRjPWhcWE5Ed0Dp6qm5enNIYlp4WuULLQB3hzZG357PPnWlMQlOO65IFrI1BJMiWPv5")
+                .expiresIn(2452);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,11 +63,11 @@ public class UpdateCashtrayTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateCashtray(
-            "ddef8a3f-e564-466a-abc4-9978ecd612b2"
+            "8ae5fe62-4b5a-4b67-a273-be88997f1eff"
         )
-                .amount(1685.0)
-                .description("7BTtK3VwbUSgXIGfDPEPwHED0KtmDzxLUbUeg7w8cIU7UKhxLe1FMHoh3041czvU7tiTGNYlDyRk3aGMps1HN2Oi8GzWre6yIHCge3KvTMWtvAOdqc6t46b4EgFIpDVk2sqQhlAUNF0Kr6ekdB7WSGlsT24mzzvf0uixfzgMS7DAxR")
-                .expiresIn(9371);
+                .amount(5014.0)
+                .description("bUBWta68v79KNgsodWT1kP64chZLEzZTeXAsCUOeSILicKJugPMhkbNW44x5lpizelx6Zw3ANkreMSnigb4Yb3t6kmvyhjD7Y1lgzqIh5MLpUpAeuRnJqWXlTPA3BNnPJo0CH10GQb96Jzcef7f3He1f0QYEkgJnc3iiJ3NDVFkNizSfk2HEbXxayxzM2cghdc")
+                .expiresIn(9011);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

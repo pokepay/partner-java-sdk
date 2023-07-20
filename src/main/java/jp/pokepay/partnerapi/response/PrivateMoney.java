@@ -11,6 +11,7 @@ public class PrivateMoney extends Response {
     private Organization organization;
     private Double maxBalance;
     private Double transferLimit;
+    private Double moneyTopupTransferLimit;
     private String type;
     private String expirationType;
     private Boolean enableTopupByMember;
@@ -50,6 +51,10 @@ public class PrivateMoney extends Response {
 
     public Double getTransferLimit() {
         return transferLimit;
+    }
+
+    public Double getMoneyTopupTransferLimit() {
+        return moneyTopupTransferLimit;
     }
 
     public String getType() {

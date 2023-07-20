@@ -12,7 +12,7 @@ public class UpdateCustomerAccountTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "f39e0dc7-ebbf-4161-a34e-e312bce444b9"
+            "ce348e12-e7ee-4579-a9c8-94dd3d6c2f3d"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class UpdateCustomerAccountTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "f39e0dc7-ebbf-4161-a34e-e312bce444b9"
+            "ce348e12-e7ee-4579-a9c8-94dd3d6c2f3d"
         )
-                .externalId("eZjSIQORsTn19Lt83IRfp6apsZzw");
+                .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class UpdateCustomerAccountTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "f39e0dc7-ebbf-4161-a34e-e312bce444b9"
+            "ce348e12-e7ee-4579-a9c8-94dd3d6c2f3d"
         )
-                .accountName("Ugb2qqrLtRpMZnFJMuPuuYDxHZdnikAchiJbVP3ZTnJxIJTqpbj9hQa29LtqbzIUCtrgI5GH6")
-                .externalId("i2f3OojTDEk0fitYgK");
+                .externalId("1n3qwk3r3QhfSXAhy6Q6NsE0G4E")
+                .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,11 +63,31 @@ public class UpdateCustomerAccountTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "f39e0dc7-ebbf-4161-a34e-e312bce444b9"
+            "ce348e12-e7ee-4579-a9c8-94dd3d6c2f3d"
         )
-                .status("suspended")
-                .accountName("zfXu0N7ZPQ6Ey6Tu3B")
-                .externalId("U56A0DovC2AWlgsj8AO1bqHH9NHpqZwH1tkpyND");
+                .accountName("Hn0hBw4No1YXyGaN9eZjSIQORsTn19Lt83IRfp6apsZzwHUgb2qqrLtRpMZnFJMuPuuYDxHZdnikAchiJbVP3")
+                .externalId("TnJxIJTqpbj9hQa29LtqbzIUCtr")
+                .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test4() throws ConnectionError, ProcessingError {
+        Request request = new UpdateCustomerAccount(
+            "ce348e12-e7ee-4579-a9c8-94dd3d6c2f3d"
+        )
+                .status("pre-closed")
+                .accountName("I5GH6wQi2f3OojTDEk0fitYgKzfXu0N7ZPQ6Ey6Tu3BU56A0DovC2AWlgsj8AO1bqHH9NHpqZwH1tkpyNDcuWxfr4xKRRC5UPfddKJfLPJmxAhDpkltxfpGBgKzLBWMCYifXDXPCbHnT3R8fCd8115VzfSNwUPij0JCeKaErwIngTct5VctC8ahSG576Yk267")
+                .externalId("hNuqsd2aOEu5ugI0fcKmGRUw7sMhCFW8ODbHk")
+                .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

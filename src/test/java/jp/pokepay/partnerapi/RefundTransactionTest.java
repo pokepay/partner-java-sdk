@@ -12,7 +12,7 @@ public class RefundTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new RefundTransaction(
-            "2183bc38-a159-45d2-bd3a-f6728425db97"
+            "6e5b6381-da65-4c9a-aeb9-9e1e7d7be125"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,27 @@ public class RefundTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new RefundTransaction(
-            "2183bc38-a159-45d2-bd3a-f6728425db97"
+            "6e5b6381-da65-4c9a-aeb9-9e1e7d7be125"
         )
-                .description("eNoLAWMJdywYSICtYcbHl2ktF16gpa54attROZcBbejZS9wdnnNKINI7vj8qEDPsdJ8JkL6K4fbUtzmymsdzvhUXmrc210VozYCz4wR9Gfv1ooHMcqzJF0zVNZ8zHF5mnetJol0g7uhhZVwBBSB9NQuG198o4c");
+                .returningPointExpiresAt("2019-04-27T05:22:58.000000+09:00");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test2() throws ConnectionError, ProcessingError {
+        Request request = new RefundTransaction(
+            "6e5b6381-da65-4c9a-aeb9-9e1e7d7be125"
+        )
+                .description("Eh9JKwUlzsxb9tQKSZdMATJHlP3s2aiyvcn732KUYpvpwWJTv2DUcmsWBTf3SfgLVNlOhNoRUioebBno3HZhnyNZ5Q77U04aLs4hmy4C28WnCRfz2leovb1R7O6QOgboW2zpcaLxa2QZma6")
+                .returningPointExpiresAt("2022-09-19T05:48:59.000000+09:00");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

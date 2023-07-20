@@ -23,8 +23,12 @@ public class ListTransactionsV2 extends Request {
     private String prevPageCursorId;
     private Integer perPage;
 
-    public ListTransactionsV2(String privateMoneyId) {
+    public ListTransactionsV2() {
+    }
+
+    public ListTransactionsV2 privateMoneyId(String privateMoneyId) {
         this.privateMoneyId = privateMoneyId;
+        return this;
     }
 
     public ListTransactionsV2 organizationCode(String organizationCode) {

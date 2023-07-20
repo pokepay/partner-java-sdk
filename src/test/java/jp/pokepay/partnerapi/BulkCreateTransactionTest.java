@@ -12,9 +12,9 @@ public class BulkCreateTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new BulkCreateTransaction(
-            "b5B1K9ZLJjlQzrcG4cFx990D5go4dBL",
-            "UCSZV",
-            "d4cTqnNfSRiXLw6IXxof4N3bX72yEerLNEKM"
+            "eu5ClBnNsqGtwvAjO8SQrjpTlUKU7i",
+            "6vD3BTnNc",
+            "aIv4Cy2qiGNeSDJueWNAF2iLhkB08mWoSEw4"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -30,11 +30,31 @@ public class BulkCreateTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new BulkCreateTransaction(
-            "b5B1K9ZLJjlQzrcG4cFx990D5go4dBL",
-            "UCSZV",
-            "d4cTqnNfSRiXLw6IXxof4N3bX72yEerLNEKM"
+            "eu5ClBnNsqGtwvAjO8SQrjpTlUKU7i",
+            "6vD3BTnNc",
+            "aIv4Cy2qiGNeSDJueWNAF2iLhkB08mWoSEw4"
         )
-                .description("sRf9vriYiP8HndtLKgFWIeB413C8zcpa0a0ipuLt3IQKQQHb6fikVg8U3XBigR3jya01cL7edhmrVi5NIsblUeDqui");
+                .privateMoneyId("4b5338d9-5466-4c8f-ae13-95fa00658d2b");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test2() throws ConnectionError, ProcessingError {
+        Request request = new BulkCreateTransaction(
+            "eu5ClBnNsqGtwvAjO8SQrjpTlUKU7i",
+            "6vD3BTnNc",
+            "aIv4Cy2qiGNeSDJueWNAF2iLhkB08mWoSEw4"
+        )
+                .description("e3bjXKldANGzSZe49qKV1rholLnfHAgpNJKDDEjuzSmETPUL6TDRxN")
+                .privateMoneyId("3aa0310b-026d-446a-9add-9a4b5cb25dd7");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

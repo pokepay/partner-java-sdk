@@ -10,6 +10,7 @@ public class CreateUserAccount extends Request {
     private String privateMoneyId;
     private String name;
     private String externalId;
+    private String metadata;
     private String userId;
 
     public CreateUserAccount(String userId, String privateMoneyId) {
@@ -24,6 +25,11 @@ public class CreateUserAccount extends Request {
 
     public CreateUserAccount externalId(String externalId) {
         this.externalId = externalId;
+        return this;
+    }
+
+    public CreateUserAccount metadata(String metadata) {
+        this.metadata = metadata;
         return this;
     }
 
@@ -48,6 +54,7 @@ public class CreateUserAccount extends Request {
         if (privateMoneyId != null) { object.add("private_money_id", context.serialize(this.privateMoneyId)); }
         if (name != null) { object.add("name", context.serialize(this.name)); }
         if (externalId != null) { object.add("external_id", context.serialize(this.externalId)); }
+        if (metadata != null) { object.add("metadata", context.serialize(this.metadata)); }
         return object;
     }
 }
