@@ -64,6 +64,7 @@ import jp.pokepay.partnerapi.request.RequestUserStats;
 import jp.pokepay.partnerapi.request.CreateWebhook;
 import jp.pokepay.partnerapi.request.ListWebhooks;
 import jp.pokepay.partnerapi.request.UpdateWebhook;
+import jp.pokepay.partnerapi.request.DeleteWebhook;
 
 public class SerializerHelper {
     public static void registerTypeAdapters(GsonBuilder gsonBuilder) {
@@ -128,5 +129,6 @@ public class SerializerHelper {
         gsonBuilder.registerTypeAdapter(CreateWebhook.class, new CreateWebhookSerializer());
         gsonBuilder.registerTypeAdapter(ListWebhooks.class, new ListWebhooksSerializer());
         gsonBuilder.registerTypeAdapter(UpdateWebhook.class, new UpdateWebhookSerializer());
+        gsonBuilder.registerTypeAdapter(DeleteWebhook.class, new DeleteWebhookSerializer());
     }
 }

@@ -5,6 +5,7 @@ public class ShopWithMetadata extends Response {
     private String id;
     private String name;
     private String organizationCode;
+    private String status;
     private String postalCode;
     private String address;
     private String tel;
@@ -21,6 +22,10 @@ public class ShopWithMetadata extends Response {
 
     public String getOrganizationCode() {
         return organizationCode;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     public String getPostalCode() {

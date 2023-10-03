@@ -509,7 +509,8 @@ components:
         enable_topup_by_member:
           type: boolean
           nullable: true
-          title: '加盟店によるチャージが有効かどうか'
+          deprecated: true
+          description: 'このパラメータは未使用につき廃止されます'
         display_money_and_point:
           type: string
           enum: [both, money-only, point-only]
@@ -533,7 +534,16 @@ components:
           title: '取引ID'
         type:
           type: string
-          title: '取引種別 (チャージ=topup, 支払い=payment)'
+          title: '取引種別'
+          description: |
+            各取引種別の値の意味は以下の通りです。
+            - topup: チャージ
+            - payment: 支払い
+            - transfer: 個人間送金
+            - exchange: マネー間交換
+            - cashback: ウォレット退会時の払い戻し処理
+            - expire: ウォレット退会時の残高失効処理
+          enum: [topup, payment, transfer, exchange, cashback, expire]
         is_modified:
           type: boolean
           title: '返金された取引かどうか'
@@ -551,13 +561,28 @@ components:
           title: '受取ウォレット情報'
         amount:
           type: number
-          title: '決済総額 (マネー額 + ポイント額)'
+          title: '取引総額 (マネー額 + ポイント額)'
         money_amount:
           type: number
-          title: '決済マネー額'
+          title: '取引マネー額'
         point_amount:
           type: number
-          title: '決済ポイント額'
+          title: '取引ポイント額(キャンペーン付与ポイント合算)'
+          description: |
+            取引のポイント額です。
+            キャンペーンによるポイント付与額との合算値なので、元々の取引のポイント額のみを取り出したいときは `raw_point_amount` を参照してください。
+            チャージ取引の場合、point_amount = raw_point_amount + campaign_point_amount
+            支払い取引の場合、point_amount = raw_point_amount - campaign_point_amount
+            が成立します。
+        raw_point_amount:
+          type: number
+          title: '取引ポイント額'
+          description: |
+            取引のポイント額です。
+            キャンペーンによるポイント付与額を含まない、元々の取引で支払われたポイント額を表します。
+        campaign_point_amount:
+          type: number
+          title: 'キャンペーンによるポイント付与額'
         done_at:
           type: string
           format: date-time
@@ -574,7 +599,16 @@ components:
           title: '取引ID'
         type:
           type: string
-          title: '取引種別 (チャージ=topup, 支払い=payment)'
+          title: '取引種別'
+          description: |
+            各取引種別の値の意味は以下の通りです。
+            - topup: チャージ
+            - payment: 支払い
+            - transfer: 個人間送金
+            - exchange: マネー間交換
+            - cashback: ウォレット退会時の払い戻し処理
+            - expire: ウォレット退会時の残高失効処理
+          enum: [topup, payment, transfer, exchange, cashback, expire]
         is_modified:
           type: boolean
           title: '返金された取引かどうか'
@@ -592,13 +626,28 @@ components:
           title: '受取ウォレット情報'
         amount:
           type: number
-          title: '決済総額 (マネー額 + ポイント額)'
+          title: '取引総額 (マネー額 + ポイント額)'
         money_amount:
           type: number
-          title: '決済マネー額'
+          title: '取引マネー額'
         point_amount:
           type: number
-          title: '決済ポイント額'
+          title: '取引ポイント額(キャンペーン付与ポイント合算)'
+          description: |
+            取引のポイント額です。
+            キャンペーンによるポイント付与額との合算値なので、元々の取引のポイント額のみを取り出したいときは `raw_point_amount` を参照してください。
+            チャージ取引の場合、point_amount = raw_point_amount + campaign_point_amount
+            支払い取引の場合、point_amount = raw_point_amount - campaign_point_amount
+            が成立します。
+        raw_point_amount:
+          type: number
+          title: '取引ポイント額'
+          description: |
+            取引のポイント額です。
+            キャンペーンによるポイント付与額を含まない、元々の取引で支払われたポイント額を表します。
+        campaign_point_amount:
+          type: number
+          title: 'キャンペーンによるポイント付与額'
         done_at:
           type: string
           format: date-time
@@ -624,6 +673,10 @@ components:
           type: string
           maxLength: 256
           title: 組織コード
+        status:
+          type: string
+          enum: [active, disabled]
+          title: '店舗の状態'
         postal_code:
           type: string
           nullable: true
@@ -661,6 +714,10 @@ components:
           type: string
           maxLength: 256
           title: 組織コード
+        status:
+          type: string
+          enum: [active, disabled]
+          title: '店舗の状態'
         postal_code:
           type: string
           nullable: true
@@ -688,41 +745,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ShopAccount'
-    UserTransaction:
-      x-pokepay-schema-type: "response"
-      properties:
-        id:
-          type: string
-          format: uuid
-        user:
-          $ref: '#/components/schemas/User'
-        balance:
-          type: number
-          format: decimal
-        amount:
-          type: number
-          format: decimal
-          minimum: 0
-        money_amount:
-          type: number
-          format: decimal
-          minimum: 0
-        point_amount:
-          type: number
-          format: decimal
-          minimum: 0
-        account:
-          $ref: '#/components/schemas/Account'
-        description:
-          type: string
-        done_at:
-          type: string
-          format: date-time
-        type:
-          type: string
-          enum: [topup, payment, transfer, exchange, cashback, expire]
-        is_modified:
-          type: boolean
     BulkTransaction:
       x-pokepay-schema-type: "response"
       properties:
@@ -3161,6 +3183,17 @@ paths:
                     エンドユーザーIDです。
 
                     送金先のエンドユーザーを指定します。
+                request_id:
+                  type: string
+                  format: uuid
+                  title: 'リクエストID'
+                  description: |-
+                    取引作成APIの羃等性を担保するためのリクエスト固有のIDです。
+
+                    取引作成APIで結果が受け取れなかったなどの理由で再試行する際に、二重に取引が作られてしまうことを防ぐために、クライアント側から指定されます。指定は任意で、UUID V4フォーマットでランダム生成した文字列です。リクエストIDは一定期間で削除されます。
+
+                    リクエストIDを指定したとき、まだそのリクエストIDに対する取引がない場合、新規に取引が作られレスポンスとして返されます。もしそのリクエストIDに対する取引が既にある場合、既存の取引がレスポンスとして返されます。
+                  example: '9dbfd997-b948-40d3-a3bf-6bc1a01368d2'
       responses:
         '200':
           description: OK
@@ -3461,7 +3494,6 @@ paths:
                         money_topup_transfer_limit: 0
                         type: own
                         expiration_type: static
-                        enable_topup_by_member: true
                     receiver:
                       id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
                       name: string
@@ -3485,7 +3517,6 @@ paths:
                         money_topup_transfer_limit: 0
                         type: own
                         expiration_type: static
-                        enable_topup_by_member: true
                     amount: 0
                     money_amount: 0
                     point_amount: 0
@@ -4470,6 +4501,11 @@ paths:
                   title: '店舗の外部ID'
                   description: |
                     このパラメータを渡すとその外部IDが登録された店舗のみが返されます。
+                with_disabled:
+                  type: boolean
+                  title: '無効な店舗を含める'
+                  description: |
+                    このパラメータを渡すと無効にされた店舗を含めて返されます。デフォルトでは無効にされた店舗は返されません。
                 page:
                   type: integer
                   minimum: 1
@@ -4781,6 +4817,12 @@ paths:
 
                     このパラメータは発行体のみが指定でき、発行しているマネーのみを指定できます。加盟店が他発行体のマネーに加盟している場合でも、そのチャージ可否を変更することはできません。
                     省略したときは対象店舗のその発行体の全てのマネーのアカウントがチャージ不可となります。
+                status:
+                  type: string
+                  enum: [active, disabled]
+                  title: '店舗の状態'
+                  description: |-
+                    店舗の状態です。activeを指定すると有効となり、disabledを指定するとリスト表示から除外されます。
       responses:
         '200':
           description: OK
@@ -6996,3 +7038,34 @@ paths:
           $ref: '#/components/responses/NotFound'
         '409':
           $ref: '#/components/responses/Conflict'
+
+    delete:
+      x-pokepay-operator-name: "DeleteWebhook"
+      x-pokepay-allow-server-side: true
+      tags:
+        - Webhook
+      summary: Webhookの削除
+      description: 指定したWebhookを削除します
+      parameters:
+        - in: path
+          name: webhook_id
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: 'Webhook ID'
+          description: |-
+            削除するWebhookのIDです。
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationWorkerTaskWebhook'
+        '400':
+          $ref: '#/components/responses/InvalidParameters'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'

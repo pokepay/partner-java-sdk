@@ -15,6 +15,7 @@ public class UpdateShop extends Request {
     private String externalId;
     private String[] privateMoneyIds;
     private String[] canTopupPrivateMoneyIds;
+    private String status;
     private String shopId;
 
     public UpdateShop(String shopId) {
@@ -61,6 +62,11 @@ public class UpdateShop extends Request {
         return this;
     }
 
+    public UpdateShop status(String status) {
+        this.status = status;
+        return this;
+    }
+
     @Override
     public Method method() {
         return Method.PATCH;
@@ -87,6 +93,7 @@ public class UpdateShop extends Request {
         if (externalId != null) { object.add("external_id", context.serialize(this.externalId)); }
         if (privateMoneyIds != null) { object.add("private_money_ids", context.serialize(this.privateMoneyIds)); }
         if (canTopupPrivateMoneyIds != null) { object.add("can_topup_private_money_ids", context.serialize(this.canTopupPrivateMoneyIds)); }
+        if (status != null) { object.add("status", context.serialize(this.status)); }
         return object;
     }
 }

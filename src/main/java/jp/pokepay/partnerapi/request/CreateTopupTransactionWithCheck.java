@@ -9,10 +9,16 @@ import java.lang.reflect.Type;
 public class CreateTopupTransactionWithCheck extends Request {
     private String checkId;
     private String customerId;
+    private String requestId;
 
     public CreateTopupTransactionWithCheck(String checkId, String customerId) {
         this.checkId = checkId;
         this.customerId = customerId;
+    }
+
+    public CreateTopupTransactionWithCheck requestId(String requestId) {
+        this.requestId = requestId;
+        return this;
     }
 
     @Override
@@ -35,6 +41,7 @@ public class CreateTopupTransactionWithCheck extends Request {
         JsonObject object = new JsonObject();
         if (checkId != null) { object.add("check_id", context.serialize(this.checkId)); }
         if (customerId != null) { object.add("customer_id", context.serialize(this.customerId)); }
+        if (requestId != null) { object.add("request_id", context.serialize(this.requestId)); }
         return object;
     }
 }
