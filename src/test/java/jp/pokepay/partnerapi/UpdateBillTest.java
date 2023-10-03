@@ -12,7 +12,7 @@ public class UpdateBillTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "eeab6c34-312c-4f5c-b366-407b617f395a"
+            "e23c9bf5-7751-4b89-a17e-4bef457df04e"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,7 +28,7 @@ public class UpdateBillTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "eeab6c34-312c-4f5c-b366-407b617f395a"
+            "e23c9bf5-7751-4b89-a17e-4bef457df04e"
         )
                 .setDisabled(false);
         try {
@@ -45,10 +45,10 @@ public class UpdateBillTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "eeab6c34-312c-4f5c-b366-407b617f395a"
+            "e23c9bf5-7751-4b89-a17e-4bef457df04e"
         )
-                .description("T5bk20dIuBp2e25agSXyEGickpeze5")
-                .setDisabled(false);
+                .description("xdhT65YfaNVM2xjqlPxxy8RqwFWTQ1hvVt9bN2zIxNZx4eE9mHPjq6XCvYjxbcuNA5AOQHru6gAXocPu4UpOUbFxl1xg8SX1voG8Gydqo4fQ7D47J36mgyKf2pLnur36TYPgxIzfeirgwWnuJKugM3OQh2JHBnxbiEM0oFGnnvKX9mW4mLerHweV6yDqMFurm2")
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,11 +63,11 @@ public class UpdateBillTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "eeab6c34-312c-4f5c-b366-407b617f395a"
+            "e23c9bf5-7751-4b89-a17e-4bef457df04e"
         )
-                .amount(4023.0)
-                .description("yzhltNB5ed")
-                .setDisabled(true);
+                .amount(7673.0)
+                .description("Y5rxBRsFTyEvnewbYd4rNZJsCq7m7ar")
+                .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

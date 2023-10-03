@@ -12,7 +12,7 @@ public class ListBulkTransactionJobsTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new ListBulkTransactionJobs(
-            "044cecd5-134e-4555-ae0f-36a89d250268"
+            "370e4c3f-9576-4059-be3e-40f0c8aff2bf"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class ListBulkTransactionJobsTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListBulkTransactionJobs(
-            "044cecd5-134e-4555-ae0f-36a89d250268"
+            "370e4c3f-9576-4059-be3e-40f0c8aff2bf"
         )
-                .perPage(262);
+                .perPage(1216);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class ListBulkTransactionJobsTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListBulkTransactionJobs(
-            "044cecd5-134e-4555-ae0f-36a89d250268"
+            "370e4c3f-9576-4059-be3e-40f0c8aff2bf"
         )
-                .page(5390)
-                .perPage(6291);
+                .page(5407)
+                .perPage(2866);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

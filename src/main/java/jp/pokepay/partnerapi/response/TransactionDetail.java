@@ -12,6 +12,8 @@ public class TransactionDetail extends Response {
     private Double amount;
     private Double moneyAmount;
     private Double pointAmount;
+    private Double rawPointAmount;
+    private Double campaignPointAmount;
     private String doneAt;
     private String description;
     private Transfer[] transfers;
@@ -54,6 +56,14 @@ public class TransactionDetail extends Response {
 
     public Double getPointAmount() {
         return pointAmount;
+    }
+
+    public Double getRawPointAmount() {
+        return rawPointAmount;
+    }
+
+    public Double getCampaignPointAmount() {
+        return campaignPointAmount;
     }
 
     public String getDoneAt() {

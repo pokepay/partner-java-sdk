@@ -12,7 +12,7 @@ public class GetCashtrayTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetCashtray(
-            "ba7027d9-8e20-40df-b413-7dfc1eff6281"
+            "8cc3a555-89ae-400f-a868-4105ad42950d"
         );
         try {
             PartnerAPITest.getClient().send(request);

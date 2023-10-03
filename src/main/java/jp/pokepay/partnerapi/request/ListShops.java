@@ -15,6 +15,7 @@ public class ListShops extends Request {
     private String tel;
     private String email;
     private String externalId;
+    private Boolean withDisabled;
     private Integer page;
     private Integer perPage;
 
@@ -61,6 +62,11 @@ public class ListShops extends Request {
         return this;
     }
 
+    public ListShops withDisabled(Boolean withDisabled) {
+        this.withDisabled = withDisabled;
+        return this;
+    }
+
     public ListShops page(Integer page) {
         this.page = page;
         return this;
@@ -97,6 +103,7 @@ public class ListShops extends Request {
         if (tel != null) { object.add("tel", context.serialize(this.tel)); }
         if (email != null) { object.add("email", context.serialize(this.email)); }
         if (externalId != null) { object.add("external_id", context.serialize(this.externalId)); }
+        if (withDisabled != null) { object.add("with_disabled", context.serialize(this.withDisabled)); }
         if (page != null) { object.add("page", context.serialize(this.page)); }
         if (perPage != null) { object.add("per_page", context.serialize(this.perPage)); }
         return object;

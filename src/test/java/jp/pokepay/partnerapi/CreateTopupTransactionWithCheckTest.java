@@ -12,9 +12,27 @@ public class CreateTopupTransactionWithCheckTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransactionWithCheck(
-            "c68a43e2-fb18-463e-b215-0e22e507a037",
-            "e525c9cb-cbc0-4fa1-8ac9-fb31a3543416"
+            "ed2904e4-23df-4046-a63d-39b000bd405e",
+            "95f56e59-fb8a-4731-9bca-2b167cad46cf"
         );
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test1() throws ConnectionError, ProcessingError {
+        Request request = new CreateTopupTransactionWithCheck(
+            "ed2904e4-23df-4046-a63d-39b000bd405e",
+            "95f56e59-fb8a-4731-9bca-2b167cad46cf"
+        )
+                .requestId("1d21542d-b288-4810-846f-27427e0ef468");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

@@ -12,8 +12,8 @@ public class RequestUserStatsTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new RequestUserStats(
-            "2021-03-27T02:11:39.000000+09:00",
-            "2023-03-27T17:48:19.000000+09:00"
+            "2019-04-10T07:14:52.000000+09:00",
+            "2019-05-01T08:57:47.000000+09:00"
         );
         try {
             PartnerAPITest.getClient().send(request);
