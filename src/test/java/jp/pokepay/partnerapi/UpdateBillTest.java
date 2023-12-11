@@ -12,7 +12,7 @@ public class UpdateBillTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "e23c9bf5-7751-4b89-a17e-4bef457df04e"
+            "d0bd6009-2dc6-460e-acab-db08f27a64e6"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class UpdateBillTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "e23c9bf5-7751-4b89-a17e-4bef457df04e"
+            "d0bd6009-2dc6-460e-acab-db08f27a64e6"
         )
-                .setDisabled(false);
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,9 +45,9 @@ public class UpdateBillTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "e23c9bf5-7751-4b89-a17e-4bef457df04e"
+            "d0bd6009-2dc6-460e-acab-db08f27a64e6"
         )
-                .description("xdhT65YfaNVM2xjqlPxxy8RqwFWTQ1hvVt9bN2zIxNZx4eE9mHPjq6XCvYjxbcuNA5AOQHru6gAXocPu4UpOUbFxl1xg8SX1voG8Gydqo4fQ7D47J36mgyKf2pLnur36TYPgxIzfeirgwWnuJKugM3OQh2JHBnxbiEM0oFGnnvKX9mW4mLerHweV6yDqMFurm2")
+                .description("uqCu15nvnBKIMqHBG8xcfDsZ0fN2mKlLpCDNArItHFlkH6jUOsiG4mZFBM3rFPWO3PjKF7DKcMaZkYeGqp9nAj8VN0ADax9V6vC8KTHwPv15ZD3hblUwXX6TlkQxCH4cuTt6mg0kPHIuOgc4OxPLiY")
                 .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
@@ -63,11 +63,11 @@ public class UpdateBillTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "e23c9bf5-7751-4b89-a17e-4bef457df04e"
+            "d0bd6009-2dc6-460e-acab-db08f27a64e6"
         )
-                .amount(7673.0)
-                .description("Y5rxBRsFTyEvnewbYd4rNZJsCq7m7ar")
-                .setDisabled(false);
+                .amount(3603.0)
+                .description("sCLeDznnOgWOfyDreJkhSlKYCYejdG5hUB1Ub5qaZgrMy1m73KHGTTbOcpccXs43FGz0TwMXkIFEBRhIkV9eDhSPQOyiNC1EOi6lYEhDcvolbe853HTr3")
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

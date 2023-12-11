@@ -12,7 +12,7 @@ public class ListAccountBalancesTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new ListAccountBalances(
-            "124a3fe8-1e88-4803-9195-15bbd1722f1a"
+            "699d4dfe-9293-4f7c-bf0e-75b9024decda"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class ListAccountBalancesTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListAccountBalances(
-            "124a3fe8-1e88-4803-9195-15bbd1722f1a"
+            "699d4dfe-9293-4f7c-bf0e-75b9024decda"
         )
-                .direction("desc");
+                .direction("asc");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class ListAccountBalancesTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListAccountBalances(
-            "124a3fe8-1e88-4803-9195-15bbd1722f1a"
+            "699d4dfe-9293-4f7c-bf0e-75b9024decda"
         )
-                .expiresAtTo("2021-05-19T16:07:19.000000+09:00")
-                .direction("desc");
+                .expiresAtTo("2015-10-17T00:25:07.000000+09:00")
+                .direction("asc");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,10 +63,10 @@ public class ListAccountBalancesTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new ListAccountBalances(
-            "124a3fe8-1e88-4803-9195-15bbd1722f1a"
+            "699d4dfe-9293-4f7c-bf0e-75b9024decda"
         )
-                .expiresAtFrom("2018-05-08T14:00:21.000000+09:00")
-                .expiresAtTo("2019-08-29T14:43:17.000000+09:00")
+                .expiresAtFrom("2018-12-19T15:59:21.000000+09:00")
+                .expiresAtTo("2022-02-22T23:45:50.000000+09:00")
                 .direction("desc");
         try {
             PartnerAPITest.getClient().send(request);
@@ -82,11 +82,11 @@ public class ListAccountBalancesTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new ListAccountBalances(
-            "124a3fe8-1e88-4803-9195-15bbd1722f1a"
+            "699d4dfe-9293-4f7c-bf0e-75b9024decda"
         )
-                .perPage(9044)
-                .expiresAtFrom("2015-11-13T07:54:24.000000+09:00")
-                .expiresAtTo("2023-12-17T09:40:00.000000+09:00")
+                .perPage(7612)
+                .expiresAtFrom("2016-05-30T23:10:06.000000+09:00")
+                .expiresAtTo("2018-06-10T22:01:04.000000+09:00")
                 .direction("desc");
         try {
             PartnerAPITest.getClient().send(request);
@@ -102,13 +102,13 @@ public class ListAccountBalancesTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new ListAccountBalances(
-            "124a3fe8-1e88-4803-9195-15bbd1722f1a"
+            "699d4dfe-9293-4f7c-bf0e-75b9024decda"
         )
-                .page(5673)
-                .perPage(5586)
-                .expiresAtFrom("2022-06-09T18:09:43.000000+09:00")
-                .expiresAtTo("2017-11-03T08:44:37.000000+09:00")
-                .direction("desc");
+                .page(150)
+                .perPage(9687)
+                .expiresAtFrom("2023-10-17T20:56:10.000000+09:00")
+                .expiresAtTo("2017-03-14T22:14:50.000000+09:00")
+                .direction("asc");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

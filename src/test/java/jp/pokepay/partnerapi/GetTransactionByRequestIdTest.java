@@ -12,7 +12,7 @@ public class GetTransactionByRequestIdTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetTransactionByRequestId(
-            "47821942-0474-4d1b-b991-6e32cfb01dd9"
+            "79249bc6-ea5f-4735-897d-27c991a35f51"
         );
         try {
             PartnerAPITest.getClient().send(request);

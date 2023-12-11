@@ -12,9 +12,9 @@ public class BulkCreateTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new BulkCreateTransaction(
-            "3IQKQQHb6fikVg8U3XBig",
-            "3jy",
-            "a01cL7edhmrVi5NIsblUeDquiQL8YRreNoLA"
+            "24qGHQmyjo5tP1",
+            "q3gMC6K",
+            "8tHcy926j1L5NawwgvuNKX2IY459qgAAwcNs"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -30,11 +30,11 @@ public class BulkCreateTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new BulkCreateTransaction(
-            "3IQKQQHb6fikVg8U3XBig",
-            "3jy",
-            "a01cL7edhmrVi5NIsblUeDquiQL8YRreNoLA"
+            "24qGHQmyjo5tP1",
+            "q3gMC6K",
+            "8tHcy926j1L5NawwgvuNKX2IY459qgAAwcNs"
         )
-                .privateMoneyId("3f9c8b57-5a04-4720-8dca-b43bfd63efab");
+                .privateMoneyId("ea58403b-2c5e-4f68-8f4f-1a777de17819");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -49,12 +49,12 @@ public class BulkCreateTransactionTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new BulkCreateTransaction(
-            "3IQKQQHb6fikVg8U3XBig",
-            "3jy",
-            "a01cL7edhmrVi5NIsblUeDquiQL8YRreNoLA"
+            "24qGHQmyjo5tP1",
+            "q3gMC6K",
+            "8tHcy926j1L5NawwgvuNKX2IY459qgAAwcNs"
         )
-                .description("ywYSICtYcbHl2ktF16gpa54attROZcBbejZS9wdnnNKINI7vj8qEDPsdJ8JkL6K4fbUtzmymsdzvhUXmrc210VozYCz4wR9Gfv1oo")
-                .privateMoneyId("3f9435bc-90a5-4fc8-8d63-5caf42ee6cf1");
+                .description("Ey9C4fPkl7vL6GZNzAehCPDZA2NfvjjLAwczEhwpsSp")
+                .privateMoneyId("753e7214-f875-4a55-8bf2-6df141b972f0");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

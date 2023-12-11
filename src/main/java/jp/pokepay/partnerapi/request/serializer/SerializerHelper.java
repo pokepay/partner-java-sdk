@@ -22,6 +22,9 @@ import jp.pokepay.partnerapi.request.ListBills;
 import jp.pokepay.partnerapi.request.CreateBill;
 import jp.pokepay.partnerapi.request.UpdateBill;
 import jp.pokepay.partnerapi.request.CreateCheck;
+import jp.pokepay.partnerapi.request.ListChecks;
+import jp.pokepay.partnerapi.request.GetCheck;
+import jp.pokepay.partnerapi.request.UpdateCheck;
 import jp.pokepay.partnerapi.request.GetCpmToken;
 import jp.pokepay.partnerapi.request.ListTransactions;
 import jp.pokepay.partnerapi.request.CreateTransaction;
@@ -65,6 +68,12 @@ import jp.pokepay.partnerapi.request.CreateWebhook;
 import jp.pokepay.partnerapi.request.ListWebhooks;
 import jp.pokepay.partnerapi.request.UpdateWebhook;
 import jp.pokepay.partnerapi.request.DeleteWebhook;
+import jp.pokepay.partnerapi.request.CreateUserDevice;
+import jp.pokepay.partnerapi.request.GetUserDevice;
+import jp.pokepay.partnerapi.request.ListCoupons;
+import jp.pokepay.partnerapi.request.CreateCoupon;
+import jp.pokepay.partnerapi.request.GetCoupon;
+import jp.pokepay.partnerapi.request.UpdateCoupon;
 
 public class SerializerHelper {
     public static void registerTypeAdapters(GsonBuilder gsonBuilder) {
@@ -87,6 +96,9 @@ public class SerializerHelper {
         gsonBuilder.registerTypeAdapter(CreateBill.class, new CreateBillSerializer());
         gsonBuilder.registerTypeAdapter(UpdateBill.class, new UpdateBillSerializer());
         gsonBuilder.registerTypeAdapter(CreateCheck.class, new CreateCheckSerializer());
+        gsonBuilder.registerTypeAdapter(ListChecks.class, new ListChecksSerializer());
+        gsonBuilder.registerTypeAdapter(GetCheck.class, new GetCheckSerializer());
+        gsonBuilder.registerTypeAdapter(UpdateCheck.class, new UpdateCheckSerializer());
         gsonBuilder.registerTypeAdapter(GetCpmToken.class, new GetCpmTokenSerializer());
         gsonBuilder.registerTypeAdapter(ListTransactions.class, new ListTransactionsSerializer());
         gsonBuilder.registerTypeAdapter(CreateTransaction.class, new CreateTransactionSerializer());
@@ -130,5 +142,11 @@ public class SerializerHelper {
         gsonBuilder.registerTypeAdapter(ListWebhooks.class, new ListWebhooksSerializer());
         gsonBuilder.registerTypeAdapter(UpdateWebhook.class, new UpdateWebhookSerializer());
         gsonBuilder.registerTypeAdapter(DeleteWebhook.class, new DeleteWebhookSerializer());
+        gsonBuilder.registerTypeAdapter(CreateUserDevice.class, new CreateUserDeviceSerializer());
+        gsonBuilder.registerTypeAdapter(GetUserDevice.class, new GetUserDeviceSerializer());
+        gsonBuilder.registerTypeAdapter(ListCoupons.class, new ListCouponsSerializer());
+        gsonBuilder.registerTypeAdapter(CreateCoupon.class, new CreateCouponSerializer());
+        gsonBuilder.registerTypeAdapter(GetCoupon.class, new GetCouponSerializer());
+        gsonBuilder.registerTypeAdapter(UpdateCoupon.class, new UpdateCouponSerializer());
     }
 }

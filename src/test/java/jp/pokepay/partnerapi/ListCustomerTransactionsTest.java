@@ -12,7 +12,7 @@ public class ListCustomerTransactionsTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "9aeda297-0da1-408d-a7da-43b4395e855b"
+            "b5efe5f3-e60f-4835-9107-84df8ad00201"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class ListCustomerTransactionsTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "9aeda297-0da1-408d-a7da-43b4395e855b"
+            "b5efe5f3-e60f-4835-9107-84df8ad00201"
         )
-                .perPage(9126);
+                .perPage(301);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class ListCustomerTransactionsTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "9aeda297-0da1-408d-a7da-43b4395e855b"
+            "b5efe5f3-e60f-4835-9107-84df8ad00201"
         )
-                .page(1038)
-                .perPage(2713);
+                .page(2545)
+                .perPage(303);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,11 +63,11 @@ public class ListCustomerTransactionsTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "9aeda297-0da1-408d-a7da-43b4395e855b"
+            "b5efe5f3-e60f-4835-9107-84df8ad00201"
         )
-                .to("2025-01-06T23:21:15.000000+09:00")
-                .page(2285)
-                .perPage(5996);
+                .to("2024-08-07T07:33:22.000000+09:00")
+                .page(8150)
+                .perPage(9430);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -82,12 +82,12 @@ public class ListCustomerTransactionsTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "9aeda297-0da1-408d-a7da-43b4395e855b"
+            "b5efe5f3-e60f-4835-9107-84df8ad00201"
         )
-                .from("2023-08-13T08:09:24.000000+09:00")
-                .to("2023-12-21T03:21:30.000000+09:00")
-                .page(1643)
-                .perPage(402);
+                .from("2015-12-25T22:59:38.000000+09:00")
+                .to("2018-04-17T17:35:29.000000+09:00")
+                .page(7931)
+                .perPage(6318);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -102,13 +102,13 @@ public class ListCustomerTransactionsTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "9aeda297-0da1-408d-a7da-43b4395e855b"
+            "b5efe5f3-e60f-4835-9107-84df8ad00201"
         )
                 .setModified(true)
-                .from("2021-12-14T02:01:22.000000+09:00")
-                .to("2020-05-11T17:28:34.000000+09:00")
-                .page(1318)
-                .perPage(3519);
+                .from("2016-06-25T11:39:49.000000+09:00")
+                .to("2021-04-27T04:52:51.000000+09:00")
+                .page(5282)
+                .perPage(5475);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -123,14 +123,14 @@ public class ListCustomerTransactionsTest {
     @Test
     void test6() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "9aeda297-0da1-408d-a7da-43b4395e855b"
+            "b5efe5f3-e60f-4835-9107-84df8ad00201"
         )
                 .type("exchange")
-                .setModified(true)
-                .from("2024-12-02T20:58:36.000000+09:00")
-                .to("2016-11-07T11:19:15.000000+09:00")
-                .page(8620)
-                .perPage(1983);
+                .setModified(false)
+                .from("2021-09-29T01:58:50.000000+09:00")
+                .to("2017-03-21T03:39:55.000000+09:00")
+                .page(1138)
+                .perPage(4136);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -145,15 +145,15 @@ public class ListCustomerTransactionsTest {
     @Test
     void test7() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "9aeda297-0da1-408d-a7da-43b4395e855b"
+            "b5efe5f3-e60f-4835-9107-84df8ad00201"
         )
-                .receiverCustomerId("825cb285-ed59-4d79-9c99-71d588823b92")
-                .type("expire")
-                .setModified(false)
-                .from("2015-11-30T10:43:39.000000+09:00")
-                .to("2019-07-05T23:30:23.000000+09:00")
-                .page(5913)
-                .perPage(9914);
+                .receiverCustomerId("6ae75707-c9ef-4882-82ad-44debfbe3404")
+                .type("transfer")
+                .setModified(true)
+                .from("2022-01-29T02:41:58.000000+09:00")
+                .to("2017-05-06T15:36:58.000000+09:00")
+                .page(859)
+                .perPage(6050);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -168,16 +168,16 @@ public class ListCustomerTransactionsTest {
     @Test
     void test8() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "9aeda297-0da1-408d-a7da-43b4395e855b"
+            "b5efe5f3-e60f-4835-9107-84df8ad00201"
         )
-                .senderCustomerId("180e68c2-ec35-4a0d-a87d-9bbb6ae12140")
-                .receiverCustomerId("5404cc2a-38f4-49e7-8e26-d8c92c3622c4")
+                .senderCustomerId("58c93135-c25f-4bfb-ac1b-48c7a5d5f566")
+                .receiverCustomerId("3cc2a4cc-aac9-4c3a-996b-0a4db2fa063a")
                 .type("topup")
-                .setModified(false)
-                .from("2020-09-11T12:12:34.000000+09:00")
-                .to("2017-07-29T03:27:10.000000+09:00")
-                .page(5391)
-                .perPage(7594);
+                .setModified(true)
+                .from("2022-01-31T12:09:39.000000+09:00")
+                .to("2019-06-19T18:42:07.000000+09:00")
+                .page(5971)
+                .perPage(1354);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
