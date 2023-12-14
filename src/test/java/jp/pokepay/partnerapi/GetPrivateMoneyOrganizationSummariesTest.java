@@ -12,7 +12,7 @@ public class GetPrivateMoneyOrganizationSummariesTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetPrivateMoneyOrganizationSummaries(
-            "8e06885f-39ba-4523-bab0-7afd6cf47968"
+            "ab86dca8-208a-4c06-9b2c-7d102431dbc9"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class GetPrivateMoneyOrganizationSummariesTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new GetPrivateMoneyOrganizationSummaries(
-            "8e06885f-39ba-4523-bab0-7afd6cf47968"
+            "ab86dca8-208a-4c06-9b2c-7d102431dbc9"
         )
-                .page(7369);
+                .page(3453);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class GetPrivateMoneyOrganizationSummariesTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new GetPrivateMoneyOrganizationSummaries(
-            "8e06885f-39ba-4523-bab0-7afd6cf47968"
+            "ab86dca8-208a-4c06-9b2c-7d102431dbc9"
         )
-                .perPage(3061)
-                .page(9937);
+                .perPage(701)
+                .page(3941);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,10 +63,10 @@ public class GetPrivateMoneyOrganizationSummariesTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new GetPrivateMoneyOrganizationSummaries(
-            "8e06885f-39ba-4523-bab0-7afd6cf47968"
+            "ab86dca8-208a-4c06-9b2c-7d102431dbc9"
         )
-                .from("2025-05-04T04:25:39.000000+09:00")
-                .to("2015-11-08T17:49:55.000000+09:00");
+                .from("2022-02-09T23:19:44.000000+09:00")
+                .to("2017-08-13T12:12:55.000000+09:00");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -81,11 +81,11 @@ public class GetPrivateMoneyOrganizationSummariesTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new GetPrivateMoneyOrganizationSummaries(
-            "8e06885f-39ba-4523-bab0-7afd6cf47968"
+            "ab86dca8-208a-4c06-9b2c-7d102431dbc9"
         )
-                .from("2016-09-01T17:36:27.000000+09:00")
-                .to("2015-11-30T01:37:50.000000+09:00")
-                .page(9415);
+                .from("2022-08-28T21:39:04.000000+09:00")
+                .to("2023-02-10T09:41:09.000000+09:00")
+                .page(949);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -100,12 +100,12 @@ public class GetPrivateMoneyOrganizationSummariesTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new GetPrivateMoneyOrganizationSummaries(
-            "8e06885f-39ba-4523-bab0-7afd6cf47968"
+            "ab86dca8-208a-4c06-9b2c-7d102431dbc9"
         )
-                .from("2025-04-22T18:29:23.000000+09:00")
-                .to("2015-12-30T14:07:11.000000+09:00")
-                .perPage(2662)
-                .page(4658);
+                .from("2025-02-19T11:55:23.000000+09:00")
+                .to("2023-07-13T11:14:47.000000+09:00")
+                .perPage(2990)
+                .page(8435);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

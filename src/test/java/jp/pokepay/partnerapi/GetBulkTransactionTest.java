@@ -12,7 +12,7 @@ public class GetBulkTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetBulkTransaction(
-            "3bc1ff09-4879-44ea-bb33-454222aabdc5"
+            "c4ca2777-98af-4840-9ba8-98143a55bf3e"
         );
         try {
             PartnerAPITest.getClient().send(request);

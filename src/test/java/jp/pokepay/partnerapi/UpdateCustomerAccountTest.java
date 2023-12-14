@@ -12,7 +12,7 @@ public class UpdateCustomerAccountTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "f39e0dc7-ebbf-4161-a34e-e312bce444b9"
+            "6c95145f-3596-4b43-8f51-3bdda92d9c70"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,7 +28,7 @@ public class UpdateCustomerAccountTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "f39e0dc7-ebbf-4161-a34e-e312bce444b9"
+            "6c95145f-3596-4b43-8f51-3bdda92d9c70"
         )
                 .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}");
         try {
@@ -45,9 +45,9 @@ public class UpdateCustomerAccountTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "f39e0dc7-ebbf-4161-a34e-e312bce444b9"
+            "6c95145f-3596-4b43-8f51-3bdda92d9c70"
         )
-                .externalId("eZjSIQORsTn19Lt83IRfp6apsZzw")
+                .externalId("HPWBk4EuPXAdPsFrqn8lZhZeEREMPOrt6FiPMjvdOWMTWBS")
                 .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}");
         try {
             PartnerAPITest.getClient().send(request);
@@ -63,10 +63,10 @@ public class UpdateCustomerAccountTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "f39e0dc7-ebbf-4161-a34e-e312bce444b9"
+            "6c95145f-3596-4b43-8f51-3bdda92d9c70"
         )
-                .accountName("Ugb2qqrLtRpMZnFJMuPuuYDxHZdnikAchiJbVP3ZTnJxIJTqpbj9hQa29LtqbzIUCtrgI5GH6")
-                .externalId("i2f3OojTDEk0fitYgK")
+                .accountName("V2DZcDZOYuP6lQNwYNr6HR2LU1R05Nv6BVAU7LaM8C1ttRgDjJEPO94kDr9zzklHhLNGhiY9k5KzsrYX7bP3YPoI9UxkPJeYoqNUwbKFBIRbj9Eg8Qv")
+                .externalId("9TqpVlTxM9MTE0puB6bniBgIOe13YGFPN4WO9oC8wBC8")
                 .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}");
         try {
             PartnerAPITest.getClient().send(request);
@@ -82,11 +82,11 @@ public class UpdateCustomerAccountTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "f39e0dc7-ebbf-4161-a34e-e312bce444b9"
+            "6c95145f-3596-4b43-8f51-3bdda92d9c70"
         )
-                .status("suspended")
-                .accountName("zfXu0N7ZPQ6Ey6Tu3B")
-                .externalId("U56A0DovC2AWlgsj8AO1bqHH9NHpqZwH1tkpyND")
+                .status("pre-closed")
+                .accountName("2e5HWpM8C6fXCgLndbja9BagjKY8DAtd1I")
+                .externalId("BKZGUtp1yt25DCohJ0WI6uoMwMuyn7N72FwpgJBTN7373")
                 .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}");
         try {
             PartnerAPITest.getClient().send(request);

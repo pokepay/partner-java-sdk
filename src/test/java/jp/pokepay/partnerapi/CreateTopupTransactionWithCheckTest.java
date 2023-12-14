@@ -12,8 +12,8 @@ public class CreateTopupTransactionWithCheckTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransactionWithCheck(
-            "ed2904e4-23df-4046-a63d-39b000bd405e",
-            "95f56e59-fb8a-4731-9bca-2b167cad46cf"
+            "5ff67c83-31fb-4de3-8fbe-a14dabacd6cb",
+            "1434b13c-9168-4d6b-8cfa-60ef6b511687"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -29,10 +29,10 @@ public class CreateTopupTransactionWithCheckTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateTopupTransactionWithCheck(
-            "ed2904e4-23df-4046-a63d-39b000bd405e",
-            "95f56e59-fb8a-4731-9bca-2b167cad46cf"
+            "5ff67c83-31fb-4de3-8fbe-a14dabacd6cb",
+            "1434b13c-9168-4d6b-8cfa-60ef6b511687"
         )
-                .requestId("1d21542d-b288-4810-846f-27427e0ef468");
+                .requestId("6499d6a4-bbb6-43b5-8a11-63356725b023");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
