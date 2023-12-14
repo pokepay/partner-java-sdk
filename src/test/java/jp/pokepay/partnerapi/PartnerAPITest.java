@@ -16,10 +16,10 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-class PartnerAPITest {
+public class PartnerAPITest {
     private static PartnerAPI client;
 
-    static PartnerAPI getClient() {
+    public static PartnerAPI getClient() {
         if (client == null) {
             try {
                 init();
