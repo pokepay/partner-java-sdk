@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.util.Random;
 import java.io.File;
 import java.nio.file.Paths;
 import java.util.UUID;
@@ -16,10 +17,10 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-class PartnerAPITest {
+public class PartnerAPITest {
     private static PartnerAPI client;
 
-    static PartnerAPI getClient() {
+    public static PartnerAPI getClient() {
         if (client == null) {
             try {
                 init();
@@ -34,6 +35,16 @@ class PartnerAPITest {
             }
         }
         return client;
+    }
+
+    public static String randomString(int length) {
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        char[] s = new char[length];
+        Random random = new Random();
+        for (int i = 0; i < length; i++) {
+            s[i] = characters.charAt(random.nextInt(characters.length()));
+        }
+        return String.valueOf(s);
     }
 
     @BeforeAll
