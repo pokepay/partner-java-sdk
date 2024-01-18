@@ -28,6 +28,7 @@ public class UpdateCampaign extends Request {
     private Integer maxPointAmount;
     private Integer maxTotalPointAmount;
     private Object applicableAccountMetadata;
+    private Integer budgetCapsAmount;
     private String campaignId;
 
     public UpdateCampaign(String campaignId) {
@@ -139,6 +140,11 @@ public class UpdateCampaign extends Request {
         return this;
     }
 
+    public UpdateCampaign budgetCapsAmount(Integer budgetCapsAmount) {
+        this.budgetCapsAmount = budgetCapsAmount;
+        return this;
+    }
+
     @Override
     public Method method() {
         return Method.PATCH;
@@ -178,6 +184,7 @@ public class UpdateCampaign extends Request {
         if (maxPointAmount != null) { object.add("max_point_amount", context.serialize(this.maxPointAmount)); }
         if (maxTotalPointAmount != null) { object.add("max_total_point_amount", context.serialize(this.maxTotalPointAmount)); }
         if (applicableAccountMetadata != null) { object.add("applicable_account_metadata", context.serialize(this.applicableAccountMetadata)); }
+        if (budgetCapsAmount != null) { object.add("budget_caps_amount", context.serialize(this.budgetCapsAmount)); }
         return object;
     }
 }

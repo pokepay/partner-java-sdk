@@ -19,6 +19,9 @@ public class Campaign extends Response {
     private String pointCalculationRule;
     private String pointCalculationRuleObject;
     private String status;
+    private Integer budgetCapsAmount;
+    private Integer budgetCurrentAmount;
+    private String budgetCurrentTime;
 
     public String getId() {
         return id;
@@ -86,6 +89,18 @@ public class Campaign extends Response {
 
     public String getStatus() {
         return status;
+    }
+
+    public Integer getBudgetCapsAmount() {
+        return budgetCapsAmount;
+    }
+
+    public Integer getBudgetCurrentAmount() {
+        return budgetCurrentAmount;
+    }
+
+    public String getBudgetCurrentTime() {
+        return budgetCurrentTime;
     }
 }
 

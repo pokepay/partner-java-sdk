@@ -12,10 +12,10 @@ public class CreateExchangeTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateExchangeTransaction(
-            "29b8a118-dd92-4f64-a623-2fa2a9801c5e",
-            "f732e27f-fba0-43b6-8352-ae0edc53d277",
-            "b2cdf337-a077-4c4a-b360-4adcc81c28eb",
-            1271.0
+            "4be3ce58-f97a-495f-8855-e3e17713cc6f",
+            "bb0a4482-0cfe-48a7-aad4-854e7455a451",
+            "b85fe0d6-decd-4742-ace2-dc7d8b3d9303",
+            7594
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -31,12 +31,12 @@ public class CreateExchangeTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateExchangeTransaction(
-            "29b8a118-dd92-4f64-a623-2fa2a9801c5e",
-            "f732e27f-fba0-43b6-8352-ae0edc53d277",
-            "b2cdf337-a077-4c4a-b360-4adcc81c28eb",
-            1271.0
+            "4be3ce58-f97a-495f-8855-e3e17713cc6f",
+            "bb0a4482-0cfe-48a7-aad4-854e7455a451",
+            "b85fe0d6-decd-4742-ace2-dc7d8b3d9303",
+            7594
         )
-                .requestId("060432aa-6df0-4b18-bf3a-bcbe5312487d");
+                .requestId("62d13ad9-7ce1-4b67-aea0-00e3e9229edb");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -51,13 +51,13 @@ public class CreateExchangeTransactionTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateExchangeTransaction(
-            "29b8a118-dd92-4f64-a623-2fa2a9801c5e",
-            "f732e27f-fba0-43b6-8352-ae0edc53d277",
-            "b2cdf337-a077-4c4a-b360-4adcc81c28eb",
-            1271.0
+            "4be3ce58-f97a-495f-8855-e3e17713cc6f",
+            "bb0a4482-0cfe-48a7-aad4-854e7455a451",
+            "b85fe0d6-decd-4742-ace2-dc7d8b3d9303",
+            7594
         )
-                .description("o4pzYP7h6FPyOfItmpqF4JrYK1A6zUf1UJAmItogkvZMlOEvEKZYx87AxopzzuGAMN3C5av5VtdDpuqEnLm2MTevZRbA")
-                .requestId("46ef43ae-5ac8-402c-8f0f-80b275470653");
+                .description("EHZz2ChROgp7uXZygdsjPVBWQt3p8vuYiezGBIiI1LGSwqY722Uv509P5dQyTdGxfg6WaXEtls1mkHlrD9hm8AKsVNEDKK6e7KY2xddFA37mCf3iNGGqEOo3ochUQKa6Q991TrWYueHUv3Q8w4m0O2pbLf5wOpWaHjxdJLwXi")
+                .requestId("c8d8e48b-9be1-4cf2-a1c0-b601207c9989");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

@@ -4,6 +4,7 @@ package jp.pokepay.partnerapi.response;
 public class UserDevice extends Response {
     private String id;
     private User user;
+    private Boolean isActive;
     private String metadata;
 
     public String getId() {
@@ -12,6 +13,10 @@ public class UserDevice extends Response {
 
     public User getUser() {
         return user;
+    }
+
+    public Boolean isActive() {
+        return isActive;
     }
 
     public String getMetadata() {

@@ -12,7 +12,7 @@ public class RefundExternalTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new RefundExternalTransaction(
-            "f34524d0-98df-4e8d-835a-b8166f70be28"
+            "3ce48278-88aa-4d62-83bc-338a04a4a030"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class RefundExternalTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new RefundExternalTransaction(
-            "f34524d0-98df-4e8d-835a-b8166f70be28"
+            "3ce48278-88aa-4d62-83bc-338a04a4a030"
         )
-                .description("5Q");
+                .description("QlymS035hy5uAFsdtmbFzWyYmvEpO3RDEYxwepesi2s42dHWmHMotTa7Fvw37QcZUffgW5fzY76rbZkTOiEZrai4Zc7JYuxmHJioun3ZPMfkbyMIWxYRGlkExeVZmK3Izzdqg6UHJE0rLYD7Jv4NfcKx4ItQoKHPyM5zZZd");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
