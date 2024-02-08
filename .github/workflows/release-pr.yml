@@ -7,10 +7,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.actor == 'pokepay-ci'
+#    if: github.actor == 'pokepay-ci'
     steps:
       - uses: actions/checkout@v3
 
       - name: Run a multi-line script
         run: |
-          gh pr create -B master -t ${{ github.ref }} -b ''
+          echo ${{ github.actor }}
+          #gh pr create -B master -t ${{ github.ref }} -b ''
