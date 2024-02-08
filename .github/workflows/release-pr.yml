@@ -3,7 +3,6 @@ name: release PR
 on:
   push:
     branches: [ "*" ]
-    branches-ignore: [ "master" ]
 
 jobs:
   build:
