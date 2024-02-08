@@ -12,7 +12,7 @@ public class GetAccountTransferSummaryTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetAccountTransferSummary(
-            "7c5c4082-cbbc-4bc9-88fd-6799b52b5091"
+            "d79ada44-2554-41d3-a753-5725590e9c63"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class GetAccountTransferSummaryTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new GetAccountTransferSummary(
-            "7c5c4082-cbbc-4bc9-88fd-6799b52b5091"
+            "d79ada44-2554-41d3-a753-5725590e9c63"
         )
-                .transferTypes(new String[]{"refund-campaign","topup","refund-exchange-outflow","refund-payment"});
+                .transferTypes(new String[]{"exchange-outflow","exchange-inflow","refund-topup","use-coupon","refund-coupon","payment","refund-campaign","campaign-topup","refund-exchange-outflow"});
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class GetAccountTransferSummaryTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new GetAccountTransferSummary(
-            "7c5c4082-cbbc-4bc9-88fd-6799b52b5091"
+            "d79ada44-2554-41d3-a753-5725590e9c63"
         )
-                .to("2015-12-24T02:00:20.000000+09:00")
-                .transferTypes(new String[]{"topup","refund-payment","refund-topup"});
+                .to("2022-08-23T05:52:55.000000Z")
+                .transferTypes(new String[]{"exchange-outflow","use-coupon","refund-payment","topup","payment","exchange-inflow","refund-exchange-outflow"});
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,11 +63,11 @@ public class GetAccountTransferSummaryTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new GetAccountTransferSummary(
-            "7c5c4082-cbbc-4bc9-88fd-6799b52b5091"
+            "d79ada44-2554-41d3-a753-5725590e9c63"
         )
-                .from("2017-08-26T18:54:41.000000+09:00")
-                .to("2016-08-20T05:39:56.000000+09:00")
-                .transferTypes(new String[]{"campaign-topup","payment","refund-campaign","refund-exchange-outflow","exchange-outflow","topup"});
+                .from("2022-12-23T00:17:08.000000Z")
+                .to("2023-06-07T07:45:11.000000Z")
+                .transferTypes(new String[]{"exchange-outflow","refund-campaign","exchange-inflow","topup","refund-topup","refund-payment","refund-exchange-inflow","refund-coupon","refund-exchange-outflow","use-coupon"});
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

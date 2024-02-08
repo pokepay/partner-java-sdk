@@ -6,6 +6,8 @@ public class OrganizationSummary extends Response {
     private Double moneyAmount;
     private Integer moneyCount;
     private Double pointAmount;
+    private Double rawPointAmount;
+    private Double campaignPointAmount;
     private Integer pointCount;
 
     public Integer getCount() {
@@ -22,6 +24,14 @@ public class OrganizationSummary extends Response {
 
     public Double getPointAmount() {
         return pointAmount;
+    }
+
+    public Double getRawPointAmount() {
+        return rawPointAmount;
+    }
+
+    public Double getCampaignPointAmount() {
+        return campaignPointAmount;
     }
 
     public Integer getPointCount() {

@@ -12,9 +12,9 @@ public class CreateTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateTransaction(
-            "cbe124e4-b68c-432c-817f-1d5e7958f3c9",
-            "d1170349-431c-4789-8c1a-e29dde8c1e2e",
-            "fb46a397-42ff-410d-8544-1431e545d2a0"
+            "8a480fc1-4577-4907-9d6a-c87cf26f7afa",
+            "a387e891-8847-4c38-9559-5e87acab0e1d",
+            "d044b25e-2b03-4761-acdb-0b70e9a91604"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -30,11 +30,11 @@ public class CreateTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateTransaction(
-            "cbe124e4-b68c-432c-817f-1d5e7958f3c9",
-            "d1170349-431c-4789-8c1a-e29dde8c1e2e",
-            "fb46a397-42ff-410d-8544-1431e545d2a0"
+            "8a480fc1-4577-4907-9d6a-c87cf26f7afa",
+            "a387e891-8847-4c38-9559-5e87acab0e1d",
+            "d044b25e-2b03-4761-acdb-0b70e9a91604"
         )
-                .description("9cKYBc1gxnYpd5620alxwGH30PFQqS3i9kHkGMdnemQKsLb61qlyTzkH4tJeqOf4TMINzVBXcfpyK08KUPJhqyMbj1izevwtzCCEC7Wx2EydwBF0ho4I");
+                .description("gA4DXNtjsg9PgQkXqYPn4dGIxCAVXu8wPFdMI0g8RX9GwTm1EaeDH0runisLVA8D7RtvLwRN8QmXijHIyMGxrgTxrmP2c2b7AqdqrRaU4tsNqOUthYSxSa5qYfKcdpEzIZoGgQ8JT7nM2XSRS8qzeJVaYua2WPHw1UTjf1quigD2l2J");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -49,12 +49,12 @@ public class CreateTransactionTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateTransaction(
-            "cbe124e4-b68c-432c-817f-1d5e7958f3c9",
-            "d1170349-431c-4789-8c1a-e29dde8c1e2e",
-            "fb46a397-42ff-410d-8544-1431e545d2a0"
+            "8a480fc1-4577-4907-9d6a-c87cf26f7afa",
+            "a387e891-8847-4c38-9559-5e87acab0e1d",
+            "d044b25e-2b03-4761-acdb-0b70e9a91604"
         )
-                .pointExpiresAt("2021-02-17T09:36:13.000000+09:00")
-                .description("3VJn4JuQsAMJjrhNUxrVAFQG4HYy93agdl4jERjWIBxjOqkCgzNvfrD3VlW2J46sY0nCNKNyKycsoLyWXPvpW3qdV0FttL8Nz1Pxh9XZCd1oPJIURIJlEyFVWxYCgnWDyDatcugymHFP4wgudRntKGFd7kWYgp");
+                .pointExpiresAt("2023-11-18T10:39:42.000000Z")
+                .description("K33Y2PKkmhgdj1RbwEdGAkTKdkwDZEgx5wET5OvQd");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -69,13 +69,13 @@ public class CreateTransactionTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new CreateTransaction(
-            "cbe124e4-b68c-432c-817f-1d5e7958f3c9",
-            "d1170349-431c-4789-8c1a-e29dde8c1e2e",
-            "fb46a397-42ff-410d-8544-1431e545d2a0"
+            "8a480fc1-4577-4907-9d6a-c87cf26f7afa",
+            "a387e891-8847-4c38-9559-5e87acab0e1d",
+            "d044b25e-2b03-4761-acdb-0b70e9a91604"
         )
-                .pointAmount(3081)
-                .pointExpiresAt("2016-05-22T06:11:21.000000+09:00")
-                .description("U6GHgWvLdh7X0nKw2K2eHI6FCxrl6YWBC02NSaAt4z3Mg7ekt01ZH0Qth0kZoTmwwmAmnCsUNys8u6fS1NQSTksq0WwZMu6Erbhi94B8zQ59SP2HakcsADFBpZHiJMW7OvG8XNhOjasgbscUgXZhUezWe3uYANeTpaZzAu88cKpVbbVDvQuwgMCv");
+                .pointAmount(676)
+                .pointExpiresAt("2020-08-14T23:35:01.000000Z")
+                .description("ofRUOUAciXVcpzKCMcrOD6Emk2wkp2iXzqZDQWG9JIPYO9QhKjYAAaWngq9PQfQxKRvEszf3mWAEHwNafuFelOU7xCAyi0eUz4xXH5OLhVoB1lIuiOfxpiSD0ualUMr1aiXbRr0Yt6Ont0eqhymEV4KDx3FmD9kb");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -90,14 +90,14 @@ public class CreateTransactionTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new CreateTransaction(
-            "cbe124e4-b68c-432c-817f-1d5e7958f3c9",
-            "d1170349-431c-4789-8c1a-e29dde8c1e2e",
-            "fb46a397-42ff-410d-8544-1431e545d2a0"
+            "8a480fc1-4577-4907-9d6a-c87cf26f7afa",
+            "a387e891-8847-4c38-9559-5e87acab0e1d",
+            "d044b25e-2b03-4761-acdb-0b70e9a91604"
         )
-                .moneyAmount(7624)
-                .pointAmount(2559)
-                .pointExpiresAt("2024-12-08T22:28:39.000000+09:00")
-                .description("ye2jPQlRshYBFdwgGGCrbteA0ginsbh5MIWpSV004shjG1jUHBqVW2m7Pln9sZpZruquYvxBBhPuaTyWJJj57RvspMU3ube");
+                .moneyAmount(7778)
+                .pointAmount(5824)
+                .pointExpiresAt("2024-01-26T18:25:24.000000Z")
+                .description("i1vOnH69EFivIjA6JEHCCuKlnfNVTWFTkh4YZxFD");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
