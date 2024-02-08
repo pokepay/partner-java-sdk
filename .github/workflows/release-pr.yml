@@ -2,16 +2,15 @@ name: release PR
 
 on:
   push:
-    branches: [ "*" ]
+    branches:
+      - release/*
 
 jobs:
   build:
     runs-on: ubuntu-latest
-#    if: github.actor == 'pokepay-ci'
     steps:
       - uses: actions/checkout@v3
 
       - name: Run a multi-line script
         run: |
-          echo ${{ github.actor }}
-          #gh pr create -B master -t ${{ github.ref }} -b ''
+          gh pr create -B master -t ${{ github.ref }} -b ''
