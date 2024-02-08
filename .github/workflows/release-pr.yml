@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - release/*
+      - cxxxr-patch-1
 
 jobs:
   build:
