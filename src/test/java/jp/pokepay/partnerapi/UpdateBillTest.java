@@ -12,7 +12,7 @@ public class UpdateBillTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "d0bd6009-2dc6-460e-acab-db08f27a64e6"
+            "7b13563f-52a4-4ad9-a683-55c84cee1a90"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,7 +28,7 @@ public class UpdateBillTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "d0bd6009-2dc6-460e-acab-db08f27a64e6"
+            "7b13563f-52a4-4ad9-a683-55c84cee1a90"
         )
                 .setDisabled(true);
         try {
@@ -45,9 +45,9 @@ public class UpdateBillTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "d0bd6009-2dc6-460e-acab-db08f27a64e6"
+            "7b13563f-52a4-4ad9-a683-55c84cee1a90"
         )
-                .description("uqCu15nvnBKIMqHBG8xcfDsZ0fN2mKlLpCDNArItHFlkH6jUOsiG4mZFBM3rFPWO3PjKF7DKcMaZkYeGqp9nAj8VN0ADax9V6vC8KTHwPv15ZD3hblUwXX6TlkQxCH4cuTt6mg0kPHIuOgc4OxPLiY")
+                .description("vN0QEBe9OUmuQoNyAxdhT65YfaNVM2xjqlPxxy8RqwFW")
                 .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
@@ -63,10 +63,10 @@ public class UpdateBillTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "d0bd6009-2dc6-460e-acab-db08f27a64e6"
+            "7b13563f-52a4-4ad9-a683-55c84cee1a90"
         )
-                .amount(3603.0)
-                .description("sCLeDznnOgWOfyDreJkhSlKYCYejdG5hUB1Ub5qaZgrMy1m73KHGTTbOcpccXs43FGz0TwMXkIFEBRhIkV9eDhSPQOyiNC1EOi6lYEhDcvolbe853HTr3")
+                .amount(4820.0)
+                .description("1hvVt9bN2zIxNZx4eE9mHPjq6XCvYjxbcuNA5AOQHru6gAXocPu4UpOUbFxl1xg8SX1voG8Gydqo4fQ7D47J36mgyKf2p")
                 .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);

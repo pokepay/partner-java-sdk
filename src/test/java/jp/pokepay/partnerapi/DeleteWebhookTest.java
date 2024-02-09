@@ -12,7 +12,7 @@ public class DeleteWebhookTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new DeleteWebhook(
-            "d7705d6c-5cca-446f-9b23-01e2ad866465"
+            "f09ba024-80a2-44cf-9a60-7e9d56f684b1"
         );
         try {
             PartnerAPITest.getClient().send(request);

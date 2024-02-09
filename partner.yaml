@@ -53,6 +53,9 @@ tags:
       UserDeviceはユーザー毎のデバイスを管理します。
       あるユーザーが使っている端末を区別する必要がある場合に用いられます。
       これが必要な理由はBank Payを用いたチャージを行う場合は端末を区別できることが要件としてあるためです。
+  - name: BankPay
+    description: |
+      BankPayを用いた銀行からのチャージ取引などのAPIを提供しています。
 
 components:
   schemas:
@@ -293,6 +296,10 @@ components:
           type: string
           format: date-time
           title: チャージQRコード自体の失効日時
+        last_used_at:
+          type: string
+          format: date-time
+          nullable: true
         private_money:
           $ref: '#/components/schemas/PrivateMoney'
           title: 対象マネー情報
@@ -603,9 +610,11 @@ components:
           description: |
             取引のポイント額です。
             キャンペーンによるポイント付与額を含まない、元々の取引で支払われたポイント額を表します。
+          nullable: true
         campaign_point_amount:
           type: number
           title: 'キャンペーンによるポイント付与額'
+          nullable: true
         done_at:
           type: string
           format: date-time
@@ -1047,6 +1056,14 @@ components:
           type: number
           format: decimal
           minimum: 0
+        raw_point_amount:
+          type: number
+          format: decimal
+          minimum: 0
+        campaign_point_amount:
+          type: number
+          format: decimal
+          minimum: 0
         point_count:
           type: integer
     PrivateMoneyOrganizationSummary:
@@ -1088,6 +1105,12 @@ components:
           type: number
           format: decimal
         added_point_amount:
+          type: number
+          format: decimal
+        topup_point_amount:
+          type: number
+          format: decimal
+        campaign_point_amount:
           type: number
           format: decimal
         refunded_added_point_amount:
@@ -1151,10 +1174,56 @@ components:
         user:
           $ref: '#/components/schemas/User'
           title: 'デバイスを使用するユーザ'
+        is_active:
+          type: boolean
+          title: 'デバイスが有効か'
         metadata:
           type: string
           format: json
           title: 'デバイスのメタデータ'
+
+    BankRegisteringInfo:
+      x-pokepay-schema-type: "response"
+      properties:
+        redirect_url:
+          type: string
+        paytree_customer_number:
+          type: string
+          nullable: true
+
+    Bank:
+      x-pokepay-schema-type: "response"
+      properties:
+        id:
+          type: string
+          format: uuid
+        private_money:
+          $ref: '#/components/schemas/PrivateMoney'
+        bank_name:
+          type: string
+        bank_code:
+          type: string
+        branch_number:
+          type: string
+        branch_name:
+          type: string
+        deposit_type:
+          type: string
+        masked_account_number:
+          type: string
+        account_name:
+          type: string
+
+    Banks:
+      x-pokepay-schema-type: "response"
+      properties:
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bank'
+        count:
+          type: integer
+          minimum: 0
 
     PaginatedTransaction:
       x-pokepay-schema-type: "response"
@@ -1390,6 +1459,20 @@ components:
           type: string
           enum: [enabled, disabled]
           title: 'キャンペーンの現在の状態'
+        budget_caps_amount:
+          title: 'キャンペーンの予算上限額'
+          type: integer
+          nullable: true
+        budget_current_amount:
+          title: 'キャンペーンの付与合計額'
+          type: integer
+          nullable: true
+        budget_current_time:
+          title: 'キャンペーンの付与集計日時'
+          type: string
+          format: date-time
+          nullable: true
+
     PaginatedCampaigns:
       x-pokepay-schema-type: "response"
       properties:
@@ -1619,6 +1702,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Coupon'
+        count:
+          type: integer
+          minimum: 0
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    PaginatedOrganizations:
+      x-pokepay-schema-type: "response"
+      properties:
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/Organization'
         count:
           type: integer
           minimum: 0
@@ -4153,6 +4248,7 @@ paths:
       tags:
         - Transaction
       x-pokepay-allow-server-side: true
+      x-pokepay-operator-name: "CreateExchangeTransaction"
       requestBody:
         required: true
         content:
@@ -4170,7 +4266,7 @@ paths:
                   type: string
                   format: uuid
                 amount:
-                  type: number
+                  type: integer
                   minimum: 1
                 description:
                   type: string
@@ -4876,6 +4972,66 @@ paths:
           $ref: '#/components/responses/UnprocessableEntity'
 
   /organizations:
+    get:
+      tags:
+        - Organization
+      summary: '加盟店組織の一覧を取得する'
+      x-pokepay-allow-server-side: true
+      x-pokepay-operator-name: "ListOrganizations"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required: ["private_money_id"]
+              properties:
+                private_money_id:
+                  type: string
+                  format: uuid
+                  title: 'マネーID'
+                  description: |-
+                    マネーIDです。
+                    このマネーに加盟している加盟組織がフィルターされます。
+                page:
+                  type: integer
+                  minimum: 1
+                  title: 'ページ番号'
+                  description: 取得したいページ番号です。
+                  example: 1
+                per_page:
+                  type: integer
+                  minimum: 1
+                  title: '1ページ分の取引数'
+                  description: 1ページ分の取引数です。
+                  example: 50
+                name:
+                  type: string
+                  title: '組織名'
+                code:
+                  type: string
+                  title: '組織コード'
+                #これらのパラメータは管理画面のユースケースに特化してそうなので一旦コメントアウトしておく
+                #with_issuer_org:
+                #  type: boolean
+                #with_details:
+                #  type: boolean
+                #with_disabled_member_orgs:
+                #  type: boolean
+                #with_all_members:
+                #  type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedOrganizations'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
     post:
       tags:
         - Organization
@@ -6598,6 +6754,17 @@ paths:
                       "value": "male"
                     }
 
+                budget_caps_amount:
+                  title: 'キャンペーン予算上限'
+                  type: integer
+                  minimum: 1
+                  maximum: 10000000000
+                  description: |-
+                    キャンペーンの予算上限を指定します。デフォルトは未指定です。
+
+                    このパラメータが指定されている場合、このキャンペーンの適用により付与されたポイント全体を定期的に集計し、その合計が上限を越えていた場合にはキャンペーンを無効にします。
+                    一度この値を越えて無効となったキャンペーンを再度有効にすることは出来ません。
+
       responses:
         '200':
           description: OK
@@ -7362,6 +7529,20 @@ paths:
                       "value": "male"
                     }
 
+                budget_caps_amount:
+                  title: 'キャンペーン予算上限'
+                  type: integer
+                  minimum: 1
+                  maximum: 10000000000
+                  nullable: true
+                  description: |-
+                    キャンペーンの予算上限を指定します。
+
+                    キャンペーン予算上限が設定されておらずこのパラメータに数値が指定されている場合、このキャンペーンの適用により付与されたポイント全体を定期的に集計し、その合計が上限を越えていた場合にはキャンペーンを無効にします。
+                    一度この値を越えて無効となったキャンペーンを再度有効にすることは出来ません。
+                    キャンペーン予算上限が設定されておらずこのパラメータにnullが指定されている場合、何も発生しない。
+                    キャンペーン予算上限が設定されておりこのパラメータにnullが指定された場合、キャンペーン予算上限は止まります。
+
       responses:
         '200':
           description: OK
@@ -7665,6 +7846,204 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserDevice'
+        '400':
+          $ref: '#/components/responses/InvalidParameters'
+        '403':
+          $ref: '#/components/responses/UnpermittedAdminUser'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+
+  /user-devices/{user_device_id}/activate:
+    post:
+      x-pokepay-operator-name: "ActivateUserDevice"
+      x-pokepay-allow-server-side: true
+      tags:
+        - UserDevice
+      summary: デバイスの有効化
+      description: |
+        指定のデバイスを有効化し、それ以外の同一ユーザーのデバイスを無効化します。
+      parameters:
+        - in: path
+          name: user_device_id
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: "ユーザーデバイスID"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDevice'
+        '400':
+          $ref: '#/components/responses/InvalidParameters'
+        '403':
+          $ref: '#/components/responses/UnpermittedAdminUser'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '503':
+          $ref: '#/components/responses/UserStatsOperationServiceUnavailable'
+
+  /user-devices/{user_device_id}/banks:
+    post:
+      x-pokepay-operator-name: "CreateBank"
+      x-pokepay-allow-server-side: true
+      tags:
+        - BankPay
+      summary: 銀行口座の登録
+      description: |
+        銀行口座の登録を始めるAPIです。レスポンスに含まれるredirect_urlをユーザーの端末で開き銀行を登録します。
+
+        ユーザーが銀行口座の登録に成功すると、callback_urlにリクエストが行われます。
+        アプリの場合はDeep Linkを使うことを想定しています。
+      parameters:
+        - in: path
+          name: user_device_id
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: "デバイスID"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required: ["private_money_id", "callback_url", "kana"]
+              properties:
+                private_money_id:
+                  type: string
+                  format: uuid
+                  title: 'マネーID'
+                callback_url:
+                  type: string
+                  maxLength: 256
+                  example: '<Deep Link>'
+                  title: 'コールバックURL'
+                kana:
+                  type: string
+                  maxLength: 30
+                  example: 'ポケペイタロウ'
+                  title: 'ユーザーの氏名 (片仮名で指定)'
+                email:
+                  type: string
+                  format: email
+                  maxLength: 300
+                  title: 'ユーザーのメールアドレス'
+                birthdate:
+                  type: string
+                  maxLength: 8
+                  title: '生年月日'
+                  example: '19901142'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankRegisteringInfo'
+        '400':
+          $ref: '#/components/responses/InvalidParameters'
+        '403':
+          $ref: '#/components/responses/UnpermittedAdminUser'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '503':
+          $ref: '#/components/responses/UserStatsOperationServiceUnavailable'
+    get:
+      x-pokepay-operator-name: "ListBanks"
+      x-pokepay-allow-server-side: true
+      tags:
+        - BankPay
+      summary: 登録した銀行の一覧
+      description: 登録した銀行を一覧します
+      parameters:
+        - in: path
+          name: user_device_id
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: "デバイスID"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                private_money_id:
+                  type: string
+                  format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Banks'
+        '400':
+          $ref: '#/components/responses/InvalidParameters'
+        '403':
+          $ref: '#/components/responses/UnpermittedAdminUser'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+
+  /user-devices/{user_device_id}/banks/topup:
+    post:
+      x-pokepay-operator-name: "CreateBankTopupTransaction"
+      x-pokepay-allow-server-side: true
+      tags:
+        - BankPay
+      summary: 銀行からのチャージ
+      description: 指定のマネーのアカウントにbank_idの口座を用いてチャージを行います。
+      parameters:
+        - in: path
+          name: user_device_id
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: "デバイスID"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required: ["private_money_id", "amount", "bank_id", "request_id"]
+              properties:
+                private_money_id:
+                  type: string
+                  format: uuid
+                  title: 'マネーID'
+                amount:
+                  type: integer
+                  minimum: 1
+                  title: 'チャージ金額'
+                bank_id:
+                  type: string
+                  format: uuid
+                  title: '銀行ID'
+                request_id:
+                  type: string
+                  format: uuid
+                  title: 'リクエストID'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionDetail'
         '400':
           $ref: '#/components/responses/InvalidParameters'
         '403':

@@ -31,6 +31,7 @@ public class CreateCampaign extends Request {
     private Integer maxTotalPointAmount;
     private String destPrivateMoneyId;
     private Object applicableAccountMetadata;
+    private Integer budgetCapsAmount;
 
     public CreateCampaign(String name, String privateMoneyId, String startsAt, String endsAt, int priority, String event) {
         this.name = name;
@@ -131,6 +132,11 @@ public class CreateCampaign extends Request {
         return this;
     }
 
+    public CreateCampaign budgetCapsAmount(Integer budgetCapsAmount) {
+        this.budgetCapsAmount = budgetCapsAmount;
+        return this;
+    }
+
     @Override
     public Method method() {
         return Method.POST;
@@ -173,6 +179,7 @@ public class CreateCampaign extends Request {
         if (maxTotalPointAmount != null) { object.add("max_total_point_amount", context.serialize(this.maxTotalPointAmount)); }
         if (destPrivateMoneyId != null) { object.add("dest_private_money_id", context.serialize(this.destPrivateMoneyId)); }
         if (applicableAccountMetadata != null) { object.add("applicable_account_metadata", context.serialize(this.applicableAccountMetadata)); }
+        if (budgetCapsAmount != null) { object.add("budget_caps_amount", context.serialize(this.budgetCapsAmount)); }
         return object;
     }
 }
