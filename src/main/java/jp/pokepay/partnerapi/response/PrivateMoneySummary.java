@@ -7,6 +7,8 @@ public class PrivateMoneySummary extends Response {
     private Double paymentAmount;
     private Double refundedPaymentAmount;
     private Double addedPointAmount;
+    private Double topupPointAmount;
+    private Double campaignPointAmount;
     private Double refundedAddedPointAmount;
     private Double exchangeInflowAmount;
     private Double exchangeOutflowAmount;
@@ -30,6 +32,14 @@ public class PrivateMoneySummary extends Response {
 
     public Double getAddedPointAmount() {
         return addedPointAmount;
+    }
+
+    public Double getTopupPointAmount() {
+        return topupPointAmount;
+    }
+
+    public Double getCampaignPointAmount() {
+        return campaignPointAmount;
     }
 
     public Double getRefundedAddedPointAmount() {

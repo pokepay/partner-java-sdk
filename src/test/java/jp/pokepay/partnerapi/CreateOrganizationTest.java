@@ -12,11 +12,11 @@ public class CreateOrganizationTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateOrganization(
-            "ExlVRFlpA1Iv4Tx",
-            "JyEodWSTyjvRSz0MSzXhauaAxAS9Np6pBSZBmKIxY61ifdHAc1QbwNPqHDz2nxrsFbQ0rBdjlTCtJh6UhFzw5kCcYCF43RGg4cZRChBHEU2WErZmkF7FHJ72OgPnIaLoAfjJw96Z384yITypzQKpYG3sESq519V4bvFZ4KVH8p4amA4HFrehPmvy2UHaKOlQ7DomSxFQZN1xw1DnBU7oLUm4O42SsTrNhj",
-            new String[]{"876182ed-2e11-4010-b0e7-1fbcc35204dc"},
-            "VPn3aawVdh@bilh.com",
-            "htATESE6v8@82Ne.com"
+            "WEjltqaYkhp7caXjUtBcNe9XyY4wthFo",
+            "glXBErIUB1p7aPMzXnAdDrY96Gn0OAQ9xSN0zfKx7ivixiVqjgvBNcsQLQxAtJmVTcXWtKUzkNd35gyuBKlwozbM8BIp6WWFtoNM3mKKWyblmmAHRSYCV0EDw10SY48ZoA8oj9alrEKYDjBWPKCwbirzvScUvjsqVkcSInvOjFPIL9qlV",
+            new String[]{"f29b0be7-8830-4a3c-810c-5acec4f37445","262d2048-91c3-4c23-bd6a-5f3ea7574db5","b986c995-84ff-443d-9d5e-631998ae891d","4856285f-619d-47e5-a7cd-a2197b4bb22c","da4e4b2f-0d5d-4db8-9db0-af35e4b2ff53","3f2b2a77-a3f4-4373-9c67-405b61f28eb2","8fe43d06-f0ce-426b-87ca-83c26028602b","4f514916-2cbe-4384-84f6-bb75bfe2a478"},
+            "WoqdLq3QmH@RbZp.com",
+            "wbPRidVG7B@6haj.com"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -32,13 +32,13 @@ public class CreateOrganizationTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateOrganization(
-            "ExlVRFlpA1Iv4Tx",
-            "JyEodWSTyjvRSz0MSzXhauaAxAS9Np6pBSZBmKIxY61ifdHAc1QbwNPqHDz2nxrsFbQ0rBdjlTCtJh6UhFzw5kCcYCF43RGg4cZRChBHEU2WErZmkF7FHJ72OgPnIaLoAfjJw96Z384yITypzQKpYG3sESq519V4bvFZ4KVH8p4amA4HFrehPmvy2UHaKOlQ7DomSxFQZN1xw1DnBU7oLUm4O42SsTrNhj",
-            new String[]{"876182ed-2e11-4010-b0e7-1fbcc35204dc"},
-            "VPn3aawVdh@bilh.com",
-            "htATESE6v8@82Ne.com"
+            "WEjltqaYkhp7caXjUtBcNe9XyY4wthFo",
+            "glXBErIUB1p7aPMzXnAdDrY96Gn0OAQ9xSN0zfKx7ivixiVqjgvBNcsQLQxAtJmVTcXWtKUzkNd35gyuBKlwozbM8BIp6WWFtoNM3mKKWyblmmAHRSYCV0EDw10SY48ZoA8oj9alrEKYDjBWPKCwbirzvScUvjsqVkcSInvOjFPIL9qlV",
+            new String[]{"f29b0be7-8830-4a3c-810c-5acec4f37445","262d2048-91c3-4c23-bd6a-5f3ea7574db5","b986c995-84ff-443d-9d5e-631998ae891d","4856285f-619d-47e5-a7cd-a2197b4bb22c","da4e4b2f-0d5d-4db8-9db0-af35e4b2ff53","3f2b2a77-a3f4-4373-9c67-405b61f28eb2","8fe43d06-f0ce-426b-87ca-83c26028602b","4f514916-2cbe-4384-84f6-bb75bfe2a478"},
+            "WoqdLq3QmH@RbZp.com",
+            "wbPRidVG7B@6haj.com"
         )
-                .contactName("o9qA8oOJ4i");
+                .contactName("GJrCJBxTKH0YUW8iwJJuJPCjlaztijN3vebjT869RjYRPCqvnZ1YzdrhGH7XKNoGDpqqjYUa42NN7jWbTA8sT9CjYdhYyR9ZtWhMAKSZHQ2Tjahc0hASAcEibjku1fdQetgL0O");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -53,14 +53,14 @@ public class CreateOrganizationTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateOrganization(
-            "ExlVRFlpA1Iv4Tx",
-            "JyEodWSTyjvRSz0MSzXhauaAxAS9Np6pBSZBmKIxY61ifdHAc1QbwNPqHDz2nxrsFbQ0rBdjlTCtJh6UhFzw5kCcYCF43RGg4cZRChBHEU2WErZmkF7FHJ72OgPnIaLoAfjJw96Z384yITypzQKpYG3sESq519V4bvFZ4KVH8p4amA4HFrehPmvy2UHaKOlQ7DomSxFQZN1xw1DnBU7oLUm4O42SsTrNhj",
-            new String[]{"876182ed-2e11-4010-b0e7-1fbcc35204dc"},
-            "VPn3aawVdh@bilh.com",
-            "htATESE6v8@82Ne.com"
+            "WEjltqaYkhp7caXjUtBcNe9XyY4wthFo",
+            "glXBErIUB1p7aPMzXnAdDrY96Gn0OAQ9xSN0zfKx7ivixiVqjgvBNcsQLQxAtJmVTcXWtKUzkNd35gyuBKlwozbM8BIp6WWFtoNM3mKKWyblmmAHRSYCV0EDw10SY48ZoA8oj9alrEKYDjBWPKCwbirzvScUvjsqVkcSInvOjFPIL9qlV",
+            new String[]{"f29b0be7-8830-4a3c-810c-5acec4f37445","262d2048-91c3-4c23-bd6a-5f3ea7574db5","b986c995-84ff-443d-9d5e-631998ae891d","4856285f-619d-47e5-a7cd-a2197b4bb22c","da4e4b2f-0d5d-4db8-9db0-af35e4b2ff53","3f2b2a77-a3f4-4373-9c67-405b61f28eb2","8fe43d06-f0ce-426b-87ca-83c26028602b","4f514916-2cbe-4384-84f6-bb75bfe2a478"},
+            "WoqdLq3QmH@RbZp.com",
+            "wbPRidVG7B@6haj.com"
         )
-                .bankAccountHolderName("ｦ")
-                .contactName("zKLFsqmbJ6twru21ZrDGInQ4SgTdrLspJLLvfi3GTnx43UrWsk4JKiGxnXWehJD17JFmfipqEgWppYz5zhCIQfW72Xbjyl46RR9GszPQa0xtsO6MRG77VP");
+                .bankAccountHolderName("\\")
+                .contactName("lAFrkXVihIdQWu7J4NYirXryPP6taqbm6hsnA9hELkacVB4dzDqQ1LbTyVIgVP7fIz1xemnrDx9P7HPwLX5lwWZKuWWf4n5wNPq2rjN28QfQLnQ9Qr2gs4rAyEVt2ws7WkJzpgGUX4mtxobZ9ZCpNJGZG6LzTWIbd8ZNVrafdiivNn4NbNLXIdoiqtrelImUNmLeK");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -75,15 +75,15 @@ public class CreateOrganizationTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new CreateOrganization(
-            "ExlVRFlpA1Iv4Tx",
-            "JyEodWSTyjvRSz0MSzXhauaAxAS9Np6pBSZBmKIxY61ifdHAc1QbwNPqHDz2nxrsFbQ0rBdjlTCtJh6UhFzw5kCcYCF43RGg4cZRChBHEU2WErZmkF7FHJ72OgPnIaLoAfjJw96Z384yITypzQKpYG3sESq519V4bvFZ4KVH8p4amA4HFrehPmvy2UHaKOlQ7DomSxFQZN1xw1DnBU7oLUm4O42SsTrNhj",
-            new String[]{"876182ed-2e11-4010-b0e7-1fbcc35204dc"},
-            "VPn3aawVdh@bilh.com",
-            "htATESE6v8@82Ne.com"
+            "WEjltqaYkhp7caXjUtBcNe9XyY4wthFo",
+            "glXBErIUB1p7aPMzXnAdDrY96Gn0OAQ9xSN0zfKx7ivixiVqjgvBNcsQLQxAtJmVTcXWtKUzkNd35gyuBKlwozbM8BIp6WWFtoNM3mKKWyblmmAHRSYCV0EDw10SY48ZoA8oj9alrEKYDjBWPKCwbirzvScUvjsqVkcSInvOjFPIL9qlV",
+            new String[]{"f29b0be7-8830-4a3c-810c-5acec4f37445","262d2048-91c3-4c23-bd6a-5f3ea7574db5","b986c995-84ff-443d-9d5e-631998ae891d","4856285f-619d-47e5-a7cd-a2197b4bb22c","da4e4b2f-0d5d-4db8-9db0-af35e4b2ff53","3f2b2a77-a3f4-4373-9c67-405b61f28eb2","8fe43d06-f0ce-426b-87ca-83c26028602b","4f514916-2cbe-4384-84f6-bb75bfe2a478"},
+            "WoqdLq3QmH@RbZp.com",
+            "wbPRidVG7B@6haj.com"
         )
-                .bankAccount("32")
-                .bankAccountHolderName("\\")
-                .contactName("upayaxFbjEXZwRgZ2zjMRTkgjpLLaeOcvNjsSDxs7QGgpVAxnLvucMojZMLy9iXtLmVsvy2ixwoIuU7Pb34nTXAF3lbHvyfaQhHTSxmMOKXV6Pvcmm8mtIutSuhc");
+                .bankAccount("15538")
+                .bankAccountHolderName(")")
+                .contactName("22E4bXnTsrAuXzcUztcjpDcIzv8TjKb1dIcQKtgPEpt9Ynsu0LI4T70lQwB453YpOK96EoFGxVJNTeRlFM4Xw2YneFRtau24yc1kusN7qW2yhhPFbHNPhRgnqYnUlh4JbOrMj5jFwrAdcz57ZOWsDr0Djt9M12BOno1AcjM96oftC7mHhiSDgXKvVy5pa");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -98,16 +98,16 @@ public class CreateOrganizationTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new CreateOrganization(
-            "ExlVRFlpA1Iv4Tx",
-            "JyEodWSTyjvRSz0MSzXhauaAxAS9Np6pBSZBmKIxY61ifdHAc1QbwNPqHDz2nxrsFbQ0rBdjlTCtJh6UhFzw5kCcYCF43RGg4cZRChBHEU2WErZmkF7FHJ72OgPnIaLoAfjJw96Z384yITypzQKpYG3sESq519V4bvFZ4KVH8p4amA4HFrehPmvy2UHaKOlQ7DomSxFQZN1xw1DnBU7oLUm4O42SsTrNhj",
-            new String[]{"876182ed-2e11-4010-b0e7-1fbcc35204dc"},
-            "VPn3aawVdh@bilh.com",
-            "htATESE6v8@82Ne.com"
+            "WEjltqaYkhp7caXjUtBcNe9XyY4wthFo",
+            "glXBErIUB1p7aPMzXnAdDrY96Gn0OAQ9xSN0zfKx7ivixiVqjgvBNcsQLQxAtJmVTcXWtKUzkNd35gyuBKlwozbM8BIp6WWFtoNM3mKKWyblmmAHRSYCV0EDw10SY48ZoA8oj9alrEKYDjBWPKCwbirzvScUvjsqVkcSInvOjFPIL9qlV",
+            new String[]{"f29b0be7-8830-4a3c-810c-5acec4f37445","262d2048-91c3-4c23-bd6a-5f3ea7574db5","b986c995-84ff-443d-9d5e-631998ae891d","4856285f-619d-47e5-a7cd-a2197b4bb22c","da4e4b2f-0d5d-4db8-9db0-af35e4b2ff53","3f2b2a77-a3f4-4373-9c67-405b61f28eb2","8fe43d06-f0ce-426b-87ca-83c26028602b","4f514916-2cbe-4384-84f6-bb75bfe2a478"},
+            "WoqdLq3QmH@RbZp.com",
+            "wbPRidVG7B@6haj.com"
         )
                 .bankAccountType("saving")
-                .bankAccount("61536")
-                .bankAccountHolderName("｢")
-                .contactName("AY7f6wQzLTQrhyItWBirnVS64VFY6EQPMB7k5eCXATLHwEwepAiNYbpeHBMiPeX5E3MGZAQNYUaoEv6bkppwNwxe5SvmYJYb");
+                .bankAccount("843")
+                .bankAccountHolderName(".")
+                .contactName("yMo26iqol80j1t4n3lpn");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -122,17 +122,17 @@ public class CreateOrganizationTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new CreateOrganization(
-            "ExlVRFlpA1Iv4Tx",
-            "JyEodWSTyjvRSz0MSzXhauaAxAS9Np6pBSZBmKIxY61ifdHAc1QbwNPqHDz2nxrsFbQ0rBdjlTCtJh6UhFzw5kCcYCF43RGg4cZRChBHEU2WErZmkF7FHJ72OgPnIaLoAfjJw96Z384yITypzQKpYG3sESq519V4bvFZ4KVH8p4amA4HFrehPmvy2UHaKOlQ7DomSxFQZN1xw1DnBU7oLUm4O42SsTrNhj",
-            new String[]{"876182ed-2e11-4010-b0e7-1fbcc35204dc"},
-            "VPn3aawVdh@bilh.com",
-            "htATESE6v8@82Ne.com"
+            "WEjltqaYkhp7caXjUtBcNe9XyY4wthFo",
+            "glXBErIUB1p7aPMzXnAdDrY96Gn0OAQ9xSN0zfKx7ivixiVqjgvBNcsQLQxAtJmVTcXWtKUzkNd35gyuBKlwozbM8BIp6WWFtoNM3mKKWyblmmAHRSYCV0EDw10SY48ZoA8oj9alrEKYDjBWPKCwbirzvScUvjsqVkcSInvOjFPIL9qlV",
+            new String[]{"f29b0be7-8830-4a3c-810c-5acec4f37445","262d2048-91c3-4c23-bd6a-5f3ea7574db5","b986c995-84ff-443d-9d5e-631998ae891d","4856285f-619d-47e5-a7cd-a2197b4bb22c","da4e4b2f-0d5d-4db8-9db0-af35e4b2ff53","3f2b2a77-a3f4-4373-9c67-405b61f28eb2","8fe43d06-f0ce-426b-87ca-83c26028602b","4f514916-2cbe-4384-84f6-bb75bfe2a478"},
+            "WoqdLq3QmH@RbZp.com",
+            "wbPRidVG7B@6haj.com"
         )
-                .bankBranchCode("242")
-                .bankAccountType("other")
-                .bankAccount("9803027")
-                .bankAccountHolderName("B")
-                .contactName("SfOZoXaMBOFYfGsOSJ17G5GqfkLhpEbu4WScUh7vHxulTRwSntgqUfFWGm2KbCOJ62bLwaxWJdDzbWWpK3pfIWwDG6LazcTa03Ym5hAN5T6RwDh1ycBbtAtPxD9LZGnVTj4BVghVmgekNJPzvPgzTcYXSSJb5qqcqMzFAE5EttJFEBisCEie8GNEqzJOM");
+                .bankBranchCode("")
+                .bankAccountType("current")
+                .bankAccount("843486")
+                .bankAccountHolderName(".")
+                .contactName("eGwjQCqxdtQnDY4S9N4HhJ5rCsXRcUZY47cpIh03BvqB7CzLjYHoO28zEE65UlKtMCe12MUV2dxrA2428zEWnFZLX87qtedPzV8NdiYCurcmVOPZzwMWHgQ0VESfspW9b9NBdczTSynCfTiWLEN2pEbq7ZeB8PVJkE9NzaeTptZ5kX9rLpagdWQnEnTlLyubwibc5uG9Y4cn6ApRZ5NX6gFb5nuODlmm9rpn022H3wQmNFzbLFmfFSz1uperY");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -147,18 +147,18 @@ public class CreateOrganizationTest {
     @Test
     void test6() throws ConnectionError, ProcessingError {
         Request request = new CreateOrganization(
-            "ExlVRFlpA1Iv4Tx",
-            "JyEodWSTyjvRSz0MSzXhauaAxAS9Np6pBSZBmKIxY61ifdHAc1QbwNPqHDz2nxrsFbQ0rBdjlTCtJh6UhFzw5kCcYCF43RGg4cZRChBHEU2WErZmkF7FHJ72OgPnIaLoAfjJw96Z384yITypzQKpYG3sESq519V4bvFZ4KVH8p4amA4HFrehPmvy2UHaKOlQ7DomSxFQZN1xw1DnBU7oLUm4O42SsTrNhj",
-            new String[]{"876182ed-2e11-4010-b0e7-1fbcc35204dc"},
-            "VPn3aawVdh@bilh.com",
-            "htATESE6v8@82Ne.com"
+            "WEjltqaYkhp7caXjUtBcNe9XyY4wthFo",
+            "glXBErIUB1p7aPMzXnAdDrY96Gn0OAQ9xSN0zfKx7ivixiVqjgvBNcsQLQxAtJmVTcXWtKUzkNd35gyuBKlwozbM8BIp6WWFtoNM3mKKWyblmmAHRSYCV0EDw10SY48ZoA8oj9alrEKYDjBWPKCwbirzvScUvjsqVkcSInvOjFPIL9qlV",
+            new String[]{"f29b0be7-8830-4a3c-810c-5acec4f37445","262d2048-91c3-4c23-bd6a-5f3ea7574db5","b986c995-84ff-443d-9d5e-631998ae891d","4856285f-619d-47e5-a7cd-a2197b4bb22c","da4e4b2f-0d5d-4db8-9db0-af35e4b2ff53","3f2b2a77-a3f4-4373-9c67-405b61f28eb2","8fe43d06-f0ce-426b-87ca-83c26028602b","4f514916-2cbe-4384-84f6-bb75bfe2a478"},
+            "WoqdLq3QmH@RbZp.com",
+            "wbPRidVG7B@6haj.com"
         )
-                .bankBranchName("QtsctZSqNsC68pCftj79w26aB7dJ")
+                .bankBranchName("hU5vbLxW8")
                 .bankBranchCode("")
-                .bankAccountType("saving")
-                .bankAccount("133")
-                .bankAccountHolderName("3")
-                .contactName("N59V0UGZEDTFlXI0sHPZYxiLvovXv3TEyHaFMQX89i5qVy7SlIyBWl5dj7lE2PqtKk9SkBHONCsq1BCSVErEj5OWx7oZMXJ6ue0VBsgWG5aDPCzMYKEBKhs3eTmyQUIuSfTjfqGMbgErlP8mTxjysp2bpJ0");
+                .bankAccountType("current")
+                .bankAccount("580")
+                .bankAccountHolderName("ｦ")
+                .contactName("u89q3NykiRPYO2oQiAYMcKkXBWEu4RSjxgCW3jFlgob7yobgqdqFleVhpCebdmmx3jJLFYo72YjP5pod5QaLCZTmFLxumOnvrupx16EXCUXyPfCabjEtMl");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -173,19 +173,19 @@ public class CreateOrganizationTest {
     @Test
     void test7() throws ConnectionError, ProcessingError {
         Request request = new CreateOrganization(
-            "ExlVRFlpA1Iv4Tx",
-            "JyEodWSTyjvRSz0MSzXhauaAxAS9Np6pBSZBmKIxY61ifdHAc1QbwNPqHDz2nxrsFbQ0rBdjlTCtJh6UhFzw5kCcYCF43RGg4cZRChBHEU2WErZmkF7FHJ72OgPnIaLoAfjJw96Z384yITypzQKpYG3sESq519V4bvFZ4KVH8p4amA4HFrehPmvy2UHaKOlQ7DomSxFQZN1xw1DnBU7oLUm4O42SsTrNhj",
-            new String[]{"876182ed-2e11-4010-b0e7-1fbcc35204dc"},
-            "VPn3aawVdh@bilh.com",
-            "htATESE6v8@82Ne.com"
+            "WEjltqaYkhp7caXjUtBcNe9XyY4wthFo",
+            "glXBErIUB1p7aPMzXnAdDrY96Gn0OAQ9xSN0zfKx7ivixiVqjgvBNcsQLQxAtJmVTcXWtKUzkNd35gyuBKlwozbM8BIp6WWFtoNM3mKKWyblmmAHRSYCV0EDw10SY48ZoA8oj9alrEKYDjBWPKCwbirzvScUvjsqVkcSInvOjFPIL9qlV",
+            new String[]{"f29b0be7-8830-4a3c-810c-5acec4f37445","262d2048-91c3-4c23-bd6a-5f3ea7574db5","b986c995-84ff-443d-9d5e-631998ae891d","4856285f-619d-47e5-a7cd-a2197b4bb22c","da4e4b2f-0d5d-4db8-9db0-af35e4b2ff53","3f2b2a77-a3f4-4373-9c67-405b61f28eb2","8fe43d06-f0ce-426b-87ca-83c26028602b","4f514916-2cbe-4384-84f6-bb75bfe2a478"},
+            "WoqdLq3QmH@RbZp.com",
+            "wbPRidVG7B@6haj.com"
         )
-                .bankCode("9587")
-                .bankBranchName("9ZqMhA7cvZ7Vr9NZ8PqENSVdRyP")
+                .bankCode("9677")
+                .bankBranchName("oPmNQWU6zl3h")
                 .bankBranchCode("")
                 .bankAccountType("saving")
-                .bankAccount("2621174")
-                .bankAccountHolderName("4")
-                .contactName("4tNZN");
+                .bankAccount("37")
+                .bankAccountHolderName(")")
+                .contactName("IIfEbaRlpdhTTQpQoSRT6b0IY83jSy9CLjq8yjjxInoBnLVw5NxHP7CI9Yb5tOQ2qp6BlopujNmJIuVKWvjUjC0u3f2Lo9NqlV6uXM4yE9kd7lV6QKkz6REzoI7cZYW4c0GyNh6EpQVqX4KE4B5KR");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -200,20 +200,20 @@ public class CreateOrganizationTest {
     @Test
     void test8() throws ConnectionError, ProcessingError {
         Request request = new CreateOrganization(
-            "ExlVRFlpA1Iv4Tx",
-            "JyEodWSTyjvRSz0MSzXhauaAxAS9Np6pBSZBmKIxY61ifdHAc1QbwNPqHDz2nxrsFbQ0rBdjlTCtJh6UhFzw5kCcYCF43RGg4cZRChBHEU2WErZmkF7FHJ72OgPnIaLoAfjJw96Z384yITypzQKpYG3sESq519V4bvFZ4KVH8p4amA4HFrehPmvy2UHaKOlQ7DomSxFQZN1xw1DnBU7oLUm4O42SsTrNhj",
-            new String[]{"876182ed-2e11-4010-b0e7-1fbcc35204dc"},
-            "VPn3aawVdh@bilh.com",
-            "htATESE6v8@82Ne.com"
+            "WEjltqaYkhp7caXjUtBcNe9XyY4wthFo",
+            "glXBErIUB1p7aPMzXnAdDrY96Gn0OAQ9xSN0zfKx7ivixiVqjgvBNcsQLQxAtJmVTcXWtKUzkNd35gyuBKlwozbM8BIp6WWFtoNM3mKKWyblmmAHRSYCV0EDw10SY48ZoA8oj9alrEKYDjBWPKCwbirzvScUvjsqVkcSInvOjFPIL9qlV",
+            new String[]{"f29b0be7-8830-4a3c-810c-5acec4f37445","262d2048-91c3-4c23-bd6a-5f3ea7574db5","b986c995-84ff-443d-9d5e-631998ae891d","4856285f-619d-47e5-a7cd-a2197b4bb22c","da4e4b2f-0d5d-4db8-9db0-af35e4b2ff53","3f2b2a77-a3f4-4373-9c67-405b61f28eb2","8fe43d06-f0ce-426b-87ca-83c26028602b","4f514916-2cbe-4384-84f6-bb75bfe2a478"},
+            "WoqdLq3QmH@RbZp.com",
+            "wbPRidVG7B@6haj.com"
         )
-                .bankName("EINBoFuUNGBNiH0phHucst8MKpJ63BnkTYfc9VYXKcsuzgtuJYKds30IiNjGu")
-                .bankCode("6014")
-                .bankBranchName("XfIwDo4Rkzf9ne9iblZcrkpGZ3Jcgi3z2iz")
-                .bankBranchCode("413")
+                .bankName("DxSSppVORQLy6PO73cHGKqjz0v27dHE8")
+                .bankCode("")
+                .bankBranchName("eh9b3v7zqeYS2n0EGsPPbvQvYkAPBJ7wmgCWNKDP1enxAKZBD2F")
+                .bankBranchCode("")
                 .bankAccountType("other")
-                .bankAccount("")
-                .bankAccountHolderName("-")
-                .contactName("DXhs0JkqK7OcFRHFMaiOxJ5OUq9iF5fXwaN8w4uk");
+                .bankAccount("9652717")
+                .bankAccountHolderName("ﾑ")
+                .contactName("RCKxxDEWQZO9yz4Mc4BWxPS7UaVHpVi4pZYZOGKLSewvJuaN97ObUNQZ0A0Rwk2Z2omGatDjCcJfOMaGd4kHySUJYrKI48UyLazcdaqg9M9b56VU");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
