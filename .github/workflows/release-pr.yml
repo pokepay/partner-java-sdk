@@ -3,7 +3,7 @@ name: release PR
 on:
   push:
     branches:
-      - release/*
+      - release/**
       - cxxxr-patch-1
 
 jobs:
