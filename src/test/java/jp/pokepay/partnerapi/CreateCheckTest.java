@@ -157,8 +157,8 @@ public class CreateCheckTest {
                 .moneyAmount(2132.0)
                 .bearPointAccount("564f0633-c088-426c-bfdf-b12916570056")
                 .pointExpiresInDays(4947)
-                .pointExpiresAt("2024-01-16T03:09:56.000000Z")
-                .expiresAt("2022-08-04T04:38:22.000000Z")
+                .pointExpiresAt("2024-03-06T17:39:29.000000Z")
+                .expiresAt("2024-01-16T03:09:56.000000Z")
                 .usageLimit(8911)
                 .setOnetime(true)
                 .description("23WFeXCsADfveWv5SetJLuZcB6tdcwibyPvTHbjOWbqqVGNOP2f7Fmc6X");
