@@ -300,19 +300,19 @@ public class ListTransfersTest {
     void test14() throws ConnectionError, ProcessingError {
         Request request = new ListTransfers()
                 .from("2021-06-05T17:48:04.000000Z")
-                .to("2020-12-26T02:42:27.000000Z")
-                .page(218)
-                .perPage(6793)
-                .shopId("66729419-18d7-478c-8d83-149b011f45e1")
-                .shopName("6BMdHbor9Bi8VjYj")
-                .customerId("ed0ac265-39c1-40c6-9eb8-7fe0ee0b134e")
-                .customerName("8XvRYyNjj6LzPNoFY0NPc7gW3tdaerbfAUj6MGuDCQRgbbh69IfOOqdFvcvTYHWhMSc2JtDSCuxpXIBKjX0wbEINtuhWyJmxhctiEpL1KlL20SY28CEIpXvCz2lX0WFgkUTJYHHOr63hjnglJCcSZdRjCOwyap0lsb8d4Dc5yMU")
-                .transactionId("d59e9431-15a1-4f54-944e-4e02a1dc8d30")
-                .privateMoneyId("d8651879-e2d8-4d24-b687-def752387178")
+                .to("2024-02-27T08:22:21.000000Z")
+                .page(532)
+                .perPage(218)
+                .shopId("51a32931-1a88-4419-978c-b74df4025183")
+                .shopName("a6BMdHbor9Bi8VjYjeAF8N8XvRYyNjj6LzPNoFY0NPc7gW3tdaerbfAUj6MGuDCQRgbbh69IfOOqdFvcvTYHWhMSc2JtDSCuxpXIBKjX0wbEINtuhWyJmxhctiEpL1KlL20SY28CEIpXvCz2lX0WFgkUTJYH")
+                .customerId("97e5ea88-c68d-491f-bca8-f848de508515")
+                .customerName("Or63hjnglJCcSZdRjCOwy")
+                .transactionId("1e9be219-1b86-4e61-be70-00be2900f515")
+                .privateMoneyId("8a7d7a30-269c-476c-8ef3-9ae2daaeea9e")
                 .setModified(false)
-                .transactionTypes(new String[]{"cashback"})
-                .transferTypes(new String[]{"expire","payment","topup"})
-                .description("klncfGkEwHBWOqOmjPQjCJIqduyEzfF4ihEMnqIdNLL8T5msTmgqj81RXJ34GFY2SrpQfm9Le0rSPWlrPa8fbLwdjVaS9JydpHqXjqW7D3uCGCdE3Z7gIcLSudPl4JIrQmLFWJxcGB9NLriuIsMTYyCUoOEa9YZaUNPTMagDSPeHLGCGYvgqbqCId");
+                .transactionTypes(new String[]{"topup","expire","transfer","exchange","cashback"})
+                .transferTypes(new String[]{"transfer","exchange","coupon"})
+                .description("U1TN0yX6wxY6IPoPyEr8klncfGkEwHBWOqOmjPQjCJIqduyEzfF4ihEMnqI");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

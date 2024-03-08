@@ -12,7 +12,7 @@ public class GetUserDeviceTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetUserDevice(
-            "c7d6be88-e502-4c42-94a1-cd410a9c1064"
+            "97103bd4-55aa-4e14-838c-d7b19e377bc1"
         );
         try {
             PartnerAPITest.getClient().send(request);
