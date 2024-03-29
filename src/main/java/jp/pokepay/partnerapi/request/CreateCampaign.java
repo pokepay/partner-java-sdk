@@ -22,15 +22,19 @@ public class CreateCampaign extends Request {
     private String subject;
     private Object[] amountBasedPointRules;
     private Object[] productBasedPointRules;
+    private Object[] blacklistedProductRules;
     private Integer[] applicableDaysOfWeek;
     private Object[] applicableTimeRanges;
     private String[] applicableShopIds;
+    private Integer minimumNumberOfProducts;
+    private Integer minimumNumberOfAmount;
     private Integer minimumNumberForCombinationPurchase;
     private Boolean existInEachProductGroups;
     private Integer maxPointAmount;
     private Integer maxTotalPointAmount;
     private String destPrivateMoneyId;
     private Object applicableAccountMetadata;
+    private Object applicableTransactionMetadata;
     private Integer budgetCapsAmount;
 
     public CreateCampaign(String name, String privateMoneyId, String startsAt, String endsAt, int priority, String event) {
@@ -87,6 +91,11 @@ public class CreateCampaign extends Request {
         return this;
     }
 
+    public CreateCampaign blacklistedProductRules(Object[] blacklistedProductRules) {
+        this.blacklistedProductRules = blacklistedProductRules;
+        return this;
+    }
+
     public CreateCampaign applicableDaysOfWeek(Integer[] applicableDaysOfWeek) {
         this.applicableDaysOfWeek = applicableDaysOfWeek;
         return this;
@@ -99,6 +108,16 @@ public class CreateCampaign extends Request {
 
     public CreateCampaign applicableShopIds(String[] applicableShopIds) {
         this.applicableShopIds = applicableShopIds;
+        return this;
+    }
+
+    public CreateCampaign minimumNumberOfProducts(Integer minimumNumberOfProducts) {
+        this.minimumNumberOfProducts = minimumNumberOfProducts;
+        return this;
+    }
+
+    public CreateCampaign minimumNumberOfAmount(Integer minimumNumberOfAmount) {
+        this.minimumNumberOfAmount = minimumNumberOfAmount;
         return this;
     }
 
@@ -129,6 +148,11 @@ public class CreateCampaign extends Request {
 
     public CreateCampaign applicableAccountMetadata(Object applicableAccountMetadata) {
         this.applicableAccountMetadata = applicableAccountMetadata;
+        return this;
+    }
+
+    public CreateCampaign applicableTransactionMetadata(Object applicableTransactionMetadata) {
+        this.applicableTransactionMetadata = applicableTransactionMetadata;
         return this;
     }
 
@@ -170,15 +194,19 @@ public class CreateCampaign extends Request {
         if (subject != null) { object.add("subject", context.serialize(this.subject)); }
         if (amountBasedPointRules != null) { object.add("amount_based_point_rules", context.serialize(this.amountBasedPointRules)); }
         if (productBasedPointRules != null) { object.add("product_based_point_rules", context.serialize(this.productBasedPointRules)); }
+        if (blacklistedProductRules != null) { object.add("blacklisted_product_rules", context.serialize(this.blacklistedProductRules)); }
         if (applicableDaysOfWeek != null) { object.add("applicable_days_of_week", context.serialize(this.applicableDaysOfWeek)); }
         if (applicableTimeRanges != null) { object.add("applicable_time_ranges", context.serialize(this.applicableTimeRanges)); }
         if (applicableShopIds != null) { object.add("applicable_shop_ids", context.serialize(this.applicableShopIds)); }
+        if (minimumNumberOfProducts != null) { object.add("minimum_number_of_products", context.serialize(this.minimumNumberOfProducts)); }
+        if (minimumNumberOfAmount != null) { object.add("minimum_number_of_amount", context.serialize(this.minimumNumberOfAmount)); }
         if (minimumNumberForCombinationPurchase != null) { object.add("minimum_number_for_combination_purchase", context.serialize(this.minimumNumberForCombinationPurchase)); }
         if (existInEachProductGroups != null) { object.add("exist_in_each_product_groups", context.serialize(this.existInEachProductGroups)); }
         if (maxPointAmount != null) { object.add("max_point_amount", context.serialize(this.maxPointAmount)); }
         if (maxTotalPointAmount != null) { object.add("max_total_point_amount", context.serialize(this.maxTotalPointAmount)); }
         if (destPrivateMoneyId != null) { object.add("dest_private_money_id", context.serialize(this.destPrivateMoneyId)); }
         if (applicableAccountMetadata != null) { object.add("applicable_account_metadata", context.serialize(this.applicableAccountMetadata)); }
+        if (applicableTransactionMetadata != null) { object.add("applicable_transaction_metadata", context.serialize(this.applicableTransactionMetadata)); }
         if (budgetCapsAmount != null) { object.add("budget_caps_amount", context.serialize(this.budgetCapsAmount)); }
         return object;
     }

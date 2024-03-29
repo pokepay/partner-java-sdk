@@ -34,6 +34,7 @@ tags:
   - name: Customer
   - name: Organization
   - name: Shop
+  - name: User
   - name: Account
   - name: Private Money
   - name: Bulk
@@ -1020,6 +1021,55 @@ components:
             例えば、キャンペーンによるポイント付与取引やキャンセル状況などの情報が含まれます。
             ポケペイ取引が存在しない場合はnullが設定されます。
 
+    Products:
+      type: array
+      items:
+        type: object
+        properties:
+          jan_code:
+            type: string
+            maxLength: 64
+          classification_code:
+            type: string
+            maxLength: 64
+          name:
+            type: string
+            maxLength: 256
+          unit_price:
+            type: number
+            minimum: 0
+          price:
+            type: number
+            minimum: 0
+          quantity:
+            type: integer
+            minimum: 1
+          is_discounted:
+            type: boolean
+          other:
+            type: string
+            format: json
+        example: |-
+          {"jan_code":"abc",
+           "name":"name1",
+           "unit_price":100,
+           "price": 100,
+           "quantity": 1,
+           "is_discounted": false,
+           "other":"{}"}
+      title: '商品情報データ'
+      description:  |-
+        一つの取引に含まれる商品情報データです。
+        以下の内容からなるJSONオブジェクトの配列で指定します。
+
+        - `jan_code`: JANコード。64字以下の文字列
+        - `name`: 商品名。256字以下の文字列
+        - `unit_price`: 商品単価。0以上の数値
+        - `price`: 全体の金額(例: 商品単価 × 個数)。0以上の数値
+        - `quantity`: 商品の個数。この値が指定された場合、priceから算出される個数よりも優先されます。
+        - `is_discounted`: 賞味期限が近いなどの理由で商品が値引きされているかどうかのフラグ。boolean
+        - `other`: その他商品に関する情報。JSONオブジェクトで指定します。
+
     Product:
       x-pokepay-schema-type: "response"
       properties:
@@ -1035,6 +1085,10 @@ components:
         price:
           type: number
           minimum: 0
+        quantity:
+          type: integer
+          minimum: 1
+          nullable: true
         is_discounted:
           type: boolean
         other:
@@ -1938,6 +1992,8 @@ paths:
           $ref: '#/components/responses/BadRequest'
   /user:
     get:
+      tags:
+        - User
       responses:
         '200':
           description: OK
@@ -3901,48 +3957,7 @@ paths:
                   example: |-
                     {"key":"value"}
                 products:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      jan_code:
-                        type: string
-                        maxLength: 64
-                      classification_code:
-                        type: string
-                        maxLength: 64
-                      name:
-                        type: string
-                        maxLength: 256
-                      unit_price:
-                        type: number
-                        minimum: 0
-                      price:
-                        type: number
-                        minimum: 0
-                      is_discounted:
-                        type: boolean
-                      other:
-                        type: string
-                        format: json
-                    example: |-
-                      {"jan_code":"abc",
-                       "name":"name1",
-                       "unit_price":100,
-                       "price": 100,
-                       "is_discounted": false,
-                       "other":"{}"}
-                  title: '商品情報データ'
-                  description:  |-
-                    一つの取引に含まれる商品情報データです。
-                    以下の内容からなるJSONオブジェクトの配列で指定します。
-
-                    - `jan_code`: JANコード。64字以下の文字列
-                    - `name`: 商品名。256字以下の文字列
-                    - `unit_price`: 商品単価。0以上の数値
-                    - `price`: 全体の金額(例: 商品単価 × 個数)。0以上の数値
-                    - `is_discounted`: 賞味期限が近いなどの理由で商品が値引きされているかどうかのフラグ。boolean
-                    - `other`: その他商品に関する情報。JSONオブジェクトで指定します。
+                  $ref: '#/components/schemas/Products'
                 request_id:
                   type: string
                   format: uuid
@@ -4028,48 +4043,7 @@ paths:
                   example: |-
                     {"key":"value"}
                 products:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      jan_code:
-                        type: string
-                        maxLength: 64
-                      classification_code:
-                        type: string
-                        maxLength: 64
-                      name:
-                        type: string
-                        maxLength: 256
-                      unit_price:
-                        type: number
-                        minimum: 0
-                      price:
-                        type: number
-                        minimum: 0
-                      is_discounted:
-                        type: boolean
-                      other:
-                        type: string
-                        format: json
-                    example: |-
-                      {"jan_code":"abc",
-                       "name":"name1",
-                       "unit_price":100,
-                       "price": 100,
-                       "is_discounted": false,
-                       "other":"{}"}
-                  title: 商品情報データ
-                  description:  |-
-                    一つの取引に含まれる商品情報データです。
-                    以下の内容からなるJSONオブジェクトの配列で指定します。
-
-                    - `jan_code`: JANコード。64字以下の文字列
-                    - `name`: 商品名。256字以下の文字列
-                    - `unit_price`: 商品単価。0以上の数値
-                    - `price`: 全体の金額(例: 商品単価 × 個数)。0以上の数値
-                    - `is_discounted`: 賞味期限が近いなどの理由で商品が値引きされているかどうかのフラグ。boolean
-                    - `other`: その他商品に関する情報。JSONオブジェクトで指定します。
+                  $ref: '#/components/schemas/Products'
                 request_id:
                   type: string
                   format: uuid
@@ -4563,48 +4537,7 @@ paths:
                   example: |-
                     {"key":"value"}
                 products:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      jan_code:
-                        type: string
-                        maxLength: 64
-                      classification_code:
-                        type: string
-                        maxLength: 64
-                      name:
-                        type: string
-                        maxLength: 256
-                      unit_price:
-                        type: number
-                        minimum: 0
-                      price:
-                        type: number
-                        minimum: 0
-                      is_discounted:
-                        type: boolean
-                      other:
-                        type: string
-                        format: json
-                    example: |-
-                      {"jan_code":"abc",
-                       "name":"name1",
-                       "unit_price":100,
-                       "price": 100,
-                       "is_discounted": false,
-                       "other":"{}"}
-                  title: '商品情報データ'
-                  description:  |-
-                    一つの取引に含まれる商品情報データです。
-                    以下の内容からなるJSONオブジェクトの配列で指定します。
-
-                    - `jan_code`: JANコード。64字以下の文字列
-                    - `name`: 商品名。256字以下の文字列
-                    - `unit_price`: 商品単価。0以上の数値
-                    - `price`: 全体の金額(例: 商品単価 × 個数)。0以上の数値
-                    - `is_discounted`: 賞味期限が近いなどの理由で商品が値引きされているかどうかのフラグ。boolean
-                    - `other`: その他商品に関する情報。JSONオブジェクトで指定します。
+                  $ref: '#/components/schemas/Products'
                 request_id:
                   type: string
                   format: uuid
@@ -4662,6 +4595,37 @@ paths:
                   maxLength: 200
                   title: '取引履歴に表示する返金事由'
                   example: '返品対応のため'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalTransactionDetail'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /external-transactions/requests/{request_id}:
+    get:
+      tags:
+        - Event
+      summary: 'リクエストIDからポケペイ外部取引を取得する'
+      description: |-
+        リクエストIDを指定してポケペイ外部取引を取得します。
+
+        発行体の管理者は自組織発行のマネーに紐付くポケペイ外部取引を取得できます。
+
+      x-pokepay-operator-name: GetExternalTransactionByRequestId
+      x-pokepay-allow-server-side: true
+      parameters:
+        - in: path
+          name: request_id
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: 'リクエストID'
       responses:
         '200':
           description: OK
@@ -5778,6 +5742,8 @@ paths:
           $ref: '#/components/responses/UnprocessableEntity'
   /bulk-transactions/{bulk_transaction_id}:
     get:
+      tags:
+        - Transaction
       summary: バルク取引ジョブの実行状況を取得する
       x-pokepay-operator-name: "GetBulkTransaction"
       x-pokepay-allow-server-side: true
@@ -5805,6 +5771,8 @@ paths:
           $ref: '#/components/responses/NotFound'
   /bulk-transactions/{bulk_transaction_id}/jobs:
     get:
+      tags:
+        - Transaction
       summary: バルク取引ジョブの詳細情報一覧を取得する
       x-pokepay-operator-name: "ListBulkTransactionJobs"
       x-pokepay-allow-server-side: true
@@ -6471,6 +6439,43 @@ paths:
                     ]
                     ```
 
+                blacklisted_product_rules:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      product_code:
+                        type: string
+                        maxLength: 64
+                        title: '対象の製品コード'
+                        description: |-
+                          対象の製品コード (JANコードやISBNコードなど) を指定します。(必須項目)
+
+                          SQLのLIKE文のようにワイルドカードを使った製品コードのパターンを指定することもできます (_ で任意の1文字にマッチし、 % で任意文字列にマッチします。 例: 978-% でISBNコード)
+                        items:
+                          type: string
+                      classification_code:
+                        type: string
+                        maxLength: 64
+                        title: '対象の商品分類コード'
+                        description: |-
+                          対象の商品分類コード (書籍のCコードなど) を指定します。(任意項目)
+
+                          SQLのLIKE文のようにワイルドカードを使った製品コードのパターンを指定することもできます (_ で任意の1文字にマッチし、 % で任意文字列にマッチします。 例: 978-% でISBNコード)
+                        items:
+                          type: string
+                    example: |-
+                      {
+                        "product_code": "4912345678904",
+                        "classification_code": "c123"
+                      }
+
+                  title: '商品情報ベースのキャンペーンで除外対象にする商品リスト'
+                  description:  |-
+                    商品情報をベースとしてポイント付与を行う際に、事前に除外対象とする商品リストを指定します。
+                    除外対象の商品コード、または分類コードのパターンの配列として指定します。
+                    取引時には、まずここで指定した除外対象商品が除かれ、残った商品に対して `product_based_point_rules` のルール群が適用されます。
+
                 applicable_days_of_week:
                   type: array
                   items:
@@ -6478,7 +6483,7 @@ paths:
                     minimum: 0
                     maximum: 6
                   title: 'キャンペーンを適用する曜日 (複数指定)'
-                  describe: |-
+                  description: |-
                     キャンペーンを適用する曜日を指定します (複数指定)。
                     曜日は整数で表します。月曜を 0 とし、日曜を 6 とします。
                     指定しなかった場合は全日を対象にします (曜日による適用条件なし)
@@ -6502,7 +6507,7 @@ paths:
                       }
 
                   title: 'キャンペーンを適用する時間帯 (複数指定)'
-                  describe: |-
+                  description: |-
                     キャンペーンを適用する時間帯を指定します (複数指定可)。
                     時間帯はfromとtoからなるオブジェクトで指定します。
                     fromとtoは両方必要です。
@@ -6512,9 +6517,21 @@ paths:
                     type: string
                     format: uuid
                   title: 'キャンペーン適用対象となる店舗IDのリスト'
-                  describe: |-
+                  description: |-
                     キャンペーンを適用する店舗IDを指定します (複数指定)。
                     指定しなかった場合は全店舗が対象になります。
+                minimum_number_of_products:
+                  type: integer
+                  minimum: 1
+                  title: 'キャンペーンを適用する1会計内の商品個数の下限'
+                  description: |-
+                    このパラメータを指定すると、取引時の1会計内のルールに適合する商品個数がminimum_number_of_productsを超えたときにのみキャンペーンが発火するようになります。
+                minimum_number_of_amount:
+                  type: integer
+                  minimum: 1
+                  title: 'キャンペーンを適用する1会計内の商品総額の下限'
+                  description: |-
+                    このパラメータを指定すると、取引時の1会計内のルールに適合する商品総額がminimum_number_of_amountを超えたときにのみキャンペーンが発火するようになります。
                 minimum_number_for_combination_purchase:
                   type: integer
                   minimum: 1
@@ -6705,6 +6722,7 @@ paths:
                     デフォルトではポイント付与先はキャンペーンを駆動するイベントのマネー(private_money_idで指定したマネー)になります。
 
                     別マネーに対するポイント付与は別のtransactionとなります。 RefundTransaction で元のイベントをキャンセルしたときはポイント付与のtransactionもキャンセルされ、逆にポイント付与のtransactionをキャンセルしたときは連動して元のイベントがキャンセルされます。
+
                 applicable_account_metadata:
                   description: |-
                     ウォレットに紐付くメタデータが特定の値を持つときにのみ発火するキャンペーンを登録します。
@@ -6752,6 +6770,55 @@ paths:
                     {
                       "key": "sex",
                       "value": "male"
+                    }
+
+                applicable_transaction_metadata:
+                  description: |-
+                    取引時に指定するメタデータが特定の値を持つときにのみ発火するキャンペーンを登録します。
+                    メタデータの属性名 key とメタデータの値 value の組をオブジェクトとして指定します。
+                    取引のメタデータはCreatePaymentTransactionやCreateExternalTransactionで登録できます。
+
+                    オプショナルパラメータtestによって比較方法を指定することができます。
+                    デフォルトは equal で、その他に not-equalを指定可能です。
+
+                    例1: 取引のメタデータに会員ランクとしてbronzeが指定されているときのみ発火
+
+                    ```javascript
+                    {
+                      "key": "rank",
+                      "value": "bronze"
+                    }
+                    ```
+
+                    例2: 取引のメタデータに会員ランクとしてbronze以外が指定されているときのみ発火
+
+                    ```javascript
+                    {
+                      "key": "rank",
+                      "value": "bronze",
+                      "test": "not-equal"
+                    }
+                    ```
+
+                  type: object
+                  properties:
+                    key:
+                      type: string
+                      description: |-
+                        メタデータの属性名
+                    value:
+                      type: string
+                      description: |-
+                        メタデータの値
+                    test:
+                      type: string
+                      enum: [equal, not-equal]
+                      description: |-
+                        メタデータの値の比較方法。デフォルトはequal
+                  example: |-
+                    {
+                      "key": "rank",
+                      "value": "bronze"
                     }
 
                 budget_caps_amount:
@@ -7253,6 +7320,43 @@ paths:
                     ]
                     ```
 
+                blacklisted_product_rules:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      product_code:
+                        type: string
+                        maxLength: 64
+                        title: '対象の製品コード'
+                        description: |-
+                          対象の製品コード (JANコードやISBNコードなど) を指定します。(必須項目)
+
+                          SQLのLIKE文のようにワイルドカードを使った製品コードのパターンを指定することもできます (_ で任意の1文字にマッチし、 % で任意文字列にマッチします。 例: 978-% でISBNコード)
+                        items:
+                          type: string
+                      classification_code:
+                        type: string
+                        maxLength: 64
+                        title: '対象の商品分類コード'
+                        description: |-
+                          対象の商品分類コード (書籍のCコードなど) を指定します。(任意項目)
+
+                          SQLのLIKE文のようにワイルドカードを使った製品コードのパターンを指定することもできます (_ で任意の1文字にマッチし、 % で任意文字列にマッチします。 例: 978-% でISBNコード)
+                        items:
+                          type: string
+                    example: |-
+                      {
+                        "product_code": "4912345678904",
+                        "classification_code": "c123"
+                      }
+
+                  title: '商品情報ベースのキャンペーンで除外対象にする商品リスト'
+                  description:  |-
+                    商品情報をベースとしてポイント付与を行う際に、事前に除外対象とする商品リストを指定します。
+                    除外対象の商品コード、または分類コードのパターンの配列として指定します。
+                    取引時には、まずここで指定した除外対象商品が除かれ、残った商品に対して `product_based_point_rules` のルール群が適用されます。
+
                 applicable_days_of_week:
                   type: array
                   items:
@@ -7261,7 +7365,7 @@ paths:
                     maximum: 6
                   nullable: true
                   title: 'キャンペーンを適用する曜日 (複数指定)'
-                  describe: |-
+                  description: |-
                     キャンペーンを適用する曜日を指定します (複数指定)。
                     曜日は整数で表します。月曜を 0 とし、日曜を 6 とします。
                     指定しなかった場合は全日を対象にします (曜日による適用条件なし)
@@ -7286,7 +7390,7 @@ paths:
 
                   nullable: true
                   title: 'キャンペーンを適用する時間帯 (複数指定)'
-                  describe: |-
+                  description: |-
                     キャンペーンを適用する時間帯を指定します (複数指定可)。
                     時間帯はfromとtoからなるオブジェクトで指定します。
                     fromとtoは両方必要です。
@@ -7297,9 +7401,23 @@ paths:
                     format: uuid
                   nullable: true
                   title: 'キャンペーン適用対象となる店舗IDのリスト'
-                  describe: |-
+                  description: |-
                     キャンペーンを適用する店舗IDを指定します (複数指定)。
                     指定しなかった場合は全店舗が対象になります。
+                minimum_number_of_products:
+                  type: integer
+                  minimum: 1
+                  nullable: true
+                  title: 'キャンペーンを適用する1会計内の商品個数の下限'
+                  description: |-
+                    このパラメータを指定すると、取引時の1会計内のルールに適合する商品個数がminimum_number_of_productsを超えたときにのみキャンペーンが発火するようになります。
+                minimum_number_of_amount:
+                  type: integer
+                  minimum: 1
+                  nullable: true
+                  title: 'キャンペーンを適用する1会計内の商品総額の下限'
+                  description: |-
+                    このパラメータを指定すると、取引時の1会計内のルールに適合する商品総額がminimum_number_of_amountを超えたときにのみキャンペーンが発火するようになります。
                 minimum_number_for_combination_purchase:
                   type: integer
                   minimum: 1
@@ -7479,6 +7597,7 @@ paths:
 
                     このパラメータが指定されている場合、各ユーザに対してそのキャンペーンによって過去付与されたポイントの累積値が記録されるようになります。
                     累積ポイント数がmax_total_point_amountを超えない限りにおいてキャンペーンで算出されたポイントが付与されます。
+
                 applicable_account_metadata:
                   description: |-
                     ウォレットに紐付くメタデータが特定の値を持つときにのみ発火するキャンペーンを登録します。
@@ -7527,6 +7646,56 @@ paths:
                     {
                       "key": "sex",
                       "value": "male"
+                    }
+
+                applicable_transaction_metadata:
+                  description: |-
+                    取引時に指定するメタデータが特定の値を持つときにのみ発火するキャンペーンを登録します。
+                    メタデータの属性名 key とメタデータの値 value の組をオブジェクトとして指定します。
+                    取引のメタデータはCreatePaymentTransactionやCreateExternalTransactionで登録できます。
+
+                    オプショナルパラメータtestによって比較方法を指定することができます。
+                    デフォルトは equal で、その他に not-equalを指定可能です。
+
+                    例1: 取引のメタデータに会員ランクとしてbronzeが指定されているときのみ発火
+
+                    ```javascript
+                    {
+                      "key": "rank",
+                      "value": "bronze"
+                    }
+                    ```
+
+                    例2: 取引のメタデータに会員ランクとしてbronze以外が指定されているときのみ発火
+
+                    ```javascript
+                    {
+                      "key": "rank",
+                      "value": "bronze",
+                      "test": "not-equal"
+                    }
+                    ```
+
+                  type: object
+                  nullable: true
+                  properties:
+                    key:
+                      type: string
+                      description: |-
+                        メタデータの属性名
+                    value:
+                      type: string
+                      description: |-
+                        メタデータの値
+                    test:
+                      type: string
+                      enum: [equal, not-equal]
+                      description: |-
+                        メタデータの値の比較方法。デフォルトはequal
+                  example: |-
+                    {
+                      "key": "rank",
+                      "value": "bronze"
                     }
 
                 budget_caps_amount:
@@ -7619,6 +7788,7 @@ paths:
           $ref: '#/components/responses/UnpermittedAdminUser'
         '503':
           $ref: '#/components/responses/UserStatsOperationServiceUnavailable'
+
   /webhooks:
     post:
       x-pokepay-operator-name: "CreateWebhook"

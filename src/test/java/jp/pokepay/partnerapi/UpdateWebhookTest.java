@@ -12,7 +12,7 @@ public class UpdateWebhookTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateWebhook(
-            "1357dd08-2644-4a80-a512-1e10d9b922de"
+            "0d1481e3-3f6f-4897-9589-7e6ad2267a20"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class UpdateWebhookTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateWebhook(
-            "1357dd08-2644-4a80-a512-1e10d9b922de"
+            "0d1481e3-3f6f-4897-9589-7e6ad2267a20"
         )
-                .task("process_user_stats_operation");
+                .task("bulk_shops");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,9 +45,9 @@ public class UpdateWebhookTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateWebhook(
-            "1357dd08-2644-4a80-a512-1e10d9b922de"
+            "0d1481e3-3f6f-4897-9589-7e6ad2267a20"
         )
-                .setActive(true)
+                .setActive(false)
                 .task("bulk_shops");
         try {
             PartnerAPITest.getClient().send(request);
@@ -63,11 +63,11 @@ public class UpdateWebhookTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateWebhook(
-            "1357dd08-2644-4a80-a512-1e10d9b922de"
+            "0d1481e3-3f6f-4897-9589-7e6ad2267a20"
         )
-                .url("vc")
+                .url("rw0P")
                 .setActive(false)
-                .task("bulk_shops");
+                .task("process_user_stats_operation");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

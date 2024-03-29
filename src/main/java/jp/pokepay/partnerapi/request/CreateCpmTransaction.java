@@ -12,13 +12,14 @@ public class CreateCpmTransaction extends Request {
     private Double amount;
     private String description;
     private String metadata;
-    private Object[] products;
+    private Products products;
     private String requestId;
 
-    public CreateCpmTransaction(String cpmToken, String shopId, double amount) {
+    public CreateCpmTransaction(String cpmToken, String shopId, double amount, Products products) {
         this.cpmToken = cpmToken;
         this.shopId = shopId;
         this.amount = amount;
+        this.products = products;
     }
 
     public CreateCpmTransaction description(String description) {
@@ -28,11 +29,6 @@ public class CreateCpmTransaction extends Request {
 
     public CreateCpmTransaction metadata(String metadata) {
         this.metadata = metadata;
-        return this;
-    }
-
-    public CreateCpmTransaction products(Object[] products) {
-        this.products = products;
         return this;
     }
 

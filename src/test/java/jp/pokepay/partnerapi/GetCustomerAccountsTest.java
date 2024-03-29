@@ -12,7 +12,7 @@ public class GetCustomerAccountsTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetCustomerAccounts(
-            "55543535-882b-44f5-9f30-80a440a9c1d9"
+            "fc46abb3-3f59-44e8-993d-2b398ba3d144"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class GetCustomerAccountsTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new GetCustomerAccounts(
-            "55543535-882b-44f5-9f30-80a440a9c1d9"
+            "fc46abb3-3f59-44e8-993d-2b398ba3d144"
         )
-                .email("Icm0Sp2Rlu@FOAx.com");
+                .email("9GFuTaurT8@rHCe.com");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class GetCustomerAccountsTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new GetCustomerAccounts(
-            "55543535-882b-44f5-9f30-80a440a9c1d9"
+            "fc46abb3-3f59-44e8-993d-2b398ba3d144"
         )
-                .tel("047-0551-2657")
-                .email("TcJlnsa7zu@y1tu.com");
+                .tel("0926-5690996")
+                .email("A33R1i1Xb2@sFGs.com");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,11 +63,11 @@ public class GetCustomerAccountsTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new GetCustomerAccounts(
-            "55543535-882b-44f5-9f30-80a440a9c1d9"
+            "fc46abb3-3f59-44e8-993d-2b398ba3d144"
         )
-                .externalId("dw")
-                .tel("071-69745487")
-                .email("fKkMLwrBpO@RQ9L.com");
+                .externalId("4Hbea9")
+                .tel("054157058")
+                .email("vOPn9COEp4@6Y8J.com");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -82,12 +82,12 @@ public class GetCustomerAccountsTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new GetCustomerAccounts(
-            "55543535-882b-44f5-9f30-80a440a9c1d9"
+            "fc46abb3-3f59-44e8-993d-2b398ba3d144"
         )
-                .status("suspended")
-                .externalId("lnKRmCd4n")
-                .tel("045-981479")
-                .email("qpn3W7S36l@34SS.com");
+                .status("pre-closed")
+                .externalId("rtek4EGI")
+                .tel("022701875")
+                .email("sheVwcqnXN@6QqS.com");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -102,13 +102,13 @@ public class GetCustomerAccountsTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new GetCustomerAccounts(
-            "55543535-882b-44f5-9f30-80a440a9c1d9"
+            "fc46abb3-3f59-44e8-993d-2b398ba3d144"
         )
-                .setSuspended(false)
+                .setSuspended(true)
                 .status("active")
-                .externalId("W72gqSjd8QPzbjt0rt7UmerReZGbvGgvA")
-                .tel("09215911045")
-                .email("P1AnQALadF@sAzg.com");
+                .externalId("VyLKEeyjGe1OeUubMcc7")
+                .tel("075-802681")
+                .email("DdL6htSt9e@LYwL.com");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -123,14 +123,14 @@ public class GetCustomerAccountsTest {
     @Test
     void test6() throws ConnectionError, ProcessingError {
         Request request = new GetCustomerAccounts(
-            "55543535-882b-44f5-9f30-80a440a9c1d9"
+            "fc46abb3-3f59-44e8-993d-2b398ba3d144"
         )
-                .createdAtTo("2022-07-27T22:59:50.000000Z")
-                .setSuspended(true)
-                .status("pre-closed")
-                .externalId("tuXgZDedIJqTHGgnOhGiwZBj5AvHdO2Atfc")
-                .tel("0129-664-818")
-                .email("3sP8V6IT9V@FC5b.com");
+                .createdAtTo("2023-04-07T13:20:08.000000+09:00")
+                .setSuspended(false)
+                .status("suspended")
+                .externalId("OFOLLI90QW16TXkc")
+                .tel("0638-535-1231")
+                .email("fUsknVvqsV@BYAd.com");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -145,15 +145,15 @@ public class GetCustomerAccountsTest {
     @Test
     void test7() throws ConnectionError, ProcessingError {
         Request request = new GetCustomerAccounts(
-            "55543535-882b-44f5-9f30-80a440a9c1d9"
+            "fc46abb3-3f59-44e8-993d-2b398ba3d144"
         )
-                .createdAtFrom("2021-03-24T19:42:09.000000Z")
-                .createdAtTo("2023-05-02T07:02:07.000000Z")
+                .createdAtFrom("2020-05-12T01:29:36.000000+09:00")
+                .createdAtTo("2022-02-14T20:27:11.000000+09:00")
                 .setSuspended(true)
-                .status("pre-closed")
-                .externalId("XfPASw8jPQ0h")
-                .tel("062-07305693")
-                .email("xkUSOX0vTg@yFK1.com");
+                .status("active")
+                .externalId("4YuqQmIYHj5ap4yJVy3vLxVoxMbvxs07Ia8cH")
+                .tel("04522-6739")
+                .email("pGe04LuPar@QSTw.com");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -168,16 +168,16 @@ public class GetCustomerAccountsTest {
     @Test
     void test8() throws ConnectionError, ProcessingError {
         Request request = new GetCustomerAccounts(
-            "55543535-882b-44f5-9f30-80a440a9c1d9"
+            "fc46abb3-3f59-44e8-993d-2b398ba3d144"
         )
-                .perPage(6034)
-                .createdAtFrom("2022-02-08T11:59:01.000000Z")
-                .createdAtTo("2021-10-26T00:50:23.000000Z")
-                .setSuspended(true)
-                .status("pre-closed")
-                .externalId("7pl9MWii2exAarzlUllr")
-                .tel("01-1105-7098")
-                .email("bZQuPYAKNL@vTyM.com");
+                .perPage(8000)
+                .createdAtFrom("2024-02-15T09:01:01.000000+09:00")
+                .createdAtTo("2021-07-30T09:45:11.000000+09:00")
+                .setSuspended(false)
+                .status("suspended")
+                .externalId("PyCypNR")
+                .tel("067-066-8671")
+                .email("iP26Opw7QT@ww9C.com");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -192,17 +192,17 @@ public class GetCustomerAccountsTest {
     @Test
     void test9() throws ConnectionError, ProcessingError {
         Request request = new GetCustomerAccounts(
-            "55543535-882b-44f5-9f30-80a440a9c1d9"
+            "fc46abb3-3f59-44e8-993d-2b398ba3d144"
         )
-                .page(7048)
-                .perPage(7330)
-                .createdAtFrom("2022-02-14T10:49:45.000000Z")
-                .createdAtTo("2023-05-04T06:41:23.000000Z")
-                .setSuspended(false)
-                .status("suspended")
-                .externalId("LoYSz5jRHNPv9LO3MtPyt1wTnktL8AYkBvD7caRgncONv")
-                .tel("085-5471-045")
-                .email("87oiAkJDB6@ZsUU.com");
+                .page(7962)
+                .perPage(97)
+                .createdAtFrom("2022-05-08T02:14:34.000000+09:00")
+                .createdAtTo("2020-12-08T16:53:44.000000+09:00")
+                .setSuspended(true)
+                .status("active")
+                .externalId("97uvT00ZVe2dY0PI3d4k6cOEPzT6rw23xR5y")
+                .tel("04216800071")
+                .email("Wt84vvHH8T@Fln8.com");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

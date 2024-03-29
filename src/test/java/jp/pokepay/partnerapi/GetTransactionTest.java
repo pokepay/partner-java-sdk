@@ -12,7 +12,7 @@ public class GetTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetTransaction(
-            "3c306e03-fc9f-4742-819e-76eb7dc7271d"
+            "e80e2012-d9ef-4b9c-ac12-a3beb8f9dfd9"
         );
         try {
             PartnerAPITest.getClient().send(request);

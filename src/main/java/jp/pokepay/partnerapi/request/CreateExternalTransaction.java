@@ -13,14 +13,15 @@ public class CreateExternalTransaction extends Request {
     private Integer amount;
     private String description;
     private String metadata;
-    private Object[] products;
+    private Products products;
     private String requestId;
 
-    public CreateExternalTransaction(String shopId, String customerId, String privateMoneyId, int amount) {
+    public CreateExternalTransaction(String shopId, String customerId, String privateMoneyId, int amount, Products products) {
         this.shopId = shopId;
         this.customerId = customerId;
         this.privateMoneyId = privateMoneyId;
         this.amount = amount;
+        this.products = products;
     }
 
     public CreateExternalTransaction description(String description) {
@@ -30,11 +31,6 @@ public class CreateExternalTransaction extends Request {
 
     public CreateExternalTransaction metadata(String metadata) {
         this.metadata = metadata;
-        return this;
-    }
-
-    public CreateExternalTransaction products(Object[] products) {
-        this.products = products;
         return this;
     }
 

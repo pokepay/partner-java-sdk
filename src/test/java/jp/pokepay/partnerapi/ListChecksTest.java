@@ -42,7 +42,7 @@ public class ListChecksTest {
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
                 .setOnetime(true)
-                .setDisabled(false);
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -57,9 +57,9 @@ public class ListChecksTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .description("HR")
+                .description("1IWYzE")
                 .setOnetime(false)
-                .setDisabled(false);
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -74,8 +74,8 @@ public class ListChecksTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .issuerShopId("c09173a9-38c4-47ae-a6cd-1dbf767be412")
-                .description("3LCAS")
+                .issuerShopId("43a77395-d45b-4a35-a621-2e513e88327d")
+                .description("gChrnF")
                 .setOnetime(true)
                 .setDisabled(false);
         try {
@@ -92,11 +92,11 @@ public class ListChecksTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .createdTo("2020-11-29T18:13:57.000000Z")
-                .issuerShopId("a95626e0-cc96-42e5-98b9-08e292a990d9")
-                .description("sHOG")
-                .setOnetime(true)
-                .setDisabled(true);
+                .createdTo("2022-02-20T01:59:43.000000+09:00")
+                .issuerShopId("5984565f-138e-44d2-b9e9-e881e924847f")
+                .description("NZA")
+                .setOnetime(false)
+                .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -111,12 +111,12 @@ public class ListChecksTest {
     @Test
     void test6() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .createdFrom("2021-09-30T14:14:20.000000Z")
-                .createdTo("2023-01-10T03:03:49.000000Z")
-                .issuerShopId("3ff659a5-a0b3-4a2a-8d85-c516ed220bfc")
-                .description("i4")
+                .createdFrom("2021-04-20T23:19:09.000000+09:00")
+                .createdTo("2021-07-20T15:13:52.000000+09:00")
+                .issuerShopId("3da29bbf-3e3f-427e-a2cb-47d5c408b2c0")
+                .description("KrJZq6q")
                 .setOnetime(true)
-                .setDisabled(false);
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -131,33 +131,11 @@ public class ListChecksTest {
     @Test
     void test7() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .expiresTo("2023-04-26T10:51:35.000000Z")
-                .createdFrom("2023-09-27T03:56:30.000000Z")
-                .createdTo("2022-05-30T20:39:11.000000Z")
-                .issuerShopId("a83d2837-4b37-41aa-8abd-0b9bf6620f26")
-                .description("RN8AasC")
-                .setOnetime(false)
-                .setDisabled(true);
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test8() throws ConnectionError, ProcessingError {
-        Request request = new ListChecks()
-                .expiresFrom("2020-07-04T15:44:08.000000Z")
-                .expiresTo("2023-04-23T18:30:13.000000Z")
-                .createdFrom("2020-12-04T19:50:30.000000Z")
-                .createdTo("2022-06-14T21:14:35.000000Z")
-                .issuerShopId("c09b2bad-6cb6-49e7-addd-0a6e4351aa9f")
-                .description("uHFpFsNPJm")
+                .expiresTo("2020-09-01T01:29:29.000000+09:00")
+                .createdFrom("2023-12-09T20:02:38.000000+09:00")
+                .createdTo("2023-07-08T14:31:27.000000+09:00")
+                .issuerShopId("8b1419a4-b609-46b1-98a9-02d41bdd7156")
+                .description("zHCNhhV1")
                 .setOnetime(true)
                 .setDisabled(false);
         try {
@@ -172,16 +150,38 @@ public class ListChecksTest {
         }
     }
     @Test
+    void test8() throws ConnectionError, ProcessingError {
+        Request request = new ListChecks()
+                .expiresFrom("2020-09-25T13:13:40.000000+09:00")
+                .expiresTo("2022-04-07T03:13:19.000000+09:00")
+                .createdFrom("2021-09-03T09:46:22.000000+09:00")
+                .createdTo("2020-06-18T16:31:54.000000+09:00")
+                .issuerShopId("259bf3fc-11c7-40ee-99fa-1b29e7eac88e")
+                .description("J")
+                .setOnetime(true)
+                .setDisabled(true);
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
     void test9() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .organizationCode("uH1GHYOOmiUvKwy")
-                .expiresFrom("2023-09-04T23:43:12.000000Z")
-                .expiresTo("2022-06-02T14:38:33.000000Z")
-                .createdFrom("2023-01-01T15:46:03.000000Z")
-                .createdTo("2020-06-18T01:18:09.000000Z")
-                .issuerShopId("6f04fcd9-d253-4bac-9253-25ef4e15462b")
-                .description("K")
-                .setOnetime(true)
+                .organizationCode("PntDPyYGA46vkynMmrBVLYCq")
+                .expiresFrom("2022-02-26T10:06:01.000000+09:00")
+                .expiresTo("2023-10-30T16:06:17.000000+09:00")
+                .createdFrom("2024-01-18T00:37:22.000000+09:00")
+                .createdTo("2021-06-17T05:03:31.000000+09:00")
+                .issuerShopId("9b353a20-ba2d-46d3-9f1c-cc976741fc4c")
+                .description("dU4A6")
+                .setOnetime(false)
                 .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
@@ -197,16 +197,16 @@ public class ListChecksTest {
     @Test
     void test10() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .privateMoneyId("055fb6ce-ce08-4e0a-b55a-3c9826318e47")
-                .organizationCode("mU0unMptspEioBBqGcJ")
-                .expiresFrom("2023-12-14T08:42:56.000000Z")
-                .expiresTo("2022-11-30T14:16:44.000000Z")
-                .createdFrom("2021-08-24T14:05:27.000000Z")
-                .createdTo("2021-03-13T03:07:07.000000Z")
-                .issuerShopId("0f38b0e1-af01-4fd8-a3e0-a8928df81f84")
-                .description("pDTPRH")
+                .privateMoneyId("905ceff3-b648-4828-a996-ca81da42b18e")
+                .organizationCode("0")
+                .expiresFrom("2024-02-25T03:09:50.000000+09:00")
+                .expiresTo("2023-12-26T02:01:13.000000+09:00")
+                .createdFrom("2021-12-22T21:01:56.000000+09:00")
+                .createdTo("2021-01-22T17:06:37.000000+09:00")
+                .issuerShopId("b41ddee5-18b6-4988-ab27-4b028baf80c0")
+                .description("c0Odlyl")
                 .setOnetime(true)
-                .setDisabled(false);
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -221,17 +221,17 @@ public class ListChecksTest {
     @Test
     void test11() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .perPage(3853)
-                .privateMoneyId("899befc5-fe6c-4be0-ac9b-ccde0397b840")
-                .organizationCode("NQrvWUnk17KWA")
-                .expiresFrom("2022-08-12T19:43:37.000000Z")
-                .expiresTo("2021-07-13T02:37:35.000000Z")
-                .createdFrom("2020-04-20T01:38:22.000000Z")
-                .createdTo("2021-07-31T11:29:45.000000Z")
-                .issuerShopId("f33264e9-eec6-4bc9-8e47-e2e01c125c48")
-                .description("shpxz5S2")
+                .perPage(6716)
+                .privateMoneyId("ecac9ebe-2612-46fb-8721-d87e545ffcbe")
+                .organizationCode("9DcR")
+                .expiresFrom("2022-09-09T19:20:02.000000+09:00")
+                .expiresTo("2020-10-27T12:21:11.000000+09:00")
+                .createdFrom("2020-02-08T19:47:33.000000+09:00")
+                .createdTo("2020-02-26T08:05:53.000000+09:00")
+                .issuerShopId("c8ea628c-e97c-402d-9a13-42f8c5219f16")
+                .description("Mgu3oU0b")
                 .setOnetime(true)
-                .setDisabled(true);
+                .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -246,18 +246,18 @@ public class ListChecksTest {
     @Test
     void test12() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .page(2202)
-                .perPage(4497)
-                .privateMoneyId("03afc5f2-3a5d-44a1-b485-0daea0b50c43")
-                .organizationCode("ar2DsC6IO")
-                .expiresFrom("2022-05-13T22:07:21.000000Z")
-                .expiresTo("2021-11-23T07:06:20.000000Z")
-                .createdFrom("2023-05-22T07:06:37.000000Z")
-                .createdTo("2021-05-19T00:39:45.000000Z")
-                .issuerShopId("deb706e0-5aaf-4db3-98da-7543ffb37461")
-                .description("lZmMT5mAF")
-                .setOnetime(true)
-                .setDisabled(true);
+                .page(8054)
+                .perPage(3246)
+                .privateMoneyId("b737d843-a93c-477e-ad4f-b17a16af0e27")
+                .organizationCode("eiFm")
+                .expiresFrom("2020-01-18T02:11:55.000000+09:00")
+                .expiresTo("2021-05-02T03:28:41.000000+09:00")
+                .createdFrom("2021-04-22T14:21:09.000000+09:00")
+                .createdTo("2020-06-01T17:50:43.000000+09:00")
+                .issuerShopId("2ac3492c-41bd-491c-a3b3-eaabf4418163")
+                .description("V2iTVajhS")
+                .setOnetime(false)
+                .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

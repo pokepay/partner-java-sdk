@@ -13,14 +13,15 @@ public class CreatePaymentTransaction extends Request {
     private Integer amount;
     private String description;
     private String metadata;
-    private Object[] products;
+    private Products products;
     private String requestId;
 
-    public CreatePaymentTransaction(String shopId, String customerId, String privateMoneyId, int amount) {
+    public CreatePaymentTransaction(String shopId, String customerId, String privateMoneyId, int amount, Products products) {
         this.shopId = shopId;
         this.customerId = customerId;
         this.privateMoneyId = privateMoneyId;
         this.amount = amount;
+        this.products = products;
     }
 
     public CreatePaymentTransaction description(String description) {
@@ -30,11 +31,6 @@ public class CreatePaymentTransaction extends Request {
 
     public CreatePaymentTransaction metadata(String metadata) {
         this.metadata = metadata;
-        return this;
-    }
-
-    public CreatePaymentTransaction products(Object[] products) {
-        this.products = products;
         return this;
     }
 
