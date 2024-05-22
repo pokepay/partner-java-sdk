@@ -30,6 +30,6 @@ class Config {
         this.baseUrl = properties.getProperty("API_BASE_URL");
         this.p12File = file.toPath().getParent().resolve(properties.getProperty("PKCS12_FILE")).toString();
         this.p12Password = properties.getProperty("PKCS12_PASSWORD");
-        this.acceptLanguage = properties.getProperty("ACCEPT-LANGUAGE", "jp");
+        this.acceptLanguage = properties.getProperty("ACCEPT-LANGUAGE", "en");
     }
 }
