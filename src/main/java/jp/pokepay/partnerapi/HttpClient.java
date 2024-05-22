@@ -128,7 +128,7 @@ class HttpClient {
         }
     }
 
-    public Response post(String path, String body) throws ProcessingError, ConnectionError {
+    public Response post(String path, String body, String acceptLanguage) throws ProcessingError, ConnectionError {
         URL url = ensureURL(path);
         try {
             HttpURLConnection conn = openConnection(url);
@@ -137,7 +137,7 @@ class HttpClient {
             conn.setRequestProperty("accept", "*/*");
             if (body != null) {
                 conn.setDoOutput(true);
-                conn.setRequestProperty("Accept-Language", "jp");
+                conn.setRequestProperty("Accept-Language", acceptLanguage);
                 conn.setRequestProperty("Content-Type", "application/json; charset=utf-8");
                 conn.setRequestProperty("Content-Length", String.valueOf(body.length()));
                 OutputStreamWriter out = new OutputStreamWriter(conn.getOutputStream());

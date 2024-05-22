@@ -68,7 +68,7 @@ public class PartnerAPI {
     }
 
     public Response send(Request request) throws ProcessingError, ConnectionError, PartnerRequestError {
-        HttpClient.Response response = httpClient.post(request.path(), encodeRequest(request));
+        HttpClient.Response response = httpClient.post(request.path(), encodeRequest(request), config.acceptLanguage);
         JsonResponse json = gson.fromJson(response.getBody(), JsonResponse.class);
         if (json.responseData == null) {
             ErrorResponse errorResponse = gson.fromJson(response.getBody(), ErrorResponse.class);

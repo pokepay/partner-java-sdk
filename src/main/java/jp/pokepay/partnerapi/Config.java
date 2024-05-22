@@ -9,6 +9,7 @@ class Config {
     public String baseUrl;
     public String p12File;
     public String p12Password;
+    public String acceptLanguage;
 
     public Config(File file) throws ConfigFileNotFoundException, ProcessingError {
         Properties properties = new Properties();
@@ -29,5 +30,6 @@ class Config {
         this.baseUrl = properties.getProperty("API_BASE_URL");
         this.p12File = file.toPath().getParent().resolve(properties.getProperty("PKCS12_FILE")).toString();
         this.p12Password = properties.getProperty("PKCS12_PASSWORD");
+        this.acceptLanguage = properties.getProperty("ACCEPT-LANGUAGE", "en");
     }
 }
