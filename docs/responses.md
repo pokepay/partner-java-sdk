@@ -1,21 +1,4 @@
 # Responses
-<a name="admin-user-with-shops-and-private-moneys"></a>
-## AdminUserWithShopsAndPrivateMoneys
-* `getId() String`: 
-* `getRole() String`: 
-* `getEmail() String`: 
-* `getName() String`: 
-* `isActive() boolean`: 
-* `getOrganization() Organization`: 
-* `getShops() User[]`: 
-* `getPrivateMoneys() PrivateMoney[]`: 
-
-`getOrganization`は [Organization](#organization) クラスのインスタンスを返します。
-
-`getShops`は [User](#user) クラスのインスタンスの配列を返します。
-
-`getPrivateMoneys`は [PrivateMoney](#private-money) クラスのインスタンスの配列を返します。
-
 <a name="account-with-user"></a>
 ## AccountWithUser
 * `getId() String`: 

@@ -15,6 +15,7 @@ public class CreateExternalTransaction extends Request {
     private String metadata;
     private Object[] products;
     private String requestId;
+    private String doneAt;
 
     public CreateExternalTransaction(String shopId, String customerId, String privateMoneyId, int amount) {
         this.shopId = shopId;
@@ -40,6 +41,11 @@ public class CreateExternalTransaction extends Request {
 
     public CreateExternalTransaction requestId(String requestId) {
         this.requestId = requestId;
+        return this;
+    }
+
+    public CreateExternalTransaction doneAt(String doneAt) {
+        this.doneAt = doneAt;
         return this;
     }
 
@@ -69,6 +75,7 @@ public class CreateExternalTransaction extends Request {
         if (metadata != null) { object.add("metadata", context.serialize(this.metadata)); }
         if (products != null) { object.add("products", context.serialize(this.products)); }
         if (requestId != null) { object.add("request_id", context.serialize(this.requestId)); }
+        if (doneAt != null) { object.add("done_at", context.serialize(this.doneAt)); }
         return object;
     }
 }
