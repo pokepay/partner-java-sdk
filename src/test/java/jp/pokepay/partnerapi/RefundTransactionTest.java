@@ -12,7 +12,7 @@ public class RefundTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new RefundTransaction(
-            "2af43fc3-7bfd-4ed1-a6ec-b0d747bdc8f1"
+            "1ebbdc4c-99f8-4daf-8f14-3097be8d6000"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class RefundTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new RefundTransaction(
-            "2af43fc3-7bfd-4ed1-a6ec-b0d747bdc8f1"
+            "1ebbdc4c-99f8-4daf-8f14-3097be8d6000"
         )
-                .returningPointExpiresAt("2021-05-18T00:32:02.000000Z");
+                .returningPointExpiresAt("2021-09-24T10:18:32.000000Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class RefundTransactionTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new RefundTransaction(
-            "2af43fc3-7bfd-4ed1-a6ec-b0d747bdc8f1"
+            "1ebbdc4c-99f8-4daf-8f14-3097be8d6000"
         )
-                .description("4VgtaT7nx9nCCSGOYqsqY3PQB7j8S1LcJM99jV6h5DQ4TL9sXbFiutZ4wFjGxBLsRpox6uXLc6he8Kxv6FPaZ8I6AxiybIUdjn2Jl")
-                .returningPointExpiresAt("2021-08-12T02:32:59.000000Z");
+                .description("6r1ViuOnspa8l8OxqMpLrB8ZQmhXHGSVgVcs")
+                .returningPointExpiresAt("2021-09-09T17:31:59.000000Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

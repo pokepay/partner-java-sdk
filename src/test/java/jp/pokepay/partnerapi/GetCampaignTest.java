@@ -12,7 +12,7 @@ public class GetCampaignTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetCampaign(
-            "663770d7-bf54-4cf0-86b6-9fb6e0dc55af"
+            "f0e3c794-87c5-49c6-acec-94ffc201777b"
         );
         try {
             PartnerAPITest.getClient().send(request);

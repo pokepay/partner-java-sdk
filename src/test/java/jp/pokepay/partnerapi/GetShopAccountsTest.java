@@ -12,7 +12,7 @@ public class GetShopAccountsTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetShopAccounts(
-            "ca2616e9-5ed4-477c-bcc2-cc53b62f225a"
+            "e7f9bb88-8b7f-4883-b91c-43b0aea260a6"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,7 +28,7 @@ public class GetShopAccountsTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new GetShopAccounts(
-            "ca2616e9-5ed4-477c-bcc2-cc53b62f225a"
+            "e7f9bb88-8b7f-4883-b91c-43b0aea260a6"
         )
                 .setSuspended(false);
         try {
@@ -45,10 +45,10 @@ public class GetShopAccountsTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new GetShopAccounts(
-            "ca2616e9-5ed4-477c-bcc2-cc53b62f225a"
+            "e7f9bb88-8b7f-4883-b91c-43b0aea260a6"
         )
-                .createdAtTo("2023-10-10T07:01:36.000000Z")
-                .setSuspended(false);
+                .createdAtTo("2022-01-09T07:41:23.000000Z")
+                .setSuspended(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,11 +63,11 @@ public class GetShopAccountsTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new GetShopAccounts(
-            "ca2616e9-5ed4-477c-bcc2-cc53b62f225a"
+            "e7f9bb88-8b7f-4883-b91c-43b0aea260a6"
         )
-                .createdAtFrom("2022-03-15T18:57:12.000000Z")
-                .createdAtTo("2022-11-02T09:39:16.000000Z")
-                .setSuspended(false);
+                .createdAtFrom("2020-10-18T03:56:04.000000Z")
+                .createdAtTo("2021-07-25T03:50:36.000000Z")
+                .setSuspended(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -82,12 +82,12 @@ public class GetShopAccountsTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new GetShopAccounts(
-            "ca2616e9-5ed4-477c-bcc2-cc53b62f225a"
+            "e7f9bb88-8b7f-4883-b91c-43b0aea260a6"
         )
-                .perPage(2047)
-                .createdAtFrom("2020-10-29T13:03:08.000000Z")
-                .createdAtTo("2022-09-06T09:13:55.000000Z")
-                .setSuspended(false);
+                .perPage(9222)
+                .createdAtFrom("2023-07-21T18:59:40.000000Z")
+                .createdAtTo("2022-05-03T22:28:24.000000Z")
+                .setSuspended(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -102,13 +102,13 @@ public class GetShopAccountsTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new GetShopAccounts(
-            "ca2616e9-5ed4-477c-bcc2-cc53b62f225a"
+            "e7f9bb88-8b7f-4883-b91c-43b0aea260a6"
         )
-                .page(9914)
-                .perPage(9044)
-                .createdAtFrom("2023-03-04T08:24:04.000000Z")
-                .createdAtTo("2021-01-14T14:41:40.000000Z")
-                .setSuspended(false);
+                .page(4807)
+                .perPage(6255)
+                .createdAtFrom("2023-05-11T13:18:24.000000Z")
+                .createdAtTo("2020-12-31T07:17:51.000000Z")
+                .setSuspended(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

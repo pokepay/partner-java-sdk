@@ -12,7 +12,7 @@ public class UpdateBillTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "7b13563f-52a4-4ad9-a683-55c84cee1a90"
+            "61ec7332-334a-4f82-88c2-d06ea0d6211f"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,7 +28,7 @@ public class UpdateBillTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "7b13563f-52a4-4ad9-a683-55c84cee1a90"
+            "61ec7332-334a-4f82-88c2-d06ea0d6211f"
         )
                 .setDisabled(true);
         try {
@@ -45,9 +45,9 @@ public class UpdateBillTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "7b13563f-52a4-4ad9-a683-55c84cee1a90"
+            "61ec7332-334a-4f82-88c2-d06ea0d6211f"
         )
-                .description("vN0QEBe9OUmuQoNyAxdhT65YfaNVM2xjqlPxxy8RqwFW")
+                .description("iEM0oFGnnvKX9mW4mLerHweV6yDqMFurm2HyY5rxBRsFTyEvnewbYd4rNZJsCq7m7arw2NKYH12xHXaAOFqIwxrvxkxwVYBDQiR")
                 .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
@@ -63,10 +63,10 @@ public class UpdateBillTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "7b13563f-52a4-4ad9-a683-55c84cee1a90"
+            "61ec7332-334a-4f82-88c2-d06ea0d6211f"
         )
-                .amount(4820.0)
-                .description("1hvVt9bN2zIxNZx4eE9mHPjq6XCvYjxbcuNA5AOQHru6gAXocPu4UpOUbFxl1xg8SX1voG8Gydqo4fQ7D47J36mgyKf2p")
+                .amount(3651.0)
+                .description("yVTR3czNdwQ9LziqjK5MdQ1lZMyARXVB9A32ESqVUKE1GN9JqLEvyRdA5j20ws4Z1pnjZ8xWKeN3WKGyHXCKDfS0S9olxtCG8sS34enFyHhIbteE1tQOMttUhD0OiwEvovxL7L6kZ3KaNub1zwaCdHgj8ik3dmsSURUNaSg6OcHEmOeQFO3Ox8qDzSQ0YV")
                 .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);

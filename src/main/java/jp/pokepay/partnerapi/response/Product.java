@@ -6,6 +6,7 @@ public class Product extends Response {
     private String name;
     private Double unitPrice;
     private Double price;
+    private Integer quantity;
     private Boolean isDiscounted;
     private String other;
 
@@ -23,6 +24,10 @@ public class Product extends Response {
 
     public Double getPrice() {
         return price;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
     }
 
     public Boolean isDiscounted() {

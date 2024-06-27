@@ -58,6 +58,13 @@ Request request = new GetPrivateMoneys()
 [PaginatedPrivateMoneys](./responses.md#paginated-private-moneys)
 を返します
 
+### Error Responses
+|status|type|ja|en|
+|---|---|---|---|
+|403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
+|422|organization_not_found||Organization not found|
+
+
 
 ---
 
@@ -69,8 +76,8 @@ Request request = new GetPrivateMoneys()
 Request request = new GetPrivateMoneyOrganizationSummaries(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .from("2020-03-27T12:54:11.000000Z")      // 開始日時(toと同時に指定する必要有)
-        .to("2020-05-10T02:22:04.000000Z")        // 終了日時(fromと同時に指定する必要有)
+        .from("2021-11-05T13:59:07.000000Z")      // 開始日時(toと同時に指定する必要有)
+        .to("2023-03-03T13:52:47.000000Z")        // 終了日時(fromと同時に指定する必要有)
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
 
@@ -142,6 +149,7 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 を返します
 
 
+
 ---
 
 
@@ -152,8 +160,8 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 Request request = new GetPrivateMoneySummary(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .from("2020-04-17T04:38:29.000000Z")      // 開始日時
-        .to("2022-03-25T04:16:14.000000Z");       // 終了日時
+        .from("2020-02-22T21:59:12.000000Z")      // 開始日時
+        .to("2023-08-28T12:22:34.000000Z");       // 終了日時
 
 ```
 
@@ -198,6 +206,7 @@ Request request = new GetPrivateMoneySummary(
 成功したときは
 [PrivateMoneySummary](./responses.md#private-money-summary)
 を返します
+
 
 
 ---

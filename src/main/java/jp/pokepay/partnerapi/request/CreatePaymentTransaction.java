@@ -15,6 +15,7 @@ public class CreatePaymentTransaction extends Request {
     private String metadata;
     private Object[] products;
     private String requestId;
+    private String strategy;
 
     public CreatePaymentTransaction(String shopId, String customerId, String privateMoneyId, int amount) {
         this.shopId = shopId;
@@ -40,6 +41,11 @@ public class CreatePaymentTransaction extends Request {
 
     public CreatePaymentTransaction requestId(String requestId) {
         this.requestId = requestId;
+        return this;
+    }
+
+    public CreatePaymentTransaction strategy(String strategy) {
+        this.strategy = strategy;
         return this;
     }
 
@@ -69,6 +75,7 @@ public class CreatePaymentTransaction extends Request {
         if (metadata != null) { object.add("metadata", context.serialize(this.metadata)); }
         if (products != null) { object.add("products", context.serialize(this.products)); }
         if (requestId != null) { object.add("request_id", context.serialize(this.requestId)); }
+        if (strategy != null) { object.add("strategy", context.serialize(this.strategy)); }
         return object;
     }
 }
