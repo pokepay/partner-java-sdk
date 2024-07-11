@@ -96,8 +96,8 @@ APIサーバがエラーレスポンスを返した場合に使われます。
 - [ListTransfersV2](./transfer.md#list-transfers-v2): 
 
 ### Check
-- [CreateCheck](./check.md#create-check): チャージQRコードの発行
 - [ListChecks](./check.md#list-checks): チャージQRコード一覧の取得
+- [CreateCheck](./check.md#create-check): チャージQRコードの発行
 - [GetCheck](./check.md#get-check): チャージQRコードの表示
 - [UpdateCheck](./check.md#update-check): チャージQRコードの更新
 - [CreateTopupTransactionWithCheck](./check.md#create-topup-transaction-with-check): チャージQRコードを読み取ることでチャージする
@@ -108,15 +108,16 @@ APIサーバがエラーレスポンスを返した場合に使われます。
 - [UpdateBill](./bill.md#update-bill): 支払いQRコードの更新
 
 ### Cashtray
+- [CreateTransactionWithCashtray](./cashtray.md#create-transaction-with-cashtray): CashtrayQRコードを読み取ることで取引する
 - [CreateCashtray](./cashtray.md#create-cashtray): Cashtrayを作る
-- [GetCashtray](./cashtray.md#get-cashtray): Cashtrayの情報を取得する
 - [CancelCashtray](./cashtray.md#cancel-cashtray): Cashtrayを無効化する
+- [GetCashtray](./cashtray.md#get-cashtray): Cashtrayの情報を取得する
 - [UpdateCashtray](./cashtray.md#update-cashtray): Cashtrayの情報を更新する
 
 ### Customer
+- [DeleteAccount](./customer.md#delete-account): ウォレットを退会する
 - [GetAccount](./customer.md#get-account): ウォレット情報を表示する
 - [UpdateAccount](./customer.md#update-account): ウォレット情報を更新する
-- [DeleteAccount](./customer.md#delete-account): ウォレットを退会する
 - [ListAccountBalances](./customer.md#list-account-balances): エンドユーザーの残高内訳を表示する
 - [ListAccountExpiredBalances](./customer.md#list-account-expired-balances): エンドユーザーの失効済みの残高内訳を表示する
 - [UpdateCustomerAccount](./customer.md#update-customer-account): エンドユーザーのウォレット情報を更新する
@@ -137,7 +138,6 @@ APIサーバがエラーレスポンスを返した場合に使われます。
 - [UpdateShop](./shop.md#update-shop): 店舗情報を更新する
 
 ### User
-- [GetUser](./user.md#get-user): 
 
 ### Account
 - [ListUserAccounts](./account.md#list-user-accounts): エンドユーザー、店舗ユーザーのウォレット一覧を表示する
@@ -154,18 +154,19 @@ APIサーバがエラーレスポンスを返した場合に使われます。
 ### Event
 - [CreateExternalTransaction](./event.md#create-external-transaction): ポケペイ外部取引を作成する
 - [RefundExternalTransaction](./event.md#refund-external-transaction): ポケペイ外部取引をキャンセルする
+- [GetExternalTransactionByRequestId](./event.md#get-external-transaction-by-request-id): リクエストIDからポケペイ外部取引を取得する
 
 ### Campaign
-- [CreateCampaign](./campaign.md#create-campaign): ポイント付与キャンペーンを作る
 - [ListCampaigns](./campaign.md#list-campaigns): キャンペーン一覧を取得する
+- [CreateCampaign](./campaign.md#create-campaign): ポイント付与キャンペーンを作る
 - [GetCampaign](./campaign.md#get-campaign): キャンペーンを取得する
 - [UpdateCampaign](./campaign.md#update-campaign): ポイント付与キャンペーンを更新する
 
 ### Webhook
-- [CreateWebhook](./webhook.md#create-webhook): webhookの作成
 - [ListWebhooks](./webhook.md#list-webhooks): 作成したWebhookの一覧を返す
-- [UpdateWebhook](./webhook.md#update-webhook): Webhookの更新
+- [CreateWebhook](./webhook.md#create-webhook): webhookの作成
 - [DeleteWebhook](./webhook.md#delete-webhook): Webhookの削除
+- [UpdateWebhook](./webhook.md#update-webhook): Webhookの更新
 
 ### Coupon
 - [ListCoupons](./coupon.md#list-coupons): クーポン一覧の取得
@@ -179,7 +180,10 @@ APIサーバがエラーレスポンスを返した場合に使われます。
 - [ActivateUserDevice](./user_device.md#activate-user-device): デバイスの有効化
 
 ### BankPay
-- [CreateBank](./bank_pay.md#create-bank): 銀行口座の登録
 - [ListBanks](./bank_pay.md#list-banks): 登録した銀行の一覧
+- [CreateBank](./bank_pay.md#create-bank): 銀行口座の登録
 - [CreateBankTopupTransaction](./bank_pay.md#create-bank-topup-transaction): 銀行からのチャージ
+
+### SevenBankATMSession
+- [GetSevenBankATMSession](./seven_bank_atm_session.md#get-seven-bank-atm-session): セブン銀行ATMセッションの取得
 

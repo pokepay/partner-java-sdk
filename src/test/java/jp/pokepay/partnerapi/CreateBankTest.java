@@ -12,10 +12,10 @@ public class CreateBankTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateBank(
-            "5ceabfee-19eb-4683-baf9-d5e1eacd3507",
-            "809e5b4d-316f-481c-b62c-d410f3bdb948",
-            "FjN16Mt1NNT0LSnWyLCIiaSmxOiabyCFBUZkKwMvzRhZdC9PIbxRIokrSMcAe6DLpfhwjho9qAj035em2B0e1zQxL4LWrEkUrKUADYaUMS4V1xY0z6q9RliuqOBINm4Q77ByqizVQoe2X9mQJiEELVlycfdA0sn1Jp9ctBvXrxjspmUg2Jofbfd8lI7ca3oyQQIsUl3rCM2ZMpE",
-            "WDor4IADTHdTPsjhUsWbu"
+            "7dd6fc10-8c3f-410d-adde-167a2a74efa5",
+            "47088f06-f12c-4cbe-b4e6-7bfbefa4b16e",
+            "fWLRafbjHHiTlinfVLWJIyGq0eGZ3LjtgQn48RP8UioFkI4pFJl8a49K0SiRVrDmJ5TPkLuNgnu18c0Kn6PzJQm77hC3byYhnk9L6y5R4kNHRMXQTzW1iBiUI5J",
+            "GbGoEyKdo0WvNvuZ"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -31,12 +31,12 @@ public class CreateBankTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateBank(
-            "5ceabfee-19eb-4683-baf9-d5e1eacd3507",
-            "809e5b4d-316f-481c-b62c-d410f3bdb948",
-            "FjN16Mt1NNT0LSnWyLCIiaSmxOiabyCFBUZkKwMvzRhZdC9PIbxRIokrSMcAe6DLpfhwjho9qAj035em2B0e1zQxL4LWrEkUrKUADYaUMS4V1xY0z6q9RliuqOBINm4Q77ByqizVQoe2X9mQJiEELVlycfdA0sn1Jp9ctBvXrxjspmUg2Jofbfd8lI7ca3oyQQIsUl3rCM2ZMpE",
-            "WDor4IADTHdTPsjhUsWbu"
+            "7dd6fc10-8c3f-410d-adde-167a2a74efa5",
+            "47088f06-f12c-4cbe-b4e6-7bfbefa4b16e",
+            "fWLRafbjHHiTlinfVLWJIyGq0eGZ3LjtgQn48RP8UioFkI4pFJl8a49K0SiRVrDmJ5TPkLuNgnu18c0Kn6PzJQm77hC3byYhnk9L6y5R4kNHRMXQTzW1iBiUI5J",
+            "GbGoEyKdo0WvNvuZ"
         )
-                .birthdate("hnbI");
+                .birthdate("zOy");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -51,13 +51,13 @@ public class CreateBankTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateBank(
-            "5ceabfee-19eb-4683-baf9-d5e1eacd3507",
-            "809e5b4d-316f-481c-b62c-d410f3bdb948",
-            "FjN16Mt1NNT0LSnWyLCIiaSmxOiabyCFBUZkKwMvzRhZdC9PIbxRIokrSMcAe6DLpfhwjho9qAj035em2B0e1zQxL4LWrEkUrKUADYaUMS4V1xY0z6q9RliuqOBINm4Q77ByqizVQoe2X9mQJiEELVlycfdA0sn1Jp9ctBvXrxjspmUg2Jofbfd8lI7ca3oyQQIsUl3rCM2ZMpE",
-            "WDor4IADTHdTPsjhUsWbu"
+            "7dd6fc10-8c3f-410d-adde-167a2a74efa5",
+            "47088f06-f12c-4cbe-b4e6-7bfbefa4b16e",
+            "fWLRafbjHHiTlinfVLWJIyGq0eGZ3LjtgQn48RP8UioFkI4pFJl8a49K0SiRVrDmJ5TPkLuNgnu18c0Kn6PzJQm77hC3byYhnk9L6y5R4kNHRMXQTzW1iBiUI5J",
+            "GbGoEyKdo0WvNvuZ"
         )
-                .email("UFlfvobOcl@FXKf.com")
-                .birthdate("dQivs3h");
+                .email("md6UzJ163l@ry8C.com")
+                .birthdate("4rDtJNzc");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

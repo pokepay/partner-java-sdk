@@ -2,6 +2,54 @@
 BankPayを用いた銀行からのチャージ取引などのAPIを提供しています。
 
 
+<a name="list-banks"></a>
+## ListBanks: 登録した銀行の一覧
+登録した銀行を一覧します
+
+```JAVA
+Request request = new ListBanks(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // userDeviceId: デバイスID
+)
+        .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx");
+
+```
+
+
+
+### Parameters
+**`userDeviceId`** 
+  
+
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+**`privateMoneyId`** 
+  
+
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+
+
+成功したときは
+[Banks](./responses.md#banks)
+を返します
+
+
+
+---
+
+
 <a name="create-bank"></a>
 ## CreateBank: 銀行口座の登録
 銀行口座の登録を始めるAPIです。レスポンスに含まれるredirect_urlをユーザーの端末で開き銀行を登録します。
@@ -17,7 +65,7 @@ Request request = new CreateBank(
     "<Deep Link>",                                // callbackUrl: コールバックURL
     "ポケペイタロウ"                                     // kana: ユーザーの氏名 (片仮名で指定)
 )
-        .email("qC15yVJZpc@8KVp.com")             // ユーザーのメールアドレス
+        .email("NJhR9grzsE@T9HH.com")             // ユーザーのメールアドレス
         .birthdate("19901142");                   // 生年月日
 
 ```
@@ -99,52 +147,6 @@ Request request = new CreateBank(
 を返します
 
 
----
-
-
-<a name="list-banks"></a>
-## ListBanks: 登録した銀行の一覧
-登録した銀行を一覧します
-
-```JAVA
-Request request = new ListBanks(
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // userDeviceId: デバイスID
-)
-        .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx");
-
-```
-
-
-
-### Parameters
-**`userDeviceId`** 
-  
-
-
-```json
-{
-  "type": "string",
-  "format": "uuid"
-}
-```
-
-**`privateMoneyId`** 
-  
-
-
-```json
-{
-  "type": "string",
-  "format": "uuid"
-}
-```
-
-
-
-成功したときは
-[Banks](./responses.md#banks)
-を返します
-
 
 ---
 
@@ -157,7 +159,7 @@ Request request = new ListBanks(
 Request request = new CreateBankTopupTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // userDeviceId: デバイスID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    7742,                                         // amount: チャージ金額
+    6059,                                         // amount: チャージ金額
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // bankId: 銀行ID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // requestId: リクエストID
 );
@@ -227,6 +229,7 @@ Request request = new CreateBankTopupTransaction(
 成功したときは
 [TransactionDetail](./responses.md#transaction-detail)
 を返します
+
 
 
 ---

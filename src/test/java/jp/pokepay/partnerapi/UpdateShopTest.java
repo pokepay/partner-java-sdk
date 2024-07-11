@@ -12,7 +12,7 @@ public class UpdateShopTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateShop(
-            "375fa126-c77a-44bf-b786-a86bc10796f6"
+            "a91dc663-99e6-4380-8321-0b2523e86c7b"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class UpdateShopTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateShop(
-            "375fa126-c77a-44bf-b786-a86bc10796f6"
+            "a91dc663-99e6-4380-8321-0b2523e86c7b"
         )
-                .status("disabled");
+                .status("active");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class UpdateShopTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateShop(
-            "375fa126-c77a-44bf-b786-a86bc10796f6"
+            "a91dc663-99e6-4380-8321-0b2523e86c7b"
         )
-                .canTopupPrivateMoneyIds(new String[]{"b641d85b-3ca4-4710-88d9-85d21e42d16a","2f93d07a-3629-4c41-92da-738c009370de","b11d6899-71f7-4630-857c-5b35524dabd4","d67ba291-9cf9-4c30-801f-52fe8a8d0707","be9d8702-b5ee-4ee5-aef7-5c2394fb0f7a","20f018c8-664f-4b7f-a1c9-64d649d982f7","055db824-ca0d-4aa8-8e0b-c14d74005b0e","443a0c54-749a-4b91-88ea-5d9f33b2bdd0"})
-                .status("disabled");
+                .canTopupPrivateMoneyIds(new String[]{"9852d914-b345-425b-93b8-dca15f403b48","1bf8aaff-f5ff-4748-8aad-f96094ec44a3","ae46d9dc-d41d-4508-be66-c4bc7a989435","b2a9a4a4-0eb0-4cd4-9582-72df747d59c3","81904a92-37b5-4b79-9c90-37b26d46d548","6d8e4e09-16a2-4e13-8e81-ae1e8e0837f2"})
+                .status("active");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,10 +63,10 @@ public class UpdateShopTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateShop(
-            "375fa126-c77a-44bf-b786-a86bc10796f6"
+            "a91dc663-99e6-4380-8321-0b2523e86c7b"
         )
-                .privateMoneyIds(new String[]{"4b7d345e-13c6-4e94-9f4d-7f04f85d3647","1c45aa1a-91e5-4376-a713-c0f714edd5d6","9295abcd-c59f-4365-80da-781df7cf65df","aaee20fb-f7ab-490a-8ff4-c03888f3fac5","b1806aa8-1f71-409b-9faf-227ee7d8abc9","326fac9b-1e76-453e-898e-fa09cb96c892"})
-                .canTopupPrivateMoneyIds(new String[]{"695a3ff8-327c-48f6-81fe-80ecbca5126a","3a30c4b5-c24b-4be1-ac8b-91f1220b3dbc","5b5eaff8-e42c-4b0c-a418-1a034c73bb41","33f65219-2a29-49fe-b748-56f526e1472a","dd005588-4e1e-435c-9f91-a03f8a4b4492","0f15b3fd-5c7b-4171-a3f6-f4293fcaaf9f","cc2df764-af18-4b91-934e-0d1ceeb25c5b","c05683f6-9ee5-48d7-bad7-6ec908a01f2e","ac6a7a35-f5cc-4a93-8097-b88d36f43bb6"})
+                .privateMoneyIds(new String[]{})
+                .canTopupPrivateMoneyIds(new String[]{"5728d3b3-a034-4f8b-a8a8-b744bd59d03b","ee49f0b1-f1f5-4d78-af49-cbe26410ef5f","1d6f1f75-aba0-4964-9080-53e7f02256cb","a3c1cb63-065f-48c1-8834-47ccddca635e","02d62971-ba05-4da9-b476-808e999c7787","ed6de882-f06e-4259-93e4-d9027866f90f","b002ff05-e505-4cfc-928c-07ca0164397f"})
                 .status("disabled");
         try {
             PartnerAPITest.getClient().send(request);
@@ -82,12 +82,12 @@ public class UpdateShopTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new UpdateShop(
-            "375fa126-c77a-44bf-b786-a86bc10796f6"
+            "a91dc663-99e6-4380-8321-0b2523e86c7b"
         )
-                .externalId("QvZvRJLln3CmVmPz2bcH2x")
-                .privateMoneyIds(new String[]{"47f387c2-4048-427c-94e2-6980a843eee9","f7ec771e-0bcf-4ac8-a7a2-ca1268fe0c59","8724bc8d-bc14-435c-a2fa-b25f6dc092a9","307f775e-0bd7-4720-86b7-9445bb04c59d","b2791b2b-74d9-4b0f-83ae-30661ce90ba7","0f4e0bb7-bab6-45ad-946f-615c544ea624"})
-                .canTopupPrivateMoneyIds(new String[]{"451b0c2e-dea3-47e3-bca1-6b896ea55708","4744398d-0eec-4100-b8e4-eef4c9589522","abd40a2a-d67a-443f-9563-b0f13639882d","edc5efc4-95b6-41f2-b12e-be405b3f107f","933685f7-b147-4426-84fd-3a88da476a56","dd9456d2-19e4-4c6f-a0ea-328534361b47","556f5a6a-947b-46e9-a748-cc70dd98a114","70b6451f-96da-4ebb-846c-121b99048d9d"})
-                .status("active");
+                .externalId("VxWy0PirB5ccKSjPsnaJy0xSUaUZ3K")
+                .privateMoneyIds(new String[]{"67971269-72bb-4b70-ae5d-2347d45e0383","07e91f76-d9e5-4618-8ef0-d9b153d44db1","9b1e1f5f-eed7-4f27-870d-c4e9dfcb6d96","86f77bd3-6b72-4db0-9a29-9cb8c1440675","6e6cf586-7f1b-4e43-baa5-2eae1952f6c2","7d1294c0-6b30-463e-9dfc-a91e270b838f","cc70784a-2f84-49d3-9eac-60f400b15928","72200037-d68b-459a-a807-5cda45b9949c","3f345ead-5c4e-41cc-b663-1b76f0c059ff"})
+                .canTopupPrivateMoneyIds(new String[]{"904eec3b-0c89-4b3a-b1c2-656e2f941c68","e86447ac-6bc7-4fee-a725-45793daf15d2","6cb8fb12-1ea2-4073-a4b1-95daf3408162"})
+                .status("disabled");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -102,12 +102,12 @@ public class UpdateShopTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new UpdateShop(
-            "375fa126-c77a-44bf-b786-a86bc10796f6"
+            "a91dc663-99e6-4380-8321-0b2523e86c7b"
         )
-                .email("8InHQBhMIr@dZJT.com")
-                .externalId("9MnQgGfElkSct56tB3QvYjy8m")
-                .privateMoneyIds(new String[]{"6ce4fe92-b0aa-4900-a7c4-5679cd343c95","0b0218d8-5e2e-488e-913a-62a382675314","d48a3c59-8307-49cf-8eaa-ce182f38af01","3bf70fd3-7073-4dae-a818-c1199f4aa6f0","27138bbd-f847-4bcd-836b-6fe5a7c4cdb1"})
-                .canTopupPrivateMoneyIds(new String[]{})
+                .email("EX46DL0EY9@Dfg2.com")
+                .externalId("2KSBJ32yceHk")
+                .privateMoneyIds(new String[]{})
+                .canTopupPrivateMoneyIds(new String[]{"47031610-468f-480e-8a03-0701ad16ffd3","51f19c19-1d35-422e-b372-bbdffd022a2a","07488c1a-ee51-45d9-8672-84a561fc77fd","1aebc8c9-61c5-4052-b61c-25ecad8e7cb0","e5d8604b-05f2-4cfd-9be9-d4f575f3e55f"})
                 .status("active");
         try {
             PartnerAPITest.getClient().send(request);
@@ -123,14 +123,14 @@ public class UpdateShopTest {
     @Test
     void test6() throws ConnectionError, ProcessingError {
         Request request = new UpdateShop(
-            "375fa126-c77a-44bf-b786-a86bc10796f6"
+            "a91dc663-99e6-4380-8321-0b2523e86c7b"
         )
-                .tel("0005-9248141")
-                .email("iUj9JqianI@8FqI.com")
-                .externalId("qzelGZDONUAJfl2HMto7yaW0G")
-                .privateMoneyIds(new String[]{"38efd286-ccb1-4970-8f8f-01cf76094593","14b8b70c-2bc2-4da4-9a81-38fb67363d17","6608ae1e-43fb-40ba-8108-d1efdbb8fbfe","6ee8ecf3-d0f8-4963-9594-e9dff17a2eb6"})
-                .canTopupPrivateMoneyIds(new String[]{"f873bf31-ad5e-413d-b628-9abb4f324bc6","652db89b-7722-4f4d-8b27-0b4e5c64db39","44f54ca8-c540-4a35-aa97-ea322987e4bf","a250df56-3a2f-45ff-9564-17d1d2de9c33","a3baf25f-8e7c-497e-863c-0a8bda44ad74","80b438b6-bb08-4e33-bf09-6c9c6d7a8dd7","54220f70-fb7f-4b79-b3e7-d55e4b891b07"})
-                .status("active");
+                .tel("01813768343")
+                .email("nnsKFojcLO@uuur.com")
+                .externalId("aaP5zVuitJAWBnMTQrqQLb4F279")
+                .privateMoneyIds(new String[]{"fc9ec563-0e05-4b07-b364-b2108203d244","cf9981f4-70bc-46a6-834d-d1b3c74ccdac","c5c87499-e6f5-432c-97c0-408bc5a6a98c","9eb27d88-aa5e-4c53-a11d-87c540654e59","c1060862-d4f5-4d98-a17e-eeba284b644f","3286cee0-dff9-42a7-b1c1-12973aca16f4","3532624a-9219-4014-aa9c-16a002783062"})
+                .canTopupPrivateMoneyIds(new String[]{"5ca9c410-3c7b-41da-a08c-9999113a20dc","47f4bac6-40f6-4985-988c-e63440782044","0d9d74dc-5ed4-45f2-a5db-d2807b407e6e","bd9d470d-f19b-4b59-bcac-89ea1922f35b","7d0459ff-ad9a-4710-b6bb-a3f2f35533c5","a3efa5b9-d4e0-4348-b55e-1c93e807f32b"})
+                .status("disabled");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -145,14 +145,14 @@ public class UpdateShopTest {
     @Test
     void test7() throws ConnectionError, ProcessingError {
         Request request = new UpdateShop(
-            "375fa126-c77a-44bf-b786-a86bc10796f6"
+            "a91dc663-99e6-4380-8321-0b2523e86c7b"
         )
-                .address("20fNhPhFK8mUwq4sfxVOVqIgogobrlTBvrKruisPGcjRxKz0hnHtPEmOFzye10sMn1hLqgZ4Scflk2JdjznjOojFztUyYyUwwyS9B5htgNIDpUpzKyj3BEvYp1TbuySIy9vMfjs9RSVIuRLJamUgod9vJRMh5laf7")
-                .tel("037409056")
-                .email("BC2Sel2Qni@qdOC.com")
-                .externalId("9my1YOO8Cj")
-                .privateMoneyIds(new String[]{"40a9195b-e812-449b-8c30-80fbd0f9ae59","4787c17c-e346-4bed-b6b4-07308a3c7e5f"})
-                .canTopupPrivateMoneyIds(new String[]{"61851016-24d5-4e2e-afcd-6635e2edb077","80343906-659b-4c85-94a6-44011287311e","471eac5a-a4e7-4001-b5e5-069aa4784324","dcb5e80a-8b0d-45b6-95b7-56e5c9b3c515"})
+                .address("Gm5xmBEPErYjV24xKSbfZiVFE1mx2zGT1xfUftI30JyBIPqdCDvWnTRvriMMqT8Y")
+                .tel("070697-082")
+                .email("EUoqg0zXsu@vc8L.com")
+                .externalId("4mbP1hy")
+                .privateMoneyIds(new String[]{"62f6f59d-b5d0-4582-84af-aa2ba2787ce2","2ae8bbce-0a80-4956-aae3-6b9d4ff9bbbe","9b28ea88-92ba-4c93-89e0-ed13e3122e9f","f799f274-b4af-4935-b951-2ba77e63ed01","4addd0ce-9a1c-4c00-a9e0-9da37efd6119","cd0f48ea-4356-40db-aebf-1d9c92faf87d"})
+                .canTopupPrivateMoneyIds(new String[]{})
                 .status("disabled");
         try {
             PartnerAPITest.getClient().send(request);
@@ -168,16 +168,16 @@ public class UpdateShopTest {
     @Test
     void test8() throws ConnectionError, ProcessingError {
         Request request = new UpdateShop(
-            "375fa126-c77a-44bf-b786-a86bc10796f6"
+            "a91dc663-99e6-4380-8321-0b2523e86c7b"
         )
-                .postalCode("8609258")
-                .address("E3L7gW6pVOxZ4jRFNa6hoBOihdHvejLf7HUNUhMpEnczyOhMWAPbHXytdjUT8FkE6WXDem2rgSzz35aQ4D94kR9S0XTdmHcC0cGFAfEKgLlOIWqFFofKhzWzCAqp2ZanhrL16oNA3cZ")
-                .tel("09-16923")
-                .email("YZY4p9bZgs@cBV3.com")
-                .externalId("pXiPPiW2qUm4F")
-                .privateMoneyIds(new String[]{"427fc08c-0851-4c85-b5e3-ab2d687ff6f3","1a4e61fc-15ac-43ed-bab0-77c75a672c59"})
-                .canTopupPrivateMoneyIds(new String[]{"056a8ddb-0ef7-40d9-847f-2c38b86fd813"})
-                .status("disabled");
+                .postalCode("3254867")
+                .address("40vhQYw5VlT5PtGoiFuhhxPNxJedAo6IB1JwI4HtHPlHFEuPGo3GkdygOOVSyzQqeTxBrSdGB4t2pP3KohbOZsA8epkaCTJpPbbkDn1ZrOBafUzNTBXIV1wGp1Rn3U4KQsAmdVQrUihNu2f4606Zw3XOfvqGLqQiqaG2p9irVNMOOMEyp")
+                .tel("0812-256-2716")
+                .email("GgyrO7oaIP@GJ7J.com")
+                .externalId("BC1o5Rc9")
+                .privateMoneyIds(new String[]{"9a97ec77-edbb-4466-ad8a-60d6f4c9e8f2","3cdf80d7-22f2-4e4b-a4b8-892059fc8dda","39c4f4e3-9a6b-456e-a0e4-77968729de97","d8ab7c50-6e6e-4a1c-b09e-001fbe9d0ab3","34ecc8ee-2dbf-4128-a512-4f123e4c0adb","9e2cc413-bb91-4ffc-8c6f-56cde6c42624"})
+                .canTopupPrivateMoneyIds(new String[]{"099843e5-94af-4002-ace5-e48ef262e4b3"})
+                .status("active");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -192,16 +192,16 @@ public class UpdateShopTest {
     @Test
     void test9() throws ConnectionError, ProcessingError {
         Request request = new UpdateShop(
-            "375fa126-c77a-44bf-b786-a86bc10796f6"
+            "a91dc663-99e6-4380-8321-0b2523e86c7b"
         )
-                .name("K8kF9CcO2FCZ7wQECuE")
-                .postalCode("987-8945")
-                .address("4l9EXWThBhNBtq0Hlr5VUDcRjPWhcWE5Ed0Dp6qm5enNIYlp4WuULLQB3hzZG357PPnWlMQlOO65IFrI1BJMiWPv5dAbUBWta68v79KNgsodWT1kP64chZLEzZTeXAsCUOeSILicKJugPMhkbNW44x5lpizelx6Zw3")
-                .tel("047-4531-939")
-                .email("gb4Yb3t6km@vyhj.com")
-                .externalId("D7Y1lgzqIh5MLpUpAeuRnJqWXlTPA3BNnPJ")
-                .privateMoneyIds(new String[]{})
-                .canTopupPrivateMoneyIds(new String[]{"13e59d9d-b8b0-40fc-83fc-c2046b3661c8","d2330960-b1b1-472b-9530-bcc74e9936d1","c9e06b62-7a39-4297-9f36-18cae73755fa"})
+                .name("pOb8vOALeCaVZzJ21Wkjwh096vY0")
+                .postalCode("7961126")
+                .address("OxtHaQb")
+                .tel("05860669461")
+                .email("YgBl99xXSI@Gv3O.com")
+                .externalId("n3SH7ljqEdpqCcPOpWjivoOnvdw0Y")
+                .privateMoneyIds(new String[]{"cbe99a17-ac76-4c7d-ace4-4c3b5e7dbab3","b7aaa03c-b649-4565-8a17-711186b577f9","022dade8-883f-412d-92af-d454cb75da7d","7d88e26c-81d2-4022-a7a3-8b545cd4aad4","1c373fdd-b6a2-4abd-b2ba-464e6e9bd15e","32548178-5ed3-4769-b068-e614e5a677da"})
+                .canTopupPrivateMoneyIds(new String[]{"9a2d9c52-141c-48ec-8c82-5f2f7a19f5dc","e8460319-2210-476f-ac22-b0ab2144bb06","e156e2cc-0722-4bfd-bf9b-d0882f60821d","38553eea-774d-4514-ad91-d2bea7a7afcc"})
                 .status("disabled");
         try {
             PartnerAPITest.getClient().send(request);
