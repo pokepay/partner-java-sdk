@@ -12,7 +12,7 @@ public class UpdateBillTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "7b13563f-52a4-4ad9-a683-55c84cee1a90"
+            "ea04c326-0bb6-4cea-bad8-25a51e752ba1"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,7 +28,7 @@ public class UpdateBillTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "7b13563f-52a4-4ad9-a683-55c84cee1a90"
+            "ea04c326-0bb6-4cea-bad8-25a51e752ba1"
         )
                 .setDisabled(true);
         try {
@@ -45,9 +45,9 @@ public class UpdateBillTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "7b13563f-52a4-4ad9-a683-55c84cee1a90"
+            "ea04c326-0bb6-4cea-bad8-25a51e752ba1"
         )
-                .description("vN0QEBe9OUmuQoNyAxdhT65YfaNVM2xjqlPxxy8RqwFW")
+                .description("MPoI5dYhtAEAC8MN1MIRbysguh0xXqdkQK8VGfHRzulBqoPAVuBC2EUluqb81O3ZagKE8LcCa8bz2nHShe5EoHVudmx1iMacSt3whWHQ5cbR62Ey")
                 .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
@@ -63,11 +63,11 @@ public class UpdateBillTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateBill(
-            "7b13563f-52a4-4ad9-a683-55c84cee1a90"
+            "ea04c326-0bb6-4cea-bad8-25a51e752ba1"
         )
-                .amount(4820.0)
-                .description("1hvVt9bN2zIxNZx4eE9mHPjq6XCvYjxbcuNA5AOQHru6gAXocPu4UpOUbFxl1xg8SX1voG8Gydqo4fQ7D47J36mgyKf2p")
-                .setDisabled(true);
+                .amount(242.0)
+                .description("AyRxoXmZ8au8D4esSHy55W")
+                .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

@@ -8,11 +8,11 @@ Request request = new ListShops()
         .organizationCode("pocketchange")         // 組織コード
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
         .name("oxスーパー三田店")                        // 店舗名
-        .postalCode("055-8439")                   // 店舗の郵便番号
+        .postalCode("1220311")                    // 店舗の郵便番号
         .address("東京都港区芝...")                     // 店舗の住所
-        .tel("021-7099-1336")                     // 店舗の電話番号
-        .email("3bs4OkWhHF@x3P6.com")             // 店舗のメールアドレス
-        .externalId("yxFmxWAZtUSoiVrIFnb7w6ZClkoqVajvuG5c") // 店舗の外部ID
+        .tel("03469-368")                         // 店舗の電話番号
+        .email("GqBqgGEHaf@l1jN.com")             // 店舗のメールアドレス
+        .externalId("9k7uydClg9A7an27P")          // 店舗の外部ID
         .withDisabled(true)                       // 無効な店舗を含める
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
@@ -171,6 +171,15 @@ Request request = new ListShops()
 [PaginatedShops](./responses.md#paginated-shops)
 を返します
 
+### Error Responses
+|status|type|ja|en|
+|---|---|---|---|
+|403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
+|422|private_money_not_found||Private money not found|
+|422|organization_not_found||Organization not found|
+|503|temporarily_unavailable||Service Unavailable|
+
+
 
 ---
 
@@ -183,11 +192,11 @@ Request request = new ListShops()
 Request request = new CreateShop(
     "oxスーパー三田店"                                   // shopName: 店舗名
 )
-        .shopPostalCode("795-2270")               // 店舗の郵便番号
+        .shopPostalCode("260-8221")               // 店舗の郵便番号
         .shopAddress("東京都港区芝...")                 // 店舗の住所
-        .shopTel("097-9077320")                   // 店舗の電話番号
-        .shopEmail("8bfxMId7hF@KERG.com")         // 店舗のメールアドレス
-        .shopExternalId("a7vbD1cIywVpXocQ5N98CAVKuK") // 店舗の外部ID
+        .shopTel("059-718-421")                   // 店舗の電話番号
+        .shopEmail("GJVwTTanAX@yFjL.com")         // 店舗のメールアドレス
+        .shopExternalId("ag3gPPvlq0FFn")          // 店舗の外部ID
         .organizationCode("ox-supermarket");      // 組織コード
 
 ```
@@ -281,6 +290,17 @@ Request request = new CreateShop(
 [User](./responses.md#user)
 を返します
 
+### Error Responses
+|status|type|ja|en|
+|---|---|---|---|
+|403|NULL|NULL|NULL|
+|409|email_conflict|このメールアドレスは既に使われています|The E-mail address is already registered|
+|409|shop_name_conflict||The shop name is already used|
+|422|organization_not_member_organization||The specified organization is not a member organization of the organization accessing this API|
+|422|organization_not_found||Organization not found|
+|422|unavailable_private_money||Given private money(s) is/are not available|
+
+
 
 ---
 
@@ -292,14 +312,14 @@ Request request = new CreateShop(
 Request request = new CreateShopV2(
     "oxスーパー三田店"                                   // name: 店舗名
 )
-        .postalCode("2351924")                    // 店舗の郵便番号
+        .postalCode("447-1925")                   // 店舗の郵便番号
         .address("東京都港区芝...")                     // 店舗の住所
-        .tel("0245976-5965")                      // 店舗の電話番号
-        .email("I8CNBTqLCZ@99Aj.com")             // 店舗のメールアドレス
-        .externalId("bK3l31NeAICSoLJdEVZoJB0")    // 店舗の外部ID
+        .tel("009-17057")                         // 店舗の電話番号
+        .email("QTdAXKNGuL@NgDO.com")             // 店舗のメールアドレス
+        .externalId("Ma1ptA22IkyjkgPuZU")         // 店舗の外部ID
         .organizationCode("ox-supermarket")       // 組織コード
         .privateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 店舗で有効にするマネーIDの配列
-        .canTopupPrivateMoneyIds(new String[]{}); // 店舗でチャージ可能にするマネーIDの配列
+        .canTopupPrivateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}); // 店舗でチャージ可能にするマネーIDの配列
 
 ```
 
@@ -433,6 +453,18 @@ Request request = new CreateShopV2(
 [ShopWithAccounts](./responses.md#shop-with-accounts)
 を返します
 
+### Error Responses
+|status|type|ja|en|
+|---|---|---|---|
+|400|invalid_parameters|項目が無効です|Invalid parameters|
+|403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
+|409|shop_name_conflict||The shop name is already used|
+|422|organization_not_found||Organization not found|
+|422|unpermitted_private_money|このマネーは使えません|This money is not available|
+|422|unavailable_private_money||Given private money(s) is/are not available|
+|422|organization_not_member_organization||The specified organization is not a member organization of the organization accessing this API|
+
+
 
 ---
 
@@ -471,6 +503,7 @@ Request request = new GetShop(
 を返します
 
 
+
 ---
 
 
@@ -483,14 +516,14 @@ Request request = new UpdateShop(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // shopId: 店舗ユーザーID
 )
         .name("oxスーパー三田店")                        // 店舗名
-        .postalCode("5495125")                    // 店舗の郵便番号
+        .postalCode("1120263")                    // 店舗の郵便番号
         .address("東京都港区芝...")                     // 店舗の住所
-        .tel("079238-9452")                       // 店舗の電話番号
-        .email("zTj3A085y5@hWQ3.com")             // 店舗のメールアドレス
-        .externalId("gdeDOWFExGORRYNLJdsZ6n3IGoF44i049") // 店舗の外部ID
+        .tel("09142125-5133")                     // 店舗の電話番号
+        .email("PqyT3XyCFC@rR8u.com")             // 店舗のメールアドレス
+        .externalId("ZnHFgU1ZOwuoe")              // 店舗の外部ID
         .privateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 店舗で有効にするマネーIDの配列
-        .canTopupPrivateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 店舗でチャージ可能にするマネーIDの配列
-        .status("active");                        // 店舗の状態
+        .canTopupPrivateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 店舗でチャージ可能にするマネーIDの配列
+        .status("disabled");                      // 店舗の状態
 
 ```
 
@@ -641,6 +674,7 @@ Request request = new UpdateShop(
 成功したときは
 [ShopWithAccounts](./responses.md#shop-with-accounts)
 を返します
+
 
 
 ---

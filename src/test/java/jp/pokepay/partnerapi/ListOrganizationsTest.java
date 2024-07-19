@@ -12,7 +12,7 @@ public class ListOrganizationsTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new ListOrganizations(
-            "fd11d67f-90f1-4aea-bfe7-8524bf4859f6"
+            "984c0512-4bc5-4658-abc3-5594816b6f55"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class ListOrganizationsTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListOrganizations(
-            "fd11d67f-90f1-4aea-bfe7-8524bf4859f6"
+            "984c0512-4bc5-4658-abc3-5594816b6f55"
         )
-                .code("Ncs");
+                .code("yPfCabjEt");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class ListOrganizationsTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListOrganizations(
-            "fd11d67f-90f1-4aea-bfe7-8524bf4859f6"
+            "984c0512-4bc5-4658-abc3-5594816b6f55"
         )
-                .name("QLQxA")
-                .code("tJmVTcXWtK");
+                .name("If7wKoPmNQ")
+                .code("U6zl3h0Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,11 +63,11 @@ public class ListOrganizationsTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new ListOrganizations(
-            "fd11d67f-90f1-4aea-bfe7-8524bf4859f6"
+            "984c0512-4bc5-4658-abc3-5594816b6f55"
         )
-                .perPage(5974)
-                .name("kN")
-                .code("d35");
+                .perPage(2813)
+                .name("oCe5IIfE")
+                .code("aRl");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -82,12 +82,12 @@ public class ListOrganizationsTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new ListOrganizations(
-            "fd11d67f-90f1-4aea-bfe7-8524bf4859f6"
+            "984c0512-4bc5-4658-abc3-5594816b6f55"
         )
-                .page(4321)
-                .perPage(9262)
-                .name("uBKlwozbM8")
-                .code("BIp6WWFto");
+                .page(9969)
+                .perPage(3099)
+                .name("hTTQp")
+                .code("QoSR");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
