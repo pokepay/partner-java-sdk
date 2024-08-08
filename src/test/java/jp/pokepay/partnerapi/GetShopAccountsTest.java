@@ -47,8 +47,8 @@ public class GetShopAccountsTest {
         Request request = new GetShopAccounts(
             "e7f9bb88-8b7f-4883-b91c-43b0aea260a6"
         )
-                .createdAtTo("2022-01-09T07:41:23.000000Z")
-                .setSuspended(true);
+                .createdAtTo("2024-07-14T02:22:10.000000Z")
+                .setSuspended(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -65,8 +65,8 @@ public class GetShopAccountsTest {
         Request request = new GetShopAccounts(
             "e7f9bb88-8b7f-4883-b91c-43b0aea260a6"
         )
-                .createdAtFrom("2020-10-18T03:56:04.000000Z")
-                .createdAtTo("2021-07-25T03:50:36.000000Z")
+                .createdAtFrom("2023-10-26T19:54:58.000000Z")
+                .createdAtTo("2020-10-18T03:56:04.000000Z")
                 .setSuspended(true);
         try {
             PartnerAPITest.getClient().send(request);
@@ -84,9 +84,9 @@ public class GetShopAccountsTest {
         Request request = new GetShopAccounts(
             "e7f9bb88-8b7f-4883-b91c-43b0aea260a6"
         )
-                .perPage(9222)
-                .createdAtFrom("2023-07-21T18:59:40.000000Z")
-                .createdAtTo("2022-05-03T22:28:24.000000Z")
+                .perPage(8625)
+                .createdAtFrom("2020-07-30T17:36:05.000000Z")
+                .createdAtTo("2023-07-21T18:59:40.000000Z")
                 .setSuspended(true);
         try {
             PartnerAPITest.getClient().send(request);
@@ -104,10 +104,10 @@ public class GetShopAccountsTest {
         Request request = new GetShopAccounts(
             "e7f9bb88-8b7f-4883-b91c-43b0aea260a6"
         )
-                .page(4807)
-                .perPage(6255)
-                .createdAtFrom("2023-05-11T13:18:24.000000Z")
-                .createdAtTo("2020-12-31T07:17:51.000000Z")
+                .page(2953)
+                .perPage(7807)
+                .createdAtFrom("2022-05-31T18:06:38.000000Z")
+                .createdAtTo("2023-04-10T22:59:49.000000Z")
                 .setSuspended(true);
         try {
             PartnerAPITest.getClient().send(request);
