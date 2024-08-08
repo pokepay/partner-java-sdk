@@ -26,7 +26,7 @@ public class ListBillsTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListBills()
-                .setDisabled(false);
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -41,7 +41,7 @@ public class ListBillsTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListBills()
-                .upperLimitAmount(5168)
+                .upperLimitAmount(2592)
                 .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
@@ -57,6 +57,24 @@ public class ListBillsTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new ListBills()
+                .lowerLimitAmount(4806)
+                .upperLimitAmount(805)
+                .setDisabled(false);
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test4() throws ConnectionError, ProcessingError {
+        Request request = new ListBills()
+                .shopId("b4b9305c-1430-4913-b99a-3a8637d5f940")
                 .lowerLimitAmount(7192)
                 .upperLimitAmount(2756)
                 .setDisabled(true);
@@ -72,27 +90,9 @@ public class ListBillsTest {
         }
     }
     @Test
-    void test4() throws ConnectionError, ProcessingError {
-        Request request = new ListBills()
-                .shopId("3a601079-b551-4d6f-a145-1d90db3b844c")
-                .lowerLimitAmount(7788)
-                .upperLimitAmount(8837)
-                .setDisabled(true);
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new ListBills()
-                .shopName("Jk6MRPKi62IzWH9emhQ0CqvNNBrhyRg9xxzNXJhnMZrEqyRqPCGzbSmOoYCMUQNjvF4AYLzd022rwQVNfYYCfZZWpAcyBWwWi1DgvTt4hTTZowFPycM")
+                .shopName("QoaELlrJk6MRPKi62IzWH9emhQ0CqvNNBrhyRg9xxzNXJhnMZrEqyRqPCGzbSmOoYCMUQNjvF4AYLzd022rwQVNfYYCfZZWpAcyBWwWi1DgvTt4hTTZowFPycM")
                 .shopId("82ebb227-2b66-4610-ac0f-35fd8e7a7012")
                 .lowerLimitAmount(9084)
                 .upperLimitAmount(8550)

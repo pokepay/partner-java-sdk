@@ -66,7 +66,7 @@ Request request = new ListWebhooks()
 ```JAVA
 Request request = new CreateWebhook(
     "bulk_shops",                                 // task: タスク名
-    "OR"                                          // url: URL
+    "2l0o0"                                       // url: URL
 );
 
 ```
@@ -162,9 +162,9 @@ Request request = new DeleteWebhook(
 Request request = new UpdateWebhook(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // webhookId: Webhook ID
 )
-        .url("Z")                                 // URL
+        .url("8SXRzZ3p")                          // URL
         .setActive(true)                          // 有効/無効
-        .task("bulk_shops");                      // タスク名
+        .task("process_user_stats_operation");    // タスク名
 
 ```
 
