@@ -12,7 +12,7 @@ public class ActivateUserDeviceTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new ActivateUserDevice(
-            "65ba575a-a5fa-4198-8b50-3008dd3f7e63"
+            "9a14296c-2a5d-4254-a12d-a18d6ef70e9a"
         );
         try {
             PartnerAPITest.getClient().send(request);

@@ -12,7 +12,7 @@ public class CreateCustomerAccountTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateCustomerAccount(
-            "470453b2-f44b-45ce-a5c1-c85d2b8783f8"
+            "c0171ddb-c59a-4872-a4e5-4fb6db665b50"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class CreateCustomerAccountTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateCustomerAccount(
-            "470453b2-f44b-45ce-a5c1-c85d2b8783f8"
+            "c0171ddb-c59a-4872-a4e5-4fb6db665b50"
         )
-                .externalId("MusYOf3GWmUnXwLz54BHIlEA9iDnHsLVt6aQpKOr");
+                .externalId("HMRPETxpTqOm5GLxvE3PHyRxpFQiFyIZ");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class CreateCustomerAccountTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateCustomerAccount(
-            "470453b2-f44b-45ce-a5c1-c85d2b8783f8"
+            "c0171ddb-c59a-4872-a4e5-4fb6db665b50"
         )
-                .accountName("Jj3tUgj1o9hj9PLJdzv0ZN1dXvT6QCmKlaG4j0EqBQ3f0ayZOe30YVRilDn8VfhEtyUb9Zsw03s7If4N8yNEnGVHYeqLYOASFf3MCAPMe3JYb2ZdLObPzknF2iydp6nXf6syPW89V0GGGj7")
-                .externalId("4kINFMW6qerFszGc");
+                .accountName("gFjSCm615t4Q5QH3bweLDXEjZy8esxoeXDc8Qwk6lTaBeIQaeKVoy0TKV")
+                .externalId("hUuOyd0sW037pzeyl6Nl7FIi5TRV8bUhD0yGDft");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,11 +63,11 @@ public class CreateCustomerAccountTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new CreateCustomerAccount(
-            "470453b2-f44b-45ce-a5c1-c85d2b8783f8"
+            "c0171ddb-c59a-4872-a4e5-4fb6db665b50"
         )
-                .userName("n5HGIwKbBSWO96S0Gn1Zp6PMJZevVIZ132bE1xbD0ehKjJelKoEeZuMDoibLOgklz0qm0JSGDAHe8zqh6C2mn61zeglzI7Pmz7j4mE30TblUr1DanB4y52IkfijVMMDuxaY4zSqJSo7rVnLk3VGx9XJhcKogG8VbeHj4JcmsfhmqCsDxLgtZU4RWBHCa6Op40lNE")
-                .accountName("411bcWrlozWs992qTOCL2ISnTsYiFeVWS00l5PJ2Hq74ENcE7a1BKH20TMnc6ltHOTEKxdWZcajRdZ8P8WyEsiKDwCNIIBmT8tT2sloKIJwfEbLhfkggRdgLdE2dACKTJxoYzMlAmn1oWR94eeMAe44ENN5Ktv3yTFHX4sKstdHsPaTaTt7qqIOt4KJDRWA5QnxPGiz4yArtdjX")
-                .externalId("dQ8d6tJ0b4yt2");
+                .userName("8PMj6pmJy8BZmA3hMsnDF4zUKYJmwXLu7Je5UGXiy43axi2ThoTcfY93c6A9geVBDXKLDBHqc9bNCqTb8IsZpB7qrAuWNRRamfGJOUfhWRYQYdigIm7bb6H9jZuMNi0iTPrQ0P9kFWD5DGeREXcpvqNPBFQh93ix8aMjn5")
+                .accountName("vHt7CgitbHqPjQKHQzRdTESO6N6X9UEvztu3vqKXySQp3tL5cjpbKAQk1eas0N6OFI5W65sIvrvcXHIIlOTFdPSAwnmeQ2oJsTnFDTPok856vGEpk57W")
+                .externalId("vsGLNP0POsB0ZsaGjLwrHSpRjZqQiU4NvIehzJjg7");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

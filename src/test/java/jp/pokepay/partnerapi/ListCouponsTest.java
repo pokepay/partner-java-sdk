@@ -12,7 +12,7 @@ public class ListCouponsTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new ListCoupons(
-            "06c0172f-1331-4330-9cc4-82a6dc23657c"
+            "103051c2-1c36-4d65-bcc4-55c400227d37"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class ListCouponsTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListCoupons(
-            "06c0172f-1331-4330-9cc4-82a6dc23657c"
+            "103051c2-1c36-4d65-bcc4-55c400227d37"
         )
-                .perPage(6479);
+                .perPage(1239);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class ListCouponsTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListCoupons(
-            "06c0172f-1331-4330-9cc4-82a6dc23657c"
+            "103051c2-1c36-4d65-bcc4-55c400227d37"
         )
-                .page(3758)
-                .perPage(445);
+                .page(2965)
+                .perPage(4741);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,11 +63,11 @@ public class ListCouponsTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new ListCoupons(
-            "06c0172f-1331-4330-9cc4-82a6dc23657c"
+            "103051c2-1c36-4d65-bcc4-55c400227d37"
         )
-                .availableTo("2020-08-01T18:29:46.000000+09:00")
-                .page(4218)
-                .perPage(8391);
+                .availableTo("2021-11-13T05:58:27.000000+09:00")
+                .page(9894)
+                .perPage(9554);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -82,12 +82,12 @@ public class ListCouponsTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new ListCoupons(
-            "06c0172f-1331-4330-9cc4-82a6dc23657c"
+            "103051c2-1c36-4d65-bcc4-55c400227d37"
         )
-                .availableFrom("2021-06-30T15:22:38.000000+09:00")
-                .availableTo("2020-08-06T11:48:50.000000+09:00")
-                .page(9560)
-                .perPage(2294);
+                .availableFrom("2021-07-07T13:15:32.000000+09:00")
+                .availableTo("2023-05-20T19:38:02.000000+09:00")
+                .page(8282)
+                .perPage(5852);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -102,13 +102,13 @@ public class ListCouponsTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new ListCoupons(
-            "06c0172f-1331-4330-9cc4-82a6dc23657c"
+            "103051c2-1c36-4d65-bcc4-55c400227d37"
         )
-                .availableShopName("jna")
-                .availableFrom("2022-08-09T00:46:20.000000+09:00")
-                .availableTo("2024-05-17T14:57:23.000000+09:00")
-                .page(452)
-                .perPage(7741);
+                .availableShopName("uArK85")
+                .availableFrom("2024-03-26T02:48:17.000000+09:00")
+                .availableTo("2023-06-03T06:39:23.000000+09:00")
+                .page(4857)
+                .perPage(7403);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -123,14 +123,14 @@ public class ListCouponsTest {
     @Test
     void test6() throws ConnectionError, ProcessingError {
         Request request = new ListCoupons(
-            "06c0172f-1331-4330-9cc4-82a6dc23657c"
+            "103051c2-1c36-4d65-bcc4-55c400227d37"
         )
-                .issuedShopName("Vzz81taxM")
-                .availableShopName("CF")
-                .availableFrom("2022-05-03T06:24:07.000000+09:00")
-                .availableTo("2021-02-22T15:24:09.000000+09:00")
-                .page(4144)
-                .perPage(9131);
+                .issuedShopName("dPWslgjPCU")
+                .availableShopName("jEoz")
+                .availableFrom("2022-01-01T06:59:22.000000+09:00")
+                .availableTo("2022-07-06T12:44:21.000000+09:00")
+                .page(4149)
+                .perPage(4281);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -145,15 +145,15 @@ public class ListCouponsTest {
     @Test
     void test7() throws ConnectionError, ProcessingError {
         Request request = new ListCoupons(
-            "06c0172f-1331-4330-9cc4-82a6dc23657c"
+            "103051c2-1c36-4d65-bcc4-55c400227d37"
         )
-                .couponName("wmKVPRmvC")
-                .issuedShopName("gD")
-                .availableShopName("VSrCi")
-                .availableFrom("2024-05-03T23:25:53.000000+09:00")
-                .availableTo("2024-08-07T16:22:02.000000+09:00")
-                .page(5990)
-                .perPage(2853);
+                .couponName("4d6")
+                .issuedShopName("EJTS0Ah")
+                .availableShopName("980Jl")
+                .availableFrom("2022-07-26T22:57:07.000000+09:00")
+                .availableTo("2020-01-28T15:34:15.000000+09:00")
+                .page(8366)
+                .perPage(4293);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -168,16 +168,16 @@ public class ListCouponsTest {
     @Test
     void test8() throws ConnectionError, ProcessingError {
         Request request = new ListCoupons(
-            "06c0172f-1331-4330-9cc4-82a6dc23657c"
+            "103051c2-1c36-4d65-bcc4-55c400227d37"
         )
-                .couponId("0bjxoH2")
-                .couponName("EE8t")
-                .issuedShopName("KiBrLA87i")
-                .availableShopName("O27K7")
-                .availableFrom("2020-06-29T23:06:16.000000+09:00")
-                .availableTo("2024-06-28T00:25:57.000000+09:00")
-                .page(3653)
-                .perPage(5993);
+                .couponId("9AfDs3")
+                .couponName("q")
+                .issuedShopName("8wpO2iRJG")
+                .availableShopName("jAKVB")
+                .availableFrom("2022-06-08T20:32:06.000000+09:00")
+                .availableTo("2023-07-02T00:05:59.000000+09:00")
+                .page(493)
+                .perPage(8410);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

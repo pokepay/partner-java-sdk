@@ -12,10 +12,10 @@ public class CreateBankTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateBank(
-            "d65d0359-7a71-4d7c-a48e-3f229af19196",
-            "7e141d92-0750-451f-b272-48b5380cd9b7",
-            "kgobg4zHlybmhfqgjK0dnwg6lR9aW8qIjDjhfBx1WgZYZKWLzitNPXOHcG9A0DRbYwaOEqd1I75",
-            "is9GInzTrxet9Hd9dOza"
+            "53108dbc-f100-4f08-97c9-e047d892ca31",
+            "c65dd0c6-9958-4307-860f-7d723d4d99ec",
+            "seqq7iHj8OfZ0VmoI8o4avNrxY1spuTstrfMILQRTxOOEsatNYoAbCo3ZMaf5KPKxelGW2PLMndzwsr1uv9FIOtH1KOWvnnzjzZAhW8D2ddoULlUcHuyaiEbRe8n3yOtWNGYstAurARpkAej7d3pmm2X1vQfnmCFJlBFCCKSrUPGtyVwMuKuLx7wL8pLgjraw5vJZi2F8G7vmLATWHC6iaIOnWYjtCIYZezAqhpmjYMb1iuYBPA",
+            "7905ahp1h14JVU6gHePJM"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -31,12 +31,12 @@ public class CreateBankTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateBank(
-            "d65d0359-7a71-4d7c-a48e-3f229af19196",
-            "7e141d92-0750-451f-b272-48b5380cd9b7",
-            "kgobg4zHlybmhfqgjK0dnwg6lR9aW8qIjDjhfBx1WgZYZKWLzitNPXOHcG9A0DRbYwaOEqd1I75",
-            "is9GInzTrxet9Hd9dOza"
+            "53108dbc-f100-4f08-97c9-e047d892ca31",
+            "c65dd0c6-9958-4307-860f-7d723d4d99ec",
+            "seqq7iHj8OfZ0VmoI8o4avNrxY1spuTstrfMILQRTxOOEsatNYoAbCo3ZMaf5KPKxelGW2PLMndzwsr1uv9FIOtH1KOWvnnzjzZAhW8D2ddoULlUcHuyaiEbRe8n3yOtWNGYstAurARpkAej7d3pmm2X1vQfnmCFJlBFCCKSrUPGtyVwMuKuLx7wL8pLgjraw5vJZi2F8G7vmLATWHC6iaIOnWYjtCIYZezAqhpmjYMb1iuYBPA",
+            "7905ahp1h14JVU6gHePJM"
         )
-                .birthdate("j5eu");
+                .birthdate("7j");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -51,13 +51,13 @@ public class CreateBankTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateBank(
-            "d65d0359-7a71-4d7c-a48e-3f229af19196",
-            "7e141d92-0750-451f-b272-48b5380cd9b7",
-            "kgobg4zHlybmhfqgjK0dnwg6lR9aW8qIjDjhfBx1WgZYZKWLzitNPXOHcG9A0DRbYwaOEqd1I75",
-            "is9GInzTrxet9Hd9dOza"
+            "53108dbc-f100-4f08-97c9-e047d892ca31",
+            "c65dd0c6-9958-4307-860f-7d723d4d99ec",
+            "seqq7iHj8OfZ0VmoI8o4avNrxY1spuTstrfMILQRTxOOEsatNYoAbCo3ZMaf5KPKxelGW2PLMndzwsr1uv9FIOtH1KOWvnnzjzZAhW8D2ddoULlUcHuyaiEbRe8n3yOtWNGYstAurARpkAej7d3pmm2X1vQfnmCFJlBFCCKSrUPGtyVwMuKuLx7wL8pLgjraw5vJZi2F8G7vmLATWHC6iaIOnWYjtCIYZezAqhpmjYMb1iuYBPA",
+            "7905ahp1h14JVU6gHePJM"
         )
-                .email("f9R0OhkggD@JABV.com")
-                .birthdate("bbwm");
+                .email("DAwe0E01uk@ac00.com")
+                .birthdate("WMWMy7jD");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

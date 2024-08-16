@@ -12,7 +12,7 @@ public class GetCouponTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetCoupon(
-            "e9e770f7-e056-4a9a-98f2-327104029ed9"
+            "4e2efd0e-12ff-442b-9352-bfa663d7566f"
         );
         try {
             PartnerAPITest.getClient().send(request);

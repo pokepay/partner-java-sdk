@@ -12,8 +12,8 @@ public class CreateBillTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateBill(
-            "52852778-3968-4ec4-ae99-897fddecb872",
-            "1064b200-68f4-4295-952b-b2e7c90840e5"
+            "22f5c74f-47d3-475b-81b6-5e0fb7fbc6a8",
+            "4ec90ab9-4c4e-4f10-8d16-467078b41281"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -29,10 +29,10 @@ public class CreateBillTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateBill(
-            "52852778-3968-4ec4-ae99-897fddecb872",
-            "1064b200-68f4-4295-952b-b2e7c90840e5"
+            "22f5c74f-47d3-475b-81b6-5e0fb7fbc6a8",
+            "4ec90ab9-4c4e-4f10-8d16-467078b41281"
         )
-                .description("6rh152JQ8xhn4bIioJP5xI2iIB45PsoBELDF9krbEZXrzWPNrTbZhrRFoR798Pk4xRLUbV1UnZQJxypjWwke9g41c5sR2lm8eGFLQSJ7vVpRSbJQjMECer7iCZ3yXYH8NFynrOr5o3Nz7C6bahBs3RISkEF8nJRQJb2G0EOeHSz9vlXfEjiPPrnAPHkNB");
+                .description("4a9a0scCT7c7Ltn6EsB8h2JwMFMMtYXx4vGdGoRSJ9gIeJ17N1YKgeHSDUHOlNRBomL1vaWnyfGNe7lCmgwdIHspCESfyzDALpt4Q4uDGqfvSsNzJQEHb1exp4ZJ9ARoVovV9owjOwApN79IZjC6hLL1LjnwFNHVg6jzv3b");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -47,11 +47,11 @@ public class CreateBillTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateBill(
-            "52852778-3968-4ec4-ae99-897fddecb872",
-            "1064b200-68f4-4295-952b-b2e7c90840e5"
+            "22f5c74f-47d3-475b-81b6-5e0fb7fbc6a8",
+            "4ec90ab9-4c4e-4f10-8d16-467078b41281"
         )
-                .amount(909.0)
-                .description("8OJDLLwh6lF7NEKXq8ZXBwnGD7CRMOr6TxdnAhf3WvRGvxsKpSlCilnOKmVd2hm6ZwLnd0gEvWJVGiQGG2YrurWzXllA7BFXMH8VKAQTbK47hFXOdgkhR5is4sO8LXPEacT6uzo2ASSwCAXv9GQDnTST9epf");
+                .amount(9063.0)
+                .description("Mjbr65sYA3jn9hYTSjeIiydNtXKyftlkeOkPLOOEboomDK4NZwHBmRSKvcWx1bzuc26BtMnAP1poymrXlksjhKXKXupfYjz00ooHuYahc0u5h8dEexVsLcFFdVt7ueZ0ucdEq04fv8SXNqBhiF08r7v2JitBTkf");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

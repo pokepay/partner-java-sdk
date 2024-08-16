@@ -8,7 +8,7 @@
 
 ```JAVA
 Request request = new GetSevenBankATMSession(
-    "kzcvrJI"                                     // qrInfo: QRコードの情報
+    "t"                                           // qrInfo: QRコードの情報
 );
 
 ```

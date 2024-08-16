@@ -12,7 +12,7 @@ public class GetCheckTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetCheck(
-            "9583275e-320d-4e3f-8a8f-b8cf31588edb"
+            "4389af1a-8941-4432-924a-29c813560d81"
         );
         try {
             PartnerAPITest.getClient().send(request);

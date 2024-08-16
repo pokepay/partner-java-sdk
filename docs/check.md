@@ -13,18 +13,18 @@ QRコードを読み取る方法以外にも、このURLリンクを直接スマ
 
 ```JAVA
 Request request = new ListChecks()
-        .page(5013)                               // ページ番号
+        .page(4485)                               // ページ番号
         .perPage(50)                              // 1ページの表示数
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
-        .organizationCode("j0kTyMSoVQRxo7U85psOd") // 組織コード
-        .expiresFrom("2021-09-21T19:50:11.000000+09:00") // 有効期限の期間によるフィルター(開始時点)
-        .expiresTo("2022-03-26T08:53:39.000000+09:00") // 有効期限の期間によるフィルター(終了時点)
-        .createdFrom("2022-09-22T04:45:33.000000+09:00") // 作成日時の期間によるフィルター(開始時点)
-        .createdTo("2020-02-26T23:04:45.000000+09:00") // 作成日時の期間によるフィルター(終了時点)
+        .organizationCode("VgDEOybkRA")           // 組織コード
+        .expiresFrom("2023-08-11T11:48:43.000000+09:00") // 有効期限の期間によるフィルター(開始時点)
+        .expiresTo("2021-07-19T14:15:22.000000+09:00") // 有効期限の期間によるフィルター(終了時点)
+        .createdFrom("2021-10-22T13:51:32.000000+09:00") // 作成日時の期間によるフィルター(開始時点)
+        .createdTo("2021-04-02T05:24:42.000000+09:00") // 作成日時の期間によるフィルター(終了時点)
         .issuerShopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 発行店舗ID
-        .description("PE")                        // チャージQRコードの説明文
+        .description("i")                         // チャージQRコードの説明文
         .setOnetime(true)                         // ワンタイムのチャージQRコードかどうか
-        .setDisabled(false);                      // 無効化されたチャージQRコードかどうか
+        .setDisabled(true);                       // 無効化されたチャージQRコードかどうか
 
 ```
 
@@ -212,13 +212,13 @@ Request request = new ListChecks()
 Request request = new CreateCheck(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: 送金元の店舗アカウントID
 )
-        .moneyAmount(6349.0)                      // 付与マネー額
-        .pointAmount(7799.0)                      // 付与ポイント額
+        .moneyAmount(8634.0)                      // 付与マネー額
+        .pointAmount(2408.0)                      // 付与ポイント額
         .description("test check")                // 説明文(アプリ上で取引の説明文として表示される)
         .setOnetime(false)                        // ワンタイムかどうかのフラグ
-        .usageLimit(9534)                         // ワンタイムでない場合の最大読み取り回数
-        .expiresAt("2021-02-17T11:12:56.000000+09:00") // チャージQRコード自体の失効日時
-        .pointExpiresAt("2020-05-18T08:52:18.000000+09:00") // チャージQRコードによって付与されるポイント残高の有効期限
+        .usageLimit(1120)                         // ワンタイムでない場合の最大読み取り回数
+        .expiresAt("2024-01-10T08:17:11.000000+09:00") // チャージQRコード自体の失効日時
+        .pointExpiresAt("2021-06-16T06:21:11.000000+09:00") // チャージQRコードによって付与されるポイント残高の有効期限
         .pointExpiresInDays(60)                   // チャージQRコードによって付与されるポイント残高の有効期限(相対日数指定)
         .bearPointAccount("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // ポイント額を負担する店舗のウォレットID
 
@@ -424,16 +424,16 @@ Request request = new GetCheck(
 Request request = new UpdateCheck(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // checkId: チャージQRコードのID
 )
-        .moneyAmount(9972.0)                      // 付与マネー額
-        .pointAmount(7019.0)                      // 付与ポイント額
+        .moneyAmount(3218.0)                      // 付与マネー額
+        .pointAmount(2050.0)                      // 付与ポイント額
         .description("test check")                // チャージQRコードの説明文
-        .setOnetime(true)                         // ワンタイムかどうかのフラグ
-        .usageLimit(6565)                         // ワンタイムでない場合の最大読み取り回数
-        .expiresAt("2020-06-10T10:51:36.000000+09:00") // チャージQRコード自体の失効日時
-        .pointExpiresAt("2021-07-13T16:17:50.000000+09:00") // チャージQRコードによって付与されるポイント残高の有効期限
+        .setOnetime(false)                        // ワンタイムかどうかのフラグ
+        .usageLimit(3767)                         // ワンタイムでない場合の最大読み取り回数
+        .expiresAt("2021-01-16T00:57:01.000000+09:00") // チャージQRコード自体の失効日時
+        .pointExpiresAt("2023-03-16T19:54:27.000000+09:00") // チャージQRコードによって付与されるポイント残高の有効期限
         .pointExpiresInDays(60)                   // チャージQRコードによって付与されるポイント残高の有効期限(相対日数指定)
         .bearPointAccount("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // ポイント額を負担する店舗のウォレットID
-        .setDisabled(true);                       // 無効化されているかどうかのフラグ
+        .setDisabled(false);                      // 無効化されているかどうかのフラグ
 
 ```
 

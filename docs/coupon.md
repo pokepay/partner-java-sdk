@@ -11,12 +11,12 @@ Couponは特定店舗で利用できるものや利用可能期間、配信条�
 Request request = new ListCoupons(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: 対象クーポンのマネーID
 )
-        .couponId("06")                           // クーポンID
-        .couponName("NM")                         // クーポン名
-        .issuedShopName("24v")                    // 発行店舗名
-        .availableShopName("QBTaal")              // 利用可能店舗名
-        .availableFrom("2023-06-21T17:17:29.000000+09:00") // 利用可能期間 (開始日時)
-        .availableTo("2024-03-06T14:39:44.000000+09:00") // 利用可能期間 (終了日時)
+        .couponId("MYx75")                        // クーポンID
+        .couponName("jTJMsD5")                    // クーポン名
+        .issuedShopName("go")                     // 発行店舗名
+        .availableShopName("9dgTwHnYy")           // 利用可能店舗名
+        .availableFrom("2021-11-21T12:23:51.000000+09:00") // 利用可能期間 (開始日時)
+        .availableTo("2020-02-25T15:56:22.000000+09:00") // 利用可能期間 (終了日時)
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取得数
 
@@ -156,25 +156,25 @@ Request request = new ListCoupons(
 ```JAVA
 Request request = new CreateCoupon(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "1cafNurgRSmD8GxUqSRw1hOyZsMq9igePq7meeQL",
-    "2022-10-23T23:56:22.000000+09:00",
-    "2023-08-27T20:19:55.000000+09:00",
+    "HPJTBB8Wii1ueGV8jS5nPMxWlEF21Pc9GUbReEMcxzl3x5p",
+    "2021-05-01T05:11:07.000000+09:00",
+    "2022-05-05T13:45:14.000000+09:00",
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // issuedShopId: 発行元の店舗ID
 )
-        .description("kEKbkHCjmI9ZZQf72neSuj2kGbKcXrRm6mRfe5CBnBFLvJIpnjWDfP7g3lRap19Z17udIwIAoS8NqNizwYZ0PribogQoQY3lHv3JNfmmSX0KMq5x9xkEN9zWtWrsKSiSAD74XBUn37SXP6m8lWNiRH4t1y0Qrrzbv7fHRXcHfP6yfPM4BZ1wipIrbi69Lk4ZGi26yn0PGkirgoinLQ8ehLQIcut")
-        .discountAmount(9407)
-        .discountPercentage(6880.0)
-        .discountUpperLimit(7253)
-        .displayStartsAt("2023-08-05T09:08:13.000000+09:00") // クーポンの掲載期間(開始日時)
-        .displayEndsAt("2021-04-15T22:45:14.000000+09:00") // クーポンの掲載期間(終了日時)
+        .description("i2MbgX5gyo5QJPKijR77tLPAnCjvWmbBxOOx0devwsrC7k7K")
+        .discountAmount(6289)
+        .discountPercentage(5064.0)
+        .discountUpperLimit(7875)
+        .displayStartsAt("2022-12-17T00:10:06.000000+09:00") // クーポンの掲載期間(開始日時)
+        .displayEndsAt("2023-07-19T17:44:08.000000+09:00") // クーポンの掲載期間(終了日時)
         .setDisabled(false)                       // 無効化フラグ
         .setHidden(false)                         // クーポン一覧に掲載されるかどうか
-        .setPublic(false)                         // アプリ配信なしで受け取れるかどうか
-        .code("fva5CY")                           // クーポン受け取りコード
-        .usageLimit(1122)                         // ユーザごとの利用可能回数(NULLの場合は無制限)
-        .minAmount(5818)                          // クーポン適用可能な最小取引額
-        .setShopSpecified(true)                   // 特定店舗限定のクーポンかどうか
-        .availableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 利用可能店舗リスト
+        .setPublic(true)                          // アプリ配信なしで受け取れるかどうか
+        .code("H")                                // クーポン受け取りコード
+        .usageLimit(3108)                         // ユーザごとの利用可能回数(NULLの場合は無制限)
+        .minAmount(2517)                          // クーポン適用可能な最小取引額
+        .setShopSpecified(false)                  // 特定店舗限定のクーポンかどうか
+        .availableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 利用可能店舗リスト
         .storageId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // ストレージID
 
 ```
@@ -461,23 +461,23 @@ UUIDv4フォーマットである必要があり、フォーマットが異な�
 Request request = new UpdateCoupon(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // couponId: クーポンID
 )
-        .name("WjDPxaWIG")
-        .description("h5DZ2zgGEjkBEDcZKUje99zfUffZoIwG4lqaxQiT0tfbyhoKmTxBsNJSgmsyRdzlvDPw52bQZYFk9i8hoorRPsUqftyK")
-        .discountAmount(1225)
-        .discountPercentage(8156.0)
-        .discountUpperLimit(4681)
-        .startsAt("2022-10-20T05:32:06.000000+09:00")
-        .endsAt("2020-03-23T12:20:17.000000+09:00")
-        .displayStartsAt("2022-03-27T22:39:39.000000+09:00") // クーポンの掲載期間(開始日時)
-        .displayEndsAt("2020-02-01T03:37:59.000000+09:00") // クーポンの掲載期間(終了日時)
-        .setDisabled(true)                        // 無効化フラグ
-        .setHidden(false)                         // クーポン一覧に掲載されるかどうか
-        .setPublic(false)                         // アプリ配信なしで受け取れるかどうか
-        .code("Lgkn7R8re")                        // クーポン受け取りコード
-        .usageLimit(7779)                         // ユーザごとの利用可能回数(NULLの場合は無制限)
-        .minAmount(8264)                          // クーポン適用可能な最小取引額
-        .setShopSpecified(true)                   // 特定店舗限定のクーポンかどうか
-        .availableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 利用可能店舗リスト
+        .name("F8MmzWpQeve")
+        .description("R8qtfc7Vxn4rW9cNCwG09mlODVCKuxRj4nffo3HV7GGBSUa387aqUOZGJISTImSfM066AJVXGBlX3MNY1Um8Cs8pF6qsfHOgDjN7sw8veoyBQq5YhDvgONuwJJjZHzYF6KscsFoE4P9kWn3Ps3uXdcMx6EbNVUg07DXZmbHoJ31DEEXCN")
+        .discountAmount(4458)
+        .discountPercentage(9837.0)
+        .discountUpperLimit(5124)
+        .startsAt("2023-02-18T01:45:10.000000+09:00")
+        .endsAt("2023-03-10T14:41:38.000000+09:00")
+        .displayStartsAt("2021-12-06T07:24:07.000000+09:00") // クーポンの掲載期間(開始日時)
+        .displayEndsAt("2023-11-11T03:05:34.000000+09:00") // クーポンの掲載期間(終了日時)
+        .setDisabled(false)                       // 無効化フラグ
+        .setHidden(true)                          // クーポン一覧に掲載されるかどうか
+        .setPublic(true)                          // アプリ配信なしで受け取れるかどうか
+        .code("l524Ghjx")                         // クーポン受け取りコード
+        .usageLimit(8306)                         // ユーザごとの利用可能回数(NULLの場合は無制限)
+        .minAmount(6348)                          // クーポン適用可能な最小取引額
+        .setShopSpecified(false)                  // 特定店舗限定のクーポンかどうか
+        .availableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 利用可能店舗リスト
         .storageId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // ストレージID
 
 ```

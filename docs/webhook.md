@@ -60,8 +60,8 @@ Request request = new ListWebhooks()
 
 ```JAVA
 Request request = new CreateWebhook(
-    "bulk_shops",                                 // task: タスク名
-    "nfLM6"                                       // url: URL
+    "process_user_stats_operation",               // task: タスク名
+    "CU"                                          // url: URL
 );
 
 ```
@@ -151,9 +151,9 @@ Request request = new DeleteWebhook(
 Request request = new UpdateWebhook(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // webhookId: Webhook ID
 )
-        .url("kL5")                               // URL
-        .setActive(true)                          // 有効/無効
-        .task("process_user_stats_operation");    // タスク名
+        .url("YcJDdpt")                           // URL
+        .setActive(false)                         // 有効/無効
+        .task("bulk_shops");                      // タスク名
 
 ```
 

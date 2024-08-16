@@ -65,7 +65,7 @@ Request request = new CreateBank(
     "<Deep Link>",                                // callbackUrl: コールバックURL
     "ポケペイタロウ"                                     // kana: ユーザーの氏名 (片仮名で指定)
 )
-        .email("ekZeKPrw9g@ZqYD.com")             // ユーザーのメールアドレス
+        .email("BFNxVm5Iad@5VXa.com")             // ユーザーのメールアドレス
         .birthdate("19901142");                   // 生年月日
 
 ```
@@ -159,7 +159,7 @@ Request request = new CreateBank(
 Request request = new CreateBankTopupTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // userDeviceId: デバイスID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    6477,                                         // amount: チャージ金額
+    9419,                                         // amount: チャージ金額
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // bankId: 銀行ID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // requestId: リクエストID
 );

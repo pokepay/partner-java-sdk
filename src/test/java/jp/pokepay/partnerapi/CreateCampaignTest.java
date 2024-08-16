@@ -12,14 +12,14 @@ public class CreateCampaignTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"41edc11f-5ad0-4512-943b-c2c6cf008b8d","1e08513e-81e3-49ce-afd8-bb01843a973b"});
+                .applicableShopIds(new String[]{"5a3a5bad-cfce-448f-9798-f1e20116bce7","23be34df-5145-4099-bac6-f15cb2a99622","be63350b-9db1-4517-b8f7-08cf7a16619f","f9778e74-52be-486d-a34f-60bf3c6fbf32","a3569d3a-1ef4-46c9-a4fa-3e6898752b4f"});
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -34,15 +34,15 @@ public class CreateCampaignTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"599b3360-cb6b-4e21-b441-94ae440e7896","0a256e35-3f11-469e-be4b-0612f491fb94","407faf28-3435-4133-9b14-0f125e0456c4","a34633a1-d932-4596-be0b-59c26583dc92","f7eb0468-5f6e-4fd3-bb76-054eb4af7a3f","b0b0c939-7e19-49c1-aa75-2170f22faf58"})
-                .bearPointShopId("82873f86-630c-454f-9dc7-4bb50eb746e5");
+                .applicableShopIds(new String[]{"0c08c34b-d626-48e6-91a5-03f73aaa9a41","cc604b7f-39aa-432e-af8a-f0260a4aed3a","9b470d5f-ba99-4ce7-8e03-6d93cdf3e8fd","8e9603f2-9cc7-4195-8fc5-4a91c48aeb60","1e001b02-6268-4e8a-b713-000b4a3ff9b7","c6d7c65f-3921-4c94-ad30-83438e742ee0","44f3dabf-6f16-449e-a02a-b888f20e7dae","b6366f32-a48f-47b1-b5f3-b501be70e857","44e54dfe-f0ae-46ab-afba-b4550aecd6a2","c2a23bfe-d67b-4e2c-8fc1-411f9563869d"})
+                .bearPointShopId("f8338a89-564a-4822-8311-c3202ccf2034");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -57,16 +57,16 @@ public class CreateCampaignTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"70241872-4702-40ad-8b1a-395847b2d05a"})
-                .description("7bY4VQ1LLm7rin13eoMXqLGXI0x0OVEkSjmmd296PxYppK1ryL6DMg10PFCuHzlPd2p1gxOjeKlSm3F7W7jxuTwwwTy9nHvlJ9elp3haToJDLOxkLANuQhqkRkFkuLWsADKa1EDrae1uV9Xx0wFFolQfb2PCnz3fsIqwh")
-                .bearPointShopId("9f990f37-0c47-4a97-9251-4f80d934030e");
+                .applicableShopIds(new String[]{"71d5da50-640e-48b3-accf-51f33faaa272","3a6b6627-fc14-47b3-b16a-324657474597","8c312de4-fbc4-464c-8ba9-0274b40b74e5","9e3c91e1-e71d-44ac-9212-8275ec4908a0","477c23a5-d01a-4761-b910-1b437ae0df96"})
+                .description("fv6cJEd8dhEHmcSfzAbjixFUvETnql1Y0hSMVl6mD031kSCFOTKfVBXXi1XymcE8poZaeptXaxzD9zysuV883ojdSGdXwCzubMpMlVMous3XIcRe5tfFka0Ul90nHFWaptiGvdhHvC1iZ78Z9ACidXYTHZWN2fbS656HaZcGL")
+                .bearPointShopId("418f271c-5220-401b-88a5-30c0eb371f83");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -81,17 +81,17 @@ public class CreateCampaignTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"a3097511-8bb8-477f-80e4-7d5871bcf6a9","92e6995b-c28f-4604-bf2f-a3250a716aa3","368406aa-8d7d-49e2-96d3-bb211ed77439","7ca9f414-b0bf-4d54-bef6-e585b95d720a","38ed47d0-3878-46e0-be57-5c8354010e9c","61122813-de38-4be9-8140-260638db2c7e","4a79d6b9-d8ce-468a-a219-3feaacc9f2c8"})
-                .status("enabled")
-                .description("IGFv8w88Hbeail3ICfByOXlu9lzXNM5i65JdtXlqcr7yvDypC8c07F3v5HCAscLyHy5tTckejysAcz3APWYfceQlS5")
-                .bearPointShopId("1784bf67-4c3b-4448-81fc-590b1dc7101c");
+                .applicableShopIds(new String[]{"dbe5c530-5544-4143-94cd-294449bae609","e9e68d84-68d5-49ac-ab51-19c29ea311d1","14c3f06c-6b73-4e9a-a29d-79a88819a68b","4d1d0611-53d8-4ea9-aadc-ccd641a4f6db","a2825840-2d33-4c7f-97fd-af39708bcd56","8a82efba-1ab8-42ae-9fda-6b3f400ddce4"})
+                .status("disabled")
+                .description("61M8ml3nEAwBwlr8U1XOUBWLW1wYUb4NZP56fQqMC4HGe0HIOCD0M1l8tkqqu8ei32lg9E34RxOEGFO67f3jvJz6xxHMdpbUiDfTZAo")
+                .bearPointShopId("a9c7b553-8bf0-4a0f-b7eb-e9725a8897cb");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -106,18 +106,18 @@ public class CreateCampaignTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"8844b5c7-7a74-4037-a778-ca66f9f8ccaa","ae36f432-bc6d-4297-a995-a1e32be1288c","563b58ed-4d9b-4294-b06c-3f9e9b2309b8","ac53c05b-53ed-4df4-848b-66f212adabea","57b2941a-72ae-4c9b-85ae-ae444f76be2c","857c6b99-5421-4531-b2e4-09a73d648468"})
-                .pointExpiresAt("2021-10-30T18:10:11.000000+09:00")
-                .status("disabled")
-                .description("9EpUyIsdmI6HjdIoRlCXGOBn4y9dO")
-                .bearPointShopId("57208fef-780d-4818-b106-f949ee889295");
+                .applicableShopIds(new String[]{"0b5a3619-c922-4735-b48b-9bbdb2c4e9d5","d269c9f3-1340-4434-8186-e9c5ed199941","a9f36562-9f8d-45e9-96c9-85d6b9e41a19","3a68228c-38cb-450c-bacb-ebbe9ea659f3","043b2d84-1305-4a5c-94fe-c4a3c7ec15ab","1ad2121f-6fa4-41f4-a63b-75065d767c31","f7657d7d-7a00-4954-b16e-baafc99db876"})
+                .pointExpiresAt("2022-03-08T08:28:14.000000+09:00")
+                .status("enabled")
+                .description("oE9GLoKfv4SCXlIMttHAkWxbHRZKzJ7oYMF99wQZx7IaO5D5eLysYkI7ddOXCpf3d2agYiGiQEvVdSVNEWgyPdsKYCogklzYAErmb2ciMcDDKXQ9yvi1dW3fNvkmZzvAXJCF1Unpd1l")
+                .bearPointShopId("1e80198b-9115-483c-b088-ceeb21cf736c");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -132,19 +132,19 @@ public class CreateCampaignTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"9df48060-633b-420f-a556-6736ba56b667","0c8ccd5f-e830-4eb5-897e-38955618f38b"})
-                .pointExpiresInDays(9038)
-                .pointExpiresAt("2020-04-20T18:06:41.000000+09:00")
-                .status("enabled")
-                .description("hHjAnmG5wkr5hH7TLuLnx3zT4fM7Lb9DcWcbw9TCjas1EfzU71OsZrM6NdpIb230zYNzZGlJLFaGV4GC3cmscGdok8lNl2OVxfNDI04iejVkRtcbu8dhwy9qx3")
-                .bearPointShopId("b19fabdc-5e4b-49f6-865d-08708450910c");
+                .applicableShopIds(new String[]{"e0056f43-e375-4bc4-b74e-cffc4205ed5d","dfcae5d2-a189-4c03-b501-233c2c69148f","9873ff0b-05dd-4c56-b0e5-003c043edbba","c4becad3-62b2-4bde-b6a0-04d023ad3ba1","437d52b8-d6a5-4c54-a885-ac8faff8d301"})
+                .pointExpiresInDays(1045)
+                .pointExpiresAt("2022-08-07T11:55:13.000000+09:00")
+                .status("disabled")
+                .description("hMfrW4W3ccYReglWv9zI7DCHUkDQW71plJH3O0C7XcdIK030ENHKugiSKxjIHkd0WgkTLu2p66WS7xBpsUBB36fh04WBhnZRpzJB5K0MqnwT8ufAb8vEE8tt0GuWdeIVqP6C")
+                .bearPointShopId("7aed2e43-a977-4212-9690-4587361b5172");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -159,20 +159,20 @@ public class CreateCampaignTest {
     @Test
     void test6() throws ConnectionError, ProcessingError {
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"1f2d46af-eb0f-4514-abfe-2cc5cf108ecf","0ea5e57e-6561-47f8-a452-ac95742a7e5f"})
+                .applicableShopIds(new String[]{"005e5431-9061-4b65-9f6f-c9a397590312","47464b63-dec9-404b-9900-ae5974c1690d","1ca277ad-78b2-4958-a714-55875eba9ce8","4fa7e0f3-ba7d-4d7e-aa9e-1d05cea6062d","1a31b0c5-d274-45c6-b6b8-a7d5581d1dea","affa89e2-ea5a-47b8-929d-2db7b3fc4483","5d17ea2c-128b-493a-be69-adcf1e53bd3a","d37287ac-0547-43d8-a4da-593fccb61715","a69aa943-6dda-467b-95cd-403c6c8cffa4"})
                 .setExclusive(true)
-                .pointExpiresInDays(4728)
-                .pointExpiresAt("2023-09-28T00:35:38.000000+09:00")
+                .pointExpiresInDays(466)
+                .pointExpiresAt("2020-12-26T03:04:17.000000+09:00")
                 .status("disabled")
-                .description("g5voZwvt5HC49ehMK6xMBlrhcMEHAakLva13b8x3i2E0YKZld6a228zQGvaoaVkqNMZdKC42Of1dGzdBlph8uTqwMBm1Rra08h2H7Y11pmORzHsyiNmyJGXqBluSOXcyE5vPnNxlQ4c1arKbmZqwDshm2qjlNBz25FbeT0Ic")
-                .bearPointShopId("62c4d5e5-88a2-42ae-9d1f-b3cda4952b24");
+                .description("B2HNFR3kOVRR4xnlXDJIA5NUXNNNL3tNXtt2g1XCBJhWpXPgaJpM8c3dL4h2wN3iVHqBvrPOIFpmn5C2ug5omC8wxHuaGDdMzzm6yQnkE1P1kbdnhfWXTeTStymDgQWmRfRvTS54nA2n3zyuGircYwtDVHs305x9Kd7tMEXY")
+                .bearPointShopId("eebc99b9-c00f-4154-bce3-2fb7a72d2351");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -187,21 +187,21 @@ public class CreateCampaignTest {
     @Test
     void test7() throws ConnectionError, ProcessingError {
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"6e1ea2ea-64be-4953-9a28-66a5d56e9d0c","2bc7e003-9b96-4608-819c-b485d428affc","dd66bb4b-0340-488f-b501-fdfff2f98e0a","7ddfb729-2464-4313-be7f-07d2e9723b4f","dbc2e265-dcf8-42d5-a7ed-5e2646e9a875","d20e862e-950c-4532-a6c4-e6cc1d12cf5a","ecd9d774-99d2-43d0-b0a5-98604144ffcb","606fd5b9-61cf-487f-85d9-993c71ec86ef","1e9f2120-a8f1-4888-ba27-86a06b0fef22"})
-                .subject("all")
-                .setExclusive(false)
-                .pointExpiresInDays(8614)
-                .pointExpiresAt("2020-07-28T16:26:36.000000+09:00")
+                .applicableShopIds(new String[]{"25d159b2-a352-422e-9d3e-a5d8782a0cbe","05afdf29-4562-46e3-bc77-a1bdf4169a7a","932f18f9-bcb4-4203-ab5c-71508b79006b"})
+                .subject("money")
+                .setExclusive(true)
+                .pointExpiresInDays(2140)
+                .pointExpiresAt("2021-03-05T08:46:06.000000+09:00")
                 .status("disabled")
-                .description("kaQIaG9SFLtI056Zz")
-                .bearPointShopId("c3734ff0-3f1e-46bc-b53a-ed87ecee04af");
+                .description("N4T40V81JMC4jGWrRZ0n6ILPniY2sJ9CiWnIOCjG5pnmA7hIJEiFW8aM4SH3uLhHWj6aMIIa")
+                .bearPointShopId("9c7550d0-9085-43bf-88c2-34ad6890c799");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -220,58 +220,23 @@ public class CreateCampaignTest {
         items.addProperty("point_amount_unit", "percent");
         items.addProperty("subject_more_than_or_equal", 1000);
         items.addProperty("subject_less_than", 5000);
-        JsonObject items2 = new JsonObject();
-        items2.addProperty("point_amount", 5);
-        items2.addProperty("point_amount_unit", "percent");
-        items2.addProperty("subject_more_than_or_equal", 1000);
-        items2.addProperty("subject_less_than", 5000);
-        JsonObject items3 = new JsonObject();
-        items3.addProperty("point_amount", 5);
-        items3.addProperty("point_amount_unit", "percent");
-        items3.addProperty("subject_more_than_or_equal", 1000);
-        items3.addProperty("subject_less_than", 5000);
-        JsonObject items4 = new JsonObject();
-        items4.addProperty("point_amount", 5);
-        items4.addProperty("point_amount_unit", "percent");
-        items4.addProperty("subject_more_than_or_equal", 1000);
-        items4.addProperty("subject_less_than", 5000);
-        JsonObject items5 = new JsonObject();
-        items5.addProperty("point_amount", 5);
-        items5.addProperty("point_amount_unit", "percent");
-        items5.addProperty("subject_more_than_or_equal", 1000);
-        items5.addProperty("subject_less_than", 5000);
-        JsonObject items6 = new JsonObject();
-        items6.addProperty("point_amount", 5);
-        items6.addProperty("point_amount_unit", "percent");
-        items6.addProperty("subject_more_than_or_equal", 1000);
-        items6.addProperty("subject_less_than", 5000);
-        JsonObject items7 = new JsonObject();
-        items7.addProperty("point_amount", 5);
-        items7.addProperty("point_amount_unit", "percent");
-        items7.addProperty("subject_more_than_or_equal", 1000);
-        items7.addProperty("subject_less_than", 5000);
-        JsonObject items8 = new JsonObject();
-        items8.addProperty("point_amount", 5);
-        items8.addProperty("point_amount_unit", "percent");
-        items8.addProperty("subject_more_than_or_equal", 1000);
-        items8.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"06ae7250-d7a8-4642-bbd4-b2cf76f4d909","9fd4d9bd-9fd0-417c-bb1b-14a55575c29c","9e6cad81-83e2-474b-a578-5ba0520fc8a2","cc98aed9-5c5d-47cc-bfac-84fee98cf17a","a3d0728b-3091-4aa2-8f83-10ab54d2460e","f090107e-9fee-490f-9159-10c954b9cacc","35f8574b-ce6c-4a79-b1c7-cdc68ad005e4","09fc3a3b-19ee-42b3-8b75-1cbaf6986522"})
-                .amountBasedPointRules(new Object[]{items,items2,items3,items4,items5,items6,items7,items8})
-                .subject("money")
+                .applicableShopIds(new String[]{"89d5e630-f1d1-410c-aa64-61639f06b809","8e4defc7-dca2-4cdb-ab5c-05aacc241e05","bab005ff-b5b0-4b58-b5a7-288898e323ea","1395a008-a1e6-4bcf-8d81-74c1453993bf"})
+                .amountBasedPointRules(new Object[]{items})
+                .subject("all")
                 .setExclusive(true)
-                .pointExpiresInDays(1727)
-                .pointExpiresAt("2020-07-08T08:53:32.000000+09:00")
-                .status("disabled")
-                .description("0Cg4Y3EJ7zUuouoRpJVO9HNBOo3CtJ8bnBBvIGG7ihdDI4hmerpk1Z4MRdeLx1TrE3oKjLzGO6CFTuGsmQ4Ik1lA1HBtdI8AnM26wYVALQQCOJWzDeqz5Mc4eXKO4rw1DM5ErtAJ")
-                .bearPointShopId("fc4d4663-61c9-4826-9e37-1e24e34f0b2a");
+                .pointExpiresInDays(6404)
+                .pointExpiresAt("2020-09-16T11:47:00.000000+09:00")
+                .status("enabled")
+                .description("I5EXTtZCpli9OnPUYTNWLtPBnOPKsQFEd64YFlVNGFsyJYwCusvoXtCmg4hqZ8NUnwzd0K2EoHkB1yyY")
+                .bearPointShopId("7228e08d-d580-49ab-8496-d736660c091a");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -300,90 +265,41 @@ public class CreateCampaignTest {
         JsonObject items3 = new JsonObject();
         items3.addProperty("point_amount", 5);
         items3.addProperty("point_amount_unit", "percent");
-        items3.addProperty("product_code", "4912345678904");
-        items3.addProperty("is_multiply_by_count", true);
-        items3.addProperty("required_count", 2);
+        items3.addProperty("subject_more_than_or_equal", 1000);
+        items3.addProperty("subject_less_than", 5000);
         JsonObject items4 = new JsonObject();
         items4.addProperty("point_amount", 5);
         items4.addProperty("point_amount_unit", "percent");
-        items4.addProperty("product_code", "4912345678904");
-        items4.addProperty("is_multiply_by_count", true);
-        items4.addProperty("required_count", 2);
+        items4.addProperty("subject_more_than_or_equal", 1000);
+        items4.addProperty("subject_less_than", 5000);
         JsonObject items5 = new JsonObject();
         items5.addProperty("point_amount", 5);
         items5.addProperty("point_amount_unit", "percent");
-        items5.addProperty("product_code", "4912345678904");
-        items5.addProperty("is_multiply_by_count", true);
-        items5.addProperty("required_count", 2);
+        items5.addProperty("subject_more_than_or_equal", 1000);
+        items5.addProperty("subject_less_than", 5000);
         JsonObject items6 = new JsonObject();
         items6.addProperty("point_amount", 5);
         items6.addProperty("point_amount_unit", "percent");
-        items6.addProperty("product_code", "4912345678904");
-        items6.addProperty("is_multiply_by_count", true);
-        items6.addProperty("required_count", 2);
-        JsonObject items7 = new JsonObject();
-        items7.addProperty("point_amount", 5);
-        items7.addProperty("point_amount_unit", "percent");
-        items7.addProperty("subject_more_than_or_equal", 1000);
-        items7.addProperty("subject_less_than", 5000);
-        JsonObject items8 = new JsonObject();
-        items8.addProperty("point_amount", 5);
-        items8.addProperty("point_amount_unit", "percent");
-        items8.addProperty("subject_more_than_or_equal", 1000);
-        items8.addProperty("subject_less_than", 5000);
-        JsonObject items9 = new JsonObject();
-        items9.addProperty("point_amount", 5);
-        items9.addProperty("point_amount_unit", "percent");
-        items9.addProperty("subject_more_than_or_equal", 1000);
-        items9.addProperty("subject_less_than", 5000);
-        JsonObject items10 = new JsonObject();
-        items10.addProperty("point_amount", 5);
-        items10.addProperty("point_amount_unit", "percent");
-        items10.addProperty("subject_more_than_or_equal", 1000);
-        items10.addProperty("subject_less_than", 5000);
-        JsonObject items11 = new JsonObject();
-        items11.addProperty("point_amount", 5);
-        items11.addProperty("point_amount_unit", "percent");
-        items11.addProperty("subject_more_than_or_equal", 1000);
-        items11.addProperty("subject_less_than", 5000);
-        JsonObject items12 = new JsonObject();
-        items12.addProperty("point_amount", 5);
-        items12.addProperty("point_amount_unit", "percent");
-        items12.addProperty("subject_more_than_or_equal", 1000);
-        items12.addProperty("subject_less_than", 5000);
-        JsonObject items13 = new JsonObject();
-        items13.addProperty("point_amount", 5);
-        items13.addProperty("point_amount_unit", "percent");
-        items13.addProperty("subject_more_than_or_equal", 1000);
-        items13.addProperty("subject_less_than", 5000);
-        JsonObject items14 = new JsonObject();
-        items14.addProperty("point_amount", 5);
-        items14.addProperty("point_amount_unit", "percent");
-        items14.addProperty("subject_more_than_or_equal", 1000);
-        items14.addProperty("subject_less_than", 5000);
-        JsonObject items15 = new JsonObject();
-        items15.addProperty("point_amount", 5);
-        items15.addProperty("point_amount_unit", "percent");
-        items15.addProperty("subject_more_than_or_equal", 1000);
-        items15.addProperty("subject_less_than", 5000);
+        items6.addProperty("subject_more_than_or_equal", 1000);
+        items6.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"58985688-1d47-466e-99f8-1c49d58249a9","2c2f8e4a-3701-4416-8ae6-6207e57f7fa1","2916ca79-4520-454e-82c0-97c1697a8933","54db88be-b4bf-4c5d-ab33-11204774de88","55695d93-789d-4ea0-bc35-752552f2444c","f0c9fcdb-9ea2-4dc3-a7ce-cd1759300461","93668509-adfe-493d-acda-f694b9915caa","a709e9f1-1885-417f-b232-f6202958c2dd","9427de06-5c52-46d1-aa52-5a00acbecf53"})
-                .productBasedPointRules(new Object[]{items,items2,items3,items4,items5,items6})
-                .amountBasedPointRules(new Object[]{items7,items8,items9,items10,items11,items12,items13,items14,items15})
-                .subject("all")
-                .setExclusive(true)
-                .pointExpiresInDays(9426)
-                .pointExpiresAt("2021-07-20T11:02:44.000000+09:00")
+                .applicableShopIds(new String[]{"894a8ab9-55f3-4b67-a3b9-7070f78e1ffb","f2be5ee5-1621-4a0e-9291-2e616b60cca1","fb1699b4-48c1-4102-a263-1dac4c599a9a","fb1353de-0bd4-4534-9a31-8c8d0363ba26","8cde1d9c-fad9-4bf2-b9a9-429cd9e85c47","525fd9c2-2bc5-4d74-9884-733d3ada6e7b","48ea33b2-0465-4fc8-9969-24f7705a17b3","949e07cb-b777-4cc3-9c04-bf8f6bc0ea41"})
+                .productBasedPointRules(new Object[]{items,items2})
+                .amountBasedPointRules(new Object[]{items3,items4,items5,items6})
+                .subject("money")
+                .setExclusive(false)
+                .pointExpiresInDays(9773)
+                .pointExpiresAt("2021-01-07T08:08:14.000000+09:00")
                 .status("enabled")
-                .description("G7tWbTh0nB13D4UI5yWfEGktCc6t2njJi49dXSSsuK9IUul4hrCZpwmckDNYVI9I54A3FSgU6v83WG0bWdjrscbJaeYOiLwjKTRvpVwMC")
-                .bearPointShopId("7bcedd82-c1a4-4522-8a5e-bed2a70309d3");
+                .description("jo31Gx9w5NThwj7kiuQ4exeg231paCU3B5iRBMmcoBKgjR5mpSDB4jFdWnEJAR4B8Z4M5aMpWK0c5UR4pfUyPCzvQ6a5gLRz1Qc9wRphqTjDmtDIpMAoXf465QNQOSxTHMEEY06WdmKt4zNFuxBqNQHBoEy7amqxOnvg5xBYieKKPSP")
+                .bearPointShopId("94ee5ee8-7e2a-4abc-96ab-1177428fbac4");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -419,76 +335,45 @@ public class CreateCampaignTest {
         items7.addProperty("product_code", "4912345678904");
         items7.addProperty("classification_code", "c123");
         JsonObject items8 = new JsonObject();
+        items8.addProperty("point_amount", 5);
+        items8.addProperty("point_amount_unit", "percent");
         items8.addProperty("product_code", "4912345678904");
-        items8.addProperty("classification_code", "c123");
+        items8.addProperty("is_multiply_by_count", true);
+        items8.addProperty("required_count", 2);
         JsonObject items9 = new JsonObject();
-        items9.addProperty("product_code", "4912345678904");
-        items9.addProperty("classification_code", "c123");
+        items9.addProperty("point_amount", 5);
+        items9.addProperty("point_amount_unit", "percent");
+        items9.addProperty("subject_more_than_or_equal", 1000);
+        items9.addProperty("subject_less_than", 5000);
         JsonObject items10 = new JsonObject();
         items10.addProperty("point_amount", 5);
         items10.addProperty("point_amount_unit", "percent");
-        items10.addProperty("product_code", "4912345678904");
-        items10.addProperty("is_multiply_by_count", true);
-        items10.addProperty("required_count", 2);
+        items10.addProperty("subject_more_than_or_equal", 1000);
+        items10.addProperty("subject_less_than", 5000);
         JsonObject items11 = new JsonObject();
         items11.addProperty("point_amount", 5);
         items11.addProperty("point_amount_unit", "percent");
-        items11.addProperty("product_code", "4912345678904");
-        items11.addProperty("is_multiply_by_count", true);
-        items11.addProperty("required_count", 2);
-        JsonObject items12 = new JsonObject();
-        items12.addProperty("point_amount", 5);
-        items12.addProperty("point_amount_unit", "percent");
-        items12.addProperty("product_code", "4912345678904");
-        items12.addProperty("is_multiply_by_count", true);
-        items12.addProperty("required_count", 2);
-        JsonObject items13 = new JsonObject();
-        items13.addProperty("point_amount", 5);
-        items13.addProperty("point_amount_unit", "percent");
-        items13.addProperty("product_code", "4912345678904");
-        items13.addProperty("is_multiply_by_count", true);
-        items13.addProperty("required_count", 2);
-        JsonObject items14 = new JsonObject();
-        items14.addProperty("point_amount", 5);
-        items14.addProperty("point_amount_unit", "percent");
-        items14.addProperty("product_code", "4912345678904");
-        items14.addProperty("is_multiply_by_count", true);
-        items14.addProperty("required_count", 2);
-        JsonObject items15 = new JsonObject();
-        items15.addProperty("point_amount", 5);
-        items15.addProperty("point_amount_unit", "percent");
-        items15.addProperty("product_code", "4912345678904");
-        items15.addProperty("is_multiply_by_count", true);
-        items15.addProperty("required_count", 2);
-        JsonObject items16 = new JsonObject();
-        items16.addProperty("point_amount", 5);
-        items16.addProperty("point_amount_unit", "percent");
-        items16.addProperty("subject_more_than_or_equal", 1000);
-        items16.addProperty("subject_less_than", 5000);
-        JsonObject items17 = new JsonObject();
-        items17.addProperty("point_amount", 5);
-        items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("subject_more_than_or_equal", 1000);
-        items17.addProperty("subject_less_than", 5000);
+        items11.addProperty("subject_more_than_or_equal", 1000);
+        items11.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"df5e8d57-9aa8-45d7-9cf3-0004588a7696","7247c034-f0fe-4f69-9c1f-d17bec6606bb","08f53c29-bab7-4537-a1d6-0629287789e1","73713fc3-e96b-4575-9e04-2a32e6614974","221e9590-d1c5-4837-988b-eee70fff71e7","fd34083e-f5d7-4fed-afce-b1ebbd28dff9","a73061f7-1540-4051-85a2-7dc619bea79f","8e8ed892-1759-445c-9a64-a92aa778bbb1"})
-                .blacklistedProductRules(new Object[]{items,items2,items3,items4,items5,items6,items7,items8,items9})
-                .productBasedPointRules(new Object[]{items10,items11,items12,items13,items14,items15})
-                .amountBasedPointRules(new Object[]{items16,items17})
-                .subject("all")
+                .applicableShopIds(new String[]{"6e948a41-a265-4a69-b731-98391bbf3349","40583a48-e274-4ab2-afd0-8f6a086a48d3","e0a23fe5-601c-41b8-ab1a-a1f80b7d1214","828b1f3b-375a-4b1e-b397-d7fda4fed1b5","3d863be4-c1f8-4376-99e2-fbf2c3947cc5","a53c3f4f-d164-40fd-ac62-a139a9a402c9","af96d9cc-7592-4e17-9b80-48906c2647e7"})
+                .blacklistedProductRules(new Object[]{items,items2,items3,items4,items5,items6,items7})
+                .productBasedPointRules(new Object[]{items8})
+                .amountBasedPointRules(new Object[]{items9,items10,items11})
+                .subject("money")
                 .setExclusive(false)
-                .pointExpiresInDays(8751)
-                .pointExpiresAt("2020-01-04T08:16:49.000000+09:00")
+                .pointExpiresInDays(8069)
+                .pointExpiresAt("2021-01-27T06:19:41.000000+09:00")
                 .status("disabled")
-                .description("UJtygW3TL5HZv0WHnFmfoXBswb26j361x7oQhW0HbybIqIE7TwkDT7Aefnla88VJDhgJxWXe4WhdGFCa7klnd46Xz8yivVU8NxWfRhoCVjb67qVZBYyujcqs1R7J")
-                .bearPointShopId("d5490415-9023-49a5-8b0d-1a0074b70333");
+                .description("B3TelpaMUlKUMYcoVSNOpnPtHVdUOnvBwEV03oN9X8AEvOpLOohWiRYfgaXYMikWxZv2qFAp9JURZxIES4l5as0mL7xUivcI4KESUWIpOTCjyhnuRsT81UdWIvBWxiQlFQMgbPEKCCapn4uJfRYox")
+                .bearPointShopId("ba9beb20-f1f6-4f37-81f4-2d8c17ec5b17");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -515,53 +400,123 @@ public class CreateCampaignTest {
         items4.addProperty("product_code", "4912345678904");
         items4.addProperty("classification_code", "c123");
         JsonObject items5 = new JsonObject();
+        items5.addProperty("point_amount", 5);
+        items5.addProperty("point_amount_unit", "percent");
         items5.addProperty("product_code", "4912345678904");
-        items5.addProperty("classification_code", "c123");
+        items5.addProperty("is_multiply_by_count", true);
+        items5.addProperty("required_count", 2);
         JsonObject items6 = new JsonObject();
-        items6.addProperty("product_code", "4912345678904");
-        items6.addProperty("classification_code", "c123");
+        items6.addProperty("point_amount", 5);
+        items6.addProperty("point_amount_unit", "percent");
+        items6.addProperty("subject_more_than_or_equal", 1000);
+        items6.addProperty("subject_less_than", 5000);
         JsonObject items7 = new JsonObject();
         items7.addProperty("point_amount", 5);
         items7.addProperty("point_amount_unit", "percent");
-        items7.addProperty("product_code", "4912345678904");
-        items7.addProperty("is_multiply_by_count", true);
-        items7.addProperty("required_count", 2);
+        items7.addProperty("subject_more_than_or_equal", 1000);
+        items7.addProperty("subject_less_than", 5000);
         JsonObject items8 = new JsonObject();
         items8.addProperty("point_amount", 5);
         items8.addProperty("point_amount_unit", "percent");
-        items8.addProperty("product_code", "4912345678904");
-        items8.addProperty("is_multiply_by_count", true);
-        items8.addProperty("required_count", 2);
+        items8.addProperty("subject_more_than_or_equal", 1000);
+        items8.addProperty("subject_less_than", 5000);
         JsonObject items9 = new JsonObject();
         items9.addProperty("point_amount", 5);
         items9.addProperty("point_amount_unit", "percent");
-        items9.addProperty("product_code", "4912345678904");
-        items9.addProperty("is_multiply_by_count", true);
-        items9.addProperty("required_count", 2);
+        items9.addProperty("subject_more_than_or_equal", 1000);
+        items9.addProperty("subject_less_than", 5000);
         JsonObject items10 = new JsonObject();
         items10.addProperty("point_amount", 5);
         items10.addProperty("point_amount_unit", "percent");
-        items10.addProperty("product_code", "4912345678904");
-        items10.addProperty("is_multiply_by_count", true);
-        items10.addProperty("required_count", 2);
+        items10.addProperty("subject_more_than_or_equal", 1000);
+        items10.addProperty("subject_less_than", 5000);
         JsonObject items11 = new JsonObject();
         items11.addProperty("point_amount", 5);
         items11.addProperty("point_amount_unit", "percent");
-        items11.addProperty("product_code", "4912345678904");
-        items11.addProperty("is_multiply_by_count", true);
-        items11.addProperty("required_count", 2);
+        items11.addProperty("subject_more_than_or_equal", 1000);
+        items11.addProperty("subject_less_than", 5000);
         JsonObject items12 = new JsonObject();
         items12.addProperty("point_amount", 5);
         items12.addProperty("point_amount_unit", "percent");
-        items12.addProperty("product_code", "4912345678904");
-        items12.addProperty("is_multiply_by_count", true);
-        items12.addProperty("required_count", 2);
+        items12.addProperty("subject_more_than_or_equal", 1000);
+        items12.addProperty("subject_less_than", 5000);
         JsonObject items13 = new JsonObject();
         items13.addProperty("point_amount", 5);
         items13.addProperty("point_amount_unit", "percent");
+        items13.addProperty("subject_more_than_or_equal", 1000);
+        items13.addProperty("subject_less_than", 5000);
+        Request request = new CreateCampaign(
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
+        )
+                .applicableShopIds(new String[]{"9375ae47-f4be-4001-b1fb-2371b751188c","327ef0a9-7d19-4e6d-b469-fa8b0050dbde","dbabbbdd-1221-4b9e-a10c-352a0f02ad66"})
+                .applicableDaysOfWeek(new Integer[]{6,3})
+                .blacklistedProductRules(new Object[]{items,items2,items3,items4})
+                .productBasedPointRules(new Object[]{items5})
+                .amountBasedPointRules(new Object[]{items6,items7,items8,items9,items10,items11,items12,items13})
+                .subject("all")
+                .setExclusive(false)
+                .pointExpiresInDays(1333)
+                .pointExpiresAt("2023-10-15T03:49:46.000000+09:00")
+                .status("enabled")
+                .description("pthycHNDOTtZsKcB6eg1XNLWsLwmz4Zv5c61KcvcHfVEXmHGtYF5HXuSGWXZ6aMuCzR7WtzQ2tvzaV3S4T8os5ebEs17SVhFvWp")
+                .bearPointShopId("05f9bc6f-7324-49e9-aadb-8c68a0e26eb4");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test12() throws ConnectionError, ProcessingError {
+        JsonObject items = new JsonObject();
+        items.addProperty("from", "12:00");
+        items.addProperty("to", "23:59");
+        JsonObject items2 = new JsonObject();
+        items2.addProperty("from", "12:00");
+        items2.addProperty("to", "23:59");
+        JsonObject items3 = new JsonObject();
+        items3.addProperty("from", "12:00");
+        items3.addProperty("to", "23:59");
+        JsonObject items4 = new JsonObject();
+        items4.addProperty("from", "12:00");
+        items4.addProperty("to", "23:59");
+        JsonObject items5 = new JsonObject();
+        items5.addProperty("from", "12:00");
+        items5.addProperty("to", "23:59");
+        JsonObject items6 = new JsonObject();
+        items6.addProperty("from", "12:00");
+        items6.addProperty("to", "23:59");
+        JsonObject items7 = new JsonObject();
+        items7.addProperty("from", "12:00");
+        items7.addProperty("to", "23:59");
+        JsonObject items8 = new JsonObject();
+        items8.addProperty("from", "12:00");
+        items8.addProperty("to", "23:59");
+        JsonObject items9 = new JsonObject();
+        items9.addProperty("product_code", "4912345678904");
+        items9.addProperty("classification_code", "c123");
+        JsonObject items10 = new JsonObject();
+        items10.addProperty("product_code", "4912345678904");
+        items10.addProperty("classification_code", "c123");
+        JsonObject items11 = new JsonObject();
+        items11.addProperty("product_code", "4912345678904");
+        items11.addProperty("classification_code", "c123");
+        JsonObject items12 = new JsonObject();
+        items12.addProperty("product_code", "4912345678904");
+        items12.addProperty("classification_code", "c123");
+        JsonObject items13 = new JsonObject();
         items13.addProperty("product_code", "4912345678904");
-        items13.addProperty("is_multiply_by_count", true);
-        items13.addProperty("required_count", 2);
+        items13.addProperty("classification_code", "c123");
         JsonObject items14 = new JsonObject();
         items14.addProperty("point_amount", 5);
         items14.addProperty("point_amount_unit", "percent");
@@ -583,178 +538,95 @@ public class CreateCampaignTest {
         JsonObject items17 = new JsonObject();
         items17.addProperty("point_amount", 5);
         items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("subject_more_than_or_equal", 1000);
-        items17.addProperty("subject_less_than", 5000);
+        items17.addProperty("product_code", "4912345678904");
+        items17.addProperty("is_multiply_by_count", true);
+        items17.addProperty("required_count", 2);
         JsonObject items18 = new JsonObject();
         items18.addProperty("point_amount", 5);
         items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("subject_more_than_or_equal", 1000);
-        items18.addProperty("subject_less_than", 5000);
+        items18.addProperty("product_code", "4912345678904");
+        items18.addProperty("is_multiply_by_count", true);
+        items18.addProperty("required_count", 2);
         JsonObject items19 = new JsonObject();
         items19.addProperty("point_amount", 5);
         items19.addProperty("point_amount_unit", "percent");
-        items19.addProperty("subject_more_than_or_equal", 1000);
-        items19.addProperty("subject_less_than", 5000);
+        items19.addProperty("product_code", "4912345678904");
+        items19.addProperty("is_multiply_by_count", true);
+        items19.addProperty("required_count", 2);
         JsonObject items20 = new JsonObject();
         items20.addProperty("point_amount", 5);
         items20.addProperty("point_amount_unit", "percent");
-        items20.addProperty("subject_more_than_or_equal", 1000);
-        items20.addProperty("subject_less_than", 5000);
+        items20.addProperty("product_code", "4912345678904");
+        items20.addProperty("is_multiply_by_count", true);
+        items20.addProperty("required_count", 2);
         JsonObject items21 = new JsonObject();
         items21.addProperty("point_amount", 5);
         items21.addProperty("point_amount_unit", "percent");
-        items21.addProperty("subject_more_than_or_equal", 1000);
-        items21.addProperty("subject_less_than", 5000);
-        Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
-        )
-                .applicableShopIds(new String[]{"55273351-8959-4356-a5b3-5ae8dbc28c59","c2cdddf7-9bd2-4ee3-be12-a69be265ff16","012581dd-43db-4283-b524-f5009be946a1","f6143143-090b-4e34-bb13-02d1882a554f","4fc913eb-5288-4d6b-b3ca-b244f57bb5ba","f6f7727c-62b6-4803-8559-92175c7e17b1","3ed9a9b9-0caa-41b0-a120-f03b55e604f4","70a888ba-ef18-479c-a1b4-667c648ff3d0","a4aebf78-7775-4d34-a0e6-535023c6ce86","43e8b209-5f3c-4804-b0b4-ec42137ec1ca"})
-                .applicableDaysOfWeek(new Integer[]{1,4,2,6,1,1,1,5,4,5})
-                .blacklistedProductRules(new Object[]{items,items2,items3,items4,items5,items6})
-                .productBasedPointRules(new Object[]{items7,items8,items9,items10,items11,items12,items13,items14,items15,items16})
-                .amountBasedPointRules(new Object[]{items17,items18,items19,items20,items21})
-                .subject("all")
-                .setExclusive(false)
-                .pointExpiresInDays(3798)
-                .pointExpiresAt("2021-07-25T14:06:21.000000+09:00")
-                .status("enabled")
-                .description("qiCEyAmk8NzXQWfUp3MAVhYdqwjkyyxu7IKDkqqrYJcsrPBHDOcRdPEvyXShKGMuyEHVFCncEbFmFtWlFSg03SN6E38DCJX2pjxAu")
-                .bearPointShopId("1a053980-b94d-4321-8f08-fa32d07e5cba");
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test12() throws ConnectionError, ProcessingError {
-        JsonObject items = new JsonObject();
-        items.addProperty("from", "12:00");
-        items.addProperty("to", "23:59");
-        JsonObject items2 = new JsonObject();
-        items2.addProperty("product_code", "4912345678904");
-        items2.addProperty("classification_code", "c123");
-        JsonObject items3 = new JsonObject();
-        items3.addProperty("product_code", "4912345678904");
-        items3.addProperty("classification_code", "c123");
-        JsonObject items4 = new JsonObject();
-        items4.addProperty("product_code", "4912345678904");
-        items4.addProperty("classification_code", "c123");
-        JsonObject items5 = new JsonObject();
-        items5.addProperty("product_code", "4912345678904");
-        items5.addProperty("classification_code", "c123");
-        JsonObject items6 = new JsonObject();
-        items6.addProperty("product_code", "4912345678904");
-        items6.addProperty("classification_code", "c123");
-        JsonObject items7 = new JsonObject();
-        items7.addProperty("product_code", "4912345678904");
-        items7.addProperty("classification_code", "c123");
-        JsonObject items8 = new JsonObject();
-        items8.addProperty("product_code", "4912345678904");
-        items8.addProperty("classification_code", "c123");
-        JsonObject items9 = new JsonObject();
-        items9.addProperty("product_code", "4912345678904");
-        items9.addProperty("classification_code", "c123");
-        JsonObject items10 = new JsonObject();
-        items10.addProperty("product_code", "4912345678904");
-        items10.addProperty("classification_code", "c123");
-        JsonObject items11 = new JsonObject();
-        items11.addProperty("product_code", "4912345678904");
-        items11.addProperty("classification_code", "c123");
-        JsonObject items12 = new JsonObject();
-        items12.addProperty("point_amount", 5);
-        items12.addProperty("point_amount_unit", "percent");
-        items12.addProperty("product_code", "4912345678904");
-        items12.addProperty("is_multiply_by_count", true);
-        items12.addProperty("required_count", 2);
-        JsonObject items13 = new JsonObject();
-        items13.addProperty("point_amount", 5);
-        items13.addProperty("point_amount_unit", "percent");
-        items13.addProperty("product_code", "4912345678904");
-        items13.addProperty("is_multiply_by_count", true);
-        items13.addProperty("required_count", 2);
-        JsonObject items14 = new JsonObject();
-        items14.addProperty("point_amount", 5);
-        items14.addProperty("point_amount_unit", "percent");
-        items14.addProperty("product_code", "4912345678904");
-        items14.addProperty("is_multiply_by_count", true);
-        items14.addProperty("required_count", 2);
-        JsonObject items15 = new JsonObject();
-        items15.addProperty("point_amount", 5);
-        items15.addProperty("point_amount_unit", "percent");
-        items15.addProperty("subject_more_than_or_equal", 1000);
-        items15.addProperty("subject_less_than", 5000);
-        JsonObject items16 = new JsonObject();
-        items16.addProperty("point_amount", 5);
-        items16.addProperty("point_amount_unit", "percent");
-        items16.addProperty("subject_more_than_or_equal", 1000);
-        items16.addProperty("subject_less_than", 5000);
-        JsonObject items17 = new JsonObject();
-        items17.addProperty("point_amount", 5);
-        items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("subject_more_than_or_equal", 1000);
-        items17.addProperty("subject_less_than", 5000);
-        JsonObject items18 = new JsonObject();
-        items18.addProperty("point_amount", 5);
-        items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("subject_more_than_or_equal", 1000);
-        items18.addProperty("subject_less_than", 5000);
-        JsonObject items19 = new JsonObject();
-        items19.addProperty("point_amount", 5);
-        items19.addProperty("point_amount_unit", "percent");
-        items19.addProperty("subject_more_than_or_equal", 1000);
-        items19.addProperty("subject_less_than", 5000);
-        JsonObject items20 = new JsonObject();
-        items20.addProperty("point_amount", 5);
-        items20.addProperty("point_amount_unit", "percent");
-        items20.addProperty("subject_more_than_or_equal", 1000);
-        items20.addProperty("subject_less_than", 5000);
-        JsonObject items21 = new JsonObject();
-        items21.addProperty("point_amount", 5);
-        items21.addProperty("point_amount_unit", "percent");
-        items21.addProperty("subject_more_than_or_equal", 1000);
-        items21.addProperty("subject_less_than", 5000);
+        items21.addProperty("product_code", "4912345678904");
+        items21.addProperty("is_multiply_by_count", true);
+        items21.addProperty("required_count", 2);
         JsonObject items22 = new JsonObject();
         items22.addProperty("point_amount", 5);
         items22.addProperty("point_amount_unit", "percent");
-        items22.addProperty("subject_more_than_or_equal", 1000);
-        items22.addProperty("subject_less_than", 5000);
+        items22.addProperty("product_code", "4912345678904");
+        items22.addProperty("is_multiply_by_count", true);
+        items22.addProperty("required_count", 2);
         JsonObject items23 = new JsonObject();
         items23.addProperty("point_amount", 5);
         items23.addProperty("point_amount_unit", "percent");
         items23.addProperty("subject_more_than_or_equal", 1000);
         items23.addProperty("subject_less_than", 5000);
+        JsonObject items24 = new JsonObject();
+        items24.addProperty("point_amount", 5);
+        items24.addProperty("point_amount_unit", "percent");
+        items24.addProperty("subject_more_than_or_equal", 1000);
+        items24.addProperty("subject_less_than", 5000);
+        JsonObject items25 = new JsonObject();
+        items25.addProperty("point_amount", 5);
+        items25.addProperty("point_amount_unit", "percent");
+        items25.addProperty("subject_more_than_or_equal", 1000);
+        items25.addProperty("subject_less_than", 5000);
+        JsonObject items26 = new JsonObject();
+        items26.addProperty("point_amount", 5);
+        items26.addProperty("point_amount_unit", "percent");
+        items26.addProperty("subject_more_than_or_equal", 1000);
+        items26.addProperty("subject_less_than", 5000);
+        JsonObject items27 = new JsonObject();
+        items27.addProperty("point_amount", 5);
+        items27.addProperty("point_amount_unit", "percent");
+        items27.addProperty("subject_more_than_or_equal", 1000);
+        items27.addProperty("subject_less_than", 5000);
+        JsonObject items28 = new JsonObject();
+        items28.addProperty("point_amount", 5);
+        items28.addProperty("point_amount_unit", "percent");
+        items28.addProperty("subject_more_than_or_equal", 1000);
+        items28.addProperty("subject_less_than", 5000);
+        JsonObject items29 = new JsonObject();
+        items29.addProperty("point_amount", 5);
+        items29.addProperty("point_amount_unit", "percent");
+        items29.addProperty("subject_more_than_or_equal", 1000);
+        items29.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"4ec71d21-a6a2-49f2-aa4f-479b02c7cb9f","ffba8afa-37d1-414e-a4d5-49fc132d81fc","32f87fb4-a7dd-46b7-b8c0-3f2a985e1e89","63937b94-55c6-4de8-b6d9-7b7bcc14891c","530d1e1a-b8db-4438-9e40-4b31c250eb3a"})
-                .applicableTimeRanges(new Object[]{items})
-                .applicableDaysOfWeek(new Integer[]{0,4,0,5,4,4,2})
-                .blacklistedProductRules(new Object[]{items2,items3,items4,items5,items6,items7,items8,items9,items10,items11})
-                .productBasedPointRules(new Object[]{items12,items13,items14})
-                .amountBasedPointRules(new Object[]{items15,items16,items17,items18,items19,items20,items21,items22,items23})
+                .applicableShopIds(new String[]{"f068b1a7-9e72-4c45-86aa-4d9cbb1d1e7a","11ea5c68-9ef6-4786-b127-a926b28a5f06","c23ca73d-1dad-4757-b83e-22333c68abb2"})
+                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6,items7,items8})
+                .applicableDaysOfWeek(new Integer[]{4,6,0,4,4,3,2,3})
+                .blacklistedProductRules(new Object[]{items9,items10,items11,items12,items13})
+                .productBasedPointRules(new Object[]{items14,items15,items16,items17,items18,items19,items20,items21,items22})
+                .amountBasedPointRules(new Object[]{items23,items24,items25,items26,items27,items28,items29})
                 .subject("all")
                 .setExclusive(true)
-                .pointExpiresInDays(5167)
-                .pointExpiresAt("2021-04-27T14:20:44.000000+09:00")
+                .pointExpiresInDays(8405)
+                .pointExpiresAt("2024-06-03T02:38:14.000000+09:00")
                 .status("disabled")
-                .description("p5UBddPuzXODl7r4hnALGpLVcGALNl879LDvXpamwbBN0dPAA3a6B1V35aJB8muAk6KNzbHMpSgBpebYE7Pw1x52l7TsCcDnmLhbmsDbHLOJBveYaDBZ")
-                .bearPointShopId("b9384710-64ed-44f0-a4e7-bd200ecca9f3");
+                .description("43kZincTY3l4s57cmnxMJMcutAozVMvoR1RLxw7DOs4TJ87zuWoWgDGNIpxPKknjQyXO5D3btpFPvCoYr0gtniqKll5")
+                .bearPointShopId("6253a7c4-f40d-479f-8f38-cf7702bc298f");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -828,23 +700,27 @@ public class CreateCampaignTest {
         JsonObject items15 = new JsonObject();
         items15.addProperty("point_amount", 5);
         items15.addProperty("point_amount_unit", "percent");
-        items15.addProperty("subject_more_than_or_equal", 1000);
-        items15.addProperty("subject_less_than", 5000);
+        items15.addProperty("product_code", "4912345678904");
+        items15.addProperty("is_multiply_by_count", true);
+        items15.addProperty("required_count", 2);
         JsonObject items16 = new JsonObject();
         items16.addProperty("point_amount", 5);
         items16.addProperty("point_amount_unit", "percent");
-        items16.addProperty("subject_more_than_or_equal", 1000);
-        items16.addProperty("subject_less_than", 5000);
+        items16.addProperty("product_code", "4912345678904");
+        items16.addProperty("is_multiply_by_count", true);
+        items16.addProperty("required_count", 2);
         JsonObject items17 = new JsonObject();
         items17.addProperty("point_amount", 5);
         items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("subject_more_than_or_equal", 1000);
-        items17.addProperty("subject_less_than", 5000);
+        items17.addProperty("product_code", "4912345678904");
+        items17.addProperty("is_multiply_by_count", true);
+        items17.addProperty("required_count", 2);
         JsonObject items18 = new JsonObject();
         items18.addProperty("point_amount", 5);
         items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("subject_more_than_or_equal", 1000);
-        items18.addProperty("subject_less_than", 5000);
+        items18.addProperty("product_code", "4912345678904");
+        items18.addProperty("is_multiply_by_count", true);
+        items18.addProperty("required_count", 2);
         JsonObject items19 = new JsonObject();
         items19.addProperty("point_amount", 5);
         items19.addProperty("point_amount_unit", "percent");
@@ -865,28 +741,53 @@ public class CreateCampaignTest {
         items22.addProperty("point_amount_unit", "percent");
         items22.addProperty("subject_more_than_or_equal", 1000);
         items22.addProperty("subject_less_than", 5000);
+        JsonObject items23 = new JsonObject();
+        items23.addProperty("point_amount", 5);
+        items23.addProperty("point_amount_unit", "percent");
+        items23.addProperty("subject_more_than_or_equal", 1000);
+        items23.addProperty("subject_less_than", 5000);
+        JsonObject items24 = new JsonObject();
+        items24.addProperty("point_amount", 5);
+        items24.addProperty("point_amount_unit", "percent");
+        items24.addProperty("subject_more_than_or_equal", 1000);
+        items24.addProperty("subject_less_than", 5000);
+        JsonObject items25 = new JsonObject();
+        items25.addProperty("point_amount", 5);
+        items25.addProperty("point_amount_unit", "percent");
+        items25.addProperty("subject_more_than_or_equal", 1000);
+        items25.addProperty("subject_less_than", 5000);
+        JsonObject items26 = new JsonObject();
+        items26.addProperty("point_amount", 5);
+        items26.addProperty("point_amount_unit", "percent");
+        items26.addProperty("subject_more_than_or_equal", 1000);
+        items26.addProperty("subject_less_than", 5000);
+        JsonObject items27 = new JsonObject();
+        items27.addProperty("point_amount", 5);
+        items27.addProperty("point_amount_unit", "percent");
+        items27.addProperty("subject_more_than_or_equal", 1000);
+        items27.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"0961a3f1-111f-40c8-ba3d-20abc03a4f9c","aafc9149-dec6-4ccc-87e0-011b38456321"})
-                .minimumNumberOfProducts(1402)
+                .applicableShopIds(new String[]{"48b3ffad-3781-44e9-ac57-da6e8d836c62","e4c5a3d1-841b-4448-a8da-f2bfe5681170","24aaa87d-dfbf-4b6e-9e7d-9b6fdea6ce2b"})
+                .minimumNumberOfProducts(4817)
                 .applicableTimeRanges(new Object[]{items,items2,items3,items4})
-                .applicableDaysOfWeek(new Integer[]{0,0,4,1,6})
+                .applicableDaysOfWeek(new Integer[]{5,1,5})
                 .blacklistedProductRules(new Object[]{items5,items6,items7,items8,items9})
-                .productBasedPointRules(new Object[]{items10,items11,items12,items13,items14})
-                .amountBasedPointRules(new Object[]{items15,items16,items17,items18,items19,items20,items21,items22})
+                .productBasedPointRules(new Object[]{items10,items11,items12,items13,items14,items15,items16,items17,items18})
+                .amountBasedPointRules(new Object[]{items19,items20,items21,items22,items23,items24,items25,items26,items27})
                 .subject("all")
-                .setExclusive(true)
-                .pointExpiresInDays(2570)
-                .pointExpiresAt("2023-11-19T17:36:07.000000+09:00")
+                .setExclusive(false)
+                .pointExpiresInDays(4978)
+                .pointExpiresAt("2023-03-10T11:59:02.000000+09:00")
                 .status("enabled")
-                .description("JJuXkUKv5TqPGCK7RLnNFY9S9b035UmpJvkeKwf4ztEQGWQx9LUGIEWjgxBrRYycJFJZNNmleQ00P3VAiLzyVYCPekzMhuRzxmSUv1IWYzEK5fQUgChrnFR9iBNZA5SmO0KUKrJZq6q0ny1TVGzHCNh")
-                .bearPointShopId("0371bfe8-95d6-4f9d-b19a-1e09c1620c04");
+                .description("jw1lER74DXtiwc3rBMahDBdJsbgRK9C5Jy9ChO9BuoupuxbBBj")
+                .bearPointShopId("7ed40667-edf2-4581-a67a-8dbb9ac9a5a7");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -900,446 +801,6 @@ public class CreateCampaignTest {
     }
     @Test
     void test14() throws ConnectionError, ProcessingError {
-        JsonObject items = new JsonObject();
-        items.addProperty("from", "12:00");
-        items.addProperty("to", "23:59");
-        JsonObject items2 = new JsonObject();
-        items2.addProperty("from", "12:00");
-        items2.addProperty("to", "23:59");
-        JsonObject items3 = new JsonObject();
-        items3.addProperty("from", "12:00");
-        items3.addProperty("to", "23:59");
-        JsonObject items4 = new JsonObject();
-        items4.addProperty("from", "12:00");
-        items4.addProperty("to", "23:59");
-        JsonObject items5 = new JsonObject();
-        items5.addProperty("from", "12:00");
-        items5.addProperty("to", "23:59");
-        JsonObject items6 = new JsonObject();
-        items6.addProperty("from", "12:00");
-        items6.addProperty("to", "23:59");
-        JsonObject items7 = new JsonObject();
-        items7.addProperty("from", "12:00");
-        items7.addProperty("to", "23:59");
-        JsonObject items8 = new JsonObject();
-        items8.addProperty("from", "12:00");
-        items8.addProperty("to", "23:59");
-        JsonObject items9 = new JsonObject();
-        items9.addProperty("from", "12:00");
-        items9.addProperty("to", "23:59");
-        JsonObject items10 = new JsonObject();
-        items10.addProperty("from", "12:00");
-        items10.addProperty("to", "23:59");
-        JsonObject items11 = new JsonObject();
-        items11.addProperty("product_code", "4912345678904");
-        items11.addProperty("classification_code", "c123");
-        JsonObject items12 = new JsonObject();
-        items12.addProperty("product_code", "4912345678904");
-        items12.addProperty("classification_code", "c123");
-        JsonObject items13 = new JsonObject();
-        items13.addProperty("product_code", "4912345678904");
-        items13.addProperty("classification_code", "c123");
-        JsonObject items14 = new JsonObject();
-        items14.addProperty("point_amount", 5);
-        items14.addProperty("point_amount_unit", "percent");
-        items14.addProperty("product_code", "4912345678904");
-        items14.addProperty("is_multiply_by_count", true);
-        items14.addProperty("required_count", 2);
-        JsonObject items15 = new JsonObject();
-        items15.addProperty("point_amount", 5);
-        items15.addProperty("point_amount_unit", "percent");
-        items15.addProperty("product_code", "4912345678904");
-        items15.addProperty("is_multiply_by_count", true);
-        items15.addProperty("required_count", 2);
-        JsonObject items16 = new JsonObject();
-        items16.addProperty("point_amount", 5);
-        items16.addProperty("point_amount_unit", "percent");
-        items16.addProperty("product_code", "4912345678904");
-        items16.addProperty("is_multiply_by_count", true);
-        items16.addProperty("required_count", 2);
-        JsonObject items17 = new JsonObject();
-        items17.addProperty("point_amount", 5);
-        items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("product_code", "4912345678904");
-        items17.addProperty("is_multiply_by_count", true);
-        items17.addProperty("required_count", 2);
-        JsonObject items18 = new JsonObject();
-        items18.addProperty("point_amount", 5);
-        items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("subject_more_than_or_equal", 1000);
-        items18.addProperty("subject_less_than", 5000);
-        Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
-        )
-                .applicableShopIds(new String[]{"7c0100ee-5d99-46fa-a98e-7f7002dca306","a321ff18-6e82-434a-b8a6-6ef71594d6d0","f37891a3-8bfd-4b16-9e6e-d8f49387a1c4","cdf46da2-4c50-49dd-8479-818c6386400d","c611551a-5c9f-4c2b-9f59-590ad21be97f","725ca247-c911-4bc1-b413-218d138050b6","ada2279c-ce76-406b-b9ee-60cd457a706d","0ce0b23f-8872-4a2c-80c2-0282716f5482"})
-                .minimumNumberOfAmount(215)
-                .minimumNumberOfProducts(9549)
-                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6,items7,items8,items9,items10})
-                .applicableDaysOfWeek(new Integer[]{5,1,1,1})
-                .blacklistedProductRules(new Object[]{items11,items12,items13})
-                .productBasedPointRules(new Object[]{items14,items15,items16,items17})
-                .amountBasedPointRules(new Object[]{items18})
-                .subject("all")
-                .setExclusive(false)
-                .pointExpiresInDays(6429)
-                .pointExpiresAt("2020-04-21T08:23:51.000000+09:00")
-                .status("enabled")
-                .description("dU4A6UsH0iDe6Fc0OdlylJN9DcRb7UaxMgu3oU0buCOzeiFmkiUs3cV2iTVajhSQQgaJp5FDsanUORer8SKoF")
-                .bearPointShopId("841fd90a-1d94-48c0-832a-a786e795fe43");
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test15() throws ConnectionError, ProcessingError {
-        JsonObject items = new JsonObject();
-        items.addProperty("from", "12:00");
-        items.addProperty("to", "23:59");
-        JsonObject items2 = new JsonObject();
-        items2.addProperty("from", "12:00");
-        items2.addProperty("to", "23:59");
-        JsonObject items3 = new JsonObject();
-        items3.addProperty("from", "12:00");
-        items3.addProperty("to", "23:59");
-        JsonObject items4 = new JsonObject();
-        items4.addProperty("from", "12:00");
-        items4.addProperty("to", "23:59");
-        JsonObject items5 = new JsonObject();
-        items5.addProperty("from", "12:00");
-        items5.addProperty("to", "23:59");
-        JsonObject items6 = new JsonObject();
-        items6.addProperty("from", "12:00");
-        items6.addProperty("to", "23:59");
-        JsonObject items7 = new JsonObject();
-        items7.addProperty("from", "12:00");
-        items7.addProperty("to", "23:59");
-        JsonObject items8 = new JsonObject();
-        items8.addProperty("product_code", "4912345678904");
-        items8.addProperty("classification_code", "c123");
-        JsonObject items9 = new JsonObject();
-        items9.addProperty("product_code", "4912345678904");
-        items9.addProperty("classification_code", "c123");
-        JsonObject items10 = new JsonObject();
-        items10.addProperty("product_code", "4912345678904");
-        items10.addProperty("classification_code", "c123");
-        JsonObject items11 = new JsonObject();
-        items11.addProperty("product_code", "4912345678904");
-        items11.addProperty("classification_code", "c123");
-        JsonObject items12 = new JsonObject();
-        items12.addProperty("product_code", "4912345678904");
-        items12.addProperty("classification_code", "c123");
-        JsonObject items13 = new JsonObject();
-        items13.addProperty("product_code", "4912345678904");
-        items13.addProperty("classification_code", "c123");
-        JsonObject items14 = new JsonObject();
-        items14.addProperty("point_amount", 5);
-        items14.addProperty("point_amount_unit", "percent");
-        items14.addProperty("product_code", "4912345678904");
-        items14.addProperty("is_multiply_by_count", true);
-        items14.addProperty("required_count", 2);
-        JsonObject items15 = new JsonObject();
-        items15.addProperty("point_amount", 5);
-        items15.addProperty("point_amount_unit", "percent");
-        items15.addProperty("product_code", "4912345678904");
-        items15.addProperty("is_multiply_by_count", true);
-        items15.addProperty("required_count", 2);
-        JsonObject items16 = new JsonObject();
-        items16.addProperty("point_amount", 5);
-        items16.addProperty("point_amount_unit", "percent");
-        items16.addProperty("product_code", "4912345678904");
-        items16.addProperty("is_multiply_by_count", true);
-        items16.addProperty("required_count", 2);
-        JsonObject items17 = new JsonObject();
-        items17.addProperty("point_amount", 5);
-        items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("product_code", "4912345678904");
-        items17.addProperty("is_multiply_by_count", true);
-        items17.addProperty("required_count", 2);
-        JsonObject items18 = new JsonObject();
-        items18.addProperty("point_amount", 5);
-        items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("product_code", "4912345678904");
-        items18.addProperty("is_multiply_by_count", true);
-        items18.addProperty("required_count", 2);
-        JsonObject items19 = new JsonObject();
-        items19.addProperty("point_amount", 5);
-        items19.addProperty("point_amount_unit", "percent");
-        items19.addProperty("product_code", "4912345678904");
-        items19.addProperty("is_multiply_by_count", true);
-        items19.addProperty("required_count", 2);
-        JsonObject items20 = new JsonObject();
-        items20.addProperty("point_amount", 5);
-        items20.addProperty("point_amount_unit", "percent");
-        items20.addProperty("product_code", "4912345678904");
-        items20.addProperty("is_multiply_by_count", true);
-        items20.addProperty("required_count", 2);
-        JsonObject items21 = new JsonObject();
-        items21.addProperty("point_amount", 5);
-        items21.addProperty("point_amount_unit", "percent");
-        items21.addProperty("subject_more_than_or_equal", 1000);
-        items21.addProperty("subject_less_than", 5000);
-        JsonObject items22 = new JsonObject();
-        items22.addProperty("point_amount", 5);
-        items22.addProperty("point_amount_unit", "percent");
-        items22.addProperty("subject_more_than_or_equal", 1000);
-        items22.addProperty("subject_less_than", 5000);
-        JsonObject items23 = new JsonObject();
-        items23.addProperty("point_amount", 5);
-        items23.addProperty("point_amount_unit", "percent");
-        items23.addProperty("subject_more_than_or_equal", 1000);
-        items23.addProperty("subject_less_than", 5000);
-        JsonObject items24 = new JsonObject();
-        items24.addProperty("point_amount", 5);
-        items24.addProperty("point_amount_unit", "percent");
-        items24.addProperty("subject_more_than_or_equal", 1000);
-        items24.addProperty("subject_less_than", 5000);
-        JsonObject items25 = new JsonObject();
-        items25.addProperty("point_amount", 5);
-        items25.addProperty("point_amount_unit", "percent");
-        items25.addProperty("subject_more_than_or_equal", 1000);
-        items25.addProperty("subject_less_than", 5000);
-        JsonObject items26 = new JsonObject();
-        items26.addProperty("point_amount", 5);
-        items26.addProperty("point_amount_unit", "percent");
-        items26.addProperty("subject_more_than_or_equal", 1000);
-        items26.addProperty("subject_less_than", 5000);
-        JsonObject items27 = new JsonObject();
-        items27.addProperty("point_amount", 5);
-        items27.addProperty("point_amount_unit", "percent");
-        items27.addProperty("subject_more_than_or_equal", 1000);
-        items27.addProperty("subject_less_than", 5000);
-        JsonObject items28 = new JsonObject();
-        items28.addProperty("point_amount", 5);
-        items28.addProperty("point_amount_unit", "percent");
-        items28.addProperty("subject_more_than_or_equal", 1000);
-        items28.addProperty("subject_less_than", 5000);
-        JsonObject items29 = new JsonObject();
-        items29.addProperty("point_amount", 5);
-        items29.addProperty("point_amount_unit", "percent");
-        items29.addProperty("subject_more_than_or_equal", 1000);
-        items29.addProperty("subject_less_than", 5000);
-        Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
-        )
-                .applicableShopIds(new String[]{"b740ae5b-5f04-4033-a32e-758888753fa1","effd5ab8-29dd-4916-987c-793ea6ce1790"})
-                .minimumNumberForCombinationPurchase(9853)
-                .minimumNumberOfAmount(4636)
-                .minimumNumberOfProducts(5816)
-                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6,items7})
-                .applicableDaysOfWeek(new Integer[]{1,0,6,2,4,6,6,5,6,0})
-                .blacklistedProductRules(new Object[]{items8,items9,items10,items11,items12,items13})
-                .productBasedPointRules(new Object[]{items14,items15,items16,items17,items18,items19,items20})
-                .amountBasedPointRules(new Object[]{items21,items22,items23,items24,items25,items26,items27,items28,items29})
-                .subject("all")
-                .setExclusive(true)
-                .pointExpiresInDays(5785)
-                .pointExpiresAt("2021-10-16T22:09:06.000000+09:00")
-                .status("enabled")
-                .description("YljH7bRncaooM3TbvgCTzJhdfVl26xelmiEU809geihIFACRIyPEgDvHm00fGMs9v0S0yaduWCLddp35C6OjN32fTYxIYAR1maVXMx7tBCebKxnxGEZsQzW1x97Rr6e13KXFkBastFoDWe54Bgb7Sj72")
-                .bearPointShopId("db5bdf96-52a2-4954-8156-ceca4b9d5d25");
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test16() throws ConnectionError, ProcessingError {
-        JsonObject items = new JsonObject();
-        items.addProperty("from", "12:00");
-        items.addProperty("to", "23:59");
-        JsonObject items2 = new JsonObject();
-        items2.addProperty("from", "12:00");
-        items2.addProperty("to", "23:59");
-        JsonObject items3 = new JsonObject();
-        items3.addProperty("from", "12:00");
-        items3.addProperty("to", "23:59");
-        JsonObject items4 = new JsonObject();
-        items4.addProperty("from", "12:00");
-        items4.addProperty("to", "23:59");
-        JsonObject items5 = new JsonObject();
-        items5.addProperty("from", "12:00");
-        items5.addProperty("to", "23:59");
-        JsonObject items6 = new JsonObject();
-        items6.addProperty("from", "12:00");
-        items6.addProperty("to", "23:59");
-        JsonObject items7 = new JsonObject();
-        items7.addProperty("from", "12:00");
-        items7.addProperty("to", "23:59");
-        JsonObject items8 = new JsonObject();
-        items8.addProperty("from", "12:00");
-        items8.addProperty("to", "23:59");
-        JsonObject items9 = new JsonObject();
-        items9.addProperty("from", "12:00");
-        items9.addProperty("to", "23:59");
-        JsonObject items10 = new JsonObject();
-        items10.addProperty("product_code", "4912345678904");
-        items10.addProperty("classification_code", "c123");
-        JsonObject items11 = new JsonObject();
-        items11.addProperty("product_code", "4912345678904");
-        items11.addProperty("classification_code", "c123");
-        JsonObject items12 = new JsonObject();
-        items12.addProperty("product_code", "4912345678904");
-        items12.addProperty("classification_code", "c123");
-        JsonObject items13 = new JsonObject();
-        items13.addProperty("point_amount", 5);
-        items13.addProperty("point_amount_unit", "percent");
-        items13.addProperty("product_code", "4912345678904");
-        items13.addProperty("is_multiply_by_count", true);
-        items13.addProperty("required_count", 2);
-        JsonObject items14 = new JsonObject();
-        items14.addProperty("point_amount", 5);
-        items14.addProperty("point_amount_unit", "percent");
-        items14.addProperty("product_code", "4912345678904");
-        items14.addProperty("is_multiply_by_count", true);
-        items14.addProperty("required_count", 2);
-        JsonObject items15 = new JsonObject();
-        items15.addProperty("point_amount", 5);
-        items15.addProperty("point_amount_unit", "percent");
-        items15.addProperty("product_code", "4912345678904");
-        items15.addProperty("is_multiply_by_count", true);
-        items15.addProperty("required_count", 2);
-        JsonObject items16 = new JsonObject();
-        items16.addProperty("point_amount", 5);
-        items16.addProperty("point_amount_unit", "percent");
-        items16.addProperty("product_code", "4912345678904");
-        items16.addProperty("is_multiply_by_count", true);
-        items16.addProperty("required_count", 2);
-        JsonObject items17 = new JsonObject();
-        items17.addProperty("point_amount", 5);
-        items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("product_code", "4912345678904");
-        items17.addProperty("is_multiply_by_count", true);
-        items17.addProperty("required_count", 2);
-        JsonObject items18 = new JsonObject();
-        items18.addProperty("point_amount", 5);
-        items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("product_code", "4912345678904");
-        items18.addProperty("is_multiply_by_count", true);
-        items18.addProperty("required_count", 2);
-        JsonObject items19 = new JsonObject();
-        items19.addProperty("point_amount", 5);
-        items19.addProperty("point_amount_unit", "percent");
-        items19.addProperty("product_code", "4912345678904");
-        items19.addProperty("is_multiply_by_count", true);
-        items19.addProperty("required_count", 2);
-        JsonObject items20 = new JsonObject();
-        items20.addProperty("point_amount", 5);
-        items20.addProperty("point_amount_unit", "percent");
-        items20.addProperty("product_code", "4912345678904");
-        items20.addProperty("is_multiply_by_count", true);
-        items20.addProperty("required_count", 2);
-        JsonObject items21 = new JsonObject();
-        items21.addProperty("point_amount", 5);
-        items21.addProperty("point_amount_unit", "percent");
-        items21.addProperty("product_code", "4912345678904");
-        items21.addProperty("is_multiply_by_count", true);
-        items21.addProperty("required_count", 2);
-        JsonObject items22 = new JsonObject();
-        items22.addProperty("point_amount", 5);
-        items22.addProperty("point_amount_unit", "percent");
-        items22.addProperty("subject_more_than_or_equal", 1000);
-        items22.addProperty("subject_less_than", 5000);
-        JsonObject items23 = new JsonObject();
-        items23.addProperty("point_amount", 5);
-        items23.addProperty("point_amount_unit", "percent");
-        items23.addProperty("subject_more_than_or_equal", 1000);
-        items23.addProperty("subject_less_than", 5000);
-        JsonObject items24 = new JsonObject();
-        items24.addProperty("point_amount", 5);
-        items24.addProperty("point_amount_unit", "percent");
-        items24.addProperty("subject_more_than_or_equal", 1000);
-        items24.addProperty("subject_less_than", 5000);
-        JsonObject items25 = new JsonObject();
-        items25.addProperty("point_amount", 5);
-        items25.addProperty("point_amount_unit", "percent");
-        items25.addProperty("subject_more_than_or_equal", 1000);
-        items25.addProperty("subject_less_than", 5000);
-        JsonObject items26 = new JsonObject();
-        items26.addProperty("point_amount", 5);
-        items26.addProperty("point_amount_unit", "percent");
-        items26.addProperty("subject_more_than_or_equal", 1000);
-        items26.addProperty("subject_less_than", 5000);
-        JsonObject items27 = new JsonObject();
-        items27.addProperty("point_amount", 5);
-        items27.addProperty("point_amount_unit", "percent");
-        items27.addProperty("subject_more_than_or_equal", 1000);
-        items27.addProperty("subject_less_than", 5000);
-        JsonObject items28 = new JsonObject();
-        items28.addProperty("point_amount", 5);
-        items28.addProperty("point_amount_unit", "percent");
-        items28.addProperty("subject_more_than_or_equal", 1000);
-        items28.addProperty("subject_less_than", 5000);
-        JsonObject items29 = new JsonObject();
-        items29.addProperty("point_amount", 5);
-        items29.addProperty("point_amount_unit", "percent");
-        items29.addProperty("subject_more_than_or_equal", 1000);
-        items29.addProperty("subject_less_than", 5000);
-        JsonObject items30 = new JsonObject();
-        items30.addProperty("point_amount", 5);
-        items30.addProperty("point_amount_unit", "percent");
-        items30.addProperty("subject_more_than_or_equal", 1000);
-        items30.addProperty("subject_less_than", 5000);
-        Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
-        )
-                .applicableShopIds(new String[]{"137e7fb1-3523-41a7-a941-9aefac928542","a99eca46-4ac7-4583-b046-f889f2454157","12024623-1bc7-4020-9be8-c2c9b8886026","f166ade0-2b11-4f23-a616-3af1be411ba0","19bec391-f592-4fc6-bd10-21bc9c29faff","2dd3fbba-978f-4c1b-9ada-9f4261ebf773"})
-                .existInEachProductGroups(true)
-                .minimumNumberForCombinationPurchase(3322)
-                .minimumNumberOfAmount(4844)
-                .minimumNumberOfProducts(8680)
-                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6,items7,items8,items9})
-                .applicableDaysOfWeek(new Integer[]{2,3,1,2,4})
-                .blacklistedProductRules(new Object[]{items10,items11,items12})
-                .productBasedPointRules(new Object[]{items13,items14,items15,items16,items17,items18,items19,items20,items21})
-                .amountBasedPointRules(new Object[]{items22,items23,items24,items25,items26,items27,items28,items29,items30})
-                .subject("all")
-                .setExclusive(true)
-                .pointExpiresInDays(8962)
-                .pointExpiresAt("2023-03-17T00:46:08.000000+09:00")
-                .status("enabled")
-                .description("e460ITFFMlOoNF60KHxllnN4HzHwFhFEjSBXEQon8hiuGyTutdIyjoPCP7mYSBaw6G73vjrFBEZ9xe14LTWiE9TEEp8WWapls1FU7awnIFsXhs92PspyjLiPHuXn")
-                .bearPointShopId("4af3258a-b178-4dd5-abc5-eb8bb150a35d");
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test17() throws ConnectionError, ProcessingError {
         JsonObject items = new JsonObject();
         items.addProperty("from", "12:00");
         items.addProperty("to", "23:59");
@@ -1394,52 +855,29 @@ public class CreateCampaignTest {
         items15.addProperty("point_amount_unit", "percent");
         items15.addProperty("subject_more_than_or_equal", 1000);
         items15.addProperty("subject_less_than", 5000);
-        JsonObject items16 = new JsonObject();
-        items16.addProperty("point_amount", 5);
-        items16.addProperty("point_amount_unit", "percent");
-        items16.addProperty("subject_more_than_or_equal", 1000);
-        items16.addProperty("subject_less_than", 5000);
-        JsonObject items17 = new JsonObject();
-        items17.addProperty("point_amount", 5);
-        items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("subject_more_than_or_equal", 1000);
-        items17.addProperty("subject_less_than", 5000);
-        JsonObject items18 = new JsonObject();
-        items18.addProperty("point_amount", 5);
-        items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("subject_more_than_or_equal", 1000);
-        items18.addProperty("subject_less_than", 5000);
-        JsonObject items19 = new JsonObject();
-        items19.addProperty("point_amount", 5);
-        items19.addProperty("point_amount_unit", "percent");
-        items19.addProperty("subject_more_than_or_equal", 1000);
-        items19.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"7b68a515-c090-44dd-a119-ec037fa3204d","d46a2bce-0645-4ba2-8425-4d0c624f0b3c","66a40c8d-b122-45da-8bf6-c76d23e671d9","1524a6df-92ba-488e-bbb8-8934164de42d","71baebb7-ed8c-477f-8d69-722eb8d53a4c","a7e9d198-cac3-4c86-95b5-73d326e33674"})
-                .maxPointAmount(1374)
-                .existInEachProductGroups(true)
-                .minimumNumberForCombinationPurchase(7279)
-                .minimumNumberOfAmount(2712)
-                .minimumNumberOfProducts(2461)
+                .applicableShopIds(new String[]{"a3210ed4-0d24-4441-bbb1-c9dee73cbe75","477ecb84-07c2-4d5b-af13-f1664f43c7d4","de308cbf-76af-4d5f-a48f-57dc9372e798","62a7c5fa-3bf3-474d-af80-127a46ab59de","04cb564c-65f3-47df-8a52-323bbc22b122","6a5da622-d929-4816-8bb0-3efa42231e32","16d327cc-9ab0-4b5a-947f-a95b729f6122","7933aac9-838d-4757-a773-ce0e71dadc13","fbcbbc28-e791-41a0-a17f-35782d073965"})
+                .minimumNumberOfAmount(8134)
+                .minimumNumberOfProducts(7513)
                 .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6,items7,items8,items9})
-                .applicableDaysOfWeek(new Integer[]{3,1,1,6})
+                .applicableDaysOfWeek(new Integer[]{3,0,5,1})
                 .blacklistedProductRules(new Object[]{items10,items11})
                 .productBasedPointRules(new Object[]{items12})
-                .amountBasedPointRules(new Object[]{items13,items14,items15,items16,items17,items18,items19})
+                .amountBasedPointRules(new Object[]{items13,items14,items15})
                 .subject("all")
-                .setExclusive(false)
-                .pointExpiresInDays(8890)
-                .pointExpiresAt("2022-10-05T11:33:22.000000+09:00")
+                .setExclusive(true)
+                .pointExpiresInDays(8932)
+                .pointExpiresAt("2021-04-19T18:00:45.000000+09:00")
                 .status("disabled")
-                .description("4OhJWFx6Yeyiao12xxL9sEsyBMjWo1Sr4jBcS5oIA9HXmOiYCW3CvAWm1DXtrXQyeS1LB6v6JUiBb4OSIpAuhXUCgYVCPl4rwAj25FmHt7UFzMCunvHnFKu9")
-                .bearPointShopId("962da1e7-453b-4a56-a62c-0af54ed7df86");
+                .description("p1N5dUXhyclmwf75CqV86xoNrICSb9VOC29gWfcKX2Tg")
+                .bearPointShopId("1eb1e616-27ce-4adb-9ac3-2ff91bec68ad");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -1452,7 +890,7 @@ public class CreateCampaignTest {
         }
     }
     @Test
-    void test18() throws ConnectionError, ProcessingError {
+    void test15() throws ConnectionError, ProcessingError {
         JsonObject items = new JsonObject();
         items.addProperty("from", "12:00");
         items.addProperty("to", "23:59");
@@ -1472,6 +910,120 @@ public class CreateCampaignTest {
         items6.addProperty("product_code", "4912345678904");
         items6.addProperty("classification_code", "c123");
         JsonObject items7 = new JsonObject();
+        items7.addProperty("point_amount", 5);
+        items7.addProperty("point_amount_unit", "percent");
+        items7.addProperty("product_code", "4912345678904");
+        items7.addProperty("is_multiply_by_count", true);
+        items7.addProperty("required_count", 2);
+        JsonObject items8 = new JsonObject();
+        items8.addProperty("point_amount", 5);
+        items8.addProperty("point_amount_unit", "percent");
+        items8.addProperty("product_code", "4912345678904");
+        items8.addProperty("is_multiply_by_count", true);
+        items8.addProperty("required_count", 2);
+        JsonObject items9 = new JsonObject();
+        items9.addProperty("point_amount", 5);
+        items9.addProperty("point_amount_unit", "percent");
+        items9.addProperty("product_code", "4912345678904");
+        items9.addProperty("is_multiply_by_count", true);
+        items9.addProperty("required_count", 2);
+        JsonObject items10 = new JsonObject();
+        items10.addProperty("point_amount", 5);
+        items10.addProperty("point_amount_unit", "percent");
+        items10.addProperty("product_code", "4912345678904");
+        items10.addProperty("is_multiply_by_count", true);
+        items10.addProperty("required_count", 2);
+        JsonObject items11 = new JsonObject();
+        items11.addProperty("point_amount", 5);
+        items11.addProperty("point_amount_unit", "percent");
+        items11.addProperty("product_code", "4912345678904");
+        items11.addProperty("is_multiply_by_count", true);
+        items11.addProperty("required_count", 2);
+        JsonObject items12 = new JsonObject();
+        items12.addProperty("point_amount", 5);
+        items12.addProperty("point_amount_unit", "percent");
+        items12.addProperty("product_code", "4912345678904");
+        items12.addProperty("is_multiply_by_count", true);
+        items12.addProperty("required_count", 2);
+        JsonObject items13 = new JsonObject();
+        items13.addProperty("point_amount", 5);
+        items13.addProperty("point_amount_unit", "percent");
+        items13.addProperty("product_code", "4912345678904");
+        items13.addProperty("is_multiply_by_count", true);
+        items13.addProperty("required_count", 2);
+        JsonObject items14 = new JsonObject();
+        items14.addProperty("point_amount", 5);
+        items14.addProperty("point_amount_unit", "percent");
+        items14.addProperty("product_code", "4912345678904");
+        items14.addProperty("is_multiply_by_count", true);
+        items14.addProperty("required_count", 2);
+        JsonObject items15 = new JsonObject();
+        items15.addProperty("point_amount", 5);
+        items15.addProperty("point_amount_unit", "percent");
+        items15.addProperty("product_code", "4912345678904");
+        items15.addProperty("is_multiply_by_count", true);
+        items15.addProperty("required_count", 2);
+        JsonObject items16 = new JsonObject();
+        items16.addProperty("point_amount", 5);
+        items16.addProperty("point_amount_unit", "percent");
+        items16.addProperty("subject_more_than_or_equal", 1000);
+        items16.addProperty("subject_less_than", 5000);
+        Request request = new CreateCampaign(
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
+        )
+                .applicableShopIds(new String[]{"3c6b4c0e-dc2b-4c7e-b050-d1e326f60d22","f9be1fb2-5c9d-43db-863a-d52694e4ea8a","e2065a3b-d535-4959-ba89-dc8533a815a5","a137fa88-0b71-4048-ab6e-fb8a3cb8ddb7","569c944e-4305-48e0-95bd-40c47379fe07","76e8b1b9-a3b2-4189-8462-b0b380e9b9be"})
+                .minimumNumberForCombinationPurchase(6895)
+                .minimumNumberOfAmount(838)
+                .minimumNumberOfProducts(7185)
+                .applicableTimeRanges(new Object[]{items,items2,items3,items4})
+                .applicableDaysOfWeek(new Integer[]{5,5,3,3,2})
+                .blacklistedProductRules(new Object[]{items5,items6})
+                .productBasedPointRules(new Object[]{items7,items8,items9,items10,items11,items12,items13,items14,items15})
+                .amountBasedPointRules(new Object[]{items16})
+                .subject("money")
+                .setExclusive(false)
+                .pointExpiresInDays(78)
+                .pointExpiresAt("2022-03-05T08:36:05.000000+09:00")
+                .status("disabled")
+                .description("U6cdnuAXcaWAfsPTLlXyAU0nM4h1i2X27Q7btRQFm76BTo8VFLoWAnARPXwmVGvDbysoDOOHhif5pgtsmRAUtb4NhsKq1")
+                .bearPointShopId("a4b51a79-c727-4b2c-938f-c9978e8674fe");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test16() throws ConnectionError, ProcessingError {
+        JsonObject items = new JsonObject();
+        items.addProperty("from", "12:00");
+        items.addProperty("to", "23:59");
+        JsonObject items2 = new JsonObject();
+        items2.addProperty("from", "12:00");
+        items2.addProperty("to", "23:59");
+        JsonObject items3 = new JsonObject();
+        items3.addProperty("from", "12:00");
+        items3.addProperty("to", "23:59");
+        JsonObject items4 = new JsonObject();
+        items4.addProperty("product_code", "4912345678904");
+        items4.addProperty("classification_code", "c123");
+        JsonObject items5 = new JsonObject();
+        items5.addProperty("product_code", "4912345678904");
+        items5.addProperty("classification_code", "c123");
+        JsonObject items6 = new JsonObject();
+        items6.addProperty("product_code", "4912345678904");
+        items6.addProperty("classification_code", "c123");
+        JsonObject items7 = new JsonObject();
         items7.addProperty("product_code", "4912345678904");
         items7.addProperty("classification_code", "c123");
         JsonObject items8 = new JsonObject();
@@ -1484,11 +1036,17 @@ public class CreateCampaignTest {
         items10.addProperty("product_code", "4912345678904");
         items10.addProperty("classification_code", "c123");
         JsonObject items11 = new JsonObject();
+        items11.addProperty("point_amount", 5);
+        items11.addProperty("point_amount_unit", "percent");
         items11.addProperty("product_code", "4912345678904");
-        items11.addProperty("classification_code", "c123");
+        items11.addProperty("is_multiply_by_count", true);
+        items11.addProperty("required_count", 2);
         JsonObject items12 = new JsonObject();
+        items12.addProperty("point_amount", 5);
+        items12.addProperty("point_amount_unit", "percent");
         items12.addProperty("product_code", "4912345678904");
-        items12.addProperty("classification_code", "c123");
+        items12.addProperty("is_multiply_by_count", true);
+        items12.addProperty("required_count", 2);
         JsonObject items13 = new JsonObject();
         items13.addProperty("point_amount", 5);
         items13.addProperty("point_amount_unit", "percent");
@@ -1516,23 +1074,27 @@ public class CreateCampaignTest {
         JsonObject items17 = new JsonObject();
         items17.addProperty("point_amount", 5);
         items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("subject_more_than_or_equal", 1000);
-        items17.addProperty("subject_less_than", 5000);
+        items17.addProperty("product_code", "4912345678904");
+        items17.addProperty("is_multiply_by_count", true);
+        items17.addProperty("required_count", 2);
         JsonObject items18 = new JsonObject();
         items18.addProperty("point_amount", 5);
         items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("subject_more_than_or_equal", 1000);
-        items18.addProperty("subject_less_than", 5000);
+        items18.addProperty("product_code", "4912345678904");
+        items18.addProperty("is_multiply_by_count", true);
+        items18.addProperty("required_count", 2);
         JsonObject items19 = new JsonObject();
         items19.addProperty("point_amount", 5);
         items19.addProperty("point_amount_unit", "percent");
-        items19.addProperty("subject_more_than_or_equal", 1000);
-        items19.addProperty("subject_less_than", 5000);
+        items19.addProperty("product_code", "4912345678904");
+        items19.addProperty("is_multiply_by_count", true);
+        items19.addProperty("required_count", 2);
         JsonObject items20 = new JsonObject();
         items20.addProperty("point_amount", 5);
         items20.addProperty("point_amount_unit", "percent");
-        items20.addProperty("subject_more_than_or_equal", 1000);
-        items20.addProperty("subject_less_than", 5000);
+        items20.addProperty("product_code", "4912345678904");
+        items20.addProperty("is_multiply_by_count", true);
+        items20.addProperty("required_count", 2);
         JsonObject items21 = new JsonObject();
         items21.addProperty("point_amount", 5);
         items21.addProperty("point_amount_unit", "percent");
@@ -1558,33 +1120,56 @@ public class CreateCampaignTest {
         items25.addProperty("point_amount_unit", "percent");
         items25.addProperty("subject_more_than_or_equal", 1000);
         items25.addProperty("subject_less_than", 5000);
+        JsonObject items26 = new JsonObject();
+        items26.addProperty("point_amount", 5);
+        items26.addProperty("point_amount_unit", "percent");
+        items26.addProperty("subject_more_than_or_equal", 1000);
+        items26.addProperty("subject_less_than", 5000);
+        JsonObject items27 = new JsonObject();
+        items27.addProperty("point_amount", 5);
+        items27.addProperty("point_amount_unit", "percent");
+        items27.addProperty("subject_more_than_or_equal", 1000);
+        items27.addProperty("subject_less_than", 5000);
+        JsonObject items28 = new JsonObject();
+        items28.addProperty("point_amount", 5);
+        items28.addProperty("point_amount_unit", "percent");
+        items28.addProperty("subject_more_than_or_equal", 1000);
+        items28.addProperty("subject_less_than", 5000);
+        JsonObject items29 = new JsonObject();
+        items29.addProperty("point_amount", 5);
+        items29.addProperty("point_amount_unit", "percent");
+        items29.addProperty("subject_more_than_or_equal", 1000);
+        items29.addProperty("subject_less_than", 5000);
+        JsonObject items30 = new JsonObject();
+        items30.addProperty("point_amount", 5);
+        items30.addProperty("point_amount_unit", "percent");
+        items30.addProperty("subject_more_than_or_equal", 1000);
+        items30.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"62ec819f-6fb5-4e8e-b407-73e76752f846","398c42ac-39cd-4673-a4c0-dd20e2bc9e10","3c81bfd7-4ebb-4fb8-9d74-b72b0f0c126b","90fb8ff4-71bc-446c-910a-ba600defa20b"})
-                .maxTotalPointAmount(7470)
-                .maxPointAmount(652)
+                .applicableShopIds(new String[]{"d44b0858-8391-46d3-a21c-c803553567ec","5edd043d-965b-48c0-9e7b-339fb42923e6","f540c40a-a734-465b-aa23-fad7e086901f","bf8cb844-a94d-4843-83e9-85ff38cce976","343f6d3d-e4fe-44b5-9c81-708e130839c9","a9e00a54-4169-47ac-bbea-91dbea1838b6","3dc59d35-113e-4514-a50e-6cb0ae4b3f5c","35faae65-9b68-42e7-b61a-c44e21ec0ea0"})
                 .existInEachProductGroups(true)
-                .minimumNumberForCombinationPurchase(5012)
-                .minimumNumberOfAmount(5910)
-                .minimumNumberOfProducts(6338)
-                .applicableTimeRanges(new Object[]{items,items2,items3,items4})
-                .applicableDaysOfWeek(new Integer[]{3,3,2})
-                .blacklistedProductRules(new Object[]{items5,items6,items7,items8,items9,items10,items11,items12})
-                .productBasedPointRules(new Object[]{items13,items14,items15,items16})
-                .amountBasedPointRules(new Object[]{items17,items18,items19,items20,items21,items22,items23,items24,items25})
-                .subject("all")
-                .setExclusive(false)
-                .pointExpiresInDays(852)
-                .pointExpiresAt("2021-04-14T00:27:52.000000+09:00")
+                .minimumNumberForCombinationPurchase(3938)
+                .minimumNumberOfAmount(2986)
+                .minimumNumberOfProducts(4888)
+                .applicableTimeRanges(new Object[]{items,items2,items3})
+                .applicableDaysOfWeek(new Integer[]{2,3,6,3,3,2,0,4})
+                .blacklistedProductRules(new Object[]{items4,items5,items6,items7,items8,items9,items10})
+                .productBasedPointRules(new Object[]{items11,items12,items13,items14,items15,items16,items17,items18,items19,items20})
+                .amountBasedPointRules(new Object[]{items21,items22,items23,items24,items25,items26,items27,items28,items29,items30})
+                .subject("money")
+                .setExclusive(true)
+                .pointExpiresInDays(9509)
+                .pointExpiresAt("2021-05-04T03:18:27.000000+09:00")
                 .status("disabled")
-                .description("DzGv8LVnkgSam1QFhhsXHbVXE")
-                .bearPointShopId("fb5ebddd-8df5-450d-93ac-f20ed658100d");
+                .description("MLcPZW1iBGGm9ti71kAK04AZSnsFT9DNWjzc64Kdtx8nValEc")
+                .bearPointShopId("78e08e72-3b99-421d-9413-fe6919826fec");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -1597,7 +1182,7 @@ public class CreateCampaignTest {
         }
     }
     @Test
-    void test19() throws ConnectionError, ProcessingError {
+    void test17() throws ConnectionError, ProcessingError {
         JsonObject items = new JsonObject();
         items.addProperty("from", "12:00");
         items.addProperty("to", "23:59");
@@ -1623,8 +1208,8 @@ public class CreateCampaignTest {
         items8.addProperty("from", "12:00");
         items8.addProperty("to", "23:59");
         JsonObject items9 = new JsonObject();
-        items9.addProperty("product_code", "4912345678904");
-        items9.addProperty("classification_code", "c123");
+        items9.addProperty("from", "12:00");
+        items9.addProperty("to", "23:59");
         JsonObject items10 = new JsonObject();
         items10.addProperty("product_code", "4912345678904");
         items10.addProperty("classification_code", "c123");
@@ -1635,54 +1220,45 @@ public class CreateCampaignTest {
         items12.addProperty("product_code", "4912345678904");
         items12.addProperty("classification_code", "c123");
         JsonObject items13 = new JsonObject();
-        items13.addProperty("point_amount", 5);
-        items13.addProperty("point_amount_unit", "percent");
         items13.addProperty("product_code", "4912345678904");
-        items13.addProperty("is_multiply_by_count", true);
-        items13.addProperty("required_count", 2);
+        items13.addProperty("classification_code", "c123");
         JsonObject items14 = new JsonObject();
         items14.addProperty("point_amount", 5);
         items14.addProperty("point_amount_unit", "percent");
-        items14.addProperty("subject_more_than_or_equal", 1000);
-        items14.addProperty("subject_less_than", 5000);
+        items14.addProperty("product_code", "4912345678904");
+        items14.addProperty("is_multiply_by_count", true);
+        items14.addProperty("required_count", 2);
         JsonObject items15 = new JsonObject();
         items15.addProperty("point_amount", 5);
         items15.addProperty("point_amount_unit", "percent");
         items15.addProperty("subject_more_than_or_equal", 1000);
         items15.addProperty("subject_less_than", 5000);
-        JsonObject items16 = new JsonObject();
-        items16.addProperty("point_amount", 5);
-        items16.addProperty("point_amount_unit", "percent");
-        items16.addProperty("subject_more_than_or_equal", 1000);
-        items16.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"48b56d3b-f71a-4781-83fc-e57211e5f1f3","62afcf39-f343-4d06-9c20-a3571f6d3b0a"})
-                .destPrivateMoneyId("1d619d0f-1f22-41a1-b9e5-dac64ece82bd")
-                .maxTotalPointAmount(2015)
-                .maxPointAmount(9644)
+                .applicableShopIds(new String[]{"4d0b57ae-ac69-4cca-a824-92053e1a78bd","ebd786da-130c-425e-830c-7cab198ade14","5bd5991d-eb81-48b9-adf4-e62972f6eab3","33693ac4-dead-49ad-825a-fa53d17c550d","bfd2b98e-46fc-49de-840d-3b87a5d2d249","e13def01-ef15-4ff6-af1a-cb7e3d1ad30b","d861a8d1-7754-4881-acf1-52566eb8201e","ba2c5042-e495-4370-af2e-36eaa314ba2d","ca7bcfb1-8411-4960-b957-3ce9cff3457f"})
+                .maxPointAmount(7676)
                 .existInEachProductGroups(true)
-                .minimumNumberForCombinationPurchase(4386)
-                .minimumNumberOfAmount(3758)
-                .minimumNumberOfProducts(2581)
-                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6,items7,items8})
-                .applicableDaysOfWeek(new Integer[]{1,1,5,2,6,6})
-                .blacklistedProductRules(new Object[]{items9,items10,items11,items12})
-                .productBasedPointRules(new Object[]{items13})
-                .amountBasedPointRules(new Object[]{items14,items15,items16})
+                .minimumNumberForCombinationPurchase(4550)
+                .minimumNumberOfAmount(1231)
+                .minimumNumberOfProducts(1148)
+                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6,items7,items8,items9})
+                .applicableDaysOfWeek(new Integer[]{4,4,0,0,5,3})
+                .blacklistedProductRules(new Object[]{items10,items11,items12,items13})
+                .productBasedPointRules(new Object[]{items14})
+                .amountBasedPointRules(new Object[]{items15})
                 .subject("money")
-                .setExclusive(false)
-                .pointExpiresInDays(7226)
-                .pointExpiresAt("2023-01-20T13:52:32.000000+09:00")
+                .setExclusive(true)
+                .pointExpiresInDays(4179)
+                .pointExpiresAt("2020-01-21T05:56:58.000000+09:00")
                 .status("enabled")
-                .description("obeL94KpkkVqLRUALIJp7xztB1OUxuHdnbw4qpfjnZdGHyaQfHlBX0g5EwaI0USmY6PGFKyYULw0")
-                .bearPointShopId("92a13ba0-a84f-4013-a9d3-0a3667b879cc");
+                .description("p8b1MIVAU3vRwVJQyxl3QYUtYx0iOzEu5GLMJhvpBVv5yKzd44qAH26NfHZHzJHsl8iiMbyRClAzufUykE")
+                .bearPointShopId("d2a3b20f-1f3f-4362-9ab7-ff60287db969");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -1695,10 +1271,7 @@ public class CreateCampaignTest {
         }
     }
     @Test
-    void test20() throws ConnectionError, ProcessingError {
-        JsonObject applicable_account_metadata = new JsonObject();
-        applicable_account_metadata.addProperty("key", "sex");
-        applicable_account_metadata.addProperty("value", "male");
+    void test18() throws ConnectionError, ProcessingError {
         JsonObject items = new JsonObject();
         items.addProperty("from", "12:00");
         items.addProperty("to", "23:59");
@@ -1765,15 +1338,13 @@ public class CreateCampaignTest {
         JsonObject items19 = new JsonObject();
         items19.addProperty("point_amount", 5);
         items19.addProperty("point_amount_unit", "percent");
-        items19.addProperty("product_code", "4912345678904");
-        items19.addProperty("is_multiply_by_count", true);
-        items19.addProperty("required_count", 2);
+        items19.addProperty("subject_more_than_or_equal", 1000);
+        items19.addProperty("subject_less_than", 5000);
         JsonObject items20 = new JsonObject();
         items20.addProperty("point_amount", 5);
         items20.addProperty("point_amount_unit", "percent");
-        items20.addProperty("product_code", "4912345678904");
-        items20.addProperty("is_multiply_by_count", true);
-        items20.addProperty("required_count", 2);
+        items20.addProperty("subject_more_than_or_equal", 1000);
+        items20.addProperty("subject_less_than", 5000);
         JsonObject items21 = new JsonObject();
         items21.addProperty("point_amount", 5);
         items21.addProperty("point_amount_unit", "percent");
@@ -1799,35 +1370,43 @@ public class CreateCampaignTest {
         items25.addProperty("point_amount_unit", "percent");
         items25.addProperty("subject_more_than_or_equal", 1000);
         items25.addProperty("subject_less_than", 5000);
+        JsonObject items26 = new JsonObject();
+        items26.addProperty("point_amount", 5);
+        items26.addProperty("point_amount_unit", "percent");
+        items26.addProperty("subject_more_than_or_equal", 1000);
+        items26.addProperty("subject_less_than", 5000);
+        JsonObject items27 = new JsonObject();
+        items27.addProperty("point_amount", 5);
+        items27.addProperty("point_amount_unit", "percent");
+        items27.addProperty("subject_more_than_or_equal", 1000);
+        items27.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"8336cddf-f6ff-4604-884c-8b73c0627df1","7bc7e2b3-578b-4683-9589-9239f26c476e","249218b8-67cb-4189-86c6-b229d8de0622","104d7b13-3c95-4e08-aa75-0274f751df40","38fbc247-77d0-4625-b5a4-d1c416f3972e","374c1424-e804-4b2b-81e3-40af5f43a5ea","67b32501-a56f-4ebf-a11f-a20619523698","ac4e68da-9712-4730-9bd1-357e27a932eb","5856790e-5267-4682-9d21-462e43cee6ce"})
-                .applicableAccountMetadata(applicable_account_metadata)
-                .destPrivateMoneyId("f5fb6d43-814f-4a4a-9bc6-d6aba12a8df8")
-                .maxTotalPointAmount(4505)
-                .maxPointAmount(4841)
+                .applicableShopIds(new String[]{"bb8bd390-3930-4b6b-af73-4b76e7574205","62f49252-859b-4725-8b67-faef012ec7b7","99e88a2a-e903-425d-9990-d5a0c305771d","0759b7c7-caa4-4424-9a90-0e63773715d1"})
+                .maxTotalPointAmount(3584)
+                .maxPointAmount(4173)
                 .existInEachProductGroups(false)
-                .minimumNumberForCombinationPurchase(147)
-                .minimumNumberOfAmount(5469)
-                .minimumNumberOfProducts(6283)
+                .minimumNumberForCombinationPurchase(3517)
+                .minimumNumberOfAmount(3352)
+                .minimumNumberOfProducts(4531)
                 .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6})
-                .applicableDaysOfWeek(new Integer[]{1,0,0})
+                .applicableDaysOfWeek(new Integer[]{2})
                 .blacklistedProductRules(new Object[]{items7,items8,items9,items10,items11,items12,items13,items14,items15})
-                .productBasedPointRules(new Object[]{items16,items17,items18,items19,items20})
-                .amountBasedPointRules(new Object[]{items21,items22,items23,items24,items25})
-                .subject("money")
-                .setExclusive(false)
-                .pointExpiresInDays(4715)
-                .pointExpiresAt("2023-07-31T22:18:55.000000+09:00")
-                .status("enabled")
-                .description("exC9CHjmMSuhEWwT3fZPVideRLpmxLbwTAkmYV3WXEfRqCmQpHHRdux6cJVKifOJLQcPY013LDwz6LjOQojAzB3TQEyVxLczAUKhz6XKZXdWQ8zteXTUReOew7uCSxijpeKQ6MysVOAWE3x8hMpG0NX6Hy2UVyL9cXPh")
-                .bearPointShopId("2cd598fb-13ec-4cc8-b8be-1c415a8a191d");
+                .productBasedPointRules(new Object[]{items16,items17,items18})
+                .amountBasedPointRules(new Object[]{items19,items20,items21,items22,items23,items24,items25,items26,items27})
+                .subject("all")
+                .setExclusive(true)
+                .pointExpiresInDays(9085)
+                .pointExpiresAt("2024-01-26T01:13:13.000000+09:00")
+                .status("disabled")
+                .description("RIjG0rYvube3IYbw4aWoZbHlgCzs82VNC4tU5mOICODcI2FzuInuW5B9t9aJRJO0NDmzlR9xuZd02ePJARBgoE73jLh3pYgjVkkbrYEqV64Obr6GWrpx4n9HsXB1IshAMIZ83W5pK36iEBN08hEDIgtiSgZQCJBatXM0OlxB1XPF9NVspIGAA")
+                .bearPointShopId("0aefde4c-860a-4df2-a2bd-2fbd9e0fecfd");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -1840,10 +1419,165 @@ public class CreateCampaignTest {
         }
     }
     @Test
-    void test21() throws ConnectionError, ProcessingError {
-        JsonObject applicable_transaction_metadata = new JsonObject();
-        applicable_transaction_metadata.addProperty("key", "rank");
-        applicable_transaction_metadata.addProperty("value", "bronze");
+    void test19() throws ConnectionError, ProcessingError {
+        JsonObject items = new JsonObject();
+        items.addProperty("from", "12:00");
+        items.addProperty("to", "23:59");
+        JsonObject items2 = new JsonObject();
+        items2.addProperty("from", "12:00");
+        items2.addProperty("to", "23:59");
+        JsonObject items3 = new JsonObject();
+        items3.addProperty("from", "12:00");
+        items3.addProperty("to", "23:59");
+        JsonObject items4 = new JsonObject();
+        items4.addProperty("from", "12:00");
+        items4.addProperty("to", "23:59");
+        JsonObject items5 = new JsonObject();
+        items5.addProperty("product_code", "4912345678904");
+        items5.addProperty("classification_code", "c123");
+        JsonObject items6 = new JsonObject();
+        items6.addProperty("product_code", "4912345678904");
+        items6.addProperty("classification_code", "c123");
+        JsonObject items7 = new JsonObject();
+        items7.addProperty("product_code", "4912345678904");
+        items7.addProperty("classification_code", "c123");
+        JsonObject items8 = new JsonObject();
+        items8.addProperty("product_code", "4912345678904");
+        items8.addProperty("classification_code", "c123");
+        JsonObject items9 = new JsonObject();
+        items9.addProperty("product_code", "4912345678904");
+        items9.addProperty("classification_code", "c123");
+        JsonObject items10 = new JsonObject();
+        items10.addProperty("product_code", "4912345678904");
+        items10.addProperty("classification_code", "c123");
+        JsonObject items11 = new JsonObject();
+        items11.addProperty("point_amount", 5);
+        items11.addProperty("point_amount_unit", "percent");
+        items11.addProperty("product_code", "4912345678904");
+        items11.addProperty("is_multiply_by_count", true);
+        items11.addProperty("required_count", 2);
+        JsonObject items12 = new JsonObject();
+        items12.addProperty("point_amount", 5);
+        items12.addProperty("point_amount_unit", "percent");
+        items12.addProperty("product_code", "4912345678904");
+        items12.addProperty("is_multiply_by_count", true);
+        items12.addProperty("required_count", 2);
+        JsonObject items13 = new JsonObject();
+        items13.addProperty("point_amount", 5);
+        items13.addProperty("point_amount_unit", "percent");
+        items13.addProperty("product_code", "4912345678904");
+        items13.addProperty("is_multiply_by_count", true);
+        items13.addProperty("required_count", 2);
+        JsonObject items14 = new JsonObject();
+        items14.addProperty("point_amount", 5);
+        items14.addProperty("point_amount_unit", "percent");
+        items14.addProperty("product_code", "4912345678904");
+        items14.addProperty("is_multiply_by_count", true);
+        items14.addProperty("required_count", 2);
+        JsonObject items15 = new JsonObject();
+        items15.addProperty("point_amount", 5);
+        items15.addProperty("point_amount_unit", "percent");
+        items15.addProperty("product_code", "4912345678904");
+        items15.addProperty("is_multiply_by_count", true);
+        items15.addProperty("required_count", 2);
+        JsonObject items16 = new JsonObject();
+        items16.addProperty("point_amount", 5);
+        items16.addProperty("point_amount_unit", "percent");
+        items16.addProperty("product_code", "4912345678904");
+        items16.addProperty("is_multiply_by_count", true);
+        items16.addProperty("required_count", 2);
+        JsonObject items17 = new JsonObject();
+        items17.addProperty("point_amount", 5);
+        items17.addProperty("point_amount_unit", "percent");
+        items17.addProperty("product_code", "4912345678904");
+        items17.addProperty("is_multiply_by_count", true);
+        items17.addProperty("required_count", 2);
+        JsonObject items18 = new JsonObject();
+        items18.addProperty("point_amount", 5);
+        items18.addProperty("point_amount_unit", "percent");
+        items18.addProperty("subject_more_than_or_equal", 1000);
+        items18.addProperty("subject_less_than", 5000);
+        JsonObject items19 = new JsonObject();
+        items19.addProperty("point_amount", 5);
+        items19.addProperty("point_amount_unit", "percent");
+        items19.addProperty("subject_more_than_or_equal", 1000);
+        items19.addProperty("subject_less_than", 5000);
+        JsonObject items20 = new JsonObject();
+        items20.addProperty("point_amount", 5);
+        items20.addProperty("point_amount_unit", "percent");
+        items20.addProperty("subject_more_than_or_equal", 1000);
+        items20.addProperty("subject_less_than", 5000);
+        JsonObject items21 = new JsonObject();
+        items21.addProperty("point_amount", 5);
+        items21.addProperty("point_amount_unit", "percent");
+        items21.addProperty("subject_more_than_or_equal", 1000);
+        items21.addProperty("subject_less_than", 5000);
+        JsonObject items22 = new JsonObject();
+        items22.addProperty("point_amount", 5);
+        items22.addProperty("point_amount_unit", "percent");
+        items22.addProperty("subject_more_than_or_equal", 1000);
+        items22.addProperty("subject_less_than", 5000);
+        JsonObject items23 = new JsonObject();
+        items23.addProperty("point_amount", 5);
+        items23.addProperty("point_amount_unit", "percent");
+        items23.addProperty("subject_more_than_or_equal", 1000);
+        items23.addProperty("subject_less_than", 5000);
+        JsonObject items24 = new JsonObject();
+        items24.addProperty("point_amount", 5);
+        items24.addProperty("point_amount_unit", "percent");
+        items24.addProperty("subject_more_than_or_equal", 1000);
+        items24.addProperty("subject_less_than", 5000);
+        JsonObject items25 = new JsonObject();
+        items25.addProperty("point_amount", 5);
+        items25.addProperty("point_amount_unit", "percent");
+        items25.addProperty("subject_more_than_or_equal", 1000);
+        items25.addProperty("subject_less_than", 5000);
+        JsonObject items26 = new JsonObject();
+        items26.addProperty("point_amount", 5);
+        items26.addProperty("point_amount_unit", "percent");
+        items26.addProperty("subject_more_than_or_equal", 1000);
+        items26.addProperty("subject_less_than", 5000);
+        Request request = new CreateCampaign(
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
+        )
+                .applicableShopIds(new String[]{"bb78a0a1-5799-4879-821f-963b8692822c","a896dcf9-fdd5-43d0-9751-fab1a6ec3f47","453c8fb1-4aa4-4ea1-877f-5b30f130c409","bbb565fa-d48f-4ca2-85aa-ff2fe6f01a88","04ee66de-dd08-4454-a183-c6227d51fa9a"})
+                .destPrivateMoneyId("8e269953-5485-48bb-b796-f33cd6865ee8")
+                .maxTotalPointAmount(4880)
+                .maxPointAmount(7437)
+                .existInEachProductGroups(true)
+                .minimumNumberForCombinationPurchase(2921)
+                .minimumNumberOfAmount(6921)
+                .minimumNumberOfProducts(8683)
+                .applicableTimeRanges(new Object[]{items,items2,items3,items4})
+                .applicableDaysOfWeek(new Integer[]{1,2,6,5,6,5,5,6,3,2})
+                .blacklistedProductRules(new Object[]{items5,items6,items7,items8,items9,items10})
+                .productBasedPointRules(new Object[]{items11,items12,items13,items14,items15,items16,items17})
+                .amountBasedPointRules(new Object[]{items18,items19,items20,items21,items22,items23,items24,items25,items26})
+                .subject("money")
+                .setExclusive(false)
+                .pointExpiresInDays(2415)
+                .pointExpiresAt("2022-02-28T19:22:17.000000+09:00")
+                .status("disabled")
+                .description("Jm2H9i9mxYHZZc5rXYEBsyjpf1OmKhDPgwxTJNYBx0oROSYnaGuA6BzxxTi2O4gslCTkIBaqecDPviRTcnGJiWesHKBi0J8B0jajojwNkD1Q71wtY0Kl8lCs1idPJr1ov6oD6cZPJ1EXFpcNmcmlhmRagvcGn0JFTzkdY2kTodeI2uHcmkTnl1Pia3Ar7Fpdd")
+                .bearPointShopId("15b92179-80ca-4a86-b23a-95a790c8165a");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test20() throws ConnectionError, ProcessingError {
         JsonObject applicable_account_metadata = new JsonObject();
         applicable_account_metadata.addProperty("key", "sex");
         applicable_account_metadata.addProperty("value", "male");
@@ -1863,8 +1597,8 @@ public class CreateCampaignTest {
         items5.addProperty("from", "12:00");
         items5.addProperty("to", "23:59");
         JsonObject items6 = new JsonObject();
-        items6.addProperty("from", "12:00");
-        items6.addProperty("to", "23:59");
+        items6.addProperty("product_code", "4912345678904");
+        items6.addProperty("classification_code", "c123");
         JsonObject items7 = new JsonObject();
         items7.addProperty("product_code", "4912345678904");
         items7.addProperty("classification_code", "c123");
@@ -1872,20 +1606,35 @@ public class CreateCampaignTest {
         items8.addProperty("product_code", "4912345678904");
         items8.addProperty("classification_code", "c123");
         JsonObject items9 = new JsonObject();
+        items9.addProperty("point_amount", 5);
+        items9.addProperty("point_amount_unit", "percent");
         items9.addProperty("product_code", "4912345678904");
-        items9.addProperty("classification_code", "c123");
+        items9.addProperty("is_multiply_by_count", true);
+        items9.addProperty("required_count", 2);
         JsonObject items10 = new JsonObject();
+        items10.addProperty("point_amount", 5);
+        items10.addProperty("point_amount_unit", "percent");
         items10.addProperty("product_code", "4912345678904");
-        items10.addProperty("classification_code", "c123");
+        items10.addProperty("is_multiply_by_count", true);
+        items10.addProperty("required_count", 2);
         JsonObject items11 = new JsonObject();
+        items11.addProperty("point_amount", 5);
+        items11.addProperty("point_amount_unit", "percent");
         items11.addProperty("product_code", "4912345678904");
-        items11.addProperty("classification_code", "c123");
+        items11.addProperty("is_multiply_by_count", true);
+        items11.addProperty("required_count", 2);
         JsonObject items12 = new JsonObject();
+        items12.addProperty("point_amount", 5);
+        items12.addProperty("point_amount_unit", "percent");
         items12.addProperty("product_code", "4912345678904");
-        items12.addProperty("classification_code", "c123");
+        items12.addProperty("is_multiply_by_count", true);
+        items12.addProperty("required_count", 2);
         JsonObject items13 = new JsonObject();
+        items13.addProperty("point_amount", 5);
+        items13.addProperty("point_amount_unit", "percent");
         items13.addProperty("product_code", "4912345678904");
-        items13.addProperty("classification_code", "c123");
+        items13.addProperty("is_multiply_by_count", true);
+        items13.addProperty("required_count", 2);
         JsonObject items14 = new JsonObject();
         items14.addProperty("point_amount", 5);
         items14.addProperty("point_amount_unit", "percent");
@@ -1919,102 +1668,193 @@ public class CreateCampaignTest {
         JsonObject items19 = new JsonObject();
         items19.addProperty("point_amount", 5);
         items19.addProperty("point_amount_unit", "percent");
-        items19.addProperty("product_code", "4912345678904");
-        items19.addProperty("is_multiply_by_count", true);
-        items19.addProperty("required_count", 2);
+        items19.addProperty("subject_more_than_or_equal", 1000);
+        items19.addProperty("subject_less_than", 5000);
         JsonObject items20 = new JsonObject();
         items20.addProperty("point_amount", 5);
         items20.addProperty("point_amount_unit", "percent");
-        items20.addProperty("product_code", "4912345678904");
-        items20.addProperty("is_multiply_by_count", true);
-        items20.addProperty("required_count", 2);
+        items20.addProperty("subject_more_than_or_equal", 1000);
+        items20.addProperty("subject_less_than", 5000);
         JsonObject items21 = new JsonObject();
         items21.addProperty("point_amount", 5);
         items21.addProperty("point_amount_unit", "percent");
-        items21.addProperty("product_code", "4912345678904");
-        items21.addProperty("is_multiply_by_count", true);
-        items21.addProperty("required_count", 2);
+        items21.addProperty("subject_more_than_or_equal", 1000);
+        items21.addProperty("subject_less_than", 5000);
         JsonObject items22 = new JsonObject();
         items22.addProperty("point_amount", 5);
         items22.addProperty("point_amount_unit", "percent");
-        items22.addProperty("product_code", "4912345678904");
-        items22.addProperty("is_multiply_by_count", true);
-        items22.addProperty("required_count", 2);
+        items22.addProperty("subject_more_than_or_equal", 1000);
+        items22.addProperty("subject_less_than", 5000);
         JsonObject items23 = new JsonObject();
         items23.addProperty("point_amount", 5);
         items23.addProperty("point_amount_unit", "percent");
         items23.addProperty("subject_more_than_or_equal", 1000);
         items23.addProperty("subject_less_than", 5000);
-        JsonObject items24 = new JsonObject();
-        items24.addProperty("point_amount", 5);
-        items24.addProperty("point_amount_unit", "percent");
-        items24.addProperty("subject_more_than_or_equal", 1000);
-        items24.addProperty("subject_less_than", 5000);
-        JsonObject items25 = new JsonObject();
-        items25.addProperty("point_amount", 5);
-        items25.addProperty("point_amount_unit", "percent");
-        items25.addProperty("subject_more_than_or_equal", 1000);
-        items25.addProperty("subject_less_than", 5000);
-        JsonObject items26 = new JsonObject();
-        items26.addProperty("point_amount", 5);
-        items26.addProperty("point_amount_unit", "percent");
-        items26.addProperty("subject_more_than_or_equal", 1000);
-        items26.addProperty("subject_less_than", 5000);
-        JsonObject items27 = new JsonObject();
-        items27.addProperty("point_amount", 5);
-        items27.addProperty("point_amount_unit", "percent");
-        items27.addProperty("subject_more_than_or_equal", 1000);
-        items27.addProperty("subject_less_than", 5000);
-        JsonObject items28 = new JsonObject();
-        items28.addProperty("point_amount", 5);
-        items28.addProperty("point_amount_unit", "percent");
-        items28.addProperty("subject_more_than_or_equal", 1000);
-        items28.addProperty("subject_less_than", 5000);
-        JsonObject items29 = new JsonObject();
-        items29.addProperty("point_amount", 5);
-        items29.addProperty("point_amount_unit", "percent");
-        items29.addProperty("subject_more_than_or_equal", 1000);
-        items29.addProperty("subject_less_than", 5000);
-        JsonObject items30 = new JsonObject();
-        items30.addProperty("point_amount", 5);
-        items30.addProperty("point_amount_unit", "percent");
-        items30.addProperty("subject_more_than_or_equal", 1000);
-        items30.addProperty("subject_less_than", 5000);
-        JsonObject items31 = new JsonObject();
-        items31.addProperty("point_amount", 5);
-        items31.addProperty("point_amount_unit", "percent");
-        items31.addProperty("subject_more_than_or_equal", 1000);
-        items31.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"c28db559-b570-41f1-9927-130399f9de11","92da54dc-529f-4487-83f0-6f5a059af36e","1fb9ac6b-df1b-4a85-9aa9-61bf215dcb21","8f1c497b-4830-412e-992b-642babaefaf0","dfe27716-f520-4b91-bc3c-9283c2a94889","d30de93d-8bdf-48bf-b8f3-ac9c4d6156f7","30398ecc-4d1d-4041-a7f4-dcf38d7edf1b","00272d5a-b027-43fa-9d76-b8b4110885f5","63702bc8-1945-4d02-8281-908086de6a6d"})
+                .applicableShopIds(new String[]{"3e387d28-b398-4872-bfc1-35d31e3620de","12860e23-88e8-495f-831c-d610763e96c9"})
+                .applicableAccountMetadata(applicable_account_metadata)
+                .destPrivateMoneyId("6b51cb9d-f19e-4158-88de-a23ec7f9b3c3")
+                .maxTotalPointAmount(4542)
+                .maxPointAmount(7753)
+                .existInEachProductGroups(true)
+                .minimumNumberForCombinationPurchase(4364)
+                .minimumNumberOfAmount(8264)
+                .minimumNumberOfProducts(1399)
+                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5})
+                .applicableDaysOfWeek(new Integer[]{5,0,2,0,4,0})
+                .blacklistedProductRules(new Object[]{items6,items7,items8})
+                .productBasedPointRules(new Object[]{items9,items10,items11,items12,items13,items14,items15,items16,items17,items18})
+                .amountBasedPointRules(new Object[]{items19,items20,items21,items22,items23})
+                .subject("money")
+                .setExclusive(false)
+                .pointExpiresInDays(7185)
+                .pointExpiresAt("2024-05-26T11:59:03.000000+09:00")
+                .status("disabled")
+                .description("P6js4JsGEJqZJ9R722ZJSQoNVOIKtJceMEPah5aPpP5NUOpl6Gja9MuehhgDl49mdm6xXeVo6fWNVsZHJkz5L4YRPVxmL2V38N6VsLGRgjQZU3oVNHr9YU4akkcHdRaBPKvd3U8nyNz97EUpk73avlzAz5FX")
+                .bearPointShopId("eff568dc-7e43-48f6-9ba6-5a1529d9ac1d");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test21() throws ConnectionError, ProcessingError {
+        JsonObject applicable_transaction_metadata = new JsonObject();
+        applicable_transaction_metadata.addProperty("key", "rank");
+        applicable_transaction_metadata.addProperty("value", "bronze");
+        JsonObject applicable_account_metadata = new JsonObject();
+        applicable_account_metadata.addProperty("key", "sex");
+        applicable_account_metadata.addProperty("value", "male");
+        JsonObject items = new JsonObject();
+        items.addProperty("from", "12:00");
+        items.addProperty("to", "23:59");
+        JsonObject items2 = new JsonObject();
+        items2.addProperty("from", "12:00");
+        items2.addProperty("to", "23:59");
+        JsonObject items3 = new JsonObject();
+        items3.addProperty("product_code", "4912345678904");
+        items3.addProperty("classification_code", "c123");
+        JsonObject items4 = new JsonObject();
+        items4.addProperty("product_code", "4912345678904");
+        items4.addProperty("classification_code", "c123");
+        JsonObject items5 = new JsonObject();
+        items5.addProperty("product_code", "4912345678904");
+        items5.addProperty("classification_code", "c123");
+        JsonObject items6 = new JsonObject();
+        items6.addProperty("product_code", "4912345678904");
+        items6.addProperty("classification_code", "c123");
+        JsonObject items7 = new JsonObject();
+        items7.addProperty("point_amount", 5);
+        items7.addProperty("point_amount_unit", "percent");
+        items7.addProperty("product_code", "4912345678904");
+        items7.addProperty("is_multiply_by_count", true);
+        items7.addProperty("required_count", 2);
+        JsonObject items8 = new JsonObject();
+        items8.addProperty("point_amount", 5);
+        items8.addProperty("point_amount_unit", "percent");
+        items8.addProperty("product_code", "4912345678904");
+        items8.addProperty("is_multiply_by_count", true);
+        items8.addProperty("required_count", 2);
+        JsonObject items9 = new JsonObject();
+        items9.addProperty("point_amount", 5);
+        items9.addProperty("point_amount_unit", "percent");
+        items9.addProperty("product_code", "4912345678904");
+        items9.addProperty("is_multiply_by_count", true);
+        items9.addProperty("required_count", 2);
+        JsonObject items10 = new JsonObject();
+        items10.addProperty("point_amount", 5);
+        items10.addProperty("point_amount_unit", "percent");
+        items10.addProperty("product_code", "4912345678904");
+        items10.addProperty("is_multiply_by_count", true);
+        items10.addProperty("required_count", 2);
+        JsonObject items11 = new JsonObject();
+        items11.addProperty("point_amount", 5);
+        items11.addProperty("point_amount_unit", "percent");
+        items11.addProperty("subject_more_than_or_equal", 1000);
+        items11.addProperty("subject_less_than", 5000);
+        JsonObject items12 = new JsonObject();
+        items12.addProperty("point_amount", 5);
+        items12.addProperty("point_amount_unit", "percent");
+        items12.addProperty("subject_more_than_or_equal", 1000);
+        items12.addProperty("subject_less_than", 5000);
+        JsonObject items13 = new JsonObject();
+        items13.addProperty("point_amount", 5);
+        items13.addProperty("point_amount_unit", "percent");
+        items13.addProperty("subject_more_than_or_equal", 1000);
+        items13.addProperty("subject_less_than", 5000);
+        JsonObject items14 = new JsonObject();
+        items14.addProperty("point_amount", 5);
+        items14.addProperty("point_amount_unit", "percent");
+        items14.addProperty("subject_more_than_or_equal", 1000);
+        items14.addProperty("subject_less_than", 5000);
+        JsonObject items15 = new JsonObject();
+        items15.addProperty("point_amount", 5);
+        items15.addProperty("point_amount_unit", "percent");
+        items15.addProperty("subject_more_than_or_equal", 1000);
+        items15.addProperty("subject_less_than", 5000);
+        JsonObject items16 = new JsonObject();
+        items16.addProperty("point_amount", 5);
+        items16.addProperty("point_amount_unit", "percent");
+        items16.addProperty("subject_more_than_or_equal", 1000);
+        items16.addProperty("subject_less_than", 5000);
+        JsonObject items17 = new JsonObject();
+        items17.addProperty("point_amount", 5);
+        items17.addProperty("point_amount_unit", "percent");
+        items17.addProperty("subject_more_than_or_equal", 1000);
+        items17.addProperty("subject_less_than", 5000);
+        JsonObject items18 = new JsonObject();
+        items18.addProperty("point_amount", 5);
+        items18.addProperty("point_amount_unit", "percent");
+        items18.addProperty("subject_more_than_or_equal", 1000);
+        items18.addProperty("subject_less_than", 5000);
+        JsonObject items19 = new JsonObject();
+        items19.addProperty("point_amount", 5);
+        items19.addProperty("point_amount_unit", "percent");
+        items19.addProperty("subject_more_than_or_equal", 1000);
+        items19.addProperty("subject_less_than", 5000);
+        Request request = new CreateCampaign(
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
+        )
+                .applicableShopIds(new String[]{"b422486a-b9bd-463e-8ff3-3ace7e83111b","9a3e5493-77c3-44d4-93ce-159b2d1d303e","fb02b374-233c-4a77-8b5b-df665e9f3d97","4cd45e45-b1f8-4121-a074-bff86eb681a7","87392846-c272-4e3a-a6c5-f0361226a173","9c527662-fb3b-483b-b253-3c1a1969c336"})
                 .applicableTransactionMetadata(applicable_transaction_metadata)
                 .applicableAccountMetadata(applicable_account_metadata)
-                .destPrivateMoneyId("093af618-4c39-41ba-850f-dc3f6bf41d86")
-                .maxTotalPointAmount(1896)
-                .maxPointAmount(5474)
+                .destPrivateMoneyId("3e176ce6-de01-4548-8736-d0ce13bc4e68")
+                .maxTotalPointAmount(6504)
+                .maxPointAmount(6181)
                 .existInEachProductGroups(false)
-                .minimumNumberForCombinationPurchase(6441)
-                .minimumNumberOfAmount(890)
-                .minimumNumberOfProducts(2292)
-                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6})
-                .applicableDaysOfWeek(new Integer[]{5,5,2,0,6,6,3,3})
-                .blacklistedProductRules(new Object[]{items7,items8,items9,items10,items11,items12,items13})
-                .productBasedPointRules(new Object[]{items14,items15,items16,items17,items18,items19,items20,items21,items22})
-                .amountBasedPointRules(new Object[]{items23,items24,items25,items26,items27,items28,items29,items30,items31})
+                .minimumNumberForCombinationPurchase(3237)
+                .minimumNumberOfAmount(5908)
+                .minimumNumberOfProducts(7083)
+                .applicableTimeRanges(new Object[]{items,items2})
+                .applicableDaysOfWeek(new Integer[]{6,2,5,2,6,6,2,2,6,1})
+                .blacklistedProductRules(new Object[]{items3,items4,items5,items6})
+                .productBasedPointRules(new Object[]{items7,items8,items9,items10})
+                .amountBasedPointRules(new Object[]{items11,items12,items13,items14,items15,items16,items17,items18,items19})
                 .subject("all")
                 .setExclusive(false)
-                .pointExpiresInDays(4983)
-                .pointExpiresAt("2022-01-14T09:36:12.000000+09:00")
+                .pointExpiresInDays(5421)
+                .pointExpiresAt("2023-02-24T04:37:05.000000+09:00")
                 .status("disabled")
-                .description("Z3H10KhXKh0mlx0gHClrC9uLxkV75YKzqcUhvJttM6tKloIL8Vu0wQEsIr7jUOYayHh7VqEIO089vr7O1eyUUP9y8w")
-                .bearPointShopId("de9c1de5-3f12-47b4-a3c6-4ac58843f810");
+                .description("LjviG0TuUnK3")
+                .bearPointShopId("38615912-ab04-4cf0-994b-636dd146420a");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -2050,11 +1890,11 @@ public class CreateCampaignTest {
         items5.addProperty("from", "12:00");
         items5.addProperty("to", "23:59");
         JsonObject items6 = new JsonObject();
-        items6.addProperty("product_code", "4912345678904");
-        items6.addProperty("classification_code", "c123");
+        items6.addProperty("from", "12:00");
+        items6.addProperty("to", "23:59");
         JsonObject items7 = new JsonObject();
-        items7.addProperty("product_code", "4912345678904");
-        items7.addProperty("classification_code", "c123");
+        items7.addProperty("from", "12:00");
+        items7.addProperty("to", "23:59");
         JsonObject items8 = new JsonObject();
         items8.addProperty("product_code", "4912345678904");
         items8.addProperty("classification_code", "c123");
@@ -2065,83 +1905,58 @@ public class CreateCampaignTest {
         items10.addProperty("product_code", "4912345678904");
         items10.addProperty("classification_code", "c123");
         JsonObject items11 = new JsonObject();
+        items11.addProperty("point_amount", 5);
+        items11.addProperty("point_amount_unit", "percent");
         items11.addProperty("product_code", "4912345678904");
-        items11.addProperty("classification_code", "c123");
+        items11.addProperty("is_multiply_by_count", true);
+        items11.addProperty("required_count", 2);
         JsonObject items12 = new JsonObject();
+        items12.addProperty("point_amount", 5);
+        items12.addProperty("point_amount_unit", "percent");
         items12.addProperty("product_code", "4912345678904");
-        items12.addProperty("classification_code", "c123");
+        items12.addProperty("is_multiply_by_count", true);
+        items12.addProperty("required_count", 2);
         JsonObject items13 = new JsonObject();
         items13.addProperty("point_amount", 5);
         items13.addProperty("point_amount_unit", "percent");
-        items13.addProperty("product_code", "4912345678904");
-        items13.addProperty("is_multiply_by_count", true);
-        items13.addProperty("required_count", 2);
+        items13.addProperty("subject_more_than_or_equal", 1000);
+        items13.addProperty("subject_less_than", 5000);
         JsonObject items14 = new JsonObject();
         items14.addProperty("point_amount", 5);
         items14.addProperty("point_amount_unit", "percent");
         items14.addProperty("subject_more_than_or_equal", 1000);
         items14.addProperty("subject_less_than", 5000);
-        JsonObject items15 = new JsonObject();
-        items15.addProperty("point_amount", 5);
-        items15.addProperty("point_amount_unit", "percent");
-        items15.addProperty("subject_more_than_or_equal", 1000);
-        items15.addProperty("subject_less_than", 5000);
-        JsonObject items16 = new JsonObject();
-        items16.addProperty("point_amount", 5);
-        items16.addProperty("point_amount_unit", "percent");
-        items16.addProperty("subject_more_than_or_equal", 1000);
-        items16.addProperty("subject_less_than", 5000);
-        JsonObject items17 = new JsonObject();
-        items17.addProperty("point_amount", 5);
-        items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("subject_more_than_or_equal", 1000);
-        items17.addProperty("subject_less_than", 5000);
-        JsonObject items18 = new JsonObject();
-        items18.addProperty("point_amount", 5);
-        items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("subject_more_than_or_equal", 1000);
-        items18.addProperty("subject_less_than", 5000);
-        JsonObject items19 = new JsonObject();
-        items19.addProperty("point_amount", 5);
-        items19.addProperty("point_amount_unit", "percent");
-        items19.addProperty("subject_more_than_or_equal", 1000);
-        items19.addProperty("subject_less_than", 5000);
-        JsonObject items20 = new JsonObject();
-        items20.addProperty("point_amount", 5);
-        items20.addProperty("point_amount_unit", "percent");
-        items20.addProperty("subject_more_than_or_equal", 1000);
-        items20.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .applicableShopIds(new String[]{"f516d9a2-2021-4f82-afd8-d8986beccc63","abe089ba-9ec3-4a94-85e1-f74402a3f2ec","f2452cbb-b664-4404-a03c-9b0e2bca84a1"})
-                .budgetCapsAmount(352183658)
+                .applicableShopIds(new String[]{"e4a3cd18-120c-4222-a777-3e36c5f4759a","690f6f09-a30c-4776-9325-f776407d7b5d","ce213b7c-ae64-4951-8a7f-023bedf261f2","dbf325fa-93c8-4639-96e3-1312644bc221","07c1761e-6e30-4386-8c39-129c9fbf8ba3","c18784db-3e3a-42fb-9a17-207ce9e7d1fc","55d396f6-2fb5-4e3f-91f8-155913439830","d823e65a-bd3f-407b-8aa4-b9d0925e4c4b"})
+                .budgetCapsAmount(1015078485)
                 .applicableTransactionMetadata(applicable_transaction_metadata)
                 .applicableAccountMetadata(applicable_account_metadata)
-                .destPrivateMoneyId("ef42aa41-a38d-4836-a06b-35134511cc19")
-                .maxTotalPointAmount(9190)
-                .maxPointAmount(9871)
+                .destPrivateMoneyId("17918b00-5d5b-40ca-8fe3-c2aa6b35dd0f")
+                .maxTotalPointAmount(8277)
+                .maxPointAmount(3499)
                 .existInEachProductGroups(true)
-                .minimumNumberForCombinationPurchase(4592)
-                .minimumNumberOfAmount(129)
-                .minimumNumberOfProducts(3592)
-                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5})
-                .applicableDaysOfWeek(new Integer[]{1,2,3,6,0,3,4,4,5})
-                .blacklistedProductRules(new Object[]{items6,items7,items8,items9,items10,items11,items12})
-                .productBasedPointRules(new Object[]{items13})
-                .amountBasedPointRules(new Object[]{items14,items15,items16,items17,items18,items19,items20})
+                .minimumNumberForCombinationPurchase(1645)
+                .minimumNumberOfAmount(2748)
+                .minimumNumberOfProducts(6784)
+                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6,items7})
+                .applicableDaysOfWeek(new Integer[]{3,0,4,3,0,3,3})
+                .blacklistedProductRules(new Object[]{items8,items9,items10})
+                .productBasedPointRules(new Object[]{items11,items12})
+                .amountBasedPointRules(new Object[]{items13,items14})
                 .subject("all")
-                .setExclusive(true)
-                .pointExpiresInDays(4490)
-                .pointExpiresAt("2022-05-27T21:37:21.000000+09:00")
+                .setExclusive(false)
+                .pointExpiresInDays(7617)
+                .pointExpiresAt("2020-11-02T14:24:44.000000+09:00")
                 .status("disabled")
-                .description("OzfNYz7foYIzovsoZFikQXRe5ERFGEFxrHrqnszNAlFQVEDhgi2ig")
-                .bearPointShopId("510e2543-1a92-4a79-ab04-e8511501f219");
+                .description("3uwgsFxQC5rZjT71VSETl7YsUAKAccBkdMZZALMfGm6QE08k52ZY3i2u1YoPvonGBPT8SL9gpREzJ2A1oewDT0kzVcXNcROuAAOD5eGWkSQjkAQOu0yA4BjvdD90LeSh")
+                .bearPointShopId("9a6effa7-f274-436e-a224-66773d7b5e62");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -2156,14 +1971,14 @@ public class CreateCampaignTest {
     @Test
     void test23() throws ConnectionError, ProcessingError {
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .blacklistedShopIds(new String[]{"54c6dc17-e896-4ca6-ad60-339b332e5233"});
+                .blacklistedShopIds(new String[]{"fce94bd2-c5a5-47c5-9648-50f4a7753e7b","ba802782-1651-4762-969c-0d0b865fc925","8baa8c45-e422-49bd-9c8e-239042c57bf7","75457686-380f-4583-9668-28e8fc63b361","b85bef9d-05a8-4e28-b563-87d8956658ed","a2dca329-2c4f-43b4-a3b5-fc4b51090b41","d8d211e6-263f-4951-8435-5e7c7ba75330"});
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -2178,15 +1993,15 @@ public class CreateCampaignTest {
     @Test
     void test24() throws ConnectionError, ProcessingError {
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .blacklistedShopIds(new String[]{"adff3ab9-5d28-4fda-b3e8-7d3303b42e0b"})
-                .bearPointShopId("60029d9f-c6a4-4681-b50e-51cfc9f19519");
+                .blacklistedShopIds(new String[]{"8371faea-16f0-4bdd-ba54-ef771a662a35","83e7bfea-b504-446a-89e3-97c65c8bedef"})
+                .bearPointShopId("f28fe7a4-8230-44f2-9234-fefab7df9c0a");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -2201,16 +2016,16 @@ public class CreateCampaignTest {
     @Test
     void test25() throws ConnectionError, ProcessingError {
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .blacklistedShopIds(new String[]{"04e2fc22-99f4-4a5e-b64a-9b5f46361650","5d38127e-b0d1-4154-a731-ab4221022c6d","f7a19eea-f2e4-4342-82bc-d89699b54bf3","97b2a839-22f6-4313-a86a-af61c816f00f","30056142-9fdc-4c0d-b5aa-5748a4e26332","e8a594e5-b47f-4ea0-b844-970f23b366fe","da65bcd6-23f3-4f26-83cb-a88ac24ec911","0f682d5d-ca9d-45fb-9c9d-caf8b164a5dc"})
-                .description("WwLCWmQ1sUjNjww5gYMTV77CIidLByPNnavz73")
-                .bearPointShopId("046accf5-08e8-4392-aa5e-55a3e545354a");
+                .blacklistedShopIds(new String[]{"5580ecb0-ebfa-42ca-a979-7f1c479e2a59","3c00a660-3a08-4de1-9ed4-69c0e67293f1","6c6957ce-0bef-4f78-b990-39c86caf5caf","557f1add-d15d-4f2b-8e0e-4154fd17b2d4","caa56586-a9d9-4247-ad14-340064c5d0e0","5674c4a9-be50-40f9-ba89-f489352ff37f","9d5c0f8b-92a7-485d-993d-16d7a888a337"})
+                .description("5t4VwJs8uz8IoLLM5GqoUPw6rEO")
+                .bearPointShopId("78b8101c-14f9-40ee-bbe8-14af0b525183");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -2225,17 +2040,17 @@ public class CreateCampaignTest {
     @Test
     void test26() throws ConnectionError, ProcessingError {
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .blacklistedShopIds(new String[]{"a498bc5b-8857-4802-b67b-a83f42e566a9","212c6bde-caeb-46ad-b38e-e9e49917fa96","838353fe-f144-43be-945d-f41de7fa269d"})
+                .blacklistedShopIds(new String[]{"526d7bb5-6cba-412b-87c2-e88b92e135dd","8ef80a6b-422a-4935-8310-628ea9a43a48","5613d0bc-a50d-47ad-a567-b1547344b1a7","cd34d22c-0626-4ddf-acc9-9042a79859b9","885167c0-2416-4020-8670-da957ea0021f","4fb06720-3f94-4fba-a94c-e9b0fc923fdb","75753659-ef73-4b9e-99e8-75e38a628946"})
                 .status("enabled")
-                .description("dKNeu6E41RN131db2IcXuva84Yb5QfpABymZz0lcjrW5nZ5ASQPhHnx9VIXdjAuzZwXLIXXx25LzvYc0fiqtSLaFG")
-                .bearPointShopId("4a459484-1dc1-402d-9077-ec9bade00089");
+                .description("caAHB0CU7rFUzcd0jeIJxYgRKXDgRbJCaPC6E5X1B4DlTO8thJ2XIi5hl0E8y1El7CazAbg8RTyoEuh6M1FmBFmAcZUqXqqEQTV8Xa6BtbvAwPiWBOgu1Yxor2O05ovclgaXNxJXMDTvJ218ZrpY9qyucV2cs0qMFY4YkGjV0EPSukBJJj5saJ8")
+                .bearPointShopId("0df8e5be-1753-451a-9c51-bc700c8e05d4");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -2250,18 +2065,18 @@ public class CreateCampaignTest {
     @Test
     void test27() throws ConnectionError, ProcessingError {
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .blacklistedShopIds(new String[]{"efc88a74-3770-4a61-a182-b77ea30521b8","4db9b4a2-ae72-4063-bfba-85794135be22","d9dda2b3-7b07-4092-8568-0dba48cd63df","e04d94f7-fc9b-4de8-a8e0-5bdd3d6ddb90","376dad27-ebd1-4711-a6b8-b913d69bf7c7","e38395c3-2ebb-42a2-b36b-eeff0cb91392","245a6d4e-82ce-4309-a7c4-9363c43cf03b","4ba8ef20-86e8-4396-a26a-4944855ff2be","5f58f823-038a-431f-a843-ee7698c083a5","1cf7f2f6-d51f-498b-b73d-8dde22f3eed9"})
-                .pointExpiresAt("2020-09-20T19:13:27.000000+09:00")
-                .status("disabled")
-                .description("QFuKdi7XexlDUIlLEAYnLvsiRT2ViwlNFzm3Dar9JsBO7mLhMcOkHBupDBhz4u2gPSZQnd5WN4gMk6338nhggI4HyP2qfjeoarBAy1FIXFkVCaQhFZRR")
-                .bearPointShopId("4112b839-b0dd-4847-90e4-c58a9a20d9e3");
+                .blacklistedShopIds(new String[]{"7a717ccb-cec4-4aa4-ae1f-33aeab5f812f","9d89a6e5-0d9d-4970-9710-050c090b84a1","3c82548f-22e7-4a2a-b6ec-05acd53fd066","046b5004-e0f5-4311-ae99-c39c96da236f"})
+                .pointExpiresAt("2021-02-13T03:35:18.000000+09:00")
+                .status("enabled")
+                .description("4bwbKmSR1y9vdTSLzpteC")
+                .bearPointShopId("a0d154e6-8019-49f5-aa55-9970b406aabb");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -2276,19 +2091,19 @@ public class CreateCampaignTest {
     @Test
     void test28() throws ConnectionError, ProcessingError {
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .blacklistedShopIds(new String[]{"c50998f0-2c56-43e4-9b05-64049c5bc657","f87f5f7a-26d8-4755-903a-41bb89f438f7","d70381e0-5a34-4086-9e46-a785daf49e8f","93a95ed7-915f-442c-b30c-2c0fc5c6ef17","c4e4aa89-657a-4b23-95a7-2e0f60098ae9","fa6f5369-753b-4de7-b760-d74931c3afa5"})
-                .pointExpiresInDays(6872)
-                .pointExpiresAt("2023-04-06T13:09:15.000000+09:00")
-                .status("disabled")
-                .description("fxPN5riUhjKfQwjWkXL2J52JLE8bsYIXtBhGZWoR6xF1ci7AdIyMHuf1AWNOSULhXt36G5F4AZSE2CS60NYEJo6qFgLMKEkz")
-                .bearPointShopId("2993cd3a-d53c-476d-9266-92fe2efb412e");
+                .blacklistedShopIds(new String[]{"7820725f-6bf9-4de4-a3cf-0400f9a2dd97","b51ec86b-a9e0-453f-90c4-f6d9eadb40ca","dd6968a8-3cb3-450d-90d1-6e75aa307bce"})
+                .pointExpiresInDays(120)
+                .pointExpiresAt("2021-06-08T11:17:36.000000+09:00")
+                .status("enabled")
+                .description("xSf5mrN3jxNLk9vkonVuoGtAzlO2ikMy9uHqua718cA7ihmN90Mu9haRtAusI7XJRgNJZ8RQuIj6UJff8tV")
+                .bearPointShopId("58c91463-0a54-44fe-aed1-2a1fd094320d");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -2303,20 +2118,20 @@ public class CreateCampaignTest {
     @Test
     void test29() throws ConnectionError, ProcessingError {
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .blacklistedShopIds(new String[]{"56b56d46-cd74-4be4-b921-36bf8149b847","c4c0362f-0d76-43b6-ac14-d52ac2783a24","2683cddb-6365-4c1c-93b2-ff395cbd18ff","51fd7c72-9e99-4933-bcb6-4d167ff5df21","e814a764-0f66-498c-bce1-acf1ca4bfbc5","edb7eae8-851e-43d7-b188-8df3d0189146","dc887adb-e87b-49fa-8d91-643c90675d33","9175cad9-cd4d-4628-a5dd-3f0f1a07514e"})
-                .setExclusive(true)
-                .pointExpiresInDays(1837)
-                .pointExpiresAt("2021-09-23T22:50:49.000000+09:00")
-                .status("enabled")
-                .description("xQvqkO6xVksWzgtsiOjPtpUI5Y0P9hpIJkg3LYQElOuPSmAzVEEqVMqdC0Zeqr8zVYoBVR7XiwqnCS3atqwowq0IJoTCAbmCoUxLxQ3TPYtzR1")
-                .bearPointShopId("dcc7646a-e69b-4d73-8b08-376bee785927");
+                .blacklistedShopIds(new String[]{"0b439ff3-762c-4c01-8896-25568293daef","d4733ae9-bb2d-4ae4-8227-db43f05b0a14","a9d20e73-554a-4770-805e-55acaff7288c"})
+                .setExclusive(false)
+                .pointExpiresInDays(8302)
+                .pointExpiresAt("2020-02-24T17:32:23.000000+09:00")
+                .status("disabled")
+                .description("PpGTpvLtn5v3HWzS9lSLnIj8HkFR2Csvpl4rV9ZRK4xdzZk033gaWy8kSDslCY3b9aE8DPPDrpSWkNnAlzb6Fmnyece")
+                .bearPointShopId("c2eed7e4-4304-48c9-b8ec-808dd8153661");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -2331,21 +2146,21 @@ public class CreateCampaignTest {
     @Test
     void test30() throws ConnectionError, ProcessingError {
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .blacklistedShopIds(new String[]{"9d1a7908-dd43-4974-ba03-0e61bae5d1c4","619e42d2-9280-4767-abf3-6fa7ffbef1df","3a50d27a-435c-4981-9a12-4325c2be20b9","b295962e-7161-4a35-9e44-ca4ee7a50f2b"})
+                .blacklistedShopIds(new String[]{"36459e87-1cd9-4b3c-b74b-769b33943b3d","a5d4798d-9d0a-4139-866b-bb2e844b036e","8652232a-e672-4b6f-85aa-edcc90852c2b","65e0b9a2-b56a-4cde-b849-47695ac85bb5","43ae53fe-94c6-472c-8dac-b7bf26958b00","82fca310-bd6a-4717-b39d-7bf98248c760","83868e3f-35ed-43ab-a4cc-408672fa7a76","d7739820-47d0-42ad-8073-65ccf70bc3be","dcba972c-e15e-49a0-83e4-e000f3b8d06e","710c64d0-5447-4a6e-8c31-df9305885605"})
                 .subject("all")
-                .setExclusive(true)
-                .pointExpiresInDays(9050)
-                .pointExpiresAt("2020-10-27T11:12:19.000000+09:00")
-                .status("disabled")
-                .description("R57LitBaHFeNzu7UuptygJK1rZR4L4rotKVrpySE75B6lOJ")
-                .bearPointShopId("4fb17d29-f580-49c8-ac0f-080fdde1b5b8");
+                .setExclusive(false)
+                .pointExpiresInDays(5874)
+                .pointExpiresAt("2023-05-22T02:29:36.000000+09:00")
+                .status("enabled")
+                .description("2iJfcjK8FoY")
+                .bearPointShopId("6d377f19-166c-4c82-8fc5-fa21ff3d28fe");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -2404,28 +2219,23 @@ public class CreateCampaignTest {
         items9.addProperty("point_amount_unit", "percent");
         items9.addProperty("subject_more_than_or_equal", 1000);
         items9.addProperty("subject_less_than", 5000);
-        JsonObject items10 = new JsonObject();
-        items10.addProperty("point_amount", 5);
-        items10.addProperty("point_amount_unit", "percent");
-        items10.addProperty("subject_more_than_or_equal", 1000);
-        items10.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .blacklistedShopIds(new String[]{"6b9f0b5e-8599-4447-9708-0cac9f1cf433","e8978d36-31b0-4532-b5fd-0d79d2a29dee","8ff7ca6b-a311-4a32-a333-b4a6d919cd8c","831e1236-b35e-4104-afd3-75b2bc91c159","1e4a3100-a252-4838-bc99-8cab8e9a7382","6a50cbe2-e94e-4f84-a336-e55651f93e83","d917d4a8-9369-487d-8579-8e43f66d7d83","2adfc227-4a4c-44e2-ab3a-8afab820d686","f92141a7-6556-4200-9665-6ee6181f1a3b","54abf27d-74cd-48ed-b76f-e2abce858ac3"})
-                .amountBasedPointRules(new Object[]{items,items2,items3,items4,items5,items6,items7,items8,items9,items10})
-                .subject("money")
+                .blacklistedShopIds(new String[]{"9b5187cd-2544-483b-b3b9-b7defa54b8c0","88fb629f-0465-487b-9cf9-763439b4cb5f","7941f10c-a8d4-4596-b020-c8c4c78a16fd","2eec666f-0716-4868-a5bd-e987225694c6","322e9ad6-b8cf-45a9-b8c5-40a9b894b958","9ac0d80e-5b7e-4f73-a7e2-18095b26ac8f","37899c4e-dda6-412d-90fc-033f05f2e347"})
+                .amountBasedPointRules(new Object[]{items,items2,items3,items4,items5,items6,items7,items8,items9})
+                .subject("all")
                 .setExclusive(true)
-                .pointExpiresInDays(3256)
-                .pointExpiresAt("2024-07-04T22:17:39.000000+09:00")
+                .pointExpiresInDays(3447)
+                .pointExpiresAt("2022-12-06T23:08:43.000000+09:00")
                 .status("enabled")
-                .description("VE5Qf6MLa35rMr3oIfH8")
-                .bearPointShopId("f9be5f8d-922e-4492-9226-5f69aae9f1c8");
+                .description("3n1b2iMy3PTnZKp0DkKpl4ORzp9PrVdUqgjGd9mvuLNjCinvwHX8Jsb89pRdk")
+                .bearPointShopId("ad238dbb-11c4-4901-846b-91a06b6f781d");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -2460,75 +2270,46 @@ public class CreateCampaignTest {
         JsonObject items4 = new JsonObject();
         items4.addProperty("point_amount", 5);
         items4.addProperty("point_amount_unit", "percent");
-        items4.addProperty("product_code", "4912345678904");
-        items4.addProperty("is_multiply_by_count", true);
-        items4.addProperty("required_count", 2);
+        items4.addProperty("subject_more_than_or_equal", 1000);
+        items4.addProperty("subject_less_than", 5000);
         JsonObject items5 = new JsonObject();
         items5.addProperty("point_amount", 5);
         items5.addProperty("point_amount_unit", "percent");
-        items5.addProperty("product_code", "4912345678904");
-        items5.addProperty("is_multiply_by_count", true);
-        items5.addProperty("required_count", 2);
+        items5.addProperty("subject_more_than_or_equal", 1000);
+        items5.addProperty("subject_less_than", 5000);
         JsonObject items6 = new JsonObject();
         items6.addProperty("point_amount", 5);
         items6.addProperty("point_amount_unit", "percent");
-        items6.addProperty("product_code", "4912345678904");
-        items6.addProperty("is_multiply_by_count", true);
-        items6.addProperty("required_count", 2);
+        items6.addProperty("subject_more_than_or_equal", 1000);
+        items6.addProperty("subject_less_than", 5000);
         JsonObject items7 = new JsonObject();
         items7.addProperty("point_amount", 5);
         items7.addProperty("point_amount_unit", "percent");
-        items7.addProperty("product_code", "4912345678904");
-        items7.addProperty("is_multiply_by_count", true);
-        items7.addProperty("required_count", 2);
+        items7.addProperty("subject_more_than_or_equal", 1000);
+        items7.addProperty("subject_less_than", 5000);
         JsonObject items8 = new JsonObject();
         items8.addProperty("point_amount", 5);
         items8.addProperty("point_amount_unit", "percent");
         items8.addProperty("subject_more_than_or_equal", 1000);
         items8.addProperty("subject_less_than", 5000);
-        JsonObject items9 = new JsonObject();
-        items9.addProperty("point_amount", 5);
-        items9.addProperty("point_amount_unit", "percent");
-        items9.addProperty("subject_more_than_or_equal", 1000);
-        items9.addProperty("subject_less_than", 5000);
-        JsonObject items10 = new JsonObject();
-        items10.addProperty("point_amount", 5);
-        items10.addProperty("point_amount_unit", "percent");
-        items10.addProperty("subject_more_than_or_equal", 1000);
-        items10.addProperty("subject_less_than", 5000);
-        JsonObject items11 = new JsonObject();
-        items11.addProperty("point_amount", 5);
-        items11.addProperty("point_amount_unit", "percent");
-        items11.addProperty("subject_more_than_or_equal", 1000);
-        items11.addProperty("subject_less_than", 5000);
-        JsonObject items12 = new JsonObject();
-        items12.addProperty("point_amount", 5);
-        items12.addProperty("point_amount_unit", "percent");
-        items12.addProperty("subject_more_than_or_equal", 1000);
-        items12.addProperty("subject_less_than", 5000);
-        JsonObject items13 = new JsonObject();
-        items13.addProperty("point_amount", 5);
-        items13.addProperty("point_amount_unit", "percent");
-        items13.addProperty("subject_more_than_or_equal", 1000);
-        items13.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .blacklistedShopIds(new String[]{"ffd90b5c-4f33-4947-a357-d4ea1fa25877","01b5fb3d-4df1-444c-b23c-b595969dfc4a","1647ae0c-6d7d-42b0-a2da-56816f901af5","5e28f49d-0df5-4619-b6f0-6e876687d124","073cada0-7cf9-485e-be9d-fd6b5d87f6ff","71462840-b6c1-4fd9-be3f-9cba010aae2f","97cb589f-2cb1-4e03-8840-5cf84ad3ceaa"})
-                .productBasedPointRules(new Object[]{items,items2,items3,items4,items5,items6,items7})
-                .amountBasedPointRules(new Object[]{items8,items9,items10,items11,items12,items13})
+                .blacklistedShopIds(new String[]{"de956ff8-0bfa-4556-9fc1-faf8839813b0","6a14c604-c416-4b37-aa23-91d5d915e935"})
+                .productBasedPointRules(new Object[]{items,items2,items3})
+                .amountBasedPointRules(new Object[]{items4,items5,items6,items7,items8})
                 .subject("money")
-                .setExclusive(false)
-                .pointExpiresInDays(5066)
-                .pointExpiresAt("2022-01-12T03:52:04.000000+09:00")
+                .setExclusive(true)
+                .pointExpiresInDays(7402)
+                .pointExpiresAt("2022-04-02T01:55:51.000000+09:00")
                 .status("enabled")
-                .description("I4UWBWFOHaerWbWQq6NkSGDuzcgJ7oHOrm70NwOdZn1sK1O1fwALD8sF8dEAaPgbCLdEfsP71H1GntsfwWN789gX5")
-                .bearPointShopId("7b4bd56a-1f55-483d-ae35-318c43e30d04");
+                .description("Vf5wNfsMZYRzYuxk9cwFnBHIfdFZQ6Sm0J8RV9WDu3IRtQKFEsJU8jpLIbXdDMWnjeozlwTq")
+                .bearPointShopId("fc6393e2-3750-4ba4-b9b0-908e042fbdef");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -2564,775 +2345,11 @@ public class CreateCampaignTest {
         items7.addProperty("product_code", "4912345678904");
         items7.addProperty("classification_code", "c123");
         JsonObject items8 = new JsonObject();
-        items8.addProperty("product_code", "4912345678904");
-        items8.addProperty("classification_code", "c123");
-        JsonObject items9 = new JsonObject();
-        items9.addProperty("product_code", "4912345678904");
-        items9.addProperty("classification_code", "c123");
-        JsonObject items10 = new JsonObject();
-        items10.addProperty("point_amount", 5);
-        items10.addProperty("point_amount_unit", "percent");
-        items10.addProperty("product_code", "4912345678904");
-        items10.addProperty("is_multiply_by_count", true);
-        items10.addProperty("required_count", 2);
-        JsonObject items11 = new JsonObject();
-        items11.addProperty("point_amount", 5);
-        items11.addProperty("point_amount_unit", "percent");
-        items11.addProperty("product_code", "4912345678904");
-        items11.addProperty("is_multiply_by_count", true);
-        items11.addProperty("required_count", 2);
-        JsonObject items12 = new JsonObject();
-        items12.addProperty("point_amount", 5);
-        items12.addProperty("point_amount_unit", "percent");
-        items12.addProperty("product_code", "4912345678904");
-        items12.addProperty("is_multiply_by_count", true);
-        items12.addProperty("required_count", 2);
-        JsonObject items13 = new JsonObject();
-        items13.addProperty("point_amount", 5);
-        items13.addProperty("point_amount_unit", "percent");
-        items13.addProperty("product_code", "4912345678904");
-        items13.addProperty("is_multiply_by_count", true);
-        items13.addProperty("required_count", 2);
-        JsonObject items14 = new JsonObject();
-        items14.addProperty("point_amount", 5);
-        items14.addProperty("point_amount_unit", "percent");
-        items14.addProperty("product_code", "4912345678904");
-        items14.addProperty("is_multiply_by_count", true);
-        items14.addProperty("required_count", 2);
-        JsonObject items15 = new JsonObject();
-        items15.addProperty("point_amount", 5);
-        items15.addProperty("point_amount_unit", "percent");
-        items15.addProperty("subject_more_than_or_equal", 1000);
-        items15.addProperty("subject_less_than", 5000);
-        JsonObject items16 = new JsonObject();
-        items16.addProperty("point_amount", 5);
-        items16.addProperty("point_amount_unit", "percent");
-        items16.addProperty("subject_more_than_or_equal", 1000);
-        items16.addProperty("subject_less_than", 5000);
-        JsonObject items17 = new JsonObject();
-        items17.addProperty("point_amount", 5);
-        items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("subject_more_than_or_equal", 1000);
-        items17.addProperty("subject_less_than", 5000);
-        JsonObject items18 = new JsonObject();
-        items18.addProperty("point_amount", 5);
-        items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("subject_more_than_or_equal", 1000);
-        items18.addProperty("subject_less_than", 5000);
-        JsonObject items19 = new JsonObject();
-        items19.addProperty("point_amount", 5);
-        items19.addProperty("point_amount_unit", "percent");
-        items19.addProperty("subject_more_than_or_equal", 1000);
-        items19.addProperty("subject_less_than", 5000);
-        JsonObject items20 = new JsonObject();
-        items20.addProperty("point_amount", 5);
-        items20.addProperty("point_amount_unit", "percent");
-        items20.addProperty("subject_more_than_or_equal", 1000);
-        items20.addProperty("subject_less_than", 5000);
-        JsonObject items21 = new JsonObject();
-        items21.addProperty("point_amount", 5);
-        items21.addProperty("point_amount_unit", "percent");
-        items21.addProperty("subject_more_than_or_equal", 1000);
-        items21.addProperty("subject_less_than", 5000);
-        Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
-        )
-                .blacklistedShopIds(new String[]{"31eec56a-6d74-4f95-b001-2656ffe3d0ca","bedf037e-6236-41be-b24d-9475affe9726","0570328b-4773-479d-a398-216c505cee2a","56bf539c-a67b-4414-b0bf-e5b056b4ac45","94f14c23-5c59-411f-af13-56a6d8c78b62"})
-                .blacklistedProductRules(new Object[]{items,items2,items3,items4,items5,items6,items7,items8,items9})
-                .productBasedPointRules(new Object[]{items10,items11,items12,items13,items14})
-                .amountBasedPointRules(new Object[]{items15,items16,items17,items18,items19,items20,items21})
-                .subject("all")
-                .setExclusive(false)
-                .pointExpiresInDays(2752)
-                .pointExpiresAt("2022-03-21T09:00:10.000000+09:00")
-                .status("disabled")
-                .description("pho3RpltLL6fDbkaVACptOWFGkmaBs4l92lviXQO4Ol1EheNKB0XCny36U95EswVPRrA1oo7PwZNtNHtXggPRXUc7a")
-                .bearPointShopId("0bc3cf40-97fe-4603-b436-0503fc5ab9e0");
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test34() throws ConnectionError, ProcessingError {
-        JsonObject items = new JsonObject();
-        items.addProperty("product_code", "4912345678904");
-        items.addProperty("classification_code", "c123");
-        JsonObject items2 = new JsonObject();
-        items2.addProperty("point_amount", 5);
-        items2.addProperty("point_amount_unit", "percent");
-        items2.addProperty("product_code", "4912345678904");
-        items2.addProperty("is_multiply_by_count", true);
-        items2.addProperty("required_count", 2);
-        JsonObject items3 = new JsonObject();
-        items3.addProperty("point_amount", 5);
-        items3.addProperty("point_amount_unit", "percent");
-        items3.addProperty("product_code", "4912345678904");
-        items3.addProperty("is_multiply_by_count", true);
-        items3.addProperty("required_count", 2);
-        JsonObject items4 = new JsonObject();
-        items4.addProperty("point_amount", 5);
-        items4.addProperty("point_amount_unit", "percent");
-        items4.addProperty("product_code", "4912345678904");
-        items4.addProperty("is_multiply_by_count", true);
-        items4.addProperty("required_count", 2);
-        JsonObject items5 = new JsonObject();
-        items5.addProperty("point_amount", 5);
-        items5.addProperty("point_amount_unit", "percent");
-        items5.addProperty("subject_more_than_or_equal", 1000);
-        items5.addProperty("subject_less_than", 5000);
-        JsonObject items6 = new JsonObject();
-        items6.addProperty("point_amount", 5);
-        items6.addProperty("point_amount_unit", "percent");
-        items6.addProperty("subject_more_than_or_equal", 1000);
-        items6.addProperty("subject_less_than", 5000);
-        JsonObject items7 = new JsonObject();
-        items7.addProperty("point_amount", 5);
-        items7.addProperty("point_amount_unit", "percent");
-        items7.addProperty("subject_more_than_or_equal", 1000);
-        items7.addProperty("subject_less_than", 5000);
-        JsonObject items8 = new JsonObject();
         items8.addProperty("point_amount", 5);
         items8.addProperty("point_amount_unit", "percent");
-        items8.addProperty("subject_more_than_or_equal", 1000);
-        items8.addProperty("subject_less_than", 5000);
-        JsonObject items9 = new JsonObject();
-        items9.addProperty("point_amount", 5);
-        items9.addProperty("point_amount_unit", "percent");
-        items9.addProperty("subject_more_than_or_equal", 1000);
-        items9.addProperty("subject_less_than", 5000);
-        JsonObject items10 = new JsonObject();
-        items10.addProperty("point_amount", 5);
-        items10.addProperty("point_amount_unit", "percent");
-        items10.addProperty("subject_more_than_or_equal", 1000);
-        items10.addProperty("subject_less_than", 5000);
-        JsonObject items11 = new JsonObject();
-        items11.addProperty("point_amount", 5);
-        items11.addProperty("point_amount_unit", "percent");
-        items11.addProperty("subject_more_than_or_equal", 1000);
-        items11.addProperty("subject_less_than", 5000);
-        JsonObject items12 = new JsonObject();
-        items12.addProperty("point_amount", 5);
-        items12.addProperty("point_amount_unit", "percent");
-        items12.addProperty("subject_more_than_or_equal", 1000);
-        items12.addProperty("subject_less_than", 5000);
-        JsonObject items13 = new JsonObject();
-        items13.addProperty("point_amount", 5);
-        items13.addProperty("point_amount_unit", "percent");
-        items13.addProperty("subject_more_than_or_equal", 1000);
-        items13.addProperty("subject_less_than", 5000);
-        JsonObject items14 = new JsonObject();
-        items14.addProperty("point_amount", 5);
-        items14.addProperty("point_amount_unit", "percent");
-        items14.addProperty("subject_more_than_or_equal", 1000);
-        items14.addProperty("subject_less_than", 5000);
-        Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
-        )
-                .blacklistedShopIds(new String[]{"5ca564db-7140-4259-b476-cc3d98c315d9","2a5906e0-7d8b-440f-ac31-aeebd18c9d32","b7a16e0c-d520-40ae-a1a8-52e70d40b311"})
-                .applicableDaysOfWeek(new Integer[]{1,3,1,4,1,6,3})
-                .blacklistedProductRules(new Object[]{items})
-                .productBasedPointRules(new Object[]{items2,items3,items4})
-                .amountBasedPointRules(new Object[]{items5,items6,items7,items8,items9,items10,items11,items12,items13,items14})
-                .subject("all")
-                .setExclusive(false)
-                .pointExpiresInDays(654)
-                .pointExpiresAt("2022-01-05T22:55:42.000000+09:00")
-                .status("enabled")
-                .description("pdZ9EH5mCWm1dMYBm5rh4EExUKQiXVnTEyIFqusFetmdJt1BoDDAHesOcQqWx4AcO88Vq0RossVBP9BJpEY64ZX1owUlxZO1w0FPyrvk3RYYwYo3D5APOkxZ7kohqvRhaBeSahs98xPqQUAMtfETCbjYyX93tR9T9uDRmLJxsFsWSvA3jAMlgTTkkh8SjFXXHMjHAAdX")
-                .bearPointShopId("f826713e-87b2-44ce-bc31-49aeb880fabd");
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test35() throws ConnectionError, ProcessingError {
-        JsonObject items = new JsonObject();
-        items.addProperty("from", "12:00");
-        items.addProperty("to", "23:59");
-        JsonObject items2 = new JsonObject();
-        items2.addProperty("from", "12:00");
-        items2.addProperty("to", "23:59");
-        JsonObject items3 = new JsonObject();
-        items3.addProperty("from", "12:00");
-        items3.addProperty("to", "23:59");
-        JsonObject items4 = new JsonObject();
-        items4.addProperty("from", "12:00");
-        items4.addProperty("to", "23:59");
-        JsonObject items5 = new JsonObject();
-        items5.addProperty("from", "12:00");
-        items5.addProperty("to", "23:59");
-        JsonObject items6 = new JsonObject();
-        items6.addProperty("product_code", "4912345678904");
-        items6.addProperty("classification_code", "c123");
-        JsonObject items7 = new JsonObject();
-        items7.addProperty("product_code", "4912345678904");
-        items7.addProperty("classification_code", "c123");
-        JsonObject items8 = new JsonObject();
         items8.addProperty("product_code", "4912345678904");
-        items8.addProperty("classification_code", "c123");
-        JsonObject items9 = new JsonObject();
-        items9.addProperty("product_code", "4912345678904");
-        items9.addProperty("classification_code", "c123");
-        JsonObject items10 = new JsonObject();
-        items10.addProperty("product_code", "4912345678904");
-        items10.addProperty("classification_code", "c123");
-        JsonObject items11 = new JsonObject();
-        items11.addProperty("product_code", "4912345678904");
-        items11.addProperty("classification_code", "c123");
-        JsonObject items12 = new JsonObject();
-        items12.addProperty("point_amount", 5);
-        items12.addProperty("point_amount_unit", "percent");
-        items12.addProperty("product_code", "4912345678904");
-        items12.addProperty("is_multiply_by_count", true);
-        items12.addProperty("required_count", 2);
-        JsonObject items13 = new JsonObject();
-        items13.addProperty("point_amount", 5);
-        items13.addProperty("point_amount_unit", "percent");
-        items13.addProperty("product_code", "4912345678904");
-        items13.addProperty("is_multiply_by_count", true);
-        items13.addProperty("required_count", 2);
-        JsonObject items14 = new JsonObject();
-        items14.addProperty("point_amount", 5);
-        items14.addProperty("point_amount_unit", "percent");
-        items14.addProperty("product_code", "4912345678904");
-        items14.addProperty("is_multiply_by_count", true);
-        items14.addProperty("required_count", 2);
-        JsonObject items15 = new JsonObject();
-        items15.addProperty("point_amount", 5);
-        items15.addProperty("point_amount_unit", "percent");
-        items15.addProperty("product_code", "4912345678904");
-        items15.addProperty("is_multiply_by_count", true);
-        items15.addProperty("required_count", 2);
-        JsonObject items16 = new JsonObject();
-        items16.addProperty("point_amount", 5);
-        items16.addProperty("point_amount_unit", "percent");
-        items16.addProperty("subject_more_than_or_equal", 1000);
-        items16.addProperty("subject_less_than", 5000);
-        JsonObject items17 = new JsonObject();
-        items17.addProperty("point_amount", 5);
-        items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("subject_more_than_or_equal", 1000);
-        items17.addProperty("subject_less_than", 5000);
-        JsonObject items18 = new JsonObject();
-        items18.addProperty("point_amount", 5);
-        items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("subject_more_than_or_equal", 1000);
-        items18.addProperty("subject_less_than", 5000);
-        JsonObject items19 = new JsonObject();
-        items19.addProperty("point_amount", 5);
-        items19.addProperty("point_amount_unit", "percent");
-        items19.addProperty("subject_more_than_or_equal", 1000);
-        items19.addProperty("subject_less_than", 5000);
-        JsonObject items20 = new JsonObject();
-        items20.addProperty("point_amount", 5);
-        items20.addProperty("point_amount_unit", "percent");
-        items20.addProperty("subject_more_than_or_equal", 1000);
-        items20.addProperty("subject_less_than", 5000);
-        JsonObject items21 = new JsonObject();
-        items21.addProperty("point_amount", 5);
-        items21.addProperty("point_amount_unit", "percent");
-        items21.addProperty("subject_more_than_or_equal", 1000);
-        items21.addProperty("subject_less_than", 5000);
-        Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
-        )
-                .blacklistedShopIds(new String[]{"96fff179-b710-4322-b5b6-ab9e632d11fb","569afd28-981e-4680-bec9-7ee2b9e3ef0f","91e7a880-fb3e-4840-b901-f48cc9cdb5f2","10d1a435-d32f-49ca-aa0e-710fba925284","7d71148f-4aca-4768-99d5-49b5222e2008","0668b4db-4e9c-471e-bd95-e75ac8bd5c17","786401ec-de02-4d1f-85eb-bdd53c59bf58","4a109f91-7641-496f-b38c-9db5f04a24b7"})
-                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5})
-                .applicableDaysOfWeek(new Integer[]{4,6,2,4})
-                .blacklistedProductRules(new Object[]{items6,items7,items8,items9,items10,items11})
-                .productBasedPointRules(new Object[]{items12,items13,items14,items15})
-                .amountBasedPointRules(new Object[]{items16,items17,items18,items19,items20,items21})
-                .subject("all")
-                .setExclusive(false)
-                .pointExpiresInDays(1537)
-                .pointExpiresAt("2020-11-11T03:13:48.000000+09:00")
-                .status("disabled")
-                .description("EqfhOg8Frk0HOBlMEItK9tCgQCrxqfh5L30mS9MpPRcZ0")
-                .bearPointShopId("ef6fb5e8-de36-423e-8540-936c1a73bbb8");
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test36() throws ConnectionError, ProcessingError {
-        JsonObject items = new JsonObject();
-        items.addProperty("from", "12:00");
-        items.addProperty("to", "23:59");
-        JsonObject items2 = new JsonObject();
-        items2.addProperty("from", "12:00");
-        items2.addProperty("to", "23:59");
-        JsonObject items3 = new JsonObject();
-        items3.addProperty("from", "12:00");
-        items3.addProperty("to", "23:59");
-        JsonObject items4 = new JsonObject();
-        items4.addProperty("from", "12:00");
-        items4.addProperty("to", "23:59");
-        JsonObject items5 = new JsonObject();
-        items5.addProperty("from", "12:00");
-        items5.addProperty("to", "23:59");
-        JsonObject items6 = new JsonObject();
-        items6.addProperty("from", "12:00");
-        items6.addProperty("to", "23:59");
-        JsonObject items7 = new JsonObject();
-        items7.addProperty("from", "12:00");
-        items7.addProperty("to", "23:59");
-        JsonObject items8 = new JsonObject();
-        items8.addProperty("product_code", "4912345678904");
-        items8.addProperty("classification_code", "c123");
-        JsonObject items9 = new JsonObject();
-        items9.addProperty("product_code", "4912345678904");
-        items9.addProperty("classification_code", "c123");
-        JsonObject items10 = new JsonObject();
-        items10.addProperty("product_code", "4912345678904");
-        items10.addProperty("classification_code", "c123");
-        JsonObject items11 = new JsonObject();
-        items11.addProperty("product_code", "4912345678904");
-        items11.addProperty("classification_code", "c123");
-        JsonObject items12 = new JsonObject();
-        items12.addProperty("product_code", "4912345678904");
-        items12.addProperty("classification_code", "c123");
-        JsonObject items13 = new JsonObject();
-        items13.addProperty("product_code", "4912345678904");
-        items13.addProperty("classification_code", "c123");
-        JsonObject items14 = new JsonObject();
-        items14.addProperty("product_code", "4912345678904");
-        items14.addProperty("classification_code", "c123");
-        JsonObject items15 = new JsonObject();
-        items15.addProperty("point_amount", 5);
-        items15.addProperty("point_amount_unit", "percent");
-        items15.addProperty("product_code", "4912345678904");
-        items15.addProperty("is_multiply_by_count", true);
-        items15.addProperty("required_count", 2);
-        JsonObject items16 = new JsonObject();
-        items16.addProperty("point_amount", 5);
-        items16.addProperty("point_amount_unit", "percent");
-        items16.addProperty("product_code", "4912345678904");
-        items16.addProperty("is_multiply_by_count", true);
-        items16.addProperty("required_count", 2);
-        JsonObject items17 = new JsonObject();
-        items17.addProperty("point_amount", 5);
-        items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("product_code", "4912345678904");
-        items17.addProperty("is_multiply_by_count", true);
-        items17.addProperty("required_count", 2);
-        JsonObject items18 = new JsonObject();
-        items18.addProperty("point_amount", 5);
-        items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("product_code", "4912345678904");
-        items18.addProperty("is_multiply_by_count", true);
-        items18.addProperty("required_count", 2);
-        JsonObject items19 = new JsonObject();
-        items19.addProperty("point_amount", 5);
-        items19.addProperty("point_amount_unit", "percent");
-        items19.addProperty("product_code", "4912345678904");
-        items19.addProperty("is_multiply_by_count", true);
-        items19.addProperty("required_count", 2);
-        JsonObject items20 = new JsonObject();
-        items20.addProperty("point_amount", 5);
-        items20.addProperty("point_amount_unit", "percent");
-        items20.addProperty("product_code", "4912345678904");
-        items20.addProperty("is_multiply_by_count", true);
-        items20.addProperty("required_count", 2);
-        JsonObject items21 = new JsonObject();
-        items21.addProperty("point_amount", 5);
-        items21.addProperty("point_amount_unit", "percent");
-        items21.addProperty("product_code", "4912345678904");
-        items21.addProperty("is_multiply_by_count", true);
-        items21.addProperty("required_count", 2);
-        JsonObject items22 = new JsonObject();
-        items22.addProperty("point_amount", 5);
-        items22.addProperty("point_amount_unit", "percent");
-        items22.addProperty("subject_more_than_or_equal", 1000);
-        items22.addProperty("subject_less_than", 5000);
-        JsonObject items23 = new JsonObject();
-        items23.addProperty("point_amount", 5);
-        items23.addProperty("point_amount_unit", "percent");
-        items23.addProperty("subject_more_than_or_equal", 1000);
-        items23.addProperty("subject_less_than", 5000);
-        JsonObject items24 = new JsonObject();
-        items24.addProperty("point_amount", 5);
-        items24.addProperty("point_amount_unit", "percent");
-        items24.addProperty("subject_more_than_or_equal", 1000);
-        items24.addProperty("subject_less_than", 5000);
-        Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
-        )
-                .blacklistedShopIds(new String[]{"664452bc-df15-40ff-a037-e4595a3d30a3","d29e1989-9efa-43b4-afa0-e3326cde74c0","57de4ffe-0996-4c6b-bbdf-4b62c362e92e","3b8faf9e-6b6e-4f1b-a1b7-c19696ce79a8","1b0a7381-a186-4954-80a7-a8829b91aba0","21ee6c09-6835-4f40-97b1-3ec023949538","cc3f3494-dffa-440b-a858-f4f85bab0a4e"})
-                .minimumNumberOfProducts(5613)
-                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6,items7})
-                .applicableDaysOfWeek(new Integer[]{5,1})
-                .blacklistedProductRules(new Object[]{items8,items9,items10,items11,items12,items13,items14})
-                .productBasedPointRules(new Object[]{items15,items16,items17,items18,items19,items20,items21})
-                .amountBasedPointRules(new Object[]{items22,items23,items24})
-                .subject("all")
-                .setExclusive(false)
-                .pointExpiresInDays(5487)
-                .pointExpiresAt("2022-07-09T02:00:56.000000+09:00")
-                .status("enabled")
-                .description("nGNIUOuxOshzb5kqiCwbWuPL6")
-                .bearPointShopId("4c4a5a28-977f-4abc-b04b-7e609be2b350");
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test37() throws ConnectionError, ProcessingError {
-        JsonObject items = new JsonObject();
-        items.addProperty("from", "12:00");
-        items.addProperty("to", "23:59");
-        JsonObject items2 = new JsonObject();
-        items2.addProperty("from", "12:00");
-        items2.addProperty("to", "23:59");
-        JsonObject items3 = new JsonObject();
-        items3.addProperty("from", "12:00");
-        items3.addProperty("to", "23:59");
-        JsonObject items4 = new JsonObject();
-        items4.addProperty("from", "12:00");
-        items4.addProperty("to", "23:59");
-        JsonObject items5 = new JsonObject();
-        items5.addProperty("from", "12:00");
-        items5.addProperty("to", "23:59");
-        JsonObject items6 = new JsonObject();
-        items6.addProperty("from", "12:00");
-        items6.addProperty("to", "23:59");
-        JsonObject items7 = new JsonObject();
-        items7.addProperty("product_code", "4912345678904");
-        items7.addProperty("classification_code", "c123");
-        JsonObject items8 = new JsonObject();
-        items8.addProperty("product_code", "4912345678904");
-        items8.addProperty("classification_code", "c123");
-        JsonObject items9 = new JsonObject();
-        items9.addProperty("product_code", "4912345678904");
-        items9.addProperty("classification_code", "c123");
-        JsonObject items10 = new JsonObject();
-        items10.addProperty("product_code", "4912345678904");
-        items10.addProperty("classification_code", "c123");
-        JsonObject items11 = new JsonObject();
-        items11.addProperty("product_code", "4912345678904");
-        items11.addProperty("classification_code", "c123");
-        JsonObject items12 = new JsonObject();
-        items12.addProperty("product_code", "4912345678904");
-        items12.addProperty("classification_code", "c123");
-        JsonObject items13 = new JsonObject();
-        items13.addProperty("product_code", "4912345678904");
-        items13.addProperty("classification_code", "c123");
-        JsonObject items14 = new JsonObject();
-        items14.addProperty("product_code", "4912345678904");
-        items14.addProperty("classification_code", "c123");
-        JsonObject items15 = new JsonObject();
-        items15.addProperty("point_amount", 5);
-        items15.addProperty("point_amount_unit", "percent");
-        items15.addProperty("product_code", "4912345678904");
-        items15.addProperty("is_multiply_by_count", true);
-        items15.addProperty("required_count", 2);
-        JsonObject items16 = new JsonObject();
-        items16.addProperty("point_amount", 5);
-        items16.addProperty("point_amount_unit", "percent");
-        items16.addProperty("product_code", "4912345678904");
-        items16.addProperty("is_multiply_by_count", true);
-        items16.addProperty("required_count", 2);
-        JsonObject items17 = new JsonObject();
-        items17.addProperty("point_amount", 5);
-        items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("product_code", "4912345678904");
-        items17.addProperty("is_multiply_by_count", true);
-        items17.addProperty("required_count", 2);
-        JsonObject items18 = new JsonObject();
-        items18.addProperty("point_amount", 5);
-        items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("product_code", "4912345678904");
-        items18.addProperty("is_multiply_by_count", true);
-        items18.addProperty("required_count", 2);
-        JsonObject items19 = new JsonObject();
-        items19.addProperty("point_amount", 5);
-        items19.addProperty("point_amount_unit", "percent");
-        items19.addProperty("product_code", "4912345678904");
-        items19.addProperty("is_multiply_by_count", true);
-        items19.addProperty("required_count", 2);
-        JsonObject items20 = new JsonObject();
-        items20.addProperty("point_amount", 5);
-        items20.addProperty("point_amount_unit", "percent");
-        items20.addProperty("product_code", "4912345678904");
-        items20.addProperty("is_multiply_by_count", true);
-        items20.addProperty("required_count", 2);
-        JsonObject items21 = new JsonObject();
-        items21.addProperty("point_amount", 5);
-        items21.addProperty("point_amount_unit", "percent");
-        items21.addProperty("product_code", "4912345678904");
-        items21.addProperty("is_multiply_by_count", true);
-        items21.addProperty("required_count", 2);
-        JsonObject items22 = new JsonObject();
-        items22.addProperty("point_amount", 5);
-        items22.addProperty("point_amount_unit", "percent");
-        items22.addProperty("product_code", "4912345678904");
-        items22.addProperty("is_multiply_by_count", true);
-        items22.addProperty("required_count", 2);
-        JsonObject items23 = new JsonObject();
-        items23.addProperty("point_amount", 5);
-        items23.addProperty("point_amount_unit", "percent");
-        items23.addProperty("subject_more_than_or_equal", 1000);
-        items23.addProperty("subject_less_than", 5000);
-        JsonObject items24 = new JsonObject();
-        items24.addProperty("point_amount", 5);
-        items24.addProperty("point_amount_unit", "percent");
-        items24.addProperty("subject_more_than_or_equal", 1000);
-        items24.addProperty("subject_less_than", 5000);
-        JsonObject items25 = new JsonObject();
-        items25.addProperty("point_amount", 5);
-        items25.addProperty("point_amount_unit", "percent");
-        items25.addProperty("subject_more_than_or_equal", 1000);
-        items25.addProperty("subject_less_than", 5000);
-        JsonObject items26 = new JsonObject();
-        items26.addProperty("point_amount", 5);
-        items26.addProperty("point_amount_unit", "percent");
-        items26.addProperty("subject_more_than_or_equal", 1000);
-        items26.addProperty("subject_less_than", 5000);
-        JsonObject items27 = new JsonObject();
-        items27.addProperty("point_amount", 5);
-        items27.addProperty("point_amount_unit", "percent");
-        items27.addProperty("subject_more_than_or_equal", 1000);
-        items27.addProperty("subject_less_than", 5000);
-        JsonObject items28 = new JsonObject();
-        items28.addProperty("point_amount", 5);
-        items28.addProperty("point_amount_unit", "percent");
-        items28.addProperty("subject_more_than_or_equal", 1000);
-        items28.addProperty("subject_less_than", 5000);
-        Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
-        )
-                .blacklistedShopIds(new String[]{"51dafb68-b589-4aa2-a520-f3fb11153601","c8bdb124-4898-469b-ad94-436401cb96b7","090db6c6-2493-4c7d-9873-b88cfc32d01a","0b3734c1-9874-4ebf-9345-f0f58c5f92df","5fc86351-6bf6-4091-822c-cd4fe415f523"})
-                .minimumNumberOfAmount(3632)
-                .minimumNumberOfProducts(8724)
-                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6})
-                .applicableDaysOfWeek(new Integer[]{5,5,5,6,4,1})
-                .blacklistedProductRules(new Object[]{items7,items8,items9,items10,items11,items12,items13,items14})
-                .productBasedPointRules(new Object[]{items15,items16,items17,items18,items19,items20,items21,items22})
-                .amountBasedPointRules(new Object[]{items23,items24,items25,items26,items27,items28})
-                .subject("money")
-                .setExclusive(true)
-                .pointExpiresInDays(7456)
-                .pointExpiresAt("2020-10-11T02:37:21.000000+09:00")
-                .status("enabled")
-                .description("Ujlp6ijIVwOkWabRLQctHjXUun")
-                .bearPointShopId("7366bd5d-517c-4dfd-b231-6001b9fb5756");
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test38() throws ConnectionError, ProcessingError {
-        JsonObject items = new JsonObject();
-        items.addProperty("from", "12:00");
-        items.addProperty("to", "23:59");
-        JsonObject items2 = new JsonObject();
-        items2.addProperty("from", "12:00");
-        items2.addProperty("to", "23:59");
-        JsonObject items3 = new JsonObject();
-        items3.addProperty("from", "12:00");
-        items3.addProperty("to", "23:59");
-        JsonObject items4 = new JsonObject();
-        items4.addProperty("from", "12:00");
-        items4.addProperty("to", "23:59");
-        JsonObject items5 = new JsonObject();
-        items5.addProperty("from", "12:00");
-        items5.addProperty("to", "23:59");
-        JsonObject items6 = new JsonObject();
-        items6.addProperty("from", "12:00");
-        items6.addProperty("to", "23:59");
-        JsonObject items7 = new JsonObject();
-        items7.addProperty("from", "12:00");
-        items7.addProperty("to", "23:59");
-        JsonObject items8 = new JsonObject();
-        items8.addProperty("from", "12:00");
-        items8.addProperty("to", "23:59");
-        JsonObject items9 = new JsonObject();
-        items9.addProperty("product_code", "4912345678904");
-        items9.addProperty("classification_code", "c123");
-        JsonObject items10 = new JsonObject();
-        items10.addProperty("product_code", "4912345678904");
-        items10.addProperty("classification_code", "c123");
-        JsonObject items11 = new JsonObject();
-        items11.addProperty("product_code", "4912345678904");
-        items11.addProperty("classification_code", "c123");
-        JsonObject items12 = new JsonObject();
-        items12.addProperty("product_code", "4912345678904");
-        items12.addProperty("classification_code", "c123");
-        JsonObject items13 = new JsonObject();
-        items13.addProperty("product_code", "4912345678904");
-        items13.addProperty("classification_code", "c123");
-        JsonObject items14 = new JsonObject();
-        items14.addProperty("product_code", "4912345678904");
-        items14.addProperty("classification_code", "c123");
-        JsonObject items15 = new JsonObject();
-        items15.addProperty("product_code", "4912345678904");
-        items15.addProperty("classification_code", "c123");
-        JsonObject items16 = new JsonObject();
-        items16.addProperty("point_amount", 5);
-        items16.addProperty("point_amount_unit", "percent");
-        items16.addProperty("product_code", "4912345678904");
-        items16.addProperty("is_multiply_by_count", true);
-        items16.addProperty("required_count", 2);
-        JsonObject items17 = new JsonObject();
-        items17.addProperty("point_amount", 5);
-        items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("product_code", "4912345678904");
-        items17.addProperty("is_multiply_by_count", true);
-        items17.addProperty("required_count", 2);
-        JsonObject items18 = new JsonObject();
-        items18.addProperty("point_amount", 5);
-        items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("product_code", "4912345678904");
-        items18.addProperty("is_multiply_by_count", true);
-        items18.addProperty("required_count", 2);
-        JsonObject items19 = new JsonObject();
-        items19.addProperty("point_amount", 5);
-        items19.addProperty("point_amount_unit", "percent");
-        items19.addProperty("product_code", "4912345678904");
-        items19.addProperty("is_multiply_by_count", true);
-        items19.addProperty("required_count", 2);
-        JsonObject items20 = new JsonObject();
-        items20.addProperty("point_amount", 5);
-        items20.addProperty("point_amount_unit", "percent");
-        items20.addProperty("product_code", "4912345678904");
-        items20.addProperty("is_multiply_by_count", true);
-        items20.addProperty("required_count", 2);
-        JsonObject items21 = new JsonObject();
-        items21.addProperty("point_amount", 5);
-        items21.addProperty("point_amount_unit", "percent");
-        items21.addProperty("product_code", "4912345678904");
-        items21.addProperty("is_multiply_by_count", true);
-        items21.addProperty("required_count", 2);
-        JsonObject items22 = new JsonObject();
-        items22.addProperty("point_amount", 5);
-        items22.addProperty("point_amount_unit", "percent");
-        items22.addProperty("subject_more_than_or_equal", 1000);
-        items22.addProperty("subject_less_than", 5000);
-        JsonObject items23 = new JsonObject();
-        items23.addProperty("point_amount", 5);
-        items23.addProperty("point_amount_unit", "percent");
-        items23.addProperty("subject_more_than_or_equal", 1000);
-        items23.addProperty("subject_less_than", 5000);
-        Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
-        )
-                .blacklistedShopIds(new String[]{"80bbebe7-2681-40a7-bd33-5aa332414f14","40a8bce2-6176-4cbe-8ac1-e0c54295da40","438c84df-f923-4b67-980c-c6ae925b0ecb","bd7a26cf-f770-484c-9c53-c2bbffdc206a","723490f8-fc4d-4d02-b3f1-115e976ea8f9"})
-                .minimumNumberForCombinationPurchase(4591)
-                .minimumNumberOfAmount(1414)
-                .minimumNumberOfProducts(8587)
-                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6,items7,items8})
-                .applicableDaysOfWeek(new Integer[]{0,4,0,1,2,1,4,2})
-                .blacklistedProductRules(new Object[]{items9,items10,items11,items12,items13,items14,items15})
-                .productBasedPointRules(new Object[]{items16,items17,items18,items19,items20,items21})
-                .amountBasedPointRules(new Object[]{items22,items23})
-                .subject("all")
-                .setExclusive(true)
-                .pointExpiresInDays(268)
-                .pointExpiresAt("2024-03-26T10:14:09.000000+09:00")
-                .status("disabled")
-                .description("ScXgBxH4FyYOqedVjJn0vYPUWBv6fJ6jneBPMJHYzRxXlQ9ypZc9QVyp4zbfkZCpRLfnjOc3pARJChiHxInUaAFopvjsNPigP5Eb8bu7omUrV3PO")
-                .bearPointShopId("ee94dd59-3e18-4d8a-87f7-425a80d9a931");
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test39() throws ConnectionError, ProcessingError {
-        JsonObject items = new JsonObject();
-        items.addProperty("from", "12:00");
-        items.addProperty("to", "23:59");
-        JsonObject items2 = new JsonObject();
-        items2.addProperty("from", "12:00");
-        items2.addProperty("to", "23:59");
-        JsonObject items3 = new JsonObject();
-        items3.addProperty("product_code", "4912345678904");
-        items3.addProperty("classification_code", "c123");
-        JsonObject items4 = new JsonObject();
-        items4.addProperty("product_code", "4912345678904");
-        items4.addProperty("classification_code", "c123");
-        JsonObject items5 = new JsonObject();
-        items5.addProperty("product_code", "4912345678904");
-        items5.addProperty("classification_code", "c123");
-        JsonObject items6 = new JsonObject();
-        items6.addProperty("product_code", "4912345678904");
-        items6.addProperty("classification_code", "c123");
-        JsonObject items7 = new JsonObject();
-        items7.addProperty("product_code", "4912345678904");
-        items7.addProperty("classification_code", "c123");
-        JsonObject items8 = new JsonObject();
-        items8.addProperty("product_code", "4912345678904");
-        items8.addProperty("classification_code", "c123");
+        items8.addProperty("is_multiply_by_count", true);
+        items8.addProperty("required_count", 2);
         JsonObject items9 = new JsonObject();
         items9.addProperty("point_amount", 5);
         items9.addProperty("point_amount_unit", "percent");
@@ -3390,41 +2407,25 @@ public class CreateCampaignTest {
         items18.addProperty("point_amount_unit", "percent");
         items18.addProperty("subject_more_than_or_equal", 1000);
         items18.addProperty("subject_less_than", 5000);
-        JsonObject items19 = new JsonObject();
-        items19.addProperty("point_amount", 5);
-        items19.addProperty("point_amount_unit", "percent");
-        items19.addProperty("subject_more_than_or_equal", 1000);
-        items19.addProperty("subject_less_than", 5000);
-        JsonObject items20 = new JsonObject();
-        items20.addProperty("point_amount", 5);
-        items20.addProperty("point_amount_unit", "percent");
-        items20.addProperty("subject_more_than_or_equal", 1000);
-        items20.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .blacklistedShopIds(new String[]{"213c1c4e-5616-45a4-867c-0f90b9a2a304"})
-                .existInEachProductGroups(false)
-                .minimumNumberForCombinationPurchase(9264)
-                .minimumNumberOfAmount(4751)
-                .minimumNumberOfProducts(9808)
-                .applicableTimeRanges(new Object[]{items,items2})
-                .applicableDaysOfWeek(new Integer[]{0,1,6,1,5})
-                .blacklistedProductRules(new Object[]{items3,items4,items5,items6,items7,items8})
-                .productBasedPointRules(new Object[]{items9,items10,items11,items12,items13,items14,items15})
-                .amountBasedPointRules(new Object[]{items16,items17,items18,items19,items20})
+                .blacklistedShopIds(new String[]{"be618a99-6ce1-4fd3-b79e-6cd5d7071de4","64795159-84f7-432e-9331-be68dcc9af5b","c4650f04-58ed-48a5-b3ce-e04452ad0e79","98aa846b-8c96-492f-a8ad-5457a63d66be","181c7cf7-3dc5-4fe0-8381-05cbfea151c3","ea5464c6-2b67-4562-8d90-3189c9fd6b4a","a0178083-976b-4d3b-afe0-caa87448a3c2"})
+                .blacklistedProductRules(new Object[]{items,items2,items3,items4,items5,items6,items7})
+                .productBasedPointRules(new Object[]{items8,items9,items10,items11,items12,items13,items14,items15})
+                .amountBasedPointRules(new Object[]{items16,items17,items18})
                 .subject("money")
                 .setExclusive(false)
-                .pointExpiresInDays(3968)
-                .pointExpiresAt("2022-10-23T06:55:26.000000+09:00")
+                .pointExpiresInDays(3897)
+                .pointExpiresAt("2022-06-02T21:35:49.000000+09:00")
                 .status("disabled")
-                .description("10V5C96a17KmKN2dr8gerOOi2jG3laFQWwUgkWBInAiod7SEAYvJadYS1lO7WlMR5T9U0xYRK1dRhxAKRCi0QY7ksTXEXh0RTkggzxy2nPfkVFJdNobmLyK0B37JICY4DVPHHyq0xCvcGLZIeRDwY2uz0puGXEBgUWFitJnIHinmur2QJeyF")
-                .bearPointShopId("f32afcbc-b014-423b-8a9f-d5c2daf70106");
+                .description("Xq6e1l9FHERhtLEiWDDOy0bzoJodu2iVi8iPxxoqnsKjO9cWFmJUcqOGxKcDvgoDmJ5NzEBqCjJKBopKaQ63yeL3zL4ByO7gZUBXDtFnwoP8SsjBuHhn1QiSZjhA0THZqYmllGe0HdQdqvhNHlW4CaCjiwAS")
+                .bearPointShopId("78a14f43-5cae-4e7b-a801-440c248c325c");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -3437,7 +2438,68 @@ public class CreateCampaignTest {
         }
     }
     @Test
-    void test40() throws ConnectionError, ProcessingError {
+    void test34() throws ConnectionError, ProcessingError {
+        JsonObject items = new JsonObject();
+        items.addProperty("product_code", "4912345678904");
+        items.addProperty("classification_code", "c123");
+        JsonObject items2 = new JsonObject();
+        items2.addProperty("product_code", "4912345678904");
+        items2.addProperty("classification_code", "c123");
+        JsonObject items3 = new JsonObject();
+        items3.addProperty("point_amount", 5);
+        items3.addProperty("point_amount_unit", "percent");
+        items3.addProperty("product_code", "4912345678904");
+        items3.addProperty("is_multiply_by_count", true);
+        items3.addProperty("required_count", 2);
+        JsonObject items4 = new JsonObject();
+        items4.addProperty("point_amount", 5);
+        items4.addProperty("point_amount_unit", "percent");
+        items4.addProperty("product_code", "4912345678904");
+        items4.addProperty("is_multiply_by_count", true);
+        items4.addProperty("required_count", 2);
+        JsonObject items5 = new JsonObject();
+        items5.addProperty("point_amount", 5);
+        items5.addProperty("point_amount_unit", "percent");
+        items5.addProperty("subject_more_than_or_equal", 1000);
+        items5.addProperty("subject_less_than", 5000);
+        JsonObject items6 = new JsonObject();
+        items6.addProperty("point_amount", 5);
+        items6.addProperty("point_amount_unit", "percent");
+        items6.addProperty("subject_more_than_or_equal", 1000);
+        items6.addProperty("subject_less_than", 5000);
+        Request request = new CreateCampaign(
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
+        )
+                .blacklistedShopIds(new String[]{"8495dbea-4375-4fad-bd53-ea9295ee1a97","602f9611-e263-49ab-a881-a1cbdafa797c"})
+                .applicableDaysOfWeek(new Integer[]{0,5,3,6,1,0,0,1,3,3})
+                .blacklistedProductRules(new Object[]{items,items2})
+                .productBasedPointRules(new Object[]{items3,items4})
+                .amountBasedPointRules(new Object[]{items5,items6})
+                .subject("money")
+                .setExclusive(false)
+                .pointExpiresInDays(4188)
+                .pointExpiresAt("2020-08-09T18:13:31.000000+09:00")
+                .status("enabled")
+                .description("2HODldTUgLFIdqpm1jLY0l5r9Xbs3u9go6VoPsBiweRpBjBkToVaaqxeVoq53YLgbGUQgXk2EP82Q1s0Lwx7nkH1IULt8mLxnfmp0AiOJmraGlxBkBXF5UWT1IVvksezK")
+                .bearPointShopId("c56aa27e-230e-48e5-aec7-75a993be528f");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test35() throws ConnectionError, ProcessingError {
         JsonObject items = new JsonObject();
         items.addProperty("from", "12:00");
         items.addProperty("to", "23:59");
@@ -3450,126 +2512,6 @@ public class CreateCampaignTest {
         JsonObject items4 = new JsonObject();
         items4.addProperty("from", "12:00");
         items4.addProperty("to", "23:59");
-        JsonObject items5 = new JsonObject();
-        items5.addProperty("product_code", "4912345678904");
-        items5.addProperty("classification_code", "c123");
-        JsonObject items6 = new JsonObject();
-        items6.addProperty("product_code", "4912345678904");
-        items6.addProperty("classification_code", "c123");
-        JsonObject items7 = new JsonObject();
-        items7.addProperty("product_code", "4912345678904");
-        items7.addProperty("classification_code", "c123");
-        JsonObject items8 = new JsonObject();
-        items8.addProperty("product_code", "4912345678904");
-        items8.addProperty("classification_code", "c123");
-        JsonObject items9 = new JsonObject();
-        items9.addProperty("product_code", "4912345678904");
-        items9.addProperty("classification_code", "c123");
-        JsonObject items10 = new JsonObject();
-        items10.addProperty("point_amount", 5);
-        items10.addProperty("point_amount_unit", "percent");
-        items10.addProperty("product_code", "4912345678904");
-        items10.addProperty("is_multiply_by_count", true);
-        items10.addProperty("required_count", 2);
-        JsonObject items11 = new JsonObject();
-        items11.addProperty("point_amount", 5);
-        items11.addProperty("point_amount_unit", "percent");
-        items11.addProperty("product_code", "4912345678904");
-        items11.addProperty("is_multiply_by_count", true);
-        items11.addProperty("required_count", 2);
-        JsonObject items12 = new JsonObject();
-        items12.addProperty("point_amount", 5);
-        items12.addProperty("point_amount_unit", "percent");
-        items12.addProperty("product_code", "4912345678904");
-        items12.addProperty("is_multiply_by_count", true);
-        items12.addProperty("required_count", 2);
-        JsonObject items13 = new JsonObject();
-        items13.addProperty("point_amount", 5);
-        items13.addProperty("point_amount_unit", "percent");
-        items13.addProperty("product_code", "4912345678904");
-        items13.addProperty("is_multiply_by_count", true);
-        items13.addProperty("required_count", 2);
-        JsonObject items14 = new JsonObject();
-        items14.addProperty("point_amount", 5);
-        items14.addProperty("point_amount_unit", "percent");
-        items14.addProperty("subject_more_than_or_equal", 1000);
-        items14.addProperty("subject_less_than", 5000);
-        JsonObject items15 = new JsonObject();
-        items15.addProperty("point_amount", 5);
-        items15.addProperty("point_amount_unit", "percent");
-        items15.addProperty("subject_more_than_or_equal", 1000);
-        items15.addProperty("subject_less_than", 5000);
-        JsonObject items16 = new JsonObject();
-        items16.addProperty("point_amount", 5);
-        items16.addProperty("point_amount_unit", "percent");
-        items16.addProperty("subject_more_than_or_equal", 1000);
-        items16.addProperty("subject_less_than", 5000);
-        JsonObject items17 = new JsonObject();
-        items17.addProperty("point_amount", 5);
-        items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("subject_more_than_or_equal", 1000);
-        items17.addProperty("subject_less_than", 5000);
-        JsonObject items18 = new JsonObject();
-        items18.addProperty("point_amount", 5);
-        items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("subject_more_than_or_equal", 1000);
-        items18.addProperty("subject_less_than", 5000);
-        JsonObject items19 = new JsonObject();
-        items19.addProperty("point_amount", 5);
-        items19.addProperty("point_amount_unit", "percent");
-        items19.addProperty("subject_more_than_or_equal", 1000);
-        items19.addProperty("subject_less_than", 5000);
-        Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
-        )
-                .blacklistedShopIds(new String[]{"fd1ca4a1-9228-4e79-82e3-aafd41dea81d","c2b86efb-5c04-403b-80b7-ddc662be1b9d","2d179025-e24a-49e9-a69f-99300d798556","005a281f-e124-4794-b61c-abf21b10d0a9","8a6c3944-074f-4d7c-b044-84cc229a5d93","b499e7cd-9e6f-4538-b757-ea075d0b2152","fddc9632-a8de-4716-b6b7-0304ccc0dffc"})
-                .maxPointAmount(5059)
-                .existInEachProductGroups(false)
-                .minimumNumberForCombinationPurchase(9116)
-                .minimumNumberOfAmount(9551)
-                .minimumNumberOfProducts(4739)
-                .applicableTimeRanges(new Object[]{items,items2,items3,items4})
-                .applicableDaysOfWeek(new Integer[]{3,4,5,0,2,6,1,0,1,4})
-                .blacklistedProductRules(new Object[]{items5,items6,items7,items8,items9})
-                .productBasedPointRules(new Object[]{items10,items11,items12,items13})
-                .amountBasedPointRules(new Object[]{items14,items15,items16,items17,items18,items19})
-                .subject("all")
-                .setExclusive(false)
-                .pointExpiresInDays(6994)
-                .pointExpiresAt("2022-04-09T14:12:46.000000+09:00")
-                .status("disabled")
-                .description("ruVzoVcfOM9oBeoYGqobX2nvECEAjI4DvJNSzfka5KTFSL1aerslnkH8MZczE3b6PWQQ9mUClkPlnWWxIOi9U1e3St7dp0K226YsRStCn36Ezmg7YcO")
-                .bearPointShopId("39d09c34-5c39-483f-b409-54d645850e87");
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test41() throws ConnectionError, ProcessingError {
-        JsonObject items = new JsonObject();
-        items.addProperty("from", "12:00");
-        items.addProperty("to", "23:59");
-        JsonObject items2 = new JsonObject();
-        items2.addProperty("from", "12:00");
-        items2.addProperty("to", "23:59");
-        JsonObject items3 = new JsonObject();
-        items3.addProperty("from", "12:00");
-        items3.addProperty("to", "23:59");
-        JsonObject items4 = new JsonObject();
-        items4.addProperty("product_code", "4912345678904");
-        items4.addProperty("classification_code", "c123");
         JsonObject items5 = new JsonObject();
         items5.addProperty("product_code", "4912345678904");
         items5.addProperty("classification_code", "c123");
@@ -3621,45 +2563,104 @@ public class CreateCampaignTest {
         JsonObject items16 = new JsonObject();
         items16.addProperty("point_amount", 5);
         items16.addProperty("point_amount_unit", "percent");
-        items16.addProperty("subject_more_than_or_equal", 1000);
-        items16.addProperty("subject_less_than", 5000);
+        items16.addProperty("product_code", "4912345678904");
+        items16.addProperty("is_multiply_by_count", true);
+        items16.addProperty("required_count", 2);
         JsonObject items17 = new JsonObject();
         items17.addProperty("point_amount", 5);
         items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("subject_more_than_or_equal", 1000);
-        items17.addProperty("subject_less_than", 5000);
+        items17.addProperty("product_code", "4912345678904");
+        items17.addProperty("is_multiply_by_count", true);
+        items17.addProperty("required_count", 2);
         JsonObject items18 = new JsonObject();
         items18.addProperty("point_amount", 5);
         items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("subject_more_than_or_equal", 1000);
-        items18.addProperty("subject_less_than", 5000);
+        items18.addProperty("product_code", "4912345678904");
+        items18.addProperty("is_multiply_by_count", true);
+        items18.addProperty("required_count", 2);
+        JsonObject items19 = new JsonObject();
+        items19.addProperty("point_amount", 5);
+        items19.addProperty("point_amount_unit", "percent");
+        items19.addProperty("product_code", "4912345678904");
+        items19.addProperty("is_multiply_by_count", true);
+        items19.addProperty("required_count", 2);
+        JsonObject items20 = new JsonObject();
+        items20.addProperty("point_amount", 5);
+        items20.addProperty("point_amount_unit", "percent");
+        items20.addProperty("product_code", "4912345678904");
+        items20.addProperty("is_multiply_by_count", true);
+        items20.addProperty("required_count", 2);
+        JsonObject items21 = new JsonObject();
+        items21.addProperty("point_amount", 5);
+        items21.addProperty("point_amount_unit", "percent");
+        items21.addProperty("subject_more_than_or_equal", 1000);
+        items21.addProperty("subject_less_than", 5000);
+        JsonObject items22 = new JsonObject();
+        items22.addProperty("point_amount", 5);
+        items22.addProperty("point_amount_unit", "percent");
+        items22.addProperty("subject_more_than_or_equal", 1000);
+        items22.addProperty("subject_less_than", 5000);
+        JsonObject items23 = new JsonObject();
+        items23.addProperty("point_amount", 5);
+        items23.addProperty("point_amount_unit", "percent");
+        items23.addProperty("subject_more_than_or_equal", 1000);
+        items23.addProperty("subject_less_than", 5000);
+        JsonObject items24 = new JsonObject();
+        items24.addProperty("point_amount", 5);
+        items24.addProperty("point_amount_unit", "percent");
+        items24.addProperty("subject_more_than_or_equal", 1000);
+        items24.addProperty("subject_less_than", 5000);
+        JsonObject items25 = new JsonObject();
+        items25.addProperty("point_amount", 5);
+        items25.addProperty("point_amount_unit", "percent");
+        items25.addProperty("subject_more_than_or_equal", 1000);
+        items25.addProperty("subject_less_than", 5000);
+        JsonObject items26 = new JsonObject();
+        items26.addProperty("point_amount", 5);
+        items26.addProperty("point_amount_unit", "percent");
+        items26.addProperty("subject_more_than_or_equal", 1000);
+        items26.addProperty("subject_less_than", 5000);
+        JsonObject items27 = new JsonObject();
+        items27.addProperty("point_amount", 5);
+        items27.addProperty("point_amount_unit", "percent");
+        items27.addProperty("subject_more_than_or_equal", 1000);
+        items27.addProperty("subject_less_than", 5000);
+        JsonObject items28 = new JsonObject();
+        items28.addProperty("point_amount", 5);
+        items28.addProperty("point_amount_unit", "percent");
+        items28.addProperty("subject_more_than_or_equal", 1000);
+        items28.addProperty("subject_less_than", 5000);
+        JsonObject items29 = new JsonObject();
+        items29.addProperty("point_amount", 5);
+        items29.addProperty("point_amount_unit", "percent");
+        items29.addProperty("subject_more_than_or_equal", 1000);
+        items29.addProperty("subject_less_than", 5000);
+        JsonObject items30 = new JsonObject();
+        items30.addProperty("point_amount", 5);
+        items30.addProperty("point_amount_unit", "percent");
+        items30.addProperty("subject_more_than_or_equal", 1000);
+        items30.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .blacklistedShopIds(new String[]{"945e733f-9c2a-425e-8c0b-54af02a7fdff","a67572e5-6992-43fb-aa07-69b451404316","3e18ec52-2136-437c-bc6d-b951381c7b60","7e70917f-bbcb-42ce-98b4-1cfe9f608af0","f876a756-8b14-4dc5-be77-33e766e3983f"})
-                .maxTotalPointAmount(4204)
-                .maxPointAmount(5551)
-                .existInEachProductGroups(false)
-                .minimumNumberForCombinationPurchase(5597)
-                .minimumNumberOfAmount(5293)
-                .minimumNumberOfProducts(5903)
-                .applicableTimeRanges(new Object[]{items,items2,items3})
-                .applicableDaysOfWeek(new Integer[]{2,5})
-                .blacklistedProductRules(new Object[]{items4,items5,items6,items7,items8,items9,items10})
-                .productBasedPointRules(new Object[]{items11,items12,items13,items14,items15})
-                .amountBasedPointRules(new Object[]{items16,items17,items18})
+                .blacklistedShopIds(new String[]{"bc02d613-f66f-401a-930a-0dad6e43751a","fde222f9-9f64-4c2e-b5b7-2ab5c32979a9","c87f56aa-c645-4ec3-8f29-e42eca46e255","8209ba80-4bea-4907-a715-3cabb0857e0a","99a9bf87-5d82-4be0-a9ba-57b425e5096e","9b99dc4d-81d2-47e7-b6d4-290ce6b465a1","e59cf594-a2f4-4169-8516-c87a0a3e83c3","e6c6e53a-3188-4ead-b493-dcc3106f1fee"})
+                .applicableTimeRanges(new Object[]{items,items2,items3,items4})
+                .applicableDaysOfWeek(new Integer[]{3,2,0,2,2,3,6,5,2})
+                .blacklistedProductRules(new Object[]{items5,items6,items7,items8,items9,items10})
+                .productBasedPointRules(new Object[]{items11,items12,items13,items14,items15,items16,items17,items18,items19,items20})
+                .amountBasedPointRules(new Object[]{items21,items22,items23,items24,items25,items26,items27,items28,items29,items30})
                 .subject("money")
                 .setExclusive(false)
-                .pointExpiresInDays(2644)
-                .pointExpiresAt("2023-05-09T06:27:07.000000+09:00")
-                .status("disabled")
-                .description("JNiwp4fH5PY2GrUeMuKR8rhMIi")
-                .bearPointShopId("01b6106e-d21a-4c37-b7cb-e94b443d82e5");
+                .pointExpiresInDays(5141)
+                .pointExpiresAt("2023-11-22T08:13:09.000000+09:00")
+                .status("enabled")
+                .description("TowdyCbwSJdj5prBzewnH2wSRfN7yP2NU4")
+                .bearPointShopId("bf762a08-2bad-4083-8df0-7dd973b3510e");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -3672,7 +2673,7 @@ public class CreateCampaignTest {
         }
     }
     @Test
-    void test42() throws ConnectionError, ProcessingError {
+    void test36() throws ConnectionError, ProcessingError {
         JsonObject items = new JsonObject();
         items.addProperty("from", "12:00");
         items.addProperty("to", "23:59");
@@ -3728,11 +2729,17 @@ public class CreateCampaignTest {
         items18.addProperty("product_code", "4912345678904");
         items18.addProperty("classification_code", "c123");
         JsonObject items19 = new JsonObject();
+        items19.addProperty("point_amount", 5);
+        items19.addProperty("point_amount_unit", "percent");
         items19.addProperty("product_code", "4912345678904");
-        items19.addProperty("classification_code", "c123");
+        items19.addProperty("is_multiply_by_count", true);
+        items19.addProperty("required_count", 2);
         JsonObject items20 = new JsonObject();
+        items20.addProperty("point_amount", 5);
+        items20.addProperty("point_amount_unit", "percent");
         items20.addProperty("product_code", "4912345678904");
-        items20.addProperty("classification_code", "c123");
+        items20.addProperty("is_multiply_by_count", true);
+        items20.addProperty("required_count", 2);
         JsonObject items21 = new JsonObject();
         items21.addProperty("point_amount", 5);
         items21.addProperty("point_amount_unit", "percent");
@@ -3772,54 +2779,65 @@ public class CreateCampaignTest {
         JsonObject items27 = new JsonObject();
         items27.addProperty("point_amount", 5);
         items27.addProperty("point_amount_unit", "percent");
-        items27.addProperty("product_code", "4912345678904");
-        items27.addProperty("is_multiply_by_count", true);
-        items27.addProperty("required_count", 2);
+        items27.addProperty("subject_more_than_or_equal", 1000);
+        items27.addProperty("subject_less_than", 5000);
         JsonObject items28 = new JsonObject();
         items28.addProperty("point_amount", 5);
         items28.addProperty("point_amount_unit", "percent");
-        items28.addProperty("product_code", "4912345678904");
-        items28.addProperty("is_multiply_by_count", true);
-        items28.addProperty("required_count", 2);
+        items28.addProperty("subject_more_than_or_equal", 1000);
+        items28.addProperty("subject_less_than", 5000);
         JsonObject items29 = new JsonObject();
         items29.addProperty("point_amount", 5);
         items29.addProperty("point_amount_unit", "percent");
-        items29.addProperty("product_code", "4912345678904");
-        items29.addProperty("is_multiply_by_count", true);
-        items29.addProperty("required_count", 2);
+        items29.addProperty("subject_more_than_or_equal", 1000);
+        items29.addProperty("subject_less_than", 5000);
         JsonObject items30 = new JsonObject();
         items30.addProperty("point_amount", 5);
         items30.addProperty("point_amount_unit", "percent");
         items30.addProperty("subject_more_than_or_equal", 1000);
         items30.addProperty("subject_less_than", 5000);
+        JsonObject items31 = new JsonObject();
+        items31.addProperty("point_amount", 5);
+        items31.addProperty("point_amount_unit", "percent");
+        items31.addProperty("subject_more_than_or_equal", 1000);
+        items31.addProperty("subject_less_than", 5000);
+        JsonObject items32 = new JsonObject();
+        items32.addProperty("point_amount", 5);
+        items32.addProperty("point_amount_unit", "percent");
+        items32.addProperty("subject_more_than_or_equal", 1000);
+        items32.addProperty("subject_less_than", 5000);
+        JsonObject items33 = new JsonObject();
+        items33.addProperty("point_amount", 5);
+        items33.addProperty("point_amount_unit", "percent");
+        items33.addProperty("subject_more_than_or_equal", 1000);
+        items33.addProperty("subject_less_than", 5000);
+        JsonObject items34 = new JsonObject();
+        items34.addProperty("point_amount", 5);
+        items34.addProperty("point_amount_unit", "percent");
+        items34.addProperty("subject_more_than_or_equal", 1000);
+        items34.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .blacklistedShopIds(new String[]{"a9be292d-8148-40b6-b98d-513388443518","48603498-a347-44b7-ae5a-83482f0bb498","8cbcac2a-1ae1-4b3d-b807-4fbbefe2b835","a7898b14-5047-4579-8671-0564a2f0945c","05c710c8-af5b-474b-8e0d-a23702578273","00bfab29-d014-470b-99d5-de4c174bae86","a612c926-1192-4639-9e90-ee220c69cdf3"})
-                .destPrivateMoneyId("0e8a8380-fc70-4c14-a2a2-d64b278165a2")
-                .maxTotalPointAmount(8164)
-                .maxPointAmount(1704)
-                .existInEachProductGroups(false)
-                .minimumNumberForCombinationPurchase(6912)
-                .minimumNumberOfAmount(9355)
-                .minimumNumberOfProducts(1651)
+                .blacklistedShopIds(new String[]{"b9835d5f-d559-4e88-85df-08afda9e1ade","71a61e44-cbf4-4c97-a101-92b001111ea3","83742d49-cf4b-4565-b7d3-0e480cdee549"})
+                .minimumNumberOfProducts(614)
                 .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6,items7,items8,items9,items10})
-                .applicableDaysOfWeek(new Integer[]{3,3,6,4,4,5,3,0})
-                .blacklistedProductRules(new Object[]{items11,items12,items13,items14,items15,items16,items17,items18,items19,items20})
-                .productBasedPointRules(new Object[]{items21,items22,items23,items24,items25,items26,items27,items28,items29})
-                .amountBasedPointRules(new Object[]{items30})
+                .applicableDaysOfWeek(new Integer[]{6,6,4})
+                .blacklistedProductRules(new Object[]{items11,items12,items13,items14,items15,items16,items17,items18})
+                .productBasedPointRules(new Object[]{items19,items20,items21,items22,items23,items24,items25,items26})
+                .amountBasedPointRules(new Object[]{items27,items28,items29,items30,items31,items32,items33,items34})
                 .subject("money")
                 .setExclusive(true)
-                .pointExpiresInDays(14)
-                .pointExpiresAt("2023-08-25T03:39:01.000000+09:00")
+                .pointExpiresInDays(6574)
+                .pointExpiresAt("2021-03-30T15:29:03.000000+09:00")
                 .status("enabled")
-                .description("pw844ZkTOmCNn6iS5Gad3CRiPhHBc993sIe30d8b4CJ4EizMQ7zFqZeSDtTNd6tnseOsITfJDru0R7PV7xkfWW10DJj8fnNIMPdgr5B3F9cKfysVb")
-                .bearPointShopId("ef79adfe-defc-44fb-8abc-f44fe8b4e825");
+                .description("LpPedgbm2wx4RsAdRlm1mo")
+                .bearPointShopId("d693bf64-3185-47e3-bde8-51d868a69c8b");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -3832,10 +2850,7 @@ public class CreateCampaignTest {
         }
     }
     @Test
-    void test43() throws ConnectionError, ProcessingError {
-        JsonObject applicable_account_metadata = new JsonObject();
-        applicable_account_metadata.addProperty("key", "sex");
-        applicable_account_metadata.addProperty("value", "male");
+    void test37() throws ConnectionError, ProcessingError {
         JsonObject items = new JsonObject();
         items.addProperty("from", "12:00");
         items.addProperty("to", "23:59");
@@ -3852,14 +2867,611 @@ public class CreateCampaignTest {
         items5.addProperty("from", "12:00");
         items5.addProperty("to", "23:59");
         JsonObject items6 = new JsonObject();
+        items6.addProperty("from", "12:00");
+        items6.addProperty("to", "23:59");
+        JsonObject items7 = new JsonObject();
+        items7.addProperty("from", "12:00");
+        items7.addProperty("to", "23:59");
+        JsonObject items8 = new JsonObject();
+        items8.addProperty("from", "12:00");
+        items8.addProperty("to", "23:59");
+        JsonObject items9 = new JsonObject();
+        items9.addProperty("from", "12:00");
+        items9.addProperty("to", "23:59");
+        JsonObject items10 = new JsonObject();
+        items10.addProperty("from", "12:00");
+        items10.addProperty("to", "23:59");
+        JsonObject items11 = new JsonObject();
+        items11.addProperty("product_code", "4912345678904");
+        items11.addProperty("classification_code", "c123");
+        JsonObject items12 = new JsonObject();
+        items12.addProperty("product_code", "4912345678904");
+        items12.addProperty("classification_code", "c123");
+        JsonObject items13 = new JsonObject();
+        items13.addProperty("product_code", "4912345678904");
+        items13.addProperty("classification_code", "c123");
+        JsonObject items14 = new JsonObject();
+        items14.addProperty("product_code", "4912345678904");
+        items14.addProperty("classification_code", "c123");
+        JsonObject items15 = new JsonObject();
+        items15.addProperty("product_code", "4912345678904");
+        items15.addProperty("classification_code", "c123");
+        JsonObject items16 = new JsonObject();
+        items16.addProperty("product_code", "4912345678904");
+        items16.addProperty("classification_code", "c123");
+        JsonObject items17 = new JsonObject();
+        items17.addProperty("point_amount", 5);
+        items17.addProperty("point_amount_unit", "percent");
+        items17.addProperty("product_code", "4912345678904");
+        items17.addProperty("is_multiply_by_count", true);
+        items17.addProperty("required_count", 2);
+        JsonObject items18 = new JsonObject();
+        items18.addProperty("point_amount", 5);
+        items18.addProperty("point_amount_unit", "percent");
+        items18.addProperty("product_code", "4912345678904");
+        items18.addProperty("is_multiply_by_count", true);
+        items18.addProperty("required_count", 2);
+        JsonObject items19 = new JsonObject();
+        items19.addProperty("point_amount", 5);
+        items19.addProperty("point_amount_unit", "percent");
+        items19.addProperty("product_code", "4912345678904");
+        items19.addProperty("is_multiply_by_count", true);
+        items19.addProperty("required_count", 2);
+        JsonObject items20 = new JsonObject();
+        items20.addProperty("point_amount", 5);
+        items20.addProperty("point_amount_unit", "percent");
+        items20.addProperty("product_code", "4912345678904");
+        items20.addProperty("is_multiply_by_count", true);
+        items20.addProperty("required_count", 2);
+        JsonObject items21 = new JsonObject();
+        items21.addProperty("point_amount", 5);
+        items21.addProperty("point_amount_unit", "percent");
+        items21.addProperty("product_code", "4912345678904");
+        items21.addProperty("is_multiply_by_count", true);
+        items21.addProperty("required_count", 2);
+        JsonObject items22 = new JsonObject();
+        items22.addProperty("point_amount", 5);
+        items22.addProperty("point_amount_unit", "percent");
+        items22.addProperty("product_code", "4912345678904");
+        items22.addProperty("is_multiply_by_count", true);
+        items22.addProperty("required_count", 2);
+        JsonObject items23 = new JsonObject();
+        items23.addProperty("point_amount", 5);
+        items23.addProperty("point_amount_unit", "percent");
+        items23.addProperty("product_code", "4912345678904");
+        items23.addProperty("is_multiply_by_count", true);
+        items23.addProperty("required_count", 2);
+        JsonObject items24 = new JsonObject();
+        items24.addProperty("point_amount", 5);
+        items24.addProperty("point_amount_unit", "percent");
+        items24.addProperty("product_code", "4912345678904");
+        items24.addProperty("is_multiply_by_count", true);
+        items24.addProperty("required_count", 2);
+        JsonObject items25 = new JsonObject();
+        items25.addProperty("point_amount", 5);
+        items25.addProperty("point_amount_unit", "percent");
+        items25.addProperty("product_code", "4912345678904");
+        items25.addProperty("is_multiply_by_count", true);
+        items25.addProperty("required_count", 2);
+        JsonObject items26 = new JsonObject();
+        items26.addProperty("point_amount", 5);
+        items26.addProperty("point_amount_unit", "percent");
+        items26.addProperty("subject_more_than_or_equal", 1000);
+        items26.addProperty("subject_less_than", 5000);
+        JsonObject items27 = new JsonObject();
+        items27.addProperty("point_amount", 5);
+        items27.addProperty("point_amount_unit", "percent");
+        items27.addProperty("subject_more_than_or_equal", 1000);
+        items27.addProperty("subject_less_than", 5000);
+        JsonObject items28 = new JsonObject();
+        items28.addProperty("point_amount", 5);
+        items28.addProperty("point_amount_unit", "percent");
+        items28.addProperty("subject_more_than_or_equal", 1000);
+        items28.addProperty("subject_less_than", 5000);
+        Request request = new CreateCampaign(
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
+        )
+                .blacklistedShopIds(new String[]{"f20fdb5a-6bae-4a7f-9700-005539c1209e","71f2d949-a319-4462-855e-f3258fea786c","4ab96a8b-7800-4718-b1ea-1a1c62f3ac91","eb07bf90-f7f6-4cce-8104-0caee08624ce","cc1631ca-7aa8-49b5-be7e-aa5160608a7b","ff0b11a0-f3c7-47e1-bfa3-6f1bde5271e7","17645fc6-5990-4dcc-ae8c-1b0d302452da","bb0455f9-46d4-41fe-b08d-8dac5fdab865"})
+                .minimumNumberOfAmount(7511)
+                .minimumNumberOfProducts(3665)
+                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6,items7,items8,items9,items10})
+                .applicableDaysOfWeek(new Integer[]{5,0,6,1})
+                .blacklistedProductRules(new Object[]{items11,items12,items13,items14,items15,items16})
+                .productBasedPointRules(new Object[]{items17,items18,items19,items20,items21,items22,items23,items24,items25})
+                .amountBasedPointRules(new Object[]{items26,items27,items28})
+                .subject("all")
+                .setExclusive(false)
+                .pointExpiresInDays(9835)
+                .pointExpiresAt("2022-12-28T19:48:06.000000+09:00")
+                .status("enabled")
+                .description("VNjYiuGnAJt9ycnbg25pMkDWjeA5jwSPCmJ7L8Hw0jABPBeoOHP1bA73TOy01IhDjCWbN5hcY7")
+                .bearPointShopId("248c1c3f-6e03-4432-8ac8-8be859bdc563");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test38() throws ConnectionError, ProcessingError {
+        JsonObject items = new JsonObject();
+        items.addProperty("from", "12:00");
+        items.addProperty("to", "23:59");
+        JsonObject items2 = new JsonObject();
+        items2.addProperty("product_code", "4912345678904");
+        items2.addProperty("classification_code", "c123");
+        JsonObject items3 = new JsonObject();
+        items3.addProperty("product_code", "4912345678904");
+        items3.addProperty("classification_code", "c123");
+        JsonObject items4 = new JsonObject();
+        items4.addProperty("point_amount", 5);
+        items4.addProperty("point_amount_unit", "percent");
+        items4.addProperty("product_code", "4912345678904");
+        items4.addProperty("is_multiply_by_count", true);
+        items4.addProperty("required_count", 2);
+        JsonObject items5 = new JsonObject();
+        items5.addProperty("point_amount", 5);
+        items5.addProperty("point_amount_unit", "percent");
+        items5.addProperty("product_code", "4912345678904");
+        items5.addProperty("is_multiply_by_count", true);
+        items5.addProperty("required_count", 2);
+        JsonObject items6 = new JsonObject();
+        items6.addProperty("point_amount", 5);
+        items6.addProperty("point_amount_unit", "percent");
         items6.addProperty("product_code", "4912345678904");
-        items6.addProperty("classification_code", "c123");
+        items6.addProperty("is_multiply_by_count", true);
+        items6.addProperty("required_count", 2);
+        JsonObject items7 = new JsonObject();
+        items7.addProperty("point_amount", 5);
+        items7.addProperty("point_amount_unit", "percent");
+        items7.addProperty("product_code", "4912345678904");
+        items7.addProperty("is_multiply_by_count", true);
+        items7.addProperty("required_count", 2);
+        JsonObject items8 = new JsonObject();
+        items8.addProperty("point_amount", 5);
+        items8.addProperty("point_amount_unit", "percent");
+        items8.addProperty("subject_more_than_or_equal", 1000);
+        items8.addProperty("subject_less_than", 5000);
+        JsonObject items9 = new JsonObject();
+        items9.addProperty("point_amount", 5);
+        items9.addProperty("point_amount_unit", "percent");
+        items9.addProperty("subject_more_than_or_equal", 1000);
+        items9.addProperty("subject_less_than", 5000);
+        JsonObject items10 = new JsonObject();
+        items10.addProperty("point_amount", 5);
+        items10.addProperty("point_amount_unit", "percent");
+        items10.addProperty("subject_more_than_or_equal", 1000);
+        items10.addProperty("subject_less_than", 5000);
+        JsonObject items11 = new JsonObject();
+        items11.addProperty("point_amount", 5);
+        items11.addProperty("point_amount_unit", "percent");
+        items11.addProperty("subject_more_than_or_equal", 1000);
+        items11.addProperty("subject_less_than", 5000);
+        JsonObject items12 = new JsonObject();
+        items12.addProperty("point_amount", 5);
+        items12.addProperty("point_amount_unit", "percent");
+        items12.addProperty("subject_more_than_or_equal", 1000);
+        items12.addProperty("subject_less_than", 5000);
+        JsonObject items13 = new JsonObject();
+        items13.addProperty("point_amount", 5);
+        items13.addProperty("point_amount_unit", "percent");
+        items13.addProperty("subject_more_than_or_equal", 1000);
+        items13.addProperty("subject_less_than", 5000);
+        JsonObject items14 = new JsonObject();
+        items14.addProperty("point_amount", 5);
+        items14.addProperty("point_amount_unit", "percent");
+        items14.addProperty("subject_more_than_or_equal", 1000);
+        items14.addProperty("subject_less_than", 5000);
+        JsonObject items15 = new JsonObject();
+        items15.addProperty("point_amount", 5);
+        items15.addProperty("point_amount_unit", "percent");
+        items15.addProperty("subject_more_than_or_equal", 1000);
+        items15.addProperty("subject_less_than", 5000);
+        JsonObject items16 = new JsonObject();
+        items16.addProperty("point_amount", 5);
+        items16.addProperty("point_amount_unit", "percent");
+        items16.addProperty("subject_more_than_or_equal", 1000);
+        items16.addProperty("subject_less_than", 5000);
+        JsonObject items17 = new JsonObject();
+        items17.addProperty("point_amount", 5);
+        items17.addProperty("point_amount_unit", "percent");
+        items17.addProperty("subject_more_than_or_equal", 1000);
+        items17.addProperty("subject_less_than", 5000);
+        Request request = new CreateCampaign(
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
+        )
+                .blacklistedShopIds(new String[]{"9fb349bc-c8fb-4427-b5a6-1e06f99128d7"})
+                .minimumNumberForCombinationPurchase(1259)
+                .minimumNumberOfAmount(1839)
+                .minimumNumberOfProducts(6619)
+                .applicableTimeRanges(new Object[]{items})
+                .applicableDaysOfWeek(new Integer[]{2,4,2,2,1,6,0,1,2})
+                .blacklistedProductRules(new Object[]{items2,items3})
+                .productBasedPointRules(new Object[]{items4,items5,items6,items7})
+                .amountBasedPointRules(new Object[]{items8,items9,items10,items11,items12,items13,items14,items15,items16,items17})
+                .subject("all")
+                .setExclusive(false)
+                .pointExpiresInDays(1463)
+                .pointExpiresAt("2021-02-15T12:10:53.000000+09:00")
+                .status("enabled")
+                .description("FKRnM8Nz1LzBRzyMOosM4ez7UkWFKvKYapnFSQVr1jopTD3ZqUVbiTpgxqPmYiBhyNGmNf2APWLCYreiAKUUX9")
+                .bearPointShopId("9db10dcb-a799-4edc-b7a8-fbb62d47edc4");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test39() throws ConnectionError, ProcessingError {
+        JsonObject items = new JsonObject();
+        items.addProperty("from", "12:00");
+        items.addProperty("to", "23:59");
+        JsonObject items2 = new JsonObject();
+        items2.addProperty("from", "12:00");
+        items2.addProperty("to", "23:59");
+        JsonObject items3 = new JsonObject();
+        items3.addProperty("from", "12:00");
+        items3.addProperty("to", "23:59");
+        JsonObject items4 = new JsonObject();
+        items4.addProperty("from", "12:00");
+        items4.addProperty("to", "23:59");
+        JsonObject items5 = new JsonObject();
+        items5.addProperty("from", "12:00");
+        items5.addProperty("to", "23:59");
+        JsonObject items6 = new JsonObject();
+        items6.addProperty("from", "12:00");
+        items6.addProperty("to", "23:59");
         JsonObject items7 = new JsonObject();
         items7.addProperty("product_code", "4912345678904");
         items7.addProperty("classification_code", "c123");
         JsonObject items8 = new JsonObject();
         items8.addProperty("product_code", "4912345678904");
         items8.addProperty("classification_code", "c123");
+        JsonObject items9 = new JsonObject();
+        items9.addProperty("product_code", "4912345678904");
+        items9.addProperty("classification_code", "c123");
+        JsonObject items10 = new JsonObject();
+        items10.addProperty("product_code", "4912345678904");
+        items10.addProperty("classification_code", "c123");
+        JsonObject items11 = new JsonObject();
+        items11.addProperty("product_code", "4912345678904");
+        items11.addProperty("classification_code", "c123");
+        JsonObject items12 = new JsonObject();
+        items12.addProperty("product_code", "4912345678904");
+        items12.addProperty("classification_code", "c123");
+        JsonObject items13 = new JsonObject();
+        items13.addProperty("product_code", "4912345678904");
+        items13.addProperty("classification_code", "c123");
+        JsonObject items14 = new JsonObject();
+        items14.addProperty("product_code", "4912345678904");
+        items14.addProperty("classification_code", "c123");
+        JsonObject items15 = new JsonObject();
+        items15.addProperty("product_code", "4912345678904");
+        items15.addProperty("classification_code", "c123");
+        JsonObject items16 = new JsonObject();
+        items16.addProperty("point_amount", 5);
+        items16.addProperty("point_amount_unit", "percent");
+        items16.addProperty("product_code", "4912345678904");
+        items16.addProperty("is_multiply_by_count", true);
+        items16.addProperty("required_count", 2);
+        JsonObject items17 = new JsonObject();
+        items17.addProperty("point_amount", 5);
+        items17.addProperty("point_amount_unit", "percent");
+        items17.addProperty("product_code", "4912345678904");
+        items17.addProperty("is_multiply_by_count", true);
+        items17.addProperty("required_count", 2);
+        JsonObject items18 = new JsonObject();
+        items18.addProperty("point_amount", 5);
+        items18.addProperty("point_amount_unit", "percent");
+        items18.addProperty("product_code", "4912345678904");
+        items18.addProperty("is_multiply_by_count", true);
+        items18.addProperty("required_count", 2);
+        JsonObject items19 = new JsonObject();
+        items19.addProperty("point_amount", 5);
+        items19.addProperty("point_amount_unit", "percent");
+        items19.addProperty("product_code", "4912345678904");
+        items19.addProperty("is_multiply_by_count", true);
+        items19.addProperty("required_count", 2);
+        JsonObject items20 = new JsonObject();
+        items20.addProperty("point_amount", 5);
+        items20.addProperty("point_amount_unit", "percent");
+        items20.addProperty("product_code", "4912345678904");
+        items20.addProperty("is_multiply_by_count", true);
+        items20.addProperty("required_count", 2);
+        JsonObject items21 = new JsonObject();
+        items21.addProperty("point_amount", 5);
+        items21.addProperty("point_amount_unit", "percent");
+        items21.addProperty("product_code", "4912345678904");
+        items21.addProperty("is_multiply_by_count", true);
+        items21.addProperty("required_count", 2);
+        JsonObject items22 = new JsonObject();
+        items22.addProperty("point_amount", 5);
+        items22.addProperty("point_amount_unit", "percent");
+        items22.addProperty("product_code", "4912345678904");
+        items22.addProperty("is_multiply_by_count", true);
+        items22.addProperty("required_count", 2);
+        JsonObject items23 = new JsonObject();
+        items23.addProperty("point_amount", 5);
+        items23.addProperty("point_amount_unit", "percent");
+        items23.addProperty("product_code", "4912345678904");
+        items23.addProperty("is_multiply_by_count", true);
+        items23.addProperty("required_count", 2);
+        JsonObject items24 = new JsonObject();
+        items24.addProperty("point_amount", 5);
+        items24.addProperty("point_amount_unit", "percent");
+        items24.addProperty("product_code", "4912345678904");
+        items24.addProperty("is_multiply_by_count", true);
+        items24.addProperty("required_count", 2);
+        JsonObject items25 = new JsonObject();
+        items25.addProperty("point_amount", 5);
+        items25.addProperty("point_amount_unit", "percent");
+        items25.addProperty("product_code", "4912345678904");
+        items25.addProperty("is_multiply_by_count", true);
+        items25.addProperty("required_count", 2);
+        JsonObject items26 = new JsonObject();
+        items26.addProperty("point_amount", 5);
+        items26.addProperty("point_amount_unit", "percent");
+        items26.addProperty("subject_more_than_or_equal", 1000);
+        items26.addProperty("subject_less_than", 5000);
+        JsonObject items27 = new JsonObject();
+        items27.addProperty("point_amount", 5);
+        items27.addProperty("point_amount_unit", "percent");
+        items27.addProperty("subject_more_than_or_equal", 1000);
+        items27.addProperty("subject_less_than", 5000);
+        JsonObject items28 = new JsonObject();
+        items28.addProperty("point_amount", 5);
+        items28.addProperty("point_amount_unit", "percent");
+        items28.addProperty("subject_more_than_or_equal", 1000);
+        items28.addProperty("subject_less_than", 5000);
+        JsonObject items29 = new JsonObject();
+        items29.addProperty("point_amount", 5);
+        items29.addProperty("point_amount_unit", "percent");
+        items29.addProperty("subject_more_than_or_equal", 1000);
+        items29.addProperty("subject_less_than", 5000);
+        JsonObject items30 = new JsonObject();
+        items30.addProperty("point_amount", 5);
+        items30.addProperty("point_amount_unit", "percent");
+        items30.addProperty("subject_more_than_or_equal", 1000);
+        items30.addProperty("subject_less_than", 5000);
+        JsonObject items31 = new JsonObject();
+        items31.addProperty("point_amount", 5);
+        items31.addProperty("point_amount_unit", "percent");
+        items31.addProperty("subject_more_than_or_equal", 1000);
+        items31.addProperty("subject_less_than", 5000);
+        Request request = new CreateCampaign(
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
+        )
+                .blacklistedShopIds(new String[]{"aa3b78d2-21f5-40c9-84c4-dceedbb3ad97","3bdaa1c2-c3e3-47fa-b321-85eeffb4458b","1b9fc62b-c7a9-4615-8221-cc37b5bd3373","8c82c885-ccb3-465b-a600-d5672559621d"})
+                .existInEachProductGroups(true)
+                .minimumNumberForCombinationPurchase(2730)
+                .minimumNumberOfAmount(7855)
+                .minimumNumberOfProducts(3770)
+                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6})
+                .applicableDaysOfWeek(new Integer[]{0,3,6,5,0,1,4,5,2})
+                .blacklistedProductRules(new Object[]{items7,items8,items9,items10,items11,items12,items13,items14,items15})
+                .productBasedPointRules(new Object[]{items16,items17,items18,items19,items20,items21,items22,items23,items24,items25})
+                .amountBasedPointRules(new Object[]{items26,items27,items28,items29,items30,items31})
+                .subject("money")
+                .setExclusive(false)
+                .pointExpiresInDays(8025)
+                .pointExpiresAt("2023-08-07T13:27:17.000000+09:00")
+                .status("disabled")
+                .description("iKB0Ezot6OoldeqMznB9TAShdCAFf2H1rXP4h2dEgz8AqtmZ7lwkWMyfyzF9iK65zdYIZaZI8R33nLzYUTiX5puj7KVIJtoQS49lowMuF29D4ydx6K4wT93nSoWYTquZnBHQPIOJE")
+                .bearPointShopId("5c7b1e48-defc-4ab1-9f54-8ad1cb8afea5");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test40() throws ConnectionError, ProcessingError {
+        JsonObject items = new JsonObject();
+        items.addProperty("from", "12:00");
+        items.addProperty("to", "23:59");
+        JsonObject items2 = new JsonObject();
+        items2.addProperty("from", "12:00");
+        items2.addProperty("to", "23:59");
+        JsonObject items3 = new JsonObject();
+        items3.addProperty("from", "12:00");
+        items3.addProperty("to", "23:59");
+        JsonObject items4 = new JsonObject();
+        items4.addProperty("from", "12:00");
+        items4.addProperty("to", "23:59");
+        JsonObject items5 = new JsonObject();
+        items5.addProperty("from", "12:00");
+        items5.addProperty("to", "23:59");
+        JsonObject items6 = new JsonObject();
+        items6.addProperty("from", "12:00");
+        items6.addProperty("to", "23:59");
+        JsonObject items7 = new JsonObject();
+        items7.addProperty("from", "12:00");
+        items7.addProperty("to", "23:59");
+        JsonObject items8 = new JsonObject();
+        items8.addProperty("from", "12:00");
+        items8.addProperty("to", "23:59");
+        JsonObject items9 = new JsonObject();
+        items9.addProperty("product_code", "4912345678904");
+        items9.addProperty("classification_code", "c123");
+        JsonObject items10 = new JsonObject();
+        items10.addProperty("product_code", "4912345678904");
+        items10.addProperty("classification_code", "c123");
+        JsonObject items11 = new JsonObject();
+        items11.addProperty("product_code", "4912345678904");
+        items11.addProperty("classification_code", "c123");
+        JsonObject items12 = new JsonObject();
+        items12.addProperty("product_code", "4912345678904");
+        items12.addProperty("classification_code", "c123");
+        JsonObject items13 = new JsonObject();
+        items13.addProperty("product_code", "4912345678904");
+        items13.addProperty("classification_code", "c123");
+        JsonObject items14 = new JsonObject();
+        items14.addProperty("point_amount", 5);
+        items14.addProperty("point_amount_unit", "percent");
+        items14.addProperty("product_code", "4912345678904");
+        items14.addProperty("is_multiply_by_count", true);
+        items14.addProperty("required_count", 2);
+        JsonObject items15 = new JsonObject();
+        items15.addProperty("point_amount", 5);
+        items15.addProperty("point_amount_unit", "percent");
+        items15.addProperty("product_code", "4912345678904");
+        items15.addProperty("is_multiply_by_count", true);
+        items15.addProperty("required_count", 2);
+        JsonObject items16 = new JsonObject();
+        items16.addProperty("point_amount", 5);
+        items16.addProperty("point_amount_unit", "percent");
+        items16.addProperty("product_code", "4912345678904");
+        items16.addProperty("is_multiply_by_count", true);
+        items16.addProperty("required_count", 2);
+        JsonObject items17 = new JsonObject();
+        items17.addProperty("point_amount", 5);
+        items17.addProperty("point_amount_unit", "percent");
+        items17.addProperty("product_code", "4912345678904");
+        items17.addProperty("is_multiply_by_count", true);
+        items17.addProperty("required_count", 2);
+        JsonObject items18 = new JsonObject();
+        items18.addProperty("point_amount", 5);
+        items18.addProperty("point_amount_unit", "percent");
+        items18.addProperty("product_code", "4912345678904");
+        items18.addProperty("is_multiply_by_count", true);
+        items18.addProperty("required_count", 2);
+        JsonObject items19 = new JsonObject();
+        items19.addProperty("point_amount", 5);
+        items19.addProperty("point_amount_unit", "percent");
+        items19.addProperty("product_code", "4912345678904");
+        items19.addProperty("is_multiply_by_count", true);
+        items19.addProperty("required_count", 2);
+        JsonObject items20 = new JsonObject();
+        items20.addProperty("point_amount", 5);
+        items20.addProperty("point_amount_unit", "percent");
+        items20.addProperty("product_code", "4912345678904");
+        items20.addProperty("is_multiply_by_count", true);
+        items20.addProperty("required_count", 2);
+        JsonObject items21 = new JsonObject();
+        items21.addProperty("point_amount", 5);
+        items21.addProperty("point_amount_unit", "percent");
+        items21.addProperty("product_code", "4912345678904");
+        items21.addProperty("is_multiply_by_count", true);
+        items21.addProperty("required_count", 2);
+        JsonObject items22 = new JsonObject();
+        items22.addProperty("point_amount", 5);
+        items22.addProperty("point_amount_unit", "percent");
+        items22.addProperty("product_code", "4912345678904");
+        items22.addProperty("is_multiply_by_count", true);
+        items22.addProperty("required_count", 2);
+        JsonObject items23 = new JsonObject();
+        items23.addProperty("point_amount", 5);
+        items23.addProperty("point_amount_unit", "percent");
+        items23.addProperty("product_code", "4912345678904");
+        items23.addProperty("is_multiply_by_count", true);
+        items23.addProperty("required_count", 2);
+        JsonObject items24 = new JsonObject();
+        items24.addProperty("point_amount", 5);
+        items24.addProperty("point_amount_unit", "percent");
+        items24.addProperty("subject_more_than_or_equal", 1000);
+        items24.addProperty("subject_less_than", 5000);
+        JsonObject items25 = new JsonObject();
+        items25.addProperty("point_amount", 5);
+        items25.addProperty("point_amount_unit", "percent");
+        items25.addProperty("subject_more_than_or_equal", 1000);
+        items25.addProperty("subject_less_than", 5000);
+        Request request = new CreateCampaign(
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
+        )
+                .blacklistedShopIds(new String[]{"da6c5ce8-986d-4bbe-b4c6-cea90658e076","3872e401-9d22-4bb9-9a2f-1167276243df","f26bf3f7-8426-4eea-969a-62db6250aeb9","972a083b-09d3-487a-b38a-bee6cf359bcf","6e7de076-4ea4-44b1-8542-93c6bb7a0639","e22d3da6-d510-4367-9dd6-65a7bdc55e5e","9e2cbb21-7582-452b-91c6-97ea8648383b","13564f99-6ef2-4bfa-8ba7-7a438a63900a","1567cdcb-35a2-4744-a928-3fdc740d9bcd"})
+                .maxPointAmount(9843)
+                .existInEachProductGroups(false)
+                .minimumNumberForCombinationPurchase(5884)
+                .minimumNumberOfAmount(9326)
+                .minimumNumberOfProducts(1200)
+                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6,items7,items8})
+                .applicableDaysOfWeek(new Integer[]{1,3,1})
+                .blacklistedProductRules(new Object[]{items9,items10,items11,items12,items13})
+                .productBasedPointRules(new Object[]{items14,items15,items16,items17,items18,items19,items20,items21,items22,items23})
+                .amountBasedPointRules(new Object[]{items24,items25})
+                .subject("money")
+                .setExclusive(false)
+                .pointExpiresInDays(4793)
+                .pointExpiresAt("2020-06-07T15:18:24.000000+09:00")
+                .status("disabled")
+                .description("Aq0p99oAuG7luvYwYxGLltrUMya6NCE36ef9UlBhywBZ5AQGXWG4CaxLTmmKOxUBaF5rVt36O7mUTFRxnJpqoqh")
+                .bearPointShopId("ea96ca8f-c40f-4164-a67e-094f0de03a33");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test41() throws ConnectionError, ProcessingError {
+        JsonObject items = new JsonObject();
+        items.addProperty("from", "12:00");
+        items.addProperty("to", "23:59");
+        JsonObject items2 = new JsonObject();
+        items2.addProperty("from", "12:00");
+        items2.addProperty("to", "23:59");
+        JsonObject items3 = new JsonObject();
+        items3.addProperty("from", "12:00");
+        items3.addProperty("to", "23:59");
+        JsonObject items4 = new JsonObject();
+        items4.addProperty("from", "12:00");
+        items4.addProperty("to", "23:59");
+        JsonObject items5 = new JsonObject();
+        items5.addProperty("product_code", "4912345678904");
+        items5.addProperty("classification_code", "c123");
+        JsonObject items6 = new JsonObject();
+        items6.addProperty("product_code", "4912345678904");
+        items6.addProperty("classification_code", "c123");
+        JsonObject items7 = new JsonObject();
+        items7.addProperty("product_code", "4912345678904");
+        items7.addProperty("classification_code", "c123");
+        JsonObject items8 = new JsonObject();
+        items8.addProperty("point_amount", 5);
+        items8.addProperty("point_amount_unit", "percent");
+        items8.addProperty("product_code", "4912345678904");
+        items8.addProperty("is_multiply_by_count", true);
+        items8.addProperty("required_count", 2);
         JsonObject items9 = new JsonObject();
         items9.addProperty("point_amount", 5);
         items9.addProperty("point_amount_unit", "percent");
@@ -3917,9 +3529,8 @@ public class CreateCampaignTest {
         JsonObject items18 = new JsonObject();
         items18.addProperty("point_amount", 5);
         items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("product_code", "4912345678904");
-        items18.addProperty("is_multiply_by_count", true);
-        items18.addProperty("required_count", 2);
+        items18.addProperty("subject_more_than_or_equal", 1000);
+        items18.addProperty("subject_less_than", 5000);
         JsonObject items19 = new JsonObject();
         items19.addProperty("point_amount", 5);
         items19.addProperty("point_amount_unit", "percent");
@@ -3936,34 +3547,32 @@ public class CreateCampaignTest {
         items21.addProperty("subject_more_than_or_equal", 1000);
         items21.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .blacklistedShopIds(new String[]{"945417ce-e69c-46b6-9acf-f23494435c7e","5ae53f63-e325-4a44-9cd8-31761178703e"})
-                .applicableAccountMetadata(applicable_account_metadata)
-                .destPrivateMoneyId("6f142b4f-9487-4ff9-b374-6938d702575e")
-                .maxTotalPointAmount(5986)
-                .maxPointAmount(7730)
+                .blacklistedShopIds(new String[]{"92eaaf1b-0cb0-451f-afe0-9f5fa6bf90e5","ea4d228f-03df-4283-9ab3-60bb07ad7a1f","d6f1db6f-3bbd-4459-9b62-a650abc9277b","0c0ac977-371e-4e07-a2eb-72a47679847e","7113ee5f-a66f-407e-b433-385adb3ac0f6"})
+                .maxTotalPointAmount(8577)
+                .maxPointAmount(4910)
                 .existInEachProductGroups(false)
-                .minimumNumberForCombinationPurchase(5472)
-                .minimumNumberOfAmount(4370)
-                .minimumNumberOfProducts(2098)
-                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5})
-                .applicableDaysOfWeek(new Integer[]{1})
-                .blacklistedProductRules(new Object[]{items6,items7,items8})
-                .productBasedPointRules(new Object[]{items9,items10,items11,items12,items13,items14,items15,items16,items17,items18})
-                .amountBasedPointRules(new Object[]{items19,items20,items21})
-                .subject("all")
+                .minimumNumberForCombinationPurchase(2069)
+                .minimumNumberOfAmount(2104)
+                .minimumNumberOfProducts(4230)
+                .applicableTimeRanges(new Object[]{items,items2,items3,items4})
+                .applicableDaysOfWeek(new Integer[]{5})
+                .blacklistedProductRules(new Object[]{items5,items6,items7})
+                .productBasedPointRules(new Object[]{items8,items9,items10,items11,items12,items13,items14,items15,items16,items17})
+                .amountBasedPointRules(new Object[]{items18,items19,items20,items21})
+                .subject("money")
                 .setExclusive(true)
-                .pointExpiresInDays(6097)
-                .pointExpiresAt("2020-11-17T23:33:37.000000+09:00")
+                .pointExpiresInDays(6737)
+                .pointExpiresAt("2023-05-24T02:55:42.000000+09:00")
                 .status("disabled")
-                .description("NuydMzKLZkKmI3QhefxIdYvaklth5BI8x9bQZPiRFWUcNwjtKSxTm1Get5kD2V8yEfVLthQHM8")
-                .bearPointShopId("4eabc537-c2ac-4abb-811c-025d51698c53");
+                .description("v83rtJqKd257VuSLEz4ZeyPEMfcejCt8y1xmHlt1PGB49dBj328bRHWyLuPoqWkqFJedt8RTiq70Aaoz09qEvBrcY6k")
+                .bearPointShopId("18f7fdfa-8075-483b-8295-cdb20c53f401");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -3976,13 +3585,7 @@ public class CreateCampaignTest {
         }
     }
     @Test
-    void test44() throws ConnectionError, ProcessingError {
-        JsonObject applicable_transaction_metadata = new JsonObject();
-        applicable_transaction_metadata.addProperty("key", "rank");
-        applicable_transaction_metadata.addProperty("value", "bronze");
-        JsonObject applicable_account_metadata = new JsonObject();
-        applicable_account_metadata.addProperty("key", "sex");
-        applicable_account_metadata.addProperty("value", "male");
+    void test42() throws ConnectionError, ProcessingError {
         JsonObject items = new JsonObject();
         items.addProperty("from", "12:00");
         items.addProperty("to", "23:59");
@@ -3999,8 +3602,8 @@ public class CreateCampaignTest {
         items5.addProperty("from", "12:00");
         items5.addProperty("to", "23:59");
         JsonObject items6 = new JsonObject();
-        items6.addProperty("from", "12:00");
-        items6.addProperty("to", "23:59");
+        items6.addProperty("product_code", "4912345678904");
+        items6.addProperty("classification_code", "c123");
         JsonObject items7 = new JsonObject();
         items7.addProperty("product_code", "4912345678904");
         items7.addProperty("classification_code", "c123");
@@ -4008,8 +3611,11 @@ public class CreateCampaignTest {
         items8.addProperty("product_code", "4912345678904");
         items8.addProperty("classification_code", "c123");
         JsonObject items9 = new JsonObject();
+        items9.addProperty("point_amount", 5);
+        items9.addProperty("point_amount_unit", "percent");
         items9.addProperty("product_code", "4912345678904");
-        items9.addProperty("classification_code", "c123");
+        items9.addProperty("is_multiply_by_count", true);
+        items9.addProperty("required_count", 2);
         JsonObject items10 = new JsonObject();
         items10.addProperty("point_amount", 5);
         items10.addProperty("point_amount_unit", "percent");
@@ -4025,121 +3631,76 @@ public class CreateCampaignTest {
         JsonObject items12 = new JsonObject();
         items12.addProperty("point_amount", 5);
         items12.addProperty("point_amount_unit", "percent");
-        items12.addProperty("product_code", "4912345678904");
-        items12.addProperty("is_multiply_by_count", true);
-        items12.addProperty("required_count", 2);
+        items12.addProperty("subject_more_than_or_equal", 1000);
+        items12.addProperty("subject_less_than", 5000);
         JsonObject items13 = new JsonObject();
         items13.addProperty("point_amount", 5);
         items13.addProperty("point_amount_unit", "percent");
-        items13.addProperty("product_code", "4912345678904");
-        items13.addProperty("is_multiply_by_count", true);
-        items13.addProperty("required_count", 2);
+        items13.addProperty("subject_more_than_or_equal", 1000);
+        items13.addProperty("subject_less_than", 5000);
         JsonObject items14 = new JsonObject();
         items14.addProperty("point_amount", 5);
         items14.addProperty("point_amount_unit", "percent");
-        items14.addProperty("product_code", "4912345678904");
-        items14.addProperty("is_multiply_by_count", true);
-        items14.addProperty("required_count", 2);
+        items14.addProperty("subject_more_than_or_equal", 1000);
+        items14.addProperty("subject_less_than", 5000);
         JsonObject items15 = new JsonObject();
         items15.addProperty("point_amount", 5);
         items15.addProperty("point_amount_unit", "percent");
-        items15.addProperty("product_code", "4912345678904");
-        items15.addProperty("is_multiply_by_count", true);
-        items15.addProperty("required_count", 2);
+        items15.addProperty("subject_more_than_or_equal", 1000);
+        items15.addProperty("subject_less_than", 5000);
         JsonObject items16 = new JsonObject();
         items16.addProperty("point_amount", 5);
         items16.addProperty("point_amount_unit", "percent");
-        items16.addProperty("product_code", "4912345678904");
-        items16.addProperty("is_multiply_by_count", true);
-        items16.addProperty("required_count", 2);
+        items16.addProperty("subject_more_than_or_equal", 1000);
+        items16.addProperty("subject_less_than", 5000);
         JsonObject items17 = new JsonObject();
         items17.addProperty("point_amount", 5);
         items17.addProperty("point_amount_unit", "percent");
-        items17.addProperty("product_code", "4912345678904");
-        items17.addProperty("is_multiply_by_count", true);
-        items17.addProperty("required_count", 2);
+        items17.addProperty("subject_more_than_or_equal", 1000);
+        items17.addProperty("subject_less_than", 5000);
         JsonObject items18 = new JsonObject();
         items18.addProperty("point_amount", 5);
         items18.addProperty("point_amount_unit", "percent");
-        items18.addProperty("product_code", "4912345678904");
-        items18.addProperty("is_multiply_by_count", true);
-        items18.addProperty("required_count", 2);
+        items18.addProperty("subject_more_than_or_equal", 1000);
+        items18.addProperty("subject_less_than", 5000);
         JsonObject items19 = new JsonObject();
         items19.addProperty("point_amount", 5);
         items19.addProperty("point_amount_unit", "percent");
-        items19.addProperty("product_code", "4912345678904");
-        items19.addProperty("is_multiply_by_count", true);
-        items19.addProperty("required_count", 2);
+        items19.addProperty("subject_more_than_or_equal", 1000);
+        items19.addProperty("subject_less_than", 5000);
         JsonObject items20 = new JsonObject();
         items20.addProperty("point_amount", 5);
         items20.addProperty("point_amount_unit", "percent");
         items20.addProperty("subject_more_than_or_equal", 1000);
         items20.addProperty("subject_less_than", 5000);
-        JsonObject items21 = new JsonObject();
-        items21.addProperty("point_amount", 5);
-        items21.addProperty("point_amount_unit", "percent");
-        items21.addProperty("subject_more_than_or_equal", 1000);
-        items21.addProperty("subject_less_than", 5000);
-        JsonObject items22 = new JsonObject();
-        items22.addProperty("point_amount", 5);
-        items22.addProperty("point_amount_unit", "percent");
-        items22.addProperty("subject_more_than_or_equal", 1000);
-        items22.addProperty("subject_less_than", 5000);
-        JsonObject items23 = new JsonObject();
-        items23.addProperty("point_amount", 5);
-        items23.addProperty("point_amount_unit", "percent");
-        items23.addProperty("subject_more_than_or_equal", 1000);
-        items23.addProperty("subject_less_than", 5000);
-        JsonObject items24 = new JsonObject();
-        items24.addProperty("point_amount", 5);
-        items24.addProperty("point_amount_unit", "percent");
-        items24.addProperty("subject_more_than_or_equal", 1000);
-        items24.addProperty("subject_less_than", 5000);
-        JsonObject items25 = new JsonObject();
-        items25.addProperty("point_amount", 5);
-        items25.addProperty("point_amount_unit", "percent");
-        items25.addProperty("subject_more_than_or_equal", 1000);
-        items25.addProperty("subject_less_than", 5000);
-        JsonObject items26 = new JsonObject();
-        items26.addProperty("point_amount", 5);
-        items26.addProperty("point_amount_unit", "percent");
-        items26.addProperty("subject_more_than_or_equal", 1000);
-        items26.addProperty("subject_less_than", 5000);
-        JsonObject items27 = new JsonObject();
-        items27.addProperty("point_amount", 5);
-        items27.addProperty("point_amount_unit", "percent");
-        items27.addProperty("subject_more_than_or_equal", 1000);
-        items27.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .blacklistedShopIds(new String[]{"a70235f6-a881-4b5d-bbe3-cba4cb12375c","97a1a423-05b9-45d3-ae3f-49965649c9f8","0c1cf100-434b-4c5f-8626-944cb20383c8","a103e973-c79f-4f2a-898b-5359a4d16069","e6b71005-575b-484b-8a3e-a51bd61729b5","b1fab1f9-e7ee-417b-86ea-ec206c92fe61","181550ec-ad1f-42cf-aadc-f055b6af471f","2b485c2b-c4e4-4c47-9c55-0fa082c9d051","0138e873-b0b2-4ef6-a60c-df6c9334fe1d","bbbe298b-f1de-44f9-95e4-09e068e84de0"})
-                .applicableTransactionMetadata(applicable_transaction_metadata)
-                .applicableAccountMetadata(applicable_account_metadata)
-                .destPrivateMoneyId("90c28468-3f34-4426-a2f0-f88890ebd4a2")
-                .maxTotalPointAmount(6536)
-                .maxPointAmount(7663)
+                .blacklistedShopIds(new String[]{"9cd2c12b-9ef3-4792-bb4e-f253f86c182e","b4d6e18b-70fb-41d4-a4c3-c977247d95f6","ada6c560-7ad8-437f-90d3-ca57ccfa3a1e","48e6948d-3e18-4318-a4b1-2c0a75e8bda6","79f45a81-19b9-4fce-8337-916ab7f42eb1","1a7a2db6-f1b9-4832-9657-5b31a7458302","336c1d5d-9a1a-4c0c-8ec9-4d216822116b","6db5762e-46bf-4a66-b799-4f8108104326"})
+                .destPrivateMoneyId("ee835108-cbd5-4f93-bd71-4f77c25fcaa3")
+                .maxTotalPointAmount(5764)
+                .maxPointAmount(1093)
                 .existInEachProductGroups(true)
-                .minimumNumberForCombinationPurchase(7587)
-                .minimumNumberOfAmount(1886)
-                .minimumNumberOfProducts(3307)
-                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6})
-                .applicableDaysOfWeek(new Integer[]{4,2,0,5,3})
-                .blacklistedProductRules(new Object[]{items7,items8,items9})
-                .productBasedPointRules(new Object[]{items10,items11,items12,items13,items14,items15,items16,items17,items18,items19})
-                .amountBasedPointRules(new Object[]{items20,items21,items22,items23,items24,items25,items26,items27})
+                .minimumNumberForCombinationPurchase(103)
+                .minimumNumberOfAmount(8715)
+                .minimumNumberOfProducts(9229)
+                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5})
+                .applicableDaysOfWeek(new Integer[]{5,0,4})
+                .blacklistedProductRules(new Object[]{items6,items7,items8})
+                .productBasedPointRules(new Object[]{items9,items10,items11})
+                .amountBasedPointRules(new Object[]{items12,items13,items14,items15,items16,items17,items18,items19,items20})
                 .subject("all")
                 .setExclusive(false)
-                .pointExpiresInDays(7561)
-                .pointExpiresAt("2021-12-19T09:56:43.000000+09:00")
-                .status("enabled")
-                .description("YRbthn6eTDui63q55P4peQCLpYBbi5PRwkMVtGsanu0LQaEAiT3x6TJw9ZXw5wApIW3L6WtugeuOHV6lzVcbeXvz6Hqegyz0eAj7EYxrXULMr83HscQIqDXPVEdNW48BXZYziGuPGIqN3pbrIn3z4c")
-                .bearPointShopId("1c0cebb3-8f3a-4225-9324-560ef0ad7b23");
+                .pointExpiresInDays(6183)
+                .pointExpiresAt("2024-02-19T02:08:16.000000+09:00")
+                .status("disabled")
+                .description("GS8rE7PMoI048qy7gQAgdju4wZeKq1YtGlh66Pa9mvVpfq6TD33WjynxcISim5VYAABwP8k5lbFncStFavZL7xn5XSvgMNNiMPDKnR8A9TQMTFnUIQqDzuAalObxYr7NhHnhPqGQDT61pPQAmbpDgIzyvp0iLdhFuVFPXW7xARBmMejlon7GIhpzt3zmcF1nzEcbfD")
+                .bearPointShopId("5dd75f12-9998-4ce8-a35a-12df07c66b0b");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -4152,10 +3713,7 @@ public class CreateCampaignTest {
         }
     }
     @Test
-    void test45() throws ConnectionError, ProcessingError {
-        JsonObject applicable_transaction_metadata = new JsonObject();
-        applicable_transaction_metadata.addProperty("key", "rank");
-        applicable_transaction_metadata.addProperty("value", "bronze");
+    void test43() throws ConnectionError, ProcessingError {
         JsonObject applicable_account_metadata = new JsonObject();
         applicable_account_metadata.addProperty("key", "sex");
         applicable_account_metadata.addProperty("value", "male");
@@ -4190,11 +3748,17 @@ public class CreateCampaignTest {
         items10.addProperty("product_code", "4912345678904");
         items10.addProperty("classification_code", "c123");
         JsonObject items11 = new JsonObject();
+        items11.addProperty("point_amount", 5);
+        items11.addProperty("point_amount_unit", "percent");
         items11.addProperty("product_code", "4912345678904");
-        items11.addProperty("classification_code", "c123");
+        items11.addProperty("is_multiply_by_count", true);
+        items11.addProperty("required_count", 2);
         JsonObject items12 = new JsonObject();
+        items12.addProperty("point_amount", 5);
+        items12.addProperty("point_amount_unit", "percent");
         items12.addProperty("product_code", "4912345678904");
-        items12.addProperty("classification_code", "c123");
+        items12.addProperty("is_multiply_by_count", true);
+        items12.addProperty("required_count", 2);
         JsonObject items13 = new JsonObject();
         items13.addProperty("point_amount", 5);
         items13.addProperty("point_amount_unit", "percent");
@@ -4263,52 +3827,310 @@ public class CreateCampaignTest {
         items24.addProperty("point_amount_unit", "percent");
         items24.addProperty("subject_more_than_or_equal", 1000);
         items24.addProperty("subject_less_than", 5000);
-        JsonObject items25 = new JsonObject();
-        items25.addProperty("point_amount", 5);
-        items25.addProperty("point_amount_unit", "percent");
-        items25.addProperty("subject_more_than_or_equal", 1000);
-        items25.addProperty("subject_less_than", 5000);
-        JsonObject items26 = new JsonObject();
-        items26.addProperty("point_amount", 5);
-        items26.addProperty("point_amount_unit", "percent");
-        items26.addProperty("subject_more_than_or_equal", 1000);
-        items26.addProperty("subject_less_than", 5000);
-        JsonObject items27 = new JsonObject();
-        items27.addProperty("point_amount", 5);
-        items27.addProperty("point_amount_unit", "percent");
-        items27.addProperty("subject_more_than_or_equal", 1000);
-        items27.addProperty("subject_less_than", 5000);
         Request request = new CreateCampaign(
-            "HigoBW1BueiscJwva25XeNoYbtUlIuzpyUw5IHQ90tz5aYZlETNRAbh6gBixeF13J3e4aor0DL98XOg18bFy826Ec9vAp7wYvdsUxHhLTwuMYskJMy9bZTzEcC49QryizHKxPbjagewGC1Y1BLlgVbyMDS63LbhSrxLUrMR2ZlzkVoOMBck0MISLJsGHjRKxw5JN4mWtTXsx0pFenI",
-            "41e8e493-61a3-4fc0-ad32-82b408083b17",
-            "2021-01-04T18:38:30.000000+09:00",
-            "2022-07-17T20:39:27.000000+09:00",
-            7872,
-            "topup"
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
         )
-                .blacklistedShopIds(new String[]{"a536147d-8133-4069-b7cd-5e71e0d66c36","20e31ac9-5eb0-4cae-9377-f9353c16ddc1","7591202e-05b9-4e9d-8e3c-c69be014a350","94d38342-7996-42c9-9917-ff9f3ef8f5c2"})
-                .budgetCapsAmount(201144861)
+                .blacklistedShopIds(new String[]{"26f2204e-9167-44ce-af31-ed309303bba7","d0a5609f-dd91-414f-a67b-192ac4913be0","8ac76226-feca-42fc-93ac-f5fd0f35d4f4","78bcac55-c4ea-4869-8858-9b647da6fcda","7e63c316-4d5c-4162-88f8-9564f22fbfaa","8e937b0c-c724-4d8f-9a26-aea9ecd9a71c","ff70d9ab-ef25-4950-bade-3c74aa50ccd6","c07a7a5a-a1a0-41e2-919e-85d968a3c81a"})
+                .applicableAccountMetadata(applicable_account_metadata)
+                .destPrivateMoneyId("604b8091-4ffd-4b33-8e86-98ccb1c4c67b")
+                .maxTotalPointAmount(9583)
+                .maxPointAmount(6499)
+                .existInEachProductGroups(false)
+                .minimumNumberForCombinationPurchase(4570)
+                .minimumNumberOfAmount(1066)
+                .minimumNumberOfProducts(7830)
+                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6,items7})
+                .applicableDaysOfWeek(new Integer[]{0,0,2,6,2,1,4,4,6})
+                .blacklistedProductRules(new Object[]{items8,items9,items10})
+                .productBasedPointRules(new Object[]{items11,items12,items13,items14,items15,items16,items17,items18,items19,items20})
+                .amountBasedPointRules(new Object[]{items21,items22,items23,items24})
+                .subject("money")
+                .setExclusive(false)
+                .pointExpiresInDays(7944)
+                .pointExpiresAt("2023-09-13T00:09:55.000000+09:00")
+                .status("disabled")
+                .description("w5XFf60Or3VUBEonXrm5PhuFxDfB8mPKzIC2GltPTra4iu92v6Fymx9kUXlvs2Ry1gC6f1iPya8AkuAFCZ66HolI2p5BvE9UCdgBX")
+                .bearPointShopId("839f4fa4-06e9-45f3-b709-45dd3a574864");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test44() throws ConnectionError, ProcessingError {
+        JsonObject applicable_transaction_metadata = new JsonObject();
+        applicable_transaction_metadata.addProperty("key", "rank");
+        applicable_transaction_metadata.addProperty("value", "bronze");
+        JsonObject applicable_account_metadata = new JsonObject();
+        applicable_account_metadata.addProperty("key", "sex");
+        applicable_account_metadata.addProperty("value", "male");
+        JsonObject items = new JsonObject();
+        items.addProperty("from", "12:00");
+        items.addProperty("to", "23:59");
+        JsonObject items2 = new JsonObject();
+        items2.addProperty("from", "12:00");
+        items2.addProperty("to", "23:59");
+        JsonObject items3 = new JsonObject();
+        items3.addProperty("from", "12:00");
+        items3.addProperty("to", "23:59");
+        JsonObject items4 = new JsonObject();
+        items4.addProperty("from", "12:00");
+        items4.addProperty("to", "23:59");
+        JsonObject items5 = new JsonObject();
+        items5.addProperty("from", "12:00");
+        items5.addProperty("to", "23:59");
+        JsonObject items6 = new JsonObject();
+        items6.addProperty("from", "12:00");
+        items6.addProperty("to", "23:59");
+        JsonObject items7 = new JsonObject();
+        items7.addProperty("from", "12:00");
+        items7.addProperty("to", "23:59");
+        JsonObject items8 = new JsonObject();
+        items8.addProperty("from", "12:00");
+        items8.addProperty("to", "23:59");
+        JsonObject items9 = new JsonObject();
+        items9.addProperty("from", "12:00");
+        items9.addProperty("to", "23:59");
+        JsonObject items10 = new JsonObject();
+        items10.addProperty("product_code", "4912345678904");
+        items10.addProperty("classification_code", "c123");
+        JsonObject items11 = new JsonObject();
+        items11.addProperty("product_code", "4912345678904");
+        items11.addProperty("classification_code", "c123");
+        JsonObject items12 = new JsonObject();
+        items12.addProperty("product_code", "4912345678904");
+        items12.addProperty("classification_code", "c123");
+        JsonObject items13 = new JsonObject();
+        items13.addProperty("product_code", "4912345678904");
+        items13.addProperty("classification_code", "c123");
+        JsonObject items14 = new JsonObject();
+        items14.addProperty("point_amount", 5);
+        items14.addProperty("point_amount_unit", "percent");
+        items14.addProperty("product_code", "4912345678904");
+        items14.addProperty("is_multiply_by_count", true);
+        items14.addProperty("required_count", 2);
+        JsonObject items15 = new JsonObject();
+        items15.addProperty("point_amount", 5);
+        items15.addProperty("point_amount_unit", "percent");
+        items15.addProperty("product_code", "4912345678904");
+        items15.addProperty("is_multiply_by_count", true);
+        items15.addProperty("required_count", 2);
+        JsonObject items16 = new JsonObject();
+        items16.addProperty("point_amount", 5);
+        items16.addProperty("point_amount_unit", "percent");
+        items16.addProperty("product_code", "4912345678904");
+        items16.addProperty("is_multiply_by_count", true);
+        items16.addProperty("required_count", 2);
+        JsonObject items17 = new JsonObject();
+        items17.addProperty("point_amount", 5);
+        items17.addProperty("point_amount_unit", "percent");
+        items17.addProperty("subject_more_than_or_equal", 1000);
+        items17.addProperty("subject_less_than", 5000);
+        JsonObject items18 = new JsonObject();
+        items18.addProperty("point_amount", 5);
+        items18.addProperty("point_amount_unit", "percent");
+        items18.addProperty("subject_more_than_or_equal", 1000);
+        items18.addProperty("subject_less_than", 5000);
+        JsonObject items19 = new JsonObject();
+        items19.addProperty("point_amount", 5);
+        items19.addProperty("point_amount_unit", "percent");
+        items19.addProperty("subject_more_than_or_equal", 1000);
+        items19.addProperty("subject_less_than", 5000);
+        JsonObject items20 = new JsonObject();
+        items20.addProperty("point_amount", 5);
+        items20.addProperty("point_amount_unit", "percent");
+        items20.addProperty("subject_more_than_or_equal", 1000);
+        items20.addProperty("subject_less_than", 5000);
+        Request request = new CreateCampaign(
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
+        )
+                .blacklistedShopIds(new String[]{"ea8a9a4a-c8a1-4c8d-9634-bc033d1fb14b","f74d3d3e-a225-4f76-a9bc-68d078523b91","ea5c60ea-27e2-4352-81a4-b469c1740d82","3b5e1911-7bba-4930-98ac-27f5b460c829","9304134e-6cda-4663-90be-542c1c1a1fd3","e42012a6-c7dc-45ab-a702-5833165d89e7","1594f958-291c-4231-807e-1737b3518679","c786280c-feeb-42c9-a203-beb73f05bf08"})
                 .applicableTransactionMetadata(applicable_transaction_metadata)
                 .applicableAccountMetadata(applicable_account_metadata)
-                .destPrivateMoneyId("fad0be75-a2b7-44fc-a3c4-af29a4c527bc")
-                .maxTotalPointAmount(4114)
-                .maxPointAmount(8679)
+                .destPrivateMoneyId("812647e4-8dae-463b-9e20-9ac794363511")
+                .maxTotalPointAmount(6540)
+                .maxPointAmount(8947)
                 .existInEachProductGroups(true)
-                .minimumNumberForCombinationPurchase(8188)
-                .minimumNumberOfAmount(6403)
-                .minimumNumberOfProducts(6958)
-                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6,items7})
-                .applicableDaysOfWeek(new Integer[]{6,1})
-                .blacklistedProductRules(new Object[]{items8,items9,items10,items11,items12})
-                .productBasedPointRules(new Object[]{items13,items14,items15,items16,items17,items18,items19,items20})
-                .amountBasedPointRules(new Object[]{items21,items22,items23,items24,items25,items26,items27})
+                .minimumNumberForCombinationPurchase(9993)
+                .minimumNumberOfAmount(727)
+                .minimumNumberOfProducts(1153)
+                .applicableTimeRanges(new Object[]{items,items2,items3,items4,items5,items6,items7,items8,items9})
+                .applicableDaysOfWeek(new Integer[]{0,1,6,1,4,4})
+                .blacklistedProductRules(new Object[]{items10,items11,items12,items13})
+                .productBasedPointRules(new Object[]{items14,items15,items16})
+                .amountBasedPointRules(new Object[]{items17,items18,items19,items20})
+                .subject("money")
+                .setExclusive(false)
+                .pointExpiresInDays(9816)
+                .pointExpiresAt("2020-10-10T10:35:00.000000+09:00")
+                .status("disabled")
+                .description("kUz7TNKykQXZN8trWteshbxSr0myIpLtbfavQEqTX9UwMoOC1HdjKwcd2COGawmKTtUwgRMy3esykBi0gDR9ClEFIQhkxYqEeU4gDW5emGib8abzfNaaVLuBDtcCtg2pK3OU80umsZ23EvIcnEEY")
+                .bearPointShopId("8ca26225-d4d8-40f7-ab6f-df39f51841be");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test45() throws ConnectionError, ProcessingError {
+        JsonObject applicable_transaction_metadata = new JsonObject();
+        applicable_transaction_metadata.addProperty("key", "rank");
+        applicable_transaction_metadata.addProperty("value", "bronze");
+        JsonObject applicable_account_metadata = new JsonObject();
+        applicable_account_metadata.addProperty("key", "sex");
+        applicable_account_metadata.addProperty("value", "male");
+        JsonObject items = new JsonObject();
+        items.addProperty("from", "12:00");
+        items.addProperty("to", "23:59");
+        JsonObject items2 = new JsonObject();
+        items2.addProperty("from", "12:00");
+        items2.addProperty("to", "23:59");
+        JsonObject items3 = new JsonObject();
+        items3.addProperty("product_code", "4912345678904");
+        items3.addProperty("classification_code", "c123");
+        JsonObject items4 = new JsonObject();
+        items4.addProperty("point_amount", 5);
+        items4.addProperty("point_amount_unit", "percent");
+        items4.addProperty("product_code", "4912345678904");
+        items4.addProperty("is_multiply_by_count", true);
+        items4.addProperty("required_count", 2);
+        JsonObject items5 = new JsonObject();
+        items5.addProperty("point_amount", 5);
+        items5.addProperty("point_amount_unit", "percent");
+        items5.addProperty("product_code", "4912345678904");
+        items5.addProperty("is_multiply_by_count", true);
+        items5.addProperty("required_count", 2);
+        JsonObject items6 = new JsonObject();
+        items6.addProperty("point_amount", 5);
+        items6.addProperty("point_amount_unit", "percent");
+        items6.addProperty("product_code", "4912345678904");
+        items6.addProperty("is_multiply_by_count", true);
+        items6.addProperty("required_count", 2);
+        JsonObject items7 = new JsonObject();
+        items7.addProperty("point_amount", 5);
+        items7.addProperty("point_amount_unit", "percent");
+        items7.addProperty("product_code", "4912345678904");
+        items7.addProperty("is_multiply_by_count", true);
+        items7.addProperty("required_count", 2);
+        JsonObject items8 = new JsonObject();
+        items8.addProperty("point_amount", 5);
+        items8.addProperty("point_amount_unit", "percent");
+        items8.addProperty("product_code", "4912345678904");
+        items8.addProperty("is_multiply_by_count", true);
+        items8.addProperty("required_count", 2);
+        JsonObject items9 = new JsonObject();
+        items9.addProperty("point_amount", 5);
+        items9.addProperty("point_amount_unit", "percent");
+        items9.addProperty("product_code", "4912345678904");
+        items9.addProperty("is_multiply_by_count", true);
+        items9.addProperty("required_count", 2);
+        JsonObject items10 = new JsonObject();
+        items10.addProperty("point_amount", 5);
+        items10.addProperty("point_amount_unit", "percent");
+        items10.addProperty("product_code", "4912345678904");
+        items10.addProperty("is_multiply_by_count", true);
+        items10.addProperty("required_count", 2);
+        JsonObject items11 = new JsonObject();
+        items11.addProperty("point_amount", 5);
+        items11.addProperty("point_amount_unit", "percent");
+        items11.addProperty("product_code", "4912345678904");
+        items11.addProperty("is_multiply_by_count", true);
+        items11.addProperty("required_count", 2);
+        JsonObject items12 = new JsonObject();
+        items12.addProperty("point_amount", 5);
+        items12.addProperty("point_amount_unit", "percent");
+        items12.addProperty("product_code", "4912345678904");
+        items12.addProperty("is_multiply_by_count", true);
+        items12.addProperty("required_count", 2);
+        JsonObject items13 = new JsonObject();
+        items13.addProperty("point_amount", 5);
+        items13.addProperty("point_amount_unit", "percent");
+        items13.addProperty("product_code", "4912345678904");
+        items13.addProperty("is_multiply_by_count", true);
+        items13.addProperty("required_count", 2);
+        JsonObject items14 = new JsonObject();
+        items14.addProperty("point_amount", 5);
+        items14.addProperty("point_amount_unit", "percent");
+        items14.addProperty("subject_more_than_or_equal", 1000);
+        items14.addProperty("subject_less_than", 5000);
+        JsonObject items15 = new JsonObject();
+        items15.addProperty("point_amount", 5);
+        items15.addProperty("point_amount_unit", "percent");
+        items15.addProperty("subject_more_than_or_equal", 1000);
+        items15.addProperty("subject_less_than", 5000);
+        JsonObject items16 = new JsonObject();
+        items16.addProperty("point_amount", 5);
+        items16.addProperty("point_amount_unit", "percent");
+        items16.addProperty("subject_more_than_or_equal", 1000);
+        items16.addProperty("subject_less_than", 5000);
+        JsonObject items17 = new JsonObject();
+        items17.addProperty("point_amount", 5);
+        items17.addProperty("point_amount_unit", "percent");
+        items17.addProperty("subject_more_than_or_equal", 1000);
+        items17.addProperty("subject_less_than", 5000);
+        JsonObject items18 = new JsonObject();
+        items18.addProperty("point_amount", 5);
+        items18.addProperty("point_amount_unit", "percent");
+        items18.addProperty("subject_more_than_or_equal", 1000);
+        items18.addProperty("subject_less_than", 5000);
+        JsonObject items19 = new JsonObject();
+        items19.addProperty("point_amount", 5);
+        items19.addProperty("point_amount_unit", "percent");
+        items19.addProperty("subject_more_than_or_equal", 1000);
+        items19.addProperty("subject_less_than", 5000);
+        Request request = new CreateCampaign(
+            "hdwBIuAgYkZ6YwdoFOzboX71sD2CObn6zixEZQ8E69jdwLf90tzC6nhIUv2YEGaBt65QXauCdqlX1IIe6sxsu7XP1e6C3FGtTjIeHVbFKXPd21yNCpiyyBSU1nkeLow5QAo6AAX2SkL849ohBOBT02CVelFiEYZaAbtnZEeJvW1sOl0fBQeVZZ8IjMNfBnZiBbLPz0K4Mdn59drD2HiLaUrztbZ4T",
+            "3fb9ede5-59c3-460f-b779-a7c05c050939",
+            "2022-03-07T20:16:25.000000+09:00",
+            "2024-08-04T19:49:04.000000+09:00",
+            4895,
+            "payment"
+        )
+                .blacklistedShopIds(new String[]{"ba38bcd8-1ecd-4646-a108-123eef6592d4"})
+                .budgetCapsAmount(729874514)
+                .applicableTransactionMetadata(applicable_transaction_metadata)
+                .applicableAccountMetadata(applicable_account_metadata)
+                .destPrivateMoneyId("db25afd1-7352-408a-85bf-c8f3b0b1257b")
+                .maxTotalPointAmount(3194)
+                .maxPointAmount(796)
+                .existInEachProductGroups(false)
+                .minimumNumberForCombinationPurchase(4752)
+                .minimumNumberOfAmount(8302)
+                .minimumNumberOfProducts(1303)
+                .applicableTimeRanges(new Object[]{items,items2})
+                .applicableDaysOfWeek(new Integer[]{6,0,0,5,4,1,6,5})
+                .blacklistedProductRules(new Object[]{items3})
+                .productBasedPointRules(new Object[]{items4,items5,items6,items7,items8,items9,items10,items11,items12,items13})
+                .amountBasedPointRules(new Object[]{items14,items15,items16,items17,items18,items19})
                 .subject("money")
                 .setExclusive(true)
-                .pointExpiresInDays(769)
-                .pointExpiresAt("2021-11-26T13:54:52.000000+09:00")
+                .pointExpiresInDays(6560)
+                .pointExpiresAt("2024-06-21T08:33:07.000000+09:00")
                 .status("disabled")
-                .description("9eMT1991qU9d9QrHCmrmzWoF9XMVbrIUW4zaESpR2ep71lliSfr1CYr1cm3a5WDVwebs0PxyOHClSlsjhdxJUjWUTr0r0wrIb34F0VV1KFwSWKa4qvSNKXXwidY2n8X5CY76iUuCNH5i3qU4I1jKu6pzYquiUfufczBwR88TlCkbDoIWDx1PzIYOcZB18Rzoa5se")
-                .bearPointShopId("430879cf-65dd-439c-a28b-55709f0b3068");
+                .description("9YrfXMBoqstaIr8DAjdNduTDc8AHrRGPqABDmEJlQjMpfMXQ6We1Wry9Rmc")
+                .bearPointShopId("465b7363-8b76-4d1e-a041-8d4a17a29552");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

@@ -18,7 +18,7 @@ Request request = new CreateTransactionWithCashtray(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // cashtrayId: Cashtray用QRコードのID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // customerId: エンドユーザーのID
 )
-        .strategy("money-only")                   // 支払い時の残高消費方式
+        .strategy("point-preferred")              // 支払い時の残高消費方式
         .requestId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // リクエストID
 
 ```
@@ -118,10 +118,10 @@ Cashtrayを作成します。
 Request request = new CreateCashtray(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // shopId: 店舗ユーザーID
-    6617.0                                        // amount: 金額
+    9967.0                                        // amount: 金額
 )
         .description("たい焼き(小倉)")                  // 取引履歴に表示する説明文
-        .expiresIn(8059);                         // 失効時間(秒)
+        .expiresIn(5013);                         // 失効時間(秒)
 
 ```
 
@@ -342,9 +342,9 @@ Cashtrayの内容を更新します。bodyパラメーターは全て省略可�
 Request request = new UpdateCashtray(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // cashtrayId: CashtrayのID
 )
-        .amount(1053.0)                           // 金額
+        .amount(9164.0)                           // 金額
         .description("たい焼き(小倉)")                  // 取引履歴に表示する説明文
-        .expiresIn(9551);                         // 失効時間(秒)
+        .expiresIn(9501);                         // 失効時間(秒)
 
 ```
 

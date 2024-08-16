@@ -12,8 +12,8 @@ public class CreateTransactionWithCashtrayTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateTransactionWithCashtray(
-            "395a03d5-6f22-47f7-9701-8e4c4e6e2872",
-            "a50d9489-7bae-4c9b-82c7-1614b9129687"
+            "1070ffd2-66f2-4b4f-8f36-476bb780bbd0",
+            "c47dc1c4-324c-4347-bff1-32bf49caba90"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -29,10 +29,10 @@ public class CreateTransactionWithCashtrayTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateTransactionWithCashtray(
-            "395a03d5-6f22-47f7-9701-8e4c4e6e2872",
-            "a50d9489-7bae-4c9b-82c7-1614b9129687"
+            "1070ffd2-66f2-4b4f-8f36-476bb780bbd0",
+            "c47dc1c4-324c-4347-bff1-32bf49caba90"
         )
-                .requestId("152f045d-6afe-49c7-be53-38e8d0d45b28");
+                .requestId("2fb6fa93-e194-484c-9782-4f290c903f91");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -47,11 +47,11 @@ public class CreateTransactionWithCashtrayTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateTransactionWithCashtray(
-            "395a03d5-6f22-47f7-9701-8e4c4e6e2872",
-            "a50d9489-7bae-4c9b-82c7-1614b9129687"
+            "1070ffd2-66f2-4b4f-8f36-476bb780bbd0",
+            "c47dc1c4-324c-4347-bff1-32bf49caba90"
         )
-                .strategy("money-only")
-                .requestId("ceb2eb1d-25aa-4fcc-b488-a776052e7816");
+                .strategy("point-preferred")
+                .requestId("83d98fb8-293d-477d-895d-d4c56188db0f");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

@@ -7,19 +7,19 @@
 
 ```JAVA
 Request request = new ListBills()
-        .page(7362)                               // ページ番号
-        .perPage(9154)                            // 1ページの表示数
-        .billId("bqnyZ")                          // 支払いQRコードのID
+        .page(2901)                               // ページ番号
+        .perPage(5586)                            // 1ページの表示数
+        .billId("Ry4TK1N")                        // 支払いQRコードのID
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
-        .organizationCode("P-nBDTW7xli-v-2n3a1-m4Md266a0-") // 組織コード
+        .organizationCode("9-L205-04HMRt82-f-U5tu-P27-") // 組織コード
         .description("test bill")                 // 取引説明文
-        .createdFrom("2021-07-27T14:37:00.000000+09:00") // 作成日時(起点)
-        .createdTo("2020-05-20T17:30:43.000000+09:00") // 作成日時(終点)
+        .createdFrom("2023-11-19T12:53:07.000000+09:00") // 作成日時(起点)
+        .createdTo("2020-02-09T16:11:02.000000+09:00") // 作成日時(終点)
         .shopName("bill test shop1")              // 店舗名
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ID
-        .lowerLimitAmount(1021)                   // 金額の範囲によるフィルタ(下限)
-        .upperLimitAmount(4223)                   // 金額の範囲によるフィルタ(上限)
-        .setDisabled(false);                      // 支払いQRコードが無効化されているかどうか
+        .lowerLimitAmount(7949)                   // 金額の範囲によるフィルタ(下限)
+        .upperLimitAmount(5530)                   // 金額の範囲によるフィルタ(上限)
+        .setDisabled(true);                       // 支払いQRコードが無効化されているかどうか
 
 ```
 
@@ -207,7 +207,7 @@ Request request = new CreateBill(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: 支払いマネーのマネーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // shopId: 支払い先(受け取り人)の店舗ID
 )
-        .amount(8738.0)                           // 支払い額
+        .amount(3960.0)                           // 支払い額
         .description("test bill");                // 説明文(アプリ上で取引の説明文として表示される)
 
 ```
@@ -280,9 +280,9 @@ Request request = new CreateBill(
 Request request = new UpdateBill(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // billId: 支払いQRコードのID
 )
-        .amount(1112.0)                           // 支払い額
+        .amount(8223.0)                           // 支払い額
         .description("test bill")                 // 説明文
-        .setDisabled(false);                      // 無効化されているかどうか
+        .setDisabled(true);                       // 無効化されているかどうか
 
 ```
 

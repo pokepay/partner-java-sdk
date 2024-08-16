@@ -6,11 +6,11 @@ CSVファイルから一括取引をします。
 
 ```JAVA
 Request request = new BulkCreateTransaction(
-    "UJrJJOL8ZaUPD6KfaT",                         // name: 一括取引タスク名
-    "81XKVl5kts",                                 // content: 取引する情報のCSV
-    "ZF3vzsoRYAQSgsdBBR3nS7noY33DToLnvE1T"        // requestId: リクエストID
+    "63iEMR",                                     // name: 一括取引タスク名
+    "exlw7",                                      // content: 取引する情報のCSV
+    "ECJjZAz3G5nn8WN3SWSEByMWy9nIPLME03Li"        // requestId: リクエストID
 )
-        .description("eDWyQIDyjDaOD2AgVEvTyB7eezDtT0FihwKVT3VIsKTDCFFNa3EG7EPe") // 一括取引の説明
+        .description("mIjhAP7dqXiZYtTxoUfOSm")    // 一括取引の説明
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // マネーID
 
 ```

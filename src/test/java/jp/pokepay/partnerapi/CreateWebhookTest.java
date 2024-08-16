@@ -12,8 +12,8 @@ public class CreateWebhookTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateWebhook(
-            "bulk_shops",
-            "z3QNtq4"
+            "process_user_stats_operation",
+            "03"
         );
         try {
             PartnerAPITest.getClient().send(request);

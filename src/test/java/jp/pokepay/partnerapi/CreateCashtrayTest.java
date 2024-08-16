@@ -12,9 +12,9 @@ public class CreateCashtrayTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateCashtray(
-            "ddafce04-a972-4481-bcf6-a7cb23344b4c",
-            "dc5616e3-bbfe-4e3b-84ba-39e0bdf63ef1",
-            2479.0
+            "28c3999a-d428-48e1-aace-de9647495430",
+            "77d9d80e-43da-4bef-92be-810c4143f121",
+            6784.0
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -30,11 +30,11 @@ public class CreateCashtrayTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateCashtray(
-            "ddafce04-a972-4481-bcf6-a7cb23344b4c",
-            "dc5616e3-bbfe-4e3b-84ba-39e0bdf63ef1",
-            2479.0
+            "28c3999a-d428-48e1-aace-de9647495430",
+            "77d9d80e-43da-4bef-92be-810c4143f121",
+            6784.0
         )
-                .expiresIn(4930);
+                .expiresIn(2437);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -49,12 +49,12 @@ public class CreateCashtrayTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateCashtray(
-            "ddafce04-a972-4481-bcf6-a7cb23344b4c",
-            "dc5616e3-bbfe-4e3b-84ba-39e0bdf63ef1",
-            2479.0
+            "28c3999a-d428-48e1-aace-de9647495430",
+            "77d9d80e-43da-4bef-92be-810c4143f121",
+            6784.0
         )
-                .description("CXcrQeelPgmXpAPVnPz3LHZHo20wPRKNmRpcpB95GgyPD55Mh1j1MOppYBAG56PepHCuDKahyFwLgcTyMhINFt7G9OZkcS1QJsMMCyph1a")
-                .expiresIn(1239);
+                .description("jkNTLMNGXzY9Q3oasI0oraUYMsf3IjIM8o8OUs19jwBuVPNpqUBGKA0pmOCB6wXPRqEbHxWJ3wn2H1FjSz1rrfFtSi6Z94PHobLZEFcYhbrDQ36QSXFL3XGqWqU0GIzuWNjVaZ2Kyp75szRxs5Lc7Igu5ECuf4FIlOlbVRqSPX0Pi4hN7H4kgdnxn7E")
+                .expiresIn(6509);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
