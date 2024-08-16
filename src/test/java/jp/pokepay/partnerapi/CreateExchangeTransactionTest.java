@@ -12,10 +12,10 @@ public class CreateExchangeTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateExchangeTransaction(
-            "f896cf5f-8077-4a39-a3c3-b959b34645e7",
-            "fce8ef1e-c7de-4eac-90ad-044403fa555f",
-            "33a1d495-9314-4d3f-9515-846aa52e7f03",
-            8323
+            "850d2844-9b3d-438f-bb26-8b67a7238b87",
+            "71d6b915-6373-4387-abfa-9ef35e458ce8",
+            "3737a9ef-b440-4beb-81c0-fe04039ab2c8",
+            1162
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -31,12 +31,12 @@ public class CreateExchangeTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateExchangeTransaction(
-            "f896cf5f-8077-4a39-a3c3-b959b34645e7",
-            "fce8ef1e-c7de-4eac-90ad-044403fa555f",
-            "33a1d495-9314-4d3f-9515-846aa52e7f03",
-            8323
+            "850d2844-9b3d-438f-bb26-8b67a7238b87",
+            "71d6b915-6373-4387-abfa-9ef35e458ce8",
+            "3737a9ef-b440-4beb-81c0-fe04039ab2c8",
+            1162
         )
-                .requestId("2eba087a-c6b6-44cd-8db8-0fd201502ed3");
+                .requestId("31d04af9-ea5f-47af-bc63-076a3ab3064e");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -51,13 +51,13 @@ public class CreateExchangeTransactionTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateExchangeTransaction(
-            "f896cf5f-8077-4a39-a3c3-b959b34645e7",
-            "fce8ef1e-c7de-4eac-90ad-044403fa555f",
-            "33a1d495-9314-4d3f-9515-846aa52e7f03",
-            8323
+            "850d2844-9b3d-438f-bb26-8b67a7238b87",
+            "71d6b915-6373-4387-abfa-9ef35e458ce8",
+            "3737a9ef-b440-4beb-81c0-fe04039ab2c8",
+            1162
         )
-                .description("RAgXPkBIEMajPjZjOr")
-                .requestId("147b6891-0917-45a7-bc3a-1a4adab1e993");
+                .description("FAi86AzbKDLawr7vL9AG")
+                .requestId("b0e52d6a-a3cb-40e7-a8b7-0f0dcad15a75");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

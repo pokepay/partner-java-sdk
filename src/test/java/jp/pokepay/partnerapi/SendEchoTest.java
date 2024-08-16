@@ -12,7 +12,7 @@ public class SendEchoTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new SendEcho(
-            "ICF"
+            "IgjwAq"
         );
         try {
             PartnerAPITest.getClient().send(request);

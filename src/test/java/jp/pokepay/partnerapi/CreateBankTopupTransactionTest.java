@@ -12,11 +12,11 @@ public class CreateBankTopupTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateBankTopupTransaction(
-            "4366c14b-9be2-4ecb-be73-4b94fa31e66c",
-            "63f435d0-fedb-43e2-96e6-7eaf2fad8ac3",
-            6289,
-            "85498247-624c-4a38-8903-869ada8beded",
-            "39c5b91a-9e7f-4471-ab9e-59d6a25d2c40"
+            "614e8714-b4d3-45bf-aa7d-36c525c0f296",
+            "33ce7995-16db-43fb-8bb1-34f3b12fa7ae",
+            6124,
+            "e5845066-5063-4f15-af86-5183fee9c60f",
+            "3359f27f-dc08-4826-b025-f95e982b1905"
         );
         try {
             PartnerAPITest.getClient().send(request);

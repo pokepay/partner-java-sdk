@@ -13,16 +13,16 @@ QRコードを読み取る方法以外にも、このURLリンクを直接スマ
 
 ```JAVA
 Request request = new ListChecks()
-        .page(4485)                               // ページ番号
+        .page(2786)                               // ページ番号
         .perPage(50)                              // 1ページの表示数
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
-        .organizationCode("VgDEOybkRA")           // 組織コード
-        .expiresFrom("2023-08-11T11:48:43.000000+09:00") // 有効期限の期間によるフィルター(開始時点)
-        .expiresTo("2021-07-19T14:15:22.000000+09:00") // 有効期限の期間によるフィルター(終了時点)
-        .createdFrom("2021-10-22T13:51:32.000000+09:00") // 作成日時の期間によるフィルター(開始時点)
-        .createdTo("2021-04-02T05:24:42.000000+09:00") // 作成日時の期間によるフィルター(終了時点)
+        .organizationCode("tBerY6Yw7XEtvl6UO3PqnlnNNUJhSo") // 組織コード
+        .expiresFrom("2024-01-16T23:40:15.000000+09:00") // 有効期限の期間によるフィルター(開始時点)
+        .expiresTo("2022-05-10T03:17:37.000000+09:00") // 有効期限の期間によるフィルター(終了時点)
+        .createdFrom("2020-06-20T14:46:52.000000+09:00") // 作成日時の期間によるフィルター(開始時点)
+        .createdTo("2024-06-02T04:02:34.000000+09:00") // 作成日時の期間によるフィルター(終了時点)
         .issuerShopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 発行店舗ID
-        .description("i")                         // チャージQRコードの説明文
+        .description("yf0Krhd0")                  // チャージQRコードの説明文
         .setOnetime(true)                         // ワンタイムのチャージQRコードかどうか
         .setDisabled(true);                       // 無効化されたチャージQRコードかどうか
 
@@ -212,13 +212,13 @@ Request request = new ListChecks()
 Request request = new CreateCheck(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: 送金元の店舗アカウントID
 )
-        .moneyAmount(8634.0)                      // 付与マネー額
-        .pointAmount(2408.0)                      // 付与ポイント額
+        .moneyAmount(6212.0)                      // 付与マネー額
+        .pointAmount(2163.0)                      // 付与ポイント額
         .description("test check")                // 説明文(アプリ上で取引の説明文として表示される)
         .setOnetime(false)                        // ワンタイムかどうかのフラグ
-        .usageLimit(1120)                         // ワンタイムでない場合の最大読み取り回数
-        .expiresAt("2024-01-10T08:17:11.000000+09:00") // チャージQRコード自体の失効日時
-        .pointExpiresAt("2021-06-16T06:21:11.000000+09:00") // チャージQRコードによって付与されるポイント残高の有効期限
+        .usageLimit(1073)                         // ワンタイムでない場合の最大読み取り回数
+        .expiresAt("2021-08-26T00:25:40.000000+09:00") // チャージQRコード自体の失効日時
+        .pointExpiresAt("2020-11-11T16:45:11.000000+09:00") // チャージQRコードによって付与されるポイント残高の有効期限
         .pointExpiresInDays(60)                   // チャージQRコードによって付与されるポイント残高の有効期限(相対日数指定)
         .bearPointAccount("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // ポイント額を負担する店舗のウォレットID
 
@@ -424,16 +424,16 @@ Request request = new GetCheck(
 Request request = new UpdateCheck(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // checkId: チャージQRコードのID
 )
-        .moneyAmount(3218.0)                      // 付与マネー額
-        .pointAmount(2050.0)                      // 付与ポイント額
+        .moneyAmount(7991.0)                      // 付与マネー額
+        .pointAmount(1423.0)                      // 付与ポイント額
         .description("test check")                // チャージQRコードの説明文
         .setOnetime(false)                        // ワンタイムかどうかのフラグ
-        .usageLimit(3767)                         // ワンタイムでない場合の最大読み取り回数
-        .expiresAt("2021-01-16T00:57:01.000000+09:00") // チャージQRコード自体の失効日時
-        .pointExpiresAt("2023-03-16T19:54:27.000000+09:00") // チャージQRコードによって付与されるポイント残高の有効期限
+        .usageLimit(6169)                         // ワンタイムでない場合の最大読み取り回数
+        .expiresAt("2023-09-17T19:41:51.000000+09:00") // チャージQRコード自体の失効日時
+        .pointExpiresAt("2024-08-07T23:34:30.000000+09:00") // チャージQRコードによって付与されるポイント残高の有効期限
         .pointExpiresInDays(60)                   // チャージQRコードによって付与されるポイント残高の有効期限(相対日数指定)
         .bearPointAccount("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // ポイント額を負担する店舗のウォレットID
-        .setDisabled(false);                      // 無効化されているかどうかのフラグ
+        .setDisabled(true);                       // 無効化されているかどうかのフラグ
 
 ```
 

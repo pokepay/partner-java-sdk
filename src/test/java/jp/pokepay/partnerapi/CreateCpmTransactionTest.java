@@ -12,9 +12,9 @@ public class CreateCpmTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateCpmTransaction(
-            "xyoZAIT8ELFuBO5d3NOh2U",
-            "fce2acb8-6d86-44fe-94b3-630c8c84b3c4",
-            3789.0
+            "1xf8TxEeSXAruH0mNG6N8R",
+            "7d839030-2282-404c-aa2a-7871967088b8",
+            6488.0
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -30,11 +30,11 @@ public class CreateCpmTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateCpmTransaction(
-            "xyoZAIT8ELFuBO5d3NOh2U",
-            "fce2acb8-6d86-44fe-94b3-630c8c84b3c4",
-            3789.0
+            "1xf8TxEeSXAruH0mNG6N8R",
+            "7d839030-2282-404c-aa2a-7871967088b8",
+            6488.0
         )
-                .strategy("money-only");
+                .strategy("point-preferred");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -49,11 +49,11 @@ public class CreateCpmTransactionTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateCpmTransaction(
-            "xyoZAIT8ELFuBO5d3NOh2U",
-            "fce2acb8-6d86-44fe-94b3-630c8c84b3c4",
-            3789.0
+            "1xf8TxEeSXAruH0mNG6N8R",
+            "7d839030-2282-404c-aa2a-7871967088b8",
+            6488.0
         )
-                .requestId("2d174556-8a44-414e-b6c0-926ccb1db952")
+                .requestId("5a4674ba-e2d8-4990-b6a0-24912f9340f7")
                 .strategy("money-only");
         try {
             PartnerAPITest.getClient().send(request);
@@ -84,29 +84,13 @@ public class CreateCpmTransactionTest {
         items2.addProperty("quantity", 1);
         items2.addProperty("is_discounted", false);
         items2.addProperty("other", "{}");
-        JsonObject items3 = new JsonObject();
-        items3.addProperty("jan_code", "abc");
-        items3.addProperty("name", "name1");
-        items3.addProperty("unit_price", 100);
-        items3.addProperty("price", 100);
-        items3.addProperty("quantity", 1);
-        items3.addProperty("is_discounted", false);
-        items3.addProperty("other", "{}");
-        JsonObject items4 = new JsonObject();
-        items4.addProperty("jan_code", "abc");
-        items4.addProperty("name", "name1");
-        items4.addProperty("unit_price", 100);
-        items4.addProperty("price", 100);
-        items4.addProperty("quantity", 1);
-        items4.addProperty("is_discounted", false);
-        items4.addProperty("other", "{}");
         Request request = new CreateCpmTransaction(
-            "xyoZAIT8ELFuBO5d3NOh2U",
-            "fce2acb8-6d86-44fe-94b3-630c8c84b3c4",
-            3789.0
+            "1xf8TxEeSXAruH0mNG6N8R",
+            "7d839030-2282-404c-aa2a-7871967088b8",
+            6488.0
         )
-                .products(new Object[]{items,items2,items3,items4})
-                .requestId("8969a039-9477-40da-b3c6-dfec76631927")
+                .products(new Object[]{items,items2})
+                .requestId("48c4d888-d917-491d-98a2-a041f061f99d")
                 .strategy("money-only");
         try {
             PartnerAPITest.getClient().send(request);
@@ -161,14 +145,22 @@ public class CreateCpmTransactionTest {
         items5.addProperty("quantity", 1);
         items5.addProperty("is_discounted", false);
         items5.addProperty("other", "{}");
+        JsonObject items6 = new JsonObject();
+        items6.addProperty("jan_code", "abc");
+        items6.addProperty("name", "name1");
+        items6.addProperty("unit_price", 100);
+        items6.addProperty("price", 100);
+        items6.addProperty("quantity", 1);
+        items6.addProperty("is_discounted", false);
+        items6.addProperty("other", "{}");
         Request request = new CreateCpmTransaction(
-            "xyoZAIT8ELFuBO5d3NOh2U",
-            "fce2acb8-6d86-44fe-94b3-630c8c84b3c4",
-            3789.0
+            "1xf8TxEeSXAruH0mNG6N8R",
+            "7d839030-2282-404c-aa2a-7871967088b8",
+            6488.0
         )
                 .metadata("{\"key\":\"value\"}")
-                .products(new Object[]{items,items2,items3,items4,items5})
-                .requestId("4e6695e9-bfb6-418b-9837-6af28209944d")
+                .products(new Object[]{items,items2,items3,items4,items5,items6})
+                .requestId("f79f3ee4-9233-48d6-8983-1c38c70ae8c0")
                 .strategy("money-only");
         try {
             PartnerAPITest.getClient().send(request);
@@ -231,15 +223,31 @@ public class CreateCpmTransactionTest {
         items6.addProperty("quantity", 1);
         items6.addProperty("is_discounted", false);
         items6.addProperty("other", "{}");
+        JsonObject items7 = new JsonObject();
+        items7.addProperty("jan_code", "abc");
+        items7.addProperty("name", "name1");
+        items7.addProperty("unit_price", 100);
+        items7.addProperty("price", 100);
+        items7.addProperty("quantity", 1);
+        items7.addProperty("is_discounted", false);
+        items7.addProperty("other", "{}");
+        JsonObject items8 = new JsonObject();
+        items8.addProperty("jan_code", "abc");
+        items8.addProperty("name", "name1");
+        items8.addProperty("unit_price", 100);
+        items8.addProperty("price", 100);
+        items8.addProperty("quantity", 1);
+        items8.addProperty("is_discounted", false);
+        items8.addProperty("other", "{}");
         Request request = new CreateCpmTransaction(
-            "xyoZAIT8ELFuBO5d3NOh2U",
-            "fce2acb8-6d86-44fe-94b3-630c8c84b3c4",
-            3789.0
+            "1xf8TxEeSXAruH0mNG6N8R",
+            "7d839030-2282-404c-aa2a-7871967088b8",
+            6488.0
         )
-                .description("rd6cUQ7JDAIxQ")
+                .description("6XU4UJu9PvJn9BQo0MYAa8")
                 .metadata("{\"key\":\"value\"}")
-                .products(new Object[]{items,items2,items3,items4,items5,items6})
-                .requestId("a471c9f2-6537-4241-9347-9886d6a5bebf")
+                .products(new Object[]{items,items2,items3,items4,items5,items6,items7,items8})
+                .requestId("b02f7824-3771-48fc-87a0-c9e57106cdfc")
                 .strategy("point-preferred");
         try {
             PartnerAPITest.getClient().send(request);

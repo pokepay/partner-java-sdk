@@ -12,7 +12,7 @@ public class GetPrivateMoneySummaryTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetPrivateMoneySummary(
-            "573a84bb-f1a3-4414-92d2-584f1539a099"
+            "524e29eb-3eaf-4023-a3ec-3fdf27ff42c1"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class GetPrivateMoneySummaryTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new GetPrivateMoneySummary(
-            "573a84bb-f1a3-4414-92d2-584f1539a099"
+            "524e29eb-3eaf-4023-a3ec-3fdf27ff42c1"
         )
-                .to("2021-08-05T00:48:54.000000+09:00");
+                .to("2021-06-28T09:59:18.000000+09:00");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class GetPrivateMoneySummaryTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new GetPrivateMoneySummary(
-            "573a84bb-f1a3-4414-92d2-584f1539a099"
+            "524e29eb-3eaf-4023-a3ec-3fdf27ff42c1"
         )
-                .from("2021-12-24T16:10:58.000000+09:00")
-                .to("2024-05-21T01:23:36.000000+09:00");
+                .from("2024-06-02T00:58:15.000000+09:00")
+                .to("2021-02-19T09:31:58.000000+09:00");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

@@ -26,7 +26,7 @@ public class ListWebhooksTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListWebhooks()
-                .perPage(7906);
+                .perPage(5213);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -41,8 +41,8 @@ public class ListWebhooksTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListWebhooks()
-                .page(528)
-                .perPage(3250);
+                .page(9426)
+                .perPage(1447);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

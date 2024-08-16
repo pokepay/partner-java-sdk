@@ -8,8 +8,8 @@
 Request request = new ListUserAccounts(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // userId: ユーザーID
 )
-        .page(8312)                               // ページ番号
-        .perPage(9654);                           // 1ページ分の取引数
+        .page(5228)                               // ページ番号
+        .perPage(4429);                           // 1ページ分の取引数
 
 ```
 
@@ -74,8 +74,8 @@ Request request = new CreateUserAccount(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // userId: ユーザーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .name("h13KECcLDTh6GlAU8Wlxk2LXarQ3IBbBCi5TZBDGz0WtpvhMi0sjBNmSJRfTiGPJPWWLeq8e8Kc5D0r0YM6vkpQLTxeBjMNRLqaPzFmxJhrrT7gN") // ウォレット名
-        .externalId("IsPwJ7PfH")                  // 外部ID
+        .name("DtlB4zlu4GK2ciYp2U3M2BkmF4LDOyqv3AlNN54U0L9raG5FUtDxVQEfOiM5ANDXnVIiEAqOkBwyUrQZzhbyWitmj9VadrKJki4j5D9gQmc4qgb8ip4iT7qKbNebPEaACAXVDYf5J0gmjL8y4jLjxltDcaxK7Y9pWV34H8ExwxPpAlwUz03XcW799hYPkPtkvrkTfMn9opEinLy7uYNVhbo1Raus8ZZdVG8JIp06") // ウォレット名
+        .externalId("qjVb20zHfNBRTelt9PKLWat8")   // 外部ID
         .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}"); // ウォレットに付加するメタデータ
 
 ```

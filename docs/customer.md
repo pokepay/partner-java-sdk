@@ -104,8 +104,8 @@ Request request = new GetAccount(
 Request request = new UpdateAccount(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
 )
-        .setSuspended(true)                       // ウォレットが凍結されているかどうか
-        .status("suspended")                      // ウォレット状態
+        .setSuspended(false)                      // ウォレットが凍結されているかどうか
+        .status("pre-closed")                     // ウォレット状態
         .canTransferTopup(true);                  // チャージ可能かどうか
 
 ```
@@ -184,11 +184,11 @@ Request request = new UpdateAccount(
 Request request = new ListAccountBalances(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
 )
-        .page(2648)                               // ページ番号
-        .perPage(4465)                            // 1ページ分の取引数
-        .expiresAtFrom("2020-02-10T23:38:21.000000+09:00") // 有効期限の期間によるフィルター(開始時点)
-        .expiresAtTo("2021-01-01T22:32:38.000000+09:00") // 有効期限の期間によるフィルター(終了時点)
-        .direction("asc");                        // 有効期限によるソート順序
+        .page(3439)                               // ページ番号
+        .perPage(9459)                            // 1ページ分の取引数
+        .expiresAtFrom("2022-05-16T23:41:17.000000+09:00") // 有効期限の期間によるフィルター(開始時点)
+        .expiresAtTo("2020-08-22T00:20:11.000000+09:00") // 有効期限の期間によるフィルター(終了時点)
+        .direction("desc");                       // 有効期限によるソート順序
 
 ```
 
@@ -291,10 +291,10 @@ Request request = new ListAccountBalances(
 Request request = new ListAccountExpiredBalances(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
 )
-        .page(2370)                               // ページ番号
-        .perPage(1216)                            // 1ページ分の取引数
-        .expiresAtFrom("2023-11-01T20:26:44.000000+09:00") // 有効期限の期間によるフィルター(開始時点)
-        .expiresAtTo("2023-07-05T05:27:55.000000+09:00") // 有効期限の期間によるフィルター(終了時点)
+        .page(504)                                // ページ番号
+        .perPage(9490)                            // 1ページ分の取引数
+        .expiresAtFrom("2023-01-24T00:32:26.000000+09:00") // 有効期限の期間によるフィルター(開始時点)
+        .expiresAtTo("2024-02-28T09:20:01.000000+09:00") // 有効期限の期間によるフィルター(終了時点)
         .direction("asc");                        // 有効期限によるソート順序
 
 ```
@@ -398,9 +398,9 @@ Request request = new ListAccountExpiredBalances(
 Request request = new UpdateCustomerAccount(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
 )
-        .status("active")                         // ウォレット状態
-        .accountName("2waO15C3QLCyr4R2fDMezRRSm13v46q1TNk42w3XNcbcGVziiUpvzgMCUWpfLLteo1APjFxLxI1YR864aaBdo1TK5epGMgfOkv18cjEzqv3VeKoQthSf") // アカウント名
-        .externalId("A9LIvz0")                    // 外部ID
+        .status("pre-closed")                     // ウォレット状態
+        .accountName("gEBS2Z")                    // アカウント名
+        .externalId("fEsKp")                      // 外部ID
         .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}"); // ウォレットに付加するメタデータ
 
 ```
@@ -508,15 +508,15 @@ Request request = new UpdateCustomerAccount(
 Request request = new GetCustomerAccounts(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .page(101)                                // ページ番号
-        .perPage(8464)                            // 1ページ分のウォレット数
-        .createdAtFrom("2023-07-25T21:55:35.000000+09:00") // ウォレット作成日によるフィルター(開始時点)
-        .createdAtTo("2023-04-21T19:57:39.000000+09:00") // ウォレット作成日によるフィルター(終了時点)
-        .setSuspended(true)                       // ウォレットが凍結状態かどうかでフィルターする
-        .status("active")                         // ウォレット状態
-        .externalId("CHdqX8DfmbMd3R8JFZSAmRKvjPx7WkBYla") // 外部ID
-        .tel("04213902")                          // エンドユーザーの電話番号
-        .email("0JWPMWbnBR@4aia.com");            // エンドユーザーのメールアドレス
+        .page(5434)                               // ページ番号
+        .perPage(4367)                            // 1ページ分のウォレット数
+        .createdAtFrom("2022-06-07T03:56:57.000000+09:00") // ウォレット作成日によるフィルター(開始時点)
+        .createdAtTo("2023-05-14T06:40:37.000000+09:00") // ウォレット作成日によるフィルター(終了時点)
+        .setSuspended(false)                      // ウォレットが凍結状態かどうかでフィルターする
+        .status("suspended")                      // ウォレット状態
+        .externalId("NjGEcF4i9Lbcld2AvRNnS8mdqfsCB7D6YZCqnkEYYw") // 外部ID
+        .tel("053605-4329")                       // エンドユーザーの電話番号
+        .email("2gzcrplsKy@N7vE.com");            // エンドユーザーのメールアドレス
 
 ```
 
@@ -672,7 +672,7 @@ Request request = new CreateCustomerAccount(
 )
         .userName("ポケペイ太郎")                       // ユーザー名
         .accountName("ポケペイ太郎のアカウント")              // アカウント名
-        .externalId("EZLAWEBu0nCHGpdFXIlgNS3osJyIpphQ9y5lTvP7CpI8"); // 外部ID
+        .externalId("BikX0pTufynXTbsFtbMOlE");    // 外部ID
 
 ```
 
@@ -748,11 +748,11 @@ PAPIクライアントシステムから利用するPokepayユーザーのIDで�
 Request request = new GetShopAccounts(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .page(980)                                // ページ番号
-        .perPage(534)                             // 1ページ分のウォレット数
-        .createdAtFrom("2024-05-20T02:07:07.000000+09:00") // ウォレット作成日によるフィルター(開始時点)
-        .createdAtTo("2022-03-03T00:45:58.000000+09:00") // ウォレット作成日によるフィルター(終了時点)
-        .setSuspended(false);                     // ウォレットが凍結状態かどうかでフィルターする
+        .page(554)                                // ページ番号
+        .perPage(2579)                            // 1ページ分のウォレット数
+        .createdAtFrom("2023-04-17T01:13:10.000000+09:00") // ウォレット作成日によるフィルター(開始時点)
+        .createdAtTo("2023-07-06T01:52:50.000000+09:00") // ウォレット作成日によるフィルター(終了時点)
+        .setSuspended(true);                      // ウォレットが凍結状態かどうかでフィルターする
 
 ```
 
@@ -853,10 +853,10 @@ Request request = new ListCustomerTransactions(
 )
         .senderCustomerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 送金エンドユーザーID
         .receiverCustomerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 受取エンドユーザーID
-        .type("expire")                           // 取引種別
-        .setModified(true)                        // キャンセル済みかどうか
-        .from("2022-12-13T20:42:41.000000+09:00") // 開始日時
-        .to("2021-02-26T10:56:33.000000+09:00")   // 終了日時
+        .type("exchange")                         // 取引種別
+        .setModified(false)                       // キャンセル済みかどうか
+        .from("2023-01-07T00:51:13.000000+09:00") // 開始日時
+        .to("2022-08-06T00:55:45.000000+09:00")   // 終了日時
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
 

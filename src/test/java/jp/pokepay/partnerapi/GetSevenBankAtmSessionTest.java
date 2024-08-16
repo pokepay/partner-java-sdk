@@ -12,7 +12,7 @@ public class GetSevenBankATMSessionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetSevenBankATMSession(
-            "rsbOFZ6"
+            "klVLzMA8OK"
         );
         try {
             PartnerAPITest.getClient().send(request);

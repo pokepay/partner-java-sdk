@@ -2,7 +2,6 @@
 package jp.pokepay.partnerapi.tdsl;
 
 import jp.pokepay.partnerapi.PartnerAPITest;
-import jp.pokepay.partnerapi.request.*;
 import jp.pokepay.partnerapi.response.*;
 import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
@@ -19,7 +18,7 @@ public class CreateOrganizationTest {
         };
         String issuerAdminUserEmail = PartnerAPITest.randomString(6) + "@pokepay-tests.jp";
         String memberAdminUserEmail = PartnerAPITest.randomString(6) + "@pokepay-tests.jp";
-        Organization response = (Organization)PartnerAPITest.getClient().send(new CreateOrganization(
+        Organization response = (Organization)PartnerAPITest.getClient().send(new jp.pokepay.partnerapi.request.CreateOrganization(
             code,
             name,
             privateMoneyIds,
@@ -46,7 +45,7 @@ public class CreateOrganizationTest {
         String bankAccount = "1234567";
         String bankAccountHolderName = "ﾌｸｻﾞﾜﾕｷﾁ";
         String contactName = "佐藤清";
-        Organization response = (Organization)PartnerAPITest.getClient().send(new CreateOrganization(
+        Organization response = (Organization)PartnerAPITest.getClient().send(new jp.pokepay.partnerapi.request.CreateOrganization(
             code,
             name,
             privateMoneyIds,

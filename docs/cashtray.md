@@ -118,10 +118,10 @@ Cashtrayを作成します。
 Request request = new CreateCashtray(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // shopId: 店舗ユーザーID
-    9967.0                                        // amount: 金額
+    5420.0                                        // amount: 金額
 )
         .description("たい焼き(小倉)")                  // 取引履歴に表示する説明文
-        .expiresIn(5013);                         // 失効時間(秒)
+        .expiresIn(6274);                         // 失効時間(秒)
 
 ```
 
@@ -342,9 +342,9 @@ Cashtrayの内容を更新します。bodyパラメーターは全て省略可�
 Request request = new UpdateCashtray(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // cashtrayId: CashtrayのID
 )
-        .amount(9164.0)                           // 金額
+        .amount(9662.0)                           // 金額
         .description("たい焼き(小倉)")                  // 取引履歴に表示する説明文
-        .expiresIn(9501);                         // 失効時間(秒)
+        .expiresIn(4514);                         // 失効時間(秒)
 
 ```
 

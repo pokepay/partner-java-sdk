@@ -6,7 +6,7 @@ CPMトークンの現在の状態を取得します。CPMトークンの有効�
 
 ```JAVA
 Request request = new GetCpmToken(
-    "d3Lhty55xRpDg8ZQRy54oQ"                      // cpmToken: CPMトークン
+    "R17TntnVrUrejCdfq8Lzw5"                      // cpmToken: CPMトークン
 );
 
 ```
@@ -44,18 +44,18 @@ CPM取引時にエンドユーザーが店舗に提示するバーコードを�
 
 ```JAVA
 Request request = new ListTransactions()
-        .from("2021-02-06T07:44:52.000000+09:00") // 開始日時
-        .to("2023-01-04T03:24:51.000000+09:00")   // 終了日時
+        .from("2022-01-18T07:34:47.000000+09:00") // 開始日時
+        .to("2023-05-21T19:40:34.000000+09:00")   // 終了日時
         .page(1)                                  // ページ番号
         .perPage(50)                              // 1ページ分の取引数
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ID
         .customerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // エンドユーザーID
         .customerName("太郎")                       // エンドユーザー名
         .terminalId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 端末ID
-        .transactionId("wD")                      // 取引ID
+        .transactionId("qYKpN")                   // 取引ID
         .organizationCode("pocketchange")         // 組織コード
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
-        .setModified(true)                        // キャンセルフラグ
+        .setModified(false)                       // キャンセルフラグ
         .types(new String[]{"topup","payment"})   // 取引種別 (複数指定可)、チャージ=topup、支払い=payment
         .description("店頭QRコードによる支払い");            // 取引説明文
 
@@ -305,10 +305,10 @@ Request request = new CreateTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 )
-        .moneyAmount(7802)
-        .pointAmount(8630)
-        .pointExpiresAt("2023-11-12T22:51:26.000000+09:00") // ポイント有効期限
-        .description("5INx7nh6KnXH1FPj5kx6W60AOpycfpCif4wSpMPRW");
+        .moneyAmount(6505)
+        .pointAmount(5082)
+        .pointExpiresAt("2022-10-08T19:17:55.000000+09:00") // ポイント有効期限
+        .description("GRLpzM2YYzqm8YVIqse5Jkty5tI23c9mfXU1PoeoDCZTfBalPM7DNi5OFKTLCOFoNYCtO10ZghBarzcBAGjxB9YKg0kdjxCla3cRi3PTppTx7aC1ZNTBH8rKfXzHa9aN2YahZpvhw3mbZ3VIRvwEB6Z");
 
 ```
 
@@ -420,11 +420,11 @@ Request request = new ListTransactionsV2()
         .customerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // エンドユーザーID
         .customerName("太郎")                       // エンドユーザー名
         .description("店頭QRコードによる支払い")             // 取引説明文
-        .transactionId("SNH")                     // 取引ID
-        .setModified(false)                       // キャンセルフラグ
+        .transactionId("xnDZ1")                   // 取引ID
+        .setModified(true)                        // キャンセルフラグ
         .types(new String[]{"topup","payment"})   // 取引種別 (複数指定可)、チャージ=topup、支払い=payment
-        .from("2020-01-26T08:49:15.000000+09:00") // 開始日時
-        .to("2022-05-28T23:30:37.000000+09:00")   // 終了日時
+        .from("2023-03-25T04:43:32.000000+09:00") // 開始日時
+        .to("2021-09-18T07:16:14.000000+09:00")   // 終了日時
         .nextPageCursorId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 次ページへ遷移する際に起点となるtransactionのID
         .prevPageCursorId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 前ページへ遷移する際に起点となるtransactionのID
         .perPage(50);                             // 1ページ分の取引数
@@ -704,9 +704,9 @@ Request request = new CreateTopupTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
         .bearPointShopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // ポイント支払時の負担店舗ID
-        .moneyAmount(5258)                        // マネー額
-        .pointAmount(9473)                        // ポイント額
-        .pointExpiresAt("2021-02-18T14:32:56.000000+09:00") // ポイント有効期限
+        .moneyAmount(6701)                        // マネー額
+        .pointAmount(1840)                        // ポイント額
+        .pointExpiresAt("2020-10-20T13:17:36.000000+09:00") // ポイント有効期限
         .description("初夏のチャージキャンペーン")             // 取引履歴に表示する説明文
         .metadata("{\"key\":\"value\"}")          // 取引メタデータ
         .requestId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // リクエストID
@@ -886,23 +886,15 @@ items.addProperty("price", 100);
 items.addProperty("quantity", 1);
 items.addProperty("is_discounted", false);
 items.addProperty("other", "{}");
-JsonObject items2 = new JsonObject();
-items2.addProperty("jan_code", "abc");
-items2.addProperty("name", "name1");
-items2.addProperty("unit_price", 100);
-items2.addProperty("price", 100);
-items2.addProperty("quantity", 1);
-items2.addProperty("is_discounted", false);
-items2.addProperty("other", "{}");
 Request request = new CreatePaymentTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // shopId: 店舗ID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // customerId: エンドユーザーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    3519                                          // amount: 支払い額
+    4892                                          // amount: 支払い額
 )
         .description("たい焼き(小倉)")                  // 取引履歴に表示する説明文
         .metadata("{\"key\":\"value\"}")          // 取引メタデータ
-        .products(new Object[]{items,items2})     // 商品情報データ
+        .products(new Object[]{items})            // 商品情報データ
         .requestId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // リクエストID
         .strategy("point-preferred");             // 支払い時の残高消費方式
 
@@ -1090,14 +1082,22 @@ items2.addProperty("price", 100);
 items2.addProperty("quantity", 1);
 items2.addProperty("is_discounted", false);
 items2.addProperty("other", "{}");
+JsonObject items3 = new JsonObject();
+items3.addProperty("jan_code", "abc");
+items3.addProperty("name", "name1");
+items3.addProperty("unit_price", 100);
+items3.addProperty("price", 100);
+items3.addProperty("quantity", 1);
+items3.addProperty("is_discounted", false);
+items3.addProperty("other", "{}");
 Request request = new CreateCpmTransaction(
-    "lOCrUiUnFw72IuaLWIeDfb",                     // cpmToken: CPMトークン
+    "WWuC39tw0VS0QMQnveAg22",                     // cpmToken: CPMトークン
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // shopId: 店舗ID
-    6194.0                                        // amount: 取引金額
+    9552.0                                        // amount: 取引金額
 )
         .description("たい焼き(小倉)")                  // 取引説明文
         .metadata("{\"key\":\"value\"}")          // 店舗側メタデータ
-        .products(new Object[]{items,items2})     // 商品情報データ
+        .products(new Object[]{items,items2,items3}) // 商品情報データ
         .requestId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // リクエストID
         .strategy("point-preferred");             // 支払い時の残高消費方式
 
@@ -1259,7 +1259,7 @@ Request request = new CreateTransferTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // senderId: 送金元ユーザーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // receiverId: 受取ユーザーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    2655.0                                        // amount: 送金額
+    1364.0                                        // amount: 送金額
 )
         .metadata("{\"key\":\"value\"}")          // 取引メタデータ
         .description("たい焼き(小倉)")                  // 取引履歴に表示する説明文
@@ -1390,9 +1390,9 @@ Request request = new CreateExchangeTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    7346
+    4990
 )
-        .description("79jw")
+        .description("OdIXXzDXkdPxYQuSSfENEdEWQGuI7FyoMNtf9Zlgg2uTRrd2b7j7j12Xp5Uefdjg3oPPmSMGcO5TKxP3VeZwptsupcW0csFaCYw6HNv2fHpFZEKbB4FLhpN8zdxXAbgmAkD")
         .requestId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // リクエストID
 
 ```
@@ -1537,7 +1537,7 @@ Request request = new RefundTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // transactionId: 取引ID
 )
         .description("返品対応のため")                   // 取引履歴に表示する返金事由
-        .returningPointExpiresAt("2020-11-03T02:32:38.000000+09:00"); // 返却ポイントの有効期限
+        .returningPointExpiresAt("2021-02-21T17:10:07.000000+09:00"); // 返却ポイントの有効期限
 
 ```
 

@@ -12,10 +12,10 @@ public class CreateBankTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateBank(
-            "53108dbc-f100-4f08-97c9-e047d892ca31",
-            "c65dd0c6-9958-4307-860f-7d723d4d99ec",
-            "seqq7iHj8OfZ0VmoI8o4avNrxY1spuTstrfMILQRTxOOEsatNYoAbCo3ZMaf5KPKxelGW2PLMndzwsr1uv9FIOtH1KOWvnnzjzZAhW8D2ddoULlUcHuyaiEbRe8n3yOtWNGYstAurARpkAej7d3pmm2X1vQfnmCFJlBFCCKSrUPGtyVwMuKuLx7wL8pLgjraw5vJZi2F8G7vmLATWHC6iaIOnWYjtCIYZezAqhpmjYMb1iuYBPA",
-            "7905ahp1h14JVU6gHePJM"
+            "226d9cf4-c6f3-4464-bded-2acfd4299976",
+            "56b33d13-4ad6-485c-8234-739cefa1991b",
+            "O7jXqAerShAq15k9DkL4wdVQrmF1MG0JiF4U4bUzPAI0GwdcMbHRHGfyCYywImQM2KNl8Sd8QjvcE1x5vIKsgEbxPlPtfk4aCLKswhjVeb2FT7kBXiXBLj8DD95tKKrNfl6wxiUe7IjAK0yKp6T7XXQHJXUWp7Exz89gWqRvSdQFEL7ti",
+            "chkKZJJ8ax7I9A6JD3NK74h8H"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -31,12 +31,12 @@ public class CreateBankTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateBank(
-            "53108dbc-f100-4f08-97c9-e047d892ca31",
-            "c65dd0c6-9958-4307-860f-7d723d4d99ec",
-            "seqq7iHj8OfZ0VmoI8o4avNrxY1spuTstrfMILQRTxOOEsatNYoAbCo3ZMaf5KPKxelGW2PLMndzwsr1uv9FIOtH1KOWvnnzjzZAhW8D2ddoULlUcHuyaiEbRe8n3yOtWNGYstAurARpkAej7d3pmm2X1vQfnmCFJlBFCCKSrUPGtyVwMuKuLx7wL8pLgjraw5vJZi2F8G7vmLATWHC6iaIOnWYjtCIYZezAqhpmjYMb1iuYBPA",
-            "7905ahp1h14JVU6gHePJM"
+            "226d9cf4-c6f3-4464-bded-2acfd4299976",
+            "56b33d13-4ad6-485c-8234-739cefa1991b",
+            "O7jXqAerShAq15k9DkL4wdVQrmF1MG0JiF4U4bUzPAI0GwdcMbHRHGfyCYywImQM2KNl8Sd8QjvcE1x5vIKsgEbxPlPtfk4aCLKswhjVeb2FT7kBXiXBLj8DD95tKKrNfl6wxiUe7IjAK0yKp6T7XXQHJXUWp7Exz89gWqRvSdQFEL7ti",
+            "chkKZJJ8ax7I9A6JD3NK74h8H"
         )
-                .birthdate("7j");
+                .birthdate("g4HmbBMr");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -51,13 +51,13 @@ public class CreateBankTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateBank(
-            "53108dbc-f100-4f08-97c9-e047d892ca31",
-            "c65dd0c6-9958-4307-860f-7d723d4d99ec",
-            "seqq7iHj8OfZ0VmoI8o4avNrxY1spuTstrfMILQRTxOOEsatNYoAbCo3ZMaf5KPKxelGW2PLMndzwsr1uv9FIOtH1KOWvnnzjzZAhW8D2ddoULlUcHuyaiEbRe8n3yOtWNGYstAurARpkAej7d3pmm2X1vQfnmCFJlBFCCKSrUPGtyVwMuKuLx7wL8pLgjraw5vJZi2F8G7vmLATWHC6iaIOnWYjtCIYZezAqhpmjYMb1iuYBPA",
-            "7905ahp1h14JVU6gHePJM"
+            "226d9cf4-c6f3-4464-bded-2acfd4299976",
+            "56b33d13-4ad6-485c-8234-739cefa1991b",
+            "O7jXqAerShAq15k9DkL4wdVQrmF1MG0JiF4U4bUzPAI0GwdcMbHRHGfyCYywImQM2KNl8Sd8QjvcE1x5vIKsgEbxPlPtfk4aCLKswhjVeb2FT7kBXiXBLj8DD95tKKrNfl6wxiUe7IjAK0yKp6T7XXQHJXUWp7Exz89gWqRvSdQFEL7ti",
+            "chkKZJJ8ax7I9A6JD3NK74h8H"
         )
-                .email("DAwe0E01uk@ac00.com")
-                .birthdate("WMWMy7jD");
+                .email("4YFlc6NcP0@3AZG.com")
+                .birthdate("iUosFMt");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

@@ -12,7 +12,7 @@ public class CreateUserDeviceTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateUserDevice(
-            "0b9e742a-1c65-4e82-b2e4-908bee86b3f8"
+            "77b84dd3-89b5-453c-ae53-ac0184884729"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,7 +28,7 @@ public class CreateUserDeviceTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateUserDevice(
-            "0b9e742a-1c65-4e82-b2e4-908bee86b3f8"
+            "77b84dd3-89b5-453c-ae53-ac0184884729"
         )
                 .metadata("{\"user_agent\": \"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0\"}");
         try {

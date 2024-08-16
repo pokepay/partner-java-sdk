@@ -12,9 +12,9 @@ public class BulkCreateTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new BulkCreateTransaction(
-            "O2Qolq5Tmq39frKox2v",
-            "4kqmO5cmq",
-            "cNP9HJRYYRbzkMpqGRRcJy6Roczdv0Mgd1sr"
+            "eLBlKmUuSkMPzawbAj8npe1ob",
+            "ShwMQ",
+            "UbNfuhAnuO9NVmvRp5bMpuBj16czy5GFgPlI"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -30,11 +30,11 @@ public class BulkCreateTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new BulkCreateTransaction(
-            "O2Qolq5Tmq39frKox2v",
-            "4kqmO5cmq",
-            "cNP9HJRYYRbzkMpqGRRcJy6Roczdv0Mgd1sr"
+            "eLBlKmUuSkMPzawbAj8npe1ob",
+            "ShwMQ",
+            "UbNfuhAnuO9NVmvRp5bMpuBj16czy5GFgPlI"
         )
-                .privateMoneyId("07fb5ce1-781b-4164-a4b6-777e407dc3af");
+                .privateMoneyId("f0bd8616-0342-4a63-a22d-34c4f8a0c4ae");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -49,12 +49,12 @@ public class BulkCreateTransactionTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new BulkCreateTransaction(
-            "O2Qolq5Tmq39frKox2v",
-            "4kqmO5cmq",
-            "cNP9HJRYYRbzkMpqGRRcJy6Roczdv0Mgd1sr"
+            "eLBlKmUuSkMPzawbAj8npe1ob",
+            "ShwMQ",
+            "UbNfuhAnuO9NVmvRp5bMpuBj16czy5GFgPlI"
         )
-                .description("U2POaQ7Yqg2qeUatQcEXJscMb634xHMyww3nKEnST6RyTOuB4AfemtB6SrpuBXSAeoWDheXrfOZMd3ij1B67JMScW")
-                .privateMoneyId("5d0abf47-973b-4637-8495-4db77bbc4dc5");
+                .description("bG8sjrlMUHkYyTixoeODuLv4IfkRtldhpD9qiM64FWz594XPu4tW7fqFsiwTYtSGfbGUBc")
+                .privateMoneyId("7ea9bb1e-848b-44ad-8a4c-b5338391ef32");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

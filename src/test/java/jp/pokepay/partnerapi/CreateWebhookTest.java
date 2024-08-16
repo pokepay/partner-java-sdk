@@ -13,7 +13,7 @@ public class CreateWebhookTest {
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateWebhook(
             "process_user_stats_operation",
-            "03"
+            "AGSrvtjSRv"
         );
         try {
             PartnerAPITest.getClient().send(request);

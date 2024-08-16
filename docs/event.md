@@ -16,17 +16,25 @@ items.addProperty("price", 100);
 items.addProperty("quantity", 1);
 items.addProperty("is_discounted", false);
 items.addProperty("other", "{}");
+JsonObject items2 = new JsonObject();
+items2.addProperty("jan_code", "abc");
+items2.addProperty("name", "name1");
+items2.addProperty("unit_price", 100);
+items2.addProperty("price", 100);
+items2.addProperty("quantity", 1);
+items2.addProperty("is_discounted", false);
+items2.addProperty("other", "{}");
 Request request = new CreateExternalTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // shopId: 店舗ID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // customerId: エンドユーザーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    6187                                          // amount: 取引額
+    8309                                          // amount: 取引額
 )
         .description("たい焼き(小倉)")                  // 取引説明文
         .metadata("{\"key\":\"value\"}")          // ポケペイ外部取引メタデータ
-        .products(new Object[]{items})            // 商品情報データ
+        .products(new Object[]{items,items2})     // 商品情報データ
         .requestId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // リクエストID
-        .doneAt("2023-11-23T09:47:31.000000+09:00"); // ポケペイ外部取引の実施時間
+        .doneAt("2020-10-20T12:01:10.000000+09:00"); // ポケペイ外部取引の実施時間
 
 ```
 

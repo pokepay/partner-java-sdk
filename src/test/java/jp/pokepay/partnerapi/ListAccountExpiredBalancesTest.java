@@ -12,7 +12,7 @@ public class ListAccountExpiredBalancesTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new ListAccountExpiredBalances(
-            "d5520d35-7258-40df-aa02-d6b18efeab19"
+            "ecc5c9c0-6951-4cc5-9be7-3130ae415531"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,7 +28,7 @@ public class ListAccountExpiredBalancesTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListAccountExpiredBalances(
-            "d5520d35-7258-40df-aa02-d6b18efeab19"
+            "ecc5c9c0-6951-4cc5-9be7-3130ae415531"
         )
                 .direction("asc");
         try {
@@ -45,10 +45,10 @@ public class ListAccountExpiredBalancesTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListAccountExpiredBalances(
-            "d5520d35-7258-40df-aa02-d6b18efeab19"
+            "ecc5c9c0-6951-4cc5-9be7-3130ae415531"
         )
-                .expiresAtTo("2021-06-11T08:16:47.000000+09:00")
-                .direction("asc");
+                .expiresAtTo("2020-01-31T19:42:43.000000+09:00")
+                .direction("desc");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,10 +63,10 @@ public class ListAccountExpiredBalancesTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new ListAccountExpiredBalances(
-            "d5520d35-7258-40df-aa02-d6b18efeab19"
+            "ecc5c9c0-6951-4cc5-9be7-3130ae415531"
         )
-                .expiresAtFrom("2022-06-10T18:24:41.000000+09:00")
-                .expiresAtTo("2022-10-28T09:31:29.000000+09:00")
+                .expiresAtFrom("2022-01-13T02:54:22.000000+09:00")
+                .expiresAtTo("2022-07-20T15:00:22.000000+09:00")
                 .direction("asc");
         try {
             PartnerAPITest.getClient().send(request);
@@ -82,12 +82,12 @@ public class ListAccountExpiredBalancesTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new ListAccountExpiredBalances(
-            "d5520d35-7258-40df-aa02-d6b18efeab19"
+            "ecc5c9c0-6951-4cc5-9be7-3130ae415531"
         )
-                .perPage(664)
-                .expiresAtFrom("2023-12-14T18:30:21.000000+09:00")
-                .expiresAtTo("2022-08-20T23:23:01.000000+09:00")
-                .direction("asc");
+                .perPage(5335)
+                .expiresAtFrom("2020-02-29T19:17:44.000000+09:00")
+                .expiresAtTo("2023-01-03T18:33:14.000000+09:00")
+                .direction("desc");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -102,12 +102,12 @@ public class ListAccountExpiredBalancesTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new ListAccountExpiredBalances(
-            "d5520d35-7258-40df-aa02-d6b18efeab19"
+            "ecc5c9c0-6951-4cc5-9be7-3130ae415531"
         )
-                .page(68)
-                .perPage(8281)
-                .expiresAtFrom("2020-03-06T10:41:05.000000+09:00")
-                .expiresAtTo("2024-04-13T08:24:58.000000+09:00")
+                .page(7547)
+                .perPage(5512)
+                .expiresAtFrom("2023-03-29T12:56:50.000000+09:00")
+                .expiresAtTo("2024-05-27T21:25:44.000000+09:00")
                 .direction("desc");
         try {
             PartnerAPITest.getClient().send(request);

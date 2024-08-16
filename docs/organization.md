@@ -9,8 +9,8 @@ Request request = new ListOrganizations(
 )
         .page(1)                                  // ページ番号
         .perPage(50)                              // 1ページ分の取引数
-        .name("yK")                               // 組織名
-        .code("do");                              // 組織コード
+        .name("lYAUCZS3oy")                       // 組織名
+        .code("TLD");                             // 組織コード
 
 ```
 
@@ -92,15 +92,15 @@ Request request = new ListOrganizations(
 Request request = new CreateOrganization(
     "ox-supermarket",                             // code: 新規組織コード
     "oxスーパー",                                     // name: 新規組織名
-    new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}, // privateMoneyIds: 加盟店組織で有効にするマネーIDの配列
-    "633YDXOOBz@lesc.com",                        // issuerAdminUserEmail: 発行体担当者メールアドレス
-    "6MHL3mrV44@bJqB.com"                         // memberAdminUserEmail: 新規組織担当者メールアドレス
+    new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}, // privateMoneyIds: 加盟店組織で有効にするマネーIDの配列
+    "Awsymj0xLT@PLJF.com",                        // issuerAdminUserEmail: 発行体担当者メールアドレス
+    "AMKjHVqYJj@vMMr.com"                         // memberAdminUserEmail: 新規組織担当者メールアドレス
 )
         .bankName("XYZ銀行")                        // 銀行名
         .bankCode("1234")                         // 銀行金融機関コード
         .bankBranchName("ABC支店")                  // 銀行支店名
         .bankBranchCode("123")                    // 銀行支店コード
-        .bankAccountType("saving")                // 銀行口座種別 (普通=saving, 当座=current, その他=other)
+        .bankAccountType("other")                 // 銀行口座種別 (普通=saving, 当座=current, その他=other)
         .bankAccount("1234567")                   // 銀行口座番号
         .bankAccountHolderName("ﾌｸｻﾞﾜﾕｷﾁ")        // 口座名義人名
         .contactName("佐藤清");                      // 担当者名
