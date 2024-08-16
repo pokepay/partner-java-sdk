@@ -12,7 +12,7 @@ public class ListUserAccountsTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new ListUserAccounts(
-            "f7badafa-54a1-4511-b337-e4aa1c1fe652"
+            "2f00b297-0ef3-40f0-845f-69419aaa1ece"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class ListUserAccountsTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListUserAccounts(
-            "f7badafa-54a1-4511-b337-e4aa1c1fe652"
+            "2f00b297-0ef3-40f0-845f-69419aaa1ece"
         )
-                .perPage(5145);
+                .perPage(813);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class ListUserAccountsTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListUserAccounts(
-            "f7badafa-54a1-4511-b337-e4aa1c1fe652"
+            "2f00b297-0ef3-40f0-845f-69419aaa1ece"
         )
-                .page(7996)
-                .perPage(3122);
+                .page(7356)
+                .perPage(2550);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

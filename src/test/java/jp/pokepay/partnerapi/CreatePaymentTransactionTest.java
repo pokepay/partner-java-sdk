@@ -12,10 +12,10 @@ public class CreatePaymentTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreatePaymentTransaction(
-            "3c306e03-fc9f-4742-819e-76eb7dc7271d",
-            "2af43fc3-7bfd-4ed1-a6ec-b0d747bdc8f1",
-            "fa972a02-3b64-4c34-96a7-f6e7164f0af4",
-            5857
+            "36f553bb-efd6-453d-857d-016f66fc02e7",
+            "ce364c88-b56c-4c06-8eca-8a64935bd445",
+            "cbb77e1f-ab28-49c1-a97a-c6f06064db70",
+            6269
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -31,12 +31,12 @@ public class CreatePaymentTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreatePaymentTransaction(
-            "3c306e03-fc9f-4742-819e-76eb7dc7271d",
-            "2af43fc3-7bfd-4ed1-a6ec-b0d747bdc8f1",
-            "fa972a02-3b64-4c34-96a7-f6e7164f0af4",
-            5857
+            "36f553bb-efd6-453d-857d-016f66fc02e7",
+            "ce364c88-b56c-4c06-8eca-8a64935bd445",
+            "cbb77e1f-ab28-49c1-a97a-c6f06064db70",
+            6269
         )
-                .strategy("point-preferred");
+                .strategy("money-only");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -51,12 +51,12 @@ public class CreatePaymentTransactionTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreatePaymentTransaction(
-            "3c306e03-fc9f-4742-819e-76eb7dc7271d",
-            "2af43fc3-7bfd-4ed1-a6ec-b0d747bdc8f1",
-            "fa972a02-3b64-4c34-96a7-f6e7164f0af4",
-            5857
+            "36f553bb-efd6-453d-857d-016f66fc02e7",
+            "ce364c88-b56c-4c06-8eca-8a64935bd445",
+            "cbb77e1f-ab28-49c1-a97a-c6f06064db70",
+            6269
         )
-                .requestId("0a999d97-0637-418a-8bee-bbbcaec0c105")
+                .requestId("d84e3251-ef6b-46cf-9327-0d0c2c7600cc")
                 .strategy("point-preferred");
         try {
             PartnerAPITest.getClient().send(request);
@@ -135,30 +135,14 @@ public class CreatePaymentTransactionTest {
         items8.addProperty("quantity", 1);
         items8.addProperty("is_discounted", false);
         items8.addProperty("other", "{}");
-        JsonObject items9 = new JsonObject();
-        items9.addProperty("jan_code", "abc");
-        items9.addProperty("name", "name1");
-        items9.addProperty("unit_price", 100);
-        items9.addProperty("price", 100);
-        items9.addProperty("quantity", 1);
-        items9.addProperty("is_discounted", false);
-        items9.addProperty("other", "{}");
-        JsonObject items10 = new JsonObject();
-        items10.addProperty("jan_code", "abc");
-        items10.addProperty("name", "name1");
-        items10.addProperty("unit_price", 100);
-        items10.addProperty("price", 100);
-        items10.addProperty("quantity", 1);
-        items10.addProperty("is_discounted", false);
-        items10.addProperty("other", "{}");
         Request request = new CreatePaymentTransaction(
-            "3c306e03-fc9f-4742-819e-76eb7dc7271d",
-            "2af43fc3-7bfd-4ed1-a6ec-b0d747bdc8f1",
-            "fa972a02-3b64-4c34-96a7-f6e7164f0af4",
-            5857
+            "36f553bb-efd6-453d-857d-016f66fc02e7",
+            "ce364c88-b56c-4c06-8eca-8a64935bd445",
+            "cbb77e1f-ab28-49c1-a97a-c6f06064db70",
+            6269
         )
-                .products(new Object[]{items,items2,items3,items4,items5,items6,items7,items8,items9,items10})
-                .requestId("2d49628f-4b18-4524-aec3-c4280977728e")
+                .products(new Object[]{items,items2,items3,items4,items5,items6,items7,items8})
+                .requestId("687f8e0c-96bf-431c-ba47-7c6a96364f65")
                 .strategy("money-only");
         try {
             PartnerAPITest.getClient().send(request);
@@ -205,16 +189,48 @@ public class CreatePaymentTransactionTest {
         items4.addProperty("quantity", 1);
         items4.addProperty("is_discounted", false);
         items4.addProperty("other", "{}");
+        JsonObject items5 = new JsonObject();
+        items5.addProperty("jan_code", "abc");
+        items5.addProperty("name", "name1");
+        items5.addProperty("unit_price", 100);
+        items5.addProperty("price", 100);
+        items5.addProperty("quantity", 1);
+        items5.addProperty("is_discounted", false);
+        items5.addProperty("other", "{}");
+        JsonObject items6 = new JsonObject();
+        items6.addProperty("jan_code", "abc");
+        items6.addProperty("name", "name1");
+        items6.addProperty("unit_price", 100);
+        items6.addProperty("price", 100);
+        items6.addProperty("quantity", 1);
+        items6.addProperty("is_discounted", false);
+        items6.addProperty("other", "{}");
+        JsonObject items7 = new JsonObject();
+        items7.addProperty("jan_code", "abc");
+        items7.addProperty("name", "name1");
+        items7.addProperty("unit_price", 100);
+        items7.addProperty("price", 100);
+        items7.addProperty("quantity", 1);
+        items7.addProperty("is_discounted", false);
+        items7.addProperty("other", "{}");
+        JsonObject items8 = new JsonObject();
+        items8.addProperty("jan_code", "abc");
+        items8.addProperty("name", "name1");
+        items8.addProperty("unit_price", 100);
+        items8.addProperty("price", 100);
+        items8.addProperty("quantity", 1);
+        items8.addProperty("is_discounted", false);
+        items8.addProperty("other", "{}");
         Request request = new CreatePaymentTransaction(
-            "3c306e03-fc9f-4742-819e-76eb7dc7271d",
-            "2af43fc3-7bfd-4ed1-a6ec-b0d747bdc8f1",
-            "fa972a02-3b64-4c34-96a7-f6e7164f0af4",
-            5857
+            "36f553bb-efd6-453d-857d-016f66fc02e7",
+            "ce364c88-b56c-4c06-8eca-8a64935bd445",
+            "cbb77e1f-ab28-49c1-a97a-c6f06064db70",
+            6269
         )
                 .metadata("{\"key\":\"value\"}")
-                .products(new Object[]{items,items2,items3,items4})
-                .requestId("c49bcb53-c73f-4fc7-8f27-693b7d54ead9")
-                .strategy("money-only");
+                .products(new Object[]{items,items2,items3,items4,items5,items6,items7,items8})
+                .requestId("43ebdcf9-e20b-4240-b47b-13079e60119c")
+                .strategy("point-preferred");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -309,15 +325,15 @@ public class CreatePaymentTransactionTest {
         items10.addProperty("is_discounted", false);
         items10.addProperty("other", "{}");
         Request request = new CreatePaymentTransaction(
-            "3c306e03-fc9f-4742-819e-76eb7dc7271d",
-            "2af43fc3-7bfd-4ed1-a6ec-b0d747bdc8f1",
-            "fa972a02-3b64-4c34-96a7-f6e7164f0af4",
-            5857
+            "36f553bb-efd6-453d-857d-016f66fc02e7",
+            "ce364c88-b56c-4c06-8eca-8a64935bd445",
+            "cbb77e1f-ab28-49c1-a97a-c6f06064db70",
+            6269
         )
-                .description("qsqY3PQB7j8S1LcJM99jV6h5DQ4TL9sXbFiutZ4wFjGxBLsRpox6uXLc6he8Kxv6FPaZ8I6AxiybIUdjn2JlMSQ6V8dRYSFDiggsas4Nm4Pbqn0MLycuAIyd8Tc91YrDumA0BEPaxu5hz8quH88gYqQC45")
+                .description("1hQg4FupIknylgqhdxD6rTBk0BIM1RojxAOMu6iHWl8nrfu6gIpPLH6EunhkexrSACbmqiKbgLsiG53L4MEALyfcL3Ctl39lt5CSH2UaLnT5q3hA7m5jJmKjiOv8iIR0qUsZC5U2wjsGt1xRgHcAbzf06TdGCA6G1gkuZhbbIA9mQpmDA8z7aG1gETQskCXBi")
                 .metadata("{\"key\":\"value\"}")
                 .products(new Object[]{items,items2,items3,items4,items5,items6,items7,items8,items9,items10})
-                .requestId("12931051-0a7d-4273-9c2d-da8e52337fe5")
+                .requestId("9da2bb48-1cc3-4b37-87c0-2b5c90b67436")
                 .strategy("money-only");
         try {
             PartnerAPITest.getClient().send(request);

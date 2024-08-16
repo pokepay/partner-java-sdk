@@ -26,7 +26,7 @@ public class ListChecksTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .setDisabled(true);
+                .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -41,8 +41,8 @@ public class ListChecksTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .setOnetime(false)
-                .setDisabled(true);
+                .setOnetime(true)
+                .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -57,9 +57,9 @@ public class ListChecksTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .description("HfvN")
-                .setOnetime(true)
-                .setDisabled(false);
+                .description("MTt")
+                .setOnetime(false)
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -74,10 +74,10 @@ public class ListChecksTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .issuerShopId("824f4845-0e42-4ee5-b93b-6f9aed921e8d")
-                .description("muQoNy")
+                .issuerShopId("ee6badd0-c5b3-4c56-b51f-ef980b507cdd")
+                .description("TE9y2XNAE3")
                 .setOnetime(false)
-                .setDisabled(false);
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -92,10 +92,10 @@ public class ListChecksTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .createdTo("2021-05-30T15:09:00.000000Z")
-                .issuerShopId("45590978-e47c-4182-a468-fd2461ad88d4")
-                .description("5YfaNVM")
-                .setOnetime(true)
+                .createdTo("2021-08-01T23:44:55.000000+09:00")
+                .issuerShopId("f6dd122e-ee0a-464a-8bc7-bc58ae2c3008")
+                .description("XPnNiC8BlP")
+                .setOnetime(false)
                 .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
@@ -111,10 +111,10 @@ public class ListChecksTest {
     @Test
     void test6() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .createdFrom("2022-03-26T12:35:04.000000Z")
-                .createdTo("2023-09-09T15:08:33.000000Z")
-                .issuerShopId("2ee6131f-9e6c-47aa-90f8-8892daa7e996")
-                .description("y8RqwFWTQ")
+                .createdFrom("2020-11-15T19:14:46.000000+09:00")
+                .createdTo("2022-08-05T04:25:20.000000+09:00")
+                .issuerShopId("9a02ff99-59ff-4abf-b66f-7896014a601a")
+                .description("wq")
                 .setOnetime(true)
                 .setDisabled(false);
         try {
@@ -131,11 +131,11 @@ public class ListChecksTest {
     @Test
     void test7() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .expiresTo("2023-06-22T16:39:13.000000Z")
-                .createdFrom("2020-08-30T19:09:28.000000Z")
-                .createdTo("2023-01-14T06:34:30.000000Z")
-                .issuerShopId("4c653398-31ff-4598-96a9-78175aebfe2c")
-                .description("t9bN2zIxN")
+                .expiresTo("2020-03-10T15:51:49.000000+09:00")
+                .createdFrom("2021-03-13T00:01:30.000000+09:00")
+                .createdTo("2023-11-28T23:11:42.000000+09:00")
+                .issuerShopId("1716a1d4-2b69-48b3-9741-bdc132c967f9")
+                .description("b4yJ")
                 .setOnetime(true)
                 .setDisabled(true);
         try {
@@ -152,12 +152,12 @@ public class ListChecksTest {
     @Test
     void test8() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .expiresFrom("2022-04-04T02:54:52.000000Z")
-                .expiresTo("2023-10-18T14:58:00.000000Z")
-                .createdFrom("2024-02-29T06:11:35.000000Z")
-                .createdTo("2024-05-26T09:48:55.000000Z")
-                .issuerShopId("84674665-ee96-4345-b9ba-b3ba7be1e6ed")
-                .description("H")
+                .expiresFrom("2022-09-15T16:30:15.000000+09:00")
+                .expiresTo("2020-03-11T01:57:15.000000+09:00")
+                .createdFrom("2021-12-27T02:26:27.000000+09:00")
+                .createdTo("2021-08-15T04:29:41.000000+09:00")
+                .issuerShopId("2186d1bc-acfd-4e79-a6fe-90c68d8ab366")
+                .description("Mss3BCM")
                 .setOnetime(false)
                 .setDisabled(false);
         try {
@@ -174,13 +174,13 @@ public class ListChecksTest {
     @Test
     void test9() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .organizationCode("jq6XCvYjxbcuNA5AO")
-                .expiresFrom("2023-05-03T18:02:21.000000Z")
-                .expiresTo("2024-03-03T17:28:40.000000Z")
-                .createdFrom("2022-06-07T10:15:26.000000Z")
-                .createdTo("2022-07-03T06:10:02.000000Z")
-                .issuerShopId("d8f57297-5792-4f72-aff5-92b64a827d67")
-                .description("AXoc")
+                .organizationCode("UYbJTLCmHziAp4CkdoifZpsEk1MSut")
+                .expiresFrom("2022-09-04T13:23:01.000000+09:00")
+                .expiresTo("2022-01-13T13:02:25.000000+09:00")
+                .createdFrom("2021-07-19T22:40:09.000000+09:00")
+                .createdTo("2023-06-23T14:10:53.000000+09:00")
+                .issuerShopId("8ba5cfaf-6a5c-4aa8-818e-94da92780bd1")
+                .description("JW")
                 .setOnetime(true)
                 .setDisabled(false);
         try {
@@ -197,15 +197,15 @@ public class ListChecksTest {
     @Test
     void test10() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .privateMoneyId("eb671e34-e1d5-411d-ab70-1e4f44a63190")
-                .organizationCode("UbFxl1xg8SX1voG8Gydqo4fQ7D47J36")
-                .expiresFrom("2022-07-01T22:20:09.000000Z")
-                .expiresTo("2021-11-13T23:47:35.000000Z")
-                .createdFrom("2021-06-27T17:30:00.000000Z")
-                .createdTo("2021-02-18T06:13:17.000000Z")
-                .issuerShopId("2f3b7966-53b2-4af0-8c02-f16ec0e9bd5c")
-                .description("ur")
-                .setOnetime(true)
+                .privateMoneyId("75e1347d-5e93-4cd0-ae27-b08271b57319")
+                .organizationCode("8jo0FFtkS")
+                .expiresFrom("2024-02-12T00:39:20.000000+09:00")
+                .expiresTo("2023-06-19T07:50:56.000000+09:00")
+                .createdFrom("2021-07-21T07:10:46.000000+09:00")
+                .createdTo("2021-07-27T17:59:43.000000+09:00")
+                .issuerShopId("ffbd5ac4-ee36-416a-8943-df14c4e6de11")
+                .description("h2tTXRk31")
+                .setOnetime(false)
                 .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
@@ -221,16 +221,16 @@ public class ListChecksTest {
     @Test
     void test11() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .perPage(7561)
-                .privateMoneyId("e01cd7fd-8233-46b6-9459-4ed006d08b01")
-                .organizationCode("xIzfeirg")
-                .expiresFrom("2020-07-24T05:07:03.000000Z")
-                .expiresTo("2022-10-21T19:02:47.000000Z")
-                .createdFrom("2022-07-02T11:07:26.000000Z")
-                .createdTo("2024-06-27T17:05:35.000000Z")
-                .issuerShopId("40afd3ca-3598-434b-b567-47cd99546433")
-                .description("Qh2JH")
-                .setOnetime(true)
+                .perPage(2669)
+                .privateMoneyId("7ccc1643-f69c-4a54-86cc-7e2d5a1f0d5a")
+                .organizationCode("ViOwB77qid1b1hWZ4NsgMKCVqbI844")
+                .expiresFrom("2022-11-18T10:12:07.000000+09:00")
+                .expiresTo("2022-09-16T05:12:13.000000+09:00")
+                .createdFrom("2021-08-21T22:48:32.000000+09:00")
+                .createdTo("2022-12-12T15:59:53.000000+09:00")
+                .issuerShopId("8b7b48d2-1bd9-4b7b-827b-10085efff06f")
+                .description("LEi")
+                .setOnetime(false)
                 .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
@@ -246,18 +246,18 @@ public class ListChecksTest {
     @Test
     void test12() throws ConnectionError, ProcessingError {
         Request request = new ListChecks()
-                .page(8480)
-                .perPage(2915)
-                .privateMoneyId("ab81ec2c-067e-481a-80e9-df9fce761c29")
-                .organizationCode("M0oFGn")
-                .expiresFrom("2022-04-01T19:33:19.000000Z")
-                .expiresTo("2020-07-14T00:47:02.000000Z")
-                .createdFrom("2021-05-14T03:58:46.000000Z")
-                .createdTo("2023-09-13T07:54:17.000000Z")
-                .issuerShopId("d6fcc3c0-3d94-4c18-9cab-0f981ec74d09")
-                .description("X9mW4mL")
-                .setOnetime(false)
-                .setDisabled(false);
+                .page(3857)
+                .perPage(4761)
+                .privateMoneyId("a4290ecf-9dce-4e11-8660-83bc7c8d4e85")
+                .organizationCode("PRtPDCwK3W0nPCCKBWrLsP5tf")
+                .expiresFrom("2023-03-29T23:52:20.000000+09:00")
+                .expiresTo("2024-06-22T07:58:43.000000+09:00")
+                .createdFrom("2023-12-09T22:48:56.000000+09:00")
+                .createdTo("2020-08-19T15:13:20.000000+09:00")
+                .issuerShopId("4cf643d2-468b-43f9-931d-3a9e28b78a1e")
+                .description("1l8k")
+                .setOnetime(true)
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

@@ -11,12 +11,12 @@ Couponは特定店舗で利用できるものや利用可能期間、配信条�
 Request request = new ListCoupons(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: 対象クーポンのマネーID
 )
-        .couponId("bJ4pI")                        // クーポンID
-        .couponName("eH1mIjK91B")                 // クーポン名
-        .issuedShopName("ovJNiyan2R")             // 発行店舗名
-        .availableShopName("9xEgMUhI")            // 利用可能店舗名
-        .availableFrom("2020-07-31T17:05:34.000000Z") // 利用可能期間 (開始日時)
-        .availableTo("2023-05-17T11:38:58.000000Z") // 利用可能期間 (終了日時)
+        .couponId("06")                           // クーポンID
+        .couponName("NM")                         // クーポン名
+        .issuedShopName("24v")                    // 発行店舗名
+        .availableShopName("QBTaal")              // 利用可能店舗名
+        .availableFrom("2023-06-21T17:17:29.000000+09:00") // 利用可能期間 (開始日時)
+        .availableTo("2024-03-06T14:39:44.000000+09:00") // 利用可能期間 (終了日時)
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取得数
 
@@ -144,13 +144,6 @@ Request request = new ListCoupons(
 [PaginatedCoupons](./responses.md#paginated-coupons)
 を返します
 
-### Error Responses
-|status|type|ja|en|
-|---|---|---|---|
-|403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
-|422|shop_user_not_found|店舗が見つかりません|The shop user is not found|
-|422|private_money_not_found||Private money not found|
-
 
 
 ---
@@ -163,25 +156,25 @@ Request request = new ListCoupons(
 ```JAVA
 Request request = new CreateCoupon(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "yB0Lq7z8Ljil9JSMA7rA7mkLLtmKfguDK2IgQjODYIDOJbPEulQIvNSkQAL",
-    "2023-07-04T23:11:33.000000Z",
-    "2020-03-21T18:55:36.000000Z",
+    "1cafNurgRSmD8GxUqSRw1hOyZsMq9igePq7meeQL",
+    "2022-10-23T23:56:22.000000+09:00",
+    "2023-08-27T20:19:55.000000+09:00",
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // issuedShopId: 発行元の店舗ID
 )
-        .description("tsxpQNr6y6a28m0nRuldHpSuEUpdPie9qQ2GFfC0at9jn8DwInc5YWbNc2E2NkkIcBn5byBGxSlhAbqrppUqGdxMolEMce2oIWkzh6xh3kO5wXHuEli1NcEVyTrbdyJqmh3WRfGT9d54NzUibZax1gbEqwtEhHNUjZJEl7H6aHeFVmJSAKrLNuNDUQhJfNq76RxAuxSVrnur4Ju4ayidm5BuCe0yTSEIanUYTV2eUYLa")
-        .discountAmount(7344)
-        .discountPercentage(6877.0)
-        .discountUpperLimit(1564)
-        .displayStartsAt("2021-12-20T01:02:32.000000Z") // クーポンの掲載期間(開始日時)
-        .displayEndsAt("2022-05-04T02:49:32.000000Z") // クーポンの掲載期間(終了日時)
-        .setDisabled(true)                        // 無効化フラグ
-        .setHidden(true)                          // クーポン一覧に掲載されるかどうか
+        .description("kEKbkHCjmI9ZZQf72neSuj2kGbKcXrRm6mRfe5CBnBFLvJIpnjWDfP7g3lRap19Z17udIwIAoS8NqNizwYZ0PribogQoQY3lHv3JNfmmSX0KMq5x9xkEN9zWtWrsKSiSAD74XBUn37SXP6m8lWNiRH4t1y0Qrrzbv7fHRXcHfP6yfPM4BZ1wipIrbi69Lk4ZGi26yn0PGkirgoinLQ8ehLQIcut")
+        .discountAmount(9407)
+        .discountPercentage(6880.0)
+        .discountUpperLimit(7253)
+        .displayStartsAt("2023-08-05T09:08:13.000000+09:00") // クーポンの掲載期間(開始日時)
+        .displayEndsAt("2021-04-15T22:45:14.000000+09:00") // クーポンの掲載期間(終了日時)
+        .setDisabled(false)                       // 無効化フラグ
+        .setHidden(false)                         // クーポン一覧に掲載されるかどうか
         .setPublic(false)                         // アプリ配信なしで受け取れるかどうか
-        .code("2R1myjYz")                         // クーポン受け取りコード
-        .usageLimit(4422)                         // ユーザごとの利用可能回数(NULLの場合は無制限)
-        .minAmount(3587)                          // クーポン適用可能な最小取引額
+        .code("fva5CY")                           // クーポン受け取りコード
+        .usageLimit(1122)                         // ユーザごとの利用可能回数(NULLの場合は無制限)
+        .minAmount(5818)                          // クーポン適用可能な最小取引額
         .setShopSpecified(true)                   // 特定店舗限定のクーポンかどうか
-        .availableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 利用可能店舗リスト
+        .availableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 利用可能店舗リスト
         .storageId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // ストレージID
 
 ```
@@ -416,16 +409,6 @@ Storage APIでアップロードしたクーポン画像のStorage IDを指定�
 [CouponDetail](./responses.md#coupon-detail)
 を返します
 
-### Error Responses
-|status|type|ja|en|
-|---|---|---|---|
-|400|invalid_parameters|項目が無効です|Invalid parameters|
-|403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
-|404|partner_storage_not_found|指定したIDのデータは保存されていません|Not found by storage_id|
-|422|shop_user_not_found|店舗が見つかりません|The shop user is not found|
-|422|private_money_not_found||Private money not found|
-|422|coupon_image_storage_conflict|クーポン画像のストレージIDは既に存在します|The coupon image storage_id is already exists|
-
 
 
 ---
@@ -478,22 +461,22 @@ UUIDv4フォーマットである必要があり、フォーマットが異な�
 Request request = new UpdateCoupon(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // couponId: クーポンID
 )
-        .name("TXKtxMi6tvMf7GbuKVOo81owGN6i0XTT33lqYdKQ0h3ghVZk7eOE9tcwx8MOKl5MRsa1MFEYP")
-        .description("OVzvPSXDUkbgX2oBshUtXGZ9lfp9TwgYPOmismihXWyqdhqoMR6oAdT5yPsPRTmUYdZdYDDGZDuZn0XgqQIqTu14tSh13qLZDYdRTWbMgZiB4q5yXIKvcyeytZUeCOzn479Q7e7CQ6mogsi4OQ6jQwMdVQzET3CTZR3naadmHoO9")
-        .discountAmount(6295)
-        .discountPercentage(6519.0)
-        .discountUpperLimit(5287)
-        .startsAt("2022-02-06T00:32:11.000000Z")
-        .endsAt("2022-07-31T18:16:53.000000Z")
-        .displayStartsAt("2022-06-17T14:02:15.000000Z") // クーポンの掲載期間(開始日時)
-        .displayEndsAt("2020-09-05T10:19:57.000000Z") // クーポンの掲載期間(終了日時)
-        .setDisabled(false)                       // 無効化フラグ
+        .name("WjDPxaWIG")
+        .description("h5DZ2zgGEjkBEDcZKUje99zfUffZoIwG4lqaxQiT0tfbyhoKmTxBsNJSgmsyRdzlvDPw52bQZYFk9i8hoorRPsUqftyK")
+        .discountAmount(1225)
+        .discountPercentage(8156.0)
+        .discountUpperLimit(4681)
+        .startsAt("2022-10-20T05:32:06.000000+09:00")
+        .endsAt("2020-03-23T12:20:17.000000+09:00")
+        .displayStartsAt("2022-03-27T22:39:39.000000+09:00") // クーポンの掲載期間(開始日時)
+        .displayEndsAt("2020-02-01T03:37:59.000000+09:00") // クーポンの掲載期間(終了日時)
+        .setDisabled(true)                        // 無効化フラグ
         .setHidden(false)                         // クーポン一覧に掲載されるかどうか
         .setPublic(false)                         // アプリ配信なしで受け取れるかどうか
-        .code("wuXtyGn")                          // クーポン受け取りコード
-        .usageLimit(2149)                         // ユーザごとの利用可能回数(NULLの場合は無制限)
-        .minAmount(3067)                          // クーポン適用可能な最小取引額
-        .setShopSpecified(false)                  // 特定店舗限定のクーポンかどうか
+        .code("Lgkn7R8re")                        // クーポン受け取りコード
+        .usageLimit(7779)                         // ユーザごとの利用可能回数(NULLの場合は無制限)
+        .minAmount(8264)                          // クーポン適用可能な最小取引額
+        .setShopSpecified(true)                   // 特定店舗限定のクーポンかどうか
         .availableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 利用可能店舗リスト
         .storageId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // ストレージID
 

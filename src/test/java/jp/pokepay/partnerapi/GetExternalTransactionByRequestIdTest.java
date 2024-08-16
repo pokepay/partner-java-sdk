@@ -12,7 +12,7 @@ public class GetExternalTransactionByRequestIdTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetExternalTransactionByRequestId(
-            "4e64bff1-5f4d-4c40-baae-80a79582760a"
+            "4f308f7e-712b-4c5e-93e6-ad8e131721e5"
         );
         try {
             PartnerAPITest.getClient().send(request);

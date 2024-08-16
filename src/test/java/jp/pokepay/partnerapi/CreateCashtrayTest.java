@@ -12,9 +12,9 @@ public class CreateCashtrayTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateCashtray(
-            "044202f7-3525-4117-8dd7-0ded95240fda",
-            "48aeadc5-538d-4ee4-af33-69d46096e93b",
-            5771.0
+            "ddafce04-a972-4481-bcf6-a7cb23344b4c",
+            "dc5616e3-bbfe-4e3b-84ba-39e0bdf63ef1",
+            2479.0
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -30,11 +30,11 @@ public class CreateCashtrayTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateCashtray(
-            "044202f7-3525-4117-8dd7-0ded95240fda",
-            "48aeadc5-538d-4ee4-af33-69d46096e93b",
-            5771.0
+            "ddafce04-a972-4481-bcf6-a7cb23344b4c",
+            "dc5616e3-bbfe-4e3b-84ba-39e0bdf63ef1",
+            2479.0
         )
-                .expiresIn(5237);
+                .expiresIn(4930);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -49,12 +49,12 @@ public class CreateCashtrayTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateCashtray(
-            "044202f7-3525-4117-8dd7-0ded95240fda",
-            "48aeadc5-538d-4ee4-af33-69d46096e93b",
-            5771.0
+            "ddafce04-a972-4481-bcf6-a7cb23344b4c",
+            "dc5616e3-bbfe-4e3b-84ba-39e0bdf63ef1",
+            2479.0
         )
-                .description("PfziyB2HYxaSuFevcjssU2Qn83gWH7hF0T8Nh7eoO6asjOox0RRzWzgJ8qllmxnkMg")
-                .expiresIn(1558);
+                .description("CXcrQeelPgmXpAPVnPz3LHZHo20wPRKNmRpcpB95GgyPD55Mh1j1MOppYBAG56PepHCuDKahyFwLgcTyMhINFt7G9OZkcS1QJsMMCyph1a")
+                .expiresIn(1239);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

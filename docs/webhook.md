@@ -47,11 +47,6 @@ Request request = new ListWebhooks()
 [PaginatedOrganizationWorkerTaskWebhook](./responses.md#paginated-organization-worker-task-webhook)
 を返します
 
-### Error Responses
-|status|type|ja|en|
-|---|---|---|---|
-|403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
-
 
 
 ---
@@ -66,7 +61,7 @@ Request request = new ListWebhooks()
 ```JAVA
 Request request = new CreateWebhook(
     "bulk_shops",                                 // task: タスク名
-    "OR"                                          // url: URL
+    "nfLM6"                                       // url: URL
 );
 
 ```
@@ -105,12 +100,6 @@ Request request = new CreateWebhook(
 成功したときは
 [OrganizationWorkerTaskWebhook](./responses.md#organization-worker-task-webhook)
 を返します
-
-### Error Responses
-|status|type|ja|en|
-|---|---|---|---|
-|403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
-|409|organization_worker_task_finish_webhook_conflict|そのwebhookは既に登録されています|The webhook is already registered|
 
 
 
@@ -162,9 +151,9 @@ Request request = new DeleteWebhook(
 Request request = new UpdateWebhook(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // webhookId: Webhook ID
 )
-        .url("Z")                                 // URL
+        .url("kL5")                               // URL
         .setActive(true)                          // 有効/無効
-        .task("bulk_shops");                      // タスク名
+        .task("process_user_stats_operation");    // タスク名
 
 ```
 

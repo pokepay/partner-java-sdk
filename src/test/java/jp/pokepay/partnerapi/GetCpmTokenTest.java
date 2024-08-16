@@ -12,7 +12,7 @@ public class GetCpmTokenTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetCpmToken(
-            "FSWXNEvBDebROkI568yn3v"
+            "fC5SVJEvBvK1IZ2FCguXNS"
         );
         try {
             PartnerAPITest.getClient().send(request);

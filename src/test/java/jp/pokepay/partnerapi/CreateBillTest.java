@@ -12,8 +12,8 @@ public class CreateBillTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateBill(
-            "a4946d3e-ec65-4ac1-a9ac-e1f9acd953b8",
-            "8fa62978-acd9-4096-9de7-686dba687d53"
+            "52852778-3968-4ec4-ae99-897fddecb872",
+            "1064b200-68f4-4295-952b-b2e7c90840e5"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -29,10 +29,10 @@ public class CreateBillTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateBill(
-            "a4946d3e-ec65-4ac1-a9ac-e1f9acd953b8",
-            "8fa62978-acd9-4096-9de7-686dba687d53"
+            "52852778-3968-4ec4-ae99-897fddecb872",
+            "1064b200-68f4-4295-952b-b2e7c90840e5"
         )
-                .description("SWd6n");
+                .description("6rh152JQ8xhn4bIioJP5xI2iIB45PsoBELDF9krbEZXrzWPNrTbZhrRFoR798Pk4xRLUbV1UnZQJxypjWwke9g41c5sR2lm8eGFLQSJ7vVpRSbJQjMECer7iCZ3yXYH8NFynrOr5o3Nz7C6bahBs3RISkEF8nJRQJb2G0EOeHSz9vlXfEjiPPrnAPHkNB");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -47,11 +47,11 @@ public class CreateBillTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateBill(
-            "a4946d3e-ec65-4ac1-a9ac-e1f9acd953b8",
-            "8fa62978-acd9-4096-9de7-686dba687d53"
+            "52852778-3968-4ec4-ae99-897fddecb872",
+            "1064b200-68f4-4295-952b-b2e7c90840e5"
         )
-                .amount(4745.0)
-                .description("dHza9f0TF30iljDxgSpyfoekUtYXnQ6dyRqDXbojqilSXXfgL13rI1kMYSkzLYWcqyBEPqq");
+                .amount(909.0)
+                .description("8OJDLLwh6lF7NEKXq8ZXBwnGD7CRMOr6TxdnAhf3WvRGvxsKpSlCilnOKmVd2hm6ZwLnd0gEvWJVGiQGG2YrurWzXllA7BFXMH8VKAQTbK47hFXOdgkhR5is4sO8LXPEacT6uzo2ASSwCAXv9GQDnTST9epf");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

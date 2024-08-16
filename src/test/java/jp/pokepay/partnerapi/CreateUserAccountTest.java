@@ -12,8 +12,8 @@ public class CreateUserAccountTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateUserAccount(
-            "1cca797a-a4ae-4807-a9ad-4bab80f00988",
-            "a7de9f4c-0cba-468f-80c5-ac4cef1a2e6d"
+            "624cc519-bd8d-41ad-a5ec-1379ef406344",
+            "63a3955e-732a-41b0-8cad-7c712434952a"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -29,8 +29,8 @@ public class CreateUserAccountTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateUserAccount(
-            "1cca797a-a4ae-4807-a9ad-4bab80f00988",
-            "a7de9f4c-0cba-468f-80c5-ac4cef1a2e6d"
+            "624cc519-bd8d-41ad-a5ec-1379ef406344",
+            "63a3955e-732a-41b0-8cad-7c712434952a"
         )
                 .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}");
         try {
@@ -47,10 +47,10 @@ public class CreateUserAccountTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateUserAccount(
-            "1cca797a-a4ae-4807-a9ad-4bab80f00988",
-            "a7de9f4c-0cba-468f-80c5-ac4cef1a2e6d"
+            "624cc519-bd8d-41ad-a5ec-1379ef406344",
+            "63a3955e-732a-41b0-8cad-7c712434952a"
         )
-                .externalId("FBMnn24Y00BddIYIaGsnHTfyj3vGhpYs6lE3PVx")
+                .externalId("Q5MN4VcuNPwu7Ow3uzBFWL5Qrv3xYfkfOcGz")
                 .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}");
         try {
             PartnerAPITest.getClient().send(request);
@@ -66,11 +66,11 @@ public class CreateUserAccountTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new CreateUserAccount(
-            "1cca797a-a4ae-4807-a9ad-4bab80f00988",
-            "a7de9f4c-0cba-468f-80c5-ac4cef1a2e6d"
+            "624cc519-bd8d-41ad-a5ec-1379ef406344",
+            "63a3955e-732a-41b0-8cad-7c712434952a"
         )
-                .name("hCRcEAVa4JmfjoJZ9ajsO39BqxPDSP5BpfA0dYcuMmHpa4aDHWm32hBFhI0DxRhz83lKq4Wp1hKlNvpHM0s7Dd9Uu6qWqC0qUtLag9adxARTcCtKjz1M2kusM3cVDMOGMtpxWNvKR6Gcp6PWCiNymBaUIu6lQIyVNDYRttS46oTXBYnbHbMuAdnXANiixumuncg7egxc7L05i8jkZ1Waa")
-                .externalId("h6AAgB9jXehhbgs")
+                .name("SV8jOCLcrdTGrganh5kJLw2WaxY1zEjcXEGGlanAx1y9ZILPTdagr70L1vJxSZf3kHQYsSiEbAw5k5ZJL8bFLzsV3YAE81ZjIK75k95Rk")
+                .externalId("di5TS3lqzhKoOWwcsdICcFUaMF")
                 .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}");
         try {
             PartnerAPITest.getClient().send(request);

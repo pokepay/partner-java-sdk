@@ -12,7 +12,7 @@ public class CreateShopTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateShop(
-            "fIlsQjs1Uxv98uoxa9cfqdBZBSSyuPsLgc14jRH1daAJWkWpeGVt7BTtK3VwbUSgXIGfDPEPwHED0KtmDzxLUbUeg7w8cIU7UKhxLe1FMHoh3041czvU7tiTGNYlDyRk3aGMps1HN2Oi8GzWre6yIHCge3KvTMWtvAOdqc6t46b4EgFIpDVk2sqQhlAUNF0Kr6ekdB7WSGlsT24mzzvf0uixfzgMS7DAxRVXjpoYOkLYbJM46YGKDJV"
+            "eho0l14FIW0Rk4QTuENuQnJYKthnM9c"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class CreateShopTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateShop(
-            "fIlsQjs1Uxv98uoxa9cfqdBZBSSyuPsLgc14jRH1daAJWkWpeGVt7BTtK3VwbUSgXIGfDPEPwHED0KtmDzxLUbUeg7w8cIU7UKhxLe1FMHoh3041czvU7tiTGNYlDyRk3aGMps1HN2Oi8GzWre6yIHCge3KvTMWtvAOdqc6t46b4EgFIpDVk2sqQhlAUNF0Kr6ekdB7WSGlsT24mzzvf0uixfzgMS7DAxRVXjpoYOkLYbJM46YGKDJV"
+            "eho0l14FIW0Rk4QTuENuQnJYKthnM9c"
         )
-                .organizationCode("T-sG-A-Y4rx3806--");
+                .organizationCode("GNBE-pfn9lG24-67-Sv1");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class CreateShopTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateShop(
-            "fIlsQjs1Uxv98uoxa9cfqdBZBSSyuPsLgc14jRH1daAJWkWpeGVt7BTtK3VwbUSgXIGfDPEPwHED0KtmDzxLUbUeg7w8cIU7UKhxLe1FMHoh3041czvU7tiTGNYlDyRk3aGMps1HN2Oi8GzWre6yIHCge3KvTMWtvAOdqc6t46b4EgFIpDVk2sqQhlAUNF0Kr6ekdB7WSGlsT24mzzvf0uixfzgMS7DAxRVXjpoYOkLYbJM46YGKDJV"
+            "eho0l14FIW0Rk4QTuENuQnJYKthnM9c"
         )
-                .shopExternalId("cqmENfDor1zgwF9x3")
-                .organizationCode("2-");
+                .shopExternalId("92KW1kXMyHO2aQeRRGXvKgne10W9060")
+                .organizationCode("i8-WS89l7gg8--3L7d9-z5S1JI");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,11 +63,11 @@ public class CreateShopTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new CreateShop(
-            "fIlsQjs1Uxv98uoxa9cfqdBZBSSyuPsLgc14jRH1daAJWkWpeGVt7BTtK3VwbUSgXIGfDPEPwHED0KtmDzxLUbUeg7w8cIU7UKhxLe1FMHoh3041czvU7tiTGNYlDyRk3aGMps1HN2Oi8GzWre6yIHCge3KvTMWtvAOdqc6t46b4EgFIpDVk2sqQhlAUNF0Kr6ekdB7WSGlsT24mzzvf0uixfzgMS7DAxRVXjpoYOkLYbJM46YGKDJV"
+            "eho0l14FIW0Rk4QTuENuQnJYKthnM9c"
         )
-                .shopEmail("fU4cD6smAe@qngi.com")
-                .shopExternalId("ikqDE3OudXpYhNw")
-                .organizationCode("ZA7BK-");
+                .shopEmail("ZCeEGBZCJM@6p6x.com")
+                .shopExternalId("GyJGbhteAR")
+                .organizationCode("7-COKOR1gL-zsJl");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -82,12 +82,12 @@ public class CreateShopTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new CreateShop(
-            "fIlsQjs1Uxv98uoxa9cfqdBZBSSyuPsLgc14jRH1daAJWkWpeGVt7BTtK3VwbUSgXIGfDPEPwHED0KtmDzxLUbUeg7w8cIU7UKhxLe1FMHoh3041czvU7tiTGNYlDyRk3aGMps1HN2Oi8GzWre6yIHCge3KvTMWtvAOdqc6t46b4EgFIpDVk2sqQhlAUNF0Kr6ekdB7WSGlsT24mzzvf0uixfzgMS7DAxRVXjpoYOkLYbJM46YGKDJV"
+            "eho0l14FIW0Rk4QTuENuQnJYKthnM9c"
         )
-                .shopTel("0476633-271")
-                .shopEmail("1FfneXYRV1@FBu9.com")
-                .shopExternalId("VqwmK2QWEkaIk3Nf304AeRoMBnYR")
-                .organizationCode("I-sc750tZXruc");
+                .shopTel("07-4821243")
+                .shopEmail("AWxWec5D35@2JHZ.com")
+                .shopExternalId("MhiSMsK")
+                .organizationCode("I-hk-f8ZSe8j8WX-");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -102,13 +102,13 @@ public class CreateShopTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new CreateShop(
-            "fIlsQjs1Uxv98uoxa9cfqdBZBSSyuPsLgc14jRH1daAJWkWpeGVt7BTtK3VwbUSgXIGfDPEPwHED0KtmDzxLUbUeg7w8cIU7UKhxLe1FMHoh3041czvU7tiTGNYlDyRk3aGMps1HN2Oi8GzWre6yIHCge3KvTMWtvAOdqc6t46b4EgFIpDVk2sqQhlAUNF0Kr6ekdB7WSGlsT24mzzvf0uixfzgMS7DAxRVXjpoYOkLYbJM46YGKDJV"
+            "eho0l14FIW0Rk4QTuENuQnJYKthnM9c"
         )
-                .shopAddress("EvFhF0JaiWpiphXqNgzf5XFTYAHJdFeGZi1JIa9NTrkMeAKNU2qNMrw4Jay2YBOfulEIFK5T7Dc8oOst1MM9PmjRDk75J779k3qO5Tt2uQGKACRqDnzgekX1v8dvD0ApeDNVXLZhDHmMPohPl8jvZE0kmWyBRnvtcRhoAfyfPvqbgkbgVyEBxJ")
-                .shopTel("02557640")
-                .shopEmail("g3h5b1QYmV@Ctk7.com")
-                .shopExternalId("JxdSgtNZkgpDcQrvPvYu9rBGsdWvnLspa")
-                .organizationCode("Y1l-3S-a99d39XW2-OAW4--i");
+                .shopAddress("lIpRZQF0KU7j0lUdDN7UsRstzGjXewJ880l4QBm8jfKQIILs0oB4XMFnBBNC0fs8M337BekYGXNE7suEMD6NOAEfLZwiJrH9VQDkxTOSFC1R87ucnPv")
+                .shopTel("00-3392-6477")
+                .shopEmail("aCQR1bgFo6@3WXs.com")
+                .shopExternalId("fJxFB2")
+                .organizationCode("d8");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -123,14 +123,14 @@ public class CreateShopTest {
     @Test
     void test6() throws ConnectionError, ProcessingError {
         Request request = new CreateShop(
-            "fIlsQjs1Uxv98uoxa9cfqdBZBSSyuPsLgc14jRH1daAJWkWpeGVt7BTtK3VwbUSgXIGfDPEPwHED0KtmDzxLUbUeg7w8cIU7UKhxLe1FMHoh3041czvU7tiTGNYlDyRk3aGMps1HN2Oi8GzWre6yIHCge3KvTMWtvAOdqc6t46b4EgFIpDVk2sqQhlAUNF0Kr6ekdB7WSGlsT24mzzvf0uixfzgMS7DAxRVXjpoYOkLYbJM46YGKDJV"
+            "eho0l14FIW0Rk4QTuENuQnJYKthnM9c"
         )
-                .shopPostalCode("1393414")
-                .shopAddress("bb8U4LoGEUFzMVQ4l9WdfwN1GBXrbSDIYZlYLOis5sBRV50E243Lt7Q0CkQGlHLmFUomkHrvNClWFSWTgMn5wd")
-                .shopTel("0061231408")
-                .shopEmail("qoWmfQbT09@Lp66.com")
-                .shopExternalId("g0d7eGITtIklkYFTO7OJe9dSEOGAL")
-                .organizationCode("t518798nQhn-67");
+                .shopPostalCode("1005402")
+                .shopAddress("YddUKTB5Nac2dwamRDodEEinjEuC5MAbX3kCXy73nAL6JdFjZlmWJSDmY4Jbp4r1fpKxDnpP7p0nheA0nbnRzNDnP5gMqdFaIk3ImMoB")
+                .shopTel("08-7715098")
+                .shopEmail("v8LeQ26MH1@ESYb.com")
+                .shopExternalId("4pVlIVWnqPI2u")
+                .organizationCode("--F4-i1Q-0E-66-L-1V-bNIe-vq-4lJH");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

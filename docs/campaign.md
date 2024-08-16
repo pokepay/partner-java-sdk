@@ -10,9 +10,9 @@
 Request request = new ListCampaigns(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .setOngoing(true)                         // 現在適用可能なキャンペーンかどうか
-        .availableFrom("2022-09-07T22:32:35.000000Z") // 指定された日時以降に適用可能期間が含まれているか
-        .availableTo("2023-05-15T12:34:21.000000Z") // 指定された日時以前に適用可能期間が含まれているか
+        .setOngoing(false)                        // 現在適用可能なキャンペーンかどうか
+        .availableFrom("2022-09-25T17:58:41.000000+09:00") // 指定された日時以降に適用可能期間が含まれているか
+        .availableTo("2023-03-04T01:48:57.000000+09:00") // 指定された日時以前に適用可能期間が含まれているか
         .page(1)                                  // ページ番号
         .perPage(20);                             // 1ページ分の取得数
 
@@ -105,12 +105,6 @@ Request request = new ListCampaigns(
 [PaginatedCampaigns](./responses.md#paginated-campaigns)
 を返します
 
-### Error Responses
-|status|type|ja|en|
-|---|---|---|---|
-|403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
-|503|temporarily_unavailable||Service Unavailable|
-
 
 
 ---
@@ -135,21 +129,23 @@ items2.addProperty("subject_less_than", 5000);
 JsonObject items3 = new JsonObject();
 items3.addProperty("point_amount", 5);
 items3.addProperty("point_amount_unit", "percent");
-items3.addProperty("product_code", "4912345678904");
-items3.addProperty("is_multiply_by_count", true);
-items3.addProperty("required_count", 2);
+items3.addProperty("subject_more_than_or_equal", 1000);
+items3.addProperty("subject_less_than", 5000);
 JsonObject items4 = new JsonObject();
+items4.addProperty("point_amount", 5);
+items4.addProperty("point_amount_unit", "percent");
 items4.addProperty("product_code", "4912345678904");
-items4.addProperty("classification_code", "c123");
+items4.addProperty("is_multiply_by_count", true);
+items4.addProperty("required_count", 2);
 JsonObject items5 = new JsonObject();
 items5.addProperty("product_code", "4912345678904");
 items5.addProperty("classification_code", "c123");
 JsonObject items6 = new JsonObject();
-items6.addProperty("from", "12:00");
-items6.addProperty("to", "23:59");
+items6.addProperty("product_code", "4912345678904");
+items6.addProperty("classification_code", "c123");
 JsonObject items7 = new JsonObject();
-items7.addProperty("from", "12:00");
-items7.addProperty("to", "23:59");
+items7.addProperty("product_code", "4912345678904");
+items7.addProperty("classification_code", "c123");
 JsonObject items8 = new JsonObject();
 items8.addProperty("from", "12:00");
 items8.addProperty("to", "23:59");
@@ -160,37 +156,37 @@ JsonObject applicable_transaction_metadata = new JsonObject();
 applicable_transaction_metadata.addProperty("key", "rank");
 applicable_transaction_metadata.addProperty("value", "bronze");
 Request request = new CreateCampaign(
-    "9POKUqkrXtAeLmERqX5bwDROtzb2hizqeaCyQXA4kt1s5IzgftNOCeiOWbpouk4VaYSYsKX6oU3L46cfTNsJ74FdhPrGorQztiuURWZ5r1OnryKkdpmMzmoITgipjScgSjEKEvn9tkKJsfEeEirDJBv", // name: キャンペーン名
+    "7TewgW5CfqQHHQLSq8J24eiPzHCV6lUI0t5I0628sWUnAVFkG10bG11lEgEfmwMkp27JHeCoX8kzuoiGIytkdVkJsUKODBIM96", // name: キャンペーン名
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    "2021-03-02T06:27:25.000000Z",                // startsAt: キャンペーン開始日時
-    "2020-12-09T08:29:09.000000Z",                // endsAt: キャンペーン終了日時
-    4255,                                         // priority: キャンペーンの適用優先度
-    "topup"                                       // event: イベント種別
+    "2022-08-23T04:39:33.000000+09:00",           // startsAt: キャンペーン開始日時
+    "2021-06-08T15:50:24.000000+09:00",           // endsAt: キャンペーン終了日時
+    6216,                                         // priority: キャンペーンの適用優先度
+    "payment"                                     // event: イベント種別
 )
         .bearPointShopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // ポイント負担先店舗ID
-        .description("pkfaBwAHAugbJ1KgmPImdwaTBcNwqaqeRCH16a6zzUqrHdosHdbmLywqukvEUDGTtuu5mLHhGQ9yekqoyNLKN2h7BNq3rRMob2yqEgXsKX0DNjA5LloLW2Z") // キャンペーンの説明文
-        .status("enabled")                        // キャンペーン作成時の状態
-        .pointExpiresAt("2020-09-03T09:26:31.000000Z") // ポイント有効期限(絶対日時指定)
-        .pointExpiresInDays(5798)                 // ポイント有効期限(相対日数指定)
+        .description("73P7tpgZnNmZaVHjzSf0biIBhBiyvOGPWJ3XEgnUnPs2dPsvQ1UHXMg71YwucfBoYT8FDUOmXUjOJRJmlLej4tQQldbxesefUN5a8K5MZ") // キャンペーンの説明文
+        .status("disabled")                       // キャンペーン作成時の状態
+        .pointExpiresAt("2020-10-10T09:29:44.000000+09:00") // ポイント有効期限(絶対日時指定)
+        .pointExpiresInDays(9142)                 // ポイント有効期限(相対日数指定)
         .setExclusive(false)                      // キャンペーンの重複設定
-        .subject("money")                         // ポイント付与の対象金額の種別
-        .amountBasedPointRules(new Object[]{items,items2}) // 取引金額ベースのポイント付与ルール
-        .productBasedPointRules(new Object[]{items3}) // 商品情報ベースのポイント付与ルール
-        .blacklistedProductRules(new Object[]{items4,items5}) // 商品情報ベースのキャンペーンで除外対象にする商品リスト
-        .applicableDaysOfWeek(new Integer[]{4,0,0}) // キャンペーンを適用する曜日 (複数指定)
-        .applicableTimeRanges(new Object[]{items6,items7,items8}) // キャンペーンを適用する時間帯 (複数指定)
-        .applicableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // キャンペーン適用対象となる店舗IDのリスト
-        .blacklistedShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // キャンペーン適用対象外となる店舗IDのリスト(ブラックリスト方式)
-        .minimumNumberOfProducts(6673)            // キャンペーンを適用する1会計内の商品個数の下限
-        .minimumNumberOfAmount(9777)              // キャンペーンを適用する1会計内の商品総額の下限
-        .minimumNumberForCombinationPurchase(6470) // 複数種類の商品を同時購入するときの商品種別数の下限
-        .existInEachProductGroups(false)          // 複数の商品グループにつき1種類以上の商品購入によって発火するキャンペーンの指定フラグ
-        .maxPointAmount(3585)                     // キャンペーンによって付与されるポイントの上限
-        .maxTotalPointAmount(1096)                // キャンペーンによって付与されるの1人当たりの累計ポイントの上限
+        .subject("all")                           // ポイント付与の対象金額の種別
+        .amountBasedPointRules(new Object[]{items,items2,items3}) // 取引金額ベースのポイント付与ルール
+        .productBasedPointRules(new Object[]{items4}) // 商品情報ベースのポイント付与ルール
+        .blacklistedProductRules(new Object[]{items5,items6,items7}) // 商品情報ベースのキャンペーンで除外対象にする商品リスト
+        .applicableDaysOfWeek(new Integer[]{5,3}) // キャンペーンを適用する曜日 (複数指定)
+        .applicableTimeRanges(new Object[]{items8}) // キャンペーンを適用する時間帯 (複数指定)
+        .applicableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // キャンペーン適用対象となる店舗IDのリスト
+        .blacklistedShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // キャンペーン適用対象外となる店舗IDのリスト(ブラックリスト方式)
+        .minimumNumberOfProducts(1105)            // キャンペーンを適用する1会計内の商品個数の下限
+        .minimumNumberOfAmount(3109)              // キャンペーンを適用する1会計内の商品総額の下限
+        .minimumNumberForCombinationPurchase(8629) // 複数種類の商品を同時購入するときの商品種別数の下限
+        .existInEachProductGroups(true)           // 複数の商品グループにつき1種類以上の商品購入によって発火するキャンペーンの指定フラグ
+        .maxPointAmount(9255)                     // キャンペーンによって付与されるポイントの上限
+        .maxTotalPointAmount(5175)                // キャンペーンによって付与されるの1人当たりの累計ポイントの上限
         .destPrivateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // ポイント付与先となるマネーID
         .applicableAccountMetadata(applicable_account_metadata) // ウォレットに紐付くメタデータが特定の値を持つときにのみ発火するキャンペーンを登録します。
         .applicableTransactionMetadata(applicable_transaction_metadata) // 取引時に指定するメタデータが特定の値を持つときにのみ発火するキャンペーンを登録します。
-        .budgetCapsAmount(244065392);             // キャンペーン予算上限
+        .budgetCapsAmount(2115139231);            // キャンペーン予算上限
 
 ```
 
@@ -914,18 +910,6 @@ exist_in_each_product_groupsが指定されているにも関わらず商品毎�
 [Campaign](./responses.md#campaign)
 を返します
 
-### Error Responses
-|status|type|ja|en|
-|---|---|---|---|
-|400|invalid_parameters|項目が無効です|Invalid parameters|
-|403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
-|422|campaign_overlaps|同期間に開催されるキャンペーン間で優先度が重複してます|The campaign period overlaps under the same private-money / type / priority|
-|422|shop_account_not_found||The shop account is not found|
-|422|campaign_period_overlaps|同期間に開催されるキャンペーン間で優先度が重複してます|The campaign period overlaps under the same private-money / type / priority|
-|422|campaign_invalid_period||Invalid campaign period starts_at later than ends_at|
-|422|shop_user_not_found|店舗が見つかりません|The shop user is not found|
-|422|private_money_not_found||Private money not found|
-
 
 
 ---
@@ -986,9 +970,8 @@ items.addProperty("subject_less_than", 5000);
 JsonObject items2 = new JsonObject();
 items2.addProperty("point_amount", 5);
 items2.addProperty("point_amount_unit", "percent");
-items2.addProperty("product_code", "4912345678904");
-items2.addProperty("is_multiply_by_count", true);
-items2.addProperty("required_count", 2);
+items2.addProperty("subject_more_than_or_equal", 1000);
+items2.addProperty("subject_less_than", 5000);
 JsonObject items3 = new JsonObject();
 items3.addProperty("point_amount", 5);
 items3.addProperty("point_amount_unit", "percent");
@@ -996,23 +979,14 @@ items3.addProperty("product_code", "4912345678904");
 items3.addProperty("is_multiply_by_count", true);
 items3.addProperty("required_count", 2);
 JsonObject items4 = new JsonObject();
-items4.addProperty("point_amount", 5);
-items4.addProperty("point_amount_unit", "percent");
 items4.addProperty("product_code", "4912345678904");
-items4.addProperty("is_multiply_by_count", true);
-items4.addProperty("required_count", 2);
+items4.addProperty("classification_code", "c123");
 JsonObject items5 = new JsonObject();
-items5.addProperty("product_code", "4912345678904");
-items5.addProperty("classification_code", "c123");
+items5.addProperty("from", "12:00");
+items5.addProperty("to", "23:59");
 JsonObject items6 = new JsonObject();
-items6.addProperty("product_code", "4912345678904");
-items6.addProperty("classification_code", "c123");
-JsonObject items7 = new JsonObject();
-items7.addProperty("product_code", "4912345678904");
-items7.addProperty("classification_code", "c123");
-JsonObject items8 = new JsonObject();
-items8.addProperty("from", "12:00");
-items8.addProperty("to", "23:59");
+items6.addProperty("from", "12:00");
+items6.addProperty("to", "23:59");
 JsonObject applicable_account_metadata = new JsonObject();
 applicable_account_metadata.addProperty("key", "sex");
 applicable_account_metadata.addProperty("value", "male");
@@ -1022,33 +996,33 @@ applicable_transaction_metadata.addProperty("value", "bronze");
 Request request = new UpdateCampaign(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // campaignId: キャンペーンID
 )
-        .name("tY0BvAArU4c3Hcr3rYtMZs1YhEQlphw1DkmThPoIdPA7X1r8JTPyIk7mw82VAIRkHcNMgqN77FQwuiGtQW4pnFSkfz0ZAYuHKErS89ga8rAwXpAiqwTxt1HL4wWzmkMDA4SVfWD13Zj3L9DQPYajb0tVdWEdtL2ujHbA770c9iXi2Q1VWdz") // キャンペーン名
-        .startsAt("2023-11-07T17:31:26.000000Z")  // キャンペーン開始日時
-        .endsAt("2023-06-07T23:51:37.000000Z")    // キャンペーン終了日時
-        .priority(9621)                           // キャンペーンの適用優先度
-        .event("topup")                           // イベント種別
-        .description("ovLhT0BrHHw3tEdBOJZocfpIFB") // キャンペーンの説明文
+        .name("jWhe120j03VX0zzCu1IHZvy7Dzu9SI1Sm2YRczvm2Ei30f1RVMQ8dNJz1Yc8KL4CH7EY4LNX9IiA0LJDRQk3fBJn7u8HPQ4OYAjApc") // キャンペーン名
+        .startsAt("2024-06-13T23:21:47.000000+09:00") // キャンペーン開始日時
+        .endsAt("2023-02-23T11:23:07.000000+09:00") // キャンペーン終了日時
+        .priority(1481)                           // キャンペーンの適用優先度
+        .event("payment")                         // イベント種別
+        .description("WqnXCcPoLyU5RqivLhpYWBbJDA6SPDClcVIWj") // キャンペーンの説明文
         .status("disabled")                       // キャンペーン作成時の状態
-        .pointExpiresAt("2021-09-30T19:01:51.000000Z") // ポイント有効期限(絶対日時指定)
-        .pointExpiresInDays(1295)                 // ポイント有効期限(相対日数指定)
-        .setExclusive(true)                       // キャンペーンの重複設定
+        .pointExpiresAt("2024-02-21T02:17:34.000000+09:00") // ポイント有効期限(絶対日時指定)
+        .pointExpiresInDays(927)                  // ポイント有効期限(相対日数指定)
+        .setExclusive(false)                      // キャンペーンの重複設定
         .subject("all")                           // ポイント付与の対象金額の種別
-        .amountBasedPointRules(new Object[]{items}) // 取引金額ベースのポイント付与ルール
-        .productBasedPointRules(new Object[]{items2,items3,items4}) // 商品情報ベースのポイント付与ルール
-        .blacklistedProductRules(new Object[]{items5,items6,items7}) // 商品情報ベースのキャンペーンで除外対象にする商品リスト
-        .applicableDaysOfWeek(new Integer[]{3,6}) // キャンペーンを適用する曜日 (複数指定)
-        .applicableTimeRanges(new Object[]{items8}) // キャンペーンを適用する時間帯 (複数指定)
-        .applicableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // キャンペーン適用対象となる店舗IDのリスト
+        .amountBasedPointRules(new Object[]{items,items2}) // 取引金額ベースのポイント付与ルール
+        .productBasedPointRules(new Object[]{items3}) // 商品情報ベースのポイント付与ルール
+        .blacklistedProductRules(new Object[]{items4}) // 商品情報ベースのキャンペーンで除外対象にする商品リスト
+        .applicableDaysOfWeek(new Integer[]{0,5}) // キャンペーンを適用する曜日 (複数指定)
+        .applicableTimeRanges(new Object[]{items5,items6}) // キャンペーンを適用する時間帯 (複数指定)
+        .applicableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // キャンペーン適用対象となる店舗IDのリスト
         .blacklistedShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // キャンペーン適用対象外となる店舗IDのリスト(ブラックリスト方式)
-        .minimumNumberOfProducts(334)             // キャンペーンを適用する1会計内の商品個数の下限
-        .minimumNumberOfAmount(1905)              // キャンペーンを適用する1会計内の商品総額の下限
-        .minimumNumberForCombinationPurchase(3323) // 複数種類の商品を同時購入するときの商品種別数の下限
-        .existInEachProductGroups(false)          // 複数の商品グループにつき1種類以上の商品購入によって発火するキャンペーンの指定フラグ
-        .maxPointAmount(6052)                     // キャンペーンによって付与されるポイントの上限
-        .maxTotalPointAmount(2753)                // キャンペーンによって付与されるの1人当たりの累計ポイントの上限
+        .minimumNumberOfProducts(1887)            // キャンペーンを適用する1会計内の商品個数の下限
+        .minimumNumberOfAmount(854)               // キャンペーンを適用する1会計内の商品総額の下限
+        .minimumNumberForCombinationPurchase(5812) // 複数種類の商品を同時購入するときの商品種別数の下限
+        .existInEachProductGroups(true)           // 複数の商品グループにつき1種類以上の商品購入によって発火するキャンペーンの指定フラグ
+        .maxPointAmount(6057)                     // キャンペーンによって付与されるポイントの上限
+        .maxTotalPointAmount(5468)                // キャンペーンによって付与されるの1人当たりの累計ポイントの上限
         .applicableAccountMetadata(applicable_account_metadata) // ウォレットに紐付くメタデータが特定の値を持つときにのみ発火するキャンペーンを登録します。
         .applicableTransactionMetadata(applicable_transaction_metadata) // 取引時に指定するメタデータが特定の値を持つときにのみ発火するキャンペーンを登録します。
-        .budgetCapsAmount(1475333151);            // キャンペーン予算上限
+        .budgetCapsAmount(1211820162);            // キャンペーン予算上限
 
 ```
 

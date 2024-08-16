@@ -8,12 +8,12 @@ Request request = new ListShops()
         .organizationCode("pocketchange")         // 組織コード
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
         .name("oxスーパー三田店")                        // 店舗名
-        .postalCode("1220311")                    // 店舗の郵便番号
+        .postalCode("1938265")                    // 店舗の郵便番号
         .address("東京都港区芝...")                     // 店舗の住所
-        .tel("03469-368")                         // 店舗の電話番号
-        .email("GqBqgGEHaf@l1jN.com")             // 店舗のメールアドレス
-        .externalId("9k7uydClg9A7an27P")          // 店舗の外部ID
-        .withDisabled(true)                       // 無効な店舗を含める
+        .tel("073649-2235")                       // 店舗の電話番号
+        .email("9DAcW49eKh@vXSD.com")             // 店舗のメールアドレス
+        .externalId("tNZFfG9g9ktH")               // 店舗の外部ID
+        .withDisabled(false)                      // 無効な店舗を含める
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
 
@@ -171,14 +171,6 @@ Request request = new ListShops()
 [PaginatedShops](./responses.md#paginated-shops)
 を返します
 
-### Error Responses
-|status|type|ja|en|
-|---|---|---|---|
-|403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
-|422|private_money_not_found||Private money not found|
-|422|organization_not_found||Organization not found|
-|503|temporarily_unavailable||Service Unavailable|
-
 
 
 ---
@@ -192,11 +184,11 @@ Request request = new ListShops()
 Request request = new CreateShop(
     "oxスーパー三田店"                                   // shopName: 店舗名
 )
-        .shopPostalCode("260-8221")               // 店舗の郵便番号
+        .shopPostalCode("8232711")                // 店舗の郵便番号
         .shopAddress("東京都港区芝...")                 // 店舗の住所
-        .shopTel("059-718-421")                   // 店舗の電話番号
-        .shopEmail("GJVwTTanAX@yFjL.com")         // 店舗のメールアドレス
-        .shopExternalId("ag3gPPvlq0FFn")          // 店舗の外部ID
+        .shopTel("005-5538-6311")                 // 店舗の電話番号
+        .shopEmail("05qODRAtSR@6p9A.com")         // 店舗のメールアドレス
+        .shopExternalId("RtC8")                   // 店舗の外部ID
         .organizationCode("ox-supermarket");      // 組織コード
 
 ```
@@ -290,16 +282,6 @@ Request request = new CreateShop(
 [User](./responses.md#user)
 を返します
 
-### Error Responses
-|status|type|ja|en|
-|---|---|---|---|
-|403|NULL|NULL|NULL|
-|409|email_conflict|このメールアドレスは既に使われています|The E-mail address is already registered|
-|409|shop_name_conflict||The shop name is already used|
-|422|organization_not_member_organization||The specified organization is not a member organization of the organization accessing this API|
-|422|organization_not_found||Organization not found|
-|422|unavailable_private_money||Given private money(s) is/are not available|
-
 
 
 ---
@@ -312,14 +294,14 @@ Request request = new CreateShop(
 Request request = new CreateShopV2(
     "oxスーパー三田店"                                   // name: 店舗名
 )
-        .postalCode("447-1925")                   // 店舗の郵便番号
+        .postalCode("314-1945")                   // 店舗の郵便番号
         .address("東京都港区芝...")                     // 店舗の住所
-        .tel("009-17057")                         // 店舗の電話番号
-        .email("QTdAXKNGuL@NgDO.com")             // 店舗のメールアドレス
-        .externalId("Ma1ptA22IkyjkgPuZU")         // 店舗の外部ID
+        .tel("07-39551323")                       // 店舗の電話番号
+        .email("Dlapcu30uY@qm4K.com")             // 店舗のメールアドレス
+        .externalId("JG9jd1xrLwoXVoBmdqdA")       // 店舗の外部ID
         .organizationCode("ox-supermarket")       // 組織コード
-        .privateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 店舗で有効にするマネーIDの配列
-        .canTopupPrivateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}); // 店舗でチャージ可能にするマネーIDの配列
+        .privateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 店舗で有効にするマネーIDの配列
+        .canTopupPrivateMoneyIds(new String[]{}); // 店舗でチャージ可能にするマネーIDの配列
 
 ```
 
@@ -453,17 +435,6 @@ Request request = new CreateShopV2(
 [ShopWithAccounts](./responses.md#shop-with-accounts)
 を返します
 
-### Error Responses
-|status|type|ja|en|
-|---|---|---|---|
-|400|invalid_parameters|項目が無効です|Invalid parameters|
-|403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
-|409|shop_name_conflict||The shop name is already used|
-|422|organization_not_found||Organization not found|
-|422|unpermitted_private_money|このマネーは使えません|This money is not available|
-|422|unavailable_private_money||Given private money(s) is/are not available|
-|422|organization_not_member_organization||The specified organization is not a member organization of the organization accessing this API|
-
 
 
 ---
@@ -516,14 +487,14 @@ Request request = new UpdateShop(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // shopId: 店舗ユーザーID
 )
         .name("oxスーパー三田店")                        // 店舗名
-        .postalCode("1120263")                    // 店舗の郵便番号
+        .postalCode("7260916")                    // 店舗の郵便番号
         .address("東京都港区芝...")                     // 店舗の住所
-        .tel("09142125-5133")                     // 店舗の電話番号
-        .email("PqyT3XyCFC@rR8u.com")             // 店舗のメールアドレス
-        .externalId("ZnHFgU1ZOwuoe")              // 店舗の外部ID
-        .privateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 店舗で有効にするマネーIDの配列
-        .canTopupPrivateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 店舗でチャージ可能にするマネーIDの配列
-        .status("disabled");                      // 店舗の状態
+        .tel("0865520756")                        // 店舗の電話番号
+        .email("SeSgqBhx9p@gNJO.com")             // 店舗のメールアドレス
+        .externalId("LUhW8ortjx3GHpokPEb61pRhEJZrKbYpOL") // 店舗の外部ID
+        .privateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 店舗で有効にするマネーIDの配列
+        .canTopupPrivateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 店舗でチャージ可能にするマネーIDの配列
+        .status("active");                        // 店舗の状態
 
 ```
 

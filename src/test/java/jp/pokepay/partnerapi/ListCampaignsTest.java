@@ -12,7 +12,7 @@ public class ListCampaignsTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new ListCampaigns(
-            "f3463bc2-349f-41a0-bdd1-7649fd7843ed"
+            "339d4e1e-fe06-40a0-9480-c078907ab2f9"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class ListCampaignsTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListCampaigns(
-            "f3463bc2-349f-41a0-bdd1-7649fd7843ed"
+            "339d4e1e-fe06-40a0-9480-c078907ab2f9"
         )
-                .perPage(3);
+                .perPage(4);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class ListCampaignsTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListCampaigns(
-            "f3463bc2-349f-41a0-bdd1-7649fd7843ed"
+            "339d4e1e-fe06-40a0-9480-c078907ab2f9"
         )
-                .page(4010)
-                .perPage(31);
+                .page(7757)
+                .perPage(34);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,11 +63,11 @@ public class ListCampaignsTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new ListCampaigns(
-            "f3463bc2-349f-41a0-bdd1-7649fd7843ed"
+            "339d4e1e-fe06-40a0-9480-c078907ab2f9"
         )
-                .availableTo("2024-06-29T01:26:44.000000Z")
-                .page(5805)
-                .perPage(8);
+                .availableTo("2024-07-26T22:43:22.000000+09:00")
+                .page(2190)
+                .perPage(45);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -82,12 +82,12 @@ public class ListCampaignsTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new ListCampaigns(
-            "f3463bc2-349f-41a0-bdd1-7649fd7843ed"
+            "339d4e1e-fe06-40a0-9480-c078907ab2f9"
         )
-                .availableFrom("2022-10-27T15:54:11.000000Z")
-                .availableTo("2020-01-12T10:32:20.000000Z")
-                .page(5383)
-                .perPage(18);
+                .availableFrom("2022-10-15T19:07:59.000000+09:00")
+                .availableTo("2021-02-16T09:03:29.000000+09:00")
+                .page(6701)
+                .perPage(14);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -102,13 +102,13 @@ public class ListCampaignsTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new ListCampaigns(
-            "f3463bc2-349f-41a0-bdd1-7649fd7843ed"
+            "339d4e1e-fe06-40a0-9480-c078907ab2f9"
         )
                 .setOngoing(true)
-                .availableFrom("2023-10-24T12:23:08.000000Z")
-                .availableTo("2022-09-21T23:55:07.000000Z")
-                .page(7663)
-                .perPage(31);
+                .availableFrom("2022-03-22T15:02:10.000000+09:00")
+                .availableTo("2023-04-08T16:10:05.000000+09:00")
+                .page(8133)
+                .perPage(40);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

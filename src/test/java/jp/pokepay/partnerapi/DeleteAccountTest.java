@@ -12,7 +12,7 @@ public class DeleteAccountTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new DeleteAccount(
-            "ce348e12-e7ee-4579-a9c8-94dd3d6c2f3d"
+            "87101be8-1a3c-4f3f-a84f-c4df84743b20"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,7 +28,7 @@ public class DeleteAccountTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new DeleteAccount(
-            "ce348e12-e7ee-4579-a9c8-94dd3d6c2f3d"
+            "87101be8-1a3c-4f3f-a84f-c4df84743b20"
         )
                 .cashback(true);
         try {
