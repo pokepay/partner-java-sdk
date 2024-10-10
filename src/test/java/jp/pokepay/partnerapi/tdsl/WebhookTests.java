@@ -2,7 +2,6 @@
 package jp.pokepay.partnerapi.tdsl;
 
 import jp.pokepay.partnerapi.PartnerAPITest;
-import jp.pokepay.partnerapi.request.*;
 import jp.pokepay.partnerapi.response.*;
 import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
@@ -12,13 +11,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class WebhookTests {
     @Test
     void test0() throws Exception {
-        PaginatedOrganizationWorkerTaskWebhook list = (PaginatedOrganizationWorkerTaskWebhook)PartnerAPITest.getClient().send(new ListWebhooks());
+        PaginatedOrganizationWorkerTaskWebhook list = (PaginatedOrganizationWorkerTaskWebhook)PartnerAPITest.getClient().send(new jp.pokepay.partnerapi.request.ListWebhooks());
         for (OrganizationWorkerTaskWebhook row: list.getRows()) {
-            PartnerAPITest.getClient().send(new DeleteWebhook(
+            PartnerAPITest.getClient().send(new jp.pokepay.partnerapi.request.DeleteWebhook(
                 row.getId()
             ));
         }
-        OrganizationWorkerTaskWebhook webhook1 = (OrganizationWorkerTaskWebhook)PartnerAPITest.getClient().send(new CreateWebhook(
+        OrganizationWorkerTaskWebhook webhook1 = (OrganizationWorkerTaskWebhook)PartnerAPITest.getClient().send(new jp.pokepay.partnerapi.request.CreateWebhook(
             "bulk_shops",
             "http://localhost/bulk_shops"
         ));
@@ -27,7 +26,7 @@ public class WebhookTests {
         assertEquals("http://localhost/bulk_shops", webhook1.getUrl());
         assertEquals(true, webhook1.isActive());
         assertEquals("application/json", webhook1.getContentType());
-        OrganizationWorkerTaskWebhook webhook2 = (OrganizationWorkerTaskWebhook)PartnerAPITest.getClient().send(new CreateWebhook(
+        OrganizationWorkerTaskWebhook webhook2 = (OrganizationWorkerTaskWebhook)PartnerAPITest.getClient().send(new jp.pokepay.partnerapi.request.CreateWebhook(
             "process_user_stats_operation",
             "http://localhost/process_user_stats_operation"
         ));
@@ -36,11 +35,11 @@ public class WebhookTests {
         assertEquals("http://localhost/process_user_stats_operation", webhook2.getUrl());
         assertEquals(true, webhook2.isActive());
         assertEquals("application/json", webhook2.getContentType());
-        PaginatedOrganizationWorkerTaskWebhook list2 = (PaginatedOrganizationWorkerTaskWebhook)PartnerAPITest.getClient().send(new ListWebhooks());
+        PaginatedOrganizationWorkerTaskWebhook list2 = (PaginatedOrganizationWorkerTaskWebhook)PartnerAPITest.getClient().send(new jp.pokepay.partnerapi.request.ListWebhooks());
         assertEquals(2, list2.getCount());
         assertEquals(webhook2.getId(), list2.getRows()[0].getId());
         assertEquals(webhook1.getId(), list2.getRows()[1].getId());
-        OrganizationWorkerTaskWebhook updateResponse = (OrganizationWorkerTaskWebhook)PartnerAPITest.getClient().send(new UpdateWebhook(
+        OrganizationWorkerTaskWebhook updateResponse = (OrganizationWorkerTaskWebhook)PartnerAPITest.getClient().send(new jp.pokepay.partnerapi.request.UpdateWebhook(
             webhook1.getId()
         )
             .setActive(false));

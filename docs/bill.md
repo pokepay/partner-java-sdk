@@ -7,18 +7,18 @@
 
 ```JAVA
 Request request = new ListBills()
-        .page(8059)                               // ページ番号
-        .perPage(5147)                            // 1ページの表示数
-        .billId("zIdrHm6O")                       // 支払いQRコードのID
+        .page(2897)                               // ページ番号
+        .perPage(1066)                            // 1ページの表示数
+        .billId("r")                              // 支払いQRコードのID
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
-        .organizationCode("-23E-1evC3-m6V-ESLc-029-YOZ-UkK") // 組織コード
+        .organizationCode("b--BUl96")             // 組織コード
         .description("test bill")                 // 取引説明文
-        .createdFrom("2022-04-17T00:55:51.000000Z") // 作成日時(起点)
-        .createdTo("2020-04-15T22:23:38.000000Z") // 作成日時(終点)
+        .createdFrom("2020-02-16T12:28:09.000000Z") // 作成日時(起点)
+        .createdTo("2022-11-02T03:28:47.000000Z") // 作成日時(終点)
         .shopName("bill test shop1")              // 店舗名
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ID
-        .lowerLimitAmount(4503)                   // 金額の範囲によるフィルタ(下限)
-        .upperLimitAmount(605)                    // 金額の範囲によるフィルタ(上限)
+        .lowerLimitAmount(8267)                   // 金額の範囲によるフィルタ(下限)
+        .upperLimitAmount(7846)                   // 金額の範囲によるフィルタ(上限)
         .setDisabled(true);                       // 支払いQRコードが無効化されているかどうか
 
 ```
@@ -212,7 +212,7 @@ Request request = new CreateBill(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: 支払いマネーのマネーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // shopId: 支払い先(受け取り人)の店舗ID
 )
-        .amount(5417.0)                           // 支払い額
+        .amount(7728.0)                           // 支払い額
         .description("test bill");                // 説明文(アプリ上で取引の説明文として表示される)
 
 ```
@@ -276,8 +276,8 @@ Request request = new CreateBill(
 |status|type|ja|en|
 |---|---|---|---|
 |403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
-|422|shop_account_not_found||The shop account is not found|
-|422|private_money_not_found||Private money not found|
+|422|shop_account_not_found|店舗アカウントが見つかりません|The shop account is not found|
+|422|private_money_not_found|マネーが見つかりません|Private money not found|
 |422|shop_user_not_found|店舗が見つかりません|The shop user is not found|
 |422|account_closed|アカウントは退会しています|The account is closed|
 |422|account_pre_closed|アカウントは退会準備中です|The account is pre-closed|
@@ -296,7 +296,7 @@ Request request = new CreateBill(
 Request request = new UpdateBill(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // billId: 支払いQRコードのID
 )
-        .amount(232.0)                            // 支払い額
+        .amount(4321.0)                           // 支払い額
         .description("test bill")                 // 説明文
         .setDisabled(false);                      // 無効化されているかどうか
 

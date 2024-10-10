@@ -12,7 +12,7 @@ public class UpdateCheckTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateCheck(
-            "0da2a235-a61d-4fb0-895d-6bf9eae38e8e"
+            "b0957c83-aab4-424b-b998-c121e5e95f6a"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,7 +28,7 @@ public class UpdateCheckTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateCheck(
-            "0da2a235-a61d-4fb0-895d-6bf9eae38e8e"
+            "b0957c83-aab4-424b-b998-c121e5e95f6a"
         )
                 .setDisabled(true);
         try {
@@ -45,10 +45,10 @@ public class UpdateCheckTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateCheck(
-            "0da2a235-a61d-4fb0-895d-6bf9eae38e8e"
+            "b0957c83-aab4-424b-b998-c121e5e95f6a"
         )
-                .bearPointAccount("f3ece267-e6dd-4c26-bb9a-a2145b58b94f")
-                .setDisabled(true);
+                .bearPointAccount("0ef62065-a6e8-4745-b01e-b4465ebf2893")
+                .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,10 +63,10 @@ public class UpdateCheckTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateCheck(
-            "0da2a235-a61d-4fb0-895d-6bf9eae38e8e"
+            "b0957c83-aab4-424b-b998-c121e5e95f6a"
         )
-                .pointExpiresInDays(7651)
-                .bearPointAccount("dc2a9537-2e25-428b-8c79-9759f46c2283")
+                .pointExpiresInDays(8115)
+                .bearPointAccount("50b4b7e4-86c0-4731-a6c0-d000e06e77f3")
                 .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
@@ -82,12 +82,12 @@ public class UpdateCheckTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new UpdateCheck(
-            "0da2a235-a61d-4fb0-895d-6bf9eae38e8e"
+            "b0957c83-aab4-424b-b998-c121e5e95f6a"
         )
-                .pointExpiresAt("2022-06-23T02:48:50.000000Z")
-                .pointExpiresInDays(462)
-                .bearPointAccount("588f723f-b8d0-4356-a138-15ece3046a56")
-                .setDisabled(false);
+                .pointExpiresAt("2022-09-17T04:14:34.000000Z")
+                .pointExpiresInDays(6114)
+                .bearPointAccount("120cd1dc-82f1-40db-b4e3-d8738f704eaf")
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -102,12 +102,12 @@ public class UpdateCheckTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new UpdateCheck(
-            "0da2a235-a61d-4fb0-895d-6bf9eae38e8e"
+            "b0957c83-aab4-424b-b998-c121e5e95f6a"
         )
-                .expiresAt("2021-06-27T23:48:12.000000Z")
-                .pointExpiresAt("2021-04-14T11:48:16.000000Z")
-                .pointExpiresInDays(1536)
-                .bearPointAccount("5885fd4f-db4f-4e31-b732-dcc721d95a97")
+                .expiresAt("2021-12-26T07:08:50.000000Z")
+                .pointExpiresAt("2020-04-20T21:24:42.000000Z")
+                .pointExpiresInDays(9361)
+                .bearPointAccount("add2afb3-924a-4e3f-b238-e78e930de5f8")
                 .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
@@ -123,14 +123,14 @@ public class UpdateCheckTest {
     @Test
     void test6() throws ConnectionError, ProcessingError {
         Request request = new UpdateCheck(
-            "0da2a235-a61d-4fb0-895d-6bf9eae38e8e"
+            "b0957c83-aab4-424b-b998-c121e5e95f6a"
         )
-                .usageLimit(4840)
-                .expiresAt("2024-03-14T23:38:51.000000Z")
-                .pointExpiresAt("2023-10-29T21:40:43.000000Z")
-                .pointExpiresInDays(4895)
-                .bearPointAccount("36989ecd-ea2e-4586-9178-d41a6010f1d0")
-                .setDisabled(true);
+                .usageLimit(5850)
+                .expiresAt("2022-09-20T22:54:41.000000Z")
+                .pointExpiresAt("2022-06-21T06:26:38.000000Z")
+                .pointExpiresInDays(9091)
+                .bearPointAccount("e6b60915-66a2-463e-b156-c43425c0e7bf")
+                .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -145,14 +145,14 @@ public class UpdateCheckTest {
     @Test
     void test7() throws ConnectionError, ProcessingError {
         Request request = new UpdateCheck(
-            "0da2a235-a61d-4fb0-895d-6bf9eae38e8e"
+            "b0957c83-aab4-424b-b998-c121e5e95f6a"
         )
                 .setOnetime(false)
-                .usageLimit(528)
-                .expiresAt("2021-06-28T16:46:16.000000Z")
-                .pointExpiresAt("2022-04-18T04:46:18.000000Z")
-                .pointExpiresInDays(7522)
-                .bearPointAccount("dcc480ac-5d41-4298-b474-fb4dd4432d13")
+                .usageLimit(6690)
+                .expiresAt("2021-06-13T06:42:46.000000Z")
+                .pointExpiresAt("2024-02-20T12:53:17.000000Z")
+                .pointExpiresInDays(3236)
+                .bearPointAccount("59559e61-6e5c-4a87-8d38-dd650e4cb294")
                 .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
@@ -168,16 +168,16 @@ public class UpdateCheckTest {
     @Test
     void test8() throws ConnectionError, ProcessingError {
         Request request = new UpdateCheck(
-            "0da2a235-a61d-4fb0-895d-6bf9eae38e8e"
+            "b0957c83-aab4-424b-b998-c121e5e95f6a"
         )
-                .description("t9CEIs7P52Qn8Ps6rGg4gxhQEPHlDMgzo7RyqyjDQCvIVLohtP7YX7LIJvkHIDHAM5JdvPW8u4K9jehE0FIX2d1fsIJRaq4cseT3Jr8x9EZ1")
+                .description("KBhpNX1jWPk8Z43B0y0B9mfs2NjGqIbT9OwqnkaPpwID0eLy")
                 .setOnetime(false)
-                .usageLimit(926)
-                .expiresAt("2022-11-29T22:15:30.000000Z")
-                .pointExpiresAt("2023-07-27T03:52:53.000000Z")
-                .pointExpiresInDays(9891)
-                .bearPointAccount("0017f63e-2af1-4d56-b4bf-6b1950a35255")
-                .setDisabled(true);
+                .usageLimit(666)
+                .expiresAt("2020-05-04T10:41:03.000000Z")
+                .pointExpiresAt("2020-03-06T08:42:24.000000Z")
+                .pointExpiresInDays(4807)
+                .bearPointAccount("f22beb4e-a05a-4d14-b711-7187892faaa4")
+                .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -192,17 +192,17 @@ public class UpdateCheckTest {
     @Test
     void test9() throws ConnectionError, ProcessingError {
         Request request = new UpdateCheck(
-            "0da2a235-a61d-4fb0-895d-6bf9eae38e8e"
+            "b0957c83-aab4-424b-b998-c121e5e95f6a"
         )
-                .pointAmount(774.0)
-                .description("a8eDKBhpNX1jWPk8Z43B0y0B9mfs2NjGqIbT9OwqnkaPpwID0eLyZpFNZ79bus52pNLLPoSL84SGwACEhVooVmB4cFvbTIGcXWAqG4BSfipEZMFGhk16I7iXigWOnUAkBWGfv1h3SdKWf7Mk6qxlTgasH11ZahWwt0KCw4FDQO05qLTqGDbzQDuaFv4Vsa")
+                .pointAmount(7166.0)
+                .description("9bus52pNLLPoSL84SGwACEhVooVmB4cFvbTIGcXWAqG4BSfipEZMFGhk16I7iXigWOnUAkBWGfv1h3SdKWf7Mk6qxlTgasH11ZahWwt0KCw4FDQO05qLTqGDbzQDuaFv4VsaDUMga8HPH")
                 .setOnetime(true)
-                .usageLimit(9429)
-                .expiresAt("2021-10-28T01:43:41.000000Z")
-                .pointExpiresAt("2020-04-30T07:58:27.000000Z")
-                .pointExpiresInDays(4328)
-                .bearPointAccount("ac255a21-4c61-49b8-885e-2c3b5040773d")
-                .setDisabled(false);
+                .usageLimit(6288)
+                .expiresAt("2023-09-02T05:02:34.000000Z")
+                .pointExpiresAt("2023-01-19T14:30:30.000000Z")
+                .pointExpiresInDays(7609)
+                .bearPointAccount("618163de-18d6-4441-aa8e-45f8f4b0868f")
+                .setDisabled(true);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -217,18 +217,18 @@ public class UpdateCheckTest {
     @Test
     void test10() throws ConnectionError, ProcessingError {
         Request request = new UpdateCheck(
-            "0da2a235-a61d-4fb0-895d-6bf9eae38e8e"
+            "b0957c83-aab4-424b-b998-c121e5e95f6a"
         )
-                .moneyAmount(3664.0)
-                .pointAmount(7445.0)
-                .description("Lfj8VAxLQCn6DppPY7uZKs5wMf3MBYDCuFCMBOgtd28MFakoJp4sttlPyu0hLTf3LV1FvqM27")
-                .setOnetime(false)
-                .usageLimit(2449)
-                .expiresAt("2020-08-03T06:46:10.000000Z")
-                .pointExpiresAt("2021-03-26T22:06:24.000000Z")
-                .pointExpiresInDays(2622)
-                .bearPointAccount("a69aa3f1-6679-49e2-bfd4-193394ba5d95")
-                .setDisabled(true);
+                .moneyAmount(9425.0)
+                .pointAmount(1504.0)
+                .description("n6DppPY7uZKs5wMf3MBYDCuFCMBOgtd28MFakoJp4sttlPyu0hLTf3LV1FvqM27O2bqy")
+                .setOnetime(true)
+                .usageLimit(383)
+                .expiresAt("2022-04-12T23:40:04.000000Z")
+                .pointExpiresAt("2021-03-06T21:54:59.000000Z")
+                .pointExpiresInDays(7574)
+                .bearPointAccount("eda3cfd8-5227-4ac6-939b-581886060b57")
+                .setDisabled(false);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

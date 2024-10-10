@@ -9,8 +9,8 @@ Request request = new ListOrganizations(
 )
         .page(1)                                  // ページ番号
         .perPage(50)                              // 1ページ分の取引数
-        .name("U")                                // 組織名
-        .code("rE8EA");                           // 組織コード
+        .name("AZ")                               // 組織名
+        .code("81ee9F1zae");                      // 組織コード
 
 ```
 
@@ -85,7 +85,7 @@ Request request = new ListOrganizations(
 |---|---|---|---|
 |400|invalid_parameters|項目が無効です|Invalid parameters|
 |403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
-|422|private_money_not_found||Private money not found|
+|422|private_money_not_found|マネーが見つかりません|Private money not found|
 
 
 
@@ -99,15 +99,15 @@ Request request = new ListOrganizations(
 Request request = new CreateOrganization(
     "ox-supermarket",                             // code: 新規組織コード
     "oxスーパー",                                     // name: 新規組織名
-    new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}, // privateMoneyIds: 加盟店組織で有効にするマネーIDの配列
-    "TMWkW53gnq@E0TT.com",                        // issuerAdminUserEmail: 発行体担当者メールアドレス
-    "1OD00WYy85@d5RK.com"                         // memberAdminUserEmail: 新規組織担当者メールアドレス
+    new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}, // privateMoneyIds: 加盟店組織で有効にするマネーIDの配列
+    "UGprRtPpZg@ZzOh.com",                        // issuerAdminUserEmail: 発行体担当者メールアドレス
+    "vmvIjVKe7a@M7Qi.com"                         // memberAdminUserEmail: 新規組織担当者メールアドレス
 )
         .bankName("XYZ銀行")                        // 銀行名
         .bankCode("1234")                         // 銀行金融機関コード
         .bankBranchName("ABC支店")                  // 銀行支店名
         .bankBranchCode("123")                    // 銀行支店コード
-        .bankAccountType("other")                 // 銀行口座種別 (普通=saving, 当座=current, その他=other)
+        .bankAccountType("saving")                // 銀行口座種別 (普通=saving, 当座=current, その他=other)
         .bankAccount("1234567")                   // 銀行口座番号
         .bankAccountHolderName("ﾌｸｻﾞﾜﾕｷﾁ")        // 口座名義人名
         .contactName("佐藤清");                      // 担当者名

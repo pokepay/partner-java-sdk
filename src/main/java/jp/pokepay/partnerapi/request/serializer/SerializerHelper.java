@@ -81,7 +81,7 @@ import jp.pokepay.partnerapi.request.ListCoupons;
 import jp.pokepay.partnerapi.request.CreateCoupon;
 import jp.pokepay.partnerapi.request.GetCoupon;
 import jp.pokepay.partnerapi.request.UpdateCoupon;
-import jp.pokepay.partnerapi.request.GetSevenBankAtmSession;
+import jp.pokepay.partnerapi.request.GetSevenBankATMSession;
 
 public class SerializerHelper {
     public static void registerTypeAdapters(GsonBuilder gsonBuilder) {
@@ -163,6 +163,6 @@ public class SerializerHelper {
         gsonBuilder.registerTypeAdapter(CreateCoupon.class, new CreateCouponSerializer());
         gsonBuilder.registerTypeAdapter(GetCoupon.class, new GetCouponSerializer());
         gsonBuilder.registerTypeAdapter(UpdateCoupon.class, new UpdateCouponSerializer());
-        gsonBuilder.registerTypeAdapter(GetSevenBankAtmSession.class, new GetSevenBankAtmSessionSerializer());
+        gsonBuilder.registerTypeAdapter(GetSevenBankATMSession.class, new GetSevenBankATMSessionSerializer());
     }
 }

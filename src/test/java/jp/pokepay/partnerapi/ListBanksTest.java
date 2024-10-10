@@ -12,7 +12,7 @@ public class ListBanksTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new ListBanks(
-            "d12dcfd6-cb16-4560-b53b-6d190a7e3b7f"
+            "a829764d-e1b6-4d25-9279-1fceebdd8b45"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class ListBanksTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListBanks(
-            "d12dcfd6-cb16-4560-b53b-6d190a7e3b7f"
+            "a829764d-e1b6-4d25-9279-1fceebdd8b45"
         )
-                .privateMoneyId("b5b4cf04-2309-458b-9854-73835bae5d12");
+                .privateMoneyId("f13bb85d-66aa-4930-a316-33b8455d28c1");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

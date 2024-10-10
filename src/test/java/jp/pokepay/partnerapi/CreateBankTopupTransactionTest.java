@@ -12,12 +12,33 @@ public class CreateBankTopupTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateBankTopupTransaction(
-            "a2caf645-c346-431d-a4f2-000f00a6f176",
-            "4c0009ef-f296-4117-a2b4-98bc3219c2bb",
-            3763,
-            "d3d22db7-c5c9-4c12-a5d3-b65e17755b95",
-            "006318bd-c7c2-4c05-b9f5-1a5ec665e124"
+            "eae535ff-5685-4921-bcbd-740d68355f05",
+            "2d0004fa-3df9-4790-a6c3-2e4d8cb93aab",
+            4420,
+            "50da505b-1a2a-43b6-b234-c9da39d2185e",
+            "5254fac9-c835-443a-baaf-5a67dc14e889"
         );
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test1() throws ConnectionError, ProcessingError {
+        Request request = new CreateBankTopupTransaction(
+            "eae535ff-5685-4921-bcbd-740d68355f05",
+            "2d0004fa-3df9-4790-a6c3-2e4d8cb93aab",
+            4420,
+            "50da505b-1a2a-43b6-b234-c9da39d2185e",
+            "5254fac9-c835-443a-baaf-5a67dc14e889"
+        )
+                .receiverUserId("c581ccb9-aa16-41e2-bec4-09ae24384255");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
