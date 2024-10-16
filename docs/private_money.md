@@ -76,8 +76,8 @@ Request request = new GetPrivateMoneys()
 Request request = new GetPrivateMoneyOrganizationSummaries(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .from("2024-02-22T07:00:55.000000Z")      // 開始日時(toと同時に指定する必要有)
-        .to("2024-06-12T21:20:15.000000Z")        // 終了日時(fromと同時に指定する必要有)
+        .from("2023-04-20T00:53:32.000000Z")      // 開始日時(toと同時に指定する必要有)
+        .to("2023-12-03T18:01:03.000000Z")        // 終了日時(fromと同時に指定する必要有)
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
 
@@ -160,8 +160,8 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 Request request = new GetPrivateMoneySummary(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .from("2020-09-03T06:32:11.000000Z")      // 開始日時
-        .to("2023-01-13T19:45:43.000000Z");       // 終了日時
+        .from("2022-01-26T00:25:32.000000Z")      // 開始日時
+        .to("2020-09-07T00:32:24.000000Z");       // 終了日時
 
 ```
 

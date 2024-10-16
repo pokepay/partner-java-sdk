@@ -6,10 +6,10 @@ import com.google.gson.JsonSerializationContext;
 import jp.pokepay.partnerapi.response.*;
 import java.lang.reflect.Type;
 
-public class GetSevenBankAtmSession extends Request {
+public class GetSevenBankATMSession extends Request {
     private String qrInfo;
 
-    public GetSevenBankAtmSession(String qrInfo) {
+    public GetSevenBankATMSession(String qrInfo) {
         this.qrInfo = qrInfo;
     }
 
@@ -25,7 +25,7 @@ public class GetSevenBankAtmSession extends Request {
 
     @Override
     public Type getResponseClass() {
-        return SevenBankAtmSession.class;
+        return SevenBankATMSession.class;
     }
 
     @Override

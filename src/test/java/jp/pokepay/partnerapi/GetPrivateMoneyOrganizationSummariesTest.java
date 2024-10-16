@@ -103,9 +103,9 @@ public class GetPrivateMoneyOrganizationSummariesTest {
             "25c2238f-cf81-4930-aefa-23951ca983f1"
         )
                 .from("2020-06-22T06:48:08.000000Z")
-                .to("2023-10-27T22:37:01.000000Z")
-                .perPage(1815)
-                .page(1792);
+                .to("2024-10-03T11:36:06.000000Z")
+                .perPage(2431)
+                .page(6798);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

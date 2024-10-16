@@ -5,13 +5,13 @@ package jp.pokepay.partnerapi.request.serializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
-import jp.pokepay.partnerapi.request.GetSevenBankAtmSession;
+import jp.pokepay.partnerapi.request.GetSevenBankATMSession;
 
 import java.lang.reflect.Type;
 
-public class GetSevenBankAtmSessionSerializer implements JsonSerializer<GetSevenBankAtmSession> {
+public class GetSevenBankATMSessionSerializer implements JsonSerializer<GetSevenBankATMSession> {
     @Override
-    public JsonElement serialize(GetSevenBankAtmSession src, Type typeOfSrc, JsonSerializationContext context) {
+    public JsonElement serialize(GetSevenBankATMSession src, Type typeOfSrc, JsonSerializationContext context) {
         return src.getRequestBodyJsonObject(context);
     }
 }

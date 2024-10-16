@@ -105,8 +105,8 @@ Request request = new UpdateAccount(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
 )
         .setSuspended(true)                       // ウォレットが凍結されているかどうか
-        .status("suspended")                      // ウォレット状態
-        .canTransferTopup(true);                  // チャージ可能かどうか
+        .status("active")                         // ウォレット状態
+        .canTransferTopup(false);                 // チャージ可能かどうか
 
 ```
 
@@ -184,10 +184,10 @@ Request request = new UpdateAccount(
 Request request = new ListAccountBalances(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
 )
-        .page(5976)                               // ページ番号
-        .perPage(8154)                            // 1ページ分の取引数
-        .expiresAtFrom("2022-06-17T11:02:50.000000Z") // 有効期限の期間によるフィルター(開始時点)
-        .expiresAtTo("2021-12-31T04:15:32.000000Z") // 有効期限の期間によるフィルター(終了時点)
+        .page(7941)                               // ページ番号
+        .perPage(3708)                            // 1ページ分の取引数
+        .expiresAtFrom("2021-10-09T23:01:25.000000Z") // 有効期限の期間によるフィルター(開始時点)
+        .expiresAtTo("2023-02-28T03:03:13.000000Z") // 有効期限の期間によるフィルター(終了時点)
         .direction("desc");                       // 有効期限によるソート順序
 
 ```
@@ -291,10 +291,10 @@ Request request = new ListAccountBalances(
 Request request = new ListAccountExpiredBalances(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
 )
-        .page(246)                                // ページ番号
-        .perPage(9136)                            // 1ページ分の取引数
-        .expiresAtFrom("2022-08-23T15:53:44.000000Z") // 有効期限の期間によるフィルター(開始時点)
-        .expiresAtTo("2020-12-16T22:49:43.000000Z") // 有効期限の期間によるフィルター(終了時点)
+        .page(2601)                               // ページ番号
+        .perPage(9562)                            // 1ページ分の取引数
+        .expiresAtFrom("2021-09-14T00:24:39.000000Z") // 有効期限の期間によるフィルター(開始時点)
+        .expiresAtTo("2020-04-28T23:50:47.000000Z") // 有効期限の期間によるフィルター(終了時点)
         .direction("asc");                        // 有効期限によるソート順序
 
 ```
@@ -398,9 +398,9 @@ Request request = new ListAccountExpiredBalances(
 Request request = new UpdateCustomerAccount(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
 )
-        .status("pre-closed")                     // ウォレット状態
-        .accountName("05rJdAnnKPkjJzRbGyuQYyb8948tP6VkRaNaNdjmk2wkclkjGIdrGdF8qpLKYfd3JbJX5QcdKyJ1DmsToKu4w1tRUaP7awM87Mt7bWysO") // アカウント名
-        .externalId("zqkBrGaMjb1sugqjEeek3")      // 外部ID
+        .status("suspended")                      // ウォレット状態
+        .accountName("MgU5LJ8nedbEkL6VCbZlYCZFu0YjXrv") // アカウント名
+        .externalId("ck1kbCzvMElblaTUskxDWTi4syFdijXYZ6Fkp0v2rO") // 外部ID
         .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}"); // ウォレットに付加するメタデータ
 
 ```
@@ -508,15 +508,15 @@ Request request = new UpdateCustomerAccount(
 Request request = new GetCustomerAccounts(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .page(2150)                               // ページ番号
-        .perPage(2245)                            // 1ページ分のウォレット数
-        .createdAtFrom("2022-09-21T07:31:14.000000Z") // ウォレット作成日によるフィルター(開始時点)
-        .createdAtTo("2021-12-15T02:56:38.000000Z") // ウォレット作成日によるフィルター(終了時点)
+        .page(1321)                               // ページ番号
+        .perPage(4359)                            // 1ページ分のウォレット数
+        .createdAtFrom("2023-03-20T21:15:42.000000Z") // ウォレット作成日によるフィルター(開始時点)
+        .createdAtTo("2024-02-12T10:09:46.000000Z") // ウォレット作成日によるフィルター(終了時点)
         .setSuspended(true)                       // ウォレットが凍結状態かどうかでフィルターする
-        .status("pre-closed")                     // ウォレット状態
-        .externalId("BbYL")                       // 外部ID
-        .tel("04659017")                          // エンドユーザーの電話番号
-        .email("FPReFsmxax@T8Xw.com");            // エンドユーザーのメールアドレス
+        .status("suspended")                      // ウォレット状態
+        .externalId("KP7CaX5R9O7hnOQMfDj4u8or1Z5a") // 外部ID
+        .tel("0629-6637554")                      // エンドユーザーの電話番号
+        .email("vasIan6Df8@qsq2.com");            // エンドユーザーのメールアドレス
 
 ```
 
@@ -658,7 +658,7 @@ Request request = new GetCustomerAccounts(
 |status|type|ja|en|
 |---|---|---|---|
 |403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
-|422|private_money_not_found||Private money not found|
+|422|private_money_not_found|マネーが見つかりません|Private money not found|
 
 
 
@@ -678,7 +678,7 @@ Request request = new CreateCustomerAccount(
 )
         .userName("ポケペイ太郎")                       // ユーザー名
         .accountName("ポケペイ太郎のアカウント")              // アカウント名
-        .externalId("uc649dznjsqwxML0aHp");       // 外部ID
+        .externalId("k3ETquM3SQujWFDE153B47G8gAIFr9"); // 外部ID
 
 ```
 
@@ -745,8 +745,8 @@ PAPIクライアントシステムから利用するPokepayユーザーのIDで�
 |status|type|ja|en|
 |---|---|---|---|
 |403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
-|422|user_not_found||The user is not found|
-|422|private_money_not_found||Private money not found|
+|422|user_not_found|ユーザーが見つかりません|The user is not found|
+|422|private_money_not_found|マネーが見つかりません|Private money not found|
 |422|invalid_metadata|メタデータの形式が不正です|Invalid metadata format|
 |422|user_attributes_external_id_not_match|ユーザー属性情報の外部IDが一致しません|Not match external id of user attributes|
 |422|user_attributes_not_found|ユーザー属性情報が存在しません|Not found the user attrubtes|
@@ -766,10 +766,10 @@ PAPIクライアントシステムから利用するPokepayユーザーのIDで�
 Request request = new GetShopAccounts(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .page(1386)                               // ページ番号
-        .perPage(5878)                            // 1ページ分のウォレット数
-        .createdAtFrom("2022-07-04T09:19:00.000000Z") // ウォレット作成日によるフィルター(開始時点)
-        .createdAtTo("2022-05-26T09:15:50.000000Z") // ウォレット作成日によるフィルター(終了時点)
+        .page(7547)                               // ページ番号
+        .perPage(6106)                            // 1ページ分のウォレット数
+        .createdAtFrom("2024-07-31T12:27:29.000000Z") // ウォレット作成日によるフィルター(開始時点)
+        .createdAtTo("2020-01-10T02:36:55.000000Z") // ウォレット作成日によるフィルター(終了時点)
         .setSuspended(true);                      // ウォレットが凍結状態かどうかでフィルターする
 
 ```
@@ -860,7 +860,7 @@ Request request = new GetShopAccounts(
 |status|type|ja|en|
 |---|---|---|---|
 |403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
-|422|private_money_not_found||Private money not found|
+|422|private_money_not_found|マネーが見つかりません|Private money not found|
 
 
 
@@ -877,10 +877,10 @@ Request request = new ListCustomerTransactions(
 )
         .senderCustomerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 送金エンドユーザーID
         .receiverCustomerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 受取エンドユーザーID
-        .type("cashback")                         // 取引種別
-        .setModified(false)                       // キャンセル済みかどうか
-        .from("2021-10-22T17:42:48.000000Z")      // 開始日時
-        .to("2020-04-24T17:13:27.000000Z")        // 終了日時
+        .type("payment")                          // 取引種別
+        .setModified(true)                        // キャンセル済みかどうか
+        .from("2023-04-21T10:46:48.000000Z")      // 開始日時
+        .to("2023-09-25T10:08:26.000000Z")        // 終了日時
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
 
@@ -1042,7 +1042,7 @@ falseを指定するとキャンセルされていない取引のみ一覧に表
 |---|---|---|---|
 |403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
 |422|customer_user_not_found||The customer user is not found|
-|422|private_money_not_found||Private money not found|
+|422|private_money_not_found|マネーが見つかりません|Private money not found|
 |503|temporarily_unavailable||Service Unavailable|
 
 

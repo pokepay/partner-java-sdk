@@ -12,9 +12,9 @@ public class CreateCpmTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateCpmTransaction(
-            "yms9QyHVorEq6zLZyg3cEP",
-            "095f9add-ab73-4f39-a27b-1c4e82d8a93b",
-            7204.0
+            "yg3cEPs9bN7e1DJRmWCvXV",
+            "39a71035-8e66-4183-b79c-a92f11a3288a",
+            14.0
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -30,9 +30,9 @@ public class CreateCpmTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateCpmTransaction(
-            "yms9QyHVorEq6zLZyg3cEP",
-            "095f9add-ab73-4f39-a27b-1c4e82d8a93b",
-            7204.0
+            "yg3cEPs9bN7e1DJRmWCvXV",
+            "39a71035-8e66-4183-b79c-a92f11a3288a",
+            14.0
         )
                 .strategy("point-preferred");
         try {
@@ -49,11 +49,11 @@ public class CreateCpmTransactionTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateCpmTransaction(
-            "yms9QyHVorEq6zLZyg3cEP",
-            "095f9add-ab73-4f39-a27b-1c4e82d8a93b",
-            7204.0
+            "yg3cEPs9bN7e1DJRmWCvXV",
+            "39a71035-8e66-4183-b79c-a92f11a3288a",
+            14.0
         )
-                .requestId("e3e867bc-2db7-4825-91e5-4d31540d029f")
+                .requestId("77fe478d-5bc6-4e78-8807-b6de97513e52")
                 .strategy("point-preferred");
         try {
             PartnerAPITest.getClient().send(request);
@@ -68,161 +68,6 @@ public class CreateCpmTransactionTest {
     }
     @Test
     void test3() throws ConnectionError, ProcessingError {
-        JsonObject items = new JsonObject();
-        items.addProperty("jan_code", "abc");
-        items.addProperty("name", "name1");
-        items.addProperty("unit_price", 100);
-        items.addProperty("price", 100);
-        items.addProperty("quantity", 1);
-        items.addProperty("is_discounted", false);
-        items.addProperty("other", "{}");
-        JsonObject items2 = new JsonObject();
-        items2.addProperty("jan_code", "abc");
-        items2.addProperty("name", "name1");
-        items2.addProperty("unit_price", 100);
-        items2.addProperty("price", 100);
-        items2.addProperty("quantity", 1);
-        items2.addProperty("is_discounted", false);
-        items2.addProperty("other", "{}");
-        JsonObject items3 = new JsonObject();
-        items3.addProperty("jan_code", "abc");
-        items3.addProperty("name", "name1");
-        items3.addProperty("unit_price", 100);
-        items3.addProperty("price", 100);
-        items3.addProperty("quantity", 1);
-        items3.addProperty("is_discounted", false);
-        items3.addProperty("other", "{}");
-        JsonObject items4 = new JsonObject();
-        items4.addProperty("jan_code", "abc");
-        items4.addProperty("name", "name1");
-        items4.addProperty("unit_price", 100);
-        items4.addProperty("price", 100);
-        items4.addProperty("quantity", 1);
-        items4.addProperty("is_discounted", false);
-        items4.addProperty("other", "{}");
-        JsonObject items5 = new JsonObject();
-        items5.addProperty("jan_code", "abc");
-        items5.addProperty("name", "name1");
-        items5.addProperty("unit_price", 100);
-        items5.addProperty("price", 100);
-        items5.addProperty("quantity", 1);
-        items5.addProperty("is_discounted", false);
-        items5.addProperty("other", "{}");
-        JsonObject items6 = new JsonObject();
-        items6.addProperty("jan_code", "abc");
-        items6.addProperty("name", "name1");
-        items6.addProperty("unit_price", 100);
-        items6.addProperty("price", 100);
-        items6.addProperty("quantity", 1);
-        items6.addProperty("is_discounted", false);
-        items6.addProperty("other", "{}");
-        JsonObject items7 = new JsonObject();
-        items7.addProperty("jan_code", "abc");
-        items7.addProperty("name", "name1");
-        items7.addProperty("unit_price", 100);
-        items7.addProperty("price", 100);
-        items7.addProperty("quantity", 1);
-        items7.addProperty("is_discounted", false);
-        items7.addProperty("other", "{}");
-        Request request = new CreateCpmTransaction(
-            "yms9QyHVorEq6zLZyg3cEP",
-            "095f9add-ab73-4f39-a27b-1c4e82d8a93b",
-            7204.0
-        )
-                .products(new Object[]{items,items2,items3,items4,items5,items6,items7})
-                .requestId("90ae7852-48ed-4e3d-97c3-e08827ab045d")
-                .strategy("point-preferred");
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test4() throws ConnectionError, ProcessingError {
-        JsonObject items = new JsonObject();
-        items.addProperty("jan_code", "abc");
-        items.addProperty("name", "name1");
-        items.addProperty("unit_price", 100);
-        items.addProperty("price", 100);
-        items.addProperty("quantity", 1);
-        items.addProperty("is_discounted", false);
-        items.addProperty("other", "{}");
-        JsonObject items2 = new JsonObject();
-        items2.addProperty("jan_code", "abc");
-        items2.addProperty("name", "name1");
-        items2.addProperty("unit_price", 100);
-        items2.addProperty("price", 100);
-        items2.addProperty("quantity", 1);
-        items2.addProperty("is_discounted", false);
-        items2.addProperty("other", "{}");
-        JsonObject items3 = new JsonObject();
-        items3.addProperty("jan_code", "abc");
-        items3.addProperty("name", "name1");
-        items3.addProperty("unit_price", 100);
-        items3.addProperty("price", 100);
-        items3.addProperty("quantity", 1);
-        items3.addProperty("is_discounted", false);
-        items3.addProperty("other", "{}");
-        JsonObject items4 = new JsonObject();
-        items4.addProperty("jan_code", "abc");
-        items4.addProperty("name", "name1");
-        items4.addProperty("unit_price", 100);
-        items4.addProperty("price", 100);
-        items4.addProperty("quantity", 1);
-        items4.addProperty("is_discounted", false);
-        items4.addProperty("other", "{}");
-        JsonObject items5 = new JsonObject();
-        items5.addProperty("jan_code", "abc");
-        items5.addProperty("name", "name1");
-        items5.addProperty("unit_price", 100);
-        items5.addProperty("price", 100);
-        items5.addProperty("quantity", 1);
-        items5.addProperty("is_discounted", false);
-        items5.addProperty("other", "{}");
-        JsonObject items6 = new JsonObject();
-        items6.addProperty("jan_code", "abc");
-        items6.addProperty("name", "name1");
-        items6.addProperty("unit_price", 100);
-        items6.addProperty("price", 100);
-        items6.addProperty("quantity", 1);
-        items6.addProperty("is_discounted", false);
-        items6.addProperty("other", "{}");
-        JsonObject items7 = new JsonObject();
-        items7.addProperty("jan_code", "abc");
-        items7.addProperty("name", "name1");
-        items7.addProperty("unit_price", 100);
-        items7.addProperty("price", 100);
-        items7.addProperty("quantity", 1);
-        items7.addProperty("is_discounted", false);
-        items7.addProperty("other", "{}");
-        Request request = new CreateCpmTransaction(
-            "yms9QyHVorEq6zLZyg3cEP",
-            "095f9add-ab73-4f39-a27b-1c4e82d8a93b",
-            7204.0
-        )
-                .metadata("{\"key\":\"value\"}")
-                .products(new Object[]{items,items2,items3,items4,items5,items6,items7})
-                .requestId("9642062c-cb7b-4b91-9821-a0d639a71035")
-                .strategy("point-preferred");
-        try {
-            PartnerAPITest.getClient().send(request);
-        } catch (PartnerRequestError e) {
-            if (e.getType().equals("invalid_parameters")) {
-                System.out.println(e.getType());
-                System.out.println(e.getMessage());
-                System.out.println(e.getRawJson());
-            }
-            assertNotEquals("invalid_parameters", e.getType());
-        }
-    }
-    @Test
-    void test5() throws ConnectionError, ProcessingError {
         JsonObject items = new JsonObject();
         items.addProperty("jan_code", "abc");
         items.addProperty("name", "name1");
@@ -295,24 +140,115 @@ public class CreateCpmTransactionTest {
         items9.addProperty("quantity", 1);
         items9.addProperty("is_discounted", false);
         items9.addProperty("other", "{}");
-        JsonObject items10 = new JsonObject();
-        items10.addProperty("jan_code", "abc");
-        items10.addProperty("name", "name1");
-        items10.addProperty("unit_price", 100);
-        items10.addProperty("price", 100);
-        items10.addProperty("quantity", 1);
-        items10.addProperty("is_discounted", false);
-        items10.addProperty("other", "{}");
         Request request = new CreateCpmTransaction(
-            "yms9QyHVorEq6zLZyg3cEP",
-            "095f9add-ab73-4f39-a27b-1c4e82d8a93b",
-            7204.0
+            "yg3cEPs9bN7e1DJRmWCvXV",
+            "39a71035-8e66-4183-b79c-a92f11a3288a",
+            14.0
         )
-                .description("7NFxRTTWOKh4cp2t8rtdj0F82hhuu2d72PSRBNNGTP71wcJLJGkIvTZnRNAv7oeQjUez1G0bwCFurxmaLHHuXDOcuycPW2WYY40yWZt9ZjHKqLir6qmCF3zfoEN4hG6jzrPF")
+                .products(new Object[]{items,items2,items3,items4,items5,items6,items7,items8,items9})
+                .requestId("27df3392-3887-41d4-a9d4-dcd7c7e0a74f")
+                .strategy("money-only");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test4() throws ConnectionError, ProcessingError {
+        JsonObject items = new JsonObject();
+        items.addProperty("jan_code", "abc");
+        items.addProperty("name", "name1");
+        items.addProperty("unit_price", 100);
+        items.addProperty("price", 100);
+        items.addProperty("quantity", 1);
+        items.addProperty("is_discounted", false);
+        items.addProperty("other", "{}");
+        JsonObject items2 = new JsonObject();
+        items2.addProperty("jan_code", "abc");
+        items2.addProperty("name", "name1");
+        items2.addProperty("unit_price", 100);
+        items2.addProperty("price", 100);
+        items2.addProperty("quantity", 1);
+        items2.addProperty("is_discounted", false);
+        items2.addProperty("other", "{}");
+        JsonObject items3 = new JsonObject();
+        items3.addProperty("jan_code", "abc");
+        items3.addProperty("name", "name1");
+        items3.addProperty("unit_price", 100);
+        items3.addProperty("price", 100);
+        items3.addProperty("quantity", 1);
+        items3.addProperty("is_discounted", false);
+        items3.addProperty("other", "{}");
+        JsonObject items4 = new JsonObject();
+        items4.addProperty("jan_code", "abc");
+        items4.addProperty("name", "name1");
+        items4.addProperty("unit_price", 100);
+        items4.addProperty("price", 100);
+        items4.addProperty("quantity", 1);
+        items4.addProperty("is_discounted", false);
+        items4.addProperty("other", "{}");
+        JsonObject items5 = new JsonObject();
+        items5.addProperty("jan_code", "abc");
+        items5.addProperty("name", "name1");
+        items5.addProperty("unit_price", 100);
+        items5.addProperty("price", 100);
+        items5.addProperty("quantity", 1);
+        items5.addProperty("is_discounted", false);
+        items5.addProperty("other", "{}");
+        Request request = new CreateCpmTransaction(
+            "yg3cEPs9bN7e1DJRmWCvXV",
+            "39a71035-8e66-4183-b79c-a92f11a3288a",
+            14.0
+        )
                 .metadata("{\"key\":\"value\"}")
-                .products(new Object[]{items,items2,items3,items4,items5,items6,items7,items8,items9,items10})
-                .requestId("1e7ec2ce-9f96-47b4-8dd9-42d4ee4508d3")
-                .strategy("point-preferred");
+                .products(new Object[]{items,items2,items3,items4,items5})
+                .requestId("94f12ee0-aa98-42cb-8c1e-da6849d2aba5")
+                .strategy("money-only");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test5() throws ConnectionError, ProcessingError {
+        JsonObject items = new JsonObject();
+        items.addProperty("jan_code", "abc");
+        items.addProperty("name", "name1");
+        items.addProperty("unit_price", 100);
+        items.addProperty("price", 100);
+        items.addProperty("quantity", 1);
+        items.addProperty("is_discounted", false);
+        items.addProperty("other", "{}");
+        JsonObject items2 = new JsonObject();
+        items2.addProperty("jan_code", "abc");
+        items2.addProperty("name", "name1");
+        items2.addProperty("unit_price", 100);
+        items2.addProperty("price", 100);
+        items2.addProperty("quantity", 1);
+        items2.addProperty("is_discounted", false);
+        items2.addProperty("other", "{}");
+        Request request = new CreateCpmTransaction(
+            "yg3cEPs9bN7e1DJRmWCvXV",
+            "39a71035-8e66-4183-b79c-a92f11a3288a",
+            14.0
+        )
+                .description("4cp2t8rtdj0F82hhuu2d72PSRBNNGTP71wcJLJGkIvTZnRNAv7oeQjUez1G0bwCFurxmaLHHuXDOcuycPW2WYY40yWZt9ZjH")
+                .metadata("{\"key\":\"value\"}")
+                .products(new Object[]{items,items2})
+                .requestId("391bed4c-b269-4fab-b226-1d00f8db6c8b")
+                .strategy("money-only");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

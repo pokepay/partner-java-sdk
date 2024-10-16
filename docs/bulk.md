@@ -6,11 +6,11 @@ CSVファイルから一括取引をします。
 
 ```JAVA
 Request request = new BulkCreateTransaction(
-    "mtEHAWzKVmwmqN4ax1Q1",                       // name: 一括取引タスク名
-    "Fha0",                                       // content: 取引する情報のCSV
-    "o1JxRbdO7sJMkOiIt9zNKCX0VzisXLLiEpUL"        // requestId: リクエストID
+    "oMxEFE11voG9m7g",                            // name: 一括取引タスク名
+    "WI",                                         // content: 取引する情報のCSV
+    "lidcsFhnnSlOPQSKVW980GqQVfPuvUPiEFV6"        // requestId: リクエストID
 )
-        .description("tiIsW57odiOHhS8DsZfAQRFK6oTTeP8tTTuInowX2TMHi2vDKbmu86aUF4jypKaAY4yQaiw0JpUpNfjrUKaUCU4cuncfOgZgC0vnz9vdHX") // 一括取引の説明
+        .description("DyiAjmPC8FhIFplNkUQpOFZAAuAkdYYYV8q02r77ePIgPu4dPH7ImSF7bIQ97lNoNEqqi11P4GN23Eb6NlDd7BTwpYu4Valw5xiIJ7Q1Cipp2C") // 一括取引の説明
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // マネーID
 
 ```
@@ -111,7 +111,7 @@ Request request = new BulkCreateTransaction(
 |403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
 |403|organization_not_issuer|発行体以外に許可されていない操作です|Unpermitted operation except for issuer organizations.|
 |409|NULL|NULL|NULL|
-|422|private_money_not_found||Private money not found|
+|422|private_money_not_found|マネーが見つかりません|Private money not found|
 |422|bulk_transaction_invalid_csv_format|入力されたCSVデータに誤りがあります|Invalid csv format|
 
 

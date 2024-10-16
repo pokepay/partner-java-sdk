@@ -8,8 +8,8 @@
 Request request = new GetAccountTransferSummary(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
 )
-        .from("2022-07-23T05:03:18.000000Z")      // 集計期間の開始時刻
-        .to("2021-11-29T20:41:07.000000Z")        // 集計期間の終了時刻
+        .from("2021-12-29T10:37:26.000000Z")      // 集計期間の開始時刻
+        .to("2021-02-25T17:29:04.000000Z")        // 集計期間の終了時刻
         .transferTypes(new String[]{"topup","payment"}); // 取引明細種別 (複数指定可)
 
 ```
@@ -123,19 +123,19 @@ Request request = new GetAccountTransferSummary(
 
 ```JAVA
 Request request = new ListTransfers()
-        .from("2020-12-23T07:10:15.000000Z")
-        .to("2020-02-09T21:54:30.000000Z")
-        .page(5360)
-        .perPage(3025)
+        .from("2021-01-30T20:49:05.000000Z")
+        .to("2023-02-22T20:08:11.000000Z")
+        .page(3365)
+        .perPage(5071)
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
-        .shopName("LAa0LofoeILq2j1JbokM11iel9SifEKQQKEl5jTOYEn550ChTMJy5Ri4zQipR66DYXbWwtCBK4yI7b7ruIn1DQefV0LKmn0D6u1aqXUgLXLPq2aRw08a")
+        .shopName("3p62KDWO8TDrLXiDq8ZM4HpSJ7ezaoKVM6PG4nVxadlDXYh8F3jX5Rw62VEObOlMsiJRl1b2ESaJKCDCVaIjvXY9buv1PGDaqpxNAcB7XJ2PMH0HA7mMCx")
         .customerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
-        .customerName("0rfHosccmXhG1yeE5aq4GKVSCfP0aoPIG5NuiBMU7rfLf6FhpORYw57l88LjJn33RIRSOmlXSQfzzTwn3Dxt4Xew7YzDaZ1J9OdsQM2IVUV93tsgTE0JEew3ek7732woVpaWAn4e207OnXy1NWRJfp7ZK3WimQaowti0F0S2aIOKkN5iwpVUwFU1amkd1FBZBysFgH8TiyAaF4dUSA")
+        .customerName("ziaJ1nphI9ySRxw6pdyrj7YEb5BIbPwZWptKeWMAfjTzhjO10bQwyTU6ZUhrOp80a47LYIcD579HHiydYwYbStQsIHShYuqMOfry8huKLaun9")
         .transactionId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
-        .setModified(true)
-        .transactionTypes(new String[]{"payment","exchange","topup","cashback","transfer"})
-        .transferTypes(new String[]{"coupon","exchange","expire","transfer","cashback"}) // 取引明細の種類でフィルターします。
+        .setModified(false)
+        .transactionTypes(new String[]{"topup","cashback","transfer","expire","exchange","payment"})
+        .transferTypes(new String[]{"exchange"})  // 取引明細の種類でフィルターします。
         .description("店頭QRコードによる支払い");            // 取引詳細説明文
 
 ```
@@ -368,20 +368,20 @@ Request request = new ListTransfers()
 ```JAVA
 Request request = new ListTransfersV2()
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ID
-        .shopName("iyJ302sQl233vCftoqwC5tymvF1K23X2uYu46ypSW9PxtiaID1SUCfz9y") // 店舗名
+        .shopName("pzYekawpUouvYHKlj0G")          // 店舗名
         .customerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // エンドユーザーID
-        .customerName("elMoF9a26c2RLHzQWOO42l0o0g8SXRzZ3pUKHHeXuuwg12Ygg3AsTOryINKyRmJ3gWCDcmsuvkMrJePtGFhv4aIw1aGtGR3fEQezBo8XnXONHGXDMcl8tuhVdB5KkP8PHvZEmmcBKkGsr9sdEDTBkey7pr4d2jpaf36YY6mrG9Y2ztoKUUUx5B1bSO8xEgnoe60dnW") // エンドユーザー名
+        .customerName("L0Fcnz7fEngR6pF3m54VmwYrgFgT3RyUt1Kexb2ZIYN08OgDDQYpUk9QvTpwbva3X3fUufQzzx2hzebS68SpNEGkfmS3Uyy5Zn41VzLKUg3om1YNfeeKoLdFE8Hmt9R8Bv1AJsBz3l6W699PQnfTErfIkmiU4i2bFcYt3zvnnQAgg6WKGNaTc3A08bOic61u1yVQPNCQEFIkbwhO9RJiR7") // エンドユーザー名
         .transactionId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 取引ID
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
-        .setModified(true)                        // キャンセルフラグ
-        .transactionTypes(new String[]{"exchange"}) // 取引種別 (複数指定可)、チャージ=topup、支払い=payment
+        .setModified(false)                       // キャンセルフラグ
+        .transactionTypes(new String[]{"exchange","payment","cashback","expire"}) // 取引種別 (複数指定可)、チャージ=topup、支払い=payment
         .nextPageCursorId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 次ページへ遷移する際に起点となるtransferのID
         .prevPageCursorId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 前ページへ遷移する際に起点となるtransferのID
         .perPage(50)                              // 1ページ分の取引数
-        .transferTypes(new String[]{"payment","topup","transfer","coupon","expire","exchange","campaign"}) // 取引明細種別 (複数指定可)
+        .transferTypes(new String[]{"transfer","exchange","coupon","cashback","payment","topup"}) // 取引明細種別 (複数指定可)
         .description("店頭QRコードによる支払い")             // 取引詳細説明文
-        .from("2022-01-25T09:14:02.000000Z")      // 開始日時
-        .to("2020-03-29T20:01:58.000000Z");       // 終了日時
+        .from("2020-02-10T06:55:29.000000Z")      // 開始日時
+        .to("2024-03-31T15:07:15.000000Z");       // 終了日時
 
 ```
 

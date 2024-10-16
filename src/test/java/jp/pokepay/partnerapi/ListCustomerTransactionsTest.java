@@ -12,7 +12,7 @@ public class ListCustomerTransactionsTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "05d4da0c-f8ac-43e9-a1a8-54df0786da2d"
+            "1552de2f-da0c-48ac-a9e1-2fa8e58654df"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class ListCustomerTransactionsTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "05d4da0c-f8ac-43e9-a1a8-54df0786da2d"
+            "1552de2f-da0c-48ac-a9e1-2fa8e58654df"
         )
-                .perPage(3721);
+                .perPage(6702);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class ListCustomerTransactionsTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "05d4da0c-f8ac-43e9-a1a8-54df0786da2d"
+            "1552de2f-da0c-48ac-a9e1-2fa8e58654df"
         )
-                .page(1673)
-                .perPage(8569);
+                .page(3721)
+                .perPage(1673);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,11 +63,11 @@ public class ListCustomerTransactionsTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "05d4da0c-f8ac-43e9-a1a8-54df0786da2d"
+            "1552de2f-da0c-48ac-a9e1-2fa8e58654df"
         )
-                .to("2020-06-09T08:43:25.000000Z")
-                .page(2641)
-                .perPage(1403);
+                .to("2021-06-26T10:33:28.000000Z")
+                .page(1122)
+                .perPage(2641);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -82,7 +82,7 @@ public class ListCustomerTransactionsTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "05d4da0c-f8ac-43e9-a1a8-54df0786da2d"
+            "1552de2f-da0c-48ac-a9e1-2fa8e58654df"
         )
                 .from("2023-08-31T11:35:24.000000Z")
                 .to("2021-11-27T00:17:30.000000Z")
@@ -102,7 +102,7 @@ public class ListCustomerTransactionsTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "05d4da0c-f8ac-43e9-a1a8-54df0786da2d"
+            "1552de2f-da0c-48ac-a9e1-2fa8e58654df"
         )
                 .setModified(true)
                 .from("2021-10-15T20:46:20.000000Z")
@@ -123,7 +123,7 @@ public class ListCustomerTransactionsTest {
     @Test
     void test6() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "05d4da0c-f8ac-43e9-a1a8-54df0786da2d"
+            "1552de2f-da0c-48ac-a9e1-2fa8e58654df"
         )
                 .type("transfer")
                 .setModified(true)
@@ -145,7 +145,7 @@ public class ListCustomerTransactionsTest {
     @Test
     void test7() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "05d4da0c-f8ac-43e9-a1a8-54df0786da2d"
+            "1552de2f-da0c-48ac-a9e1-2fa8e58654df"
         )
                 .receiverCustomerId("476067c0-5180-472f-9748-fbe19e693314")
                 .type("cashback")
@@ -168,7 +168,7 @@ public class ListCustomerTransactionsTest {
     @Test
     void test8() throws ConnectionError, ProcessingError {
         Request request = new ListCustomerTransactions(
-            "05d4da0c-f8ac-43e9-a1a8-54df0786da2d"
+            "1552de2f-da0c-48ac-a9e1-2fa8e58654df"
         )
                 .senderCustomerId("d2869b53-2e22-4d40-bc23-f9d272cd44e5")
                 .receiverCustomerId("03a89a91-73ea-4831-99d4-32f7b9069362")

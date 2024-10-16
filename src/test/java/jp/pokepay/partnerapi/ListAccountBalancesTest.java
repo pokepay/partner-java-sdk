@@ -66,7 +66,7 @@ public class ListAccountBalancesTest {
             "0adcc451-9f5b-4fe8-8803-fd1118c34c95"
         )
                 .expiresAtFrom("2020-09-07T21:25:03.000000Z")
-                .expiresAtTo("2022-05-06T04:41:55.000000Z")
+                .expiresAtTo("2024-10-02T20:33:17.000000Z")
                 .direction("desc");
         try {
             PartnerAPITest.getClient().send(request);
@@ -84,10 +84,10 @@ public class ListAccountBalancesTest {
         Request request = new ListAccountBalances(
             "0adcc451-9f5b-4fe8-8803-fd1118c34c95"
         )
-                .perPage(3844)
-                .expiresAtFrom("2022-07-13T08:37:39.000000Z")
-                .expiresAtTo("2022-05-05T20:55:29.000000Z")
-                .direction("asc");
+                .perPage(5374)
+                .expiresAtFrom("2021-01-13T03:58:59.000000Z")
+                .expiresAtTo("2024-09-16T05:40:45.000000Z")
+                .direction("desc");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -104,11 +104,11 @@ public class ListAccountBalancesTest {
         Request request = new ListAccountBalances(
             "0adcc451-9f5b-4fe8-8803-fd1118c34c95"
         )
-                .page(677)
-                .perPage(5673)
-                .expiresAtFrom("2021-09-28T23:27:27.000000Z")
-                .expiresAtTo("2020-10-21T06:08:14.000000Z")
-                .direction("desc");
+                .page(9044)
+                .perPage(3584)
+                .expiresAtFrom("2022-05-05T20:55:29.000000Z")
+                .expiresAtTo("2023-04-07T14:57:44.000000Z")
+                .direction("asc");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

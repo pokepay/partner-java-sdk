@@ -2,7 +2,6 @@
 package jp.pokepay.partnerapi.tdsl;
 
 import jp.pokepay.partnerapi.PartnerAPITest;
-import jp.pokepay.partnerapi.request.*;
 import jp.pokepay.partnerapi.response.*;
 import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
@@ -12,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SendEchoTest {
     @Test
     void simpleTest() throws Exception {
-        Echo response = (Echo)PartnerAPITest.getClient().send(new SendEcho(
+        Echo response = (Echo)PartnerAPITest.getClient().send(new jp.pokepay.partnerapi.request.SendEcho(
             "Hello"
         ));
         assertEquals("ok", response.getStatus());

@@ -10,6 +10,7 @@ public class CreateBankTopupTransaction extends Request {
     private String privateMoneyId;
     private Integer amount;
     private String bankId;
+    private String receiverUserId;
     private String requestId;
     private String userDeviceId;
 
@@ -19,6 +20,11 @@ public class CreateBankTopupTransaction extends Request {
         this.amount = amount;
         this.bankId = bankId;
         this.requestId = requestId;
+    }
+
+    public CreateBankTopupTransaction receiverUserId(String receiverUserId) {
+        this.receiverUserId = receiverUserId;
+        return this;
     }
 
     @Override
@@ -42,6 +48,7 @@ public class CreateBankTopupTransaction extends Request {
         if (privateMoneyId != null) { object.add("private_money_id", context.serialize(this.privateMoneyId)); }
         if (amount != null) { object.add("amount", context.serialize(this.amount)); }
         if (bankId != null) { object.add("bank_id", context.serialize(this.bankId)); }
+        if (receiverUserId != null) { object.add("receiver_user_id", context.serialize(this.receiverUserId)); }
         if (requestId != null) { object.add("request_id", context.serialize(this.requestId)); }
         return object;
     }
