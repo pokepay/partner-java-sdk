@@ -13,6 +13,8 @@ import java.security.Security;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
+import java.util.Arrays;
+import java.lang.reflect.Field;
 
 public class PartnerAPI {
     private Config config;
@@ -20,6 +22,7 @@ public class PartnerAPI {
     private Crypto crypto;
     private GsonBuilder gsonBuilder;
     private Gson gson;
+    private static final int MAX_RETRIES = 2;
 
     public PartnerAPI(File configFile) throws ProcessingError, ConfigFileNotFoundException,
             P12FileNotFoundException, SSLInitializeError {
@@ -62,24 +65,59 @@ public class PartnerAPI {
         return gson.fromJson(response.getBody(), Pong.class);
     }
 
-    public String encodeRequest(Request request) throws ProcessingError {
-        String requestData = gson.toJson(request);
-        return constructContent(request.method().toString(), requestData);
+    private boolean isRetriable(Request request) {
+        String[] retriableMethods = {"GET", "PATCH"};
+        if (Arrays.asList(retriableMethods).contains(request.method().toString())) {
+          return true;
+        }
+        try {
+            Field field = request.getClass().getDeclaredField("requestId");
+            field.setAccessible(true);
+            boolean hasRequestId = field.get(request) != null;
+            field.setAccessible(false);
+            return hasRequestId;
+        } catch (NoSuchFieldException ex) {
+        } catch (IllegalAccessException ex) { }
+        return false;
     }
 
     public Response send(Request request) throws ProcessingError, ConnectionError, PartnerRequestError {
-        HttpClient.Response response = httpClient.post(request.path(), encodeRequest(request), config.acceptLanguage);
-        JsonResponse json = gson.fromJson(response.getBody(), JsonResponse.class);
-        if (json.responseData == null) {
-            ErrorResponse errorResponse = gson.fromJson(response.getBody(), ErrorResponse.class);
-            throw new PartnerRequestError(errorResponse.type, errorResponse.message, response.getBody());
-        }
-        String responseData = crypto.decode(json.responseData);
-        ErrorResponse errorResponse = gson.fromJson(responseData, ErrorResponse.class);
-        if (!errorResponse.isValid()) {
-            return gson.fromJson(responseData, request.getResponseClass());
-        } else {
-            throw new PartnerRequestError(errorResponse.type, errorResponse.message, responseData);
+        Integer retry = 0;
+        boolean isRetriable = isRetriable(request);
+        String requestData = gson.toJson(request);
+        int statusCode = 0;
+        while (true) {
+            try {
+                HttpClient.Response response = httpClient.post(request.path(), constructContent(request.method().toString(), requestData), config.acceptLanguage);
+                statusCode = response.getStatus();
+                JsonResponse json = gson.fromJson(response.getBody(), JsonResponse.class);
+                if (json.responseData == null) {
+                    ErrorResponse errorResponse = gson.fromJson(response.getBody(), ErrorResponse.class);
+                    throw new PartnerRequestError(errorResponse.type, errorResponse.message, response.getBody());
+                }
+                String responseData = crypto.decode(json.responseData);
+                ErrorResponse errorResponse = gson.fromJson(responseData, ErrorResponse.class);
+                if (!errorResponse.isValid()) {
+                    return gson.fromJson(responseData, request.getResponseClass());
+                } else {
+                    throw new PartnerRequestError(errorResponse.type, errorResponse.message, responseData);
+                }
+            } catch (ConnectionError ex) {
+                if (this.MAX_RETRIES <= retry || !isRetriable) {
+                    throw ex;
+                }
+            } catch (PartnerRequestError ex) {
+                if (ex.getType().equals("request_id_conflict")) {
+                    throw new RequestIdConflict(ex.getType(), ex.getMessage(), ex.getRawJson());
+                }
+                if (!isRetriable) {
+                    throw ex;
+                }
+                if (!(statusCode == 503 && retry < this.MAX_RETRIES)) {
+                    throw ex;
+                }
+            }
+            ++retry;
         }
     }
 
