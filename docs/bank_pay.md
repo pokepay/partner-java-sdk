@@ -1,6 +1,59 @@
 # BankPay
 BankPayを用いた銀行からのチャージ取引などのAPIを提供しています。
 
+<a name="delete-bank"></a>
+## DeleteBank: 銀行口座の削除
+銀行口座を削除します
+
+```JAVA
+Request request = new DeleteBank(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // userDeviceId: デバイスID
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+);
+
+```
+
+
+
+### Parameters
+#### `userDeviceId`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+#### `bankId`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+
+
+成功したときは
+[BankDeleted](./responses.md#bank-deleted)
+を返します
+
+
+
+---
+
 
 <a name="list-banks"></a>
 ## ListBanks: 登録した銀行の一覧
@@ -17,9 +70,24 @@ Request request = new ListBanks(
 
 
 ### Parameters
-**`userDeviceId`** 
-  
+#### `userDeviceId`
 
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+#### `privateMoneyId`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -28,16 +96,7 @@ Request request = new ListBanks(
 }
 ```
 
-**`privateMoneyId`** 
-  
-
-
-```json
-{
-  "type": "string",
-  "format": "uuid"
-}
-```
+</details>
 
 
 
@@ -57,7 +116,6 @@ Request request = new ListBanks(
 ユーザーが銀行口座の登録に成功すると、callback_urlにリクエストが行われます。
 アプリの場合はDeep Linkを使うことを想定しています。
 
-
 ```JAVA
 Request request = new CreateBank(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // userDeviceId: デバイスID
@@ -65,7 +123,7 @@ Request request = new CreateBank(
     "<Deep Link>",                                // callbackUrl: コールバックURL
     "ポケペイタロウ"                                     // kana: ユーザーの氏名 (片仮名で指定)
 )
-        .email("wpVUwFU1am@kd1F.com")             // ユーザーのメールアドレス
+        .email("aS2m3w11YO@cIRg.com")             // ユーザーのメールアドレス
         .birthdate("19901142");                   // 生年月日
 
 ```
@@ -73,20 +131,10 @@ Request request = new CreateBank(
 
 
 ### Parameters
-**`userDeviceId`** 
-  
+#### `userDeviceId`
 
-
-```json
-{
-  "type": "string",
-  "format": "uuid"
-}
-```
-
-**`privateMoneyId`** 
-  
-
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -95,9 +143,26 @@ Request request = new CreateBank(
 }
 ```
 
-**`callbackUrl`** 
-  
+</details>
 
+#### `privateMoneyId`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+#### `callbackUrl`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -106,9 +171,12 @@ Request request = new CreateBank(
 }
 ```
 
-**`kana`** 
-  
+</details>
 
+#### `kana`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -117,9 +185,12 @@ Request request = new CreateBank(
 }
 ```
 
-**`email`** 
-  
+</details>
 
+#### `email`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -129,9 +200,12 @@ Request request = new CreateBank(
 }
 ```
 
-**`birthdate`** 
-  
+</details>
 
+#### `birthdate`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -139,6 +213,8 @@ Request request = new CreateBank(
   "maxLength": 8
 }
 ```
+
+</details>
 
 
 
@@ -159,7 +235,7 @@ Request request = new CreateBank(
 Request request = new CreateBankTopupTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // userDeviceId: デバイスID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    8003,                                         // amount: チャージ金額
+    8178,                                         // amount: チャージ金額
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // bankId: 銀行ID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // requestId: リクエストID
 )
@@ -170,20 +246,10 @@ Request request = new CreateBankTopupTransaction(
 
 
 ### Parameters
-**`userDeviceId`** 
-  
+#### `userDeviceId`
 
-
-```json
-{
-  "type": "string",
-  "format": "uuid"
-}
-```
-
-**`privateMoneyId`** 
-  
-
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -192,9 +258,26 @@ Request request = new CreateBankTopupTransaction(
 }
 ```
 
-**`amount`** 
-  
+</details>
 
+#### `privateMoneyId`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+#### `amount`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -203,20 +286,12 @@ Request request = new CreateBankTopupTransaction(
 }
 ```
 
-**`bankId`** 
-  
+</details>
 
+#### `bankId`
 
-```json
-{
-  "type": "string",
-  "format": "uuid"
-}
-```
-
-**`receiverUserId`** 
-  
-
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -225,9 +300,12 @@ Request request = new CreateBankTopupTransaction(
 }
 ```
 
-**`requestId`** 
-  
+</details>
 
+#### `receiverUserId`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -235,6 +313,22 @@ Request request = new CreateBankTopupTransaction(
   "format": "uuid"
 }
 ```
+
+</details>
+
+#### `requestId`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
 
 
 

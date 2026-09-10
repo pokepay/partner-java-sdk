@@ -1,4 +1,10 @@
 # Private Money
+Pokepay上で発行する電子マネーを表すデータです。
+電子マネーは１つの発行体(Organization)によって発行されます。
+電子マネーはCustomerやMerchantが所有するウォレット間を送金されます。
+電子マネー残高はユーザが有償で購入するマネーと無償で付与されるポイントの2種類のバリューで構成され、
+それぞれ有効期限決定ロジックは電子マネーの設定に依存します。
+
 
 <a name="get-private-moneys"></a>
 ## GetPrivateMoneys: マネー一覧を取得する
@@ -17,10 +23,11 @@ Request request = new GetPrivateMoneys()
 
 
 ### Parameters
-**`organizationCode`** 
-  
-
+#### `organizationCode`
 パートナーキーの管理者が発行体組織に属している場合、発行マネーのうち、この組織コードで指定した決済加盟店組織が加盟しているマネーの一覧を返します。決済加盟店組織の管理者は自組織以外を指定することはできません。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -30,9 +37,26 @@ Request request = new GetPrivateMoneys()
 }
 ```
 
-**`page`** 
-  
+</details>
 
+#### `page`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "integer",
+  "minimum": 1
+}
+```
+
+</details>
+
+#### `perPage`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -41,16 +65,7 @@ Request request = new GetPrivateMoneys()
 }
 ```
 
-**`perPage`** 
-  
-
-
-```json
-{
-  "type": "integer",
-  "minimum": 1
-}
-```
+</details>
 
 
 
@@ -76,8 +91,8 @@ Request request = new GetPrivateMoneys()
 Request request = new GetPrivateMoneyOrganizationSummaries(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .from("2023-04-20T00:53:32.000000Z")      // 開始日時(toと同時に指定する必要有)
-        .to("2023-12-03T18:01:03.000000Z")        // 終了日時(fromと同時に指定する必要有)
+        .from("2024-06-19T11:15:47.000000Z")      // 開始日時(toと同時に指定する必要有)
+        .to("2020-01-16T17:31:32.000000Z")        // 終了日時(fromと同時に指定する必要有)
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
 
@@ -87,9 +102,10 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 
 
 ### Parameters
-**`privateMoneyId`** 
-  
+#### `privateMoneyId`
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -98,20 +114,12 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 }
 ```
 
-**`from`** 
-  
+</details>
 
+#### `from`
 
-```json
-{
-  "type": "string",
-  "format": "date-time"
-}
-```
-
-**`to`** 
-  
-
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -120,9 +128,26 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 }
 ```
 
-**`page`** 
-  
+</details>
 
+#### `to`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "date-time"
+}
+```
+
+</details>
+
+#### `page`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -131,9 +156,12 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 }
 ```
 
-**`perPage`** 
-  
+</details>
 
+#### `perPage`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -141,6 +169,8 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
   "minimum": 1
 }
 ```
+
+</details>
 
 
 
@@ -160,17 +190,18 @@ Request request = new GetPrivateMoneyOrganizationSummaries(
 Request request = new GetPrivateMoneySummary(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
-        .from("2022-01-26T00:25:32.000000Z")      // 開始日時
-        .to("2020-09-07T00:32:24.000000Z");       // 終了日時
+        .from("2020-03-20T09:09:57.000000Z")      // 開始日時
+        .to("2024-12-16T01:23:28.000000Z");       // 終了日時
 
 ```
 
 
 
 ### Parameters
-**`privateMoneyId`** 
-  
+#### `privateMoneyId`
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -179,9 +210,26 @@ Request request = new GetPrivateMoneySummary(
 }
 ```
 
-**`from`** 
-  
+</details>
 
+#### `from`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "date-time"
+}
+```
+
+</details>
+
+#### `to`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -190,16 +238,7 @@ Request request = new GetPrivateMoneySummary(
 }
 ```
 
-**`to`** 
-  
-
-
-```json
-{
-  "type": "string",
-  "format": "date-time"
-}
-```
+</details>
 
 
 

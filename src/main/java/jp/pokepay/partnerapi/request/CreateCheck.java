@@ -14,6 +14,7 @@ public class CreateCheck extends Request {
     private Boolean isOnetime;
     private Integer usageLimit;
     private String expiresAt;
+    private String startsAt;
     private String pointExpiresAt;
     private Integer pointExpiresInDays;
     private String bearPointAccount;
@@ -49,6 +50,11 @@ public class CreateCheck extends Request {
 
     public CreateCheck expiresAt(String expiresAt) {
         this.expiresAt = expiresAt;
+        return this;
+    }
+
+    public CreateCheck startsAt(String startsAt) {
+        this.startsAt = startsAt;
         return this;
     }
 
@@ -92,6 +98,7 @@ public class CreateCheck extends Request {
         if (isOnetime != null) { object.add("is_onetime", context.serialize(this.isOnetime)); }
         if (usageLimit != null) { object.add("usage_limit", context.serialize(this.usageLimit)); }
         if (expiresAt != null) { object.add("expires_at", context.serialize(this.expiresAt)); }
+        if (startsAt != null) { object.add("starts_at", context.serialize(this.startsAt)); }
         if (pointExpiresAt != null) { object.add("point_expires_at", context.serialize(this.pointExpiresAt)); }
         if (pointExpiresInDays != null) { object.add("point_expires_in_days", context.serialize(this.pointExpiresInDays)); }
         if (bearPointAccount != null) { object.add("bear_point_account", context.serialize(this.bearPointAccount)); }

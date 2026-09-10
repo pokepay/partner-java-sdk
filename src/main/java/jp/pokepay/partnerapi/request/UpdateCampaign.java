@@ -24,6 +24,7 @@ public class UpdateCampaign extends Request {
     private Integer[] applicableDaysOfWeek;
     private Object[] applicableTimeRanges;
     private String[] applicableShopIds;
+    private String[] applicableShopLabelIds;
     private String[] blacklistedShopIds;
     private Integer minimumNumberOfProducts;
     private Integer minimumNumberOfAmount;
@@ -125,6 +126,11 @@ public class UpdateCampaign extends Request {
         return this;
     }
 
+    public UpdateCampaign applicableShopLabelIds(String[] applicableShopLabelIds) {
+        this.applicableShopLabelIds = applicableShopLabelIds;
+        return this;
+    }
+
     public UpdateCampaign blacklistedShopIds(String[] blacklistedShopIds) {
         this.blacklistedShopIds = blacklistedShopIds;
         return this;
@@ -210,6 +216,7 @@ public class UpdateCampaign extends Request {
         if (applicableDaysOfWeek != null) { object.add("applicable_days_of_week", context.serialize(this.applicableDaysOfWeek)); }
         if (applicableTimeRanges != null) { object.add("applicable_time_ranges", context.serialize(this.applicableTimeRanges)); }
         if (applicableShopIds != null) { object.add("applicable_shop_ids", context.serialize(this.applicableShopIds)); }
+        if (applicableShopLabelIds != null) { object.add("applicable_shop_label_ids", context.serialize(this.applicableShopLabelIds)); }
         if (blacklistedShopIds != null) { object.add("blacklisted_shop_ids", context.serialize(this.blacklistedShopIds)); }
         if (minimumNumberOfProducts != null) { object.add("minimum_number_of_products", context.serialize(this.minimumNumberOfProducts)); }
         if (minimumNumberOfAmount != null) { object.add("minimum_number_of_amount", context.serialize(this.minimumNumberOfAmount)); }

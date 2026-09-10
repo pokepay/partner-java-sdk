@@ -3,7 +3,6 @@ UserDeviceはユーザー毎のデバイスを管理します。
 あるユーザーが使っている端末を区別する必要がある場合に用いられます。
 これが必要な理由はBank Payを用いたチャージを行う場合は端末を区別できることが要件としてあるためです。
 
-
 <a name="create-user-device"></a>
 ## CreateUserDevice: ユーザーのデバイス登録
 ユーザーのデバイスを新規に登録します
@@ -19,9 +18,10 @@ Request request = new CreateUserDevice(
 
 
 ### Parameters
-**`userId`** 
-  
+#### `userId`
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -30,12 +30,14 @@ Request request = new CreateUserDevice(
 }
 ```
 
-**`metadata`** 
-  
+</details>
 
+#### `metadata`
 ユーザーのデバイス用の情報をメタデータを保持するために用います。
 例: 端末の固有情報やブラウザのUser-Agent
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -43,6 +45,8 @@ Request request = new CreateUserDevice(
   "format": "json"
 }
 ```
+
+</details>
 
 
 
@@ -75,9 +79,10 @@ Request request = new GetUserDevice(
 
 
 ### Parameters
-**`userDeviceId`** 
-  
+#### `userDeviceId`
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -85,6 +90,8 @@ Request request = new GetUserDevice(
   "format": "uuid"
 }
 ```
+
+</details>
 
 
 
@@ -101,7 +108,6 @@ Request request = new GetUserDevice(
 ## ActivateUserDevice: デバイスの有効化
 指定のデバイスを有効化し、それ以外の同一ユーザーのデバイスを無効化します。
 
-
 ```JAVA
 Request request = new ActivateUserDevice(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // userDeviceId: ユーザーデバイスID
@@ -112,9 +118,10 @@ Request request = new ActivateUserDevice(
 
 
 ### Parameters
-**`userDeviceId`** 
-  
+#### `userDeviceId`
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -122,6 +129,8 @@ Request request = new ActivateUserDevice(
   "format": "uuid"
 }
 ```
+
+</details>
 
 
 

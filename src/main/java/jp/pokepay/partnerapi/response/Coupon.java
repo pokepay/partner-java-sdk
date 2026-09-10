@@ -21,6 +21,8 @@ public class Coupon extends Response {
     private String code;
     private Boolean isDisabled;
     private String token;
+    private Integer numRecipientsCap;
+    private Integer numRecipients;
 
     public String getId() {
         return id;
@@ -96,6 +98,14 @@ public class Coupon extends Response {
 
     public String getToken() {
         return token;
+    }
+
+    public Integer getNumRecipientsCap() {
+        return numRecipientsCap;
+    }
+
+    public Integer getNumRecipients() {
+        return numRecipients;
     }
 }
 

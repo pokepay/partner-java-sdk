@@ -16,6 +16,7 @@ public class CreatePaymentTransaction extends Request {
     private Object[] products;
     private String requestId;
     private String strategy;
+    private String couponId;
 
     public CreatePaymentTransaction(String shopId, String customerId, String privateMoneyId, int amount) {
         this.shopId = shopId;
@@ -49,6 +50,11 @@ public class CreatePaymentTransaction extends Request {
         return this;
     }
 
+    public CreatePaymentTransaction couponId(String couponId) {
+        this.couponId = couponId;
+        return this;
+    }
+
     @Override
     public Method method() {
         return Method.POST;
@@ -76,6 +82,7 @@ public class CreatePaymentTransaction extends Request {
         if (products != null) { object.add("products", context.serialize(this.products)); }
         if (requestId != null) { object.add("request_id", context.serialize(this.requestId)); }
         if (strategy != null) { object.add("strategy", context.serialize(this.strategy)); }
+        if (couponId != null) { object.add("coupon_id", context.serialize(this.couponId)); }
         return object;
     }
 }

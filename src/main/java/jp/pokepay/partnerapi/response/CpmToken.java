@@ -9,6 +9,8 @@ public class CpmToken extends Response {
     private String[] scopes;
     private String expiresAt;
     private String metadata;
+    private String strategy;
+    private String couponId;
 
     public String getCpmToken() {
         return cpmToken;
@@ -36,6 +38,14 @@ public class CpmToken extends Response {
 
     public String getMetadata() {
         return metadata;
+    }
+
+    public String getStrategy() {
+        return strategy;
+    }
+
+    public String getCouponId() {
+        return couponId;
     }
 }
 

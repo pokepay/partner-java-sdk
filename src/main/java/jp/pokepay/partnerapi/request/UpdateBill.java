@@ -10,6 +10,7 @@ public class UpdateBill extends Request {
     private Double amount;
     private String description;
     private Boolean isDisabled;
+    private String[] additionalPrivateMoneyIds;
     private String billId;
 
     public UpdateBill(String billId) {
@@ -31,6 +32,11 @@ public class UpdateBill extends Request {
         return this;
     }
 
+    public UpdateBill additionalPrivateMoneyIds(String[] additionalPrivateMoneyIds) {
+        this.additionalPrivateMoneyIds = additionalPrivateMoneyIds;
+        return this;
+    }
+
     @Override
     public Method method() {
         return Method.PATCH;
@@ -43,7 +49,7 @@ public class UpdateBill extends Request {
 
     @Override
     public Type getResponseClass() {
-        return Bill.class;
+        return BillWithAdditionalPrivateMoneys.class;
     }
 
     @Override
@@ -52,6 +58,7 @@ public class UpdateBill extends Request {
         if (amount != null) { object.add("amount", context.serialize((int)this.amount.doubleValue())); }
         if (description != null) { object.add("description", context.serialize(this.description)); }
         if (isDisabled != null) { object.add("is_disabled", context.serialize(this.isDisabled)); }
+        if (additionalPrivateMoneyIds != null) { object.add("additional_private_money_ids", context.serialize(this.additionalPrivateMoneyIds)); }
         return object;
     }
 }

@@ -1,14 +1,13 @@
 # SevenBankATMSession
 セブンATMチャージの取引内容を照会するAPIを提供しています。
 
-
 <a name="get-seven-bank-atm-session"></a>
 ## GetSevenBankATMSession: セブン銀行ATMセッションの取得
 セブン銀行ATMセッションを取得します
 
 ```JAVA
 Request request = new GetSevenBankATMSession(
-    "ZBysF"                                       // qrInfo: QRコードの情報
+    "weZ1D5GDu"                                   // qrInfo: QRコードの情報
 );
 
 ```
@@ -16,16 +15,19 @@ Request request = new GetSevenBankATMSession(
 
 
 ### Parameters
-**`qrInfo`** 
-  
-
+#### `qrInfo`
 取得するセブン銀行ATMチャージのQRコードの情報です。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
   "type": "string"
 }
 ```
+
+</details>
 
 
 
