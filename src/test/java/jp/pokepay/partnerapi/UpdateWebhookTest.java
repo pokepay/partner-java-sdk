@@ -12,7 +12,7 @@ public class UpdateWebhookTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateWebhook(
-            "42571d9f-a90d-4a7f-bf30-c3ee221f1b72"
+            "ca399bcd-b969-4338-9e11-a7b184bed223"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class UpdateWebhookTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateWebhook(
-            "42571d9f-a90d-4a7f-bf30-c3ee221f1b72"
+            "ca399bcd-b969-4338-9e11-a7b184bed223"
         )
-                .task("process_user_stats_operation");
+                .task("bulk_shops");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,7 +45,7 @@ public class UpdateWebhookTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateWebhook(
-            "42571d9f-a90d-4a7f-bf30-c3ee221f1b72"
+            "ca399bcd-b969-4338-9e11-a7b184bed223"
         )
                 .setActive(true)
                 .task("process_user_stats_operation");
@@ -63,10 +63,10 @@ public class UpdateWebhookTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateWebhook(
-            "42571d9f-a90d-4a7f-bf30-c3ee221f1b72"
+            "ca399bcd-b969-4338-9e11-a7b184bed223"
         )
-                .url("QNFRYY")
-                .setActive(false)
+                .url("IvFF2aV")
+                .setActive(true)
                 .task("process_user_stats_operation");
         try {
             PartnerAPITest.getClient().send(request);

@@ -1,4 +1,9 @@
 # Organization
+組織（発行体・加盟店組織）を表すデータです。
+Pokepay上でマネーを発行する発行体や、店舗を束ねる加盟店組織を管理します。
+組織には組織コード、組織名、本社情報などが含まれます。
+組織配下に複数の店舗（Shop）を持つことができます。
+
 
 <a name="list-organizations"></a>
 ## ListOrganizations: 加盟店組織の一覧を取得する
@@ -9,19 +14,20 @@ Request request = new ListOrganizations(
 )
         .page(1)                                  // ページ番号
         .perPage(50)                              // 1ページ分の取引数
-        .name("AZ")                               // 組織名
-        .code("81ee9F1zae");                      // 組織コード
+        .name("prVMDsZV4")                        // 組織名
+        .code("kyP5l");                           // 組織コード
 
 ```
 
 
 
 ### Parameters
-**`privateMoneyId`** 
-  
-
+#### `privateMoneyId`
 マネーIDです。
 このマネーに加盟している加盟組織がフィルターされます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -30,11 +36,14 @@ Request request = new ListOrganizations(
 }
 ```
 
-**`page`** 
-  
+</details>
 
+#### `page`
 取得したいページ番号です。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -42,11 +51,14 @@ Request request = new ListOrganizations(
 }
 ```
 
-**`perPage`** 
-  
+</details>
 
+#### `perPage`
 1ページ分の取引数です。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -54,9 +66,25 @@ Request request = new ListOrganizations(
 }
 ```
 
-**`name`** 
-  
+</details>
 
+#### `name`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string"
+}
+```
+
+</details>
+
+#### `code`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -64,15 +92,7 @@ Request request = new ListOrganizations(
 }
 ```
 
-**`code`** 
-  
-
-
-```json
-{
-  "type": "string"
-}
-```
+</details>
 
 
 
@@ -100,14 +120,14 @@ Request request = new CreateOrganization(
     "ox-supermarket",                             // code: 新規組織コード
     "oxスーパー",                                     // name: 新規組織名
     new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}, // privateMoneyIds: 加盟店組織で有効にするマネーIDの配列
-    "UGprRtPpZg@ZzOh.com",                        // issuerAdminUserEmail: 発行体担当者メールアドレス
-    "vmvIjVKe7a@M7Qi.com"                         // memberAdminUserEmail: 新規組織担当者メールアドレス
+    "QdeGG2Wwub@sLa4.com",                        // issuerAdminUserEmail: 発行体担当者メールアドレス
+    "vnCWV1QVss@D1Im.com"                         // memberAdminUserEmail: 新規組織担当者メールアドレス
 )
         .bankName("XYZ銀行")                        // 銀行名
         .bankCode("1234")                         // 銀行金融機関コード
         .bankBranchName("ABC支店")                  // 銀行支店名
         .bankBranchCode("123")                    // 銀行支店コード
-        .bankAccountType("saving")                // 銀行口座種別 (普通=saving, 当座=current, その他=other)
+        .bankAccountType("current")               // 銀行口座種別 (普通=saving, 当座=current, その他=other)
         .bankAccount("1234567")                   // 銀行口座番号
         .bankAccountHolderName("ﾌｸｻﾞﾜﾕｷﾁ")        // 口座名義人名
         .contactName("佐藤清");                      // 担当者名
@@ -117,9 +137,10 @@ Request request = new CreateOrganization(
 
 
 ### Parameters
-**`code`** 
-  
+#### `code`
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -128,9 +149,12 @@ Request request = new CreateOrganization(
 }
 ```
 
-**`name`** 
-  
+</details>
 
+#### `name`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -139,9 +163,12 @@ Request request = new CreateOrganization(
 }
 ```
 
-**`privateMoneyIds`** 
-  
+</details>
 
+#### `privateMoneyIds`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -154,20 +181,12 @@ Request request = new CreateOrganization(
 }
 ```
 
-**`issuerAdminUserEmail`** 
-  
+</details>
 
+#### `issuerAdminUserEmail`
 
-```json
-{
-  "type": "string",
-  "format": "email"
-}
-```
-
-**`memberAdminUserEmail`** 
-  
-
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -176,9 +195,26 @@ Request request = new CreateOrganization(
 }
 ```
 
-**`bankName`** 
-  
+</details>
 
+#### `memberAdminUserEmail`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "email"
+}
+```
+
+</details>
+
+#### `bankName`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -187,9 +223,12 @@ Request request = new CreateOrganization(
 }
 ```
 
-**`bankCode`** 
-  
+</details>
 
+#### `bankCode`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -198,9 +237,12 @@ Request request = new CreateOrganization(
 }
 ```
 
-**`bankBranchName`** 
-  
+</details>
 
+#### `bankBranchName`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -209,9 +251,12 @@ Request request = new CreateOrganization(
 }
 ```
 
-**`bankBranchCode`** 
-  
+</details>
 
+#### `bankBranchCode`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -220,9 +265,12 @@ Request request = new CreateOrganization(
 }
 ```
 
-**`bankAccountType`** 
-  
+</details>
 
+#### `bankAccountType`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -235,9 +283,12 @@ Request request = new CreateOrganization(
 }
 ```
 
-**`bankAccount`** 
-  
+</details>
 
+#### `bankAccount`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -247,9 +298,12 @@ Request request = new CreateOrganization(
 }
 ```
 
-**`bankAccountHolderName`** 
-  
+</details>
 
+#### `bankAccountHolderName`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -259,16 +313,21 @@ Request request = new CreateOrganization(
 }
 ```
 
-**`contactName`** 
-  
+</details>
 
+#### `contactName`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
   "type": "string",
-  "maxLength": 256
+  "maxLength": 64
 }
 ```
+
+</details>
 
 
 
@@ -279,12 +338,15 @@ Request request = new CreateOrganization(
 ### Error Responses
 |status|type|ja|en|
 |---|---|---|---|
+|400|invalid_parameters|項目が無効です|Invalid parameters|
 |403|NULL|NULL|NULL|
 |409|organization_conflict||The organization code is already used|
 |409|shop_name_conflict||The shop name is already used|
 |422|organization_private_money_not_found||Issuer organization does not have private-money|
 |422|unavailable_private_money||Given private money(s) is/are not available|
+|422|organization_application_setting_not_found|加盟店申込み設定が見つかりません|Organization application setting not found|
 |503|failed_to_send_email||Failed to send an E-mail.|
+|503|temporarily_unavailable||Service Unavailable|
 
 
 

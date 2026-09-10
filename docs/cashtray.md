@@ -1,9 +1,9 @@
 # Cashtray
 Cashtrayは支払いとチャージ両方に使えるQRコードで、店舗ユーザとエンドユーザーの間の主に店頭などでの取引のために用いられます。
+店舗ユーザはCashtrayの状態を監視することができ、取引の成否やエラー事由を知ることができます。
 Cashtrayによる取引では、エンドユーザーがQRコードを読み取った時点で即時取引が作られ、ユーザに対して受け取り確認画面は表示されません。
 Cashtrayはワンタイムで、一度読み取りに成功するか、取引エラーになると失効します。
 また、Cashtrayには有効期限があり、デフォルトでは30分で失効します。
-
 
 <a name="create-transaction-with-cashtray"></a>
 ## CreateTransactionWithCashtray: CashtrayQRコードを読み取ることで取引する
@@ -12,13 +12,12 @@ Cashtrayはワンタイムで、一度読み取りに成功するか、取引エ
 通常CashtrayQRコードはエンドユーザーのアプリによって読み取られ、アプリとポケペイサーバとの直接通信によって取引が作られます。
 もしエンドユーザーとの通信をパートナーのサーバのみに限定したい場合、パートナーのサーバがCashtrayQRの情報をエンドユーザーから代理受けして、サーバ間連携APIによって実際のチャージ取引をリクエストすることになります。
 
-
 ```JAVA
 Request request = new CreateTransactionWithCashtray(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // cashtrayId: Cashtray用QRコードのID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // customerId: エンドユーザーのID
 )
-        .strategy("point-preferred")              // 支払い時の残高消費方式
+        .strategy("money-only")                   // 支払い時の残高消費方式
         .requestId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // リクエストID
 
 ```
@@ -26,13 +25,14 @@ Request request = new CreateTransactionWithCashtray(
 
 
 ### Parameters
-**`cashtrayId`** 
-  
-
+#### `cashtrayId`
 Cashtray用QRコードのIDです。
 
 QRコード生成時に送金元店舗のウォレット情報や、金額などが登録されています。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -40,11 +40,14 @@ QRコード生成時に送金元店舗のウォレット情報や、金額など
 }
 ```
 
-**`customerId`** 
-  
+</details>
 
+#### `customerId`
 エンドユーザーIDです。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -52,9 +55,9 @@ QRコード生成時に送金元店舗のウォレット情報や、金額など
 }
 ```
 
-**`strategy`** 
-  
+</details>
 
+#### `strategy`
 支払い時に残高がどのように消費されるかを指定します。
 チャージの場合は無効です。
 デフォルトでは point-preferred (ポイント優先)が採用されます。
@@ -63,6 +66,9 @@ QRコード生成時に送金元店舗のウォレット情報や、金額など
 - money-only: マネー残高のみから消費され、ポイント残高は使われません
 
 マネー設定でポイント残高のみの利用に設定されている場合(display_money_and_point が point-only の場合)、 strategy の指定に関わらずポイント優先になります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -74,9 +80,9 @@ QRコード生成時に送金元店舗のウォレット情報や、金額など
 }
 ```
 
-**`requestId`** 
-  
+</details>
 
+#### `requestId`
 取引作成APIの羃等性を担保するためのリクエスト固有のIDです。
 
 取引作成APIで結果が受け取れなかったなどの理由で再試行する際に、二重に取引が作られてしまうことを防ぐために、クライアント側から指定されます。
@@ -86,12 +92,17 @@ QRコード生成時に送金元店舗のウォレット情報や、金額など
 もしそのリクエストIDに対する取引が既にある場合、既存の取引がレスポンスとして返されます。
 既に存在する、別のユーザによる取引とリクエストIDが衝突した場合、request_id_conflictが返ります。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
   "format": "uuid"
 }
 ```
+
+</details>
 
 
 
@@ -105,7 +116,12 @@ QRコード生成時に送金元店舗のウォレット情報や、金額など
 |403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
 |422|account_not_found|アカウントが見つかりません|The account is not found|
 |422|cashtray_not_found|決済QRコードが見つかりません|Cashtray is not found|
-|422|invalid_metadata|メタデータの形式が不正です|Invalid metadata format|
+|422|coupon_not_found|クーポンが見つかりませんでした。|The coupon is not found.|
+|422|credit_session_money_topup_requires_credit_card|オーソリチャージ用マネーではクレジットカードによるチャージのみ許可されています|Credit card is required for topup on credit-session enabled money|
+|422|cannot_topup_during_cvs_authorization_pending|コンビニ決済の予約中はチャージできません|You cannot topup your account while a convenience store payment is pending.|
+|422|credit_session_not_found|オーソリセッションが見つかりません|Credit session not found|
+|422|not_applicable_transaction_type_for_account_topup_quota|チャージ取引以外の取引種別ではチャージ可能枠を使用できません|Account topup quota is not applicable to transaction types other than topup.|
+|422|private_money_topup_quota_not_available|このマネーにはチャージ可能枠の設定がありません|Topup quota is not available with this private money.|
 |422|account_can_not_topup|この店舗からはチャージできません|account can not topup|
 |422|private_money_closed|このマネーは解約されています|This money was closed|
 |422|transaction_has_done|取引は完了しており、キャンセルすることはできません|Transaction has been copmpleted and cannot be canceled|
@@ -115,8 +131,13 @@ QRコード生成時に送金元店舗のウォレット情報や、金額など
 |422|account_transfer_limit_exceeded|取引金額が上限を超えました|Too much amount to transfer|
 |422|account_balance_exceeded|口座残高が上限を超えました|The account balance exceeded the limit|
 |422|account_money_topup_transfer_limit_exceeded|マネーチャージ金額が上限を超えました|Too much amount to money topup transfer|
-|422|account_total_topup_limit_range|期間内での合計チャージ額上限に達しました|Entire period topup limit reached|
-|422|account_total_topup_limit_entire_period|全期間での合計チャージ額上限に達しました|Entire period topup limit reached|
+|422|account_topup_quota_not_splittable|このチャージ可能枠は設定された金額未満の金額には使用できません|This topup quota is only applicable to its designated money amount.|
+|422|topup_amount_exceeding_topup_quota_usable_amount|チャージ金額がチャージ可能枠の利用可能金額を超えています|Topup amount is exceeding the topup quota's usable amount|
+|422|account_topup_quota_inactive|指定されたチャージ可能枠は有効ではありません|Topup quota is inactive|
+|422|account_topup_quota_not_within_applicable_period|指定されたチャージ可能枠の利用可能期間外です|Topup quota is not applicable at this time|
+|422|account_topup_quota_not_found|ウォレットにチャージ可能枠がありません|Topup quota is not found with this account|
+|422|account_total_topup_limit_range|合計チャージ額がマネーで指定された期間内での上限を超えています|The topup exceeds the total amount within the period defined by the money.|
+|422|account_total_topup_limit_entire_period|合計チャージ額がマネーで指定された期間内での上限を超えています|The topup exceeds the total amount defined by the money.|
 |422|coupon_unavailable_shop|このクーポンはこの店舗では使用できません。|This coupon is unavailable for this shop.|
 |422|coupon_already_used|このクーポンは既に使用済みです。|This coupon is already used.|
 |422|coupon_not_received|このクーポンは受け取られていません。|This coupon is not received.|
@@ -126,7 +147,7 @@ QRコード生成時に送金元店舗のウォレット情報や、金額など
 |422|coupon_unavailable|このクーポンは使用できません。|This coupon is unavailable.|
 |422|account_suspended|アカウントは停止されています|The account is suspended|
 |422|account_closed|アカウントは退会しています|The account is closed|
-|422|customer_account_not_found||The customer account is not found|
+|422|customer_account_not_found|ユーザアカウントが見つかりません|The customer account is not found|
 |422|shop_account_not_found|店舗アカウントが見つかりません|The shop account is not found|
 |422|account_currency_mismatch|アカウント間で通貨が異なっています|Currency mismatch between accounts|
 |422|account_pre_closed|アカウントは退会準備中です|The account is pre-closed|
@@ -136,6 +157,8 @@ QRコード生成時に送金元店舗のウォレット情報や、金額など
 |422|transaction_invalid_done_at|取引完了日が無効です|Transaction completion date is invalid|
 |422|transaction_invalid_amount|取引金額が数値ではないか、受け入れられない桁数です|Transaction amount is not a number or cannot be accepted for this currency|
 |422|request_id_conflict|このリクエストIDは他の取引ですでに使用されています。お手数ですが、別のリクエストIDで最初からやり直してください。|The request_id is already used by another transaction. Try again with new request id|
+|422|reserved_word_can_not_specify_to_metadata|取引メタデータに予約語は指定出来ません|Reserved word can not specify to metadata|
+|422|invalid_metadata|メタデータの形式が不正です|Invalid metadata format|
 |422|cashtray_already_proceed|この決済QRコードは既に処理されています|Cashtray is already proceed|
 |422|cashtray_expired|この決済QRコードは有効期限が切れています|Cashtray is expired|
 |422|cashtray_already_canceled|この決済QRコードは既に無効化されています|Cashtray is already canceled|
@@ -155,26 +178,26 @@ Cashtrayを作成します。
 
 その他に、Cashtrayから作られる取引に対する説明文や失効時間を指定できます。
 
-
 ```JAVA
 Request request = new CreateCashtray(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // shopId: 店舗ユーザーID
-    4669.0                                        // amount: 金額
+    4937.0                                        // amount: 金額
 )
         .description("たい焼き(小倉)")                  // 取引履歴に表示する説明文
-        .expiresIn(7102);                         // 失効時間(秒)
+        .expiresIn(9754);                         // 失効時間(秒)
 
 ```
 
 
 
 ### Parameters
-**`privateMoneyId`** 
-  
-
+#### `privateMoneyId`
 取引対象のマネーのIDです(必須項目)。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -182,11 +205,14 @@ Request request = new CreateCashtray(
 }
 ```
 
-**`shopId`** 
-  
+</details>
 
+#### `shopId`
 店舗のユーザーIDです(必須項目)。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -194,11 +220,14 @@ Request request = new CreateCashtray(
 }
 ```
 
-**`amount`** 
-  
+</details>
 
+#### `amount`
 マネー額です(必須項目)。
 正の値を与えるとチャージになり、負の値を与えると支払いとなります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -206,11 +235,14 @@ Request request = new CreateCashtray(
 }
 ```
 
-**`description`** 
-  
+</details>
 
+#### `description`
 Cashtrayを読み取ったときに作られる取引の説明文です(最大200文字、任意項目)。
 アプリや管理画面などの取引履歴に表示されます。デフォルトでは空文字になります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -219,10 +251,13 @@ Cashtrayを読み取ったときに作られる取引の説明文です(最大20
 }
 ```
 
-**`expiresIn`** 
-  
+</details>
 
+#### `expiresIn`
 Cashtrayが失効するまでの時間を秒単位で指定します(任意項目、デフォルト値は1800秒(30分))。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -230,6 +265,8 @@ Cashtrayが失効するまでの時間を秒単位で指定します(任意項�
   "minimum": 1
 }
 ```
+
+</details>
 
 
 
@@ -266,10 +303,11 @@ Request request = new CancelCashtray(
 
 
 ### Parameters
-**`cashtrayId`** 
-  
-
+#### `cashtrayId`
 無効化するCashtrayのIDです。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -277,6 +315,8 @@ Request request = new CancelCashtray(
   "format": "uuid"
 }
 ```
+
+</details>
 
 
 
@@ -360,10 +400,11 @@ Request request = new GetCashtray(
 
 
 ### Parameters
-**`cashtrayId`** 
-  
-
+#### `cashtrayId`
 情報を取得するCashtrayのIDです。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -371,6 +412,8 @@ Request request = new GetCashtray(
   "format": "uuid"
 }
 ```
+
+</details>
 
 
 
@@ -391,19 +434,20 @@ Cashtrayの内容を更新します。bodyパラメーターは全て省略可�
 Request request = new UpdateCashtray(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // cashtrayId: CashtrayのID
 )
-        .amount(2045.0)                           // 金額
+        .amount(7434.0)                           // 金額
         .description("たい焼き(小倉)")                  // 取引履歴に表示する説明文
-        .expiresIn(624);                          // 失効時間(秒)
+        .expiresIn(1512);                         // 失効時間(秒)
 
 ```
 
 
 
 ### Parameters
-**`cashtrayId`** 
-  
-
+#### `cashtrayId`
 更新対象のCashtrayのIDです。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -412,11 +456,14 @@ Request request = new UpdateCashtray(
 }
 ```
 
-**`amount`** 
-  
+</details>
 
+#### `amount`
 マネー額です(任意項目)。
 正の値を与えるとチャージになり、負の値を与えると支払いとなります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -424,11 +471,14 @@ Request request = new UpdateCashtray(
 }
 ```
 
-**`description`** 
-  
+</details>
 
+#### `description`
 Cashtrayを読み取ったときに作られる取引の説明文です(最大200文字、任意項目)。
 アプリや管理画面などの取引履歴に表示されます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -437,10 +487,13 @@ Cashtrayを読み取ったときに作られる取引の説明文です(最大20
 }
 ```
 
-**`expiresIn`** 
-  
+</details>
 
+#### `expiresIn`
 Cashtrayが失効するまでの時間を秒で指定します(任意項目、デフォルト値は1800秒(30分))。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -448,6 +501,8 @@ Cashtrayが失効するまでの時間を秒で指定します(任意項目、�
   "minimum": 1
 }
 ```
+
+</details>
 
 
 

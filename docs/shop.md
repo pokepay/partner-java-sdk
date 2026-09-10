@@ -1,4 +1,10 @@
 # Shop
+店舗（加盟店）を表すデータです。
+Pokepayプラットフォーム上で支払いを受け取る店舗ユーザーを管理します。
+店舗は組織（Organization）に所属し、店舗ごとにウォレットを持ちます。
+店舗情報には住所、電話番号、メールアドレス、外部連携用IDなどが含まれます。
+店舗ステータス（active/disabled）の管理も可能です。
+
 
 <a name="list-shops"></a>
 ## ListShops: 店舗一覧を取得する
@@ -8,11 +14,11 @@ Request request = new ListShops()
         .organizationCode("pocketchange")         // 組織コード
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
         .name("oxスーパー三田店")                        // 店舗名
-        .postalCode("3903470")                    // 店舗の郵便番号
+        .postalCode("1209860")                    // 店舗の郵便番号
         .address("東京都港区芝...")                     // 店舗の住所
-        .tel("0341-24862")                        // 店舗の電話番号
-        .email("5mN9clYyKl@8cUs.com")             // 店舗のメールアドレス
-        .externalId("Yw8CW8rHVcmWZsjKlFT0f7di")   // 店舗の外部ID
+        .tel("0057638891")                        // 店舗の電話番号
+        .email("1vjl84VkWU@20DV.com")             // 店舗のメールアドレス
+        .externalId("NhF1QRXrkYNIOtH")            // 店舗の外部ID
         .withDisabled(true)                       // 無効な店舗を含める
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取引数
@@ -22,11 +28,11 @@ Request request = new ListShops()
 
 
 ### Parameters
-**`organizationCode`** 
-  
-
+#### `organizationCode`
 このパラメータを渡すとその組織の店舗のみが返され、省略すると加盟店も含む店舗が返されます。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -36,11 +42,13 @@ Request request = new ListShops()
 }
 ```
 
-**`privateMoneyId`** 
-  
+</details>
 
+#### `privateMoneyId`
 このパラメータを渡すとそのマネーのウォレットを持つ店舗のみが返されます。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -49,11 +57,13 @@ Request request = new ListShops()
 }
 ```
 
-**`name`** 
-  
+</details>
 
+#### `name`
 このパラメータを渡すとその名前の店舗のみが返されます。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -63,11 +73,13 @@ Request request = new ListShops()
 }
 ```
 
-**`postalCode`** 
-  
+</details>
 
+#### `postalCode`
 このパラメータを渡すとその郵便番号が登録された店舗のみが返されます。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -76,11 +88,13 @@ Request request = new ListShops()
 }
 ```
 
-**`address`** 
-  
+</details>
 
+#### `address`
 このパラメータを渡すとその住所が登録された店舗のみが返されます。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -89,11 +103,13 @@ Request request = new ListShops()
 }
 ```
 
-**`tel`** 
-  
+</details>
 
+#### `tel`
 このパラメータを渡すとその電話番号が登録された店舗のみが返されます。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -102,11 +118,13 @@ Request request = new ListShops()
 }
 ```
 
-**`email`** 
-  
+</details>
 
+#### `email`
 このパラメータを渡すとそのメールアドレスが登録された店舗のみが返されます。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -116,11 +134,13 @@ Request request = new ListShops()
 }
 ```
 
-**`externalId`** 
-  
+</details>
 
+#### `externalId`
 このパラメータを渡すとその外部IDが登録された店舗のみが返されます。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -129,11 +149,13 @@ Request request = new ListShops()
 }
 ```
 
-**`withDisabled`** 
-  
+</details>
 
+#### `withDisabled`
 このパラメータを渡すと無効にされた店舗を含めて返されます。デフォルトでは無効にされた店舗は返されません。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -141,11 +163,14 @@ Request request = new ListShops()
 }
 ```
 
-**`page`** 
-  
+</details>
 
+#### `page`
 取得したいページ番号です。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -153,17 +178,23 @@ Request request = new ListShops()
 }
 ```
 
-**`perPage`** 
-  
+</details>
 
+#### `perPage`
 1ページ分の取引数です。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
-  "minimum": 1
+  "minimum": 1,
+  "maximum": 1000
 }
 ```
+
+</details>
 
 
 
@@ -192,11 +223,11 @@ Request request = new ListShops()
 Request request = new CreateShop(
     "oxスーパー三田店"                                   // shopName: 店舗名
 )
-        .shopPostalCode("720-9003")               // 店舗の郵便番号
+        .shopPostalCode("687-1890")               // 店舗の郵便番号
         .shopAddress("東京都港区芝...")                 // 店舗の住所
-        .shopTel("06-5528-1163")                  // 店舗の電話番号
-        .shopEmail("Ory7pQcwkQ@vvHf.com")         // 店舗のメールアドレス
-        .shopExternalId("ZTUiaSBniTvgiFcfFWfXo")  // 店舗の外部ID
+        .shopTel("0935-41-327")                   // 店舗の電話番号
+        .shopEmail("a7wXTCzgYC@bLTA.com")         // 店舗のメールアドレス
+        .shopExternalId("Wi1ohaetMA7WNe")         // 店舗の外部ID
         .organizationCode("ox-supermarket");      // 組織コード
 
 ```
@@ -204,9 +235,10 @@ Request request = new CreateShop(
 
 
 ### Parameters
-**`shopName`** 
-  
+#### `shopName`
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -216,9 +248,12 @@ Request request = new CreateShop(
 }
 ```
 
-**`shopPostalCode`** 
-  
+</details>
 
+#### `shopPostalCode`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -227,9 +262,12 @@ Request request = new CreateShop(
 }
 ```
 
-**`shopAddress`** 
-  
+</details>
 
+#### `shopAddress`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -238,9 +276,12 @@ Request request = new CreateShop(
 }
 ```
 
-**`shopTel`** 
-  
+</details>
 
+#### `shopTel`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -249,9 +290,12 @@ Request request = new CreateShop(
 }
 ```
 
-**`shopEmail`** 
-  
+</details>
 
+#### `shopEmail`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -261,9 +305,12 @@ Request request = new CreateShop(
 }
 ```
 
-**`shopExternalId`** 
-  
+</details>
 
+#### `shopExternalId`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -272,9 +319,12 @@ Request request = new CreateShop(
 }
 ```
 
-**`organizationCode`** 
-  
+</details>
 
+#### `organizationCode`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -283,6 +333,8 @@ Request request = new CreateShop(
   "pattern": "^[a-zA-Z0-9-]*$"
 }
 ```
+
+</details>
 
 
 
@@ -312,26 +364,27 @@ Request request = new CreateShop(
 Request request = new CreateShopV2(
     "oxスーパー三田店"                                   // name: 店舗名
 )
-        .postalCode("8426726")                    // 店舗の郵便番号
+        .postalCode("1854635")                    // 店舗の郵便番号
         .address("東京都港区芝...")                     // 店舗の住所
-        .tel("02-11-332")                         // 店舗の電話番号
-        .email("xSJQCC2TKE@3m70.com")             // 店舗のメールアドレス
-        .externalId("u0i2E7e3WCog3HknLhb4mGHjaX24j") // 店舗の外部ID
+        .tel("01-74-8508")                        // 店舗の電話番号
+        .email("XodVipQoaS@9jpx.com")             // 店舗のメールアドレス
+        .externalId("mBe1IVqn6l0xvjbPmp4eCBlLWO5") // 店舗の外部ID
         .organizationCode("ox-supermarket")       // 組織コード
-        .privateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 店舗で有効にするマネーIDの配列
-        .canTopupPrivateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}); // 店舗でチャージ可能にするマネーIDの配列
+        .privateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 店舗で有効にするマネーIDの配列
+        .canTopupPrivateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}); // 店舗でチャージ可能にするマネーIDの配列
 
 ```
 
 
 
 ### Parameters
-**`name`** 
-  
-
+#### `name`
 店舗名です。
 
 同一組織内に同名の店舗があった場合は`name_conflict`エラーが返ります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -341,9 +394,12 @@ Request request = new CreateShopV2(
 }
 ```
 
-**`postalCode`** 
-  
+</details>
 
+#### `postalCode`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -352,9 +408,12 @@ Request request = new CreateShopV2(
 }
 ```
 
-**`address`** 
-  
+</details>
 
+#### `address`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -363,9 +422,12 @@ Request request = new CreateShopV2(
 }
 ```
 
-**`tel`** 
-  
+</details>
 
+#### `tel`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -374,9 +436,12 @@ Request request = new CreateShopV2(
 }
 ```
 
-**`email`** 
-  
+</details>
 
+#### `email`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -386,9 +451,12 @@ Request request = new CreateShopV2(
 }
 ```
 
-**`externalId`** 
-  
+</details>
 
+#### `externalId`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -397,9 +465,12 @@ Request request = new CreateShopV2(
 }
 ```
 
-**`organizationCode`** 
-  
+</details>
 
+#### `organizationCode`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -409,13 +480,16 @@ Request request = new CreateShopV2(
 }
 ```
 
-**`privateMoneyIds`** 
-  
+</details>
 
+#### `privateMoneyIds`
 店舗で有効にするマネーIDの配列を指定します。
 
 店舗が所属する組織が発行または加盟しているマネーのみが指定できます。利用できないマネーが指定された場合は`unavailable_private_money`エラーが返ります。
 このパラメータを省略したときは、店舗が所属する組織が発行または加盟している全てのマネーのウォレットができます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -428,13 +502,16 @@ Request request = new CreateShopV2(
 }
 ```
 
-**`canTopupPrivateMoneyIds`** 
-  
+</details>
 
+#### `canTopupPrivateMoneyIds`
 店舗でチャージ可能にするマネーIDの配列を指定します。
 
 このパラメータは発行体のみが指定でき、自身が発行しているマネーのみを指定できます。加盟店が他発行体のマネーに加盟している場合でも、そのチャージ可否を変更することはできません。
 省略したときは対象店舗のその発行体の全てのマネーのアカウントがチャージ不可となります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -446,6 +523,8 @@ Request request = new CreateShopV2(
   }
 }
 ```
+
+</details>
 
 
 
@@ -463,6 +542,9 @@ Request request = new CreateShopV2(
 |422|unpermitted_private_money|このマネーは使えません|This money is not available|
 |422|unavailable_private_money||Given private money(s) is/are not available|
 |422|organization_not_member_organization||The specified organization is not a member organization of the organization accessing this API|
+|503|geocoding_api_key_missing|住所検索サービスは一時的に利用できません|Geocoding service is temporarily unavailable|
+|503|geocoding_api_error|住所検索 API がエラーを返しました|Geocoding API returned an error|
+|503|geocoding_http_error|住所検索リクエストに失敗しました|Geocoding request failed|
 
 
 
@@ -485,9 +567,10 @@ Request request = new GetShop(
 
 
 ### Parameters
-**`shopId`** 
-  
+#### `shopId`
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -495,6 +578,8 @@ Request request = new GetShop(
   "format": "uuid"
 }
 ```
+
+</details>
 
 
 
@@ -516,13 +601,13 @@ Request request = new UpdateShop(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // shopId: 店舗ユーザーID
 )
         .name("oxスーパー三田店")                        // 店舗名
-        .postalCode("6312761")                    // 店舗の郵便番号
+        .postalCode("650-5737")                   // 店舗の郵便番号
         .address("東京都港区芝...")                     // 店舗の住所
-        .tel("01441419")                          // 店舗の電話番号
-        .email("pgFNSux0je@obdQ.com")             // 店舗のメールアドレス
-        .externalId("1VXjU")                      // 店舗の外部ID
-        .privateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 店舗で有効にするマネーIDの配列
-        .canTopupPrivateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 店舗でチャージ可能にするマネーIDの配列
+        .tel("033-4449179")                       // 店舗の電話番号
+        .email("ra2M0CMIf3@qWb7.com")             // 店舗のメールアドレス
+        .externalId("LuUMWb2crhAOjAg46Wxwepf8N")  // 店舗の外部ID
+        .privateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 店舗で有効にするマネーIDの配列
+        .canTopupPrivateMoneyIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 店舗でチャージ可能にするマネーIDの配列
         .status("disabled");                      // 店舗の状態
 
 ```
@@ -530,9 +615,10 @@ Request request = new UpdateShop(
 
 
 ### Parameters
-**`shopId`** 
-  
+#### `shopId`
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -541,12 +627,15 @@ Request request = new UpdateShop(
 }
 ```
 
-**`name`** 
-  
+</details>
 
+#### `name`
 店舗名です。
 
 同一組織内に同名の店舗があった場合は`shop_name_conflict`エラーが返ります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -556,10 +645,13 @@ Request request = new UpdateShop(
 }
 ```
 
-**`postalCode`** 
-  
+</details>
 
+#### `postalCode`
 店舗住所の郵便番号(7桁の数字)です。ハイフンは無視されます。明示的に空の値を設定するにはNULLを指定します。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -568,9 +660,12 @@ Request request = new UpdateShop(
 }
 ```
 
-**`address`** 
-  
+</details>
 
+#### `address`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -579,10 +674,13 @@ Request request = new UpdateShop(
 }
 ```
 
-**`tel`** 
-  
+</details>
 
+#### `tel`
 店舗の電話番号です。ハイフンは無視されます。明示的に空の値を設定するにはNULLを指定します。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -591,10 +689,13 @@ Request request = new UpdateShop(
 }
 ```
 
-**`email`** 
-  
+</details>
 
+#### `email`
 店舗の連絡先メールアドレスです。明示的に空の値を設定するにはNULLを指定します。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -604,10 +705,13 @@ Request request = new UpdateShop(
 }
 ```
 
-**`externalId`** 
-  
+</details>
 
+#### `externalId`
 店舗の外部IDです(最大36文字)。明示的に空の値を設定するにはNULLを指定します。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -616,14 +720,17 @@ Request request = new UpdateShop(
 }
 ```
 
-**`privateMoneyIds`** 
-  
+</details>
 
+#### `privateMoneyIds`
 店舗で有効にするマネーIDの配列を指定します。
 
 店舗が所属する組織が発行または加盟しているマネーのみが指定できます。利用できないマネーが指定された場合は`unavailable_private_money`エラーが返ります。
 店舗が既にウォレットを持っている場合に、ここでそのウォレットのマネーIDを指定しないで更新すると、そのマネーのウォレットは凍結(無効化)されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -635,14 +742,17 @@ Request request = new UpdateShop(
 }
 ```
 
-**`canTopupPrivateMoneyIds`** 
-  
+</details>
 
+#### `canTopupPrivateMoneyIds`
 店舗でチャージ可能にするマネーIDの配列を指定します。
 
 このパラメータは発行体のみが指定でき、発行しているマネーのみを指定できます。加盟店が他発行体のマネーに加盟している場合でも、そのチャージ可否を変更することはできません。
 省略したときは対象店舗のその発行体の全てのマネーのアカウントがチャージ不可となります。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -654,10 +764,13 @@ Request request = new UpdateShop(
 }
 ```
 
-**`status`** 
-  
+</details>
 
+#### `status`
 店舗の状態です。activeを指定すると有効となり、disabledを指定するとリスト表示から除外されます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -668,6 +781,8 @@ Request request = new UpdateShop(
   ]
 }
 ```
+
+</details>
 
 
 

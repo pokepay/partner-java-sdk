@@ -1,6 +1,9 @@
 # Coupon
-Couponは支払い時に指定し、支払い処理の前にCouponに指定の方法で値引き処理を行います。
-Couponは特定店舗で利用できるものや利用可能期間、配信条件などを設定できます。
+割引クーポンを表すデータです。
+クーポンをユーザが明示的に利用することによって支払い決済時の割引(固定金額 or 割引率)が適用されます。
+クーポンは支払い時に指定し、支払い処理の前にクーポンに指定の方法で値引き処理を行います。
+クーポン原資を負担する発行店舗を設定したり、配布先を指定することも可能です。
+また、特定店舗で利用できるものや利用可能期間、配信条件などを設定できます。
 
 
 <a name="list-coupons"></a>
@@ -11,12 +14,12 @@ Couponは特定店舗で利用できるものや利用可能期間、配信条�
 Request request = new ListCoupons(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: 対象クーポンのマネーID
 )
-        .couponId("UgNjF9")                       // クーポンID
-        .couponName("pGXPoR6")                    // クーポン名
-        .issuedShopName("V6EH9oG2E")              // 発行店舗名
-        .availableShopName("mJwg74tJd")           // 利用可能店舗名
-        .availableFrom("2021-09-17T06:11:05.000000Z") // 利用可能期間 (開始日時)
-        .availableTo("2022-06-22T11:15:22.000000Z") // 利用可能期間 (終了日時)
+        .couponId("N6")                           // クーポンID
+        .couponName("pPYojnL")                    // クーポン名
+        .issuedShopName("WN99oUAp2")              // 発行店舗名
+        .availableShopName("7dRd")                // 利用可能店舗名
+        .availableFrom("2026-08-05T12:36:43.000000Z") // 利用可能期間 (開始日時)
+        .availableTo("2023-09-01T05:36:08.000000Z") // 利用可能期間 (終了日時)
         .page(1)                                  // ページ番号
         .perPage(50);                             // 1ページ分の取得数
 
@@ -25,12 +28,12 @@ Request request = new ListCoupons(
 
 
 ### Parameters
-**`privateMoneyId`** 
-  
-
+#### `privateMoneyId`
 対象クーポンのマネーIDです(必須項目)。
 存在しないマネーIDを指定した場合はprivate_money_not_foundエラー(422)が返ります。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -39,12 +42,14 @@ Request request = new ListCoupons(
 }
 ```
 
-**`couponId`** 
-  
+</details>
 
+#### `couponId`
 指定されたクーポンIDで結果をフィルターします。
 部分一致(前方一致)します。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -52,11 +57,13 @@ Request request = new ListCoupons(
 }
 ```
 
-**`couponName`** 
-  
+</details>
 
+#### `couponName`
 指定されたクーポン名で結果をフィルターします。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -64,11 +71,13 @@ Request request = new ListCoupons(
 }
 ```
 
-**`issuedShopName`** 
-  
+</details>
 
+#### `issuedShopName`
 指定された発行店舗で結果をフィルターします。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -76,11 +85,13 @@ Request request = new ListCoupons(
 }
 ```
 
-**`availableShopName`** 
-  
+</details>
 
+#### `availableShopName`
 指定された利用可能店舗で結果をフィルターします。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -88,11 +99,13 @@ Request request = new ListCoupons(
 }
 ```
 
-**`availableFrom`** 
-  
+</details>
 
+#### `availableFrom`
 利用可能期間でフィルターします。フィルターの開始日時をISO8601形式で指定します。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -101,11 +114,13 @@ Request request = new ListCoupons(
 }
 ```
 
-**`availableTo`** 
-  
+</details>
 
+#### `availableTo`
 利用可能期間でフィルターします。フィルターの終了日時をISO8601形式で指定します。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -114,11 +129,14 @@ Request request = new ListCoupons(
 }
 ```
 
-**`page`** 
-  
+</details>
 
+#### `page`
 取得したいページ番号です。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -126,17 +144,22 @@ Request request = new ListCoupons(
 }
 ```
 
-**`perPage`** 
-  
+</details>
 
+#### `perPage`
 1ページ分の取得数です。デフォルトでは 50 になっています。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
   "minimum": 1
 }
 ```
+
+</details>
 
 
 
@@ -163,26 +186,27 @@ Request request = new ListCoupons(
 ```JAVA
 Request request = new CreateCoupon(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "5Llab29gfUQ6hTQL3",
-    "2020-12-30T15:57:59.000000Z",
-    "2021-01-11T11:18:00.000000Z",
+    "T0bu9kBbfQDVxrOePjXnEEoR26VQKj59HY9GxwaIDAEfbXDBB3FNIL8Usakbi9ZrjBPmCyriSuUZrqYwqtbArFxY0",
+    "2023-08-23T09:29:18.000000Z",
+    "2023-08-18T01:05:44.000000Z",
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // issuedShopId: 発行元の店舗ID
 )
-        .description("ITMLHDmfb2965KcWooPsLAa0LofoeILq2j1JbokM11iel9SifEKQQKEl5jTOYEn550ChTMJy5Ri4zQipR66DYXbWwtCBK4yI7b7ruIn1DQefV0LKmn0D6u1aqXUgLXLPq2aR")
-        .discountAmount(5623)
-        .discountPercentage(6960.0)
-        .discountUpperLimit(9272)
-        .displayStartsAt("2021-04-27T12:56:01.000000Z") // クーポンの掲載期間(開始日時)
-        .displayEndsAt("2020-11-05T14:23:13.000000Z") // クーポンの掲載期間(終了日時)
-        .setDisabled(true)                        // 無効化フラグ
+        .description("lQ2iQavwvhDr8TNB4vIcRTpSaCV5lZtxsN8hQh23jWL68GyttBaIaA6bT")
+        .discountAmount(5938)
+        .discountPercentage(7535.0)
+        .discountUpperLimit(2989)
+        .displayStartsAt("2024-06-20T21:57:03.000000Z") // クーポンの掲載期間(開始日時)
+        .displayEndsAt("2026-02-13T21:59:23.000000Z") // クーポンの掲載期間(終了日時)
+        .setDisabled(false)                       // 無効化フラグ
         .setHidden(true)                          // クーポン一覧に掲載されるかどうか
-        .setPublic(true)                          // アプリ配信なしで受け取れるかどうか
-        .code("HosccmXh")                         // クーポン受け取りコード
-        .usageLimit(5575)                         // ユーザごとの利用可能回数(NULLの場合は無制限)
-        .minAmount(8497)                          // クーポン適用可能な最小取引額
-        .setShopSpecified(false)                  // 特定店舗限定のクーポンかどうか
-        .availableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 利用可能店舗リスト
-        .storageId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // ストレージID
+        .setPublic(false)                         // アプリ配信なしで受け取れるかどうか
+        .code("SP8aD")                            // クーポン受け取りコード
+        .usageLimit(2807)                         // ユーザごとの利用可能回数(NULLの場合は無制限)
+        .minAmount(2353)                          // クーポン適用可能な最小取引額
+        .setShopSpecified(true)                   // 特定店舗限定のクーポンかどうか
+        .availableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 利用可能店舗リスト
+        .storageId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // ストレージID
+        .numRecipientsCap(7416);                  // クーポンを受け取ることができるユーザ数上限
 
 ```
 
@@ -190,9 +214,10 @@ Request request = new CreateCoupon(
 
 
 ### Parameters
-**`privateMoneyId`** 
-  
+#### `privateMoneyId`
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -201,9 +226,12 @@ Request request = new CreateCoupon(
 }
 ```
 
-**`name`** 
-  
+</details>
 
+#### `name`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -212,9 +240,12 @@ Request request = new CreateCoupon(
 }
 ```
 
-**`description`** 
-  
+</details>
 
+#### `description`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -223,9 +254,12 @@ Request request = new CreateCoupon(
 }
 ```
 
-**`discountAmount`** 
-  
+</details>
 
+#### `discountAmount`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -234,9 +268,12 @@ Request request = new CreateCoupon(
 }
 ```
 
-**`discountPercentage`** 
-  
+</details>
 
+#### `discountPercentage`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -245,9 +282,12 @@ Request request = new CreateCoupon(
 }
 ```
 
-**`discountUpperLimit`** 
-  
+</details>
 
+#### `discountUpperLimit`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -256,20 +296,12 @@ Request request = new CreateCoupon(
 }
 ```
 
-**`startsAt`** 
-  
+</details>
 
+#### `startsAt`
 
-```json
-{
-  "type": "string",
-  "format": "date-time"
-}
-```
-
-**`endsAt`** 
-  
-
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -278,20 +310,12 @@ Request request = new CreateCoupon(
 }
 ```
 
-**`displayStartsAt`** 
-  
+</details>
 
+#### `endsAt`
 
-```json
-{
-  "type": "string",
-  "format": "date-time"
-}
-```
-
-**`displayEndsAt`** 
-  
-
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -300,9 +324,40 @@ Request request = new CreateCoupon(
 }
 ```
 
-**`setDisabled`** 
-  
+</details>
 
+#### `displayStartsAt`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "date-time"
+}
+```
+
+</details>
+
+#### `displayEndsAt`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "date-time"
+}
+```
+
+</details>
+
+#### `setDisabled`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -310,12 +365,14 @@ Request request = new CreateCoupon(
 }
 ```
 
-**`setHidden`** 
-  
+</details>
 
+#### `setHidden`
 アプリに表示されるクーポン一覧に掲載されるかどうか。
 主に一時的に掲載から外したいときに用いられる。そのためis_publicの設定よりも優先される。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -323,9 +380,12 @@ Request request = new CreateCoupon(
 }
 ```
 
-**`setPublic`** 
-  
+</details>
 
+#### `setPublic`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -333,9 +393,12 @@ Request request = new CreateCoupon(
 }
 ```
 
-**`code`** 
-  
+</details>
 
+#### `code`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -343,19 +406,12 @@ Request request = new CreateCoupon(
 }
 ```
 
-**`usageLimit`** 
-  
+</details>
 
+#### `usageLimit`
 
-```json
-{
-  "type": "integer"
-}
-```
-
-**`minAmount`** 
-  
-
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -363,9 +419,25 @@ Request request = new CreateCoupon(
 }
 ```
 
-**`issuedShopId`** 
-  
+</details>
 
+#### `minAmount`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "integer"
+}
+```
+
+</details>
+
+#### `issuedShopId`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -374,9 +446,12 @@ Request request = new CreateCoupon(
 }
 ```
 
-**`setShopSpecified`** 
-  
+</details>
 
+#### `setShopSpecified`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -384,9 +459,12 @@ Request request = new CreateCoupon(
 }
 ```
 
-**`availableShopIds`** 
-  
+</details>
 
+#### `availableShopIds`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -398,10 +476,13 @@ Request request = new CreateCoupon(
 }
 ```
 
-**`storageId`** 
-  
+</details>
 
+#### `storageId`
 Storage APIでアップロードしたクーポン画像のStorage IDを指定します
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -409,6 +490,22 @@ Storage APIでアップロードしたクーポン画像のStorage IDを指定�
   "format": "uuid"
 }
 ```
+
+</details>
+
+#### `numRecipientsCap`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "integer",
+  "minimum": 1
+}
+```
+
+</details>
 
 
 
@@ -445,12 +542,13 @@ Request request = new GetCoupon(
 
 
 ### Parameters
-**`couponId`** 
-  
-
+#### `couponId`
 取得するクーポンのIDです。
 UUIDv4フォーマットである必要があり、フォーマットが異なる場合は InvalidParametersエラー(400)が返ります。
 指定したIDのクーポンが存在しない場合はCouponNotFoundエラー(422)が返ります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -458,6 +556,8 @@ UUIDv4フォーマットである必要があり、フォーマットが異な�
   "format": "uuid"
 }
 ```
+
+</details>
 
 
 
@@ -478,24 +578,25 @@ UUIDv4フォーマットである必要があり、フォーマットが異な�
 Request request = new UpdateCoupon(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // couponId: クーポンID
 )
-        .name("E5aq4GKVSCfP0aoPIG5NuiBMU7rfLf6FhpORYw57l88LjJn33RIRSOmlXSQfzzTwn3Dxt4Xew7YzDaZ1J9OdsQM2IVUV93tsgTE0JE")
-        .description("ew3ek7732woVpaWAn4e207OnXy1NWRJfp7ZK3WimQa")
-        .discountAmount(3454)
-        .discountPercentage(7341.0)
-        .discountUpperLimit(5424)
-        .startsAt("2022-11-19T21:09:25.000000Z")
-        .endsAt("2020-10-04T17:07:18.000000Z")
-        .displayStartsAt("2022-03-16T02:48:40.000000Z") // クーポンの掲載期間(開始日時)
-        .displayEndsAt("2020-06-03T00:23:31.000000Z") // クーポンの掲載期間(終了日時)
+        .name("Qo1a8Jvio1NlXmWokT3fCZ0aqdulZZGglvs1mmHvcGJdXuMvjofsG8E4KIFxs3y0EBuTM1S0iPJraQIMtAPJ1JN9Ct")
+        .description("WW30Uo4UAg9arJ4XCMrwN15cIxDvF6fUC0OQCualYkGbJ73b3nYCrV9uDJehyXJGfZSkx4G3NTiGEBvJP8jVkcC85nZnpCpVaAaHx1iEs8vFtOGvU65Sy7b45F1sYQbanmxI5u8gze9w")
+        .discountAmount(8918)
+        .discountPercentage(7993.0)
+        .discountUpperLimit(809)
+        .startsAt("2025-12-14T02:35:32.000000Z")
+        .endsAt("2021-02-21T22:50:00.000000Z")
+        .displayStartsAt("2020-06-26T05:52:22.000000Z") // クーポンの掲載期間(開始日時)
+        .displayEndsAt("2023-04-19T03:26:17.000000Z") // クーポンの掲載期間(終了日時)
         .setDisabled(true)                        // 無効化フラグ
-        .setHidden(false)                         // クーポン一覧に掲載されるかどうか
-        .setPublic(true)                          // アプリ配信なしで受け取れるかどうか
-        .code("2aIO")                             // クーポン受け取りコード
-        .usageLimit(7115)                         // ユーザごとの利用可能回数(NULLの場合は無制限)
-        .minAmount(6094)                          // クーポン適用可能な最小取引額
-        .setShopSpecified(false)                  // 特定店舗限定のクーポンかどうか
-        .availableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 利用可能店舗リスト
-        .storageId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // ストレージID
+        .setHidden(true)                          // クーポン一覧に掲載されるかどうか
+        .setPublic(false)                         // アプリ配信なしで受け取れるかどうか
+        .code("xV0P")                             // クーポン受け取りコード
+        .usageLimit(402)                          // ユーザごとの利用可能回数(NULLの場合は無制限)
+        .minAmount(1881)                          // クーポン適用可能な最小取引額
+        .setShopSpecified(true)                   // 特定店舗限定のクーポンかどうか
+        .availableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // 利用可能店舗リスト
+        .storageId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // ストレージID
+        .numRecipientsCap(8600);                  // クーポンを受け取ることができるユーザ数上限
 
 ```
 
@@ -505,9 +606,10 @@ Request request = new UpdateCoupon(
 
 
 ### Parameters
-**`couponId`** 
-  
+#### `couponId`
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -516,9 +618,12 @@ Request request = new UpdateCoupon(
 }
 ```
 
-**`name`** 
-  
+</details>
 
+#### `name`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -527,9 +632,12 @@ Request request = new UpdateCoupon(
 }
 ```
 
-**`description`** 
-  
+</details>
 
+#### `description`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -538,9 +646,12 @@ Request request = new UpdateCoupon(
 }
 ```
 
-**`discountAmount`** 
-  
+</details>
 
+#### `discountAmount`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -549,9 +660,12 @@ Request request = new UpdateCoupon(
 }
 ```
 
-**`discountPercentage`** 
-  
+</details>
 
+#### `discountPercentage`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -560,9 +674,12 @@ Request request = new UpdateCoupon(
 }
 ```
 
-**`discountUpperLimit`** 
-  
+</details>
 
+#### `discountUpperLimit`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -571,20 +688,12 @@ Request request = new UpdateCoupon(
 }
 ```
 
-**`startsAt`** 
-  
+</details>
 
+#### `startsAt`
 
-```json
-{
-  "type": "string",
-  "format": "date-time"
-}
-```
-
-**`endsAt`** 
-  
-
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -593,20 +702,12 @@ Request request = new UpdateCoupon(
 }
 ```
 
-**`displayStartsAt`** 
-  
+</details>
 
+#### `endsAt`
 
-```json
-{
-  "type": "string",
-  "format": "date-time"
-}
-```
-
-**`displayEndsAt`** 
-  
-
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -615,9 +716,40 @@ Request request = new UpdateCoupon(
 }
 ```
 
-**`setDisabled`** 
-  
+</details>
 
+#### `displayStartsAt`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "date-time"
+}
+```
+
+</details>
+
+#### `displayEndsAt`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "date-time"
+}
+```
+
+</details>
+
+#### `setDisabled`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -625,12 +757,14 @@ Request request = new UpdateCoupon(
 }
 ```
 
-**`setHidden`** 
-  
+</details>
 
+#### `setHidden`
 アプリに表示されるクーポン一覧に掲載されるかどうか。
 主に一時的に掲載から外したいときに用いられる。そのためis_publicの設定よりも優先される。
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -638,9 +772,12 @@ Request request = new UpdateCoupon(
 }
 ```
 
-**`setPublic`** 
-  
+</details>
 
+#### `setPublic`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -648,9 +785,12 @@ Request request = new UpdateCoupon(
 }
 ```
 
-**`code`** 
-  
+</details>
 
+#### `code`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -658,19 +798,12 @@ Request request = new UpdateCoupon(
 }
 ```
 
-**`usageLimit`** 
-  
+</details>
 
+#### `usageLimit`
 
-```json
-{
-  "type": "integer"
-}
-```
-
-**`minAmount`** 
-  
-
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -678,9 +811,25 @@ Request request = new UpdateCoupon(
 }
 ```
 
-**`setShopSpecified`** 
-  
+</details>
 
+#### `minAmount`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "integer"
+}
+```
+
+</details>
+
+#### `setShopSpecified`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -688,9 +837,12 @@ Request request = new UpdateCoupon(
 }
 ```
 
-**`availableShopIds`** 
-  
+</details>
 
+#### `availableShopIds`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -702,10 +854,13 @@ Request request = new UpdateCoupon(
 }
 ```
 
-**`storageId`** 
-  
+</details>
 
+#### `storageId`
 Storage APIでアップロードしたクーポン画像のStorage IDを指定します
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -713,6 +868,22 @@ Storage APIでアップロードしたクーポン画像のStorage IDを指定�
   "format": "uuid"
 }
 ```
+
+</details>
+
+#### `numRecipientsCap`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "integer",
+  "minimum": 1
+}
+```
+
+</details>
 
 
 

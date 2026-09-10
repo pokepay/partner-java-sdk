@@ -1,4 +1,15 @@
 # Transaction
+取引を表すデータです。
+マネー(Private Money)のウォレット間の送金を記録し、キャンセルなどで状態が更新されることがあります。
+取引種類として以下が存在します。
+
+- topup: チャージ。Merchant => Customer送金
+- payment: 支払い。Customer => Merchant送金
+- transfer: 個人間譲渡。Customer => Customer送金
+- exchange: マネー間交換。１ユーザのウォレット間の送金（交換）
+- expire: 退会時失効。退会時の払戻を伴わない残高失効履歴
+- cashback: 退会時払戻。退会時の払戻金額履歴
+
 
 <a name="get-cpm-token"></a>
 ## GetCpmToken: CPMトークンの状態取得
@@ -6,7 +17,7 @@ CPMトークンの現在の状態を取得します。CPMトークンの有効�
 
 ```JAVA
 Request request = new GetCpmToken(
-    "l7UfMqNeIWxDQ5mYkDBp76"                      // cpmToken: CPMトークン
+    "mQU81piDFRyBs61QA64ubF"                      // cpmToken: CPMトークン
 );
 
 ```
@@ -14,10 +25,11 @@ Request request = new GetCpmToken(
 
 
 ### Parameters
-**`cpmToken`** 
-  
-
+#### `cpmToken`
 CPM取引時にエンドユーザーが店舗に提示するバーコードを解析して得られる22桁の文字列です。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -26,6 +38,8 @@ CPM取引時にエンドユーザーが店舗に提示するバーコードを�
   "maxLength": 22
 }
 ```
+
+</details>
 
 
 
@@ -44,15 +58,15 @@ CPM取引時にエンドユーザーが店舗に提示するバーコードを�
 
 ```JAVA
 Request request = new ListTransactions()
-        .from("2020-04-18T09:50:55.000000Z")      // 開始日時
-        .to("2022-09-23T18:31:36.000000Z")        // 終了日時
+        .from("2024-10-11T03:05:13.000000Z")      // 開始日時
+        .to("2026-07-18T18:28:35.000000Z")        // 終了日時
         .page(1)                                  // ページ番号
         .perPage(50)                              // 1ページ分の取引数
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ID
         .customerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // エンドユーザーID
         .customerName("太郎")                       // エンドユーザー名
         .terminalId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 端末ID
-        .transactionId("l")                       // 取引ID
+        .transactionId("PB6PWeR4")                // 取引ID
         .organizationCode("pocketchange")         // 組織コード
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
         .setModified(true)                        // キャンセルフラグ
@@ -64,13 +78,14 @@ Request request = new ListTransactions()
 
 
 ### Parameters
-**`from`** 
-  
-
+#### `from`
 抽出期間の開始日時です。
 
 フィルターとして使われ、開始日時以降に発生した取引のみ一覧に表示されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -78,13 +93,16 @@ Request request = new ListTransactions()
 }
 ```
 
-**`to`** 
-  
+</details>
 
+#### `to`
 抽出期間の終了日時です。
 
 フィルターとして使われ、終了日時以前に発生した取引のみ一覧に表示されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -92,11 +110,14 @@ Request request = new ListTransactions()
 }
 ```
 
-**`page`** 
-  
+</details>
 
+#### `page`
 取得したいページ番号です。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -104,11 +125,14 @@ Request request = new ListTransactions()
 }
 ```
 
-**`perPage`** 
-  
+</details>
 
+#### `perPage`
 1ページ分の取引数です。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -116,13 +140,16 @@ Request request = new ListTransactions()
 }
 ```
 
-**`shopId`** 
-  
+</details>
 
+#### `shopId`
 店舗IDです。
 
 フィルターとして使われ、指定された店舗での取引のみ一覧に表示されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -130,13 +157,16 @@ Request request = new ListTransactions()
 }
 ```
 
-**`customerId`** 
-  
+</details>
 
+#### `customerId`
 エンドユーザーIDです。
 
 フィルターとして使われ、指定されたエンドユーザーでの取引のみ一覧に表示されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -144,12 +174,15 @@ Request request = new ListTransactions()
 }
 ```
 
-**`customerName`** 
-  
+</details>
 
+#### `customerName`
 エンドユーザー名です。
 
 フィルターとして使われ、入力された名前に部分一致するエンドユーザーでの取引のみ一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -158,12 +191,15 @@ Request request = new ListTransactions()
 }
 ```
 
-**`terminalId`** 
-  
+</details>
 
+#### `terminalId`
 端末IDです。
 
 フィルターとして使われ、指定された端末での取引のみ一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -172,12 +208,15 @@ Request request = new ListTransactions()
 }
 ```
 
-**`transactionId`** 
-  
+</details>
 
+#### `transactionId`
 取引IDです。
 
 フィルターとして使われ、指定された取引IDに部分一致(前方一致)する取引のみが一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -185,12 +224,15 @@ Request request = new ListTransactions()
 }
 ```
 
-**`organizationCode`** 
-  
+</details>
 
+#### `organizationCode`
 組織コードです。
 
 フィルターとして使われ、指定された組織での取引のみ一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -200,12 +242,15 @@ Request request = new ListTransactions()
 }
 ```
 
-**`privateMoneyId`** 
-  
+</details>
 
+#### `privateMoneyId`
 マネーIDです。
 
 フィルターとして使われ、指定したマネーでの取引のみ一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -214,13 +259,16 @@ Request request = new ListTransactions()
 }
 ```
 
-**`setModified`** 
-  
+</details>
 
+#### `setModified`
 キャンセルフラグです。
 
 これにtrueを指定するとキャンセルされた取引のみ一覧に表示されます。
 デフォルト値はfalseで、キャンセルの有無にかかわらず一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -228,9 +276,9 @@ Request request = new ListTransactions()
 }
 ```
 
-**`types`** 
-  
+</details>
 
+#### `types`
 取引の種類でフィルターします。
 
 以下の種類を指定できます。
@@ -253,6 +301,9 @@ Request request = new ListTransactions()
 6. expire
    退会時失効取引
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -270,12 +321,15 @@ Request request = new ListTransactions()
 }
 ```
 
-**`description`** 
-  
+</details>
 
+#### `description`
 取引を指定の取引説明文でフィルターします。
 
 取引説明文が完全一致する取引のみ抽出されます。取引説明文は最大200文字で記録されています。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -283,6 +337,8 @@ Request request = new ListTransactions()
   "maxLength": 200
 }
 ```
+
+</details>
 
 
 
@@ -311,30 +367,20 @@ Request request = new CreateTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 )
-        .moneyAmount(8752)
-        .pointAmount(6176)
-        .pointExpiresAt("2022-06-27T17:56:39.000000Z") // ポイント有効期限
-        .description("yF7I2Snzg812cd0lMhCHFE2kwBpeHriIaXxYmUfeD23BKTCZPKhRk3w9r2MS5q");
+        .moneyAmount(4629)
+        .pointAmount(2543)
+        .pointExpiresAt("2021-01-11T07:10:34.000000Z") // ポイント有効期限
+        .description("Itl7qDDnWfDz83II3SsVbGfWZSjJAztxkiC6dodh0lsFj5rFalo907TQSGuwj68ad9K1XBWVYxIt1hLKB6GROESgi9KMGwAvzt");
 
 ```
 
 
 
 ### Parameters
-**`shopId`** 
-  
+#### `shopId`
 
-
-```json
-{
-  "type": "string",
-  "format": "uuid"
-}
-```
-
-**`customerId`** 
-  
-
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -343,9 +389,12 @@ Request request = new CreateTransaction(
 }
 ```
 
-**`privateMoneyId`** 
-  
+</details>
 
+#### `customerId`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -354,9 +403,26 @@ Request request = new CreateTransaction(
 }
 ```
 
-**`moneyAmount`** 
-  
+</details>
 
+#### `privateMoneyId`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+#### `moneyAmount`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -366,9 +432,12 @@ Request request = new CreateTransaction(
 }
 ```
 
-**`pointAmount`** 
-  
+</details>
 
+#### `pointAmount`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -378,11 +447,14 @@ Request request = new CreateTransaction(
 }
 ```
 
-**`pointExpiresAt`** 
-  
+</details>
 
+#### `pointExpiresAt`
 ポイントをチャージした場合の、付与されるポイントの有効期限です。
 省略した場合はマネーに設定された有効期限と同じものがポイントの有効期限となります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -391,9 +463,12 @@ Request request = new CreateTransaction(
 }
 ```
 
-**`description`** 
-  
+</details>
 
+#### `description`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -401,6 +476,8 @@ Request request = new CreateTransaction(
   "maxLength": 200
 }
 ```
+
+</details>
 
 
 
@@ -417,6 +494,11 @@ Request request = new CreateTransaction(
 |422|customer_user_not_found||The customer user is not found|
 |422|shop_user_not_found|店舗が見つかりません|The shop user is not found|
 |422|private_money_not_found|マネーが見つかりません|Private money not found|
+|422|credit_session_money_topup_requires_credit_card|オーソリチャージ用マネーではクレジットカードによるチャージのみ許可されています|Credit card is required for topup on credit-session enabled money|
+|422|cannot_topup_during_cvs_authorization_pending|コンビニ決済の予約中はチャージできません|You cannot topup your account while a convenience store payment is pending.|
+|422|credit_session_not_found|オーソリセッションが見つかりません|Credit session not found|
+|422|not_applicable_transaction_type_for_account_topup_quota|チャージ取引以外の取引種別ではチャージ可能枠を使用できません|Account topup quota is not applicable to transaction types other than topup.|
+|422|private_money_topup_quota_not_available|このマネーにはチャージ可能枠の設定がありません|Topup quota is not available with this private money.|
 |422|account_can_not_topup|この店舗からはチャージできません|account can not topup|
 |422|private_money_closed|このマネーは解約されています|This money was closed|
 |422|transaction_has_done|取引は完了しており、キャンセルすることはできません|Transaction has been copmpleted and cannot be canceled|
@@ -426,8 +508,14 @@ Request request = new CreateTransaction(
 |422|account_transfer_limit_exceeded|取引金額が上限を超えました|Too much amount to transfer|
 |422|account_balance_exceeded|口座残高が上限を超えました|The account balance exceeded the limit|
 |422|account_money_topup_transfer_limit_exceeded|マネーチャージ金額が上限を超えました|Too much amount to money topup transfer|
-|422|account_total_topup_limit_range|期間内での合計チャージ額上限に達しました|Entire period topup limit reached|
-|422|account_total_topup_limit_entire_period|全期間での合計チャージ額上限に達しました|Entire period topup limit reached|
+|422|reserved_word_can_not_specify_to_metadata|取引メタデータに予約語は指定出来ません|Reserved word can not specify to metadata|
+|422|account_topup_quota_not_splittable|このチャージ可能枠は設定された金額未満の金額には使用できません|This topup quota is only applicable to its designated money amount.|
+|422|topup_amount_exceeding_topup_quota_usable_amount|チャージ金額がチャージ可能枠の利用可能金額を超えています|Topup amount is exceeding the topup quota's usable amount|
+|422|account_topup_quota_inactive|指定されたチャージ可能枠は有効ではありません|Topup quota is inactive|
+|422|account_topup_quota_not_within_applicable_period|指定されたチャージ可能枠の利用可能期間外です|Topup quota is not applicable at this time|
+|422|account_topup_quota_not_found|ウォレットにチャージ可能枠がありません|Topup quota is not found with this account|
+|422|account_total_topup_limit_range|合計チャージ額がマネーで指定された期間内での上限を超えています|The topup exceeds the total amount within the period defined by the money.|
+|422|account_total_topup_limit_entire_period|合計チャージ額がマネーで指定された期間内での上限を超えています|The topup exceeds the total amount defined by the money.|
 |422|coupon_unavailable_shop|このクーポンはこの店舗では使用できません。|This coupon is unavailable for this shop.|
 |422|coupon_already_used|このクーポンは既に使用済みです。|This coupon is already used.|
 |422|coupon_not_received|このクーポンは受け取られていません。|This coupon is not received.|
@@ -437,7 +525,7 @@ Request request = new CreateTransaction(
 |422|coupon_unavailable|このクーポンは使用できません。|This coupon is unavailable.|
 |422|account_suspended|アカウントは停止されています|The account is suspended|
 |422|account_closed|アカウントは退会しています|The account is closed|
-|422|customer_account_not_found||The customer account is not found|
+|422|customer_account_not_found|ユーザアカウントが見つかりません|The customer account is not found|
 |422|shop_account_not_found|店舗アカウントが見つかりません|The shop account is not found|
 |422|account_currency_mismatch|アカウント間で通貨が異なっています|Currency mismatch between accounts|
 |422|account_pre_closed|アカウントは退会準備中です|The account is pre-closed|
@@ -447,6 +535,93 @@ Request request = new CreateTransaction(
 |422|transaction_invalid_done_at|取引完了日が無効です|Transaction completion date is invalid|
 |422|transaction_invalid_amount|取引金額が数値ではないか、受け入れられない桁数です|Transaction amount is not a number or cannot be accepted for this currency|
 |503|temporarily_unavailable||Service Unavailable|
+
+
+
+---
+
+
+<a name="create-transaction-group"></a>
+## CreateTransactionGroup: トランザクショングループを作成する
+複数の取引を1つのグループとして管理できるようにします。
+
+```JAVA
+Request request = new CreateTransactionGroup(
+    "XDFLhsltsxjHevXAeaqJQdiPE4BeJCcIbjYCJA60910zNdhVnyX" // name: 作成するトランザクショングループの名称です。
+);
+
+```
+
+
+
+### Parameters
+#### `name`
+作成するトランザクショングループの名称です。
+"pokepay" で始まる文字列は予約済みのため使用できません。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "maxLength": 64
+}
+```
+
+</details>
+
+
+
+成功したときは
+[TransactionGroup](./responses.md#transaction-group)
+を返します
+
+### Error Responses
+|status|type|ja|en|
+|---|---|---|---|
+|403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
+|422|transaction_group_name_reserved|指定されたトランザクショングループ名は使用できません|Transaction group name is reserved|
+
+
+
+---
+
+
+<a name="show-transaction-group"></a>
+## ShowTransactionGroup: トランザクショングループを取得する
+指定したトランザクショングループの詳細を返します。
+
+```JAVA
+Request request = new ShowTransactionGroup(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // uuid: 取得したいトランザクショングループID
+);
+
+```
+
+
+
+### Parameters
+#### `uuid`
+取得したいトランザクショングループID
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+
+
+成功したときは
+[TransactionGroup](./responses.md#transaction-group)
+を返します
 
 
 
@@ -466,11 +641,11 @@ Request request = new ListTransactionsV2()
         .customerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // エンドユーザーID
         .customerName("太郎")                       // エンドユーザー名
         .description("店頭QRコードによる支払い")             // 取引説明文
-        .transactionId("peG")                     // 取引ID
+        .transactionId("8KqA")                    // 取引ID
         .setModified(false)                       // キャンセルフラグ
         .types(new String[]{"topup","payment"})   // 取引種別 (複数指定可)、チャージ=topup、支払い=payment
-        .from("2021-05-03T01:40:37.000000Z")      // 開始日時
-        .to("2021-05-13T19:05:55.000000Z")        // 終了日時
+        .from("2022-12-28T12:10:25.000000Z")      // 開始日時
+        .to("2025-10-25T18:15:10.000000Z")        // 終了日時
         .nextPageCursorId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 次ページへ遷移する際に起点となるtransactionのID
         .prevPageCursorId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 前ページへ遷移する際に起点となるtransactionのID
         .perPage(50);                             // 1ページ分の取引数
@@ -480,12 +655,13 @@ Request request = new ListTransactionsV2()
 
 
 ### Parameters
-**`privateMoneyId`** 
-  
-
+#### `privateMoneyId`
 マネーIDです。
 
 指定したマネーでの取引が一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -494,12 +670,15 @@ Request request = new ListTransactionsV2()
 }
 ```
 
-**`organizationCode`** 
-  
+</details>
 
+#### `organizationCode`
 組織コードです。
 
 フィルターとして使われ、指定された組織の店舗での取引のみ一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -509,13 +688,16 @@ Request request = new ListTransactionsV2()
 }
 ```
 
-**`shopId`** 
-  
+</details>
 
+#### `shopId`
 店舗IDです。
 
 フィルターとして使われ、指定された店舗での取引のみ一覧に表示されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -523,13 +705,16 @@ Request request = new ListTransactionsV2()
 }
 ```
 
-**`terminalId`** 
-  
+</details>
 
+#### `terminalId`
 端末IDです。
 
 フィルターとして使われ、指定された端末での取引のみ一覧に表示されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -537,13 +722,16 @@ Request request = new ListTransactionsV2()
 }
 ```
 
-**`customerId`** 
-  
+</details>
 
+#### `customerId`
 エンドユーザーIDです。
 
 フィルターとして使われ、指定されたエンドユーザーの取引のみ一覧に表示されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -551,12 +739,15 @@ Request request = new ListTransactionsV2()
 }
 ```
 
-**`customerName`** 
-  
+</details>
 
+#### `customerName`
 エンドユーザー名です。
 
 フィルターとして使われ、入力された名前に部分一致するエンドユーザーでの取引のみ一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -565,12 +756,15 @@ Request request = new ListTransactionsV2()
 }
 ```
 
-**`description`** 
-  
+</details>
 
+#### `description`
 取引を指定の取引説明文でフィルターします。
 
 取引説明文が完全一致する取引のみ抽出されます。取引説明文は最大200文字で記録されています。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -579,12 +773,15 @@ Request request = new ListTransactionsV2()
 }
 ```
 
-**`transactionId`** 
-  
+</details>
 
+#### `transactionId`
 取引IDです。
 
 フィルターとして使われ、指定された取引IDに部分一致(前方一致)する取引のみが一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -592,13 +789,16 @@ Request request = new ListTransactionsV2()
 }
 ```
 
-**`setModified`** 
-  
+</details>
 
+#### `setModified`
 キャンセルフラグです。
 
 これにtrueを指定するとキャンセルされた取引のみ一覧に表示されます。
 デフォルト値はfalseで、キャンセルの有無にかかわらず一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -606,9 +806,9 @@ Request request = new ListTransactionsV2()
 }
 ```
 
-**`types`** 
-  
+</details>
 
+#### `types`
 取引の種類でフィルターします。
 
 以下の種類を指定できます。
@@ -635,6 +835,9 @@ Request request = new ListTransactionsV2()
 6. expire
    退会時失効取引
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -652,13 +855,16 @@ Request request = new ListTransactionsV2()
 }
 ```
 
-**`from`** 
-  
+</details>
 
+#### `from`
 抽出期間の開始日時です。
 
 フィルターとして使われ、開始日時以降に発生した取引のみ一覧に表示されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -666,13 +872,16 @@ Request request = new ListTransactionsV2()
 }
 ```
 
-**`to`** 
-  
+</details>
 
+#### `to`
 抽出期間の終了日時です。
 
 フィルターとして使われ、終了日時以前に発生した取引のみ一覧に表示されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -680,14 +889,17 @@ Request request = new ListTransactionsV2()
 }
 ```
 
-**`nextPageCursorId`** 
-  
+</details>
 
+#### `nextPageCursorId`
 次ページへ遷移する際に起点となるtransactionのID(前ページの末尾要素のID)です。
 本APIのレスポンスにもnext_page_cursor_idが含まれており、これがnull値の場合は最後のページであることを意味します。
 UUIDである場合は次のページが存在することを意味し、このnext_page_cursor_idをリクエストパラメータに含めることで次ページに遷移します。
 
 next_page_cursor_idのtransaction自体は次のページには含まれません。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -696,9 +908,9 @@ next_page_cursor_idのtransaction自体は次のページには含まれませ�
 }
 ```
 
-**`prevPageCursorId`** 
-  
+</details>
 
+#### `prevPageCursorId`
 前ページへ遷移する際に起点となるtransactionのID(次ページの先頭要素のID)です。
 
 本APIのレスポンスにもprev_page_cursor_idが含まれており、これがnull値の場合は先頭のページであることを意味します。
@@ -706,6 +918,9 @@ UUIDである場合は前のページが存在することを意味し、このp
 
 prev_page_cursor_idのtransaction自体は前のページには含まれません。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -713,12 +928,15 @@ prev_page_cursor_idのtransaction自体は前のページには含まれませ�
 }
 ```
 
-**`perPage`** 
-  
+</details>
 
+#### `perPage`
 1ページ分の取引数です。
 
 デフォルト値は50です。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -728,10 +946,317 @@ prev_page_cursor_idのtransaction自体は前のページには含まれませ�
 }
 ```
 
+</details>
+
 
 
 成功したときは
 [PaginatedTransactionV2](./responses.md#paginated-transaction-v2)
+を返します
+
+### Error Responses
+|status|type|ja|en|
+|---|---|---|---|
+|403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
+|503|temporarily_unavailable||Service Unavailable|
+
+
+
+---
+
+
+<a name="list-bill-transactions"></a>
+## ListBillTransactions: 支払い取引履歴を取得する
+支払いによって発生した取引を支払いのデータとともに一覧で返します。
+
+```JAVA
+Request request = new ListBillTransactions()
+        .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
+        .organizationCode("pocketchange")         // 組織コード
+        .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ID
+        .customerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // エンドユーザーID
+        .customerName("太郎")                       // エンドユーザー名
+        .terminalId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // エンドユーザー端末ID
+        .description("店頭QRコードによる支払い")             // 取引説明文
+        .transactionId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 取引ID
+        .billId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 支払いQRコードのID
+        .setModified(true)                        // キャンセルフラグ
+        .from("2022-03-10T10:51:09.000000Z")      // 開始日時
+        .to("2022-08-01T22:58:38.000000Z")        // 終了日時
+        .nextPageCursorId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 次ページへ遷移する際に起点となるtransactionのID
+        .prevPageCursorId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 前ページへ遷移する際に起点となるtransactionのID
+        .perPage(50);                             // 1ページ分の取引数
+
+```
+
+
+
+### Parameters
+#### `privateMoneyId`
+マネーIDです。
+
+指定したマネーでの取引が一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+#### `organizationCode`
+組織コードです。
+
+フィルターとして使われ、指定された組織の店舗での取引のみ一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "maxLength": 32,
+  "pattern": "^[a-zA-Z0-9-]*$"
+}
+```
+
+</details>
+
+#### `shopId`
+店舗IDです。
+
+フィルターとして使われ、指定された店舗での取引のみ一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+#### `customerId`
+エンドユーザーIDです。
+
+フィルターとして使われ、指定されたエンドユーザーの取引のみ一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+#### `customerName`
+エンドユーザー名です。
+
+フィルターとして使われ、入力された名前に部分一致するエンドユーザーでの取引のみ一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "maxLength": 256
+}
+```
+
+</details>
+
+#### `terminalId`
+エンドユーザーの端末IDです。
+フィルターとして使われ、指定された端末での取引のみ一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+#### `description`
+取引を指定の取引説明文でフィルターします。
+
+取引説明文が完全一致する取引のみ抽出されます。取引説明文は最大200文字で記録されています。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "maxLength": 200
+}
+```
+
+</details>
+
+#### `transactionId`
+取引IDです。
+
+フィルターとして使われ、指定された取引IDに部分一致(前方一致)する取引のみが一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+#### `billId`
+支払いQRコードのIDです。
+
+フィルターとして使われ、指定された支払いQRコードIDに部分一致(前方一致)する取引のみが一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+#### `setModified`
+キャンセルフラグです。
+
+これにtrueを指定するとキャンセルされた取引のみ一覧に表示されます。
+デフォルト値はfalseで、キャンセルの有無にかかわらず一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "boolean"
+}
+```
+
+</details>
+
+#### `from`
+抽出期間の開始日時です。
+
+フィルターとして使われ、開始日時以降に発生した取引のみ一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "date-time"
+}
+```
+
+</details>
+
+#### `to`
+抽出期間の終了日時です。
+
+フィルターとして使われ、終了日時以前に発生した取引のみ一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "date-time"
+}
+```
+
+</details>
+
+#### `nextPageCursorId`
+次ページへ遷移する際に起点となるtransactionのID(前ページの末尾要素のID)です。
+本APIのレスポンスにもnext_page_cursor_idが含まれており、これがnull値の場合は最後のページであることを意味します。
+UUIDである場合は次のページが存在することを意味し、このnext_page_cursor_idをリクエストパラメータに含めることで次ページに遷移します。
+
+next_page_cursor_idのtransaction自体は次のページには含まれません。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+#### `prevPageCursorId`
+前ページへ遷移する際に起点となるtransactionのID(次ページの先頭要素のID)です。
+
+本APIのレスポンスにもprev_page_cursor_idが含まれており、これがnull値の場合は先頭のページであることを意味します。
+UUIDである場合は前のページが存在することを意味し、このprev_page_cursor_idをリクエストパラメータに含めることで前ページに遷移します。
+
+prev_page_cursor_idのtransaction自体は前のページには含まれません。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+#### `perPage`
+1ページ分の取引数です。
+
+デフォルト値は50です。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "integer",
+  "minimum": 1,
+  "maximum": 1000
+}
+```
+
+</details>
+
+
+
+成功したときは
+[PaginatedBillTransaction](./responses.md#paginated-bill-transaction)
 を返します
 
 ### Error Responses
@@ -756,9 +1281,9 @@ Request request = new CreateTopupTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
         .bearPointShopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // ポイント支払時の負担店舗ID
-        .moneyAmount(7901)                        // マネー額
-        .pointAmount(5298)                        // ポイント額
-        .pointExpiresAt("2023-08-17T00:14:32.000000Z") // ポイント有効期限
+        .moneyAmount(442)                         // マネー額
+        .pointAmount(5099)                        // ポイント額
+        .pointExpiresAt("2023-08-21T15:11:02.000000Z") // ポイント有効期限
         .description("初夏のチャージキャンペーン")             // 取引履歴に表示する説明文
         .metadata("{\"key\":\"value\"}")          // 取引メタデータ
         .requestId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // リクエストID
@@ -768,13 +1293,14 @@ Request request = new CreateTopupTransaction(
 
 
 ### Parameters
-**`shopId`** 
-  
-
+#### `shopId`
 店舗IDです。
 
 送金元の店舗を指定します。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -782,13 +1308,16 @@ Request request = new CreateTopupTransaction(
 }
 ```
 
-**`customerId`** 
-  
+</details>
 
+#### `customerId`
 エンドユーザーIDです。
 
 送金先のエンドユーザーを指定します。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -796,13 +1325,16 @@ Request request = new CreateTopupTransaction(
 }
 ```
 
-**`privateMoneyId`** 
-  
+</details>
 
+#### `privateMoneyId`
 マネーIDです。
 
 マネーを指定します。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -810,13 +1342,16 @@ Request request = new CreateTopupTransaction(
 }
 ```
 
-**`bearPointShopId`** 
-  
+</details>
 
+#### `bearPointShopId`
 ポイント支払時の負担店舗IDです。
 
 ポイント支払い時に実際お金を負担する店舗を指定します。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -824,14 +1359,17 @@ Request request = new CreateTopupTransaction(
 }
 ```
 
-**`moneyAmount`** 
-  
+</details>
 
+#### `moneyAmount`
 マネー額です。
 
 送金するマネー額を指定します。
 デフォルト値は0で、money_amountとpoint_amountの両方が0のときにはinvalid_parameter_both_point_and_money_are_zero(エラーコード400)が返ります。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -839,14 +1377,17 @@ Request request = new CreateTopupTransaction(
 }
 ```
 
-**`pointAmount`** 
-  
+</details>
 
+#### `pointAmount`
 ポイント額です。
 
 送金するポイント額を指定します。
 デフォルト値は0で、money_amountとpoint_amountの両方が0のときにはinvalid_parameter_both_point_and_money_are_zero(エラーコード400)が返ります。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -854,11 +1395,14 @@ Request request = new CreateTopupTransaction(
 }
 ```
 
-**`pointExpiresAt`** 
-  
+</details>
 
+#### `pointExpiresAt`
 ポイントをチャージした場合の、付与されるポイントの有効期限です。
 省略した場合はマネーに設定された有効期限と同じものがポイントの有効期限となります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -867,12 +1411,15 @@ Request request = new CreateTopupTransaction(
 }
 ```
 
-**`description`** 
-  
+</details>
 
+#### `description`
 取引説明文です。
 
 任意入力で、取引履歴に表示される説明文です。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -881,12 +1428,15 @@ Request request = new CreateTopupTransaction(
 }
 ```
 
-**`metadata`** 
-  
+</details>
 
+#### `metadata`
 取引作成時に指定されるメタデータです。
 
 任意入力で、全てのkeyとvalueが文字列であるようなフラットな構造のJSON文字列で指定します。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -895,9 +1445,9 @@ Request request = new CreateTopupTransaction(
 }
 ```
 
-**`requestId`** 
-  
+</details>
 
+#### `requestId`
 取引作成APIの羃等性を担保するためのリクエスト固有のIDです。
 
 取引作成APIで結果が受け取れなかったなどの理由で再試行する際に、二重に取引が作られてしまうことを防ぐために、クライアント側から指定されます。指定は任意で、UUID V4フォーマットでランダム生成した文字列です。リクエストIDは一定期間で削除されます。
@@ -905,12 +1455,17 @@ Request request = new CreateTopupTransaction(
 リクエストIDを指定したとき、まだそのリクエストIDに対する取引がない場合、新規に取引が作られレスポンスとして返されます。もしそのリクエストIDに対する取引が既にある場合、既存の取引がレスポンスとして返されます。
 既に存在する、別のユーザによる取引とリクエストIDが衝突した場合、request_id_conflictが返ります。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
   "format": "uuid"
 }
 ```
+
+</details>
 
 
 
@@ -924,7 +1479,12 @@ Request request = new CreateTopupTransaction(
 |400|invalid_parameter_both_point_and_money_are_zero||One of 'money_amount' or 'point_amount' must be a positive (>0) number|
 |400|invalid_parameters|項目が無効です|Invalid parameters|
 |403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
-|422|invalid_metadata|メタデータの形式が不正です|Invalid metadata format|
+|422|coupon_not_found|クーポンが見つかりませんでした。|The coupon is not found.|
+|422|credit_session_money_topup_requires_credit_card|オーソリチャージ用マネーではクレジットカードによるチャージのみ許可されています|Credit card is required for topup on credit-session enabled money|
+|422|cannot_topup_during_cvs_authorization_pending|コンビニ決済の予約中はチャージできません|You cannot topup your account while a convenience store payment is pending.|
+|422|credit_session_not_found|オーソリセッションが見つかりません|Credit session not found|
+|422|not_applicable_transaction_type_for_account_topup_quota|チャージ取引以外の取引種別ではチャージ可能枠を使用できません|Account topup quota is not applicable to transaction types other than topup.|
+|422|private_money_topup_quota_not_available|このマネーにはチャージ可能枠の設定がありません|Topup quota is not available with this private money.|
 |422|account_can_not_topup|この店舗からはチャージできません|account can not topup|
 |422|private_money_closed|このマネーは解約されています|This money was closed|
 |422|transaction_has_done|取引は完了しており、キャンセルすることはできません|Transaction has been copmpleted and cannot be canceled|
@@ -934,8 +1494,13 @@ Request request = new CreateTopupTransaction(
 |422|account_transfer_limit_exceeded|取引金額が上限を超えました|Too much amount to transfer|
 |422|account_balance_exceeded|口座残高が上限を超えました|The account balance exceeded the limit|
 |422|account_money_topup_transfer_limit_exceeded|マネーチャージ金額が上限を超えました|Too much amount to money topup transfer|
-|422|account_total_topup_limit_range|期間内での合計チャージ額上限に達しました|Entire period topup limit reached|
-|422|account_total_topup_limit_entire_period|全期間での合計チャージ額上限に達しました|Entire period topup limit reached|
+|422|account_topup_quota_not_splittable|このチャージ可能枠は設定された金額未満の金額には使用できません|This topup quota is only applicable to its designated money amount.|
+|422|topup_amount_exceeding_topup_quota_usable_amount|チャージ金額がチャージ可能枠の利用可能金額を超えています|Topup amount is exceeding the topup quota's usable amount|
+|422|account_topup_quota_inactive|指定されたチャージ可能枠は有効ではありません|Topup quota is inactive|
+|422|account_topup_quota_not_within_applicable_period|指定されたチャージ可能枠の利用可能期間外です|Topup quota is not applicable at this time|
+|422|account_topup_quota_not_found|ウォレットにチャージ可能枠がありません|Topup quota is not found with this account|
+|422|account_total_topup_limit_range|合計チャージ額がマネーで指定された期間内での上限を超えています|The topup exceeds the total amount within the period defined by the money.|
+|422|account_total_topup_limit_entire_period|合計チャージ額がマネーで指定された期間内での上限を超えています|The topup exceeds the total amount defined by the money.|
 |422|coupon_unavailable_shop|このクーポンはこの店舗では使用できません。|This coupon is unavailable for this shop.|
 |422|coupon_already_used|このクーポンは既に使用済みです。|This coupon is already used.|
 |422|coupon_not_received|このクーポンは受け取られていません。|This coupon is not received.|
@@ -953,7 +1518,9 @@ Request request = new CreateTopupTransaction(
 |422|transaction_invalid_done_at|取引完了日が無効です|Transaction completion date is invalid|
 |422|transaction_invalid_amount|取引金額が数値ではないか、受け入れられない桁数です|Transaction amount is not a number or cannot be accepted for this currency|
 |422|request_id_conflict|このリクエストIDは他の取引ですでに使用されています。お手数ですが、別のリクエストIDで最初からやり直してください。|The request_id is already used by another transaction. Try again with new request id|
-|422|customer_account_not_found||The customer account is not found|
+|422|reserved_word_can_not_specify_to_metadata|取引メタデータに予約語は指定出来ません|Reserved word can not specify to metadata|
+|422|invalid_metadata|メタデータの形式が不正です|Invalid metadata format|
+|422|customer_account_not_found|ユーザアカウントが見つかりません|The customer account is not found|
 |422|shop_account_not_found|店舗アカウントが見つかりません|The shop account is not found|
 |422|private_money_not_found|マネーが見つかりません|Private money not found|
 |503|temporarily_unavailable||Service Unavailable|
@@ -968,7 +1535,6 @@ Request request = new CreateTopupTransaction(
 支払取引を作成します。
 支払い時には、エンドユーザーの残高のうち、ポイント残高から優先的に消費されます。
 
-
 ```JAVA
 JsonObject items = new JsonObject();
 items.addProperty("jan_code", "abc");
@@ -986,38 +1552,32 @@ items2.addProperty("price", 100);
 items2.addProperty("quantity", 1);
 items2.addProperty("is_discounted", false);
 items2.addProperty("other", "{}");
-JsonObject items3 = new JsonObject();
-items3.addProperty("jan_code", "abc");
-items3.addProperty("name", "name1");
-items3.addProperty("unit_price", 100);
-items3.addProperty("price", 100);
-items3.addProperty("quantity", 1);
-items3.addProperty("is_discounted", false);
-items3.addProperty("other", "{}");
 Request request = new CreatePaymentTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // shopId: 店舗ID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // customerId: エンドユーザーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    9367                                          // amount: 支払い額
+    3321                                          // amount: 支払い額
 )
         .description("たい焼き(小倉)")                  // 取引履歴に表示する説明文
         .metadata("{\"key\":\"value\"}")          // 取引メタデータ
-        .products(new Object[]{items,items2,items3}) // 商品情報データ
+        .products(new Object[]{items,items2})     // 商品情報データ
         .requestId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // リクエストID
-        .strategy("point-preferred");             // 支払い時の残高消費方式
+        .strategy("point-preferred")              // 支払い時の残高消費方式
+        .couponId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // クーポンID
 
 ```
 
 
 
 ### Parameters
-**`shopId`** 
-  
-
+#### `shopId`
 店舗IDです。
 
 送金先の店舗を指定します。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -1025,13 +1585,16 @@ Request request = new CreatePaymentTransaction(
 }
 ```
 
-**`customerId`** 
-  
+</details>
 
+#### `customerId`
 エンドユーザーIDです。
 
 送金元のエンドユーザーを指定します。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -1039,13 +1602,16 @@ Request request = new CreatePaymentTransaction(
 }
 ```
 
-**`privateMoneyId`** 
-  
+</details>
 
+#### `privateMoneyId`
 マネーIDです。
 
 マネーを指定します。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -1053,12 +1619,15 @@ Request request = new CreatePaymentTransaction(
 }
 ```
 
-**`amount`** 
-  
+</details>
 
+#### `amount`
 マネー額です。
 
 送金するマネー額を指定します。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1067,12 +1636,15 @@ Request request = new CreatePaymentTransaction(
 }
 ```
 
-**`description`** 
-  
+</details>
 
+#### `description`
 取引説明文です。
 
 任意入力で、取引履歴に表示される説明文です。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1081,12 +1653,15 @@ Request request = new CreatePaymentTransaction(
 }
 ```
 
-**`metadata`** 
-  
+</details>
 
+#### `metadata`
 取引作成時に指定されるメタデータです。
 
 任意入力で、全てのkeyとvalueが文字列であるようなフラットな構造のJSON文字列で指定します。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1095,9 +1670,9 @@ Request request = new CreatePaymentTransaction(
 }
 ```
 
-**`products`** 
-  
+</details>
 
+#### `products`
 一つの取引に含まれる商品情報データです。
 以下の内容からなるJSONオブジェクトの配列で指定します。
 
@@ -1109,6 +1684,9 @@ Request request = new CreatePaymentTransaction(
 - `is_discounted`: 賞味期限が近いなどの理由で商品が値引きされているかどうかのフラグ。boolean
 - `other`: その他商品に関する情報。JSONオブジェクトで指定します。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -1118,15 +1696,18 @@ Request request = new CreatePaymentTransaction(
 }
 ```
 
-**`requestId`** 
-  
+</details>
 
+#### `requestId`
 取引作成APIの羃等性を担保するためのリクエスト固有のIDです。
 
 取引作成APIで結果が受け取れなかったなどの理由で再試行する際に、二重に取引が作られてしまうことを防ぐために、クライアント側から指定されます。指定は任意で、UUID V4フォーマットでランダム生成した文字列です。リクエストIDは一定期間で削除されます。
 
 リクエストIDを指定したとき、まだそのリクエストIDに対する取引がない場合、新規に取引が作られレスポンスとして返されます。もしそのリクエストIDに対する取引が既にある場合、既存の取引がレスポンスとして返されます。
 既に存在する、別のユーザによる取引とリクエストIDが衝突した場合、request_id_conflictが返ります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1135,9 +1716,9 @@ Request request = new CreatePaymentTransaction(
 }
 ```
 
-**`strategy`** 
-  
+</details>
 
+#### `strategy`
 支払い時に残高がどのように消費されるかを指定します。
 デフォルトでは point-preferred (ポイント優先)が採用されます。
 
@@ -1145,6 +1726,9 @@ Request request = new CreatePaymentTransaction(
 - money-only: マネー残高のみから消費され、ポイント残高は使われません
 
 マネー設定でポイント残高のみの利用に設定されている場合(display_money_and_point が point-only の場合)、 strategy の指定に関わらずポイント優先になります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1156,6 +1740,23 @@ Request request = new CreatePaymentTransaction(
 }
 ```
 
+</details>
+
+#### `couponId`
+支払いに対して適用するクーポンのIDを指定します。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
 
 
 成功したときは
@@ -1166,7 +1767,12 @@ Request request = new CreatePaymentTransaction(
 |status|type|ja|en|
 |---|---|---|---|
 |403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
-|422|invalid_metadata|メタデータの形式が不正です|Invalid metadata format|
+|422|coupon_not_found|クーポンが見つかりませんでした。|The coupon is not found.|
+|422|credit_session_money_topup_requires_credit_card|オーソリチャージ用マネーではクレジットカードによるチャージのみ許可されています|Credit card is required for topup on credit-session enabled money|
+|422|cannot_topup_during_cvs_authorization_pending|コンビニ決済の予約中はチャージできません|You cannot topup your account while a convenience store payment is pending.|
+|422|credit_session_not_found|オーソリセッションが見つかりません|Credit session not found|
+|422|not_applicable_transaction_type_for_account_topup_quota|チャージ取引以外の取引種別ではチャージ可能枠を使用できません|Account topup quota is not applicable to transaction types other than topup.|
+|422|private_money_topup_quota_not_available|このマネーにはチャージ可能枠の設定がありません|Topup quota is not available with this private money.|
 |422|account_can_not_topup|この店舗からはチャージできません|account can not topup|
 |422|private_money_closed|このマネーは解約されています|This money was closed|
 |422|transaction_has_done|取引は完了しており、キャンセルすることはできません|Transaction has been copmpleted and cannot be canceled|
@@ -1176,8 +1782,13 @@ Request request = new CreatePaymentTransaction(
 |422|account_transfer_limit_exceeded|取引金額が上限を超えました|Too much amount to transfer|
 |422|account_balance_exceeded|口座残高が上限を超えました|The account balance exceeded the limit|
 |422|account_money_topup_transfer_limit_exceeded|マネーチャージ金額が上限を超えました|Too much amount to money topup transfer|
-|422|account_total_topup_limit_range|期間内での合計チャージ額上限に達しました|Entire period topup limit reached|
-|422|account_total_topup_limit_entire_period|全期間での合計チャージ額上限に達しました|Entire period topup limit reached|
+|422|account_topup_quota_not_splittable|このチャージ可能枠は設定された金額未満の金額には使用できません|This topup quota is only applicable to its designated money amount.|
+|422|topup_amount_exceeding_topup_quota_usable_amount|チャージ金額がチャージ可能枠の利用可能金額を超えています|Topup amount is exceeding the topup quota's usable amount|
+|422|account_topup_quota_inactive|指定されたチャージ可能枠は有効ではありません|Topup quota is inactive|
+|422|account_topup_quota_not_within_applicable_period|指定されたチャージ可能枠の利用可能期間外です|Topup quota is not applicable at this time|
+|422|account_topup_quota_not_found|ウォレットにチャージ可能枠がありません|Topup quota is not found with this account|
+|422|account_total_topup_limit_range|合計チャージ額がマネーで指定された期間内での上限を超えています|The topup exceeds the total amount within the period defined by the money.|
+|422|account_total_topup_limit_entire_period|合計チャージ額がマネーで指定された期間内での上限を超えています|The topup exceeds the total amount defined by the money.|
 |422|coupon_unavailable_shop|このクーポンはこの店舗では使用できません。|This coupon is unavailable for this shop.|
 |422|coupon_already_used|このクーポンは既に使用済みです。|This coupon is already used.|
 |422|coupon_not_received|このクーポンは受け取られていません。|This coupon is not received.|
@@ -1195,7 +1806,9 @@ Request request = new CreatePaymentTransaction(
 |422|transaction_invalid_done_at|取引完了日が無効です|Transaction completion date is invalid|
 |422|transaction_invalid_amount|取引金額が数値ではないか、受け入れられない桁数です|Transaction amount is not a number or cannot be accepted for this currency|
 |422|request_id_conflict|このリクエストIDは他の取引ですでに使用されています。お手数ですが、別のリクエストIDで最初からやり直してください。|The request_id is already used by another transaction. Try again with new request id|
-|422|customer_account_not_found||The customer account is not found|
+|422|reserved_word_can_not_specify_to_metadata|取引メタデータに予約語は指定出来ません|Reserved word can not specify to metadata|
+|422|invalid_metadata|メタデータの形式が不正です|Invalid metadata format|
+|422|customer_account_not_found|ユーザアカウントが見つかりません|The customer account is not found|
 |422|shop_account_not_found|店舗アカウントが見つかりません|The shop account is not found|
 |422|private_money_not_found|マネーが見つかりません|Private money not found|
 |503|temporarily_unavailable||Service Unavailable|
@@ -1210,7 +1823,6 @@ Request request = new CreatePaymentTransaction(
 CPMトークンにより取引を作成します。
 CPMトークンに設定されたスコープの取引を作ることができます。
 
-
 ```JAVA
 JsonObject items = new JsonObject();
 items.addProperty("jan_code", "abc");
@@ -1220,30 +1832,14 @@ items.addProperty("price", 100);
 items.addProperty("quantity", 1);
 items.addProperty("is_discounted", false);
 items.addProperty("other", "{}");
-JsonObject items2 = new JsonObject();
-items2.addProperty("jan_code", "abc");
-items2.addProperty("name", "name1");
-items2.addProperty("unit_price", 100);
-items2.addProperty("price", 100);
-items2.addProperty("quantity", 1);
-items2.addProperty("is_discounted", false);
-items2.addProperty("other", "{}");
-JsonObject items3 = new JsonObject();
-items3.addProperty("jan_code", "abc");
-items3.addProperty("name", "name1");
-items3.addProperty("unit_price", 100);
-items3.addProperty("price", 100);
-items3.addProperty("quantity", 1);
-items3.addProperty("is_discounted", false);
-items3.addProperty("other", "{}");
 Request request = new CreateCpmTransaction(
-    "NKIGuoyWD3BHeU5bcdtREm",                     // cpmToken: CPMトークン
+    "rtqclFU9jljopVrQrbVbWU",                     // cpmToken: CPMトークン
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // shopId: 店舗ID
-    1095.0                                        // amount: 取引金額
+    5874.0                                        // amount: 取引金額
 )
         .description("たい焼き(小倉)")                  // 取引説明文
         .metadata("{\"key\":\"value\"}")          // 店舗側メタデータ
-        .products(new Object[]{items,items2,items3}) // 商品情報データ
+        .products(new Object[]{items})            // 商品情報データ
         .requestId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // リクエストID
         .strategy("point-preferred");             // 支払い時の残高消費方式
 
@@ -1252,12 +1848,13 @@ Request request = new CreateCpmTransaction(
 
 
 ### Parameters
-**`cpmToken`** 
-  
-
+#### `cpmToken`
 エンドユーザーによって作られ、アプリなどに表示され、店舗に対して提示される22桁の文字列です。
 
 エンドユーザーによって許可された取引のスコープを持っています。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1267,12 +1864,15 @@ Request request = new CreateCpmTransaction(
 }
 ```
 
-**`shopId`** 
-  
+</details>
 
+#### `shopId`
 店舗IDです。
 
 支払いやチャージを行う店舗を指定します。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1281,12 +1881,15 @@ Request request = new CreateCpmTransaction(
 }
 ```
 
-**`amount`** 
-  
+</details>
 
+#### `amount`
 取引金額を指定します。
 
 正の値を与えるとチャージになり、負の値を与えると支払いとなります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1294,12 +1897,15 @@ Request request = new CreateCpmTransaction(
 }
 ```
 
-**`description`** 
-  
+</details>
 
+#### `description`
 取引説明文です。
 
 エンドユーザーアプリの取引履歴などに表示されます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1308,12 +1914,15 @@ Request request = new CreateCpmTransaction(
 }
 ```
 
-**`metadata`** 
-  
+</details>
 
+#### `metadata`
 取引作成時に店舗側から指定されるメタデータです。
 
 任意入力で、全てのkeyとvalueが文字列であるようなフラットな構造のJSON文字列で指定します。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1322,9 +1931,9 @@ Request request = new CreateCpmTransaction(
 }
 ```
 
-**`products`** 
-  
+</details>
 
+#### `products`
 一つの取引に含まれる商品情報データです。
 以下の内容からなるJSONオブジェクトの配列で指定します。
 
@@ -1336,6 +1945,9 @@ Request request = new CreateCpmTransaction(
 - `is_discounted`: 賞味期限が近いなどの理由で商品が値引きされているかどうかのフラグ。boolean
 - `other`: その他商品に関する情報。JSONオブジェクトで指定します。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -1345,15 +1957,18 @@ Request request = new CreateCpmTransaction(
 }
 ```
 
-**`requestId`** 
-  
+</details>
 
+#### `requestId`
 取引作成APIの羃等性を担保するためのリクエスト固有のIDです。
 
 取引作成APIで結果が受け取れなかったなどの理由で再試行する際に、二重に取引が作られてしまうことを防ぐために、クライアント側から指定されます。指定は任意で、UUID V4フォーマットでランダム生成した文字列です。リクエストIDは一定期間で削除されます。
 
 リクエストIDを指定したとき、まだそのリクエストIDに対する取引がない場合、新規に取引が作られレスポンスとして返されます。もしそのリクエストIDに対する取引が既にある場合、既存の取引がレスポンスとして返されます。
 既に存在する、別のユーザによる取引とリクエストIDが衝突した場合、request_id_conflictが返ります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1362,16 +1977,18 @@ Request request = new CreateCpmTransaction(
 }
 ```
 
-**`strategy`** 
-  
+</details>
 
+#### `strategy`
 支払い時に残高がどのように消費されるかを指定します。
-デフォルトでは point-preferred (ポイント優先)が採用されます。
+エンドユーザーがCPMトークン作成時に指定した残高消費方式と一致するか、どちらか一方のみが指定されている必要があります。
+両方が指定されていて値が異なる場合、cpm_token_strategy_conflictが返ります。
 
-- point-preferred: ポイント残高が優先的に消費され、ポイントがなくなり次第マネー残高から消費されていきます(デフォルト動作)
+- point-preferred: ポイント残高が優先的に消費され、ポイントがなくなり次第マネー残高から消費されていきます
 - money-only: マネー残高のみから消費され、ポイント残高は使われません
 
-マネー設定でポイント残高のみの利用に設定されている場合(display_money_and_point が point-only の場合)、 strategy の指定に関わらずポイント優先になります。
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1382,6 +1999,8 @@ Request request = new CreateCpmTransaction(
   ]
 }
 ```
+
+</details>
 
 
 
@@ -1396,10 +2015,16 @@ Request request = new CreateCpmTransaction(
 |403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
 |422|shop_user_not_found|店舗が見つかりません|The shop user is not found|
 |422|private_money_not_found|マネーが見つかりません|Private money not found|
+|422|cpm_token_strategy_conflict|CPMトークンに設定された支払い方式と異なる支払い方式が指定されました。|The strategy conflicts with the one set in the CPM token|
 |422|cpm_token_already_proceed|このCPMトークンは既に処理されています。|The CPM token is already proceed|
 |422|cpm_token_already_expired|このCPMトークンは既に失効しています。|The CPM token is already expired|
 |422|cpm_token_not_found|CPMトークンが見つかりませんでした。|The CPM token is not found.|
-|422|invalid_metadata|メタデータの形式が不正です|Invalid metadata format|
+|422|coupon_not_found|クーポンが見つかりませんでした。|The coupon is not found.|
+|422|credit_session_money_topup_requires_credit_card|オーソリチャージ用マネーではクレジットカードによるチャージのみ許可されています|Credit card is required for topup on credit-session enabled money|
+|422|cannot_topup_during_cvs_authorization_pending|コンビニ決済の予約中はチャージできません|You cannot topup your account while a convenience store payment is pending.|
+|422|credit_session_not_found|オーソリセッションが見つかりません|Credit session not found|
+|422|not_applicable_transaction_type_for_account_topup_quota|チャージ取引以外の取引種別ではチャージ可能枠を使用できません|Account topup quota is not applicable to transaction types other than topup.|
+|422|private_money_topup_quota_not_available|このマネーにはチャージ可能枠の設定がありません|Topup quota is not available with this private money.|
 |422|account_can_not_topup|この店舗からはチャージできません|account can not topup|
 |422|private_money_closed|このマネーは解約されています|This money was closed|
 |422|transaction_has_done|取引は完了しており、キャンセルすることはできません|Transaction has been copmpleted and cannot be canceled|
@@ -1409,8 +2034,13 @@ Request request = new CreateCpmTransaction(
 |422|account_transfer_limit_exceeded|取引金額が上限を超えました|Too much amount to transfer|
 |422|account_balance_exceeded|口座残高が上限を超えました|The account balance exceeded the limit|
 |422|account_money_topup_transfer_limit_exceeded|マネーチャージ金額が上限を超えました|Too much amount to money topup transfer|
-|422|account_total_topup_limit_range|期間内での合計チャージ額上限に達しました|Entire period topup limit reached|
-|422|account_total_topup_limit_entire_period|全期間での合計チャージ額上限に達しました|Entire period topup limit reached|
+|422|account_topup_quota_not_splittable|このチャージ可能枠は設定された金額未満の金額には使用できません|This topup quota is only applicable to its designated money amount.|
+|422|topup_amount_exceeding_topup_quota_usable_amount|チャージ金額がチャージ可能枠の利用可能金額を超えています|Topup amount is exceeding the topup quota's usable amount|
+|422|account_topup_quota_inactive|指定されたチャージ可能枠は有効ではありません|Topup quota is inactive|
+|422|account_topup_quota_not_within_applicable_period|指定されたチャージ可能枠の利用可能期間外です|Topup quota is not applicable at this time|
+|422|account_topup_quota_not_found|ウォレットにチャージ可能枠がありません|Topup quota is not found with this account|
+|422|account_total_topup_limit_range|合計チャージ額がマネーで指定された期間内での上限を超えています|The topup exceeds the total amount within the period defined by the money.|
+|422|account_total_topup_limit_entire_period|合計チャージ額がマネーで指定された期間内での上限を超えています|The topup exceeds the total amount defined by the money.|
 |422|coupon_unavailable_shop|このクーポンはこの店舗では使用できません。|This coupon is unavailable for this shop.|
 |422|coupon_already_used|このクーポンは既に使用済みです。|This coupon is already used.|
 |422|coupon_not_received|このクーポンは受け取られていません。|This coupon is not received.|
@@ -1420,7 +2050,7 @@ Request request = new CreateCpmTransaction(
 |422|coupon_unavailable|このクーポンは使用できません。|This coupon is unavailable.|
 |422|account_suspended|アカウントは停止されています|The account is suspended|
 |422|account_closed|アカウントは退会しています|The account is closed|
-|422|customer_account_not_found||The customer account is not found|
+|422|customer_account_not_found|ユーザアカウントが見つかりません|The customer account is not found|
 |422|shop_account_not_found|店舗アカウントが見つかりません|The shop account is not found|
 |422|account_currency_mismatch|アカウント間で通貨が異なっています|Currency mismatch between accounts|
 |422|account_pre_closed|アカウントは退会準備中です|The account is pre-closed|
@@ -1430,6 +2060,8 @@ Request request = new CreateCpmTransaction(
 |422|transaction_invalid_done_at|取引完了日が無効です|Transaction completion date is invalid|
 |422|transaction_invalid_amount|取引金額が数値ではないか、受け入れられない桁数です|Transaction amount is not a number or cannot be accepted for this currency|
 |422|request_id_conflict|このリクエストIDは他の取引ですでに使用されています。お手数ですが、別のリクエストIDで最初からやり直してください。|The request_id is already used by another transaction. Try again with new request id|
+|422|reserved_word_can_not_specify_to_metadata|取引メタデータに予約語は指定出来ません|Reserved word can not specify to metadata|
+|422|invalid_metadata|メタデータの形式が不正です|Invalid metadata format|
 |503|temporarily_unavailable||Service Unavailable|
 
 
@@ -1442,13 +2074,12 @@ Request request = new CreateCpmTransaction(
 エンドユーザー間での送金取引(個人間送金)を作成します。
 個人間送金で送れるのはマネーのみで、ポイントを送ることはできません。送金元のマネー残高のうち、有効期限が最も遠いものから順に送金されます。
 
-
 ```JAVA
 Request request = new CreateTransferTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // senderId: 送金元ユーザーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // receiverId: 受取ユーザーID
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    9492.0                                        // amount: 送金額
+    7109.0                                        // amount: 送金額
 )
         .metadata("{\"key\":\"value\"}")          // 取引メタデータ
         .description("たい焼き(小倉)")                  // 取引履歴に表示する説明文
@@ -1459,13 +2090,14 @@ Request request = new CreateTransferTransaction(
 
 
 ### Parameters
-**`senderId`** 
-  
-
+#### `senderId`
 エンドユーザーIDです。
 
 送金元のエンドユーザー(送り主)を指定します。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -1473,13 +2105,16 @@ Request request = new CreateTransferTransaction(
 }
 ```
 
-**`receiverId`** 
-  
+</details>
 
+#### `receiverId`
 エンドユーザーIDです。
 
 送金先のエンドユーザー(受け取り人)を指定します。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -1487,13 +2122,16 @@ Request request = new CreateTransferTransaction(
 }
 ```
 
-**`privateMoneyId`** 
-  
+</details>
 
+#### `privateMoneyId`
 マネーIDです。
 
 マネーを指定します。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -1501,12 +2139,15 @@ Request request = new CreateTransferTransaction(
 }
 ```
 
-**`amount`** 
-  
+</details>
 
+#### `amount`
 マネー額です。
 
 送金するマネー額を指定します。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1515,12 +2156,15 @@ Request request = new CreateTransferTransaction(
 }
 ```
 
-**`metadata`** 
-  
+</details>
 
+#### `metadata`
 取引作成時に指定されるメタデータです。
 
 任意入力で、全てのkeyとvalueが文字列であるようなフラットな構造のJSON文字列で指定します。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1529,12 +2173,15 @@ Request request = new CreateTransferTransaction(
 }
 ```
 
-**`description`** 
-  
+</details>
 
+#### `description`
 取引説明文です。
 
 任意入力で、取引履歴に表示される説明文です。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1543,9 +2190,9 @@ Request request = new CreateTransferTransaction(
 }
 ```
 
-**`requestId`** 
-  
+</details>
 
+#### `requestId`
 取引作成APIの羃等性を担保するためのリクエスト固有のIDです。
 
 取引作成APIで結果が受け取れなかったなどの理由で再試行する際に、二重に取引が作られてしまうことを防ぐために、クライアント側から指定されます。指定は任意で、UUID V4フォーマットでランダム生成した文字列です。リクエストIDは一定期間で削除されます。
@@ -1553,12 +2200,17 @@ Request request = new CreateTransferTransaction(
 リクエストIDを指定したとき、まだそのリクエストIDに対する取引がない場合、新規に取引が作られレスポンスとして返されます。もしそのリクエストIDに対する取引が既にある場合、既存の取引がレスポンスとして返されます。
 既に存在する、別のユーザによる取引とリクエストIDが衝突した場合、request_id_conflictが返ります。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
   "format": "uuid"
 }
 ```
+
+</details>
 
 
 
@@ -1572,7 +2224,12 @@ Request request = new CreateTransferTransaction(
 |403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
 |422|customer_user_not_found||The customer user is not found|
 |422|private_money_not_found|マネーが見つかりません|Private money not found|
-|422|invalid_metadata|メタデータの形式が不正です|Invalid metadata format|
+|422|coupon_not_found|クーポンが見つかりませんでした。|The coupon is not found.|
+|422|credit_session_money_topup_requires_credit_card|オーソリチャージ用マネーではクレジットカードによるチャージのみ許可されています|Credit card is required for topup on credit-session enabled money|
+|422|cannot_topup_during_cvs_authorization_pending|コンビニ決済の予約中はチャージできません|You cannot topup your account while a convenience store payment is pending.|
+|422|credit_session_not_found|オーソリセッションが見つかりません|Credit session not found|
+|422|not_applicable_transaction_type_for_account_topup_quota|チャージ取引以外の取引種別ではチャージ可能枠を使用できません|Account topup quota is not applicable to transaction types other than topup.|
+|422|private_money_topup_quota_not_available|このマネーにはチャージ可能枠の設定がありません|Topup quota is not available with this private money.|
 |422|account_can_not_topup|この店舗からはチャージできません|account can not topup|
 |422|private_money_closed|このマネーは解約されています|This money was closed|
 |422|transaction_has_done|取引は完了しており、キャンセルすることはできません|Transaction has been copmpleted and cannot be canceled|
@@ -1582,8 +2239,13 @@ Request request = new CreateTransferTransaction(
 |422|account_transfer_limit_exceeded|取引金額が上限を超えました|Too much amount to transfer|
 |422|account_balance_exceeded|口座残高が上限を超えました|The account balance exceeded the limit|
 |422|account_money_topup_transfer_limit_exceeded|マネーチャージ金額が上限を超えました|Too much amount to money topup transfer|
-|422|account_total_topup_limit_range|期間内での合計チャージ額上限に達しました|Entire period topup limit reached|
-|422|account_total_topup_limit_entire_period|全期間での合計チャージ額上限に達しました|Entire period topup limit reached|
+|422|account_topup_quota_not_splittable|このチャージ可能枠は設定された金額未満の金額には使用できません|This topup quota is only applicable to its designated money amount.|
+|422|topup_amount_exceeding_topup_quota_usable_amount|チャージ金額がチャージ可能枠の利用可能金額を超えています|Topup amount is exceeding the topup quota's usable amount|
+|422|account_topup_quota_inactive|指定されたチャージ可能枠は有効ではありません|Topup quota is inactive|
+|422|account_topup_quota_not_within_applicable_period|指定されたチャージ可能枠の利用可能期間外です|Topup quota is not applicable at this time|
+|422|account_topup_quota_not_found|ウォレットにチャージ可能枠がありません|Topup quota is not found with this account|
+|422|account_total_topup_limit_range|合計チャージ額がマネーで指定された期間内での上限を超えています|The topup exceeds the total amount within the period defined by the money.|
+|422|account_total_topup_limit_entire_period|合計チャージ額がマネーで指定された期間内での上限を超えています|The topup exceeds the total amount defined by the money.|
 |422|coupon_unavailable_shop|このクーポンはこの店舗では使用できません。|This coupon is unavailable for this shop.|
 |422|coupon_already_used|このクーポンは既に使用済みです。|This coupon is already used.|
 |422|coupon_not_received|このクーポンは受け取られていません。|This coupon is not received.|
@@ -1593,7 +2255,7 @@ Request request = new CreateTransferTransaction(
 |422|coupon_unavailable|このクーポンは使用できません。|This coupon is unavailable.|
 |422|account_suspended|アカウントは停止されています|The account is suspended|
 |422|account_closed|アカウントは退会しています|The account is closed|
-|422|customer_account_not_found||The customer account is not found|
+|422|customer_account_not_found|ユーザアカウントが見つかりません|The customer account is not found|
 |422|shop_account_not_found|店舗アカウントが見つかりません|The shop account is not found|
 |422|account_currency_mismatch|アカウント間で通貨が異なっています|Currency mismatch between accounts|
 |422|account_pre_closed|アカウントは退会準備中です|The account is pre-closed|
@@ -1603,6 +2265,8 @@ Request request = new CreateTransferTransaction(
 |422|transaction_invalid_done_at|取引完了日が無効です|Transaction completion date is invalid|
 |422|transaction_invalid_amount|取引金額が数値ではないか、受け入れられない桁数です|Transaction amount is not a number or cannot be accepted for this currency|
 |422|request_id_conflict|このリクエストIDは他の取引ですでに使用されています。お手数ですが、別のリクエストIDで最初からやり直してください。|The request_id is already used by another transaction. Try again with new request id|
+|422|reserved_word_can_not_specify_to_metadata|取引メタデータに予約語は指定出来ません|Reserved word can not specify to metadata|
+|422|invalid_metadata|メタデータの形式が不正です|Invalid metadata format|
 |503|temporarily_unavailable||Service Unavailable|
 
 
@@ -1618,9 +2282,9 @@ Request request = new CreateExchangeTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    961
+    8288
 )
-        .description("PoPoUnVURoRDP0303M0EUzCR0XC7UBINwESq7hPy7a3F5MBC2C7V")
+        .description("2Hhlc")
         .requestId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); // リクエストID
 
 ```
@@ -1628,20 +2292,10 @@ Request request = new CreateExchangeTransaction(
 
 
 ### Parameters
-**`userId`** 
-  
+#### `userId`
 
-
-```json
-{
-  "type": "string",
-  "format": "uuid"
-}
-```
-
-**`senderPrivateMoneyId`** 
-  
-
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1650,9 +2304,12 @@ Request request = new CreateExchangeTransaction(
 }
 ```
 
-**`receiverPrivateMoneyId`** 
-  
+</details>
 
+#### `senderPrivateMoneyId`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1661,9 +2318,26 @@ Request request = new CreateExchangeTransaction(
 }
 ```
 
-**`amount`** 
-  
+</details>
 
+#### `receiverPrivateMoneyId`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+#### `amount`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1672,9 +2346,12 @@ Request request = new CreateExchangeTransaction(
 }
 ```
 
-**`description`** 
-  
+</details>
 
+#### `description`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1683,9 +2360,9 @@ Request request = new CreateExchangeTransaction(
 }
 ```
 
-**`requestId`** 
-  
+</details>
 
+#### `requestId`
 取引作成APIの羃等性を担保するためのリクエスト固有のIDです。
 
 取引作成APIで結果が受け取れなかったなどの理由で再試行する際に、二重に取引が作られてしまうことを防ぐために、クライアント側から指定されます。指定は任意で、UUID V4フォーマットでランダム生成した文字列です。リクエストIDは一定期間で削除されます。
@@ -1693,12 +2370,17 @@ Request request = new CreateExchangeTransaction(
 リクエストIDを指定したとき、まだそのリクエストIDに対する取引がない場合、新規に取引が作られレスポンスとして返されます。もしそのリクエストIDに対する取引が既にある場合、既存の取引がレスポンスとして返されます。
 既に存在する、別のユーザによる取引とリクエストIDが衝突した場合、request_id_conflictが返ります。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
   "format": "uuid"
 }
 ```
+
+</details>
 
 
 
@@ -1713,6 +2395,11 @@ Request request = new CreateExchangeTransaction(
 |422|transaction_restricted||Transaction is not allowed|
 |422|can_not_exchange_between_same_private_money|同じマネーとの交換はできません||
 |422|can_not_exchange_between_users|異なるユーザー間での交換は出来ません||
+|422|credit_session_money_topup_requires_credit_card|オーソリチャージ用マネーではクレジットカードによるチャージのみ許可されています|Credit card is required for topup on credit-session enabled money|
+|422|cannot_topup_during_cvs_authorization_pending|コンビニ決済の予約中はチャージできません|You cannot topup your account while a convenience store payment is pending.|
+|422|credit_session_not_found|オーソリセッションが見つかりません|Credit session not found|
+|422|not_applicable_transaction_type_for_account_topup_quota|チャージ取引以外の取引種別ではチャージ可能枠を使用できません|Account topup quota is not applicable to transaction types other than topup.|
+|422|private_money_topup_quota_not_available|このマネーにはチャージ可能枠の設定がありません|Topup quota is not available with this private money.|
 |422|account_can_not_topup|この店舗からはチャージできません|account can not topup|
 |422|account_currency_mismatch|アカウント間で通貨が異なっています|Currency mismatch between accounts|
 |422|account_not_accessible|アカウントにアクセスできません|The account is not accessible by this user|
@@ -1728,8 +2415,14 @@ Request request = new CreateExchangeTransaction(
 |422|account_transfer_limit_exceeded|取引金額が上限を超えました|Too much amount to transfer|
 |422|account_balance_exceeded|口座残高が上限を超えました|The account balance exceeded the limit|
 |422|account_money_topup_transfer_limit_exceeded|マネーチャージ金額が上限を超えました|Too much amount to money topup transfer|
-|422|account_total_topup_limit_range|期間内での合計チャージ額上限に達しました|Entire period topup limit reached|
-|422|account_total_topup_limit_entire_period|全期間での合計チャージ額上限に達しました|Entire period topup limit reached|
+|422|reserved_word_can_not_specify_to_metadata|取引メタデータに予約語は指定出来ません|Reserved word can not specify to metadata|
+|422|account_topup_quota_not_splittable|このチャージ可能枠は設定された金額未満の金額には使用できません|This topup quota is only applicable to its designated money amount.|
+|422|topup_amount_exceeding_topup_quota_usable_amount|チャージ金額がチャージ可能枠の利用可能金額を超えています|Topup amount is exceeding the topup quota's usable amount|
+|422|account_topup_quota_inactive|指定されたチャージ可能枠は有効ではありません|Topup quota is inactive|
+|422|account_topup_quota_not_within_applicable_period|指定されたチャージ可能枠の利用可能期間外です|Topup quota is not applicable at this time|
+|422|account_topup_quota_not_found|ウォレットにチャージ可能枠がありません|Topup quota is not found with this account|
+|422|account_total_topup_limit_range|合計チャージ額がマネーで指定された期間内での上限を超えています|The topup exceeds the total amount within the period defined by the money.|
+|422|account_total_topup_limit_entire_period|合計チャージ額がマネーで指定された期間内での上限を超えています|The topup exceeds the total amount defined by the money.|
 |422|coupon_unavailable_shop|このクーポンはこの店舗では使用できません。|This coupon is unavailable for this shop.|
 |422|coupon_already_used|このクーポンは既に使用済みです。|This coupon is already used.|
 |422|coupon_not_received|このクーポンは受け取られていません。|This coupon is not received.|
@@ -1762,12 +2455,13 @@ Request request = new GetTransaction(
 
 
 ### Parameters
-**`transactionId`** 
-  
-
+#### `transactionId`
 取引IDです。
 
 フィルターとして使われ、指定した取引IDの取引を取得します。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1775,6 +2469,8 @@ Request request = new GetTransaction(
   "format": "uuid"
 }
 ```
+
+</details>
 
 
 
@@ -1802,16 +2498,17 @@ Request request = new RefundTransaction(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // transactionId: 取引ID
 )
         .description("返品対応のため")                   // 取引履歴に表示する返金事由
-        .returningPointExpiresAt("2020-03-20T07:43:18.000000Z"); // 返却ポイントの有効期限
+        .returningPointExpiresAt("2022-12-21T18:37:32.000000Z"); // 返却ポイントの有効期限
 
 ```
 
 
 
 ### Parameters
-**`transactionId`** 
-  
+#### `transactionId`
 
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1820,9 +2517,12 @@ Request request = new RefundTransaction(
 }
 ```
 
-**`description`** 
-  
+</details>
 
+#### `description`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1831,10 +2531,13 @@ Request request = new RefundTransaction(
 }
 ```
 
-**`returningPointExpiresAt`** 
-  
+</details>
 
+#### `returningPointExpiresAt`
 ポイント支払いを含む支払い取引をキャンセルする際にユーザへ返却されるポイントの有効期限です。デフォルトでは未指定です。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1842,6 +2545,8 @@ Request request = new RefundTransaction(
   "format": "date-time"
 }
 ```
+
+</details>
 
 
 
@@ -1868,12 +2573,13 @@ Request request = new GetTransactionByRequestId(
 
 
 ### Parameters
-**`requestId`** 
-  
-
+#### `requestId`
 取引作成時にクライアントが生成し指定するリクエストIDです。
 
 リクエストIDに対応する取引が存在すればその取引を返し、無ければNotFound(404)を返します。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1881,6 +2587,8 @@ Request request = new GetTransactionByRequestId(
   "format": "uuid"
 }
 ```
+
+</details>
 
 
 
@@ -1906,11 +2614,12 @@ Request request = new GetBulkTransaction(
 
 
 ### Parameters
-**`bulkTransactionId`** 
-  
-
+#### `bulkTransactionId`
 バルク取引ジョブIDです。
 バルク取引ジョブ登録時にレスポンスに含まれます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1918,6 +2627,8 @@ Request request = new GetBulkTransaction(
   "format": "uuid"
 }
 ```
+
+</details>
 
 
 
@@ -1945,11 +2656,12 @@ Request request = new ListBulkTransactionJobs(
 
 
 ### Parameters
-**`bulkTransactionId`** 
-  
-
+#### `bulkTransactionId`
 バルク取引ジョブIDです。
 バルク取引ジョブ登録時にレスポンスに含まれます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1958,11 +2670,14 @@ Request request = new ListBulkTransactionJobs(
 }
 ```
 
-**`page`** 
-  
+</details>
 
+#### `page`
 取得したいページ番号です。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -1970,22 +2685,103 @@ Request request = new ListBulkTransactionJobs(
 }
 ```
 
-**`perPage`** 
-  
+</details>
 
+#### `perPage`
 1ページ分の取得数です。デフォルトでは 50 になっています。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
   "minimum": 1
 }
 ```
+
+</details>
 
 
 
 成功したときは
 [PaginatedBulkTransactionJob](./responses.md#paginated-bulk-transaction-job)
+を返します
+
+
+
+---
+
+
+<a name="cancel-bulk-transaction"></a>
+## CancelBulkTransaction: バルク取引をキャンセルする
+
+```JAVA
+Request request = new CancelBulkTransaction(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // bulkTransactionId: バルク取引ジョブID
+);
+
+```
+
+
+
+### Parameters
+#### `bulkTransactionId`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+
+
+成功したときは
+[BulkTransaction](./responses.md#bulk-transaction)
+を返します
+
+
+
+---
+
+
+<a name="resume-bulk-transaction"></a>
+## ResumeBulkTransaction: バルク取引を再開する
+
+```JAVA
+Request request = new ResumeBulkTransaction(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // bulkTransactionId: バルク取引ジョブID
+);
+
+```
+
+
+
+### Parameters
+#### `bulkTransactionId`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+
+
+成功したときは
+[BulkTransaction](./responses.md#bulk-transaction)
 を返します
 
 
@@ -2023,12 +2819,13 @@ Request request = new RequestUserStats(
 
 
 ### Parameters
-**`from`** 
-  
-
+#### `from`
 集計する期間の開始時刻をISO8601形式で指定します。
 時刻は現在時刻、及び `to` で指定する時刻以前である必要があります。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -2036,18 +2833,23 @@ Request request = new RequestUserStats(
 }
 ```
 
-**`to`** 
-  
+</details>
 
+#### `to`
 集計する期間の終了時刻をISO8601形式で指定します。
 時刻は現在時刻、及び `from` で指定する時刻の間である必要があります。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
   "format": "date-time"
 }
 ```
+
+</details>
 
 
 
@@ -2062,7 +2864,62 @@ Request request = new RequestUserStats(
 |403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
 |422|invalid_promotional_operation_user|ユーザーの指定に不正な値が含まれています|Invalid user data is specified|
 |422|invalid_promotional_operation_status|不正な処理ステータスです|Invalid operation status is specified|
-|503|user_stats_operation_service_unavailable|一時的にユーザー統計サービスが利用不能です|User stats service is temporarily unavailable|
+
+
+
+---
+
+
+<a name="terminate-user-stats"></a>
+## TerminateUserStats: RequestUserStatsのタスクを強制終了する
+RequestUserStatsによるファイル生成のタスクを強制終了するためのAPIです。
+RequestUserStatsのレスポンス中の `operation_id` をキーにして強制終了リクエストを送ります。
+既に集計タスクが終了している場合は何も行いません。
+発行体に対して結果通知用のWebhook URLが設定されている場合、強制終了成功時には以下のような内容のPOSTリクエストが送られます。
+
+- task: "process_user_stats_operation"
+- operation_id: 強制終了対象のタスクID
+- status: "terminated"
+
+```JAVA
+Request request = new TerminateUserStats(
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // operationId: 集計タスクID
+);
+
+```
+
+
+
+### Parameters
+#### `operationId`
+強制終了対象の集計タスクIDです。
+必須パラメータであり、指定されたタスクIDが存在しない場合は `user_stats_operation_not_found`エラー(422)が返ります。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+
+
+成功したときは
+[UserStatsOperation](./responses.md#user-stats-operation)
+を返します
+
+### Error Responses
+|status|type|ja|en|
+|---|---|---|---|
+|403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
+|422|user_stats_operation_already_done|指定されたIDの集計処理タスクは既に完了しています|The specified user stats operation is already done|
+|422|user_stats_operation_not_found|指定されたIDの集計処理タスクが見つかりません|User stats task not found for the operation ID|
+|503|temporarily_unavailable||Service Unavailable|
 
 
 

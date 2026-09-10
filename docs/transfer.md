@@ -1,4 +1,10 @@
 # Transfer
+送金取引明細を表すデータです。
+マネー(Private Money)のウォレット間の送金記録を取得します。
+取引(Transaction)は複数の送金明細(Transfer)で構成されています。
+送金明細には送金元・送金先のアカウント情報、マネー額、ポイント額などが含まれます。
+取引種別として、payment, topup, campaign-topup, transfer, exchange, refund-payment, refund-topup, cashback, expire等があります。
+
 
 <a name="get-account-transfer-summary"></a>
 ## GetAccountTransferSummary: 
@@ -8,8 +14,8 @@
 Request request = new GetAccountTransferSummary(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // accountId: ウォレットID
 )
-        .from("2021-12-29T10:37:26.000000Z")      // 集計期間の開始時刻
-        .to("2021-02-25T17:29:04.000000Z")        // 集計期間の終了時刻
+        .from("2024-02-03T20:00:03.000000Z")      // 集計期間の開始時刻
+        .to("2022-01-08T00:55:41.000000Z")        // 集計期間の終了時刻
         .transferTypes(new String[]{"topup","payment"}); // 取引明細種別 (複数指定可)
 
 ```
@@ -17,12 +23,13 @@ Request request = new GetAccountTransferSummary(
 
 
 ### Parameters
-**`accountId`** 
-  
-
+#### `accountId`
 ウォレットIDです。
 
 ここで指定したウォレットIDの取引明細レベルでの集計を取得します。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -31,20 +38,12 @@ Request request = new GetAccountTransferSummary(
 }
 ```
 
-**`from`** 
-  
+</details>
 
+#### `from`
 
-```json
-{
-  "type": "string",
-  "format": "date-time"
-}
-```
-
-**`to`** 
-  
-
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -53,9 +52,23 @@ Request request = new GetAccountTransferSummary(
 }
 ```
 
-**`transferTypes`** 
-  
+</details>
 
+#### `to`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "date-time"
+}
+```
+
+</details>
+
+#### `transferTypes`
 取引明細の種別でフィルターします。
 以下の種別を指定できます。
 
@@ -84,6 +97,9 @@ Request request = new GetAccountTransferSummary(
 - refund-exchange-outflow
   交換による他マネーへの流出取引に対するキャンセル取引
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -107,6 +123,8 @@ Request request = new GetAccountTransferSummary(
 }
 ```
 
+</details>
+
 
 
 成功したときは
@@ -123,19 +141,19 @@ Request request = new GetAccountTransferSummary(
 
 ```JAVA
 Request request = new ListTransfers()
-        .from("2021-01-30T20:49:05.000000Z")
-        .to("2023-02-22T20:08:11.000000Z")
-        .page(3365)
-        .perPage(5071)
+        .from("2025-10-22T08:01:21.000000Z")
+        .to("2025-04-12T19:24:02.000000Z")
+        .page(8463)
+        .perPage(5753)
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
-        .shopName("3p62KDWO8TDrLXiDq8ZM4HpSJ7ezaoKVM6PG4nVxadlDXYh8F3jX5Rw62VEObOlMsiJRl1b2ESaJKCDCVaIjvXY9buv1PGDaqpxNAcB7XJ2PMH0HA7mMCx")
+        .shopName("FEGzWXdbWzamEGXFO5PHpjsIS4SoPDOBVrOHFo8xzE1tgCZyMtCfVQXKeHEaCm6v4bOQPdSecOojChLhuEaRbGgSXO57u6cTOWbPpHzT8SBHVxA4uTsQXNQLVTsa7Enw9cnxOrtkyrYkFM2fsUIFcBc3xUhfvCQABU9yhdPlghv2VJu1lljCVVYSC")
         .customerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
-        .customerName("ziaJ1nphI9ySRxw6pdyrj7YEb5BIbPwZWptKeWMAfjTzhjO10bQwyTU6ZUhrOp80a47LYIcD579HHiydYwYbStQsIHShYuqMOfry8huKLaun9")
+        .customerName("GNIDxlSztThgX67n2PgbzVLVHAuqNRKSFbkQwzExi4cSpvsggIAlYenv9bZPRWKzkKRFsQ10G0TlaGn12vl36ewyKaB6SHyKZZn5jR7G8GZiBnTaUgy7N3mTLemMZeIt74bhbcXSO6mPwoW10WefOcGtzUdCSHPXTvrjAoBOkNuRh5LysIScuFPNL3GzqnMP5NZDifqWbMDgjD68XvQQECUSjutOo")
         .transactionId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
         .setModified(false)
-        .transactionTypes(new String[]{"topup","cashback","transfer","expire","exchange","payment"})
-        .transferTypes(new String[]{"exchange"})  // 取引明細の種類でフィルターします。
+        .transactionTypes(new String[]{"cashback","topup","expire","exchange","payment"})
+        .transferTypes(new String[]{"exchange","payment","campaign","cashback","topup"}) // 取引明細の種類でフィルターします。
         .description("店頭QRコードによる支払い");            // 取引詳細説明文
 
 ```
@@ -143,20 +161,10 @@ Request request = new ListTransfers()
 
 
 ### Parameters
-**`from`** 
-  
+#### `from`
 
-
-```json
-{
-  "type": "string",
-  "format": "date-time"
-}
-```
-
-**`to`** 
-  
-
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -165,9 +173,26 @@ Request request = new ListTransfers()
 }
 ```
 
-**`page`** 
-  
+</details>
 
+#### `to`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "date-time"
+}
+```
+
+</details>
+
+#### `page`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -176,9 +201,12 @@ Request request = new ListTransfers()
 }
 ```
 
-**`perPage`** 
-  
+</details>
 
+#### `perPage`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -187,9 +215,12 @@ Request request = new ListTransfers()
 }
 ```
 
-**`shopId`** 
-  
+</details>
 
+#### `shopId`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -198,9 +229,12 @@ Request request = new ListTransfers()
 }
 ```
 
-**`shopName`** 
-  
+</details>
 
+#### `shopName`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -209,9 +243,12 @@ Request request = new ListTransfers()
 }
 ```
 
-**`customerId`** 
-  
+</details>
 
+#### `customerId`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -220,9 +257,12 @@ Request request = new ListTransfers()
 }
 ```
 
-**`customerName`** 
-  
+</details>
 
+#### `customerName`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -231,20 +271,12 @@ Request request = new ListTransfers()
 }
 ```
 
-**`transactionId`** 
-  
+</details>
 
+#### `transactionId`
 
-```json
-{
-  "type": "string",
-  "format": "uuid"
-}
-```
-
-**`privateMoneyId`** 
-  
-
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -253,9 +285,26 @@ Request request = new ListTransfers()
 }
 ```
 
-**`setModified`** 
-  
+</details>
 
+#### `privateMoneyId`
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "string",
+  "format": "uuid"
+}
+```
+
+</details>
+
+#### `setModified`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -263,9 +312,12 @@ Request request = new ListTransfers()
 }
 ```
 
-**`transactionTypes`** 
-  
+</details>
 
+#### `transactionTypes`
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -284,9 +336,9 @@ Request request = new ListTransfers()
 }
 ```
 
-**`transferTypes`** 
-  
+</details>
 
+#### `transferTypes`
 取引明細の種類でフィルターします。
 
 以下の種類を指定できます。
@@ -312,6 +364,9 @@ Request request = new ListTransfers()
 7. expire
 退会時失効取引
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -331,12 +386,15 @@ Request request = new ListTransfers()
 }
 ```
 
-**`description`** 
-  
+</details>
 
+#### `description`
 取引詳細を指定の取引詳細説明文でフィルターします。
 
 取引詳細説明文が完全一致する取引のみ抽出されます。取引詳細説明文は最大200文字で記録されています。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -344,6 +402,8 @@ Request request = new ListTransfers()
   "maxLength": 200
 }
 ```
+
+</details>
 
 
 
@@ -368,33 +428,34 @@ Request request = new ListTransfers()
 ```JAVA
 Request request = new ListTransfersV2()
         .shopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 店舗ID
-        .shopName("pzYekawpUouvYHKlj0G")          // 店舗名
+        .shopName("ZHJPKApv7OfARAe3RnFd9nT02p1eaStaJkR7kpHzHVrWIJ1LETykZPKAQBgMPUGbEnOIPDq2CLAbjX1Djn2XWSwjThwDAcCZY6YtawxId266BZVwZVmHyD1UpI6d83jiZ9uTzP4YjXFZyT5vOgrOJYvJ") // 店舗名
         .customerId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // エンドユーザーID
-        .customerName("L0Fcnz7fEngR6pF3m54VmwYrgFgT3RyUt1Kexb2ZIYN08OgDDQYpUk9QvTpwbva3X3fUufQzzx2hzebS68SpNEGkfmS3Uyy5Zn41VzLKUg3om1YNfeeKoLdFE8Hmt9R8Bv1AJsBz3l6W699PQnfTErfIkmiU4i2bFcYt3zvnnQAgg6WKGNaTc3A08bOic61u1yVQPNCQEFIkbwhO9RJiR7") // エンドユーザー名
+        .customerName("3LNaiOIeknn7RYaYRsrRINAXrIL7Vokdd5FDSOlHXvPdm6smgX4oL5ObnN7xsSw29hgwVKZ3q7f2G5Csbw765Up6rDPAvgZ3Lft7QdtUV0xBtYCY2peqF3OIROYkI2OmNuQfBQjabCuZA7I27PPKAWnF0PA") // エンドユーザー名
         .transactionId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 取引ID
         .privateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // マネーID
-        .setModified(false)                       // キャンセルフラグ
-        .transactionTypes(new String[]{"exchange","payment","cashback","expire"}) // 取引種別 (複数指定可)、チャージ=topup、支払い=payment
+        .setModified(true)                        // キャンセルフラグ
+        .transactionTypes(new String[]{"topup","exchange"}) // 取引種別 (複数指定可)、チャージ=topup、支払い=payment
         .nextPageCursorId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 次ページへ遷移する際に起点となるtransferのID
         .prevPageCursorId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // 前ページへ遷移する際に起点となるtransferのID
         .perPage(50)                              // 1ページ分の取引数
-        .transferTypes(new String[]{"transfer","exchange","coupon","cashback","payment","topup"}) // 取引明細種別 (複数指定可)
+        .transferTypes(new String[]{"topup","coupon","transfer","exchange","expire","campaign"}) // 取引明細種別 (複数指定可)
         .description("店頭QRコードによる支払い")             // 取引詳細説明文
-        .from("2020-02-10T06:55:29.000000Z")      // 開始日時
-        .to("2024-03-31T15:07:15.000000Z");       // 終了日時
+        .from("2020-05-26T19:08:03.000000Z")      // 開始日時
+        .to("2026-06-13T07:11:15.000000Z");       // 終了日時
 
 ```
 
 
 
 ### Parameters
-**`shopId`** 
-  
-
+#### `shopId`
 店舗IDです。
 
 フィルターとして使われ、指定された店舗での取引のみ一覧に表示されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -402,13 +463,16 @@ Request request = new ListTransfersV2()
 }
 ```
 
-**`shopName`** 
-  
+</details>
 
+#### `shopName`
 店舗名です。
 
 フィルターとして使われ、入力された名前に部分一致する店舗での取引のみ一覧に表示されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -416,13 +480,16 @@ Request request = new ListTransfersV2()
 }
 ```
 
-**`customerId`** 
-  
+</details>
 
+#### `customerId`
 エンドユーザーIDです。
 
 フィルターとして使われ、指定されたエンドユーザーの取引のみ一覧に表示されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -430,12 +497,15 @@ Request request = new ListTransfersV2()
 }
 ```
 
-**`customerName`** 
-  
+</details>
 
+#### `customerName`
 エンドユーザー名です。
 
 フィルターとして使われ、入力された名前に部分一致するエンドユーザーでの取引のみ一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -444,13 +514,16 @@ Request request = new ListTransfersV2()
 }
 ```
 
-**`transactionId`** 
-  
+</details>
 
+#### `transactionId`
 取引IDです。
 
 フィルターとして使われ、指定された取引IDに部分一致(前方一致)する取引のみが一覧に表示されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -458,13 +531,16 @@ Request request = new ListTransfersV2()
 }
 ```
 
-**`privateMoneyId`** 
-  
+</details>
 
+#### `privateMoneyId`
 マネーIDです。
 
 指定したマネーでの取引が一覧に表示されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -472,13 +548,16 @@ Request request = new ListTransfersV2()
 }
 ```
 
-**`setModified`** 
-  
+</details>
 
+#### `setModified`
 キャンセルフラグです。
 
 これにtrueを指定するとキャンセルされた取引のみ一覧に表示されます。
 デフォルト値はfalseで、キャンセルの有無にかかわらず一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -486,9 +565,9 @@ Request request = new ListTransfersV2()
 }
 ```
 
-**`transactionTypes`** 
-  
+</details>
 
+#### `transactionTypes`
 取引の種類でフィルターします。
 
 以下の種類を指定できます。
@@ -515,6 +594,9 @@ Request request = new ListTransfersV2()
 6. expire
    退会時失効取引
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -532,14 +614,17 @@ Request request = new ListTransfersV2()
 }
 ```
 
-**`nextPageCursorId`** 
-  
+</details>
 
+#### `nextPageCursorId`
 次ページへ遷移する際に起点となるtransferのID(前ページの末尾要素のID)です。
 本APIのレスポンスにもnext_page_cursor_idが含まれており、これがnull値の場合は最後のページであることを意味します。
 UUIDである場合は次のページが存在することを意味し、このnext_page_cursor_idをリクエストパラメータに含めることで次ページに遷移します。
 
 next_page_cursor_idのtransfer自体は次のページには含まれません。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -548,9 +633,9 @@ next_page_cursor_idのtransfer自体は次のページには含まれません�
 }
 ```
 
-**`prevPageCursorId`** 
-  
+</details>
 
+#### `prevPageCursorId`
 前ページへ遷移する際に起点となるtransferのID(次ページの先頭要素のID)です。
 
 本APIのレスポンスにもprev_page_cursor_idが含まれており、これがnull値の場合は先頭のページであることを意味します。
@@ -558,6 +643,9 @@ UUIDである場合は前のページが存在することを意味し、このp
 
 prev_page_cursor_idのtransfer自体は前のページには含まれません。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -565,12 +653,15 @@ prev_page_cursor_idのtransfer自体は前のページには含まれません�
 }
 ```
 
-**`perPage`** 
-  
+</details>
 
+#### `perPage`
 1ページ分の取引数です。
 
 デフォルト値は50です。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -580,9 +671,9 @@ prev_page_cursor_idのtransfer自体は前のページには含まれません�
 }
 ```
 
-**`transferTypes`** 
-  
+</details>
 
+#### `transferTypes`
 取引明細の種類でフィルターします。
 
 以下の種類を指定できます。
@@ -608,6 +699,9 @@ prev_page_cursor_idのtransfer自体は前のページには含まれません�
 7. expire
 退会時失効取引
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -627,12 +721,15 @@ prev_page_cursor_idのtransfer自体は前のページには含まれません�
 }
 ```
 
-**`description`** 
-  
+</details>
 
+#### `description`
 取引詳細を指定の取引詳細説明文でフィルターします。
 
 取引詳細説明文が完全一致する取引のみ抽出されます。取引詳細説明文は最大200文字で記録されています。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -641,13 +738,16 @@ prev_page_cursor_idのtransfer自体は前のページには含まれません�
 }
 ```
 
-**`from`** 
-  
+</details>
 
+#### `from`
 抽出期間の開始日時です。
 
 フィルターとして使われ、開始日時以降に発生した取引のみ一覧に表示されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -655,19 +755,24 @@ prev_page_cursor_idのtransfer自体は前のページには含まれません�
 }
 ```
 
-**`to`** 
-  
+</details>
 
+#### `to`
 抽出期間の終了日時です。
 
 フィルターとして使われ、終了日時以前に発生した取引のみ一覧に表示されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
   "format": "date-time"
 }
 ```
+
+</details>
 
 
 

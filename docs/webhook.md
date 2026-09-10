@@ -3,7 +3,6 @@ Webhookは特定のワーカータスクでの処理が完了した事を通知�
 WebHookにはURLとタスク名、有効化されているかを設定することが出来ます。
 通知はタスク完了時、事前に設定したURLにPOSTリクエストを行います。
 
-
 <a name="list-webhooks"></a>
 ## ListWebhooks: 作成したWebhookの一覧を返す
 
@@ -17,11 +16,12 @@ Request request = new ListWebhooks()
 
 
 ### Parameters
-**`page`** 
-  
-
+#### `page`
 取得したいページ番号です。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -29,17 +29,22 @@ Request request = new ListWebhooks()
 }
 ```
 
-**`perPage`** 
-  
+</details>
 
+#### `perPage`
 1ページ分の取得数です。デフォルトでは 50 になっています。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
   "minimum": 1
 }
 ```
+
+</details>
 
 
 
@@ -66,7 +71,7 @@ Request request = new ListWebhooks()
 ```JAVA
 Request request = new CreateWebhook(
     "bulk_shops",                                 // task: タスク名
-    "r5u"                                         // url: URL
+    "j4Zir7"                                      // url: URL
 );
 
 ```
@@ -74,10 +79,11 @@ Request request = new CreateWebhook(
 
 
 ### Parameters
-**`task`** 
-  
-
+#### `task`
 ワーカータスク名を指定します
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -89,16 +95,21 @@ Request request = new CreateWebhook(
 }
 ```
 
-**`url`** 
-  
+</details>
 
+#### `url`
 通知先のURLを指定します
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
   "type": "string"
 }
 ```
+
+</details>
 
 
 
@@ -131,10 +142,11 @@ Request request = new DeleteWebhook(
 
 
 ### Parameters
-**`webhookId`** 
-  
-
+#### `webhookId`
 削除するWebhookのIDです。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -142,6 +154,8 @@ Request request = new DeleteWebhook(
   "format": "uuid"
 }
 ```
+
+</details>
 
 
 
@@ -162,7 +176,7 @@ Request request = new DeleteWebhook(
 Request request = new UpdateWebhook(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // webhookId: Webhook ID
 )
-        .url("MSg7mI2h9")                         // URL
+        .url("POVCpM")                            // URL
         .setActive(true)                          // 有効/無効
         .task("bulk_shops");                      // タスク名
 
@@ -171,10 +185,11 @@ Request request = new UpdateWebhook(
 
 
 ### Parameters
-**`webhookId`** 
-  
-
+#### `webhookId`
 更新するWebhookのIDです。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -183,10 +198,13 @@ Request request = new UpdateWebhook(
 }
 ```
 
-**`url`** 
-  
+</details>
 
+#### `url`
 変更するURLを指定します
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -194,10 +212,13 @@ Request request = new UpdateWebhook(
 }
 ```
 
-**`setActive`** 
-  
+</details>
 
+#### `setActive`
 trueならWebhookによる通知が有効になり、falseなら無効になります
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -205,10 +226,13 @@ trueならWebhookによる通知が有効になり、falseなら無効になり�
 }
 ```
 
-**`task`** 
-  
+</details>
 
+#### `task`
 指定したタスクが終了したときにWebhookによる通知がされます
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -219,6 +243,8 @@ trueならWebhookによる通知が有効になり、falseなら無効になり�
   ]
 }
 ```
+
+</details>
 
 
 
