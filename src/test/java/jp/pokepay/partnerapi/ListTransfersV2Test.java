@@ -26,7 +26,7 @@ public class ListTransfersV2Test {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new ListTransfersV2()
-                .to("2021-03-23T04:04:58.000000Z");
+                .to("2020-02-09T14:41:10.000000Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -41,8 +41,8 @@ public class ListTransfersV2Test {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new ListTransfersV2()
-                .from("2024-07-18T07:55:43.000000Z")
-                .to("2024-03-16T20:33:15.000000Z");
+                .from("2020-06-01T18:19:07.000000Z")
+                .to("2023-05-29T09:16:53.000000Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -57,9 +57,9 @@ public class ListTransfersV2Test {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new ListTransfersV2()
-                .description("hwCFGwiyv4vlRBRxfHZeKBVf4jVtecQNubIdHetIBPUrvpeN86f46tWgyM43AJZ0KTwWOYBSX4Ez")
-                .from("2022-08-02T00:56:05.000000Z")
-                .to("2021-04-23T15:57:26.000000Z");
+                .description("Zgue67e0YlrO8E3L7gW6p")
+                .from("2025-08-30T18:49:58.000000Z")
+                .to("2026-03-04T12:55:09.000000Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -74,10 +74,10 @@ public class ListTransfersV2Test {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new ListTransfersV2()
-                .transferTypes(new String[]{"transfer","coupon","topup","payment","exchange"})
-                .description("DCSxoowqwobMRj4K8plKuk")
-                .from("2021-11-14T22:11:39.000000Z")
-                .to("2024-07-25T10:04:06.000000Z");
+                .transferTypes(new String[]{"expire","cashback","exchange"})
+                .description("Na6hoBOihdHvejLf7HUNUhMpEnczyOhMWAPbHXytdjUT8FkE6WXDem2rgSzz35aQ4D94kR9S0XTdmHcC0cGFAfEKgLlOIWqFFofKhzWzCAqp2ZanhrL16oNA3cZ4NnyIEjaN6dYZY4p9bZgscBV3pXiPPiW2qUm4FbQucsmz0GYwY85K8kF9CcO2FCZ7wQECuEigH9T")
+                .from("2022-09-16T21:16:37.000000Z")
+                .to("2020-07-08T16:07:16.000000Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -92,11 +92,11 @@ public class ListTransfersV2Test {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new ListTransfersV2()
-                .perPage(172)
-                .transferTypes(new String[]{"coupon","transfer","campaign","expire"})
-                .description("CXAkk07Q9YuV27x2ZZwJNPJ0aXH1uRWCYsw6VRBfXAF7xeoT0y6lNlDnKEOyMV89HUL5OwvTmfkSpdcLQvsJQRiuvWpRkphzntqbTr2vHF1iF0Y7dBxe8hiTzwkLtzBfAa7kaQm6vULSy1FKdTtu83N0tnRGb")
-                .from("2020-07-23T04:27:44.000000Z")
-                .to("2022-11-20T17:12:04.000000Z");
+                .perPage(365)
+                .transferTypes(new String[]{"coupon","expire","transfer","exchange","payment","campaign","cashback","topup"})
+                .description("hNBtq0Hlr5VUDcRjPWhcWE5Ed0Dp6qm5enNIYlp4WuULLQB3hzZG357PPnWlMQlOO65IFrI1BJMiWPv5dAbUBWta68v79KNgsodWT1kP64chZLEzZTeXAsCUOeSILicKJugPMhkbNW44x5lpizelx6Zw3ANkreMSnigb4Yb3t6kmvyhjD7Y1lgzqIh5MLpUpAeu")
+                .from("2021-03-14T08:08:48.000000Z")
+                .to("2022-04-01T07:31:30.000000Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -111,12 +111,12 @@ public class ListTransfersV2Test {
     @Test
     void test6() throws ConnectionError, ProcessingError {
         Request request = new ListTransfersV2()
-                .prevPageCursorId("69f15609-b3f0-49e2-80cd-8f04367f3fa9")
-                .perPage(927)
-                .transferTypes(new String[]{"exchange","transfer","payment","topup","expire","coupon","campaign"})
-                .description("aiDroY6Q3IK7BQ6AmswdAM")
-                .from("2020-09-17T19:34:00.000000Z")
-                .to("2024-01-24T08:06:52.000000Z");
+                .prevPageCursorId("9fa02f98-baee-424a-a118-7df123841157")
+                .perPage(512)
+                .transferTypes(new String[]{"cashback","topup","payment","transfer","expire"})
+                .description("TPA3BNnPJo0CH10GQb96Jzcef7f3He1f0QYEkgJnc3iiJ3NDVFkNizSfk2HE")
+                .from("2026-03-24T08:03:46.000000Z")
+                .to("2025-08-01T19:03:20.000000Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -131,13 +131,13 @@ public class ListTransfersV2Test {
     @Test
     void test7() throws ConnectionError, ProcessingError {
         Request request = new ListTransfersV2()
-                .nextPageCursorId("7416611f-2e33-43c9-8af2-56af066b1677")
-                .prevPageCursorId("7bd970d6-d2e2-4573-b970-bccdd97bd8f8")
-                .perPage(231)
-                .transferTypes(new String[]{"payment","cashback"})
-                .description("1a2EEHFmQw4OmJsXraAGliEBPmHrH76ocsr7yZptwOIMGRxZLktLdV7uiWarFr5GP0wp4l70ZsGyPlyZYRURgUMf0P5ozHDn0iOeoWIRRMyR0nQkh8Zz7eaFGoiOPKR0rUW9UTcnGDBsZuPfABdiNvfS9Anufij6THnocikBJOkD3FvwnaI0WeOGlWmm")
-                .from("2020-12-27T00:56:08.000000Z")
-                .to("2021-02-25T20:32:37.000000Z");
+                .nextPageCursorId("a7092e61-8c7b-4c79-bff8-4e3dde8dd63d")
+                .prevPageCursorId("78f66afa-a5cd-42b2-8963-fbe7ee832903")
+                .perPage(745)
+                .transferTypes(new String[]{"coupon","expire","campaign"})
+                .description("aj2GsuiV9UsDnl2m8nhmhWmlD5AgJ4dO8VEt3hyN01xWKpyfSJX1OiNUbqHXuSEWeM8VLmM8qznKIn9uBoqN3XKkwmXFnLL0vhZmz7rucmF8n8VnjFoEs5f64mvXKC0yIYDrOmfZvcfCdES8HHJf50TC5y2HNrP34")
+                .from("2024-04-29T10:16:08.000000Z")
+                .to("2020-06-28T23:37:12.000000Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -152,14 +152,14 @@ public class ListTransfersV2Test {
     @Test
     void test8() throws ConnectionError, ProcessingError {
         Request request = new ListTransfersV2()
-                .transactionTypes(new String[]{"expire","cashback"})
-                .nextPageCursorId("af0744c7-8de8-4ae5-ad2d-8e8ef679abfb")
-                .prevPageCursorId("256441a2-fc14-45fb-b354-86992c485b94")
-                .perPage(574)
-                .transferTypes(new String[]{"topup","expire","coupon","exchange","campaign","cashback","payment","transfer"})
-                .description("c7CS1DK4G")
-                .from("2023-08-10T03:01:06.000000Z")
-                .to("2022-11-14T00:51:10.000000Z");
+                .transactionTypes(new String[]{"cashback","topup"})
+                .nextPageCursorId("87bdcbe2-ef5f-4f75-a064-ef5007377480")
+                .prevPageCursorId("67ce53e7-56cb-4b63-9fc1-09c82dfd1734")
+                .perPage(973)
+                .transferTypes(new String[]{"cashback","exchange","expire","coupon","transfer","payment","topup","campaign"})
+                .description("nYdJrsgVxWy0PirB5ccKSjPsnaJy0xSUaUZ3KYipGveNp11WiSr08uCzB0JSt7hZNL6cvcqBnhGnyRs1ZbgEX46DL0EY9Dfg2K2KSBJ32yceHkpeJS53rQYrIERvl0KriuN")
+                .from("2024-10-01T11:09:32.000000Z")
+                .to("2022-06-22T13:24:49.000000Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -175,14 +175,14 @@ public class ListTransfersV2Test {
     void test9() throws ConnectionError, ProcessingError {
         Request request = new ListTransfersV2()
                 .setModified(true)
-                .transactionTypes(new String[]{"exchange"})
-                .nextPageCursorId("17ac544d-078c-4c58-9b07-320c57bdc9c8")
-                .prevPageCursorId("327abbfc-6a97-498e-9d72-14fa41ea10b9")
-                .perPage(60)
-                .transferTypes(new String[]{"campaign","coupon","expire"})
-                .description("mUp8pN9pjtBKEK15Dd3XxCT0Zmu")
-                .from("2024-03-18T05:31:34.000000Z")
-                .to("2022-03-14T12:52:05.000000Z");
+                .transactionTypes(new String[]{"payment","topup","exchange","expire"})
+                .nextPageCursorId("5d4549f7-d3be-4466-921b-aca898188abd")
+                .prevPageCursorId("d7c06773-ae64-4aed-93a9-11ee2b880912")
+                .perPage(431)
+                .transferTypes(new String[]{"cashback","campaign","coupon","topup","expire","exchange"})
+                .description("LOuuurZaaP5zVuitJAWBnMTQrqQLb4F279GcsdDtM3uSEYbuaOy1AtJbZFvX4DTrnYj6rE9HuWGm5xmBEPErYjV24xKSbfZiVFE1")
+                .from("2023-05-22T14:55:41.000000Z")
+                .to("2020-01-29T16:34:19.000000Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -197,16 +197,16 @@ public class ListTransfersV2Test {
     @Test
     void test10() throws ConnectionError, ProcessingError {
         Request request = new ListTransfersV2()
-                .privateMoneyId("6eb0a40d-c937-44f4-820e-b0cf3a0c4440")
-                .setModified(true)
-                .transactionTypes(new String[]{"exchange","transfer"})
-                .nextPageCursorId("161abbde-6265-4cdc-9dce-5f6195861a74")
-                .prevPageCursorId("c0942e47-98a8-42de-bf06-267c6ab5cb6f")
-                .perPage(877)
-                .transferTypes(new String[]{"transfer","expire","cashback","exchange","topup","coupon","campaign","payment"})
-                .description("SeZXyMS6WkNJ2GvSwQUcruYP4H5cCw5ExNqh41OXXFwVmaHYw6oEFbK8qER1Ll")
-                .from("2021-07-18T19:57:18.000000Z")
-                .to("2022-01-18T16:37:21.000000Z");
+                .privateMoneyId("f3db3178-c932-44fa-939a-ee7eab246f13")
+                .setModified(false)
+                .transactionTypes(new String[]{"cashback"})
+                .nextPageCursorId("fe413d28-477c-4e3f-a89d-8f66a2630904")
+                .prevPageCursorId("8408a4dc-132d-48d5-a625-32ff2a1f0bf4")
+                .perPage(396)
+                .transferTypes(new String[]{"transfer","exchange","cashback"})
+                .description("yBIPqdCDvWnTRvriMMqT8Y2wPxWWXEUoqg0zXsu")
+                .from("2023-06-25T01:13:05.000000Z")
+                .to("2023-04-27T10:52:38.000000Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -221,17 +221,17 @@ public class ListTransfersV2Test {
     @Test
     void test11() throws ConnectionError, ProcessingError {
         Request request = new ListTransfersV2()
-                .transactionId("3405f240-8da3-4c0a-aac9-83e9c7fb400a")
-                .privateMoneyId("ac2d57bd-0f35-4b3d-b1d9-31545b075671")
-                .setModified(true)
-                .transactionTypes(new String[]{"transfer","topup","cashback","exchange","expire","payment"})
-                .nextPageCursorId("136c436a-c71a-4c14-bc01-a66666243374")
-                .prevPageCursorId("e4685af3-359d-4342-94ab-c4eb7cb010a6")
-                .perPage(896)
-                .transferTypes(new String[]{"transfer","coupon"})
-                .description("gIBcgyeHE0tecRrYBgXoYNaRDH3xa5ZXl3L94kmDiQZVmfdCV9wGJUROgp1VTNstKsbk2wvZcZmJCZwuee4w9Rkvag9C19xRl1IlJpGXql")
-                .from("2023-07-03T17:38:54.000000Z")
-                .to("2022-06-30T07:14:35.000000Z");
+                .transactionId("cac0a111-aa63-49b8-8c46-0501a3c4b8b4")
+                .privateMoneyId("0efc1225-d7a3-44ed-a2d0-85a70044b231")
+                .setModified(false)
+                .transactionTypes(new String[]{"topup"})
+                .nextPageCursorId("429ae582-76c4-49af-abe2-bbce5ab60a80")
+                .prevPageCursorId("278fc956-9fea-47e3-9dbe-ea88bfa992ba")
+                .perPage(148)
+                .transferTypes(new String[]{"payment","topup"})
+                .description("NjVn35rDh040vhQYw5VlT5PtGoiFuhhxPNxJedAo6IB1JwI4HtHPlHFEuPGo3GkdygOOVSyzQqeTxBrSdGB4t2pP3KohbOZsA8epkaCTJpPbbkDn1ZrOBafUzNTBXIV1wGp1Rn3U4KQsAmdVQrUihNu2f4606Zw3XOfvqGLq")
+                .from("2023-08-30T22:42:25.000000Z")
+                .to("2023-06-23T14:49:13.000000Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -246,18 +246,18 @@ public class ListTransfersV2Test {
     @Test
     void test12() throws ConnectionError, ProcessingError {
         Request request = new ListTransfersV2()
-                .customerName("d5uwOg53j3Qic0iyKLnZxaZi9iCa2kj9IDD4FLU53H4cTCafuN856J50SdiADG37eydGENMPuSUGCPNHip0Y3dBWcNdXe1sIjLSVztCsp")
-                .transactionId("21798f89-20e4-48ff-9308-3ff01ff7a6cb")
-                .privateMoneyId("34092b84-562e-43e3-bc1f-2ba0fbc9fa08")
-                .setModified(false)
-                .transactionTypes(new String[]{"exchange","expire","payment"})
-                .nextPageCursorId("6849350b-72b5-42a3-a77c-34bd749761cc")
-                .prevPageCursorId("9b3bab85-e5c1-4454-8170-817ac425298f")
-                .perPage(338)
-                .transferTypes(new String[]{"exchange","transfer","campaign","payment","coupon","cashback"})
-                .description("G1XtK0UfX1fzmKZw4jAX5TdVMZA3FsBWHTaR7q8iHovbTWoPNbCUX3WmvU0lnYW7MWulxJqejEoXiemEzy22TP2wtSY9IoDSrJUA2sSTBsOwjVmr0bTbO79fqhITnnz7WaCAiQd9B8sle88sl7rSWKN9oQjHsNX48VkSyiuzE1L2w")
-                .from("2023-07-06T21:17:42.000000Z")
-                .to("2020-03-06T07:13:06.000000Z");
+                .customerName("qaG2p9irVNMOOMEypf2sbMz5sG1GgyrO7oaIPGJ7JGBC1o5Rc96wfmVrWrKd8ZckndPnp3nLoMele3ppOb8vOALeCaVZzJ21Wkjwh096vY0YkfqArkVOxtHaQbqrekxj6KV")
+                .transactionId("49b50046-4ee2-4773-9d5c-1d1aea3251c9")
+                .privateMoneyId("9f44bca4-de3d-4506-b159-7fe70d2311c2")
+                .setModified(true)
+                .transactionTypes(new String[]{"exchange"})
+                .nextPageCursorId("a9a6d9d3-90a9-4749-878f-07a504b09ca0")
+                .prevPageCursorId("f70985fe-fd76-47b3-92cf-74f6fd4ac81c")
+                .perPage(879)
+                .transferTypes(new String[]{"transfer","coupon","expire","topup","exchange"})
+                .description("qEdpqCcPOpWjivoOnvdw0Yvld3IeJyhTl")
+                .from("2024-02-13T01:08:50.000000Z")
+                .to("2025-04-11T19:49:59.000000Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -272,19 +272,19 @@ public class ListTransfersV2Test {
     @Test
     void test13() throws ConnectionError, ProcessingError {
         Request request = new ListTransfersV2()
-                .customerId("01340f5e-e511-4db3-b6d9-0a3aa2cdda2c")
-                .customerName("uE4jwp0IiR44I5KLiOrRKq3qxtTGi")
-                .transactionId("dee32366-1821-44ce-b63f-e1cb261c9a2c")
-                .privateMoneyId("5da3a272-3e72-46e1-84b5-60f5ebdeb5a4")
+                .customerId("c61c77a3-8b54-4ad4-9da2-cabd2846c532")
+                .customerName("NxSiphZRlLoLjMmLSHQhe4tHPdlvKxC8QojNKN0zqICt7BPEIsHw9iaxaPzoaDv6U6SXLkHad9cOSRej1Twb2rvpiwJLSyhoqY6ZnwMWmZEdo3TtkAPfziyB2HYxaSuFevcjssU2Qn83gWH7hF0T8Nh7eoO6asjOox0RRzWzgJ8qllmxnkMgshIHzbu")
+                .transactionId("8aac4ee3-fe66-4944-9b68-41c922f41724")
+                .privateMoneyId("6206d592-9ea3-4f7b-8400-0e33d53980bc")
                 .setModified(false)
-                .transactionTypes(new String[]{"transfer","cashback","payment","exchange","topup"})
-                .nextPageCursorId("ba7b5f00-a9a8-4ded-91e4-d74c73fedb4e")
-                .prevPageCursorId("c853e04f-52cb-49ad-9c3e-eeabed53ba9f")
-                .perPage(830)
-                .transferTypes(new String[]{"topup","expire"})
-                .description("Oh78QfhNbZ3YfGhlbqaOElvScjtjkG1WEjltqaYkhp7caXjUtBcNe9XyY4wthFo0glXBErIUB1p7aPMzXnAdDrY96Gn0OAQ9xSN0zfKx7ivixiVqjgvBNcsQLQxAtJmVTcXWtKUzkNd35gyuBKlwozbM8BIp6WWFtoNM3")
-                .from("2024-06-24T19:10:10.000000Z")
-                .to("2020-09-08T11:39:54.000000Z");
+                .transactionTypes(new String[]{"payment","cashback","expire","topup"})
+                .nextPageCursorId("4e06c412-4537-490c-8acd-d4ced2e4f607")
+                .prevPageCursorId("41d150a8-266d-4f47-9bdb-41d516e61465")
+                .perPage(779)
+                .transferTypes(new String[]{"cashback","topup","coupon"})
+                .description("Mq1TyFcW0Uuc5ug2SpDoeGryI5OQQ9GoRehaS9O2M3fskqX8WbkxbWTp66iGj1lRR9XuMVcs2zeQQbQwb51zUDjfyGpNkIiUDvsd07L")
+                .from("2024-08-21T00:27:21.000000Z")
+                .to("2020-11-04T23:42:58.000000Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -299,20 +299,20 @@ public class ListTransfersV2Test {
     @Test
     void test14() throws ConnectionError, ProcessingError {
         Request request = new ListTransfersV2()
-                .shopName("blmmAHRSYCV0EDw10SY48ZoA8oj9alrEKYDjBWPKCwbirzvScUvjsqVkcSInvOjFPIL9qlVMwg0ANEHCj5eM805Swtsg2NkJBDvuxWoqdLq3QmHRbZpwbPRidV")
-                .customerId("87951304-1e47-461f-b719-da29f2c9cac2")
-                .customerName("6hajGJrCJBxTKH0YUW8iwJJuJPCjlaztijN3vebjT869RjYRPCqvnZ1YzdrhGH7XKNoGDpqqjYUa42NN7jWbTA8sT9CjYdhYyR9ZtWhMAKSZHQ2Tjahc0hASAcEibjku1fdQetgL0O7DlAFrkXVihIdQWu7J4NYirXryPP6taqbm6hsnA9hELkacVB4dzDqQ1LbTyVIgVP7fIz1xemnrDx9P7HPwLX5")
-                .transactionId("47b14440-34ec-497f-8f77-68aeae516ed7")
-                .privateMoneyId("34d59ddd-6596-4d5a-8b75-1f57af90bb57")
+                .shopName("GyEdt6GGJ1GXo5UPiFJuScrEGcY5I6vYJqEcansSsP2ceIvKP9bg")
+                .customerId("80fa11ae-7cd9-4ee1-ae11-d56e68d4cf0f")
+                .customerName("bVQM9Z6RG0kCsPdzwEr5mXGzuLW3FkWi9ZhIojVZoApe0VcAXVJNN81LI44xL3mfrFPuEOVKpPzDCyUBg3")
+                .transactionId("fccb9b91-1a02-45d6-899a-29e1378bb923")
+                .privateMoneyId("8791d856-4a85-4d67-a9b5-75ec73e71291")
                 .setModified(true)
-                .transactionTypes(new String[]{"cashback"})
-                .nextPageCursorId("23d1c950-51f1-40b2-b2ea-bece15ca43ab")
-                .prevPageCursorId("f917069c-5732-42a2-b8a8-a700a3b13851")
-                .perPage(615)
-                .transferTypes(new String[]{"payment","expire","transfer","topup","cashback"})
-                .description("Qr2gs4rAyEVt2ws7WkJzpgGUX4mtxobZ9ZCpNJGZG6LzTWIbd8ZNVrafdi")
-                .from("2021-05-20T20:37:10.000000Z")
-                .to("2024-07-05T05:06:05.000000Z");
+                .transactionTypes(new String[]{"exchange","transfer","cashback","payment","expire","topup"})
+                .nextPageCursorId("82314ebe-3be9-483b-b2a4-3268f1f7cef2")
+                .prevPageCursorId("c8c3a6be-3bc2-449f-a03d-e0d13aac7649")
+                .perPage(195)
+                .transferTypes(new String[]{"exchange","topup","expire","coupon"})
+                .description("Gr24vRn0V1KmKqNhpuD1AS4IxvpFPGaTF6gXtd3nJyyNe74Q2bvFtDokudzPS7PJ09whlF6CVlMKFHkTHEGRWUBVUZa1rmAxzFUF6ihvlI4uoOEnKraNjpsN9SjDxtxrgs7e0dkiAAa8jwX6FLCB1XlvzBazSCE1hEG2EkkP2VIPy")
+                .from("2023-01-09T03:33:22.000000Z")
+                .to("2022-05-20T14:39:58.000000Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -327,21 +327,21 @@ public class ListTransfersV2Test {
     @Test
     void test15() throws ConnectionError, ProcessingError {
         Request request = new ListTransfersV2()
-                .shopId("db44dc4e-8fee-43b4-8e05-9662940afdce")
-                .shopName("XIdoiqtrelImUNmLeKEfXUc2dQExu22E4bXnTsrAuXzcUztcjpDcIzv8TjKb1dIcQKtgPEpt9Ynsu0LI4T70lQwB453YpOK96EoFGxVJNTeRlFM4Xw2YneFRtau24yc1kusN7qW2yhhPFbHNPhRgnqYnUlh4JbOrMj5jFwrAdcz57ZOWsDr0Djt9M12BOno1AcjM96oftC7mH")
-                .customerId("aac45f15-00e8-4969-a0d3-46c4f9deee8e")
-                .customerName("XKvVy5paxKD2XcOfyMo26iqol80j1t4n3lpnoezOx6Ov6eGwjQCqxdtQnDY4S9N4HhJ5rCsXRcUZY47cpIh03BvqB7CzLjYHoO28zEE65UlKtMCe12MUV2dxrA2428zEWnFZLX87qtedPzV8NdiYCurcmVOPZzwMWHgQ0VESfspW9b9NBdczTSynCfTiWLEN2pEbq7ZeB8PVJkE9NzaeTptZ5kX9rLpagdWQnEnT")
-                .transactionId("78f15c8a-e4ec-4989-934c-66f998f4bcfe")
-                .privateMoneyId("b5102dfc-6ade-4475-bfdc-73839d210a62")
-                .setModified(false)
-                .transactionTypes(new String[]{"payment"})
-                .nextPageCursorId("f4d07335-cbf5-4c16-8739-bdfba1be0d59")
-                .prevPageCursorId("3f422c34-2019-48e3-ae03-e3ac71afdc8c")
-                .perPage(951)
-                .transferTypes(new String[]{"cashback","exchange","expire","transfer","payment"})
-                .description("RZ5NX6gFb5nuODlmm9rpn022H3wQmNFzbLFmfFSz1uperYHhU5vbLxW8Yq15XpRuu89q3NykiRPYO2oQiAYMcKkXBWEu4RSjxgCW3jFlgob7yobgqdqFleVhpCebdmmx3jJLFYo72YjP5pod5QaLCZTmFLxumOnvrupx16")
-                .from("2023-07-22T03:23:23.000000Z")
-                .to("2022-10-03T00:53:54.000000Z");
+                .shopId("48a18b37-8d7b-4d48-be89-a085f1ee2557")
+                .shopName("Ee7skB9BB1YNClE0n87A30l6vspNWH9u8x4Yq2mxjIub5W9d4fa79SnOHSfjKkp3QkI11kPUOWIOCC9XRXSkWvgwMdC6YsQVBM615BSLRTB4phpjbt6QHeDKxXdEg3OxGlsZaVSpjoQ6ffYAe6kpXiCTiSBUIe5iqIMOcjyqBKlSFGLuqDn2oMYR")
+                .customerId("88146713-b90c-4506-a49d-98c6c1c72685")
+                .customerName("8cqnV2spFoKb7jYgx3gTJKy6dBb3ykYYVRZ4jdyfDGYQa0QPCC60HT399N8hkxoSQFYDUU0HuG332kYdREQC39nZBUv4F8J7UzyDYEv7b")
+                .transactionId("798bc163-1690-4bf4-afe3-186d63d67e10")
+                .privateMoneyId("e31719c9-4571-4fe4-a798-13ed118769c0")
+                .setModified(true)
+                .transactionTypes(new String[]{"topup"})
+                .nextPageCursorId("9b57899e-e4d2-4042-baa3-88992a869d1a")
+                .prevPageCursorId("b8d5425f-dd70-4a15-9e08-b5b03cda3380")
+                .perPage(744)
+                .transferTypes(new String[]{"exchange","topup","payment","cashback"})
+                .description("WoUeORL98QDv9TW3tonru5DxxR1kiR4daTST401zYU9O5bmxo5R8HDeIrg38UDixRQOsOxJyiut30oRsSLi4FAWjvNF")
+                .from("2025-04-08T02:14:04.000000Z")
+                .to("2021-11-21T19:46:10.000000Z");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

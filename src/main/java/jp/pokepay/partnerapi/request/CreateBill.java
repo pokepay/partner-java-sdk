@@ -9,6 +9,7 @@ import java.lang.reflect.Type;
 public class CreateBill extends Request {
     private Double amount;
     private String privateMoneyId;
+    private String[] additionalPrivateMoneyIds;
     private String shopId;
     private String description;
 
@@ -19,6 +20,11 @@ public class CreateBill extends Request {
 
     public CreateBill amount(Double amount) {
         this.amount = amount;
+        return this;
+    }
+
+    public CreateBill additionalPrivateMoneyIds(String[] additionalPrivateMoneyIds) {
+        this.additionalPrivateMoneyIds = additionalPrivateMoneyIds;
         return this;
     }
 
@@ -39,7 +45,7 @@ public class CreateBill extends Request {
 
     @Override
     public Type getResponseClass() {
-        return Bill.class;
+        return BillWithAdditionalPrivateMoneys.class;
     }
 
     @Override
@@ -47,6 +53,7 @@ public class CreateBill extends Request {
         JsonObject object = new JsonObject();
         if (amount != null) { object.add("amount", context.serialize((int)this.amount.doubleValue())); }
         if (privateMoneyId != null) { object.add("private_money_id", context.serialize(this.privateMoneyId)); }
+        if (additionalPrivateMoneyIds != null) { object.add("additional_private_money_ids", context.serialize(this.additionalPrivateMoneyIds)); }
         if (shopId != null) { object.add("shop_id", context.serialize(this.shopId)); }
         if (description != null) { object.add("description", context.serialize(this.description)); }
         return object;
