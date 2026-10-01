@@ -12,6 +12,7 @@ public class Check extends Response {
     private Boolean isOnetime;
     private Boolean isDisabled;
     private String expiresAt;
+    private String startsAt;
     private String lastUsedAt;
     private PrivateMoney privateMoney;
     private Integer usageLimit;
@@ -58,6 +59,10 @@ public class Check extends Response {
 
     public String getExpiresAt() {
         return expiresAt;
+    }
+
+    public String getStartsAt() {
+        return startsAt;
     }
 
     public String getLastUsedAt() {

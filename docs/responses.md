@@ -1,12 +1,76 @@
 # Responses
+<a name="cvs-authorization"></a>
+## CvsAuthorization
+* `getAccount() AccountDetail`: 
+* `getUser() User`: 
+* `getOrderId() String`: 申し込みID
+* `getTransactionId() String`: 取引ID
+* `getPayLimit() String`: お支払期限
+* `getTel() String`: 電話番号
+* `getName1() String`: 顧客姓
+* `getName2() String`: 顧客名
+* `getAmount() int`: チャージ額
+* `getServiceOptionType() String`: コンビニ種別
+* `getHaraikomiUrl() String`: 払込票URL
+* `getReceiptNo() String`: 受付番号
+* `getDoneAt() String`: 入金完了日時
+* `getCanceledAt() String`: キャンセル日時
+
+`getAccount`は [AccountDetail](#account-detail) クラスのインスタンスを返します。
+
+`getUser`は [User](#user) クラスのインスタンスを返します。
+
+<a name="paginated-cvs-authorizations"></a>
+## PaginatedCvsAuthorizations
+* `getPerPage() int`: 
+* `getCount() int`: 
+* `getItems() CvsAuthorization[]`: 
+* `getPrev() String`: 
+* `getNext() String`: 
+
+`getItems`は [CvsAuthorization](#cvs-authorization) クラスのインスタンスの配列を返します。
+
+<a name="credit-session"></a>
+## CreditSession
+* `getId() String`: 
+* `getExpiresAt() String`: 
+
+<a name="captured-credit-session"></a>
+## CapturedCreditSession
+* `getSessionId() String`: 
+
+<a name="credit-session-transaction-result"></a>
+## CreditSessionTransactionResult
+
+<a name="user-card"></a>
+## UserCard
+* `getId() String`: カード識別子
+* `getCardNumber() String`: マスク済みカード番号
+* `getRegisteredAt() String`: 登録日時
+
+<a name="paginated-user-cards"></a>
+## PaginatedUserCards
+* `getRows() UserCard[]`: 
+* `getCount() int`: 総件数
+* `getPagination() Pagination`: 
+
+`getRows`は [UserCard](#user-card) クラスのインスタンスの配列を返します。
+
+`getPagination`は [Pagination](#pagination) クラスのインスタンスを返します。
+
+<a name="card-authorize-result"></a>
+## CardAuthorizeResult
+* `getAuthenticationHtml() String`: 認証開始用HTML
+* `getRequestId() String`: リクエストID
+
 <a name="account-with-user"></a>
 ## AccountWithUser
-* `getId() String`: 
-* `getName() String`: 
-* `isSuspended() boolean`: 
-* `getStatus() String`: 
-* `getPrivateMoney() PrivateMoney`: 
-* `getUser() User`: 
+* `getId() String`: ウォレットID
+* `getName() String`: ウォレット名
+* `isSuspended() boolean`: ウォレットが凍結されているかどうか
+* `getStatus() String`: ウォレット状態
+* `getPrivateMoney() PrivateMoney`: 設定マネー情報
+* `getUser() User`: ユーザ情報
 
 `getPrivateMoney`は [PrivateMoney](#private-money) クラスのインスタンスを返します。
 
@@ -14,17 +78,17 @@
 
 <a name="account-detail"></a>
 ## AccountDetail
-* `getId() String`: 
-* `getName() String`: 
-* `isSuspended() boolean`: 
-* `getStatus() String`: 
-* `getBalance() double`: 
-* `getMoneyBalance() double`: 
-* `getPointBalance() double`: 
-* `getPointDebt() double`: 
-* `getPrivateMoney() PrivateMoney`: 
-* `getUser() User`: 
-* `getExternalId() String`: 
+* `getId() String`: ウォレットID
+* `getName() String`: ウォレット名
+* `isSuspended() boolean`: ウォレットが凍結されているかどうか
+* `getStatus() String`: ウォレット状態
+* `getBalance() double`: 総残高
+* `getMoneyBalance() double`: マネー残高
+* `getPointBalance() double`: ポイント残高
+* `getPointDebt() double`: ポイント負債
+* `getPrivateMoney() PrivateMoney`: 設定マネー情報
+* `getUser() User`: ユーザ情報
+* `getExternalId() String`: 外部ID
 
 `getPrivateMoney`は [PrivateMoney](#private-money) クラスのインスタンスを返します。
 
@@ -33,8 +97,11 @@
 <a name="account-deleted"></a>
 ## AccountDeleted
 
-<a name="bill"></a>
-## Bill
+<a name="customer-card-deleted"></a>
+## CustomerCardDeleted
+
+<a name="bill-with-additional-private-moneys"></a>
+## BillWithAdditionalPrivateMoneys
 * `getId() String`: 支払いQRコードのID
 * `getAmount() double`: 支払い額
 * `getMaxAmount() double`: 支払い額を範囲指定した場合の上限
@@ -43,8 +110,12 @@
 * `getAccount() AccountWithUser`: 支払いQRコード発行ウォレット
 * `isDisabled() boolean`: 無効化されているかどうか
 * `getToken() String`: 支払いQRコードを解析したときに出てくるURL
+* `getCreatedAt() String`: 支払いQRコードの作成日時
+* `getAdditionalPrivateMoneys() PrivateMoney[]`: 追加の支払いマネー
 
 `getAccount`は [AccountWithUser](#account-with-user) クラスのインスタンスを返します。
+
+`getAdditionalPrivateMoneys`は [PrivateMoney](#private-money) クラスのインスタンスの配列を返します。
 
 <a name="check"></a>
 ## Check
@@ -58,6 +129,7 @@
 * `isOnetime() boolean`: 使用回数が一回限りかどうか
 * `isDisabled() boolean`: 無効化されているかどうか
 * `getExpiresAt() String`: チャージQRコード自体の失効日時
+* `getStartsAt() String`: チャージQRコード有効開始日時
 * `getLastUsedAt() String`: 
 * `getPrivateMoney() PrivateMoney`: 対象マネー情報
 * `getUsageLimit() int`: 一回限りでない場合の最大読み取り回数
@@ -89,6 +161,8 @@
 * `getScopes() String[]`: 許可された取引種別
 * `getExpiresAt() String`: CPMトークンの失効日時
 * `getMetadata() String`: エンドユーザー側メタデータ
+* `getStrategy() String`: 支払い時の残高消費方式
+* `getCouponId() String`: クーポンID
 
 `getAccount`は [AccountDetail](#account-detail) クラスのインスタンスを返します。
 
@@ -142,9 +216,9 @@
 * `getId() String`: 取引ID
 * `getType() String`: 取引種別
 * `isModified() boolean`: 返金された取引かどうか
-* `getSender() User`: 送金者情報
+* `getSender() User`: 送金ユーザ情報
 * `getSenderAccount() Account`: 送金ウォレット情報
-* `getReceiver() User`: 受取者情報
+* `getReceiver() User`: 受取ユーザ情報
 * `getReceiverAccount() Account`: 受取ウォレット情報
 * `getAmount() double`: 取引総額 (マネー額 + ポイント額)
 * `getMoneyAmount() double`: 取引マネー額
@@ -153,13 +227,23 @@
 * `getCampaignPointAmount() double`: キャンペーンによるポイント付与額
 * `getDoneAt() String`: 取引日時
 * `getDescription() String`: 取引説明文
-* `getTransfers() Transfer[]`: 
+* `getTransfers() Transfer[]`: 取引明細一覧
 
 `getReceiver`と`getSender`は [User](#user) クラスのインスタンスを返します。
 
 `getReceiverAccount`と`getSenderAccount`は [Account](#account) クラスのインスタンスを返します。
 
 `getTransfers`は [Transfer](#transfer) クラスのインスタンスの配列を返します。
+
+<a name="transaction-group"></a>
+## TransactionGroup
+* `getId() String`: トランザクショングループID
+* `getName() String`: トランザクショングループ名
+* `getCreatedAt() String`: 作成日時
+* `getUpdatedAt() String`: 更新日時
+* `getTransactions() Transaction[]`: グループに属する取引一覧
+
+`getTransactions`は [Transaction](#transaction) クラスのインスタンスの配列を返します。
 
 <a name="shop-with-accounts"></a>
 ## ShopWithAccounts
@@ -187,6 +271,7 @@
 * `getErrorLineno() int`: バルク取引のエラーが発生した行番号
 * `getSubmittedAt() String`: バルク取引が登録された日時
 * `getUpdatedAt() String`: バルク取引が更新された日時
+* `getScheduledAt() String`: バルク取引の予約実行日時
 
 <a name="paginated-bulk-transaction-job"></a>
 ## PaginatedBulkTransactionJob
@@ -273,6 +358,9 @@
 
 `getRows`は [Bank](#bank) クラスのインスタンスの配列を返します。
 
+<a name="bank-deleted"></a>
+## BankDeleted
+
 <a name="paginated-transaction"></a>
 ## PaginatedTransaction
 * `getRows() Transaction[]`: 
@@ -292,6 +380,16 @@
 * `getPrevPageCursorId() String`: 
 
 `getRows`は [Transaction](#transaction) クラスのインスタンスの配列を返します。
+
+<a name="paginated-bill-transaction"></a>
+## PaginatedBillTransaction
+* `getRows() BillTransaction[]`: 
+* `getPerPage() int`: 
+* `getCount() int`: 
+* `getNextPageCursorId() String`: 
+* `getPrevPageCursorId() String`: 
+
+`getRows`は [BillTransaction](#bill-transaction) クラスのインスタンスの配列を返します。
 
 <a name="paginated-transfers"></a>
 ## PaginatedTransfers
@@ -378,6 +476,7 @@
 * `getId() String`: キャンペーンID
 * `getName() String`: キャペーン名
 * `getApplicableShops() User[]`: キャンペーン適用対象の店舗リスト
+* `getApplicableShopLabels() CampaignShopLabel[]`: キャンペーン適用対象の店舗ラベル指定
 * `isExclusive() boolean`: キャンペーンの重複を許すかどうかのフラグ
 * `getStartsAt() String`: キャンペーン開始日時
 * `getEndsAt() String`: キャンペーン終了日時
@@ -397,6 +496,8 @@
 * `getBudgetCurrentTime() String`: キャンペーンの付与集計日時
 
 `getApplicableShops`は [User](#user) クラスのインスタンスの配列を返します。
+
+`getApplicableShopLabels`は [CampaignShopLabel](#campaign-shop-label) クラスのインスタンスの配列を返します。
 
 `getBearPointShop`は [User](#user) クラスのインスタンスを返します。
 
@@ -461,6 +562,8 @@
 * `getCouponImage() String`: クーポン画像のURL
 * `getAvailableShops() User[]`: 利用可能店舗リスト
 * `getPrivateMoney() PrivateMoney`: クーポンのマネー
+* `getNumRecipientsCap() int`: クーポンを受け取ることができるユーザ数上限
+* `getNumRecipients() int`: クーポンを受け取ったユーザ数
 
 `getIssuedShop`は [User](#user) クラスのインスタンスを返します。
 
@@ -505,6 +608,14 @@
 
 `getTransaction`は [Transaction](#transaction) クラスのインスタンスを返します。
 
+<a name="pagination"></a>
+## Pagination
+* `getCurrent() int`: 
+* `getPerPage() int`: 
+* `getMaxPage() int`: 
+* `getHasPrev() boolean`: 
+* `getHasNext() boolean`: 
+
 <a name="private-money"></a>
 ## PrivateMoney
 * `getId() String`: マネーID
@@ -524,22 +635,14 @@
 
 `getOrganization`は [Organization](#organization) クラスのインスタンスを返します。
 
-<a name="pagination"></a>
-## Pagination
-* `getCurrent() int`: 
-* `getPerPage() int`: 
-* `getMaxPage() int`: 
-* `getHasPrev() boolean`: 
-* `getHasNext() boolean`: 
-
 <a name="transaction"></a>
 ## Transaction
 * `getId() String`: 取引ID
 * `getType() String`: 取引種別
 * `isModified() boolean`: 返金された取引かどうか
-* `getSender() User`: 送金者情報
+* `getSender() User`: 送金ユーザ情報
 * `getSenderAccount() Account`: 送金ウォレット情報
-* `getReceiver() User`: 受取者情報
+* `getReceiver() User`: 受取ユーザ情報
 * `getReceiverAccount() Account`: 受取ウォレット情報
 * `getAmount() double`: 取引総額 (マネー額 + ポイント額)
 * `getMoneyAmount() double`: 取引マネー額
@@ -584,23 +687,23 @@
 * `getId() String`: ウォレットID
 * `getName() String`: ウォレット名
 * `isSuspended() boolean`: ウォレットが凍結されているかどうか
-* `getStatus() String`: 
+* `getStatus() String`: ウォレット状態
 * `getPrivateMoney() PrivateMoney`: 設定マネー情報
 
 `getPrivateMoney`は [PrivateMoney](#private-money) クラスのインスタンスを返します。
 
 <a name="transfer"></a>
 ## Transfer
-* `getId() String`: 
-* `getSenderAccount() AccountWithoutPrivateMoneyDetail`: 
-* `getReceiverAccount() AccountWithoutPrivateMoneyDetail`: 
-* `getAmount() double`: 
-* `getMoneyAmount() double`: 
-* `getPointAmount() double`: 
-* `getDoneAt() String`: 
-* `getType() String`: 
-* `getDescription() String`: 
-* `getTransactionId() String`: 
+* `getId() String`: 取引明細ID
+* `getSenderAccount() AccountWithoutPrivateMoneyDetail`: 送金元ウォレット
+* `getReceiverAccount() AccountWithoutPrivateMoneyDetail`: 送金先ウォレット
+* `getAmount() double`: 送金総額 (マネー額 + ポイント額)
+* `getMoneyAmount() double`: 送金マネー額
+* `getPointAmount() double`: 送金ポイント額
+* `getDoneAt() String`: 送金日時
+* `getType() String`: 取引明細種別
+* `getDescription() String`: 取引明細説明文
+* `getTransactionId() String`: 親取引ID
 
 `getReceiverAccount`と`getSenderAccount`は [AccountWithoutPrivateMoneyDetail](#account-without-private-money-detail) クラスのインスタンスを返します。
 
@@ -657,6 +760,15 @@
 
 `getPrivateMoney`は [PrivateMoney](#private-money) クラスのインスタンスを返します。
 
+<a name="bill-transaction"></a>
+## BillTransaction
+* `getTransaction() Transaction`: 
+* `getBill() Bill`: 
+
+`getTransaction`は [Transaction](#transaction) クラスのインスタンスを返します。
+
+`getBill`は [Bill](#bill) クラスのインスタンスを返します。
+
 <a name="account-balance"></a>
 ## AccountBalance
 * `getExpiresAt() String`: 
@@ -674,6 +786,29 @@
 * `getTel() String`: 店舗の電話番号
 * `getEmail() String`: 店舗のメールアドレス
 * `getExternalId() String`: 店舗の外部ID
+
+<a name="bill"></a>
+## Bill
+* `getId() String`: 支払いQRコードのID
+* `getAmount() double`: 支払い額
+* `getMaxAmount() double`: 支払い額を範囲指定した場合の上限
+* `getMinAmount() double`: 支払い額を範囲指定した場合の下限
+* `getDescription() String`: 支払いQRコードの説明文(アプリ上で取引の説明文として表示される)
+* `getAccount() AccountWithUser`: 支払いQRコード発行ウォレット
+* `isDisabled() boolean`: 無効化されているかどうか
+* `getToken() String`: 支払いQRコードを解析したときに出てくるURL
+* `getCreatedAt() String`: 支払いQRコードの作成日時
+
+`getAccount`は [AccountWithUser](#account-with-user) クラスのインスタンスを返します。
+
+<a name="campaign-shop-label"></a>
+## CampaignShopLabel
+* `getId() String`: 
+* `getNameEn() String`: 
+* `getNameJa() String`: 
+* `getUserTagGroup() CampaignShopLabelUserTagGroup`: 店舗ラベルの所属ラベルグループ
+
+`getUserTagGroup`は [CampaignShopLabelUserTagGroup](#campaign-shop-label-user-tag-group) クラスのインスタンスを返します。
 
 <a name="account-transfer-summary-element"></a>
 ## AccountTransferSummaryElement
@@ -703,6 +838,8 @@
 * `getCode() String`: クーポン受け取りコード
 * `isDisabled() boolean`: 無効化フラグ
 * `getToken() String`: クーポンを特定するためのトークン
+* `getNumRecipientsCap() int`: クーポンを受け取ることができるユーザ数上限
+* `getNumRecipients() int`: クーポンを受け取ったユーザ数
 
 `getIssuedShop`は [User](#user) クラスのインスタンスを返します。
 
@@ -726,3 +863,9 @@
 * `getRawPointAmount() double`: 
 * `getCampaignPointAmount() double`: 
 * `getPointCount() int`: 
+
+<a name="campaign-shop-label-user-tag-group"></a>
+## CampaignShopLabelUserTagGroup
+* `getId() String`: 
+* `getNameEn() String`: 
+* `getNameJa() String`: 
