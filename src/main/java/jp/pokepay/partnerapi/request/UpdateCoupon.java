@@ -25,6 +25,7 @@ public class UpdateCoupon extends Request {
     private Boolean isShopSpecified;
     private String[] availableShopIds;
     private String storageId;
+    private Integer numRecipientsCap;
     private String couponId;
 
     public UpdateCoupon(String couponId) {
@@ -121,6 +122,11 @@ public class UpdateCoupon extends Request {
         return this;
     }
 
+    public UpdateCoupon numRecipientsCap(Integer numRecipientsCap) {
+        this.numRecipientsCap = numRecipientsCap;
+        return this;
+    }
+
     @Override
     public Method method() {
         return Method.PATCH;
@@ -157,6 +163,7 @@ public class UpdateCoupon extends Request {
         if (isShopSpecified != null) { object.add("is_shop_specified", context.serialize(this.isShopSpecified)); }
         if (availableShopIds != null) { object.add("available_shop_ids", context.serialize(this.availableShopIds)); }
         if (storageId != null) { object.add("storage_id", context.serialize(this.storageId)); }
+        if (numRecipientsCap != null) { object.add("num_recipients_cap", context.serialize(this.numRecipientsCap)); }
         return object;
     }
 }

@@ -5,6 +5,7 @@ public class Campaign extends Response {
     private String id;
     private String name;
     private User[] applicableShops;
+    private CampaignShopLabel[] applicableShopLabels;
     private Boolean isExclusive;
     private String startsAt;
     private String endsAt;
@@ -33,6 +34,10 @@ public class Campaign extends Response {
 
     public User[] getApplicableShops() {
         return applicableShops;
+    }
+
+    public CampaignShopLabel[] getApplicableShopLabels() {
+        return applicableShopLabels;
     }
 
     public Boolean isExclusive() {

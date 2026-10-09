@@ -13,6 +13,8 @@ public class ListChecks extends Request {
     private String organizationCode;
     private String expiresFrom;
     private String expiresTo;
+    private String startsFrom;
+    private String startsTo;
     private String createdFrom;
     private String createdTo;
     private String issuerShopId;
@@ -50,6 +52,16 @@ public class ListChecks extends Request {
 
     public ListChecks expiresTo(String expiresTo) {
         this.expiresTo = expiresTo;
+        return this;
+    }
+
+    public ListChecks startsFrom(String startsFrom) {
+        this.startsFrom = startsFrom;
+        return this;
+    }
+
+    public ListChecks startsTo(String startsTo) {
+        this.startsTo = startsTo;
         return this;
     }
 
@@ -107,6 +119,8 @@ public class ListChecks extends Request {
         if (organizationCode != null) { object.add("organization_code", context.serialize(this.organizationCode)); }
         if (expiresFrom != null) { object.add("expires_from", context.serialize(this.expiresFrom)); }
         if (expiresTo != null) { object.add("expires_to", context.serialize(this.expiresTo)); }
+        if (startsFrom != null) { object.add("starts_from", context.serialize(this.startsFrom)); }
+        if (startsTo != null) { object.add("starts_to", context.serialize(this.startsTo)); }
         if (createdFrom != null) { object.add("created_from", context.serialize(this.createdFrom)); }
         if (createdTo != null) { object.add("created_to", context.serialize(this.createdTo)); }
         if (issuerShopId != null) { object.add("issuer_shop_id", context.serialize(this.issuerShopId)); }

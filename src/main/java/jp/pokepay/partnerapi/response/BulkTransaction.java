@@ -11,6 +11,7 @@ public class BulkTransaction extends Response {
     private Integer errorLineno;
     private String submittedAt;
     private String updatedAt;
+    private String scheduledAt;
 
     public String getId() {
         return id;
@@ -46,6 +47,10 @@ public class BulkTransaction extends Response {
 
     public String getUpdatedAt() {
         return updatedAt;
+    }
+
+    public String getScheduledAt() {
+        return scheduledAt;
     }
 }
 

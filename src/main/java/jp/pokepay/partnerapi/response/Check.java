@@ -12,6 +12,7 @@ public class Check extends Response {
     private Boolean isOnetime;
     private Boolean isDisabled;
     private String expiresAt;
+    private String startsAt;
     private String lastUsedAt;
     private PrivateMoney privateMoney;
     private Integer usageLimit;
@@ -19,6 +20,7 @@ public class Check extends Response {
     private String pointExpiresAt;
     private Integer pointExpiresInDays;
     private String token;
+    private String serialCode;
 
     public String getId() {
         return id;
@@ -60,6 +62,10 @@ public class Check extends Response {
         return expiresAt;
     }
 
+    public String getStartsAt() {
+        return startsAt;
+    }
+
     public String getLastUsedAt() {
         return lastUsedAt;
     }
@@ -86,6 +92,10 @@ public class Check extends Response {
 
     public String getToken() {
         return token;
+    }
+
+    public String getSerialCode() {
+        return serialCode;
     }
 }
 

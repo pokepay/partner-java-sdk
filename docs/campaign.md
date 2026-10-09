@@ -1,4 +1,9 @@
 # Campaign
+自動ポイント還元ルールの設定を表すデータです。
+Pokepay管理画面やPartnerSDK経由でルール登録、更新が可能です。
+取引(Transaction)または外部決済イベント(ExternalTransaction)の内容によって還元するポイント額を計算し、自動で付与するルールを設定可能です。
+targetとして取引または外部決済イベントを選択して個別設定します。
+
 
 <a name="list-campaigns"></a>
 ## ListCampaigns: キャンペーン一覧を取得する
@@ -11,8 +16,8 @@ Request request = new ListCampaigns(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // privateMoneyId: マネーID
 )
         .setOngoing(false)                        // 現在適用可能なキャンペーンかどうか
-        .availableFrom("2023-04-20T21:23:50.000000Z") // 指定された日時以降に適用可能期間が含まれているか
-        .availableTo("2020-11-27T03:39:30.000000Z") // 指定された日時以前に適用可能期間が含まれているか
+        .availableFrom("2024-01-19T10:23:29.000000Z") // 指定された日時以降に適用可能期間が含まれているか
+        .availableTo("2020-10-17T23:18:41.000000Z") // 指定された日時以前に適用可能期間が含まれているか
         .page(1)                                  // ページ番号
         .perPage(20);                             // 1ページ分の取得数
 
@@ -21,12 +26,13 @@ Request request = new ListCampaigns(
 
 
 ### Parameters
-**`privateMoneyId`** 
-  
-
+#### `privateMoneyId`
 マネーIDです。
 
 フィルターとして使われ、指定したマネーでのキャンペーンのみ一覧に表示されます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -35,12 +41,15 @@ Request request = new ListCampaigns(
 }
 ```
 
-**`setOngoing`** 
-  
+</details>
 
+#### `setOngoing`
 有効化されており、現在キャンペーン期間内にあるキャンペーンをフィルターするために使われます。
 真であれば適用可能なもののみを抽出し、偽であれば適用不可なもののみを抽出します。
 デフォルトでは未指定(フィルターなし)です。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -48,12 +57,15 @@ Request request = new ListCampaigns(
 }
 ```
 
-**`availableFrom`** 
-  
+</details>
 
+#### `availableFrom`
 キャンペーン終了日時が指定された日時以降であるキャンペーンをフィルターするために使われます。
 デフォルトでは未指定(フィルターなし)です。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -61,12 +73,15 @@ Request request = new ListCampaigns(
 }
 ```
 
-**`availableTo`** 
-  
+</details>
 
+#### `availableTo`
 キャンペーン開始日時が指定された日時以前であるキャンペーンをフィルターするために使われます。
 デフォルトでは未指定(フィルターなし)です。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -74,10 +89,13 @@ Request request = new ListCampaigns(
 }
 ```
 
-**`page`** 
-  
+</details>
 
+#### `page`
 取得したいページ番号です。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -86,10 +104,13 @@ Request request = new ListCampaigns(
 }
 ```
 
-**`perPage`** 
-  
+</details>
 
+#### `perPage`
 1ページ分の取得数です。デフォルトでは 20 になっています。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -98,6 +119,8 @@ Request request = new ListCampaigns(
   "maximum": 50
 }
 ```
+
+</details>
 
 
 
@@ -120,7 +143,6 @@ Request request = new ListCampaigns(
 ## CreateCampaign: ポイント付与キャンペーンを作る
 ポイント付与キャンペーンを作成します。
 
-
 ```JAVA
 JsonObject items = new JsonObject();
 items.addProperty("point_amount", 5);
@@ -130,34 +152,24 @@ items.addProperty("subject_less_than", 5000);
 JsonObject items2 = new JsonObject();
 items2.addProperty("point_amount", 5);
 items2.addProperty("point_amount_unit", "percent");
-items2.addProperty("subject_more_than_or_equal", 1000);
-items2.addProperty("subject_less_than", 5000);
+items2.addProperty("product_code", "4912345678904");
+items2.addProperty("is_multiply_by_count", true);
+items2.addProperty("required_count", 2);
 JsonObject items3 = new JsonObject();
-items3.addProperty("point_amount", 5);
-items3.addProperty("point_amount_unit", "percent");
-items3.addProperty("subject_more_than_or_equal", 1000);
-items3.addProperty("subject_less_than", 5000);
+items3.addProperty("product_code", "4912345678904");
+items3.addProperty("classification_code", "c123");
 JsonObject items4 = new JsonObject();
-items4.addProperty("point_amount", 5);
-items4.addProperty("point_amount_unit", "percent");
 items4.addProperty("product_code", "4912345678904");
-items4.addProperty("is_multiply_by_count", true);
-items4.addProperty("required_count", 2);
+items4.addProperty("classification_code", "c123");
 JsonObject items5 = new JsonObject();
-items5.addProperty("point_amount", 5);
-items5.addProperty("point_amount_unit", "percent");
-items5.addProperty("product_code", "4912345678904");
-items5.addProperty("is_multiply_by_count", true);
-items5.addProperty("required_count", 2);
+items5.addProperty("from", "12:00");
+items5.addProperty("to", "23:59");
 JsonObject items6 = new JsonObject();
-items6.addProperty("product_code", "4912345678904");
-items6.addProperty("classification_code", "c123");
+items6.addProperty("from", "12:00");
+items6.addProperty("to", "23:59");
 JsonObject items7 = new JsonObject();
 items7.addProperty("from", "12:00");
 items7.addProperty("to", "23:59");
-JsonObject items8 = new JsonObject();
-items8.addProperty("from", "12:00");
-items8.addProperty("to", "23:59");
 JsonObject applicable_account_metadata = new JsonObject();
 applicable_account_metadata.addProperty("key", "sex");
 applicable_account_metadata.addProperty("value", "male");
@@ -165,49 +177,51 @@ JsonObject applicable_transaction_metadata = new JsonObject();
 applicable_transaction_metadata.addProperty("key", "rank");
 applicable_transaction_metadata.addProperty("value", "bronze");
 Request request = new CreateCampaign(
-    "bdPk0z0U5np6zSSSsJChBCfGVrTTzFEA3cEkuniAENmbJtM74yoK3yNaovdjb7urlPondGWEfVzKMwihh3UCJATPnnGfbSAjt8y1LpRX9w3aEMSDM7H6DKpMVCMs6AqPF1N4VGIihJYcZH1yqyLKdrb7VdvBferrdPPsgFTBp21GVpuNthlN8cTNxtClPPAh3ydu7juMa", // name: キャンペーン名
+    "XrkYNIOtHHG8yHnSu7dDAUDz3Ba7wXTCzgYCbLTAWi1ohaetMA7WNeaonbTVSEX134CEzJmLXodVipQoaS9jpxZmBe1IVqn6l0xvjbPmp4eCBlLWO5LUEEnWeZcSGLtIalNYra2M0CMIf3qWb7LuUMWb2crhAOjAg46Wxwepf8NCoyrEsYCM3co0m5f7Zf0Wz840Yp6krkF1YbRmwvx", // name: キャンペーン名
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",       // privateMoneyId: マネーID
-    "2020-05-27T16:30:33.000000Z",                // startsAt: キャンペーン開始日時
-    "2022-03-29T07:15:33.000000Z",                // endsAt: キャンペーン終了日時
-    4491,                                         // priority: キャンペーンの適用優先度
-    "external-transaction"                        // event: イベント種別
+    "2024-10-15T07:30:01.000000Z",                // startsAt: キャンペーン開始日時
+    "2024-07-22T00:21:01.000000Z",                // endsAt: キャンペーン終了日時
+    866,                                          // priority: キャンペーンの適用優先度
+    "topup"                                       // event: イベント種別
 )
         .bearPointShopId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // ポイント負担先店舗ID
-        .description("7kqGjaASQkqyw2Q45pim16jWY8Li2yJuAILC9WmiQzTAP0hsvYk94ECXfwyrT6FNWSeiPJDkaNGUUFy37fVBCxguWkgEaSRxikajDhky1e9MUM8ZY9eEBDTjFI18oRpgCoDiEOfsuO") // キャンペーンの説明文
+        .description("k854pQwTzmFQFV2uDFFIi8EFMWMycoOxYLCK5275yaFTfZztXuQw4RaWFmQq3HxE1cttSeGuAJyXtCyfPpoPjMTr8crob004vlXwUsth") // キャンペーンの説明文
         .status("disabled")                       // キャンペーン作成時の状態
-        .pointExpiresAt("2023-06-21T16:01:16.000000Z") // ポイント有効期限(絶対日時指定)
-        .pointExpiresInDays(5365)                 // ポイント有効期限(相対日数指定)
-        .setExclusive(false)                      // キャンペーンの重複設定
-        .subject("all")                           // ポイント付与の対象金額の種別
-        .amountBasedPointRules(new Object[]{items,items2,items3}) // 取引金額ベースのポイント付与ルール
-        .productBasedPointRules(new Object[]{items4,items5}) // 商品情報ベースのポイント付与ルール
-        .blacklistedProductRules(new Object[]{items6}) // 商品情報ベースのキャンペーンで除外対象にする商品リスト
-        .applicableDaysOfWeek(new Integer[]{0,0,5}) // キャンペーンを適用する曜日 (複数指定)
-        .applicableTimeRanges(new Object[]{items7,items8}) // キャンペーンを適用する時間帯 (複数指定)
+        .pointExpiresAt("2023-11-17T16:01:51.000000Z") // ポイント有効期限(絶対日時指定)
+        .pointExpiresInDays(3675)                 // ポイント有効期限(相対日数指定)
+        .setExclusive(true)                       // キャンペーンの重複設定
+        .subject("money")                         // ポイント付与の対象金額の種別
+        .amountBasedPointRules(new Object[]{items}) // 取引金額ベースのポイント付与ルール
+        .productBasedPointRules(new Object[]{items2}) // 商品情報ベースのポイント付与ルール
+        .blacklistedProductRules(new Object[]{items3,items4}) // 商品情報ベースのキャンペーンで除外対象にする商品リスト
+        .applicableDaysOfWeek(new Integer[]{3,0}) // キャンペーンを適用する曜日 (複数指定)
+        .applicableTimeRanges(new Object[]{items5,items6,items7}) // キャンペーンを適用する時間帯 (複数指定)
         .applicableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // キャンペーン適用対象となる店舗IDのリスト
-        .blacklistedShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // キャンペーン適用対象外となる店舗IDのリスト(ブラックリスト方式)
-        .minimumNumberOfProducts(3310)            // キャンペーンを適用する1会計内の商品個数の下限
-        .minimumNumberOfAmount(9962)              // キャンペーンを適用する1会計内の商品総額の下限
-        .minimumNumberForCombinationPurchase(1410) // 複数種類の商品を同時購入するときの商品種別数の下限
-        .existInEachProductGroups(false)          // 複数の商品グループにつき1種類以上の商品購入によって発火するキャンペーンの指定フラグ
-        .maxPointAmount(4219)                     // キャンペーンによって付与されるポイントの上限
-        .maxTotalPointAmount(3453)                // キャンペーンによって付与されるの1人当たりの累計ポイントの上限
+        .applicableShopLabelIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // キャンペーン適用対象となる店舗ラベルIDのリスト
+        .blacklistedShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // キャンペーン適用対象外となる店舗IDのリスト(ブラックリスト方式)
+        .minimumNumberOfProducts(6760)            // キャンペーンを適用する1会計内の商品個数の下限
+        .minimumNumberOfAmount(8249)              // キャンペーンを適用する1会計内の商品総額の下限
+        .minimumNumberForCombinationPurchase(5863) // 複数種類の商品を同時購入するときの商品種別数の下限
+        .existInEachProductGroups(true)           // 複数の商品グループにつき1種類以上の商品購入によって発火するキャンペーンの指定フラグ
+        .maxPointAmount(7025)                     // キャンペーンによって付与されるポイントの上限
+        .maxTotalPointAmount(3478)                // キャンペーンによって付与されるの1人当たりの累計ポイントの上限
         .destPrivateMoneyId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") // ポイント付与先となるマネーID
         .applicableAccountMetadata(applicable_account_metadata) // ウォレットに紐付くメタデータが特定の値を持つときにのみ発火するキャンペーンを登録します。
         .applicableTransactionMetadata(applicable_transaction_metadata) // 取引時に指定するメタデータが特定の値を持つときにのみ発火するキャンペーンを登録します。
-        .budgetCapsAmount(1859163538);            // キャンペーン予算上限
+        .budgetCapsAmount(250093691);             // キャンペーン予算上限
 
 ```
 
 
 
 ### Parameters
-**`name`** 
-  
-
+#### `name`
 キャンペーン名です(必須項目)。
 
 ポイント付与によってできるチャージ取引の説明文に転記されます。取引説明文はエンドユーザーからも確認できます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -216,10 +230,13 @@ Request request = new CreateCampaign(
 }
 ```
 
-**`privateMoneyId`** 
-  
+</details>
 
+#### `privateMoneyId`
 キャンペーン対象のマネーのIDです(必須項目)。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -228,13 +245,16 @@ Request request = new CreateCampaign(
 }
 ```
 
-**`startsAt`** 
-  
+</details>
 
+#### `startsAt`
 キャンペーン開始日時です(必須項目)。
 キャンペーン期間中のみポイントが付与されます。
 開始日時よりも終了日時が前のときはcampaign_invalid_periodエラー(422)になります。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -242,13 +262,16 @@ Request request = new CreateCampaign(
 }
 ```
 
-**`endsAt`** 
-  
+</details>
 
+#### `endsAt`
 キャンペーン終了日時です(必須項目)。
 キャンペーン期間中のみポイントが付与されます。
 開始日時よりも終了日時が前のときはcampaign_invalid_periodエラー(422)になります。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -256,13 +279,16 @@ Request request = new CreateCampaign(
 }
 ```
 
-**`priority`** 
-  
+</details>
 
+#### `priority`
 キャンペーンの適用優先度です。
 
 優先度が大きいものから順に適用判定されていきます。
 キャンペーン期間が重なっている同一の優先度のキャンペーンが存在するとcampaign_period_overlapsエラー(422)になります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -270,9 +296,9 @@ Request request = new CreateCampaign(
 }
 ```
 
-**`event`** 
-  
+</details>
 
+#### `event`
 キャンペーンのトリガーとなるイベントの種類を指定します(必須項目)。
 
 以下のいずれかを指定できます。
@@ -283,6 +309,9 @@ Request request = new CreateCampaign(
    エンドユーザーから店舗への送金取引(支払い)
 3. external-transaction
    ポケペイ外の取引(現金決済など)
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -295,11 +324,14 @@ Request request = new CreateCampaign(
 }
 ```
 
-**`bearPointShopId`** 
-  
+</details>
 
+#### `bearPointShopId`
 ポイントを負担する店舗のIDです。デフォルトではマネー発行体の本店が設定されます。
 ポイント負担先店舗は後から更新することはできません。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -308,10 +340,13 @@ Request request = new CreateCampaign(
 }
 ```
 
-**`description`** 
-  
+</details>
 
+#### `description`
 キャンペーンの内容を記載します。管理画面などでキャンペーンを管理するための説明文になります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -320,9 +355,9 @@ Request request = new CreateCampaign(
 }
 ```
 
-**`status`** 
-  
+</details>
 
+#### `status`
 キャンペーン作成時の状態を指定します。デフォルトではenabledです。
 
 以下のいずれかを指定できます。
@@ -331,6 +366,9 @@ Request request = new CreateCampaign(
    有効
 2. disabled
    無効
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -342,11 +380,14 @@ Request request = new CreateCampaign(
 }
 ```
 
-**`pointExpiresAt`** 
-  
+</details>
 
+#### `pointExpiresAt`
 キャンペーンによって付与されるポイントの有効期限を絶対日時で指定します。
 省略した場合はマネーに設定された有効期限と同じものがポイントの有効期限となります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -355,11 +396,14 @@ Request request = new CreateCampaign(
 }
 ```
 
-**`pointExpiresInDays`** 
-  
+</details>
 
+#### `pointExpiresInDays`
 キャンペーンによって付与されるポイントの有効期限を相対日数で指定します。
 省略した場合はマネーに設定された有効期限と同じものがポイントの有効期限となります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -368,13 +412,16 @@ Request request = new CreateCampaign(
 }
 ```
 
-**`setExclusive`** 
-  
+</details>
 
+#### `setExclusive`
 キャンペーンの重ね掛けを行うかどうかのフラグです。
 
 これにtrueを指定すると他のキャンペーンと同時適用されません。デフォルト値はtrueです。
 falseを指定すると次の優先度の重ね掛け可能なキャンペーンの適用判定に進みます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -382,9 +429,9 @@ falseを指定すると次の優先度の重ね掛け可能なキャンペーン
 }
 ```
 
-**`subject`** 
-  
+</details>
 
+#### `subject`
 ポイント付与額を計算する対象となる金額の種類を指定します。デフォルト値はallです。
 eventとしてexternal-transactionを指定した場合はポイントとマネーの区別がないためsubjectの指定に関わらず常にallとなります。
 
@@ -397,6 +444,9 @@ moneyを指定すると決済額の中で「マネー」を使って支払った
 all を指定すると決済額全体を対象にします (「ポイント」での取引額を含む)
 注意: event を topup にしたときはポイントの付与に対しても適用されます
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -407,9 +457,9 @@ all を指定すると決済額全体を対象にします (「ポイント」�
 }
 ```
 
-**`amountBasedPointRules`** 
-  
+</details>
 
+#### `amountBasedPointRules`
 金額をベースとしてポイント付与を行うルールを指定します。
 amount_based_point_rules と product_based_point_rules はどちらか一方しか指定できません。
 各ルールは一つのみ適用され、条件に重複があった場合は先に記載されたものが優先されます。
@@ -433,6 +483,9 @@ amount_based_point_rules と product_based_point_rules はどちらか一方し�
 ]
 ```
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -442,9 +495,9 @@ amount_based_point_rules と product_based_point_rules はどちらか一方し�
 }
 ```
 
-**`productBasedPointRules`** 
-  
+</details>
 
+#### `productBasedPointRules`
 商品情報をベースとしてポイント付与を行うルールを指定します。
 ルールは商品ごとに設定可能で、ルールの配列として指定します。
 amount_based_point_rules と product_based_point_rules はどちらか一方しか指定できません。
@@ -491,6 +544,9 @@ event が payment か external-transaction の時のみ有効です。
 ]
 ```
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -500,13 +556,16 @@ event が payment か external-transaction の時のみ有効です。
 }
 ```
 
-**`blacklistedProductRules`** 
-  
+</details>
 
+#### `blacklistedProductRules`
 商品情報をベースとしてポイント付与を行う際に、事前に除外対象とする商品リストを指定します。
 除外対象の商品コード、または分類コードのパターンの配列として指定します。
 取引時には、まずここで指定した除外対象商品が除かれ、残った商品に対して `product_based_point_rules` のルール群が適用されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -516,12 +575,15 @@ event が payment か external-transaction の時のみ有効です。
 }
 ```
 
-**`applicableDaysOfWeek`** 
-  
+</details>
 
+#### `applicableDaysOfWeek`
 キャンペーンを適用する曜日を指定します (複数指定)。
 曜日は整数で表します。月曜を 0 とし、日曜を 6 とします。
 指定しなかった場合は全日を対象にします (曜日による適用条件なし)
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -534,12 +596,15 @@ event が payment か external-transaction の時のみ有効です。
 }
 ```
 
-**`applicableTimeRanges`** 
-  
+</details>
 
+#### `applicableTimeRanges`
 キャンペーンを適用する時間帯を指定します (複数指定可)。
 時間帯はfromとtoからなるオブジェクトで指定します。
 fromとtoは両方必要です。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -550,11 +615,14 @@ fromとtoは両方必要です。
 }
 ```
 
-**`applicableShopIds`** 
-  
+</details>
 
+#### `applicableShopIds`
 キャンペーンを適用する店舗IDを指定します (複数指定)。
 指定しなかった場合は全店舗が対象になります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -566,13 +634,40 @@ fromとtoは両方必要です。
 }
 ```
 
-**`blacklistedShopIds`** 
-  
+</details>
 
+#### `applicableShopLabelIds`
+キャンペーン適用対象店舗をラベル (user_tag_group_item) で指定します。
+指定されたラベルが付与されている店舗が対象になります。
+判定はラベルグループ内が OR、グループ間が AND です。
+店舗のラベル付与状況を随時参照するため、登録後に店舗へラベルが
+付与された場合もキャンペーンを更新せずに対象となります。
+applicable_shop_ids / blacklisted_shop_ids とは同時に指定できません。
+null または空配列を指定するとラベル指定を解除します。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "array",
+  "items": {
+    "type": "string",
+    "format": "uuid"
+  }
+}
+```
+
+</details>
+
+#### `blacklistedShopIds`
 キャンペーンの適用対象外となる店舗IDをブラックリスト方式で指定します (複数指定可)。
 このパラメータが指定されている場合、blacklisted_shop_idsに含まれていない店舗全てがキャンペーンの適用対象になります。
 blacklisted_shop_idsとapplicable_shop_idsは同時には指定できません。ホワイトリスト方式を使うときはapplicable_shop_idsを指定してください。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -583,11 +678,14 @@ blacklisted_shop_idsとapplicable_shop_idsは同時には指定できません�
 }
 ```
 
-**`minimumNumberOfProducts`** 
-  
+</details>
 
+#### `minimumNumberOfProducts`
 このパラメータを指定すると、取引時の1会計内のルールに適合する商品個数がminimum_number_of_productsを超えたときにのみキャンペーンが発火するようになります。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -595,11 +693,14 @@ blacklisted_shop_idsとapplicable_shop_idsは同時には指定できません�
 }
 ```
 
-**`minimumNumberOfAmount`** 
-  
+</details>
 
+#### `minimumNumberOfAmount`
 このパラメータを指定すると、取引時の1会計内のルールに適合する商品総額がminimum_number_of_amountを超えたときにのみキャンペーンが発火するようになります。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -607,9 +708,9 @@ blacklisted_shop_idsとapplicable_shop_idsは同時には指定できません�
 }
 ```
 
-**`minimumNumberForCombinationPurchase`** 
-  
+</details>
 
+#### `minimumNumberForCombinationPurchase`
 複数種別の商品を同時購入したとき、同時購入キャンペーンの対象となる商品種別数の下限です。デフォルトでは未指定で、指定する場合は1以上の整数を指定します。
 
 このパラメータを指定するときは product_based_point_rules で商品毎のルールが指定されている必要があります。
@@ -682,6 +783,9 @@ blacklisted_shop_idsとapplicable_shop_idsは同時には指定できません�
 }
 ```
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -689,9 +793,9 @@ blacklisted_shop_idsとapplicable_shop_idsは同時には指定できません�
 }
 ```
 
-**`existInEachProductGroups`** 
-  
+</details>
 
+#### `existInEachProductGroups`
 複数の商品グループの各グループにつき1種類以上の商品が購入されることによって発火するキャンペーンであるときに真を指定します。デフォルトは偽です。
 
 このパラメータを指定するときは product_based_point_rules で商品毎のルールが指定され、さらにその中でgroup_idが指定されている必要があります。group_idは正の整数です。
@@ -772,18 +876,24 @@ exist_in_each_product_groupsが指定されているにも関わらず商品毎�
 
 このキャンペーンが設定された状態で、商品a1、b1が同時に購入された場合、各商品に対する個別のルールが適用された上での総和がポイント付与値になりますが、付与値の上限が100ポイントになります。つまり100 + 200=300と計算されますが上限額の100ポイントが実際の付与値になります。商品a1、a2、 b1、b2が同時に購入された場合は100 + 100 + 200 + 200=600ですが上限額の100がポイント付与値になります。 商品a1、a2が同時に購入された場合は全商品グループから1種以上購入されるという条件を満たしていないためポイントは付与されません。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "boolean"
 }
 ```
 
-**`maxPointAmount`** 
-  
+</details>
 
+#### `maxPointAmount`
 キャンペーンによって付与されるポイントの上限を指定します。デフォルトは未指定です。
 
 このパラメータが指定されている場合、amount_based_point_rules や product_based_point_rules によって計算されるポイント付与値がmax_point_amountを越えている場合、max_point_amountの値がポイント付与値となり、越えていない場合はその値がポイント付与値となります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -792,14 +902,17 @@ exist_in_each_product_groupsが指定されているにも関わらず商品毎�
 }
 ```
 
-**`maxTotalPointAmount`** 
-  
+</details>
 
+#### `maxTotalPointAmount`
 キャンペーンによって付与される1人当たりの累計ポイント数の上限を指定します。デフォルトは未指定です。
 
 このパラメータが指定されている場合、各ユーザに対してそのキャンペーンによって過去付与されたポイントの累積値が記録されるようになります。
 累積ポイント数がmax_total_point_amountを超えない限りにおいてキャンペーンで算出されたポイントが付与されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -807,9 +920,9 @@ exist_in_each_product_groupsが指定されているにも関わらず商品毎�
 }
 ```
 
-**`destPrivateMoneyId`** 
-  
+</details>
 
+#### `destPrivateMoneyId`
 キャンペーンを駆動するイベントのマネーとは「別のマネー」に対してポイントを付けたいときに、そのマネーIDを指定します。
 
 ポイント付与先のマネーはキャンペーンを駆動するイベントのマネーと同一発行体が発行しているものに限ります。その他のマネーIDが指定された場合は private_money_not_found (422) が返ります。
@@ -820,6 +933,9 @@ exist_in_each_product_groupsが指定されているにも関わらず商品毎�
 
 別マネーに対するポイント付与は別のtransactionとなります。 RefundTransaction で元のイベントをキャンセルしたときはポイント付与のtransactionもキャンセルされ、逆にポイント付与のtransactionをキャンセルしたときは連動して元のイベントがキャンセルされます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -827,9 +943,9 @@ exist_in_each_product_groupsが指定されているにも関わらず商品毎�
 }
 ```
 
-**`applicableAccountMetadata`** 
-  
+</details>
 
+#### `applicableAccountMetadata`
 ウォレットに紐付くメタデータが特定の値を持つときにのみ発火するキャンペーンを登録します。
 メタデータの属性名 key とメタデータの値 value の組をオブジェクトとして指定します。
 ウォレットのメタデータはCreateUserAccountやUpdateCustomerAccountで登録できます。
@@ -856,15 +972,18 @@ exist_in_each_product_groupsが指定されているにも関わらず商品毎�
 }
 ```
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "object"
 }
 ```
 
-**`applicableTransactionMetadata`** 
-  
+</details>
 
+#### `applicableTransactionMetadata`
 取引時に指定するメタデータが特定の値を持つときにのみ発火するキャンペーンを登録します。
 メタデータの属性名 key とメタデータの値 value の組をオブジェクトとして指定します。
 取引のメタデータはCreatePaymentTransactionやCreateExternalTransactionで登録できます。
@@ -891,19 +1010,25 @@ exist_in_each_product_groupsが指定されているにも関わらず商品毎�
 }
 ```
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "object"
 }
 ```
 
-**`budgetCapsAmount`** 
-  
+</details>
 
+#### `budgetCapsAmount`
 キャンペーンの予算上限を指定します。デフォルトは未指定です。
 
 このパラメータが指定されている場合、このキャンペーンの適用により付与されたポイント全体を定期的に集計し、その合計が上限を越えていた場合にはキャンペーンを無効にします。
 一度この値を越えて無効となったキャンペーンを再度有効にすることは出来ません。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -912,6 +1037,8 @@ exist_in_each_product_groupsが指定されているにも関わらず商品毎�
   "maximum": 10000000000
 }
 ```
+
+</details>
 
 
 
@@ -926,6 +1053,7 @@ exist_in_each_product_groupsが指定されているにも関わらず商品毎�
 |403|unpermitted_admin_user|この管理ユーザには権限がありません|Admin does not have permission|
 |422|campaign_overlaps|同期間に開催されるキャンペーン間で優先度が重複してます|The campaign period overlaps under the same private-money / type / priority|
 |422|shop_account_not_found|店舗アカウントが見つかりません|The shop account is not found|
+|422|campaign_invalid_user_tag_group_item|指定された店舗ラベルが不正です|The specified shop label is invalid|
 |422|campaign_period_overlaps|同期間に開催されるキャンペーン間で優先度が重複してます|The campaign period overlaps under the same private-money / type / priority|
 |422|campaign_invalid_period||Invalid campaign period starts_at later than ends_at|
 |422|shop_user_not_found|店舗が見つかりません|The shop user is not found|
@@ -952,12 +1080,13 @@ Request request = new GetCampaign(
 
 
 ### Parameters
-**`campaignId`** 
-  
-
+#### `campaignId`
 キャンペーンIDです。
 
 指定したIDのキャンペーンを取得します。存在しないIDを指定した場合は404エラー(NotFound)が返ります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -965,6 +1094,8 @@ Request request = new GetCampaign(
   "format": "uuid"
 }
 ```
+
+</details>
 
 
 
@@ -980,7 +1111,6 @@ Request request = new GetCampaign(
 <a name="update-campaign"></a>
 ## UpdateCampaign: ポイント付与キャンペーンを更新する
 ポイント付与キャンペーンを更新します。
-
 
 ```JAVA
 JsonObject items = new JsonObject();
@@ -1010,8 +1140,8 @@ JsonObject items5 = new JsonObject();
 items5.addProperty("product_code", "4912345678904");
 items5.addProperty("classification_code", "c123");
 JsonObject items6 = new JsonObject();
-items6.addProperty("from", "12:00");
-items6.addProperty("to", "23:59");
+items6.addProperty("product_code", "4912345678904");
+items6.addProperty("classification_code", "c123");
 JsonObject items7 = new JsonObject();
 items7.addProperty("from", "12:00");
 items7.addProperty("to", "23:59");
@@ -1027,45 +1157,47 @@ applicable_transaction_metadata.addProperty("value", "bronze");
 Request request = new UpdateCampaign(
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"        // campaignId: キャンペーンID
 )
-        .name("tzTLcjSeNyveotr1SbLY9f9RM3h2SXQaAm6iMSYVoPQWfV62UhTGJS1L9KLOsA2Q2") // キャンペーン名
-        .startsAt("2022-07-19T10:00:07.000000Z")  // キャンペーン開始日時
-        .endsAt("2024-05-22T15:43:46.000000Z")    // キャンペーン終了日時
-        .priority(7347)                           // キャンペーンの適用優先度
-        .event("payment")                         // イベント種別
-        .description("98ipOldTUQCXPcZtLDZ6t1d7NhS3tIbiaQ9UqJHQZFkEmVia7WMZwoONY9mYcjUD3BWfN3hpObBbd0WPCuqh90wnUEefdvvGn56xgqcINC0MaOVTzOYUS4YiFzadS1dG4VhCAXdvL") // キャンペーンの説明文
+        .name("B6W0dkeo5uEqZaCFDcbEj9ISDmaB2afkehiCZS1KVArQKeygi1aTs9dwArWQhOtANqAqTESOlpuGW5FhrbDgJ77XFXl4NKb3zycQebaty6OYZVBO6i7OrH9y83") // キャンペーン名
+        .startsAt("2024-10-05T21:06:25.000000Z")  // キャンペーン開始日時
+        .endsAt("2022-01-26T21:07:50.000000Z")    // キャンペーン終了日時
+        .priority(6488)                           // キャンペーンの適用優先度
+        .event("topup")                           // イベント種別
+        .description("F2opi")                     // キャンペーンの説明文
         .status("disabled")                       // キャンペーン作成時の状態
-        .pointExpiresAt("2023-11-21T12:04:13.000000Z") // ポイント有効期限(絶対日時指定)
-        .pointExpiresInDays(740)                  // ポイント有効期限(相対日数指定)
+        .pointExpiresAt("2026-09-14T13:49:10.000000Z") // ポイント有効期限(絶対日時指定)
+        .pointExpiresInDays(9750)                 // ポイント有効期限(相対日数指定)
         .setExclusive(true)                       // キャンペーンの重複設定
         .subject("all")                           // ポイント付与の対象金額の種別
         .amountBasedPointRules(new Object[]{items}) // 取引金額ベースのポイント付与ルール
         .productBasedPointRules(new Object[]{items2,items3,items4}) // 商品情報ベースのポイント付与ルール
-        .blacklistedProductRules(new Object[]{items5}) // 商品情報ベースのキャンペーンで除外対象にする商品リスト
-        .applicableDaysOfWeek(new Integer[]{1,5}) // キャンペーンを適用する曜日 (複数指定)
-        .applicableTimeRanges(new Object[]{items6,items7,items8}) // キャンペーンを適用する時間帯 (複数指定)
-        .applicableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // キャンペーン適用対象となる店舗IDのリスト
-        .blacklistedShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // キャンペーン適用対象外となる店舗IDのリスト(ブラックリスト方式)
-        .minimumNumberOfProducts(7318)            // キャンペーンを適用する1会計内の商品個数の下限
-        .minimumNumberOfAmount(9052)              // キャンペーンを適用する1会計内の商品総額の下限
-        .minimumNumberForCombinationPurchase(6125) // 複数種類の商品を同時購入するときの商品種別数の下限
-        .existInEachProductGroups(false)          // 複数の商品グループにつき1種類以上の商品購入によって発火するキャンペーンの指定フラグ
-        .maxPointAmount(5449)                     // キャンペーンによって付与されるポイントの上限
-        .maxTotalPointAmount(1307)                // キャンペーンによって付与されるの1人当たりの累計ポイントの上限
+        .blacklistedProductRules(new Object[]{items5,items6}) // 商品情報ベースのキャンペーンで除外対象にする商品リスト
+        .applicableDaysOfWeek(new Integer[]{3})   // キャンペーンを適用する曜日 (複数指定)
+        .applicableTimeRanges(new Object[]{items7,items8}) // キャンペーンを適用する時間帯 (複数指定)
+        .applicableShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // キャンペーン適用対象となる店舗IDのリスト
+        .applicableShopLabelIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // キャンペーン適用対象となる店舗ラベルIDのリスト
+        .blacklistedShopIds(new String[]{"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}) // キャンペーン適用対象外となる店舗IDのリスト(ブラックリスト方式)
+        .minimumNumberOfProducts(1027)            // キャンペーンを適用する1会計内の商品個数の下限
+        .minimumNumberOfAmount(9676)              // キャンペーンを適用する1会計内の商品総額の下限
+        .minimumNumberForCombinationPurchase(3396) // 複数種類の商品を同時購入するときの商品種別数の下限
+        .existInEachProductGroups(true)           // 複数の商品グループにつき1種類以上の商品購入によって発火するキャンペーンの指定フラグ
+        .maxPointAmount(5810)                     // キャンペーンによって付与されるポイントの上限
+        .maxTotalPointAmount(6925)                // キャンペーンによって付与されるの1人当たりの累計ポイントの上限
         .applicableAccountMetadata(applicable_account_metadata) // ウォレットに紐付くメタデータが特定の値を持つときにのみ発火するキャンペーンを登録します。
         .applicableTransactionMetadata(applicable_transaction_metadata) // 取引時に指定するメタデータが特定の値を持つときにのみ発火するキャンペーンを登録します。
-        .budgetCapsAmount(456514657);             // キャンペーン予算上限
+        .budgetCapsAmount(569748188);             // キャンペーン予算上限
 
 ```
 
 
 
 ### Parameters
-**`campaignId`** 
-  
-
+#### `campaignId`
 キャンペーンIDです。
 
 指定したIDのキャンペーンを更新します。存在しないIDを指定した場合は404エラー(NotFound)が返ります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1074,12 +1206,15 @@ Request request = new UpdateCampaign(
 }
 ```
 
-**`name`** 
-  
+</details>
 
+#### `name`
 キャンペーン名です。
 
 ポイント付与によってできるチャージ取引の説明文に転記されます。取引説明文はエンドユーザーからも確認できます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1088,13 +1223,16 @@ Request request = new UpdateCampaign(
 }
 ```
 
-**`startsAt`** 
-  
+</details>
 
+#### `startsAt`
 キャンペーン開始日時です。
 キャンペーン期間中のみポイントが付与されます。
 開始日時よりも終了日時が前のときはcampaign_invalid_periodエラー(422)になります。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -1102,13 +1240,16 @@ Request request = new UpdateCampaign(
 }
 ```
 
-**`endsAt`** 
-  
+</details>
 
+#### `endsAt`
 キャンペーン終了日時です。
 キャンペーン期間中のみポイントが付与されます。
 開始日時よりも終了日時が前のときはcampaign_invalid_periodエラー(422)になります。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -1116,13 +1257,16 @@ Request request = new UpdateCampaign(
 }
 ```
 
-**`priority`** 
-  
+</details>
 
+#### `priority`
 キャンペーンの適用優先度です。
 
 優先度が大きいものから順に適用判定されていきます。
 キャンペーン期間が重なっている同一の優先度のキャンペーンが存在するとcampaign_period_overlapsエラー(422)になります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1130,9 +1274,9 @@ Request request = new UpdateCampaign(
 }
 ```
 
-**`event`** 
-  
+</details>
 
+#### `event`
 キャンペーンのトリガーとなるイベントの種類を指定します。
 
 以下のいずれかを指定できます。
@@ -1143,6 +1287,9 @@ Request request = new UpdateCampaign(
    エンドユーザーから店舗への送金取引(支払い)
 3. external-transaction
    ポケペイ外の取引(現金決済など)
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1155,10 +1302,13 @@ Request request = new UpdateCampaign(
 }
 ```
 
-**`description`** 
-  
+</details>
 
+#### `description`
 キャンペーンの内容を記載します。管理画面などでキャンペーンを管理するための説明文になります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1167,9 +1317,9 @@ Request request = new UpdateCampaign(
 }
 ```
 
-**`status`** 
-  
+</details>
 
+#### `status`
 キャンペーン作成時の状態を指定します。デフォルトではenabledです。
 
 以下のいずれかを指定できます。
@@ -1178,6 +1328,9 @@ Request request = new UpdateCampaign(
    有効
 2. disabled
    無効
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1189,11 +1342,14 @@ Request request = new UpdateCampaign(
 }
 ```
 
-**`pointExpiresAt`** 
-  
+</details>
 
+#### `pointExpiresAt`
 キャンペーンによって付与されるポイントの有効期限を絶対日時で指定します。
 省略した場合はマネーに設定された有効期限と同じものがポイントの有効期限となります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1202,11 +1358,14 @@ Request request = new UpdateCampaign(
 }
 ```
 
-**`pointExpiresInDays`** 
-  
+</details>
 
+#### `pointExpiresInDays`
 キャンペーンによって付与されるポイントの有効期限を相対日数で指定します。
 省略した場合はマネーに設定された有効期限と同じものがポイントの有効期限となります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1215,13 +1374,16 @@ Request request = new UpdateCampaign(
 }
 ```
 
-**`setExclusive`** 
-  
+</details>
 
+#### `setExclusive`
 キャンペーンの重ね掛けを行うかどうかのフラグです。
 
 これにtrueを指定すると他のキャンペーンと同時適用されません。デフォルト値はtrueです。
 falseを指定すると次の優先度の重ね掛け可能なキャンペーンの適用判定に進みます。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1229,9 +1391,9 @@ falseを指定すると次の優先度の重ね掛け可能なキャンペーン
 }
 ```
 
-**`subject`** 
-  
+</details>
 
+#### `subject`
 ポイント付与額を計算する対象となる金額の種類を指定します。デフォルト値はallです。
 eventとしてexternal-transactionを指定した場合はポイントとマネーの区別がないためsubjectの指定に関わらず常にallとなります。
 
@@ -1244,6 +1406,9 @@ moneyを指定すると決済額の中で「マネー」を使って支払った
 all を指定すると決済額全体を対象にします (「ポイント」での取引額を含む)
 注意: event を topup にしたときはポイントの付与に対しても適用されます
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "string",
@@ -1254,9 +1419,9 @@ all を指定すると決済額全体を対象にします (「ポイント」�
 }
 ```
 
-**`amountBasedPointRules`** 
-  
+</details>
 
+#### `amountBasedPointRules`
 金額をベースとしてポイント付与を行うルールを指定します。
 amount_based_point_rules と product_based_point_rules はどちらか一方しか指定できません。
 各ルールは一つのみ適用され、条件に重複があった場合は先に記載されたものが優先されます。
@@ -1280,6 +1445,9 @@ amount_based_point_rules と product_based_point_rules はどちらか一方し�
 ]
 ```
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -1289,9 +1457,9 @@ amount_based_point_rules と product_based_point_rules はどちらか一方し�
 }
 ```
 
-**`productBasedPointRules`** 
-  
+</details>
 
+#### `productBasedPointRules`
 商品情報をベースとしてポイント付与を行うルールを指定します。
 ルールは商品ごとに設定可能で、ルールの配列として指定します。
 amount_based_point_rules と product_based_point_rules はどちらか一方しか指定できません。
@@ -1338,6 +1506,9 @@ event が payment か external-transaction の時のみ有効です。
 ]
 ```
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -1347,13 +1518,16 @@ event が payment か external-transaction の時のみ有効です。
 }
 ```
 
-**`blacklistedProductRules`** 
-  
+</details>
 
+#### `blacklistedProductRules`
 商品情報をベースとしてポイント付与を行う際に、事前に除外対象とする商品リストを指定します。
 除外対象の商品コード、または分類コードのパターンの配列として指定します。
 取引時には、まずここで指定した除外対象商品が除かれ、残った商品に対して `product_based_point_rules` のルール群が適用されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -1363,12 +1537,15 @@ event が payment か external-transaction の時のみ有効です。
 }
 ```
 
-**`applicableDaysOfWeek`** 
-  
+</details>
 
+#### `applicableDaysOfWeek`
 キャンペーンを適用する曜日を指定します (複数指定)。
 曜日は整数で表します。月曜を 0 とし、日曜を 6 とします。
 指定しなかった場合は全日を対象にします (曜日による適用条件なし)
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1381,12 +1558,15 @@ event が payment か external-transaction の時のみ有効です。
 }
 ```
 
-**`applicableTimeRanges`** 
-  
+</details>
 
+#### `applicableTimeRanges`
 キャンペーンを適用する時間帯を指定します (複数指定可)。
 時間帯はfromとtoからなるオブジェクトで指定します。
 fromとtoは両方必要です。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1397,11 +1577,14 @@ fromとtoは両方必要です。
 }
 ```
 
-**`applicableShopIds`** 
-  
+</details>
 
+#### `applicableShopIds`
 キャンペーンを適用する店舗IDを指定します (複数指定)。
 指定しなかった場合は全店舗が対象になります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1413,13 +1596,40 @@ fromとtoは両方必要です。
 }
 ```
 
-**`blacklistedShopIds`** 
-  
+</details>
 
+#### `applicableShopLabelIds`
+キャンペーン適用対象店舗をラベル (user_tag_group_item) で指定します。
+判定はラベルグループ内が OR、グループ間が AND です。
+未指定の場合は現在の指定を引き継ぎます。
+null または空配列を指定するとラベル指定を解除します。
+applicable_shop_ids / blacklisted_shop_ids とは同時に指定できません。
+排他判定には保存済みの値も含まれるため、店舗指定からラベル指定へ
+切り替えるときは applicable_shop_ids も null にして同時に送ってください。
+
+<details>
+<summary>スキーマ</summary>
+
+```json
+{
+  "type": "array",
+  "items": {
+    "type": "string",
+    "format": "uuid"
+  }
+}
+```
+
+</details>
+
+#### `blacklistedShopIds`
 キャンペーンの適用対象外となる店舗IDをブラックリスト方式で指定します (複数指定可)。
 このパラメータが指定されている場合、blacklisted_shop_idsに含まれていない店舗全てがキャンペーンの適用対象になります。
 blacklisted_shop_idsとapplicable_shop_idsは同時には指定できません。ホワイトリスト方式を使うときはapplicable_shop_idsを指定してください。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "array",
@@ -1430,11 +1640,14 @@ blacklisted_shop_idsとapplicable_shop_idsは同時には指定できません�
 }
 ```
 
-**`minimumNumberOfProducts`** 
-  
+</details>
 
+#### `minimumNumberOfProducts`
 このパラメータを指定すると、取引時の1会計内のルールに適合する商品個数がminimum_number_of_productsを超えたときにのみキャンペーンが発火するようになります。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -1442,11 +1655,14 @@ blacklisted_shop_idsとapplicable_shop_idsは同時には指定できません�
 }
 ```
 
-**`minimumNumberOfAmount`** 
-  
+</details>
 
+#### `minimumNumberOfAmount`
 このパラメータを指定すると、取引時の1会計内のルールに適合する商品総額がminimum_number_of_amountを超えたときにのみキャンペーンが発火するようになります。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -1454,9 +1670,9 @@ blacklisted_shop_idsとapplicable_shop_idsは同時には指定できません�
 }
 ```
 
-**`minimumNumberForCombinationPurchase`** 
-  
+</details>
 
+#### `minimumNumberForCombinationPurchase`
 複数種別の商品を同時購入したとき、同時購入キャンペーンの対象となる商品種別数の下限です。
 
 このパラメータを指定するときは product_based_point_rules で商品毎のルールが指定されている必要があります。
@@ -1529,6 +1745,9 @@ blacklisted_shop_idsとapplicable_shop_idsは同時には指定できません�
 }
 ```
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -1536,9 +1755,9 @@ blacklisted_shop_idsとapplicable_shop_idsは同時には指定できません�
 }
 ```
 
-**`existInEachProductGroups`** 
-  
+</details>
 
+#### `existInEachProductGroups`
 複数の商品グループの各グループにつき1種類以上の商品が購入されることによって発火するキャンペーンであるときに真を指定します。デフォルトは偽です。
 
 このパラメータを指定するときは product_based_point_rules で商品毎のルールが指定され、さらにその中でgroup_idが指定されている必要があります。group_idは正の整数です。
@@ -1619,18 +1838,24 @@ exist_in_each_product_groupsが指定されているにも関わらず商品毎�
 
 このキャンペーンが設定された状態で、商品a1、b1が同時に購入された場合、各商品に対する個別のルールが適用された上での総和がポイント付与値になりますが、付与値の上限が100ポイントになります。つまり100 + 200=300と計算されますが上限額の100ポイントが実際の付与値になります。商品a1、a2、 b1、b2が同時に購入された場合は100 + 100 + 200 + 200=600ですが上限額の100がポイント付与値になります。 商品a1、a2が同時に購入された場合は全商品グループから1種以上購入されるという条件を満たしていないためポイントは付与されません。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "boolean"
 }
 ```
 
-**`maxPointAmount`** 
-  
+</details>
 
+#### `maxPointAmount`
 キャンペーンによって付与される1取引当たりのポイント数の上限を指定します。デフォルトは未指定です。
 
 このパラメータが指定されている場合、amount_based_point_rules や product_based_point_rules によって計算されるポイント付与値がmax_point_amountを越えている場合、max_point_amountの値がポイント付与値となり、越えていない場合はその値がポイント付与値となります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1639,14 +1864,17 @@ exist_in_each_product_groupsが指定されているにも関わらず商品毎�
 }
 ```
 
-**`maxTotalPointAmount`** 
-  
+</details>
 
+#### `maxTotalPointAmount`
 キャンペーンによって付与される1人当たりの累計ポイント数の上限を指定します。デフォルトは未指定です。
 
 このパラメータが指定されている場合、各ユーザに対してそのキャンペーンによって過去付与されたポイントの累積値が記録されるようになります。
 累積ポイント数がmax_total_point_amountを超えない限りにおいてキャンペーンで算出されたポイントが付与されます。
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "integer",
@@ -1654,9 +1882,9 @@ exist_in_each_product_groupsが指定されているにも関わらず商品毎�
 }
 ```
 
-**`applicableAccountMetadata`** 
-  
+</details>
 
+#### `applicableAccountMetadata`
 ウォレットに紐付くメタデータが特定の値を持つときにのみ発火するキャンペーンを登録します。
 メタデータの属性名 key とメタデータの値 value の組をオブジェクトとして指定します。
 ウォレットのメタデータはCreateUserAccountやUpdateCustomerAccountで登録できます。
@@ -1683,15 +1911,18 @@ exist_in_each_product_groupsが指定されているにも関わらず商品毎�
 }
 ```
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "object"
 }
 ```
 
-**`applicableTransactionMetadata`** 
-  
+</details>
 
+#### `applicableTransactionMetadata`
 取引時に指定するメタデータが特定の値を持つときにのみ発火するキャンペーンを登録します。
 メタデータの属性名 key とメタデータの値 value の組をオブジェクトとして指定します。
 取引のメタデータはCreatePaymentTransactionやCreateExternalTransactionで登録できます。
@@ -1718,21 +1949,27 @@ exist_in_each_product_groupsが指定されているにも関わらず商品毎�
 }
 ```
 
+<details>
+<summary>スキーマ</summary>
+
 ```json
 {
   "type": "object"
 }
 ```
 
-**`budgetCapsAmount`** 
-  
+</details>
 
+#### `budgetCapsAmount`
 キャンペーンの予算上限を指定します。
 
 キャンペーン予算上限が設定されておらずこのパラメータに数値が指定されている場合、このキャンペーンの適用により付与されたポイント全体を定期的に集計し、その合計が上限を越えていた場合にはキャンペーンを無効にします。
 一度この値を越えて無効となったキャンペーンを再度有効にすることは出来ません。
 キャンペーン予算上限が設定されておらずこのパラメータにnullが指定されている場合、何も発生しない。
 キャンペーン予算上限が設定されておりこのパラメータにnullが指定された場合、キャンペーン予算上限は止まります。
+
+<details>
+<summary>スキーマ</summary>
 
 ```json
 {
@@ -1741,6 +1978,8 @@ exist_in_each_product_groupsが指定されているにも関わらず商品毎�
   "maximum": 10000000000
 }
 ```
+
+</details>
 
 
 
