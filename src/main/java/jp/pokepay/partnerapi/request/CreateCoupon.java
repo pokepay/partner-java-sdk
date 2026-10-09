@@ -27,6 +27,7 @@ public class CreateCoupon extends Request {
     private Boolean isShopSpecified;
     private String[] availableShopIds;
     private String storageId;
+    private Integer numRecipientsCap;
 
     public CreateCoupon(String privateMoneyId, String name, String startsAt, String endsAt, String issuedShopId) {
         this.privateMoneyId = privateMoneyId;
@@ -111,6 +112,11 @@ public class CreateCoupon extends Request {
         return this;
     }
 
+    public CreateCoupon numRecipientsCap(Integer numRecipientsCap) {
+        this.numRecipientsCap = numRecipientsCap;
+        return this;
+    }
+
     @Override
     public Method method() {
         return Method.POST;
@@ -149,6 +155,7 @@ public class CreateCoupon extends Request {
         if (isShopSpecified != null) { object.add("is_shop_specified", context.serialize(this.isShopSpecified)); }
         if (availableShopIds != null) { object.add("available_shop_ids", context.serialize(this.availableShopIds)); }
         if (storageId != null) { object.add("storage_id", context.serialize(this.storageId)); }
+        if (numRecipientsCap != null) { object.add("num_recipients_cap", context.serialize(this.numRecipientsCap)); }
         return object;
     }
 }

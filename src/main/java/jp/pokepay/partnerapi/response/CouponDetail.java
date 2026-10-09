@@ -24,6 +24,8 @@ public class CouponDetail extends Response {
     private String couponImage;
     private User[] availableShops;
     private PrivateMoney privateMoney;
+    private Integer numRecipientsCap;
+    private Integer numRecipients;
 
     public String getId() {
         return id;
@@ -111,6 +113,14 @@ public class CouponDetail extends Response {
 
     public PrivateMoney getPrivateMoney() {
         return privateMoney;
+    }
+
+    public Integer getNumRecipientsCap() {
+        return numRecipientsCap;
+    }
+
+    public Integer getNumRecipients() {
+        return numRecipients;
     }
 }
 

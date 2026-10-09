@@ -12,9 +12,9 @@ public class CreateCashtrayTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateCashtray(
-            "044202f7-3525-4117-8dd7-0ded95240fda",
-            "48aeadc5-538d-4ee4-af33-69d46096e93b",
-            5771.0
+            "30c9de75-1688-4f7b-b125-6e179d2d3666",
+            "d5e683e7-575c-45af-981d-a8be1655865d",
+            2090.0
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -30,11 +30,11 @@ public class CreateCashtrayTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateCashtray(
-            "044202f7-3525-4117-8dd7-0ded95240fda",
-            "48aeadc5-538d-4ee4-af33-69d46096e93b",
-            5771.0
+            "30c9de75-1688-4f7b-b125-6e179d2d3666",
+            "d5e683e7-575c-45af-981d-a8be1655865d",
+            2090.0
         )
-                .expiresIn(5237);
+                .expiresIn(2256);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -49,12 +49,12 @@ public class CreateCashtrayTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new CreateCashtray(
-            "044202f7-3525-4117-8dd7-0ded95240fda",
-            "48aeadc5-538d-4ee4-af33-69d46096e93b",
-            5771.0
+            "30c9de75-1688-4f7b-b125-6e179d2d3666",
+            "d5e683e7-575c-45af-981d-a8be1655865d",
+            2090.0
         )
-                .description("PfziyB2HYxaSuFevcjssU2Qn83gWH7hF0T8Nh7eoO6asjOox0RRzWzgJ8qllmxnkMg")
-                .expiresIn(1558);
+                .description("nVnbOf1mceXbMKgmiS2lNCj0coTfFCchnpKAXXDxQv4bOJ9FCs7r9SIiPLZxhYcpGO5FAV5Tmz4fnzfWLRafbjHHiTlinfVLWJIyGq0eGZ3LjtgQn48RP8UioFkI4pFJl8a49K0SiRVrDmJ5TPkLuNgnu18c0Kn6PzJQm77hC3byYhnk9L6y5R4kNH")
+                .expiresIn(3539);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

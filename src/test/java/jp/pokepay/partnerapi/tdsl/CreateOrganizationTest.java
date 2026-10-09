@@ -16,8 +16,8 @@ public class CreateOrganizationTest {
         String[] privateMoneyIds = new String[]{
             "4b138a4c-8944-4f98-a5c4-96d3c1c415eb"
         };
-        String issuerAdminUserEmail = PartnerAPITest.randomString(6) + "@pokepay-tests.jp";
-        String memberAdminUserEmail = PartnerAPITest.randomString(6) + "@pokepay-tests.jp";
+        String issuerAdminUserEmail = "blackhole@pokepay.jp";
+        String memberAdminUserEmail = "blackhole@pokepay.jp";
         Organization response = (Organization)PartnerAPITest.getClient().send(new jp.pokepay.partnerapi.request.CreateOrganization(
             code,
             name,
@@ -35,8 +35,8 @@ public class CreateOrganizationTest {
         String[] privateMoneyIds = new String[]{
             "4b138a4c-8944-4f98-a5c4-96d3c1c415eb"
         };
-        String issuerAdminUserEmail = PartnerAPITest.randomString(6) + "@pokepay-tests.jp";
-        String memberAdminUserEmail = PartnerAPITest.randomString(6) + "@pokepay-tests.jp";
+        String issuerAdminUserEmail = "blackhole@pokepay.jp";
+        String memberAdminUserEmail = "blackhole@pokepay.jp";
         String bankCode = "1234";
         String bankName = PartnerAPITest.randomString(4) + "銀行";
         String bankBranchCode = "123";
