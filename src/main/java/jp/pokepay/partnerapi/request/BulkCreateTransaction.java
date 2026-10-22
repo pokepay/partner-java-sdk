@@ -12,6 +12,7 @@ public class BulkCreateTransaction extends Request {
     private String content;
     private String requestId;
     private String privateMoneyId;
+    private String callbackUrl;
 
     public BulkCreateTransaction(String name, String content, String requestId) {
         this.name = name;
@@ -26,6 +27,11 @@ public class BulkCreateTransaction extends Request {
 
     public BulkCreateTransaction privateMoneyId(String privateMoneyId) {
         this.privateMoneyId = privateMoneyId;
+        return this;
+    }
+
+    public BulkCreateTransaction callbackUrl(String callbackUrl) {
+        this.callbackUrl = callbackUrl;
         return this;
     }
 
@@ -52,6 +58,7 @@ public class BulkCreateTransaction extends Request {
         if (content != null) { object.add("content", context.serialize(this.content)); }
         if (requestId != null) { object.add("request_id", context.serialize(this.requestId)); }
         if (privateMoneyId != null) { object.add("private_money_id", context.serialize(this.privateMoneyId)); }
+        if (callbackUrl != null) { object.add("callback_url", context.serialize(this.callbackUrl)); }
         return object;
     }
 }

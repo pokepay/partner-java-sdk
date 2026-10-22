@@ -12,7 +12,7 @@ public class GetAccountTransferSummaryTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new GetAccountTransferSummary(
-            "d79ada44-2554-41d3-a753-5725590e9c63"
+            "95626e10-7ff6-4628-b94c-565d8306a14f"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,9 +28,9 @@ public class GetAccountTransferSummaryTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new GetAccountTransferSummary(
-            "d79ada44-2554-41d3-a753-5725590e9c63"
+            "95626e10-7ff6-4628-b94c-565d8306a14f"
         )
-                .transferTypes(new String[]{"exchange-outflow","exchange-inflow","refund-topup","use-coupon","refund-coupon","payment","refund-campaign","campaign-topup","refund-exchange-outflow"});
+                .transferTypes(new String[]{"use-coupon","refund-exchange-outflow","refund-campaign","payment","refund-coupon","campaign-topup","refund-payment","topup","exchange-outflow","exchange-inflow","refund-exchange-inflow","refund-topup"});
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -45,10 +45,10 @@ public class GetAccountTransferSummaryTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new GetAccountTransferSummary(
-            "d79ada44-2554-41d3-a753-5725590e9c63"
+            "95626e10-7ff6-4628-b94c-565d8306a14f"
         )
-                .to("2022-08-23T05:52:55.000000Z")
-                .transferTypes(new String[]{"exchange-outflow","use-coupon","refund-payment","topup","payment","exchange-inflow","refund-exchange-outflow"});
+                .to("2024-02-11T20:15:48.000000Z")
+                .transferTypes(new String[]{"exchange-inflow","campaign-topup","refund-exchange-outflow","use-coupon","refund-campaign","refund-topup","payment","refund-coupon"});
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -63,11 +63,11 @@ public class GetAccountTransferSummaryTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new GetAccountTransferSummary(
-            "d79ada44-2554-41d3-a753-5725590e9c63"
+            "95626e10-7ff6-4628-b94c-565d8306a14f"
         )
-                .from("2024-08-01T20:42:17.000000Z")
-                .to("2022-12-23T22:37:41.000000Z")
-                .transferTypes(new String[]{"refund-campaign","refund-payment","use-coupon","refund-exchange-outflow","exchange-inflow","refund-topup"});
+                .from("2022-07-04T12:30:27.000000Z")
+                .to("2022-11-07T15:21:05.000000Z")
+                .transferTypes(new String[]{"campaign-topup","payment","exchange-outflow","exchange-inflow","refund-payment","refund-topup","refund-exchange-inflow"});
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

@@ -10,6 +10,7 @@ public class Bill extends Response {
     private AccountWithUser account;
     private Boolean isDisabled;
     private String token;
+    private String createdAt;
 
     public String getId() {
         return id;
@@ -41,6 +42,10 @@ public class Bill extends Response {
 
     public String getToken() {
         return token;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
     }
 }
 

@@ -12,9 +12,9 @@ public class BulkCreateTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new BulkCreateTransaction(
-            "8HRSP5FHw4UX4tGWi4N1",
-            "Wpw",
-            "hPzDe8V1DYdcKn6nAl4cEX71br7jv7EDkwXN"
+            "2E4bXnTsrAuXzcUztcj",
+            "pDcIzv",
+            "8TjKb1dIcQKtgPEpt9Ynsu0LI4T70lQwB453"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -30,11 +30,11 @@ public class BulkCreateTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new BulkCreateTransaction(
-            "8HRSP5FHw4UX4tGWi4N1",
-            "Wpw",
-            "hPzDe8V1DYdcKn6nAl4cEX71br7jv7EDkwXN"
+            "2E4bXnTsrAuXzcUztcj",
+            "pDcIzv",
+            "8TjKb1dIcQKtgPEpt9Ynsu0LI4T70lQwB453"
         )
-                .privateMoneyId("52d410b7-8c36-4486-acc0-708a5e74ce01");
+                .callbackUrl("https://YpOK96Eo.example.com");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -49,12 +49,33 @@ public class BulkCreateTransactionTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new BulkCreateTransaction(
-            "8HRSP5FHw4UX4tGWi4N1",
-            "Wpw",
-            "hPzDe8V1DYdcKn6nAl4cEX71br7jv7EDkwXN"
+            "2E4bXnTsrAuXzcUztcj",
+            "pDcIzv",
+            "8TjKb1dIcQKtgPEpt9Ynsu0LI4T70lQwB453"
         )
-                .description("HyKk1SGbd2fzw9nBiKXYeHN7C4dOhcXyEVzhZku2OJwUM0kt")
-                .privateMoneyId("7e11363a-9aeb-479a-b179-4573a184ff65");
+                .privateMoneyId("23ac1ca6-8bc6-4fc7-b8d6-771b0485304a")
+                .callbackUrl("https://NTeRlFM4.example.com");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test3() throws ConnectionError, ProcessingError {
+        Request request = new BulkCreateTransaction(
+            "2E4bXnTsrAuXzcUztcj",
+            "pDcIzv",
+            "8TjKb1dIcQKtgPEpt9Ynsu0LI4T70lQwB453"
+        )
+                .description("w2YneFRtau24yc1kusN7qW2yhhPFbHNPhRgnqYnUlh4JbOrMj5jFwrAdcz57ZOWsDr0Djt9M12BOno1AcjM96oftC")
+                .privateMoneyId("105528b7-6b6d-4cc8-95e8-c969390d64a0")
+                .callbackUrl("https://SDgXKvVy.example.com");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
