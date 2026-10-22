@@ -5,7 +5,9 @@ public class Campaign extends Response {
     private String id;
     private String name;
     private User[] applicableShops;
+    private CampaignShopLabel[] applicableShopLabels;
     private Boolean isExclusive;
+    private Boolean isLocked;
     private String startsAt;
     private String endsAt;
     private String pointExpiresAt;
@@ -35,8 +37,16 @@ public class Campaign extends Response {
         return applicableShops;
     }
 
+    public CampaignShopLabel[] getApplicableShopLabels() {
+        return applicableShopLabels;
+    }
+
     public Boolean isExclusive() {
         return isExclusive;
+    }
+
+    public Boolean isLocked() {
+        return isLocked;
     }
 
     public String getStartsAt() {

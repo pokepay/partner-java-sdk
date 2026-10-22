@@ -12,7 +12,7 @@ public class UpdateCustomerAccountTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "86e1558d-113e-4ea6-8a48-226ea0c2dcab"
+            "52e9723d-d443-4465-8be1-c807d4a504c5"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -28,7 +28,7 @@ public class UpdateCustomerAccountTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "86e1558d-113e-4ea6-8a48-226ea0c2dcab"
+            "52e9723d-d443-4465-8be1-c807d4a504c5"
         )
                 .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}");
         try {
@@ -45,9 +45,9 @@ public class UpdateCustomerAccountTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "86e1558d-113e-4ea6-8a48-226ea0c2dcab"
+            "52e9723d-d443-4465-8be1-c807d4a504c5"
         )
-                .externalId("hBw4No1YXyGaN9eZjSIQORsTn19Lt83IRfp6apsZzwHUgb2qq")
+                .externalId("wIngTct5VctC8ahSG576Yk267hNuqsd2aOEu5ugI0fcKmGRU")
                 .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}");
         try {
             PartnerAPITest.getClient().send(request);
@@ -63,10 +63,10 @@ public class UpdateCustomerAccountTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "86e1558d-113e-4ea6-8a48-226ea0c2dcab"
+            "52e9723d-d443-4465-8be1-c807d4a504c5"
         )
-                .accountName("rLtRpMZnFJMuPuuYDxHZdnikAchiJbVP3ZTnJxIJTqpbj9hQa29LtqbzIUCtrgI5GH6wQi2f3OojTDEk0fitYgKzfXu0N7ZPQ6Ey6Tu3BU56A0DovC2AWlgsj8AO1bqHH9NHpqZwH1tkpyNDcuWxfr4xKRRC5UPfd")
-                .externalId("KJfLPJmxAhDpkltxfpGBgKzLBWMCYifXDXPCb")
+                .accountName("7sMhCFW8ODbHkZSUPXBsmObvnHUjDTSSciw3PX7IImkvl5vCAHh7QD95u0YIcm0Sp2RluFOAxJTKKlkJp5ENq52OLTcJlnsa7zuy1tusdwen7Z1wrrgdxWfKkMLwrBpORQ9LHlnKRmCd4nadmeyKnqGyqpn3W7S36l34SSSOxW72gqSjd8QPzbjt0rt7UmerReZGbvGgvAZbyLJ1Lea6an4P1AnQALadFsAzgfKjbtuXgZDedIJqTHGg")
+                .externalId("OhGiwZBj5AvHdO2AtfcLabY2vDzXzQx3sP8V6IT9VFC5bo0")
                 .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}");
         try {
             PartnerAPITest.getClient().send(request);
@@ -82,11 +82,11 @@ public class UpdateCustomerAccountTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new UpdateCustomerAccount(
-            "86e1558d-113e-4ea6-8a48-226ea0c2dcab"
+            "52e9723d-d443-4465-8be1-c807d4a504c5"
         )
                 .status("pre-closed")
-                .accountName("nT3R8fCd8115VzfSNwUPij0JCeKaErwIngTct5VctC8ahSG576Yk267hNuqsd2aOEu5ugI0fc")
-                .externalId("KmGRUw7sMhCFW8ODbHkZSUPXBsmObvnHUj")
+                .accountName("KXfPASw8jPQ0hMJ4nPgNJOUuVI3xkUSOX0vTgyFK1FOp7pl9MWii2exAarzlUllr")
+                .externalId("sQZQAnUYeKIbZQuPYAKNLvTyMcIYlLoYSz5jRHNP")
                 .metadata("{\"key1\":\"foo\",\"key2\":\"bar\"}");
         try {
             PartnerAPITest.getClient().send(request);

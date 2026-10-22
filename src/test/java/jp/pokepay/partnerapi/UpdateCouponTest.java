@@ -12,9 +12,9 @@ public class UpdateCouponTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(8569);
+                .discountAmount(5152);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -29,10 +29,10 @@ public class UpdateCouponTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(6935)
-                .name("8UduAdQ5IH0TK2HSa");
+                .discountAmount(7746)
+                .name("Sq8D0896GNWlaYQ8akcWxDZkhOozkzesx2mnek2LIVGGp8Vx16M91diHUGfol8Mhj42rW4z5Wjzvhmx48Q4mMZZBBUosSdONTSqEGwk1DyPJJ9VhetNR8hTecHZnx7");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -47,11 +47,11 @@ public class UpdateCouponTest {
     @Test
     void test2() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(8052)
-                .description("A6ikNbGO6nv206MCoq10cKjOOAJZbMJkEXTJUvgYePqHLhUyWTkN1F8Xwl2rFV9LPEG0FsEHZ0zFFEN3CsRlByNyR64VEa3muyUE26kLnIwLEQafbBqwyhczkUDSv0LkIzcZbnCm3D96fkss4WwEMOvII6xukRoB486IcnSrXwZGPsDFfbhpjo")
-                .name("CvZmit6sG22LWplDlWahPig9MKERKZGyJip4Qp4t6WiXGIWU4TxH2FA");
+                .discountAmount(7589)
+                .description("3cRhZIXdPCHq2mv2UAX")
+                .name("tqrIkbL0z4gSPzn4HTeyJUPoxQJ9n1IVWSFIGUqJ4N6z6sZDMXDGqemkORDDzJGZ9T");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -66,12 +66,12 @@ public class UpdateCouponTest {
     @Test
     void test3() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(8042)
-                .discountUpperLimit(1963)
-                .description("tbi1KGeJyFNO2KrkgbsXcbEbgPoZFbPh9J838rL1gDfq3VsJIZMJTMvIMK26sORVFvF51NUOj8RI7n9XLkQqGxRAu4ClCzUyuIEYrXjU1Rl6vF7n9cWf5sF0ARyOKP3HCUhOEdj0FvKzWLO0X17seRboXyaTp5fxFISfuSj9R4g3InaFkgEEKedrMwdHukpCicHBj64f1DT6D6")
-                .name("Mien3I4QpNgQKGBSiEs2F3MGwgLve3TZFNm4S");
+                .discountAmount(4272)
+                .discountUpperLimit(7508)
+                .description("SjAlVWDrjsx0UNdOCeykFyfPkq8IYlCnIEfVjyhIzvswfx06lwewFlBxBPgZymInLxkpSlp0CcXJpCFZzCR1WWP7a67366cHWhkYkA6trhbS9trPinjNzKWZdpxUSeeatx6TLoIfkctcu3TkkDZexmMtTyt289kas1F7Tkqoaqe1JDLI1WZ64tiSollupgL4JictCeDSHD3C2YnEIi9qrFhHU4UChBktVJM6Ehoat5RskjtjMRgfY9KAoj")
+                .name("iVjkWGZfXbhOFvNY55O");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -86,13 +86,13 @@ public class UpdateCouponTest {
     @Test
     void test4() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(6201)
-                .startsAt("2024-05-22T11:46:17.000000Z")
-                .discountUpperLimit(7049)
-                .description("Imcm3HEYVUSqsC3AriSwCEB0Kew5ULKwo1UdPl33Js1Kuu0UegnQjK5K12MWvCvA9DjpAvmSouPF8sEd3lBtNl0JB2dKxVrlXLEonC1KsoREeh2RXqHgFOF3b7VdwEdOPGXSe9OOoep5LkQDV7qJw1By6uFHkBHhurHoZlcvR7Q0TdgtR89zH4BRb4Lx")
-                .name("Yp1VFXi65IWH287FkS1AdoZmrqVFQp8fp9IpDGNT32XXjSeAsfsowmrnytFnDNPErJC0T6j8TSBN1GRIxfJ3UGUUM2jHDzbRjTfUU5d5AtO");
+                .discountAmount(349)
+                .startsAt("2020-11-30T00:14:56.000000Z")
+                .discountUpperLimit(1232)
+                .description("TEUz8oSFQeGoSG3k81y4L7o3GM3UKBXMJoycpsy4LyLZFxRuuFLA4Ui8k1KypnJ8Uw7M1CvtXboHcAQ9ViIsvWqws3eBMzyIUtiNxNhmRynGWfznERPtN3LViJS1dpiuu6JWeysJ5UR27acols8OLFNhYvqrdgeoTKVw3QK")
+                .name("sut3xFubILPZVISKCKpUoBc7VjLNhPbQNBNhem8RljnuLcC94xG8sb1tOVm7p5XAwHfSXk3eO");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -107,14 +107,14 @@ public class UpdateCouponTest {
     @Test
     void test5() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(2829)
-                .endsAt("2021-12-12T09:02:22.000000Z")
-                .startsAt("2023-03-24T23:29:09.000000Z")
-                .discountUpperLimit(8481)
-                .description("L0lEeYXxSLgJV1GwAOqdc8zzTPJEfMbaKIEhnBHfV6tGM4VGRurvyE3ASr9IOsPHz4Zd6uXHhCBvnC8wCQDn5TxePGCKc6zq0vbsfAwCBSEwRfx0DBbiZykOey7zjJ6OyJP83x3uLLTOPjH6jjFnlRSGQkOLow4uOPR7jYUkie5Rbdop3nbAQNR")
-                .name("sJaqAeaFh0mPOgCiw12joVskUHIrzFx85stT5X2fdTsebRuLVbzPU8r1TG2yJEOhnrWkQVh8G8vXFKeuF0FhTncNlMmgEuaHAH");
+                .discountAmount(4318)
+                .endsAt("2023-09-21T17:41:16.000000Z")
+                .startsAt("2022-06-01T07:11:09.000000Z")
+                .discountUpperLimit(4315)
+                .description("R6TecHTnhwvZsEsT85O")
+                .name("f");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -129,15 +129,15 @@ public class UpdateCouponTest {
     @Test
     void test6() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(1922)
-                .displayStartsAt("2023-04-09T08:14:22.000000Z")
-                .endsAt("2020-06-03T00:04:43.000000Z")
-                .startsAt("2020-11-04T09:07:58.000000Z")
-                .discountUpperLimit(8471)
-                .description("z60OEH7JgjiAw3cGaLL5KHpinnRK5y0OzJ9Hvf2cVYRMoN8ciCbZWnzcDnK4LA4gWzsFxrEWGQmIqwq80GWYOCdqp3aMw45RftnlC78XMJnZ0CKAQudtFEN83UK6KJ482qLWZU1lTgJBoEtylA7LcgVEYNBH5KGkiTeGrXAkdlmbDvPcxbP00J7QmpOVA7MePtYYSm3L3WBUYIGLXhu0DvMLxvuDjJfJxeesKkwbEHxkNigyccRVu")
-                .name("axHAAztkflrbX507aitxdTcYjjCJVatXW3s3mbWjjaocKJS9JHlwFlJcsltjjmodDQEUxDaghv7DnSC5Rfu0C0uKF");
+                .discountAmount(223)
+                .displayStartsAt("2023-04-28T19:51:20.000000Z")
+                .endsAt("2020-04-06T23:29:48.000000Z")
+                .startsAt("2020-05-21T09:06:52.000000Z")
+                .discountUpperLimit(7162)
+                .description("mqxGSg8e3RhOb5BMcQPLOIjmc8VMDMHWqGdZh4akYykFCJxLZHGXI2AIAE56GVf0Gw7kmQ3kNPt7OvjdgkL3FTfLMcm3icBM39Zlg")
+                .name("HnOD");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -152,16 +152,16 @@ public class UpdateCouponTest {
     @Test
     void test7() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(8592)
-                .displayEndsAt("2024-05-23T10:02:09.000000Z")
-                .displayStartsAt("2024-01-20T05:34:47.000000Z")
-                .endsAt("2020-05-11T15:53:17.000000Z")
-                .startsAt("2021-11-24T22:53:36.000000Z")
-                .discountUpperLimit(3664)
-                .description("PjblE3KxRrUTFSpI6jwJUUxrUc5YmXel2A200gV6FxYfWwCiS0MuCLswxDV9drgRKhLSvZ2KQORxMHroQo6jM66W2y8KrZ8xMlNalvWasLjNh8s14cZJ7e4Q9GCUyL2v9u3mWzZwKqxzujrUlmkKRdRXeieY6AmMB38WCqGZQWNed5BL6m650n0RmhPNf1QdSFaslICN4xIeeSgcGsS3PA5BMU547lNJdN573CatnkU3")
-                .name("ijXWL36Ne9BIyD0VsxUMLq2pynj2i9JShHMs7dpHbhmzmDvsuxdQFF1b9FFVSxNRhY3CeG383Fyff0GWuf");
+                .discountAmount(2086)
+                .displayEndsAt("2024-07-30T14:32:52.000000Z")
+                .displayStartsAt("2025-04-14T17:25:12.000000Z")
+                .endsAt("2026-06-07T11:45:08.000000Z")
+                .startsAt("2025-04-13T08:08:35.000000Z")
+                .discountUpperLimit(7937)
+                .description("uHCOV9jJuZqWToSer58JP7CddvYZG2P4sGsjZKQxe7fKpax0Uc45ft1nisEBoOyK7IWRvWeQ7WqJw3BcrA0ZJmOfUMnfydDiDxugYD9evfD1PJtdO3SdiMuiIPxXLPGXeapZ447jeLeg")
+                .name("5dXfz8LlL819MpDMdbxSiedHtUdWqjwNZ6SqXcjRYXWjjppT0r9xvCuvBOfsidrDI9VlsfxLxW5axZvNGABU1Kq4dKF1bCFl");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -176,17 +176,17 @@ public class UpdateCouponTest {
     @Test
     void test8() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(8580)
+                .discountAmount(1057)
                 .setDisabled(true)
-                .displayEndsAt("2022-09-29T02:55:39.000000Z")
-                .displayStartsAt("2021-02-10T01:03:09.000000Z")
-                .endsAt("2022-11-06T07:41:41.000000Z")
-                .startsAt("2020-04-06T13:06:29.000000Z")
-                .discountUpperLimit(6001)
-                .description("G40T5H1YOyXeD7lp3hQ7iTUdtYXMwyZtYN7NcCeDXI01ioT6dE59eFWe4PxHJhHM6PRObQxj3f4w8El4HGgfInUuZUZacdXJKlldoDuv9TA2XHRXocL0a2ENjq4YdkJGWgFmKTEIA1MAf2HgecI")
-                .name("l74FyRST7ScfdaiXI0aphnQpmaEH46JpxMwBWB66twUX");
+                .displayEndsAt("2022-08-05T00:23:26.000000Z")
+                .displayStartsAt("2026-01-07T19:30:13.000000Z")
+                .endsAt("2023-06-22T18:30:18.000000Z")
+                .startsAt("2022-03-04T04:07:01.000000Z")
+                .discountUpperLimit(9502)
+                .description("XCX83UsZSPbix6b1Za3ly7V1xEBLXcDk2ABcz8aQVQ4")
+                .name("6LRceMuSvIm");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -201,18 +201,18 @@ public class UpdateCouponTest {
     @Test
     void test9() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(8570)
+                .discountAmount(8932)
                 .setHidden(true)
                 .setDisabled(false)
-                .displayEndsAt("2020-10-21T09:48:49.000000Z")
-                .displayStartsAt("2023-06-28T22:41:05.000000Z")
-                .endsAt("2022-06-24T14:40:49.000000Z")
-                .startsAt("2021-09-05T08:59:36.000000Z")
-                .discountUpperLimit(5166)
-                .description("REjqmyqJkEdfkYviMgBpZAYBbcvRZzaI37qk5Qpl5Gz36NQavWZXSE0IrKdpz0FXntwLwsP6PlvtKfS7zk6Hoi0oeAT0NWEwBSET0oVnBy6crZKnvytNg93oYMrwaGFqX3wegLSKGRpqSEuwLWT9k07B088FFfNZznrcL9APcDhFVXImIJBKStcO3wB304Jmf05hgJ")
-                .name("rNiPO7Acqsb1X8oQj9wf9SU4WjLK1VT02GEDFloz09QK5UFuC");
+                .displayEndsAt("2022-01-03T07:34:52.000000Z")
+                .displayStartsAt("2026-09-07T04:43:12.000000Z")
+                .endsAt("2024-08-05T21:24:41.000000Z")
+                .startsAt("2024-12-14T02:59:45.000000Z")
+                .discountUpperLimit(806)
+                .description("q9y3aEus7kZPbP6pY7uTyJAbvra0dcpr2XBaxBtLUqtpR4s1JU0lVQ2OypewcGn6EYrIoiJUtnz4tPDjzGeH1vMI9teS2D85S1UHA16vfzALVhDfzoJqhsy99eYUXwCEgrx3b6fZBGl5iNgWbOvie519sB5ATfDwJwr3eQ20YGcyYu0bMGv3vztYfqlxsbOENjEAJ")
+                .name("3lDTAofzZK4Rxx8sLYfBb6BjvrBrNNM0rEDhKG45tzzgCXrxrouPH3hhI04AO4rgTAhQAt0OqjGLP0DBUnGxElSvE");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -227,19 +227,19 @@ public class UpdateCouponTest {
     @Test
     void test10() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(9501)
-                .setPublic(false)
+                .discountAmount(7946)
+                .setPublic(true)
                 .setHidden(false)
-                .setDisabled(true)
-                .displayEndsAt("2021-03-27T16:01:28.000000Z")
-                .displayStartsAt("2022-01-12T06:57:26.000000Z")
-                .endsAt("2023-12-15T21:42:57.000000Z")
-                .startsAt("2022-01-25T09:25:13.000000Z")
-                .discountUpperLimit(3382)
-                .description("yQZu56A1wWzKTTxm1brwQKhHT3R75Hu8YJJm39h1WaxTt5SssiAjKWyz1Cvo6cvEGDQNsufaSx2VVAwQqeQUNQCi45yyQTl9wTWmjZWPblWstjkw")
-                .name("C6ll5fjzCHapR04ADVEFmUehgiDu605XKZkJCbV");
+                .setDisabled(false)
+                .displayEndsAt("2022-02-15T19:17:55.000000Z")
+                .displayStartsAt("2026-02-11T18:29:04.000000Z")
+                .endsAt("2023-11-24T11:47:34.000000Z")
+                .startsAt("2025-10-23T13:20:32.000000Z")
+                .discountUpperLimit(1046)
+                .description("f2XfhCesDbLNG0um3YX4ee6S")
+                .name("kSSSI0RCCs8xN6z62");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -254,20 +254,20 @@ public class UpdateCouponTest {
     @Test
     void test11() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(4884)
-                .code("Nuqq")
+                .discountAmount(5317)
+                .code("sVi251R9OV")
                 .setPublic(true)
-                .setHidden(false)
-                .setDisabled(true)
-                .displayEndsAt("2024-01-19T14:39:22.000000Z")
-                .displayStartsAt("2020-10-29T23:27:00.000000Z")
-                .endsAt("2022-03-24T20:14:37.000000Z")
-                .startsAt("2022-09-21T08:59:37.000000Z")
-                .discountUpperLimit(8700)
-                .description("VdHFVHz0uIFKJoDWeoZQYdDyUkA8HMjkxTYcusA1RKieQ1ldipC3qoQ4XwLIDsqZ3ZF38hv2ikQGfIfeAIGZfO7OrSr8B2QPQ9Y2Rpsj0heI1pcWBx1T31cQtfbPCATbfETgM8KooCtS8z1fc4bmpdjKCTfj1GK9RSuRp80JIGIfZb0zQJuIdXR7obZEoGLvyrYRSePLUjWmS1Vfe4rF1Hr4pu5zkebHCq")
-                .name("bvDaj08T6AqfU9VC96cIIeErItINWil5tFd5fwAxEmAXCuaDk4OeOYMd636fXlQmJ9");
+                .setHidden(true)
+                .setDisabled(false)
+                .displayEndsAt("2021-01-13T14:24:54.000000Z")
+                .displayStartsAt("2022-08-11T08:21:57.000000Z")
+                .endsAt("2020-02-07T12:41:08.000000Z")
+                .startsAt("2024-07-10T23:49:30.000000Z")
+                .discountUpperLimit(4312)
+                .description("fTSVkQAgLF0UCGkzWfvHQLNpl08zkirPvpqWe6LFMxqHgshQQxZyXH54xcjjzE4jf3bC1uhrBdvXqhm8jwzIEhcNYML2OSzpp2xgjGNFVHJxj8ajHmdLScmLSMjxtIdUuX8NpagwVisjQjWa0Ga7Mr0dbte93IwLTuppNmEhXnyUDrs0")
+                .name("SyLNNnFCcwr1avxToYBT4VEV6evoILJv7tTWIqRKgT33Bi9tzz6Ttxk7d6FPiA0lsYPm9uy3bOLitkN0KHj5fbn2v2");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -282,21 +282,21 @@ public class UpdateCouponTest {
     @Test
     void test12() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(8882)
-                .usageLimit(5765)
-                .code("bnV3FEVOMM")
-                .setPublic(true)
+                .discountAmount(7106)
+                .usageLimit(981)
+                .code("NrXCxg")
+                .setPublic(false)
                 .setHidden(true)
                 .setDisabled(false)
-                .displayEndsAt("2023-01-27T01:56:48.000000Z")
-                .displayStartsAt("2024-07-13T16:36:59.000000Z")
-                .endsAt("2023-08-13T04:41:18.000000Z")
-                .startsAt("2024-08-07T10:48:03.000000Z")
-                .discountUpperLimit(6304)
-                .description("SgfpnmC2KuXyRgGfUfNENrDu8T1J2YZjgzjmCRB6BbdWS6JCIuNd5OFNrZXER72QaNrZpzYfcTDxwidoKxhgH4IlA44068ievlutMBS788il7UEqSzLy9xJxJq4hHbOAXXY")
-                .name("VgVjKzFhmxuYV64qe5o2B2OlLXdk5kJbuw4YuJbyUdwtweakDyg0TFsZujDlCiTABlfIhphFt9MZHKK4Bljx7sJ424DF7dkeP");
+                .displayEndsAt("2022-11-20T16:06:03.000000Z")
+                .displayStartsAt("2026-05-27T00:03:02.000000Z")
+                .endsAt("2022-09-21T13:37:28.000000Z")
+                .startsAt("2025-01-29T14:20:51.000000Z")
+                .discountUpperLimit(3227)
+                .description("WOkAWhJ0Lot3toFslAl38fcibrdPRjjy3jeyeKg5ECx1SgJEpSlopBJNy3qmiwYmDuOlcchHpAG2gwwi3nOK6tJxpePLFHBs9kILByZGqDqm9YAgnobRajraam0rBpkf")
+                .name("82GZDo8PtRb5vVt3TqmZrxia2ui6VWr3guQRAw5Cq4lwbs5G5iUu21d4ST7CuEydnlBtSyriuS9M5GXcqFt6wV9qfsP61uEwZUrs1XMhNzPArurgTCGgpf");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -311,22 +311,22 @@ public class UpdateCouponTest {
     @Test
     void test13() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(4539)
-                .minAmount(4628)
-                .usageLimit(8984)
-                .code("prAJuqXJL")
+                .discountAmount(6484)
+                .minAmount(2620)
+                .usageLimit(9727)
+                .code("DkeCAQBk")
                 .setPublic(false)
-                .setHidden(true)
-                .setDisabled(false)
-                .displayEndsAt("2020-01-05T12:35:41.000000Z")
-                .displayStartsAt("2022-11-05T08:42:48.000000Z")
-                .endsAt("2021-09-27T23:52:02.000000Z")
-                .startsAt("2022-03-31T21:30:07.000000Z")
-                .discountUpperLimit(1625)
-                .description("53kHtf9cD7bpNKlOmIqFEpEzlkbZXsHeK96R7zZjofXop8q4Bfps6VchHwOSBaSPaNKxM4bPYPan8UYIRAISeS032nbwP9uwXrTB")
-                .name("WthKP8SFB1epaCsenfTVlWMFnuMgJI5wZ1cKhV86");
+                .setHidden(false)
+                .setDisabled(true)
+                .displayEndsAt("2021-02-01T13:45:41.000000Z")
+                .displayStartsAt("2023-03-21T21:04:12.000000Z")
+                .endsAt("2025-09-10T17:22:58.000000Z")
+                .startsAt("2024-04-07T06:15:26.000000Z")
+                .discountUpperLimit(5460)
+                .description("RKy1uTbc45m4YwxjxtG")
+                .name("bA05zcwQ8eNnH7AYfIcNt7NKH");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -341,23 +341,23 @@ public class UpdateCouponTest {
     @Test
     void test14() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(8499)
-                .setShopSpecified(false)
-                .minAmount(179)
-                .usageLimit(4444)
-                .code("LMEPLj")
-                .setPublic(false)
-                .setHidden(true)
-                .setDisabled(false)
-                .displayEndsAt("2024-05-19T14:02:16.000000Z")
-                .displayStartsAt("2021-05-13T02:34:55.000000Z")
-                .endsAt("2023-02-20T00:05:19.000000Z")
-                .startsAt("2020-01-17T07:31:07.000000Z")
-                .discountUpperLimit(5181)
-                .description("E7ACXnugqJAsKtBEhfGR87GnzBbDtq5K3lfoJShMC6uD2oZ5QpD7GXwDffXUtXBf9of2MaByNhkorzLzXS")
-                .name("7sax7iYOPlAj5UlMDxo6iDarlMDzJC7wMAkFY");
+                .discountAmount(4617)
+                .setShopSpecified(true)
+                .minAmount(2213)
+                .usageLimit(421)
+                .code("T4zIt")
+                .setPublic(true)
+                .setHidden(false)
+                .setDisabled(true)
+                .displayEndsAt("2021-10-01T22:12:42.000000Z")
+                .displayStartsAt("2021-07-30T22:12:52.000000Z")
+                .endsAt("2024-08-13T13:01:58.000000Z")
+                .startsAt("2021-03-03T09:03:36.000000Z")
+                .discountUpperLimit(6187)
+                .description("cz8jRzOJNYNTmAx0cRygrFZ66y9EQQUqakXyxFnuW2T4m1VyTa1OoANMT3g8KQuzrvKESksiTJQTVnHiOfPR4wy7f2LYwmiQU5GGwM55OvuPRHuaWsubCugQ2sjreB3py6MReMgsNKNI6WrDerxdbupVy8ATO6lTexkb25xKe3io9ZDBIqGu38r7vCoqpH5QhZu1k2tSxqrr7YJPVhda0ziWsQtZgRc6cmsvPcY7yThl")
+                .name("SXuhO9OLfbw29j7FyeDINdaRXM95lPwMwz9IKIn6wEZkPRJyErXa70KC1ZDBuFoL3t7T5TQkGNyZe8GBabvL25GCAVUwr2eojbDaPOXkEpyp");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -372,24 +372,24 @@ public class UpdateCouponTest {
     @Test
     void test15() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(6440)
-                .availableShopIds(new String[]{"8903de65-e06d-409b-ab7a-415a3bacd7f0","23dccdf6-20ad-4c86-848f-c8763e77e2ef","3d449d5c-ffe7-4c0c-b012-ec6c8d2cccbb","85d79f04-a867-4a6c-8c76-8532d645b254"})
-                .setShopSpecified(true)
-                .minAmount(9057)
-                .usageLimit(7685)
-                .code("OF7q")
+                .discountAmount(1864)
+                .availableShopIds(new String[]{"57ec9718-46a1-4bca-a1f2-a767a405b668","a6a296c1-c120-43e0-a636-45b7f27be220","b5709d55-0347-4a7a-a4dc-bcde239bd792","7bbbc69b-61f4-441a-8667-d7240af45b62","0d258def-0b0f-40be-8b59-8071a00f3eb9"})
+                .setShopSpecified(false)
+                .minAmount(8621)
+                .usageLimit(3203)
+                .code("MQ97")
                 .setPublic(true)
                 .setHidden(true)
-                .setDisabled(true)
-                .displayEndsAt("2022-05-02T10:44:14.000000Z")
-                .displayStartsAt("2023-05-05T19:51:56.000000Z")
-                .endsAt("2020-12-25T09:57:39.000000Z")
-                .startsAt("2020-01-10T18:15:38.000000Z")
-                .discountUpperLimit(6999)
-                .description("FW8mYG8iBpA9wK7FerKmMDJDN9kjnE")
-                .name("AtWkM10yTZC3mt5NbCfjtxFXhJHyZxe38yvM1SEczLfO");
+                .setDisabled(false)
+                .displayEndsAt("2022-12-30T09:25:22.000000Z")
+                .displayStartsAt("2026-04-27T12:53:21.000000Z")
+                .endsAt("2022-03-10T00:00:53.000000Z")
+                .startsAt("2021-02-23T13:30:18.000000Z")
+                .discountUpperLimit(9400)
+                .description("pSqy8Td0RORSjyvxfkjlz1SjQKzzKh9mzyFG6lnGeQBDP1uxJ6IIDy8VE7WwBdF0msuDaOhM5oqV2xleoqU08aoK4SSRQxNI4HYZa4lL8vlyT5v2fWiN7LjHjlDtCGjTLI9kXm3rfByXFrnlgeqVtAvQ0rVDYOMHbm3FgLktaUhgEFTnEcwpkpUTSKxUsOoZPlM9KHj0LscW1P81Qy90jmz1sBL2rdIxI95Aq")
+                .name("016ZjJCH7wtIwkByOxgZ1CmhlD7B");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -404,25 +404,25 @@ public class UpdateCouponTest {
     @Test
     void test16() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(7859)
-                .storageId("2cdaf362-15a4-432c-8e27-a8251a6cb20f")
-                .availableShopIds(new String[]{"d6c31202-144d-44d3-a075-5acb4c302ebd","1128e664-2df1-4b33-86f3-f609ade1300e","61052515-5082-4f28-9eec-177d6ab7c647","d8952262-d18a-47eb-8807-51264406a515"})
+                .discountAmount(8262)
+                .storageId("2642ac3e-0b7a-4159-85b6-3f19ac148cae")
+                .availableShopIds(new String[]{"6495b7b8-cea7-45e0-9e0e-77c874bbb6de","ff176359-4b67-4b5e-8972-df9cf5158444","3fd2c909-cf24-4990-9790-0dff993adc38","3c5d88c0-3ed8-49e6-8296-e47effa697b0","48a095a3-9db4-4c63-b5ab-4a93aa212e1d","c1d50bc8-30e5-4538-8307-a2753acb4f51","b2b5dc71-463d-4465-8a57-c66ee4676b26","38d6cf3b-d212-4809-bbf0-f0c0ae65a17c"})
                 .setShopSpecified(false)
-                .minAmount(958)
-                .usageLimit(5795)
-                .code("xbbT2umOR")
-                .setPublic(true)
-                .setHidden(true)
+                .minAmount(8344)
+                .usageLimit(7847)
+                .code("68s54")
+                .setPublic(false)
+                .setHidden(false)
                 .setDisabled(true)
-                .displayEndsAt("2020-12-23T22:29:05.000000Z")
-                .displayStartsAt("2021-12-10T07:01:50.000000Z")
-                .endsAt("2020-01-27T09:11:32.000000Z")
-                .startsAt("2022-08-29T03:00:12.000000Z")
-                .discountUpperLimit(7014)
-                .description("kPqeu7VG")
-                .name("hCxzDjEPJsArCV0qEvJPpVoq77PuYo1FVSdDE8cTf3i5qFGBCHYpL8ODBvwgaMAc0JPVvhl1tkrYQHQhhRs2PIaofbMQ1Wyxx6iPX8wNVpCNUyiEzApKM66ZkEO");
+                .displayEndsAt("2021-06-16T15:05:23.000000Z")
+                .displayStartsAt("2024-02-25T07:14:18.000000Z")
+                .endsAt("2020-10-05T11:33:48.000000Z")
+                .startsAt("2026-03-26T12:36:36.000000Z")
+                .discountUpperLimit(4791)
+                .description("TlfvcjHRgs")
+                .name("jroXcf1fxLB1yf5dH6gwvhweVkrWRctnJ2TSLmfSkWFb6oLKvNkr7xERwVYEzuAqPS2Yq5Zx72l8Uwb6djbQEnxEVuuBukUKWop");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -437,10 +437,26 @@ public class UpdateCouponTest {
     @Test
     void test17() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(2060)
-                .discountPercentage(8252.0);
+                .discountAmount(2529)
+                .numRecipientsCap(71)
+                .storageId("1f905100-65f4-48df-ad22-203f04c8e3ef")
+                .availableShopIds(new String[]{"3da2858f-29b5-449b-8355-e2cfb9f9a3b2","2ae5d148-3622-4514-81b5-b6093b13063f","353b151d-b43c-4a91-8264-85999c86481e","17cb3a77-1f4c-4a01-b4e9-4085303a9b4e","a768b609-8afd-48c6-a4a1-91af33d90236","c512074d-f112-440f-b512-40fb162b591d"})
+                .setShopSpecified(false)
+                .minAmount(7226)
+                .usageLimit(5889)
+                .code("ahAMFoXb9")
+                .setPublic(true)
+                .setHidden(false)
+                .setDisabled(false)
+                .displayEndsAt("2020-04-21T15:53:58.000000Z")
+                .displayStartsAt("2022-04-07T02:58:41.000000Z")
+                .endsAt("2021-06-11T01:55:07.000000Z")
+                .startsAt("2020-05-12T06:47:48.000000Z")
+                .discountUpperLimit(1233)
+                .description("IsaxB2CgIcPvFHqcQFB1JdewR9buGPpBiWlh4drGbWvDfmVaNvPs9iu3XzENeNNhWBPj9P6rAeXLgWVKiBaMXABCznkolZF0XVehDsumc383ILCYIvwae0oDTZVM9Vn0NHWZb8ZS9tjcczZ4Gwb0PhYqZgpZBJnGwbDDjtejOhy5TEcMRzowrgDb6GM4mHTaOBMMolvbDp36ZS9Ve1qo3bvmX")
+                .name("cCaFZQN2ap2j3Mr8o8HkBWUUKfQKZC3BSMS3hsgpJcOAd6ocE4mBLmKXcPupi77r56oXCNc3dwl2FKTZG70JMbSmw5RMuvJN6cdbvg50QHlnDydRn68Kbo");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -455,11 +471,10 @@ public class UpdateCouponTest {
     @Test
     void test18() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(6260)
-                .discountPercentage(6255.0)
-                .name("1oTpzcZyDOIWVwoFQc");
+                .discountAmount(9173)
+                .discountPercentage(5509.0);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -474,12 +489,11 @@ public class UpdateCouponTest {
     @Test
     void test19() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(9817)
-                .discountPercentage(9826.0)
-                .description("DKlivyrCrMwSNsOLmKdqXCCeTbwp9jzAmkVeybVqp1YrzurkqIAwcJ63x2WplkqrFdjX6CETl764u1bEUuZsZXEigsXHGq2ofRToY5BXgCjIyZIJEzXmOEMtSXxzZokGYkRiArikWZSvWA49o8HQUEwypAtZsgSDOAS6m6W4ycEK")
-                .name("eHr4636lRXTr2iPpZt0j1CI3l6J30qBjXV2f99mPOolq1eiW9RuNHXLsbYmrfHw");
+                .discountAmount(6293)
+                .discountPercentage(4371.0)
+                .name("vDsNqKoorksWBQ398rR59EiVvlwAljCUfIeXX8HLaA");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -494,13 +508,12 @@ public class UpdateCouponTest {
     @Test
     void test20() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(1408)
-                .discountPercentage(933.0)
-                .discountUpperLimit(182)
-                .description("AehvKLu9jSykyDMxjQhXvqsNkUwpnxOJbMzTMi5NaDqvIkEgkU1iGJo4Veu1nD62pEennAfXO8IbuWWi93UYOzWoEzm8A2AGl9yivXZBxfQ6TXMiAoASOIgsAFMRnA6RqJv3Yoi1HNQ6SUUxfHdkFZrSjoj4E906hjOO")
-                .name("DSKfXhRhf12fH18u3lWSr6bxBxhq8hzLJKGl7pegu99iLkGceRH09p3Djf3UXXM3TuFXvJTrk8Ursx5VM8uakcEIyxQz7D");
+                .discountAmount(9104)
+                .discountPercentage(8064.0)
+                .description("O7c9AzboPOcXU3N4H4mDJiKqsHB9PJplqhMYaIBcQj7mL59HnlNHLuA0")
+                .name("OdVgj6K1GxL1yIWWOf6rndacFLJTT1b61igwFwXc9Xw81AcLgJ7HUPLZ2JY3PzdziozZN0eUlnWAmEdaqY8pJTyG58WWoVkTIo");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -515,14 +528,13 @@ public class UpdateCouponTest {
     @Test
     void test21() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(6289)
-                .discountPercentage(5503.0)
-                .startsAt("2022-03-22T13:16:43.000000Z")
-                .discountUpperLimit(8449)
-                .description("6SGfEdpD0U")
-                .name("VkFLTmlxp8SI9cXescrmSD5nkp7THGlyH3t2HB4wHFbCGx0Xzqx2wtaKpu1qdmiKn22F3ctIsxTTV24W3iM");
+                .discountAmount(4114)
+                .discountPercentage(5862.0)
+                .discountUpperLimit(7210)
+                .description("63ZHIa2ZaoOg0V0uaqelttkE7ehROL4XrOdkUWUyHCGGZhBjhjuTKoJ3qmoFsOI4faRjWQ8gKOhK9uTt59dHqyzQZgD")
+                .name("Wvj8etzcFhDXwcbaPJFYUtWSDUUOzA6JdRqRnPGGmxcvLiruhnUYA2evPNgfEtt9VoXY8Zbi4bO3aVrBDzVdWXtFy5mPY7A1qrS8dHstlQ");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -537,15 +549,14 @@ public class UpdateCouponTest {
     @Test
     void test22() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(826)
-                .discountPercentage(5907.0)
-                .endsAt("2020-01-10T04:04:58.000000Z")
-                .startsAt("2022-11-05T13:54:18.000000Z")
-                .discountUpperLimit(359)
-                .description("Caf4v1F7zb24TvVYyzGoNYLIXxqonkMGqXlJ")
-                .name("pJRQwp9nn9cv0p2uygmHKqGnn");
+                .discountAmount(7524)
+                .discountPercentage(474.0)
+                .startsAt("2024-09-11T09:11:08.000000Z")
+                .discountUpperLimit(878)
+                .description("eTqjTP7dz4MDySQpvknUff9KCWQcYJFvGq64qVmrZJcpFiWZHeIfQdHdvs4v2aUitPGe5J3m0ryc2OEvFX8WzzwH3wIxddmLq7zZNIbWwSHwKCgXCSNnukUNKPot1qoYiOk2cFGGn09uTba138P32btAcZSker4bwN5IYLm99wEVRQ8sJxsInHOegu4ueAVfQ8nRhLcha2zRRyQlj7s7IqXcFdC0ufgYUkqe3kskveA2n2lBOE9H5")
+                .name("VR8QU7QjrIemlNkbreYYQh0DpuFWTXBEy8Kcs0g4RtCJckJnkv8b3lOd0jZSZisKJGtLxfbPFfaIRWKNMj5dtiK");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -560,16 +571,15 @@ public class UpdateCouponTest {
     @Test
     void test23() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(6817)
-                .discountPercentage(2689.0)
-                .displayStartsAt("2020-05-21T18:56:37.000000Z")
-                .endsAt("2020-01-04T10:37:01.000000Z")
-                .startsAt("2024-08-02T07:28:33.000000Z")
-                .discountUpperLimit(7878)
-                .description("to3ZtBMyDD0JldWFE85ZjbUaTENhmx5ChLqBvfWnrg6wEB880lMBDEtofOwuX4DmXscPUoeV1XH78h5Guqwmdx9H0OP7RXsy9p5y2A7XdzXIFXZbjsiiNiXZ0lFTg0buQwKeaQ4HWfPuDn8vtLGTKy9baAX")
-                .name("UrNxQgJv2d1RjRDvxxlQFhM2eopmIlmvqzqnGOYbg6rdqjemTbEPE7it6nxw8VlzyCNbz8zcALV0qfahEqSWpbWk8lIjmXf3crokuVBQQlsA8T5nZ");
+                .discountAmount(2822)
+                .discountPercentage(5520.0)
+                .endsAt("2023-09-27T20:51:19.000000Z")
+                .startsAt("2022-10-13T15:03:20.000000Z")
+                .discountUpperLimit(9560)
+                .description("tvWqvm0QmTuUJdqTxvEdTrlIkQGkGEpBmPu4HkqOfXEkl5C8v6PzPZ7WYdNdFH0K2AD1TKPyYWlsuXOaIHvkZ0hBxHL8DiEhh2VnZoTnDJVFMsrvforwTxS8CU7xfi8Z8k0xTZqtjlnCMFHx8TKGI2xE1BuKUao6Z6xonfMjSwz5WZMumkxzfJ30t")
+                .name("PK0gRaUMP2gDk6hqbkZIVaXAnNHVk2JXX3zMOLBJ");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -584,17 +594,16 @@ public class UpdateCouponTest {
     @Test
     void test24() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(8544)
-                .discountPercentage(1041.0)
-                .displayEndsAt("2020-08-28T09:26:45.000000Z")
-                .displayStartsAt("2023-08-28T18:10:27.000000Z")
-                .endsAt("2022-11-29T12:21:33.000000Z")
-                .startsAt("2020-03-08T19:47:16.000000Z")
-                .discountUpperLimit(8307)
-                .description("HuPmGiUoPteza9Foxx3GETJuunMNM7JUVu7YgDI0zSm63cU49za1QJALcpDZJ7YKoaGZqFQRMYj7eI0OiTgfPr68fP2A8RCqVjIMZulltZtjgMfuD")
-                .name("n3QgsidEuf2NvBHeZX8hYKnrzJWptMhyWUi64YZbGeyCSFHt3mcrCB8tq8q2IVY2UPxEK8mwHnigIC2xteLEmOps6u4P22rjT4dupTBgLrwJlYmSqD3jh0Kto");
+                .discountAmount(9946)
+                .discountPercentage(6761.0)
+                .displayStartsAt("2024-08-16T09:19:51.000000Z")
+                .endsAt("2021-04-09T01:11:18.000000Z")
+                .startsAt("2022-02-14T04:03:35.000000Z")
+                .discountUpperLimit(5534)
+                .description("shqVZtOtkEaR1q9tiLg6fzyprLRU7zHjv8AVBjeNyLKs5OWxHdcCIY8xfr6CL909VJsJvEEnV3jRZx4bL3mKFhR8vX2cSSl7Ob")
+                .name("xLVY39aP4hWiGuhuMVGxVPfacjrslMZj02ZSvIS4FqKIGpu0MDWpiDvc0yH6ElFsXXAu1ggrDUCau2gnuJ4JjDHOBMd2");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -609,18 +618,17 @@ public class UpdateCouponTest {
     @Test
     void test25() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(9376)
-                .discountPercentage(4837.0)
-                .setDisabled(true)
-                .displayEndsAt("2024-01-04T06:44:39.000000Z")
-                .displayStartsAt("2024-10-02T12:04:03.000000Z")
-                .endsAt("2021-02-16T23:36:22.000000Z")
-                .startsAt("2020-03-04T13:25:02.000000Z")
-                .discountUpperLimit(7223)
-                .description("wYe7b9HTOawWBmOJlSRN9rogVZwJO2xNcltqUbvpNyoJI0vqJ8n0oUjQYsKaRMsrJUacY2rYQO4gmGHCfbUV5BkcqYiSNlDYC6MEWefziiHI3EykNpjwCPjAkzyY2kmUe2JJ53U3N6F0e26pbO3HttlG4e")
-                .name("yiatMI7VF3dtugJSz1Q3v");
+                .discountAmount(7251)
+                .discountPercentage(476.0)
+                .displayEndsAt("2025-05-15T08:58:19.000000Z")
+                .displayStartsAt("2024-04-09T08:37:16.000000Z")
+                .endsAt("2020-10-07T21:44:19.000000Z")
+                .startsAt("2022-12-07T05:06:53.000000Z")
+                .discountUpperLimit(1432)
+                .description("hK7Gc9ouBdfj9")
+                .name("baUMO0QAZUEFS2BtlR4VIQVU2y1HqZTEweuiw2lLR54hFsTWRshdiadwR5IXzLVIyr3tVtLqZwSGR9AtSD9cOcCV2121");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -635,19 +643,18 @@ public class UpdateCouponTest {
     @Test
     void test26() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(8030)
-                .discountPercentage(5262.0)
-                .setHidden(true)
-                .setDisabled(true)
-                .displayEndsAt("2022-09-28T21:37:20.000000Z")
-                .displayStartsAt("2023-07-20T05:43:11.000000Z")
-                .endsAt("2023-05-04T18:20:50.000000Z")
-                .startsAt("2021-09-04T09:10:55.000000Z")
-                .discountUpperLimit(9447)
-                .description("FsW05W19aXuGVVRQlUVJv9CZ2ZsBhmJBENJ2Jp2YLnPueitIaB8AWaFb8JKCZbl1FLUJSG0fudQ9bvTSzMBL1Qigyh82R8yfv5oZ1A8LucSTZwJytxSEpRfXYxFxMDsqe8NITOun")
-                .name("WJGeGMfsCgwJoSsvq0p2vMuqT6yOdp5xmnGGOh83wDY3Y");
+                .discountAmount(1532)
+                .discountPercentage(9858.0)
+                .setDisabled(false)
+                .displayEndsAt("2026-05-09T23:27:18.000000Z")
+                .displayStartsAt("2022-06-07T14:34:19.000000Z")
+                .endsAt("2020-02-06T00:58:20.000000Z")
+                .startsAt("2025-01-04T12:34:39.000000Z")
+                .discountUpperLimit(2562)
+                .description("jkAmAursWmY8lUcPFFH8OBO0gTOPvALkgMJawdwCaYZ0f5A4WuoS1IAZgM9FDFzPlCr68wDPzP1uu5pUlr0e255o067YSY4rtLpQIhTsQtfNlHNUlxPCHvPHeZ4gCJRD87F5OL")
+                .name("pmSpFUbvNXpSViDBWfAPmGsH08EBxCdTJypI42Inu56VLkNyEIUSlWSa6lZGo7PhTYTGs3X1TO4wzYkyXyy6lwP0N21ySbpkemDM3awKQy2zT4JKnzi5");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -662,20 +669,19 @@ public class UpdateCouponTest {
     @Test
     void test27() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(9044)
-                .discountPercentage(5553.0)
-                .setPublic(true)
+                .discountAmount(1064)
+                .discountPercentage(4633.0)
                 .setHidden(true)
                 .setDisabled(true)
-                .displayEndsAt("2020-01-26T06:26:17.000000Z")
-                .displayStartsAt("2022-11-02T01:42:53.000000Z")
-                .endsAt("2021-06-24T12:35:58.000000Z")
-                .startsAt("2023-01-22T21:35:42.000000Z")
-                .discountUpperLimit(5471)
-                .description("5jqThl0v0LlAw1sxsypKPTUBVqh1Y1karSx9kbbfwykuboyLPrrY2btuxHx9YophvSLqEzRt6XTR3oDpLSuhWG")
-                .name("p4IuNXEvAYv341undTljbWPhfpiwPMjupC65xVDnAJbsKD6b895iftqbY67Ut2zsAKH6lKT6gJXbaEKAddoU");
+                .displayEndsAt("2020-05-06T03:15:04.000000Z")
+                .displayStartsAt("2022-06-15T13:18:52.000000Z")
+                .endsAt("2022-01-27T01:39:47.000000Z")
+                .startsAt("2024-04-16T13:13:20.000000Z")
+                .discountUpperLimit(3016)
+                .description("MwXcAIRcjNLk0uNWeNHUqo3XUcSS2VsZS4Lj4GkDI0oXRDtBJxvb11fmeXANYMff4lfRrFSD2GU0U0YSAX1Q89ssC5bpXwoj13v0TL4xfkZtGKmcVmh1Ev4M51rbMFUU1jVlGa8RcO6wCBU9Eja3cVhwcSD6iDQwph5TUTM16YqrHAO8roW5GeUYrGDCf0i4xR1YeuarV")
+                .name("LqKYaajZ45lMb2EdpxyfZWbcSeQSSC89X69cCxk1lmjrE2L");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -690,21 +696,20 @@ public class UpdateCouponTest {
     @Test
     void test28() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(5837)
-                .discountPercentage(7725.0)
-                .code("0CR")
+                .discountAmount(2001)
+                .discountPercentage(3182.0)
                 .setPublic(true)
                 .setHidden(true)
                 .setDisabled(true)
-                .displayEndsAt("2022-05-31T19:31:33.000000Z")
-                .displayStartsAt("2023-02-28T10:08:45.000000Z")
-                .endsAt("2022-02-21T00:31:29.000000Z")
-                .startsAt("2023-10-02T22:25:23.000000Z")
-                .discountUpperLimit(2989)
-                .description("DeoQ9lXXELG9oQdgpEse81VvpXr3HeuSevupI3Lg6cydG4")
-                .name("CQY3zROLCcC3cDzGwCmJXHiF5C");
+                .displayEndsAt("2026-05-27T21:56:35.000000Z")
+                .displayStartsAt("2022-01-23T14:08:23.000000Z")
+                .endsAt("2026-02-20T21:42:46.000000Z")
+                .startsAt("2026-08-03T23:40:07.000000Z")
+                .discountUpperLimit(5811)
+                .description("m44epc5OJWLmTr626o4XX2rICXAhNDPHxc5nbxE6dOS7QbkrsxeFRrdV1gQxduyB3Z9uLKn8CBvuRo159rPRsnfNPsYuS9nBNol3v7lVyt80jIUhEuqcVn523Q4baN0pPcQtGvFKDcSo8tIJSa9PEebkW1DkF2wmIfJ50Imwzo4spi93QyENqmwOx8YnV9T8kaR9yxVki0Ybh350uvTmXJ3taiP6zrMBCvrTp2KPzJXVVtSjH7KpG4W7WMlw")
+                .name("VoyitMfaSwwyI");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -719,22 +724,21 @@ public class UpdateCouponTest {
     @Test
     void test29() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(9717)
-                .discountPercentage(9468.0)
-                .usageLimit(7920)
-                .code("0Hph0EUC")
+                .discountAmount(6448)
+                .discountPercentage(2000.0)
+                .code("cSqX1")
                 .setPublic(false)
-                .setHidden(false)
-                .setDisabled(true)
-                .displayEndsAt("2022-08-18T13:57:47.000000Z")
-                .displayStartsAt("2023-02-22T19:34:01.000000Z")
-                .endsAt("2024-08-16T08:03:14.000000Z")
-                .startsAt("2023-04-06T10:00:07.000000Z")
-                .discountUpperLimit(7006)
-                .description("LYnE6HiVXoG09ihrRj4aejWMyEn4Q3X3BDxBJJ5t6h3IPcBKQDcagEkitF8iACEva8PGaDArnv6F3HhJclpvEl0kBLWjkCR0Mj5I3Hqz506kx1IdZKDkCNCl989Inr9h5b")
-                .name("KrK2A0mcFTtdvdsEkzDVoxJr0lAnMovtOnbZ");
+                .setHidden(true)
+                .setDisabled(false)
+                .displayEndsAt("2026-05-19T08:46:53.000000Z")
+                .displayStartsAt("2021-12-26T21:21:39.000000Z")
+                .endsAt("2023-12-27T08:26:05.000000Z")
+                .startsAt("2024-11-25T05:38:18.000000Z")
+                .discountUpperLimit(4810)
+                .description("CpH4abwAvDf")
+                .name("IYbVEzwXEzeX76CubBULZ7mvZavHGIwQGFD3y3WQcO");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -749,23 +753,22 @@ public class UpdateCouponTest {
     @Test
     void test30() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(3254)
-                .discountPercentage(6072.0)
-                .minAmount(8091)
-                .usageLimit(8638)
-                .code("JstsOcxw5")
-                .setPublic(false)
+                .discountAmount(81)
+                .discountPercentage(9535.0)
+                .usageLimit(7698)
+                .code("7GqTb")
+                .setPublic(true)
                 .setHidden(true)
                 .setDisabled(true)
-                .displayEndsAt("2021-03-10T22:22:52.000000Z")
-                .displayStartsAt("2023-10-02T15:46:06.000000Z")
-                .endsAt("2023-01-29T17:10:48.000000Z")
-                .startsAt("2022-12-29T10:13:04.000000Z")
-                .discountUpperLimit(2215)
-                .description("omYIqjFLKdIYieVX7m2aCCypluKCuWAlkVHsDkHFJvihW5VcQOv2mc")
-                .name("2ISnCuuu6HEZICTUsFd55cysKpzPw06buTFvYo");
+                .displayEndsAt("2025-09-30T22:58:01.000000Z")
+                .displayStartsAt("2025-04-06T06:00:48.000000Z")
+                .endsAt("2022-09-12T22:47:07.000000Z")
+                .startsAt("2023-05-04T07:18:41.000000Z")
+                .discountUpperLimit(7588)
+                .description("eXwfkirPrCHC6oGX762VWlOvBKRDnWwJ1RB1Xf0s")
+                .name("SNdUIy9UNPxEn8d7PVOwf2KxYZgpwkatfDXh6wjcpgPghclYC1sotThNzacMPGRW9XLUFYLKH2d");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -780,24 +783,23 @@ public class UpdateCouponTest {
     @Test
     void test31() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(1678)
-                .discountPercentage(2946.0)
-                .setShopSpecified(false)
-                .minAmount(2440)
-                .usageLimit(3333)
-                .code("bGw6jV")
+                .discountAmount(1345)
+                .discountPercentage(1915.0)
+                .minAmount(8583)
+                .usageLimit(8664)
+                .code("2plAkroUr6")
                 .setPublic(true)
                 .setHidden(false)
                 .setDisabled(true)
-                .displayEndsAt("2022-01-02T20:53:06.000000Z")
-                .displayStartsAt("2024-07-26T06:22:27.000000Z")
-                .endsAt("2021-10-22T12:20:11.000000Z")
-                .startsAt("2020-03-10T15:06:45.000000Z")
-                .discountUpperLimit(163)
-                .description("NyPqoWcQPdnYsCcbQIY2KFXsspdkpVkTBJa3OTrsXs88kJNoIZazm0lWPTZ7efHVp4Du6bqVzq0H9hNDIpWOGRlL4QDCIWrLzYwdZH6RYisLngmui2yyfAvCUPPfC6gPSyCF")
-                .name("nlF5wS89FXtStGksuJSc3uI6YbNMb4YSuPWKo7xO0kav9UABs7zcSSckrHrP7zrKa6Deu24AbEENpv2mR4vcFbZYPGyrsGLqJFlRMGfDCis");
+                .displayEndsAt("2024-03-19T18:09:01.000000Z")
+                .displayStartsAt("2024-08-13T16:48:16.000000Z")
+                .endsAt("2022-05-11T03:07:34.000000Z")
+                .startsAt("2023-07-25T02:44:07.000000Z")
+                .discountUpperLimit(5469)
+                .description("dZh0L8qNK4Tq0PqVhzCkKROCStDoZvAY3OKa5oCE4xLFobA9UOrBeN520IjUnvAonmJrl0Qqm11RMoDMOSwDGwLJ7XtGOGgKQwzAg5IknDwgdQyyCPmcszk1DSduCpdgUz5UizzupfDUVzOTa3MaAaf4kTfREjRbk7TIk1gephK43IsijpvrzedeO1cdtY9cqUS5AzQzHdKGL1guEaRrfiOP")
+                .name("X45f7SdsQcMHW7he8Z1qLepuyyE02M");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -812,25 +814,24 @@ public class UpdateCouponTest {
     @Test
     void test32() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(3006)
-                .discountPercentage(4902.0)
-                .availableShopIds(new String[]{"771fe6b5-a671-4848-9798-2a7e10005920","05e9ee26-7344-43f3-8de4-1b1aa013f20a","61a3f6c7-169a-4e1c-a38d-c540d742fab7","672494f7-c7e2-4854-ad4b-17459fcc1670","89e2210d-0c14-4aa9-981a-54faa24d7779","5a6439d3-9dfe-473d-b1a1-378c95ad3002"})
+                .discountAmount(6584)
+                .discountPercentage(1145.0)
                 .setShopSpecified(false)
-                .minAmount(9253)
-                .usageLimit(611)
-                .code("4sXP")
+                .minAmount(1102)
+                .usageLimit(5620)
+                .code("KfprHp")
                 .setPublic(false)
                 .setHidden(false)
-                .setDisabled(false)
-                .displayEndsAt("2022-04-17T00:14:56.000000Z")
-                .displayStartsAt("2021-01-02T13:59:05.000000Z")
-                .endsAt("2021-11-22T18:07:25.000000Z")
-                .startsAt("2022-05-31T15:32:30.000000Z")
-                .discountUpperLimit(9623)
-                .description("uwUqi64YRTYtsOeEN9XbwlgwBy5OkIYkbdAf4PBqh2Y5zV0C85Vn4l2htJKp8EeWwIbRZU73CECtq6YH4jkVjZI7iaSuegvmESb5ZkkQma0HXRKUqv4lzkwZF")
-                .name("tSWx4aRECgS2Rzs2ylIq5ZtrGXVCQUhbREfojZVoiIjURbvF5cuoyvA3tbiunsY6SNRraYwc8QDfAEfV4F8XUQw7FOCvHUkEBp2LxsthHBe9EWUoT5QLe9Yg2CBY3r");
+                .setDisabled(true)
+                .displayEndsAt("2025-09-21T22:50:43.000000Z")
+                .displayStartsAt("2021-06-21T13:22:30.000000Z")
+                .endsAt("2024-09-13T02:25:13.000000Z")
+                .startsAt("2022-03-26T15:16:31.000000Z")
+                .discountUpperLimit(1989)
+                .description("eWb7TQI3q8qslujxF3n4fR7Vfp3")
+                .name("RJLnSgiLPjnc4kQ0HdyTor536XOfVM3XXOQ3tGi0CJH7VMgkZVkFMaOxCQ0Il4LS1H9Rmh1BhIW8NFmlvrlMvNLwEsnbNKTS2h75GF8UpjoAlQvJzCU8IgW");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -845,26 +846,25 @@ public class UpdateCouponTest {
     @Test
     void test33() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountAmount(8803)
-                .discountPercentage(1126.0)
-                .storageId("7a404fc2-a15c-4c75-a5f3-1c154e869d05")
-                .availableShopIds(new String[]{"11a110a8-b4b6-455d-9af5-b9c8ce433b13","b84e9ca3-2b91-43ef-a210-58f9c98ad1fe","799609ee-c230-4489-903d-6e8913d2e96b","451d5c3b-b059-4dac-83b9-7e12bc5b9d1d","5d351174-5b75-4081-a5b0-1bb877aeb5c1","1bff186b-16bb-41ea-84c3-d93e56c3e5b0","2fb33710-5185-4fba-97d0-1ecbdc5d18e2","4fa0b651-b4a8-43ff-9903-39a364466b98","42f8d5f6-bfad-46be-bb83-058922628a04","29110f8d-5059-4bef-b739-5f5c305bea46"})
-                .setShopSpecified(false)
-                .minAmount(8904)
-                .usageLimit(3294)
-                .code("zD7S")
-                .setPublic(false)
+                .discountAmount(9097)
+                .discountPercentage(1374.0)
+                .availableShopIds(new String[]{"7a0d19fe-a7e6-43ee-90a3-83bec703fe95","d6b340e7-90e2-4134-82aa-a47f4855f854"})
+                .setShopSpecified(true)
+                .minAmount(7552)
+                .usageLimit(8751)
+                .code("kgPLD0")
+                .setPublic(true)
                 .setHidden(true)
-                .setDisabled(false)
-                .displayEndsAt("2024-03-04T08:18:26.000000Z")
-                .displayStartsAt("2024-02-20T15:40:54.000000Z")
-                .endsAt("2020-04-15T08:33:57.000000Z")
-                .startsAt("2023-12-12T01:24:30.000000Z")
-                .discountUpperLimit(5315)
-                .description("pGLgUAKK4AYXStTHGYGCT6FSvry2ciGzpWdg5yn158N5eaT1YQUtPEMBFK5RCvbOFISTKPBIbnB4Il")
-                .name("VfzKQeAZtwqv4AGYkQ5Y");
+                .setDisabled(true)
+                .displayEndsAt("2026-03-26T08:22:50.000000Z")
+                .displayStartsAt("2024-07-31T22:05:24.000000Z")
+                .endsAt("2021-09-25T22:07:36.000000Z")
+                .startsAt("2023-03-11T13:31:57.000000Z")
+                .discountUpperLimit(3381)
+                .description("jnHtiPzKYB9uBkIh8qvqswUq9MIMd1v50tEiK5VU8URPZftDXY7iH91521L9iCZDgOHv8ccbKA9zaXWInrPmgciqGxhGUs6ZnMyMQoClDSK7KRPQ6M6EMYtB6Ep2GnDZJdtjBh5VRBTfV5MJhYQTBRBM7G8j00YInJitv9WP6kwxoiXMMFgIG6MJKNbnVLomjuJJQI4ykecPid861BWO2utY6ykCTVCcIXTPlbcMZgCJ9BjKA9LvljTLcW")
+                .name("71b8cClVacDr5l3x4FVfYiLUL8Bb8dzaB45k");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -879,9 +879,26 @@ public class UpdateCouponTest {
     @Test
     void test34() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountPercentage(9978.0);
+                .discountAmount(6780)
+                .discountPercentage(6981.0)
+                .storageId("0491b70e-034c-4414-b1d1-641bf93305c8")
+                .availableShopIds(new String[]{"c55a93f1-f9a2-41cd-9994-be3fe046400c","d778b646-a5bf-4730-8d63-65fea9e7ac41","63eea507-7566-4c0e-932e-3e296c8b3301","20c98e34-a297-430b-a014-bfb771e64e43","f387398e-6c53-4cbe-914f-716f51cfc976","9457ab4a-e9b8-40e3-b1e9-f2332bbf4666","76845b65-cdce-484f-b171-6690505f98ca"})
+                .setShopSpecified(true)
+                .minAmount(2670)
+                .usageLimit(8688)
+                .code("3")
+                .setPublic(true)
+                .setHidden(false)
+                .setDisabled(false)
+                .displayEndsAt("2026-04-28T03:48:58.000000Z")
+                .displayStartsAt("2023-08-12T06:07:25.000000Z")
+                .endsAt("2026-05-27T22:22:01.000000Z")
+                .startsAt("2022-04-08T05:07:05.000000Z")
+                .discountUpperLimit(7954)
+                .description("KjZPjTs65qzNTqIMvOUP7lDJ32SCMXHu4UsQsifzmvmEGKnmcQWOqm2bxZSUNMN2LXvZ3UB0bY6L3973iqLKkGFIZmfuXhD9mm06njf2aXb7PnD9gNpMDYfCPceKjP")
+                .name("w2YL1adnoZFEUP94ii4uT2NJ6DSRSGMdhjjWzKEnHt1GlWmv2y5j3kpGt0e4jNi92dahlnnkKHVszpYHPkZF0J60lUnUwRinT2la9EMVbGBQcWz4");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -896,10 +913,27 @@ public class UpdateCouponTest {
     @Test
     void test35() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountPercentage(3445.0)
-                .name("0mrMzlLTVYxU13omHKmdh2ng7xlmB0D7qlClsr3peE1RPsdDZEoaT5osfv5Au45ikmQzjXEIrL5tEVsP");
+                .discountAmount(2117)
+                .discountPercentage(824.0)
+                .numRecipientsCap(7510)
+                .storageId("b39fcc5a-9f5c-4317-871b-3b903fe9ad87")
+                .availableShopIds(new String[]{"0102390b-580f-41e3-a116-6e908d1cd5ea","8bac43c1-70eb-4c5b-b0fb-02ebbf4987cd","b49f4a3e-0a5f-42f3-99ef-c6b36dae32ff","3ea42843-721c-46d1-bae1-39e4bcfeb395","aa2e795f-d941-4547-ba2a-0b2d788c090b","e01c771a-30b1-4f34-9372-454a51c38b1d","cab8198d-d5f2-4f60-a30a-fcc0e03878b7","8905e912-8f4f-40c9-a9c9-d2f7bc4131cb"})
+                .setShopSpecified(false)
+                .minAmount(7772)
+                .usageLimit(7385)
+                .code("NBzp8")
+                .setPublic(true)
+                .setHidden(false)
+                .setDisabled(false)
+                .displayEndsAt("2020-11-06T19:08:17.000000Z")
+                .displayStartsAt("2023-04-13T10:21:29.000000Z")
+                .endsAt("2020-07-28T00:35:11.000000Z")
+                .startsAt("2023-06-14T02:10:32.000000Z")
+                .discountUpperLimit(5199)
+                .description("DkJL8EIU81Vy5zPsQOGlQlr06Jl9JLWCZ8neyUVmWBR3xve7r3YSLXQYTyvYaaI2qvRlrSNIrRDPa1eyCiQOxDTwWc9gws9XAUrux74v2ITxjA0PgzICgqeJVlSY26G92wNF5y9aZcAMQT3BxPWw78yOKfPR1NUJQvD2rVGC84JJKMYYu6jp9XJncsuSh46krybNv1zjGCQgXpBAn6vYjVqpA4IONiL")
+                .name("V0kr6");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -914,11 +948,9 @@ public class UpdateCouponTest {
     @Test
     void test36() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountPercentage(8978.0)
-                .description("ccciqGzpCuGxgjotbAnDFm6nBFTBcp5MgKi6djde9q9Gx06zspIhW3gmaN6JcrvmX5G7cBGoNqTURH3hLLIVR7YcRrTeQOsLdvK2PUyIdpshyxjFJxJ7Fcj7Ywb40WRFS5iP8DHnWS95dKYCDWjMDqXUFGoRA4XvfiL62Wv2vl8")
-                .name("JafcwBDpLTRN1a0lar5cvmWk6HP3Edv56q9t5VGuIJJqB3hC6IgJljp1y8KOJgfu4WFT3sPLKGiMRgfz5jiMdvRW63Z9043h9SU3fTD5o4Kn6TQ5Ps");
+                .discountPercentage(4161.0);
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -933,12 +965,10 @@ public class UpdateCouponTest {
     @Test
     void test37() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountPercentage(9928.0)
-                .discountUpperLimit(1593)
-                .description("tmnNiOZyV9AO3DnB1YRES4xlc6449ibwy8gDnWqdIP3eIh1PycrJFKeRKa6OogwkyZYeik5qw2qVOD7lJwoEqJ4uimGtF4vDevDABoV1497oKjyplKXUyjuZoAdZaiUShsjoKemD9IJVji3EhQ10nakJ4Xx7BosawhL51XW0ltZ8tyBqdUl09HCPEoMCgQwCdLCVxkfS7LC09h1a33P4feIw8r")
-                .name("kq1IJcIVXzbXoLITUciADNRcm8cr7h7uvpVmJgh2hspBOtxaFVpQwu69vaYb020lVhpK1ujAV4SIGQk");
+                .discountPercentage(2353.0)
+                .name("DgXWodpkxho8rBfuxAgk4G7K3EbPTtYbj");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -953,13 +983,11 @@ public class UpdateCouponTest {
     @Test
     void test38() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountPercentage(4048.0)
-                .startsAt("2023-02-25T20:09:17.000000Z")
-                .discountUpperLimit(358)
-                .description("a5YJsZSIV5H0hKFZRjFJsBJwxE5ymHkkfvwj75uGxXyxLiKv")
-                .name("yAHQ0Cmh0GR2iNpQgbrTS2HEffP70D");
+                .discountPercentage(7800.0)
+                .description("wsbeNA1qdSnOGMCPl7IMBQKQv86A0JZpBpvSAXbobD9Ki30vC5rrnazdVnK3PrJ5SiaT9q7d0MByh1j24T8jie07UHeDFjaRvAps3KfAZfCcJF6T")
+                .name("EeRcrhiMDEAjwsoqC0B7Kcw0qagkhJ7wfZWTULKa8VECsBZr3IToxXjdyKGc7ZzHUV5fOm8mtN");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -974,14 +1002,12 @@ public class UpdateCouponTest {
     @Test
     void test39() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountPercentage(1429.0)
-                .endsAt("2023-03-24T15:14:16.000000Z")
-                .startsAt("2022-11-21T09:12:45.000000Z")
-                .discountUpperLimit(67)
-                .description("ohTMu269OO6DIw88je3Px2M6UQ20lAXsAZIDxFXqpctZUoXMEwvfZIhfCcdWRRWKBpAMRk3KT9aHDvn680BNVo61whu52VEWHzeXnCqnnjKe2ZokcQxt9okwN5c4Mkgq5YYKEEntoCEiLAHJ2sW9FitjutUJJsIkCXGENUTkzcX2ykkKJlN107OaiUpqdHMS0BnQNQ8yntRPdiO7nDWAmm")
-                .name("XsETvex6EwUtMqxtCSMEZWLR3IYMZqZQp71KYV2dqAhSRH0jBaTj6CKr7da3H");
+                .discountPercentage(8469.0)
+                .discountUpperLimit(6881)
+                .description("khvcdUzoLcA59nUhEAXqtCyQcPmsvpgfmd8PIAhkngoJS")
+                .name("rC1WRAvXHATbSrzSbRU1v2KZFFhdMjCCzsHpBmrvRb2UjrXmXby0g0KQCQJco6Fst7K2jJcCqUZTewzuJ3F92QKd3C9M0vBcKWIU");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -996,15 +1022,13 @@ public class UpdateCouponTest {
     @Test
     void test40() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountPercentage(9087.0)
-                .displayStartsAt("2022-02-12T00:52:45.000000Z")
-                .endsAt("2023-05-13T08:40:49.000000Z")
-                .startsAt("2024-08-02T17:07:25.000000Z")
-                .discountUpperLimit(6290)
-                .description("DSrYQmTFD8MK4LhwIRladKEnUCUBMTsHjSLXQWZdqZHXOS9NchMxuvMOV5pE0ThIcNVnpd1n04FvafoOT5XflXygJfyBJl1nws6Ne3S7kdpHli9FCf9")
-                .name("vj51iwXi5vVkai7fMidPllBkchJ2ELHNBkuEPtWGn");
+                .discountPercentage(4964.0)
+                .startsAt("2024-10-07T13:48:50.000000Z")
+                .discountUpperLimit(6687)
+                .description("q9T0OG7VRzcPfWGO1YJqrl83WexbWjPBIcMUJ3obVqULs7PsxGAUAdxQTQ69L5ufP3C8GoKbqWo6okozRxG7O1lnWZInpqxewkSnO8G8BVdp2SnU56fm1ftu")
+                .name("RnsdeIRkNWykpBgBjKxJ1kVUP7sJk9W7sPqDCWwYS94nlMA9QMeCafNqH");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -1019,16 +1043,14 @@ public class UpdateCouponTest {
     @Test
     void test41() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountPercentage(1850.0)
-                .displayEndsAt("2023-04-13T11:52:53.000000Z")
-                .displayStartsAt("2021-07-26T11:21:57.000000Z")
-                .endsAt("2024-06-30T03:27:13.000000Z")
-                .startsAt("2020-02-14T18:14:30.000000Z")
-                .discountUpperLimit(1447)
-                .description("tknXv7iBjpuz8kXfTQVtq7nYSMGg6A5q48d0VvhbqvZRxaI0AVDH5phIrM988xOpACBuWehCLI5Ithzpo1sbw0fi8Tfl4MiezYuuDN5NO2HkiJUlQ4dKgR3uo3pyHQ")
-                .name("KCLEzAV2HW0T6wtgFowhjkpuax7inTCKJlAlkDX0z");
+                .discountPercentage(5340.0)
+                .endsAt("2020-08-30T21:12:45.000000Z")
+                .startsAt("2020-07-17T23:22:05.000000Z")
+                .discountUpperLimit(8831)
+                .description("wcWi3JTYLChkb6TlitzWaW4uPhPny3cB55XyFtx17QBRLdwgp38D246YReej2SSevahES9poV0ViKFLpI4REDYgLWo2Q8cwkpiTfx")
+                .name("0K");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -1043,17 +1065,15 @@ public class UpdateCouponTest {
     @Test
     void test42() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountPercentage(2100.0)
-                .setDisabled(false)
-                .displayEndsAt("2023-05-19T00:53:00.000000Z")
-                .displayStartsAt("2023-12-25T17:43:44.000000Z")
-                .endsAt("2022-01-27T15:06:39.000000Z")
-                .startsAt("2020-04-06T00:43:01.000000Z")
-                .discountUpperLimit(3633)
-                .description("pGDCB7WpLioRLUylhwp3jBXylmnzTDYQPTQEhEDpiIl88uXhFr9tzNaCFLhrW7Qg63LOoyDRk2frbKYDtHXRSpeSviFk4W1qsOLMcNwe8KEeqmGGreSt4nt1ybC0Ywm3a7y1jkUDzYl")
-                .name("QVbUnnRBBQRDsGnvgO2bodBPeKpRFsQIEwGMkE");
+                .discountPercentage(131.0)
+                .displayStartsAt("2022-04-14T16:54:11.000000Z")
+                .endsAt("2025-09-23T07:54:15.000000Z")
+                .startsAt("2026-03-26T23:28:04.000000Z")
+                .discountUpperLimit(6990)
+                .description("9FJ11nkGfRQlGszH71XXMwwageqdiCUtiam5OCYCyW06FKS14FS73G8a3ijeaDjTIJss0bIT0ZqOXGSTVH9BRjr8phyPclxsBq9XBmkTSfhHrb5sDnsI3ZWUf9QMTgobmXveIIZc15XikWWDvoW8CZvliqF7CSsjWcuOJS4Ehtu4LwcLHvZh25xxfXebiI3VayaI3kTnTL")
+                .name("kpOXuMZobSfeWKzoEFQ5pyI5j9pCzj3hQwJJCjzGKx9aFgv0XlTl34KeRysjITa2wXz1O8xVGe");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -1068,18 +1088,16 @@ public class UpdateCouponTest {
     @Test
     void test43() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountPercentage(3613.0)
-                .setHidden(false)
-                .setDisabled(true)
-                .displayEndsAt("2021-11-30T21:36:02.000000Z")
-                .displayStartsAt("2021-06-16T21:49:18.000000Z")
-                .endsAt("2020-07-15T13:10:21.000000Z")
-                .startsAt("2021-05-03T22:35:12.000000Z")
-                .discountUpperLimit(4126)
-                .description("OKbpkXgOJ3P1nM9riBWugVW8sRaEhx8aJkSJHuUfzU3cxqLSG8S4a")
-                .name("P0CNMNfb6VowWUVfzovzP7VL5ebcijLtVhmlM6kB");
+                .discountPercentage(8271.0)
+                .displayEndsAt("2024-12-23T18:23:32.000000Z")
+                .displayStartsAt("2024-02-17T22:33:43.000000Z")
+                .endsAt("2025-08-31T00:50:06.000000Z")
+                .startsAt("2023-06-12T18:35:15.000000Z")
+                .discountUpperLimit(1853)
+                .description("lOxiVnFhvQYgTq0yLoByCmHUuVyH3cfcF8Pf92JXudRmeZmjiokTl117bHBnYglbQt4QBFD")
+                .name("JKi3AHyd9yQ5W9RMhIq1dhsWztxTud1TnBQZsbkdzCXTKKWD0fiDnREQQDwR5XEyIFeG77");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -1094,19 +1112,17 @@ public class UpdateCouponTest {
     @Test
     void test44() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountPercentage(9845.0)
-                .setPublic(false)
-                .setHidden(true)
-                .setDisabled(true)
-                .displayEndsAt("2020-08-14T17:00:51.000000Z")
-                .displayStartsAt("2023-01-23T22:18:17.000000Z")
-                .endsAt("2022-07-30T11:13:18.000000Z")
-                .startsAt("2020-05-26T01:14:15.000000Z")
-                .discountUpperLimit(7893)
-                .description("7BlWsNECFWA4hHlvtcjGtIPadSKiVX8t6IuP7AfSh1iSdnomWlXA8y2vwAsTNYaeLyV7CWdrmk7DRyx2nAdRh4U2Gnj6HilrfsKlPIExrXeCFOu5KxrV4xhz7DzBywKIciMlN0S7L0N0uBHj0xIlmI7crwjgiJmBq8x2BMoiejWmPY8qwKCFWRUhTWJtrSHM5")
-                .name("vGCx3jvLeQXqJ7fOtRApW564YK0LvLN69VHlYJhXH6cUQL7XLfiXA0zUZ8WIiKSeWU9z6lAbD3wp");
+                .discountPercentage(428.0)
+                .setDisabled(false)
+                .displayEndsAt("2023-06-06T11:05:28.000000Z")
+                .displayStartsAt("2020-06-16T09:41:46.000000Z")
+                .endsAt("2024-05-22T01:38:30.000000Z")
+                .startsAt("2022-07-30T13:48:32.000000Z")
+                .discountUpperLimit(636)
+                .description("1Bv0fXxSyFQJeZ6rdQ8buBb1f9slLRuiYJe4XyJvTb23aa3twUxtKvikbKV7hqTJveoI19ynJs1QCqTRlC3W1MGePxsBFCAyv0dcBt87MHAdufVNZM7qsWa8JyqZo0jQRpDPE6rh6ExoxFn0c43cEW5yWSswalnNSPl4nKgIh67Gkz5Wkqpv")
+                .name("EXvT4G0zj9vSzfdqnwxVoVRAJZtMnbN2");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -1121,20 +1137,18 @@ public class UpdateCouponTest {
     @Test
     void test45() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountPercentage(3782.0)
-                .code("s")
-                .setPublic(false)
-                .setHidden(true)
+                .discountPercentage(8859.0)
+                .setHidden(false)
                 .setDisabled(false)
-                .displayEndsAt("2021-12-28T17:38:18.000000Z")
-                .displayStartsAt("2024-04-24T07:37:39.000000Z")
-                .endsAt("2022-04-08T06:55:14.000000Z")
-                .startsAt("2024-07-21T19:55:51.000000Z")
-                .discountUpperLimit(4577)
-                .description("BKUJdHLf9kwaxRbmzAo5vzrqC43kvR5VzS4JSx7Qk5qYm8EJV1By6vGk0FuWZ3ptkSyNBcc9paWacdvlF8sKq6M8TMch0t9MLsXgvG8EYKbsPpBkO0z5h9VDX3NEhsO0rjGagOIQ6x9sSfu0zX8zd")
-                .name("niT7rbp4RdF8jzLLX07kGwmRZR89QJDyeQCnprhi7qh3KP4T37Wi9g9nZZhOiq9TM1kL");
+                .displayEndsAt("2024-10-12T10:10:40.000000Z")
+                .displayStartsAt("2024-08-15T23:55:13.000000Z")
+                .endsAt("2025-01-19T18:12:25.000000Z")
+                .startsAt("2021-08-25T07:36:24.000000Z")
+                .discountUpperLimit(4951)
+                .description("SJweQkjDaZNU8iBur4dbIER6acqYlwDJKQEp9D3oXWbniSWqI7xTzrPkAXyiXMztQxtJ4M2WJmA50gKlydbRXM1sy2g1Pf0MqzXeXqK5rRDKBvomcRcTm4csmVWyjay9TthXSYCbva0t32yWLYVWM4QhXAPz9W0Mxm5OYGh3N4Z6")
+                .name("9NXBY9oPVgI76tvDyB2DnUym9pFRmUved6upvYmgnlSSsYDRmoQAbzux2YVPLs6mqcLQO6KAfySYCh");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -1149,21 +1163,19 @@ public class UpdateCouponTest {
     @Test
     void test46() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountPercentage(8962.0)
-                .usageLimit(1825)
-                .code("MOaPoa")
-                .setPublic(false)
-                .setHidden(false)
-                .setDisabled(false)
-                .displayEndsAt("2023-09-10T13:28:35.000000Z")
-                .displayStartsAt("2022-08-09T04:43:07.000000Z")
-                .endsAt("2021-06-17T02:46:52.000000Z")
-                .startsAt("2021-05-28T17:55:21.000000Z")
-                .discountUpperLimit(7102)
-                .description("1SL4LwXctk2uyuazqzFpngLk90ZBFe71DIECbUavopCer6amUqWii2uDVrmTki6pqO0f8cnptMkBRjmpnn")
-                .name("beCg4xumOoxK0oT4F795unttA065Yr03Qzj1SYSblk7QSM");
+                .discountPercentage(3103.0)
+                .setPublic(true)
+                .setHidden(true)
+                .setDisabled(true)
+                .displayEndsAt("2023-01-05T16:45:29.000000Z")
+                .displayStartsAt("2025-08-23T20:52:01.000000Z")
+                .endsAt("2022-09-20T08:01:07.000000Z")
+                .startsAt("2025-06-23T15:17:26.000000Z")
+                .discountUpperLimit(3484)
+                .description("GrCwLPsZTQHaYj8b8oAQjqHWHEUSfBXgsFSQYVjyMJi1osniwzvMM5724wrvJulO")
+                .name("j4A8M3jM0zpEWete9qDkCIpsjezZ2M4DgCUcWaYN25M17e8QItVUDPdnGbbjUMIkwxnSAoHyUqS2WrdyexDJw4");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -1178,22 +1190,20 @@ public class UpdateCouponTest {
     @Test
     void test47() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountPercentage(6628.0)
-                .minAmount(4459)
-                .usageLimit(4224)
-                .code("kKPrtzfsC")
+                .discountPercentage(6458.0)
+                .code("m")
                 .setPublic(false)
                 .setHidden(false)
-                .setDisabled(true)
-                .displayEndsAt("2023-06-29T08:12:17.000000Z")
-                .displayStartsAt("2020-07-18T08:24:12.000000Z")
-                .endsAt("2023-06-11T14:41:15.000000Z")
-                .startsAt("2023-03-08T13:39:55.000000Z")
-                .discountUpperLimit(7603)
-                .description("OFn1WKJz5hhBZBCZgSERTDaoK9IqITw9RXh5VLaBXSS3EzsrMpj8GBIyJaRyweuGKy2nXN4UBPwGQ9mhvxLr7QQxCiR4LJ0VAGQ0LknXBVXV6IePzMvb8rIAKhBAUImOpB9NJd0FGb0jOdIa2VbV1E7pIBf60ZOpXb0uUTjEzrW5FEq6VpVqu1DpFd0JaBsPB")
-                .name("jjxsN82R5bV74h6MclFLskpVJhF8OvhWGp3gTZC60RTw4fZ8zWBqSC3vDIMcnooU2vsEkh");
+                .setDisabled(false)
+                .displayEndsAt("2024-01-03T06:53:11.000000Z")
+                .displayStartsAt("2026-01-19T16:17:57.000000Z")
+                .endsAt("2026-07-08T12:59:58.000000Z")
+                .startsAt("2024-10-16T01:25:57.000000Z")
+                .discountUpperLimit(2771)
+                .description("AarqtGtlcKJp9gTWhEWSlBiVnl9lORTBFy0IWWO4H8KmbVB2M5EGOlNZgqvSi38sr7tIAdAm2GfCQqu6PVWox7elCTfrAqAyLdOvPV5cpp3AIIQZmW74G7CnNpvzFPpYINeb1rEwkSNbZUKM9QJifASeEjt7rgfB4dUvUA5MkBayzjLixvqernP2ia0JTvsqFBudbGeZdEPGzzDd2lyZr3fyGm4G1h2g")
+                .name("pnMz4EtR2vopXxSWiIg6gduAWVf9XkDSsioG64sbfbtlCMIRDD7seSSxbRy6U");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -1208,23 +1218,21 @@ public class UpdateCouponTest {
     @Test
     void test48() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountPercentage(8196.0)
-                .setShopSpecified(false)
-                .minAmount(5806)
-                .usageLimit(9152)
-                .code("MP7")
+                .discountPercentage(8849.0)
+                .usageLimit(7429)
+                .code("2yU6")
                 .setPublic(true)
-                .setHidden(false)
+                .setHidden(true)
                 .setDisabled(true)
-                .displayEndsAt("2023-12-29T13:03:03.000000Z")
-                .displayStartsAt("2022-05-28T12:08:14.000000Z")
-                .endsAt("2021-04-16T05:06:06.000000Z")
-                .startsAt("2023-04-05T21:00:40.000000Z")
-                .discountUpperLimit(6792)
-                .description("0jy8CyXSjsNQfhm4JdiSR8LU0sAxVpKo9Pr8tnCR4b3VVcnR7ySaTJSL")
-                .name("XaRbjFaOCY9HY0faJMcRsZ");
+                .displayEndsAt("2022-11-26T15:40:18.000000Z")
+                .displayStartsAt("2026-08-10T22:41:54.000000Z")
+                .endsAt("2020-10-30T13:16:18.000000Z")
+                .startsAt("2022-09-25T04:07:58.000000Z")
+                .discountUpperLimit(4305)
+                .description("yUYaFBg0rLG7ixw8rumX9lPF6p8o2y11Yrgt4LCmHaJMs2PMcoeItTVcWkxXihexQXo312p3Wls1sE7BHULcZQtWWfaD4rWZB2GIm3dWvJq3fHzlHa1nO6pf4h9ws9kLnk6cNbb0JJrPLyLIGGlYxmDF5NDmHAR3RBnK72f11paMW4hGPanWOZJLbDfcebA2uxdCspznoi6atFNTbrEABXoODKwUOy71jHzimbjyuBcqQnQ9Lj9u")
+                .name("q1rjYyblkDRghHjQDZezbRZC9FxfNOIHrbpOq6mcQRKL5CG2GPSQQB1U6IjRsZr");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -1239,24 +1247,22 @@ public class UpdateCouponTest {
     @Test
     void test49() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountPercentage(1706.0)
-                .availableShopIds(new String[]{"3cc2a17e-e514-48f4-80e6-2a7f71ff55ac","d5806b2b-bb18-476e-b108-d8a61340b199","a83fb634-3ff0-4ef1-925d-eb0f7ac099a4","b1cf6f27-ecbf-48af-8564-9805f453bdf0"})
-                .setShopSpecified(true)
-                .minAmount(6419)
-                .usageLimit(2905)
-                .code("gOV")
+                .discountPercentage(9661.0)
+                .minAmount(4166)
+                .usageLimit(3671)
+                .code("gbnz")
                 .setPublic(false)
                 .setHidden(true)
                 .setDisabled(true)
-                .displayEndsAt("2021-09-04T11:53:12.000000Z")
-                .displayStartsAt("2023-06-16T21:20:50.000000Z")
-                .endsAt("2022-10-05T16:52:43.000000Z")
-                .startsAt("2023-03-31T03:38:41.000000Z")
-                .discountUpperLimit(7816)
-                .description("FcqtkzhdfPKiy9SERDVnpaYhOvVB8b8Y5rPTIoQafvlfkuyBchbjOVFfaAmwoPiUeFs2qGGZk77FXigkPx1NC7bcdhHDyq2BmegmNcooOzsV0UAnFDq2j42XbKSjWX0mczdG92I3EQWa6MviKhzgN1WE1E9QE8I1WOtKGTOoDsggK2zVvIrNmjPyMt7JZTknlcSLOAfgHki7iE")
-                .name("UUEZsYB8I8w6YX9AjYRSoiU1BYQYTGkBMdZ9gxwOlUDO");
+                .displayEndsAt("2021-04-02T00:50:58.000000Z")
+                .displayStartsAt("2024-11-27T05:06:10.000000Z")
+                .endsAt("2020-07-07T09:55:25.000000Z")
+                .startsAt("2020-04-14T04:13:05.000000Z")
+                .discountUpperLimit(4117)
+                .description("cbaSK3iX1ZFYsGd1YMLCaCs0F5pkoUcbMvLHGSU2LTCLPQ5GJELxIJ85m7pWO5Oq5sU8iwoJ735Qje9VnUZQt0pzes3TegY2AoCAsHwCP5A6Scunsmt5agjEkUDn1nh1J0PoLY33AeuLX1vt0Xc0DOPIsjoZ1AHyJKzNRcJglLKTrsJZ4LsdIfCC8uQL5mCoK")
+                .name("agjGEM3GfsC9B0w8zKt6bQig1LgqOPtR6wzZdUh56Q0WZf8IPC7BRlPxu7PJ");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
@@ -1271,25 +1277,122 @@ public class UpdateCouponTest {
     @Test
     void test50() throws ConnectionError, ProcessingError {
         Request request = new UpdateCoupon(
-            "98643617-5492-4616-8d92-3e5eaa3a95f1"
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
         )
-                .discountPercentage(7949.0)
-                .storageId("176f15a5-ab22-42c2-93d2-60e90be3adf9")
-                .availableShopIds(new String[]{"372c90e5-fce1-477d-9810-1002017936ed","ecafef65-d7cd-4e61-81d9-505e92224e89"})
+                .discountPercentage(8335.0)
+                .setShopSpecified(false)
+                .minAmount(4031)
+                .usageLimit(9775)
+                .code("SSr")
+                .setPublic(true)
+                .setHidden(false)
+                .setDisabled(true)
+                .displayEndsAt("2024-07-11T05:58:03.000000Z")
+                .displayStartsAt("2020-08-29T12:04:11.000000Z")
+                .endsAt("2020-05-07T13:26:40.000000Z")
+                .startsAt("2020-08-23T02:28:19.000000Z")
+                .discountUpperLimit(380)
+                .description("x2w3UniyERaYjCV8kJefHmgXwlVomKPcnp5Z68uiR")
+                .name("cRs6iSVq6CAE1cykbPfFVTBynTVWrp1vTM1qsdO4ANmXuI4pjaa3jMjNf8XzKneiyaJFmKrTqfSFemIMfA7XBmc");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test51() throws ConnectionError, ProcessingError {
+        Request request = new UpdateCoupon(
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
+        )
+                .discountPercentage(2159.0)
+                .availableShopIds(new String[]{"e3c06a78-2eb8-4927-b1c5-d958a52094f2","c2eb635a-f1ae-45bd-944f-abd8a35a1212","97dfbcfa-f917-48c3-99e4-3c74f564454e","0ebc8e63-b9d3-4363-a5b5-91b0ce716454","d685b5d2-79ad-4014-a876-46bbc1af89e3","ab321ccf-bb1e-4f93-9287-0bc2e2053082","78d0e154-04e1-4cd9-b458-467e7860d278","5c82c77e-7747-49c8-bd72-ab10993d00b5","18cb02a9-7642-4244-80b4-bd44978c9dda","79910153-579d-45d8-ba93-dc5d8ce412ae"})
                 .setShopSpecified(true)
-                .minAmount(4101)
-                .usageLimit(4380)
-                .code("b")
+                .minAmount(6576)
+                .usageLimit(8387)
+                .code("KWqFPB7c")
+                .setPublic(true)
+                .setHidden(true)
+                .setDisabled(false)
+                .displayEndsAt("2021-02-10T02:46:45.000000Z")
+                .displayStartsAt("2021-03-11T16:08:50.000000Z")
+                .endsAt("2026-07-30T18:07:26.000000Z")
+                .startsAt("2021-05-15T10:38:31.000000Z")
+                .discountUpperLimit(6024)
+                .description("3lXTpk1ACQL5MC28qImQU81piDFRyBs61QA64ubFmiSNGPB6PWeR4fjojaItl7qDDnWfDz83II3S")
+                .name("VbGfWZSjJAztxkiC6dodh0lsFj5rFalo907TQSGuwj68ad9K1XBWVYxIt1hLKB6GROESgi9KMGwAvzt2XDFLhsltsxjHevXAeaqJQdiPE4BeJCcIbjYC");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test52() throws ConnectionError, ProcessingError {
+        Request request = new UpdateCoupon(
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
+        )
+                .discountPercentage(2890.0)
+                .storageId("8eef9aa4-b141-498b-bf9d-ab885311b914")
+                .availableShopIds(new String[]{"f701843a-1d2b-4e07-b039-9031576b2230","eb7ff02e-bd88-49a3-bace-b2a56f8c1a64","ea53f18f-2168-4613-966e-6e04812546f9","b3418358-5db3-4f06-8d38-6daf4b202701","4b20919f-eea7-4ccb-b1c1-2a8315a05131","2af132ae-ed66-4d7c-9d21-799ee3fef385","1290b0bf-81ba-4b76-ab86-8cf9807f513b"})
+                .setShopSpecified(false)
+                .minAmount(2197)
+                .usageLimit(1394)
+                .code("qclFU")
+                .setPublic(true)
+                .setHidden(true)
+                .setDisabled(false)
+                .displayEndsAt("2024-05-26T01:13:00.000000Z")
+                .displayStartsAt("2024-04-02T22:55:38.000000Z")
+                .endsAt("2021-01-11T09:29:16.000000Z")
+                .startsAt("2024-05-30T04:45:30.000000Z")
+                .discountUpperLimit(7104)
+                .description("pVrQrbVbWUr1E2HhlclCQRWx8FEGzWXdbWzamEGXFO5PHpjsIS4SoPDOBVrOHFo8xzE1tgCZyMtCfVQXKeHEaCm6v4bOQPdSecOojChLhuEaRbGgSXO57u6cTOWbPpHzT8SBHVxA4uTsQXNQLVTsa7Enw9cnxOrtkyrYkFM2fsUIFcBc3xUhfvCQABU9yhdPlghv2VJu1lljCVVYSCGNIDxlSztThgX67n2PgbzVLVHAuqNR")
+                .name("SFbkQwzExi4cSpvsggIAlYenv9bZPRWKzkKRFsQ10G0TlaGn12vl36ewyKaB6SHyKZZn5jR7G8GZ");
+        try {
+            PartnerAPITest.getClient().send(request);
+        } catch (PartnerRequestError e) {
+            if (e.getType().equals("invalid_parameters")) {
+                System.out.println(e.getType());
+                System.out.println(e.getMessage());
+                System.out.println(e.getRawJson());
+            }
+            assertNotEquals("invalid_parameters", e.getType());
+        }
+    }
+    @Test
+    void test53() throws ConnectionError, ProcessingError {
+        Request request = new UpdateCoupon(
+            "b0aaefeb-d0d9-453f-9571-573fd5274269"
+        )
+                .discountPercentage(3934.0)
+                .numRecipientsCap(4234)
+                .storageId("046c2ade-d6e9-4ec2-aed4-30e0844a44e1")
+                .availableShopIds(new String[]{"98f9e2e7-72f9-4637-80ce-229da051be33","a8787ced-1c1c-4314-9fe0-e9d45d2842cc","0bb5b0e5-466d-4627-adcd-eb95ac0f7002","cee0085a-287b-400a-a549-138cb40116f4","1621d22c-ee37-44b4-9ce2-97e80556abfb","d190fa1e-b262-4d7f-a3d8-85535f93331a"})
+                .setShopSpecified(false)
+                .minAmount(797)
+                .usageLimit(749)
+                .code("PwoW1")
                 .setPublic(false)
                 .setHidden(false)
                 .setDisabled(true)
-                .displayEndsAt("2023-03-21T00:35:26.000000Z")
-                .displayStartsAt("2023-09-13T00:28:40.000000Z")
-                .endsAt("2021-04-26T03:38:10.000000Z")
-                .startsAt("2021-06-30T14:15:07.000000Z")
-                .discountUpperLimit(9957)
-                .description("v3hkGmk4iWQZAVafOlabiOcEnloh2DXft8ZR3ZIT5H8aSOl3MDXnG9yHqEAThwDuq1zewsMIx1hpzHiKxcCexEPrWNcD1BCJ2Q7A3yxMyBqUSnmfmyMf158jbodxUJxcIS6QwIFvAWCZsB1EYOxuNXsb8K4XyQ60l6nZCLpElUd6iH1X66E0nqBBGmKnZ6uDIn3iuFQrrgeXzyNXNrNkeWa9hWsLSo6RhlRrNdmMatyDW")
-                .name("2s5SKsd06fYHa9pHdUJ2NkpD9XRln1g4q1AmzenaBAIYsPX5BE");
+                .displayEndsAt("2020-05-13T19:21:59.000000Z")
+                .displayStartsAt("2026-04-21T12:32:38.000000Z")
+                .endsAt("2020-06-12T13:26:19.000000Z")
+                .startsAt("2024-05-26T09:17:27.000000Z")
+                .discountUpperLimit(9493)
+                .description("tzUdCSHPXTvrjAoBOkNuRh5LysIScuFPNL3GzqnMP5NZDifqWbMDgjD68XvQQECUSjutOosO")
+                .name("C5LZHJPKApv7OfARAe3Rn");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {

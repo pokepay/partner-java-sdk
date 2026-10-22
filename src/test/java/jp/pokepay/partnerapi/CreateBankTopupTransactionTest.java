@@ -12,11 +12,11 @@ public class CreateBankTopupTransactionTest {
     @Test
     void test0() throws ConnectionError, ProcessingError {
         Request request = new CreateBankTopupTransaction(
-            "eae535ff-5685-4921-bcbd-740d68355f05",
-            "2d0004fa-3df9-4790-a6c3-2e4d8cb93aab",
-            4420,
-            "50da505b-1a2a-43b6-b234-c9da39d2185e",
-            "5254fac9-c835-443a-baaf-5a67dc14e889"
+            "3520aa61-ca2d-41e0-9b28-e9a9ce02d331",
+            "1d9e7f5e-7d14-4a00-b8e2-37131959c364",
+            9679,
+            "7ceb0659-a488-4c4a-b679-1e239544112d",
+            "1ea9a643-61a1-4d3a-a605-4ba625dad8a3"
         );
         try {
             PartnerAPITest.getClient().send(request);
@@ -32,13 +32,13 @@ public class CreateBankTopupTransactionTest {
     @Test
     void test1() throws ConnectionError, ProcessingError {
         Request request = new CreateBankTopupTransaction(
-            "eae535ff-5685-4921-bcbd-740d68355f05",
-            "2d0004fa-3df9-4790-a6c3-2e4d8cb93aab",
-            4420,
-            "50da505b-1a2a-43b6-b234-c9da39d2185e",
-            "5254fac9-c835-443a-baaf-5a67dc14e889"
+            "3520aa61-ca2d-41e0-9b28-e9a9ce02d331",
+            "1d9e7f5e-7d14-4a00-b8e2-37131959c364",
+            9679,
+            "7ceb0659-a488-4c4a-b679-1e239544112d",
+            "1ea9a643-61a1-4d3a-a605-4ba625dad8a3"
         )
-                .receiverUserId("c581ccb9-aa16-41e2-bec4-09ae24384255");
+                .receiverUserId("f89cb2da-d358-4b43-aa62-be1c3823d441");
         try {
             PartnerAPITest.getClient().send(request);
         } catch (PartnerRequestError e) {
